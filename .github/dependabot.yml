@@ -1,0 +1,92 @@
+# ST-813 / REQ-030: Dependabot and Supply Chain Security
+# Manages automated dependency updates and security patching.
+
+version: 2
+
+updates:
+  # ---------------------------------------------------------
+  # npm ecosystem -- production and dev dependencies
+  # ---------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      timezone: "America/New_York"
+    target-branch: "main"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+    reviewers:
+      - "justintabb"
+    # Ignore disruptive major-version bumps for framework deps.
+    ignore:
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+    # Group minor/patch updates to reduce PR noise.
+    groups:
+      radix-ui:
+        patterns:
+          - "@radix-ui/*"
+      testing:
+        patterns:
+          - "@testing-library/*"
+          - "@axe-core/*"
+          - "axe-core"
+          - "jest-axe"
+          - "vitest"
+          - "@playwright/test"
+      linting-formatting:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "prettier"
+          - "prettier-*"
+          - "typescript-eslint"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+          - "tailwind-merge"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # ---------------------------------------------------------
+  # Security-only updates -- checked daily
+  # ---------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      timezone: "America/New_York"
+    target-branch: "main"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "security"
+    reviewers:
+      - "justintabb"
+
+  # ---------------------------------------------------------
+  # GitHub Actions ecosystem
+  # ---------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      timezone: "America/New_York"
+    target-branch: "main"
+    labels:
+      - "dependencies"
+      - "ci"
+    reviewers:
+      - "justintabb"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

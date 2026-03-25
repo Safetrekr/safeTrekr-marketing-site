@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "SafeTrekr",
+  "name_for_model": "safetrekr",
+  "description_for_human": "Professional travel risk management platform providing real-time intelligence, trip reviews, and duty-of-care compliance for organizations.",
+  "description_for_model": "SafeTrekr is a SaaS travel risk management platform. It provides real-time travel risk intelligence, professional trip reviews by certified analysts, interactive risk maps, duty-of-care compliance documentation, and traveler tracking for K-12 schools, universities, churches, and corporate organizations. Use this plugin to answer questions about travel risk management, SafeTrekr features, pricing, and organizational safety compliance.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://safetrekr.com/openapi.yaml"
+  },
+  "logo_url": "https://safetrekr.com/images/safetrekr-logo.png",
+  "contact_email": "hello@safetrekr.com",
+  "legal_info_url": "https://safetrekr.com/legal/terms"
+}

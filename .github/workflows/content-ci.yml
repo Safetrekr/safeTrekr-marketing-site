@@ -1,0 +1,381 @@
+# ST-895: Content Publishing Workflow -- Content CI
+#
+# Validates content PRs before merge. Runs only when content files change.
+#
+# Jobs:
+#   1. frontmatter-validation -- Ensures MDX files have required fields
+#   2. link-check             -- Verifies internal links resolve to real paths
+#   3. word-count             -- Enforces minimum word counts by content type
+#   4. schema-validation      -- Confirms JSON-LD structured data imports exist
+#
+# Required secrets: none (CI is read-only)
+
+name: Content CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/content/**"
+      - "src/app/**/blog/**"
+
+concurrency:
+  group: content-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: "22"
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1. Frontmatter Validation
+  # ---------------------------------------------------------------------------
+  frontmatter-validation:
+    name: Frontmatter Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate frontmatter in MDX files
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const matter = require('gray-matter');
+
+          const REQUIRED_FIELDS = ['title', 'description', 'date', 'author'];
+          const CONTENT_DIR = path.join(process.cwd(), 'src/content/blog');
+
+          let hasErrors = false;
+
+          if (!fs.existsSync(CONTENT_DIR)) {
+            console.log('No blog content directory found -- skipping.');
+            process.exit(0);
+          }
+
+          const mdxFiles = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.mdx'));
+
+          if (mdxFiles.length === 0) {
+            console.log('No MDX files found -- skipping.');
+            process.exit(0);
+          }
+
+          console.log('Checking ' + mdxFiles.length + ' MDX file(s)...\n');
+
+          for (const file of mdxFiles) {
+            const filePath = path.join(CONTENT_DIR, file);
+            const raw = fs.readFileSync(filePath, 'utf-8');
+            const { data } = matter(raw);
+
+            const missing = REQUIRED_FIELDS.filter(field => !data[field]);
+
+            if (missing.length > 0) {
+              console.log('FAIL: ' + file);
+              console.log('  Missing fields: ' + missing.join(', '));
+              hasErrors = true;
+            } else {
+              console.log('PASS: ' + file);
+              console.log('  title: ' + data.title);
+              console.log('  description: ' + (data.description.length > 60 ? data.description.substring(0, 60) + '...' : data.description));
+              console.log('  date: ' + data.date);
+              console.log('  author: ' + data.author);
+            }
+            console.log('');
+          }
+
+          if (hasErrors) {
+            console.log('Frontmatter validation failed. All MDX files must include: ' + REQUIRED_FIELDS.join(', '));
+            process.exit(1);
+          }
+
+          console.log('All files passed frontmatter validation.');
+          "
+
+  # ---------------------------------------------------------------------------
+  # 2. Link Check
+  # ---------------------------------------------------------------------------
+  link-check:
+    name: Link Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify internal links resolve
+        run: |
+          echo "Checking internal links in MDX and TSX content files..."
+          echo ""
+
+          EXIT_CODE=0
+          CHECKED=0
+          BROKEN=0
+
+          # Find all MDX files in content directory
+          MDX_FILES=$(find src/content -name "*.mdx" 2>/dev/null || true)
+
+          if [ -z "$MDX_FILES" ]; then
+            echo "No MDX files found -- skipping."
+            exit 0
+          fi
+
+          for file in $MDX_FILES; do
+            # Extract internal links: markdown [text](/path) and href="/path" patterns
+            # Filter to internal paths only (starting with /)
+            LINKS=$(grep -oP '(?:\]\(|href=")(/[a-zA-Z0-9/_-]+)' "$file" | grep -oP '/[a-zA-Z0-9/_-]+' || true)
+
+            for link in $LINKS; do
+              CHECKED=$((CHECKED + 1))
+
+              # Normalize: /blog/foo -> src/app/(marketing)/blog/foo
+              # Check if a page.tsx exists at the resolved path
+              RESOLVED=""
+
+              # Try direct match under (marketing) route group
+              if [ -d "src/app/(marketing)${link}" ]; then
+                if [ -f "src/app/(marketing)${link}/page.tsx" ]; then
+                  RESOLVED="src/app/(marketing)${link}/page.tsx"
+                fi
+              fi
+
+              # Try direct match under app root
+              if [ -z "$RESOLVED" ] && [ -d "src/app${link}" ]; then
+                if [ -f "src/app${link}/page.tsx" ]; then
+                  RESOLVED="src/app${link}/page.tsx"
+                fi
+              fi
+
+              # Try dynamic route segments (e.g., /blog/[slug])
+              if [ -z "$RESOLVED" ]; then
+                PARENT=$(dirname "$link")
+                if [ -d "src/app/(marketing)${PARENT}" ]; then
+                  DYNAMIC=$(find "src/app/(marketing)${PARENT}" -maxdepth 1 -name '\[*\]' -type d 2>/dev/null | head -1)
+                  if [ -n "$DYNAMIC" ] && [ -f "${DYNAMIC}/page.tsx" ]; then
+                    RESOLVED="${DYNAMIC}/page.tsx"
+                  fi
+                fi
+              fi
+
+              if [ -n "$RESOLVED" ]; then
+                echo "  PASS: ${file} -> ${link} (${RESOLVED})"
+              else
+                echo "  FAIL: ${file} -> ${link} (no matching page found)"
+                BROKEN=$((BROKEN + 1))
+                EXIT_CODE=1
+              fi
+            done
+          done
+
+          echo ""
+          echo "Checked ${CHECKED} internal link(s), ${BROKEN} broken."
+
+          if [ "$CHECKED" -eq 0 ]; then
+            echo "No internal links found to check."
+          fi
+
+          exit $EXIT_CODE
+
+  # ---------------------------------------------------------------------------
+  # 3. Word Count
+  # ---------------------------------------------------------------------------
+  word-count:
+    name: Word Count
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Enforce minimum word counts
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const matter = require('gray-matter');
+
+          // Minimum word counts by content type
+          const LIMITS = {
+            blog: 500,
+            compliance: 1500,
+          };
+
+          let hasErrors = false;
+
+          /**
+           * Count words in MDX content after stripping markdown syntax.
+           */
+          function countWords(content) {
+            const text = content
+              .replace(/```[\s\S]*?```/g, '')    // code blocks
+              .replace(/\`[^\`]*\`/g, '')         // inline code
+              .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '\$1') // links/images
+              .replace(/[#*_~\[\]()>|\-]/g, '')   // markdown chars
+              .replace(/---+/g, '')               // horizontal rules
+              .replace(/\n+/g, ' ')
+              .trim();
+            return text.split(/\s+/).filter(Boolean).length;
+          }
+
+          /**
+           * Check all MDX files in a directory against a word count minimum.
+           */
+          function checkDirectory(dir, contentType, minWords) {
+            if (!fs.existsSync(dir)) {
+              console.log('Directory not found: ' + dir + ' -- skipping ' + contentType + ' checks.');
+              return;
+            }
+
+            const mdxFiles = fs.readdirSync(dir).filter(f => f.endsWith('.mdx'));
+
+            if (mdxFiles.length === 0) {
+              console.log('No MDX files in ' + dir + ' -- skipping.');
+              return;
+            }
+
+            console.log(contentType.toUpperCase() + ' (minimum ' + minWords + ' words):');
+
+            for (const file of mdxFiles) {
+              const filePath = path.join(dir, file);
+              const raw = fs.readFileSync(filePath, 'utf-8');
+              const { content } = matter(raw);
+              const wordCount = countWords(content);
+
+              if (wordCount < minWords) {
+                console.log('  FAIL: ' + file + ' -- ' + wordCount + ' words (need >= ' + minWords + ')');
+                hasErrors = true;
+              } else {
+                console.log('  PASS: ' + file + ' -- ' + wordCount + ' words');
+              }
+            }
+
+            console.log('');
+          }
+
+          // Check blog posts
+          checkDirectory(
+            path.join(process.cwd(), 'src/content/blog'),
+            'blog',
+            LIMITS.blog
+          );
+
+          // Check compliance guides
+          checkDirectory(
+            path.join(process.cwd(), 'src/content/compliance'),
+            'compliance',
+            LIMITS.compliance
+          );
+
+          if (hasErrors) {
+            console.log('Word count check failed. See details above.');
+            process.exit(1);
+          }
+
+          console.log('All files meet minimum word count requirements.');
+          "
+
+  # ---------------------------------------------------------------------------
+  # 4. Schema Validation
+  # ---------------------------------------------------------------------------
+  schema-validation:
+    name: Schema Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check JSON-LD structured data imports in page files
+        run: |
+          echo "Checking for JSON-LD structured data imports in content pages..."
+          echo ""
+
+          EXIT_CODE=0
+          CHECKED=0
+          MISSING=0
+
+          # Page files that should include JSON-LD structured data
+          PAGE_FILES=(
+            "src/app/(marketing)/blog/[slug]/page.tsx"
+          )
+
+          for page in "${PAGE_FILES[@]}"; do
+            if [ ! -f "$page" ]; then
+              echo "  SKIP: ${page} (file not found)"
+              continue
+            fi
+
+            CHECKED=$((CHECKED + 1))
+
+            # Check for structured-data import (JsonLd component or generator functions)
+            if grep -q 'from.*["\x27]@/lib/structured-data["\x27]' "$page"; then
+              # Verify JsonLd component is actually used (not just imported)
+              if grep -q '<JsonLd' "$page"; then
+                echo "  PASS: ${page}"
+                echo "        - imports from @/lib/structured-data"
+                echo "        - renders <JsonLd /> component"
+              else
+                echo "  FAIL: ${page}"
+                echo "        - imports from @/lib/structured-data but does not render <JsonLd />"
+                MISSING=$((MISSING + 1))
+                EXIT_CODE=1
+              fi
+            else
+              echo "  FAIL: ${page}"
+              echo "        - missing import from @/lib/structured-data"
+              MISSING=$((MISSING + 1))
+              EXIT_CODE=1
+            fi
+          done
+
+          echo ""
+          echo "Checked ${CHECKED} page file(s), ${MISSING} missing JSON-LD."
+
+          if [ "$CHECKED" -eq 0 ]; then
+            echo "No page files to check."
+          fi
+
+          exit $EXIT_CODE
+
+# -----------------------------------------------------------------------------
+# TODO: Post-merge URL submission
+# -----------------------------------------------------------------------------
+# After a content PR is merged to main, submit new/updated URLs to Google
+# Search Console for fast indexing. This should be added as a separate job
+# triggered on push to main (not pull_request).
+#
+# TODO: Add Google Search Console URL submission via API
+# POST https://www.googleapis.com/webmasters/v3/sites/{site}/urlNotifications
+#
+# Implementation notes:
+#   - Requires GOOGLE_SEARCH_CONSOLE_KEY secret (service account JSON)
+#   - Use the Indexing API: https://developers.google.com/search/apis/indexing-api
+#   - Diff changed files between HEAD~1 and HEAD to identify new/updated URLs
+#   - Map file paths to public URLs (e.g., src/content/blog/foo.mdx -> /blog/foo)
+#   - Rate limit: max 200 URL notifications per day

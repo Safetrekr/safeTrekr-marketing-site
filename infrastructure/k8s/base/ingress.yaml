@@ -1,0 +1,49 @@
+# ST-792: REQ-009 - Kubernetes Manifests for SafeTrekr Marketing Site
+#
+# Ingress routes external HTTPS traffic to the safetrekr-web Service.
+#
+# TLS is terminated at the Nginx Ingress Controller using a certificate
+# automatically provisioned by cert-manager from Let's Encrypt (production).
+# See cluster-spec.md Section 5 for add-on versions and Section 6 for DNS.
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: safetrekr-web
+  labels:
+    app.kubernetes.io/name: safetrekr-web
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: web
+    app.kubernetes.io/managed-by: kustomize
+  annotations:
+    # cert-manager integration -- automatically provisions TLS certificate
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    # Nginx Ingress tuning
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # Enable gzip/brotli compression for text assets
+    nginx.ingress.kubernetes.io/enable-brotli: "true"
+    nginx.ingress.kubernetes.io/enable-compression: "true"
+    # Proxy timeouts aligned with Next.js SSR
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    # Rate limiting -- basic DDoS protection for the marketing site
+    nginx.ingress.kubernetes.io/limit-rps: "20"
+    nginx.ingress.kubernetes.io/limit-burst-multiplier: "5"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - safetrekr.com
+      secretName: safetrekr-web-tls
+  rules:
+    - host: safetrekr.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: safetrekr-web
+                port:
+                  number: 80

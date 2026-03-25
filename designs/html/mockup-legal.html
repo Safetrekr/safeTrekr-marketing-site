@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy -- SafeTrekr</title>
+  <meta name="description" content="Read SafeTrekr's Privacy Policy. Last updated March 15, 2026. Version 1.2. Contact legal@safetrekr.com with questions.">
+  <meta property="og:title" content="Privacy Policy -- SafeTrekr">
+  <meta property="og:description" content="Read SafeTrekr's Privacy Policy. Last updated March 15, 2026. Version 1.2. Contact legal@safetrekr.com with questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og/legal.png">
+  <link rel="canonical" href="https://www.safetrekr.com/legal/privacy">
+
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            'card-foreground': '#061a23',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: '#e7ecee',
+            'muted-foreground': '#4d5153',
+            primary: {
+              DEFAULT: '#3f885b',
+              50: '#f1f9f4',
+              100: '#e0f1e6',
+              200: '#c0e2cd',
+              300: '#96cfac',
+              400: '#6cbc8b',
+              500: '#4ca46e',
+              600: '#3f885b',
+              700: '#33704b',
+              800: '#2a5b3d',
+              900: '#20462f',
+              950: '#132a1c',
+              foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646',
+              light: '#1a4a5e',
+              muted: '#b8c3c7',
+              foreground: '#f7f8f8',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "description": "SafeTrekr's Privacy Policy. Last updated March 15, 2026.",
+    "url": "https://www.safetrekr.com/legal/privacy",
+    "dateModified": "2026-03-15",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SafeTrekr"
+    }
+  }
+  </script>
+
+  <!-- BreadcrumbList JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.safetrekr.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Legal", "item": "https://www.safetrekr.com/legal" },
+      { "@type": "ListItem", "position": 3, "name": "Privacy Policy", "item": "https://www.safetrekr.com/legal/privacy" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ---- Scroll-driven fade-up animation ---- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Header scroll state ---- */
+    .site-header {
+      transition: background-color 0.3s ease, height 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .site-header.scrolled {
+      background-color: rgba(231, 236, 238, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+    }
+    .site-header.scrolled .header-inner {
+      height: 64px;
+    }
+
+    /* ---- Mobile menu ---- */
+    .mobile-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* ---- Legal document typography ---- */
+    .legal-prose h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.625rem, 1.25rem + 1.25vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--color-foreground);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: 6rem;
+    }
+    .legal-prose h2:first-child {
+      margin-top: 0;
+    }
+    .legal-prose h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.375rem, 1.125rem + 0.75vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+      color: var(--color-foreground);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      scroll-margin-top: 6rem;
+    }
+    .legal-prose h4 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-foreground);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .legal-prose p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-muted-foreground);
+      margin-bottom: 1rem;
+      max-width: 65ch;
+    }
+    .legal-prose strong {
+      font-weight: 600;
+      color: var(--color-foreground);
+    }
+    .legal-prose a {
+      color: var(--color-primary-700);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+    .legal-prose a:hover {
+      color: var(--color-primary-800);
+    }
+    .legal-prose ul {
+      list-style-type: disc;
+      list-style-position: outside;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .legal-prose ul li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-muted-foreground);
+      margin-bottom: 0.375rem;
+    }
+    .legal-prose ol {
+      list-style-type: decimal;
+      list-style-position: outside;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .legal-prose ol li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-muted-foreground);
+      margin-bottom: 0.375rem;
+    }
+    .legal-prose blockquote {
+      border-left: 4px solid var(--color-border);
+      padding-left: 1.5rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--color-muted-foreground);
+    }
+    .legal-prose hr {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 2rem 0;
+    }
+    .legal-prose code {
+      background: var(--color-card);
+      color: var(--color-foreground);
+      padding: 1px 6px;
+      border-radius: 2px;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+    }
+    .legal-prose table {
+      width: 100%;
+      margin: 1.5rem 0;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .legal-prose thead {
+      background: var(--color-card);
+    }
+    .legal-prose th {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-foreground);
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .legal-prose td {
+      font-size: 0.875rem;
+      color: var(--color-muted-foreground);
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .legal-prose tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ---- TOC active state ---- */
+    .toc-link {
+      display: block;
+      padding: 6px 0 6px 12px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--color-muted-foreground);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .toc-link:hover {
+      color: var(--color-foreground);
+    }
+    .toc-link.active {
+      color: var(--color-primary-700);
+      font-weight: 500;
+      border-left-color: var(--color-primary-500);
+    }
+    .toc-link-sub {
+      padding-left: 28px;
+      font-size: 0.8125rem;
+    }
+    .toc-link-sub.active {
+      padding-left: 28px;
+    }
+
+    /* ---- Mobile TOC collapsible ---- */
+    .mobile-toc-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-toc-content.expanded {
+      max-height: 600px;
+    }
+    .mobile-toc-chevron {
+      transition: transform 0.2s ease;
+    }
+    .mobile-toc-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* ---- Print styles ---- */
+    @media print {
+      .site-header, .sidebar-col, .mobile-toc-wrap, footer, .legal-contact-section {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: 12pt;
+      }
+      .legal-prose h2, .legal-prose h3, .legal-prose h4 {
+        color: black !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+      }
+      .legal-prose p, .legal-prose li, .legal-prose td {
+        color: #333 !important;
+      }
+      .legal-prose a {
+        color: black !important;
+        text-decoration: underline !important;
+      }
+      main {
+        padding-top: 0 !important;
+      }
+      .article-col {
+        max-width: 100% !important;
+      }
+    }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .site-header { transition: none; }
+      .mobile-menu { transition: none; }
+      .mobile-overlay { transition: none; }
+      .mobile-toc-content { transition: none; }
+    }
+  </style>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER                                                         -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134ZM8.33343 8.03669C6.23343 8.15669 4.77332 9.8267 4.97332 11.8367C4.99332 23.5267 4.9734 35.6267 5.0534 47.3067C6.0434 46.4667 6.92342 45.5167 7.82342 44.5867C16.9534 35.3067 26.6634 25.5667 35.7934 16.2767C36.4034 15.6667 36.9234 15.3167 37.8234 15.3167C38.8134 15.3167 39.2034 15.5767 39.8535 16.2567C43.4635 20.1467 47.3033 24.0167 50.9633 27.8667C51.5833 28.4867 52.1733 29.1967 52.9833 29.5867C54.2633 30.1467 55.7333 29.3367 56.9933 29.9767C57.9933 30.5367 58.7034 31.4567 59.5134 32.2467C63.2234 36.0167 66.8032 39.9267 70.6432 43.5667C70.6832 33.0567 70.6433 22.2967 70.6633 11.7867C70.7033 10.5967 70.3433 9.58669 69.4333 8.77668C68.6133 7.97668 67.4234 7.80668 66.3334 7.69668C58.4834 6.94668 48.7135 5.97669 40.8635 5.21669C38.4335 4.90669 37.3933 4.90669 34.7033 5.21669C25.9133 6.14669 17.1334 7.10668 8.35345 8.02668L8.33343 8.03669ZM33.4333 80.6367C34.6233 81.3567 36.1435 82.2867 37.8835 82.2867C39.5135 82.2867 41.0333 81.3667 42.2233 80.6367C45.6933 78.0267 48.2733 75.4867 51.4933 72.5667C53.4433 70.7667 54.8633 68.8167 56.1533 66.4567C57.6433 63.7967 57.5932 60.1967 55.6432 57.7767C53.6732 55.2667 50.6233 54.0467 47.7233 52.9767C44.8233 51.8167 41.7433 51.0767 38.9433 49.6667C38.1533 49.2267 37.0734 48.5667 37.3034 47.4967C37.6234 46.2967 38.8334 45.6867 39.8234 45.1167C41.6534 44.0667 43.5335 43.9667 45.6235 42.7367C44.6635 42.6567 44.0334 42.6667 42.7534 42.8167C39.8534 43.2367 36.9535 43.6667 34.1135 44.4067C32.4135 44.8767 30.6733 45.5167 29.4133 46.7867C28.7033 47.4867 28.3434 48.6367 28.8234 49.5567C29.3734 50.5867 30.4433 51.1867 31.4333 51.7367C33.4933 52.8067 35.6035 53.7767 37.6135 54.9467C38.9335 55.7167 40.3233 56.6367 40.9133 58.1067C41.4733 59.5767 40.9134 61.1967 40.0734 62.4367C38.6934 64.4167 36.5434 65.6467 34.5734 66.9467C30.2834 69.7167 26.4533 71.3267 21.9033 73.6067L33.4533 80.6067L33.4333 80.6367Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567C109.393 68.5767 106.593 66.7967 103.963 64.3567C103.763 64.1667 103.743 63.8567 103.913 63.6467L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667C130.963 55.1267 130.653 54.2167 130.023 53.5367C129.403 52.8567 128.514 52.2467 127.374 51.6967C126.234 51.1567 124.873 50.5567 123.303 49.8967L116.384 47.0367C114.594 46.2167 112.863 45.1767 111.213 43.8967C109.553 42.6167 108.223 41.0367 107.223 39.1667C106.223 37.2867 105.713 35.0467 105.713 32.4367C105.713 29.4967 106.514 26.8467 108.114 24.4867C109.714 22.1167 111.943 20.2167 114.793 18.7767C117.643 17.3367 120.913 16.6167 124.603 16.6167C127.803 16.6167 130.904 17.1867 133.884 18.3267C136.714 19.4067 139.203 20.9567 141.353 22.9667C141.553 23.1567 141.573 23.4667 141.393 23.6767L135.653 30.6767C135.483 30.8867 135.173 30.9167 134.953 30.7667C133.343 29.5967 131.693 28.6867 130.013 28.0367C128.193 27.3267 126.393 26.9767 124.603 26.9767C122.543 26.9767 120.893 27.3967 119.673 28.2367C118.453 29.0767 117.843 30.2667 117.843 31.7867C117.843 32.8167 118.193 33.7067 118.903 34.4367C119.603 35.1667 120.583 35.7967 121.833 36.3167C123.083 36.8367 124.443 37.4167 125.903 38.0667L132.743 40.8367C134.913 41.7067 136.773 42.7967 138.323 44.0967C139.873 45.4067 141.073 46.9667 141.943 48.7867C142.813 50.6067 143.243 52.7767 143.243 55.2767C143.243 58.2167 142.454 60.9367 140.884 63.4367C139.304 65.9367 137.033 67.9567 134.043 69.4767C131.053 70.9967 127.443 71.7567 123.213 71.7567L123.233 71.7767Z" fill="#123646"/>
+          <path d="M191.373 70.1265L175.003 18.0465C174.933 17.8365 174.733 17.6865 174.513 17.6865H161.013C160.793 17.6865 160.593 17.8365 160.523 18.0465L144.153 70.1265C144.053 70.4565 144.293 70.7965 144.643 70.7965H155.753C155.983 70.7965 156.193 70.6365 156.253 70.4065L159.403 58.1465H175.623L178.773 70.4065C178.833 70.6365 179.033 70.7965 179.273 70.7965H190.873C191.223 70.7965 191.463 70.4565 191.363 70.1265H191.373ZM161.823 48.7665L163.083 43.8665C163.843 41.2065 164.593 38.3865 165.323 35.4265C166.053 32.4665 166.723 29.5365 167.313 26.6565H167.643C168.343 29.4865 169.053 32.3965 169.763 35.3865C170.463 38.3765 171.203 41.2065 171.963 43.8765L173.223 48.7765H161.833L161.823 48.7665Z" fill="#123646"/>
+          <path d="M195.963 70.2769V18.1069C195.963 17.8269 196.193 17.5869 196.473 17.5869H228.913C229.193 17.5869 229.423 17.8169 229.423 18.1069V27.1969C229.423 27.4769 229.193 27.7169 228.913 27.7169H208.443C208.163 27.7169 207.933 27.9469 207.933 28.2369V39.5269C207.933 39.8069 208.163 40.0469 208.443 40.0469H225.813C226.093 40.0469 226.323 40.2769 226.323 40.5669V49.6569C226.323 49.9369 226.093 50.1769 225.813 50.1769H208.443C208.163 50.1769 207.933 50.4069 207.933 50.6969V70.3069C207.933 70.5869 207.703 70.8269 207.423 70.8269H196.483C196.203 70.8269 195.973 70.5969 195.973 70.3069L195.963 70.2769Z" fill="#123646"/>
+          <path d="M235.693 70.2769V18.1069C235.693 17.8269 235.923 17.5869 236.203 17.5869H268.393C268.673 17.5869 268.903 17.8169 268.903 18.1069V27.1969C268.903 27.4769 268.673 27.7169 268.393 27.7169H248.173C247.893 27.7169 247.663 27.9469 247.663 28.2369V37.8969C247.663 38.1769 247.893 38.4169 248.173 38.4169H265.223C265.503 38.4169 265.733 38.6469 265.733 38.9369V47.9469C265.733 48.2269 265.503 48.4669 265.223 48.4669H248.173C247.893 48.4669 247.663 48.6969 247.663 48.9869V60.1969C247.663 60.4769 247.893 60.7169 248.173 60.7169H269.213C269.493 60.7169 269.723 60.9469 269.723 61.2369V70.3269C269.723 70.6069 269.493 70.8469 269.213 70.8469H236.203C235.923 70.8469 235.693 70.6169 235.693 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M288.933 70.3265V28.2765C288.933 27.9965 288.703 27.7565 288.423 27.7565H274.874C274.594 27.7565 274.364 27.5265 274.364 27.2365V18.2265C274.364 17.9465 274.594 17.7065 274.874 17.7065H315.043C315.323 17.7065 315.553 17.9365 315.553 18.2265V27.2365C315.553 27.5165 315.323 27.7565 315.043 27.7565H301.493C301.213 27.7565 300.983 27.9865 300.983 28.2765V70.3265C300.983 70.6065 300.753 70.8465 300.473 70.8465H289.453C289.173 70.8465 288.943 70.6165 288.943 70.3265H288.933Z" fill="#123646"/>
+          <path d="M363.533 70.0267L351.124 49.4567C353.864 48.2367 356.093 46.4567 357.783 44.1067C359.623 41.5467 360.553 38.2367 360.553 34.1567C360.553 30.0767 359.633 26.6667 357.783 24.2467C355.933 21.8267 353.464 20.1167 350.374 19.1067C347.284 18.0967 343.864 17.5967 340.114 17.5967H321.493C321.213 17.5967 320.983 17.8267 320.983 18.1167V70.2867C320.983 70.5667 321.213 70.8067 321.493 70.8067H332.433C332.713 70.8067 332.943 70.5767 332.943 70.2867V52.1467C332.943 51.8667 333.173 51.6267 333.453 51.6267H339.553L350.384 70.5267C350.474 70.6967 350.643 70.7967 350.833 70.7967H363.083C363.473 70.7967 363.723 70.3667 363.533 70.0267ZM332.943 41.5567V27.6567C332.943 27.3767 333.173 27.1367 333.453 27.1367H339.124C342.274 27.1367 344.673 27.6567 346.333 28.6867C347.993 29.7167 348.813 31.5467 348.813 34.1567C348.813 36.7667 347.983 38.7367 346.333 40.0767C344.673 41.4067 342.274 42.0767 339.124 42.0767H333.453C333.173 42.0767 332.943 41.8467 332.943 41.5567Z" fill="#123646"/>
+          <path d="M369.763 70.2769V18.1069C369.763 17.8269 369.993 17.5869 370.273 17.5869H402.463C402.743 17.5869 402.973 17.8169 402.973 18.1069V27.1969C402.973 27.4769 402.743 27.7169 402.463 27.7169H382.243C381.963 27.7169 381.733 27.9469 381.733 28.2369V37.8969C381.733 38.1769 381.963 38.4169 382.243 38.4169H399.293C399.573 38.4169 399.803 38.6469 399.803 38.9369V47.9469C399.803 48.2269 399.573 48.4669 399.293 48.4669H382.243C381.963 48.4669 381.733 48.6969 381.733 48.9869V60.1969C381.733 60.4769 381.963 60.7169 382.243 60.7169H403.283C403.563 60.7169 403.793 60.9469 403.793 61.2369V70.3269C403.793 70.6069 403.563 70.8469 403.283 70.8469H370.273C369.993 70.8469 369.763 70.6169 369.763 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M410.114 70.2769V18.1069C410.114 17.8269 410.344 17.5869 410.624 17.5869H421.563C421.843 17.5869 422.073 17.8169 422.073 18.1069V39.3769H422.403L438.043 17.8069C438.143 17.6769 438.293 17.5969 438.463 17.5969H450.354C450.774 17.5969 451.023 18.0869 450.763 18.4269L435.553 38.5369C435.423 38.7069 435.413 38.9269 435.523 39.1069L453.854 70.0169C454.054 70.3569 453.813 70.7969 453.413 70.7969H441.503C441.323 70.7969 441.153 70.6969 441.053 70.5369L428.643 49.0269C428.463 48.7069 428.013 48.6769 427.793 48.9769L422.173 56.3769C422.103 56.4669 422.073 56.5769 422.073 56.6869V70.2769C422.073 70.5569 421.843 70.7969 421.563 70.7969H410.624C410.344 70.7969 410.114 70.5669 410.114 70.2769Z" fill="#123646"/>
+          <path d="M501.983 70.0267L489.573 49.4567C492.313 48.2367 494.543 46.4567 496.233 44.1067C498.073 41.5467 499.003 38.2367 499.003 34.1567C499.003 30.0767 498.083 26.6667 496.233 24.2467C494.383 21.8267 491.913 20.1167 488.823 19.1067C485.733 18.0967 482.313 17.5967 478.563 17.5967H459.943C459.663 17.5967 459.433 17.8267 459.433 18.1167V70.2867C459.433 70.5667 459.663 70.8067 459.943 70.8067H470.884C471.164 70.8067 471.393 70.5767 471.393 70.2867V52.1467C471.393 51.8667 471.623 51.6267 471.903 51.6267H478.003L488.833 70.5267C488.923 70.6967 489.093 70.7967 489.283 70.7967H501.533C501.923 70.7967 502.173 70.3667 501.983 70.0267ZM471.393 41.5567V27.6567C471.393 27.3767 471.623 27.1367 471.903 27.1367H477.573C480.723 27.1367 483.123 27.6567 484.783 28.6867C486.443 29.7167 487.263 31.5467 487.263 34.1567C487.263 36.7667 486.433 38.7367 484.783 40.0767C483.123 41.4067 480.723 42.0767 477.573 42.0767H471.903C471.623 42.0767 471.393 41.8467 471.393 41.5567Z" fill="#123646"/>
+        </svg>
+        <svg height="26" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667" fill="#123646"/>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT                                                        -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1: LEGAL PAGE HEADER                                    -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="legal-page-heading"
+      class="pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-6 sm:pb-8 lg:pb-10"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Breadcrumb: Desktop -->
+        <nav aria-label="Breadcrumb" class="fade-up hidden sm:block mb-6 lg:mb-8">
+          <ol class="flex items-center gap-1.5 text-sm" style="color: var(--color-muted-foreground);">
+            <li><a href="/" class="hover:text-foreground transition-colors duration-150">Home</a></li>
+            <li aria-hidden="true">
+              <svg class="w-3.5 h-3.5 mx-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </li>
+            <li><a href="#footer-legal" class="hover:text-foreground transition-colors duration-150">Legal</a></li>
+            <li aria-hidden="true">
+              <svg class="w-3.5 h-3.5 mx-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </li>
+            <li aria-current="page" class="font-medium" style="color: var(--color-foreground);">Privacy Policy</li>
+          </ol>
+        </nav>
+
+        <!-- Breadcrumb: Mobile (back link) -->
+        <nav aria-label="Breadcrumb" class="fade-up sm:hidden mb-6">
+          <a href="#footer-legal" class="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-150" style="color: var(--color-muted-foreground);">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            Back to Legal
+          </a>
+        </nav>
+
+        <!-- Headline -->
+        <h1
+          id="legal-page-heading"
+          class="text-display-md fade-up mb-6"
+          style="color: var(--color-foreground); transition-delay: 80ms;"
+        >
+          Privacy Policy
+        </h1>
+
+        <!-- Metadata Card -->
+        <div
+          class="fade-up rounded-lg p-4 flex flex-col gap-1 sm:flex-row sm:gap-6 sm:items-center flex-wrap"
+          style="background: var(--color-card); border: 1px solid var(--color-border); transition-delay: 160ms;"
+        >
+          <span class="text-sm" style="color: var(--color-muted-foreground);">
+            Last updated: <time datetime="2026-03-15">March 15, 2026</time>
+          </span>
+          <span class="hidden sm:inline" style="color: var(--color-border);" aria-hidden="true">&middot;</span>
+          <span class="text-sm" style="color: var(--color-muted-foreground);">Version: 1.2</span>
+          <span class="hidden sm:inline" style="color: var(--color-border);" aria-hidden="true">&middot;</span>
+          <span class="text-sm" style="color: var(--color-muted-foreground);">
+            Effective: <time datetime="2026-03-15">March 15, 2026</time>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: DOCUMENT BODY + TABLE OF CONTENTS SIDEBAR            -->
+    <!-- ============================================================== -->
+    <section
+      aria-label="Privacy Policy document"
+      class="pb-16 lg:pb-24"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Mobile TOC (below lg) -->
+        <div class="mobile-toc-wrap lg:hidden mb-8 rounded-xl p-4" style="background: var(--color-card); border: 1px solid var(--color-border);">
+          <button
+            class="w-full flex items-center justify-between text-left"
+            onclick="toggleMobileToc()"
+            aria-expanded="false"
+            aria-controls="mobile-toc-list"
+            id="mobile-toc-toggle"
+          >
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-primary-700); font-family: var(--font-heading); letter-spacing: 0.08em;">Table of Contents</span>
+              <span class="text-xs" style="color: var(--color-muted-foreground);">12 sections</span>
+            </div>
+            <svg class="mobile-toc-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-muted-foreground);" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="mobile-toc-content" id="mobile-toc-list" role="region" aria-label="Table of contents">
+            <nav class="pt-3 mt-3" style="border-top: 1px solid var(--color-border);" aria-label="Document table of contents">
+              <ol class="space-y-1" style="list-style: none; padding: 0;">
+                <li><a href="#section-1" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">1. Introduction</a></li>
+                <li><a href="#section-2" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">2. Information We Collect</a></li>
+                <li><a href="#section-3" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">3. How We Use Your Information</a></li>
+                <li><a href="#section-4" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">4. Legal Basis for Processing</a></li>
+                <li><a href="#section-5" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">5. Information Sharing and Disclosure</a></li>
+                <li><a href="#section-6" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">6. Data Retention</a></li>
+                <li><a href="#section-7" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">7. Your Rights and Choices</a></li>
+                <li><a href="#section-8" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">8. Children's Privacy</a></li>
+                <li><a href="#section-9" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">9. International Data Transfers</a></li>
+                <li><a href="#section-10" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">10. Security Measures</a></li>
+                <li><a href="#section-11" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">11. Changes to This Policy</a></li>
+                <li><a href="#section-12" class="block py-1.5 text-sm transition-colors duration-150 hover:text-foreground" style="color: var(--color-muted-foreground);">12. Contact Us</a></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Two-column grid -->
+        <div class="grid lg:grid-cols-[1fr_260px] gap-12 lg:gap-16">
+
+          <!-- ======== Article Column ======== -->
+          <article class="article-col max-w-[720px] legal-prose fade-up" style="transition-delay: 200ms;">
+
+            <!-- 1. Introduction -->
+            <h2 id="section-1">1. Introduction</h2>
+            <p>This Privacy Policy describes how SafeTrekr, Inc. ("SafeTrekr," "we," "us," or "our") collects, uses, stores, and shares information when you use our website, mobile applications, and related services (collectively, the "Services").</p>
+            <p>SafeTrekr provides trip safety management tools, including analyst-reviewed safety binders, route risk assessments, and compliance documentation for schools, churches, universities, and businesses. This policy applies to all users of the Services, including trip coordinators, administrators, and organizational account holders.</p>
+            <p>By accessing or using our Services, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with our practices, please do not use the Services.</p>
+
+            <hr>
+
+            <!-- 2. Information We Collect -->
+            <h2 id="section-2">2. Information We Collect</h2>
+            <p>We collect information in several ways depending on how you interact with our Services. The categories below outline the types of data we may collect.</p>
+
+            <h3 id="section-2-1">2.1 Information You Provide</h3>
+            <p>When you create an account, request a demo, or use our Services, you may voluntarily provide the following information:</p>
+            <ul>
+              <li><strong>Account information</strong> -- name, email address, phone number, job title, and organization name</li>
+              <li><strong>Trip details</strong> -- destination addresses, travel dates, group size, participant age ranges, and special requirements</li>
+              <li><strong>Organizational data</strong> -- school district name, church denomination, or company details relevant to compliance requirements</li>
+              <li><strong>Payment information</strong> -- billing address and payment method details (processed by our third-party payment processor; we do not store full card numbers)</li>
+              <li><strong>Communications</strong> -- messages you send to our support team, feedback, and survey responses</li>
+            </ul>
+
+            <h3 id="section-2-2">2.2 Information Collected Automatically</h3>
+            <p>When you use our Services, we automatically collect certain technical and usage information:</p>
+            <ul>
+              <li><strong>Device information</strong> -- browser type, operating system, device identifiers, and screen resolution</li>
+              <li><strong>Log data</strong> -- IP address, access times, pages viewed, referring URL, and actions taken within the Services</li>
+              <li><strong>Location data</strong> -- approximate location derived from IP address (we do not collect precise GPS location from your device)</li>
+              <li><strong>Cookies and similar technologies</strong> -- as described in our <a href="/legal/cookies">Cookie Policy</a></li>
+            </ul>
+
+            <h3 id="section-2-3">2.3 Information from Third Parties</h3>
+            <p>We may receive information from third-party sources, including:</p>
+            <ul>
+              <li><strong>Government safety databases</strong> -- publicly available travel advisories, safety alerts, and risk assessments used to generate safety binders</li>
+              <li><strong>Authentication providers</strong> -- if you sign in using a third-party service (e.g., Google Workspace, Microsoft Entra ID), we receive basic profile information as authorized by you</li>
+              <li><strong>Analytics providers</strong> -- aggregated and anonymized usage data to help us improve the Services</li>
+            </ul>
+
+            <hr>
+
+            <!-- 3. How We Use Your Information -->
+            <h2 id="section-3">3. How We Use Your Information</h2>
+            <p>We use the information we collect for the following purposes:</p>
+            <ul>
+              <li><strong>Providing the Services</strong> -- generating safety binders, route risk assessments, and compliance documentation for your trips</li>
+              <li><strong>Account management</strong> -- creating and maintaining your account, authenticating your identity, and managing organizational permissions</li>
+              <li><strong>Communication</strong> -- sending service-related notifications, responding to support requests, and providing updates about your account or trips</li>
+              <li><strong>Safety analysis</strong> -- aggregating and anonymizing trip data to improve our risk assessment models and safety recommendations</li>
+              <li><strong>Compliance</strong> -- meeting legal obligations, including responding to lawful requests from government authorities</li>
+              <li><strong>Service improvement</strong> -- analyzing usage patterns to enhance functionality, fix bugs, and develop new features</li>
+              <li><strong>Security</strong> -- detecting and preventing fraud, unauthorized access, and other harmful activities</li>
+            </ul>
+            <p>We do not sell your personal information. We do not use your data for behavioral advertising or profiling unrelated to the Services.</p>
+
+            <hr>
+
+            <!-- 4. Legal Basis for Processing (GDPR) -->
+            <h2 id="section-4">4. Legal Basis for Processing</h2>
+            <p>For users in the European Economic Area (EEA), United Kingdom, and other jurisdictions that require a legal basis for processing personal data, we rely on the following grounds:</p>
+            <ul>
+              <li><strong>Contract performance</strong> -- processing necessary to provide the Services you have requested under our <a href="/legal/terms">Terms of Service</a></li>
+              <li><strong>Legitimate interests</strong> -- processing for purposes such as improving our Services, ensuring security, and communicating with you, where these interests are not overridden by your rights</li>
+              <li><strong>Legal obligation</strong> -- processing required to comply with applicable laws and regulations</li>
+              <li><strong>Consent</strong> -- where required by law, we will obtain your explicit consent before processing certain data (e.g., optional marketing communications)</li>
+            </ul>
+            <p>You may withdraw consent at any time by contacting us at <a href="mailto:legal@safetrekr.com">legal@safetrekr.com</a>. Withdrawal does not affect the lawfulness of processing conducted prior to withdrawal.</p>
+
+            <hr>
+
+            <!-- 5. Information Sharing and Disclosure -->
+            <h2 id="section-5">5. Information Sharing and Disclosure</h2>
+            <p>We share your information only in the following circumstances:</p>
+            <ul>
+              <li><strong>With your organization</strong> -- if you use SafeTrekr through an organizational account (e.g., school district or church), your administrator may have access to account activity and trip data in accordance with our <a href="/legal/dpa">Data Processing Agreement</a></li>
+              <li><strong>Service providers</strong> -- we share data with trusted third-party vendors who assist in operating our Services, including cloud hosting (Amazon Web Services), payment processing (Stripe), email delivery (SendGrid), and analytics. These providers are contractually obligated to protect your data and use it only for the purposes we specify</li>
+              <li><strong>Legal requirements</strong> -- we may disclose information if required by law, regulation, legal process, or governmental request</li>
+              <li><strong>Safety and security</strong> -- we may share information to protect the rights, safety, or property of SafeTrekr, our users, or the public</li>
+              <li><strong>Business transfers</strong> -- in the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change</li>
+            </ul>
+            <p>We do not share personal information with third parties for their own marketing purposes.</p>
+
+            <hr>
+
+            <!-- 6. Data Retention -->
+            <h2 id="section-6">6. Data Retention</h2>
+            <p>We retain your personal information for as long as necessary to provide the Services and fulfill the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+            <ul>
+              <li><strong>Active accounts</strong> -- account data is retained for the duration of your subscription and for 90 days after account closure to allow for reactivation</li>
+              <li><strong>Trip data</strong> -- safety binders, route assessments, and trip records are retained for 3 years after the trip date to support compliance documentation needs</li>
+              <li><strong>Communications</strong> -- support correspondence is retained for 2 years</li>
+              <li><strong>Anonymized data</strong> -- aggregated, de-identified data may be retained indefinitely for research and service improvement purposes</li>
+            </ul>
+            <p>You may request deletion of your data at any time by contacting us. See Section 7 for details about your rights.</p>
+
+            <hr>
+
+            <!-- 7. Your Rights and Choices -->
+            <h2 id="section-7">7. Your Rights and Choices</h2>
+            <p>Depending on your jurisdiction, you may have certain rights regarding your personal information.</p>
+
+            <h3 id="section-7-1">7.1 Access and Portability</h3>
+            <p>You have the right to request a copy of the personal information we hold about you. We will provide this information in a structured, commonly used, machine-readable format (e.g., CSV or JSON) within 30 days of a verified request.</p>
+
+            <h3 id="section-7-2">7.2 Correction and Deletion</h3>
+            <p>You may request that we correct inaccurate information or delete your personal data. We will comply with deletion requests unless we are required to retain the data for legal or compliance purposes. You can update most account information directly through your account settings.</p>
+
+            <h3 id="section-7-3">7.3 Opt-Out</h3>
+            <p>You may opt out of receiving non-essential communications (e.g., product announcements, newsletters) at any time by clicking the "unsubscribe" link in any email or by updating your notification preferences in your account settings. Service-related communications (e.g., security alerts, billing notices) cannot be opted out of while your account is active.</p>
+            <p>To exercise any of these rights, contact us at <a href="mailto:legal@safetrekr.com">legal@safetrekr.com</a>. We will verify your identity before processing your request.</p>
+
+            <hr>
+
+            <!-- 8. Children's Privacy -->
+            <h2 id="section-8">8. Children's Privacy</h2>
+            <p>SafeTrekr's Services are designed for use by organizations and adult trip coordinators. We do not knowingly collect personal information directly from children under the age of 13 (or the applicable age of consent in your jurisdiction).</p>
+            <p>When organizations use SafeTrekr to manage trips involving minors, the organization -- not SafeTrekr -- acts as the data controller for any student or minor data. SafeTrekr processes this data solely on behalf of the organization in accordance with our <a href="/legal/dpa">Data Processing Agreement</a> and applicable regulations including FERPA and COPPA.</p>
+            <blockquote>
+              SafeTrekr minimizes the collection of student data. Safety binders and route assessments do not require individual student names or personal identifiers. Organizations should only provide the minimum data necessary for trip management.
+            </blockquote>
+            <p>If we learn that we have inadvertently collected personal information from a child without appropriate authorization, we will take steps to delete that information promptly. If you believe a child's information has been provided to us inappropriately, please contact <a href="mailto:legal@safetrekr.com">legal@safetrekr.com</a>.</p>
+
+            <hr>
+
+            <!-- 9. International Data Transfers -->
+            <h2 id="section-9">9. International Data Transfers</h2>
+            <p>SafeTrekr is based in the United States, and your information is processed and stored on servers located in the United States and other countries where our service providers operate.</p>
+            <p>If you are located outside of the United States, please be aware that your information will be transferred to, stored, and processed in the United States, where data protection laws may differ from those in your country.</p>
+            <p>For transfers of personal data from the EEA, UK, or Switzerland, we rely on:</p>
+            <ul>
+              <li><strong>Standard Contractual Clauses (SCCs)</strong> -- approved by the European Commission, incorporated into our <a href="/legal/dpa">Data Processing Agreement</a></li>
+              <li><strong>Adequacy decisions</strong> -- where the European Commission has determined that the receiving country provides adequate data protection</li>
+              <li><strong>Supplementary measures</strong> -- additional technical and organizational safeguards, including encryption in transit and at rest</li>
+            </ul>
+
+            <hr>
+
+            <!-- 10. Security Measures -->
+            <h2 id="section-10">10. Security Measures</h2>
+            <p>We take the security of your information seriously and implement appropriate technical and organizational measures to protect it, including:</p>
+            <ul>
+              <li>Encryption of data in transit using TLS 1.2+ and at rest using <code>AES-256</code></li>
+              <li>Access controls with role-based permissions and multi-factor authentication for internal systems</li>
+              <li>Regular security assessments, penetration testing, and vulnerability scanning</li>
+              <li>Employee security training and confidentiality agreements</li>
+              <li>Incident response procedures with notification protocols as required by law</li>
+              <li>Data backup and disaster recovery procedures</li>
+            </ul>
+            <p>While we strive to protect your personal information, no method of transmission over the internet or electronic storage is completely secure. We cannot guarantee absolute security, but we commit to promptly addressing any security incidents.</p>
+            <p>For more information about our security practices, visit our <a href="/security">Security page</a>.</p>
+
+            <hr>
+
+            <!-- 11. Changes to This Policy -->
+            <h2 id="section-11">11. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes:</p>
+            <ul>
+              <li>We will update the "Last updated" date at the top of this page</li>
+              <li>For material changes, we will provide prominent notice through the Services or by email to the address associated with your account</li>
+              <li>We will increment the version number to help you track changes</li>
+            </ul>
+            <p>We encourage you to review this Privacy Policy periodically. Your continued use of the Services after any changes constitutes acceptance of the updated policy.</p>
+
+            <hr>
+
+            <!-- 12. Contact Us -->
+            <h2 id="section-12">12. Contact Us</h2>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+            <ul>
+              <li><strong>Email:</strong> <a href="mailto:legal@safetrekr.com">legal@safetrekr.com</a></li>
+              <li><strong>Mail:</strong> SafeTrekr, Inc., Attn: Privacy Team, 123 Main Street, Suite 400, Austin, TX 78701</li>
+            </ul>
+            <p>For data protection inquiries in the European Union, you may also contact our Data Protection Officer at <a href="mailto:dpo@safetrekr.com">dpo@safetrekr.com</a>.</p>
+            <p>We will respond to all privacy-related inquiries within 30 days. If you are not satisfied with our response, you have the right to lodge a complaint with your local data protection authority.</p>
+
+          </article>
+
+
+          <!-- ======== Sidebar Column ======== -->
+          <aside class="sidebar-col hidden lg:block">
+            <div class="sticky top-28" style="max-height: calc(100vh - 8rem); overflow-y: auto;">
+
+              <!-- TOC Card -->
+              <div class="rounded-xl p-5 fade-up" style="background: var(--color-card); border: 1px solid var(--color-border); transition-delay: 300ms;">
+                <nav aria-label="Document table of contents">
+                  <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-primary-700); font-family: var(--font-heading); letter-spacing: 0.08em;">Table of Contents</p>
+                  <ol style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#section-1" class="toc-link" data-section="section-1">1. Introduction</a></li>
+                    <li><a href="#section-2" class="toc-link" data-section="section-2">2. Information We Collect</a></li>
+                    <li>
+                      <a href="#section-2-1" class="toc-link toc-link-sub" data-section="section-2-1">2.1 Information You Provide</a>
+                    </li>
+                    <li>
+                      <a href="#section-2-2" class="toc-link toc-link-sub" data-section="section-2-2">2.2 Collected Automatically</a>
+                    </li>
+                    <li>
+                      <a href="#section-2-3" class="toc-link toc-link-sub" data-section="section-2-3">2.3 From Third Parties</a>
+                    </li>
+                    <li><a href="#section-3" class="toc-link" data-section="section-3">3. How We Use Information</a></li>
+                    <li><a href="#section-4" class="toc-link" data-section="section-4">4. Legal Basis (GDPR)</a></li>
+                    <li><a href="#section-5" class="toc-link" data-section="section-5">5. Sharing and Disclosure</a></li>
+                    <li><a href="#section-6" class="toc-link" data-section="section-6">6. Data Retention</a></li>
+                    <li><a href="#section-7" class="toc-link" data-section="section-7">7. Your Rights and Choices</a></li>
+                    <li>
+                      <a href="#section-7-1" class="toc-link toc-link-sub" data-section="section-7-1">7.1 Access and Portability</a>
+                    </li>
+                    <li>
+                      <a href="#section-7-2" class="toc-link toc-link-sub" data-section="section-7-2">7.2 Correction and Deletion</a>
+                    </li>
+                    <li>
+                      <a href="#section-7-3" class="toc-link toc-link-sub" data-section="section-7-3">7.3 Opt-Out</a>
+                    </li>
+                    <li><a href="#section-8" class="toc-link" data-section="section-8">8. Children's Privacy</a></li>
+                    <li><a href="#section-9" class="toc-link" data-section="section-9">9. International Transfers</a></li>
+                    <li><a href="#section-10" class="toc-link" data-section="section-10">10. Security Measures</a></li>
+                    <li><a href="#section-11" class="toc-link" data-section="section-11">11. Changes to This Policy</a></li>
+                    <li><a href="#section-12" class="toc-link" data-section="section-12">12. Contact Us</a></li>
+                  </ol>
+                </nav>
+              </div>
+
+              <!-- Sidebar Questions Card -->
+              <div class="rounded-xl p-5 mt-6 fade-up" style="background: var(--color-primary-50); transition-delay: 400ms;">
+                <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: var(--color-primary-700); font-family: var(--font-heading); letter-spacing: 0.08em;">Questions?</p>
+                <p class="text-sm" style="color: var(--color-muted-foreground);">Contact our legal team:</p>
+                <a href="mailto:legal@safetrekr.com" class="text-sm mt-1 block underline underline-offset-2" style="color: var(--color-primary-700);">legal@safetrekr.com</a>
+              </div>
+
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: LEGAL CONTACT INFO                                   -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="legal-contact-heading"
+      class="legal-contact-section py-10 sm:py-12 lg:py-16"
+      style="background: var(--color-card);"
+    >
+      <div class="max-w-[720px] mx-auto px-6 sm:px-8">
+        <div class="fade-up">
+          <!-- Scale / Balance icon -->
+          <svg class="mb-4" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);" aria-hidden="true">
+            <path d="M12 3v18"/>
+            <path d="m4.5 7.5 15 0"/>
+            <path d="M4.5 7.5 2 14h5l-2.5-6.5Z"/>
+            <path d="M19.5 7.5 17 14h5l-2.5-6.5Z"/>
+            <circle cx="12" cy="3" r="1"/>
+            <path d="M2 14a2.5 2.5 0 0 0 5 0"/>
+            <path d="M17 14a2.5 2.5 0 0 0 5 0"/>
+          </svg>
+
+          <h2
+            id="legal-contact-heading"
+            class="text-heading-sm mb-3"
+            style="color: var(--color-foreground);"
+          >
+            Questions about this policy?
+          </h2>
+
+          <p class="text-body-md mb-2" style="color: var(--color-muted-foreground);">
+            Contact our legal team at
+            <a href="mailto:legal@safetrekr.com" class="underline underline-offset-2" style="color: var(--color-primary-700);">legal@safetrekr.com</a>
+            or write to us at SafeTrekr, Inc., 123 Main Street, Suite 400, Austin, TX 78701.
+          </p>
+
+          <p class="text-sm mt-3" style="color: var(--color-muted-foreground);">
+            For data protection inquiries in the EU, contact our Data Protection Officer at
+            <a href="mailto:dpo@safetrekr.com" class="underline underline-offset-2" style="color: var(--color-primary-700);">dpo@safetrekr.com</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER                                                         -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================================================================== -->
+  <!-- SCRIPTS                                                             -->
+  <!-- ================================================================== -->
+  <script>
+    // ---- Intersection Observer for fade-up animations ----
+    (function() {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+    })();
+
+
+    // ---- Header scroll behavior ----
+    (function() {
+      var header = document.querySelector('.site-header');
+
+      function onScroll() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+
+    // ---- Mobile menu toggle ----
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobile-menu');
+      var overlay = document.getElementById('mobile-overlay');
+      var toggle = document.getElementById('menu-toggle');
+      var hamburger = toggle.querySelector('.hamburger-icon');
+      var closeIcon = toggle.querySelector('.close-icon');
+
+      var isOpen = menu.classList.contains('open');
+
+      if (isOpen) {
+        menu.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburger.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        menu.classList.add('open');
+        overlay.classList.add('open');
+        hamburger.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+
+    // ---- Mobile TOC toggle ----
+    function toggleMobileToc() {
+      var content = document.getElementById('mobile-toc-list');
+      var toggle = document.getElementById('mobile-toc-toggle');
+      var chevron = toggle.querySelector('.mobile-toc-chevron');
+
+      var isExpanded = content.classList.contains('expanded');
+
+      if (isExpanded) {
+        content.classList.remove('expanded');
+        chevron.classList.remove('rotated');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.add('expanded');
+        chevron.classList.add('rotated');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+
+    // ---- TOC active section tracking (Intersection Observer) ----
+    (function() {
+      var tocLinks = document.querySelectorAll('.toc-link[data-section]');
+      if (!tocLinks.length) return;
+
+      var headings = [];
+      tocLinks.forEach(function(link) {
+        var id = link.getAttribute('data-section');
+        var heading = document.getElementById(id);
+        if (heading) headings.push({ id: id, el: heading });
+      });
+
+      var currentActive = null;
+
+      var headingObserver = new IntersectionObserver(function(entries) {
+        // Find the topmost visible heading
+        var visible = [];
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            visible.push(entry);
+          }
+        });
+
+        if (visible.length > 0) {
+          // Sort by position in document (lowest boundingClientRect.top first)
+          visible.sort(function(a, b) {
+            return a.boundingClientRect.top - b.boundingClientRect.top;
+          });
+          var topId = visible[0].target.id;
+          if (topId !== currentActive) {
+            currentActive = topId;
+            tocLinks.forEach(function(link) {
+              if (link.getAttribute('data-section') === topId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        }
+      }, {
+        rootMargin: '-80px 0px -65% 0px',
+        threshold: 0
+      });
+
+      headings.forEach(function(h) {
+        headingObserver.observe(h.el);
+      });
+
+      // Fallback: activate first on load
+      if (headings.length > 0) {
+        var firstLink = document.querySelector('.toc-link[data-section="' + headings[0].id + '"]');
+        if (firstLink) firstLink.classList.add('active');
+      }
+    })();
+
+
+    // ---- Smooth scroll for TOC links ----
+    document.querySelectorAll('a[href^="#section-"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href').substring(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Update URL hash without jump
+          history.pushState(null, null, '#' + targetId);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

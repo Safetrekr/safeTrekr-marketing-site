@@ -1,0 +1,3 @@
+-- SafeTrekr Marketing Site seed data
+-- This file is intentionally empty for now.
+-- Add seed data for development/testing here.

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About SafeTrekr -- Professional Trip Safety for Every Organization</title>
+  <meta name="description" content="SafeTrekr was built to close the gap between aviation-grade safety and what schools, churches, and businesses do for group travel. Professional analyst review. Government intelligence. Documented evidence.">
+  <meta property="og:title" content="About SafeTrekr">
+  <meta property="og:description" content="SafeTrekr was built to close the gap between aviation-grade safety and what schools, churches, and businesses do for group travel. Professional analyst review. Government intelligence. Documented evidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og/about.png">
+  <link rel="canonical" href="https://www.safetrekr.com/about">
+
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            'card-foreground': '#061a23',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: '#e7ecee',
+            'muted-foreground': '#4d5153',
+            primary: {
+              DEFAULT: '#3f885b',
+              50: '#f1f9f4',
+              100: '#e0f1e6',
+              200: '#c0e2cd',
+              300: '#96cfac',
+              400: '#6cbc8b',
+              500: '#4ca46e',
+              600: '#3f885b',
+              700: '#33704b',
+              800: '#2a5b3d',
+              900: '#20462f',
+              950: '#132a1c',
+              foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646',
+              light: '#1a4a5e',
+              muted: '#b8c3c7',
+              foreground: '#f7f8f8',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SafeTrekr",
+    "url": "https://www.safetrekr.com",
+    "logo": "https://www.safetrekr.com/logo.svg",
+    "description": "Professional trip safety management. Analyst-reviewed safety binders for schools, churches, universities, and businesses.",
+    "foundingDate": "2024",
+    "sameAs": [],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+  <style>
+    /* ── Scroll-driven fade-up animation ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Route divider draw animation ── */
+    .route-path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .route-path.drawn {
+      stroke-dashoffset: 0;
+    }
+
+    /* ── Counter animation ── */
+    .counter-value {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Header scroll state ── */
+    .site-header {
+      transition: background-color 0.3s ease, height 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .site-header.scrolled {
+      background-color: rgba(231, 236, 238, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+    }
+    .site-header.scrolled .header-inner {
+      height: 64px;
+    }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .mobile-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Card hover (suppress on non-interactive cards) ── */
+    .card-static:hover {
+      transform: none !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .route-path { stroke-dashoffset: 0; transition: none; }
+      .site-header { transition: none; }
+      .mobile-menu { transition: none; }
+    }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:text-primary-700 focus:outline-none focus:ring-2 focus:ring-ring">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER                                                         -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT                                                        -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1: HERO                                                 -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="about-hero-heading"
+      class="pt-24 pb-20 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Eyebrow -->
+        <div class="fade-up mb-4 lg:mb-6 flex items-center gap-2">
+          <svg class="h-3.5 w-3.5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">OUR STORY</span>
+        </div>
+
+        <!-- Headline -->
+        <h1
+          id="about-hero-heading"
+          class="text-display-lg fade-up max-w-[20ch] mb-6 lg:mb-8"
+          style="color: var(--color-foreground); transition-delay: 80ms;"
+        >
+          We Believe Every Trip Deserves the Same Safety Rigor as a Flight.
+        </h1>
+
+        <!-- Sub-headline -->
+        <p
+          class="text-body-lg fade-up max-w-prose"
+          style="color: var(--color-muted-foreground); transition-delay: 160ms;"
+        >
+          Schools send students on field trips with a permission slip and a prayer. Churches send mission teams to foreign countries with a spreadsheet. Every day, airlines subject flight plans to rigorous safety review&mdash;but group travel gets nothing. We started SafeTrekr to change that.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: THE PROBLEM WE SAW                                   -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="founding-narrative-heading"
+      class="py-16 sm:py-20 md:py-24 lg:py-32"
+      style="background: var(--color-card);"
+    >
+      <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Eyebrow -->
+        <div class="fade-up mb-4">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">THE PROBLEM WE SAW</span>
+        </div>
+
+        <!-- Headline -->
+        <h2
+          id="founding-narrative-heading"
+          class="text-heading-lg fade-up mb-8 lg:mb-10"
+          style="color: var(--color-foreground); transition-delay: 80ms;"
+        >
+          A Spreadsheet and a Prayer
+        </h2>
+
+        <!-- Body content -->
+        <div class="space-y-6">
+
+          <!-- Paragraph 1 -->
+          <p class="text-body-lg fade-up max-w-prose" style="color: var(--color-muted-foreground); transition-delay: 160ms;">
+            Every year, millions of people travel in organized groups&mdash;school field trips, church mission teams, university study abroad cohorts, corporate retreats. These trips carry real risk: unfamiliar destinations, group logistics, medical emergencies, political instability, natural disasters.
+          </p>
+
+          <!-- Paragraph 2 -->
+          <p class="text-body-lg fade-up max-w-prose" style="color: var(--color-muted-foreground); transition-delay: 240ms;">
+            Yet the safety planning for most of these trips amounts to a spreadsheet, a Google search, and the hope that nothing goes wrong. No professional risk assessment. No government intelligence. No documented evidence of due diligence. Nothing that would survive a courtroom.
+          </p>
+
+          <!-- Pull Quote -->
+          <blockquote
+            class="fade-up my-10 lg:my-12 pl-6 lg:pl-8 max-w-[45ch]"
+            style="border-left: 4px solid var(--color-primary-500); transition-delay: 200ms;"
+          >
+            <p class="text-heading-md italic" style="color: var(--color-primary-700);">
+              &ldquo;Airlines wouldn&rsquo;t dream of flying a route without professional safety review. Why do we accept less for our students, congregations, and employees?&rdquo;
+            </p>
+          </blockquote>
+
+          <!-- Paragraph 3 (closing -- elevated weight) -->
+          <p class="text-body-lg fade-up font-medium max-w-prose" style="color: var(--color-foreground); transition-delay: 320ms;">
+            We built SafeTrekr to close that gap&mdash;to bring professional-grade safety analysis to every organization that sends people on trips.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- ROUTE DIVIDER                                                    -->
+    <!-- ============================================================== -->
+    <div class="flex justify-center" style="background: var(--color-background);" aria-hidden="true">
+      <svg class="w-full max-w-[600px] h-10" viewBox="0 0 600 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path
+          class="route-path"
+          d="M0 20 C150 0, 200 40, 300 20 S450 0, 600 20"
+          stroke="var(--color-primary-200)"
+          stroke-width="2"
+          stroke-opacity="0.3"
+          fill="none"
+          pathLength="1"
+        />
+      </svg>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: OUR APPROACH                                         -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="approach-heading"
+      class="py-16 sm:py-20 md:py-24 lg:py-32"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12 lg:mb-16">
+          <div class="fade-up mb-4">
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">OUR APPROACH</span>
+          </div>
+          <h2
+            id="approach-heading"
+            class="text-display-md fade-up max-w-[28ch] mx-auto mb-4 lg:mb-6"
+            style="color: var(--color-foreground); transition-delay: 80ms;"
+          >
+            Three Pillars. Zero Guesswork.
+          </h2>
+          <p class="text-body-lg fade-up max-w-prose mx-auto" style="color: var(--color-muted-foreground); transition-delay: 160ms;">
+            Every SafeTrekr binder is built on the same three non-negotiable foundations.
+          </p>
+        </div>
+
+        <!-- 3 Pillar Cards -->
+        <div class="grid sm:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Card 1: Professional Analyst Review -->
+          <div class="card-static fade-up rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); border-radius: var(--radius-xl); transition-delay: 0ms;">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <!-- ClipboardCheck icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">Professional Analyst Review</h3>
+            <p class="text-body-md" style="color: var(--color-muted-foreground);">
+              Every trip is reviewed by a trained safety analyst across 17 standardized sections. Not AI. Not a checklist. A human expert with real accountability.
+            </p>
+          </div>
+
+          <!-- Card 2: Government Intelligence Data -->
+          <div class="card-static fade-up rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); border-radius: var(--radius-xl); transition-delay: 80ms;">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <!-- Shield icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">Government Intelligence Data</h3>
+            <p class="text-body-md" style="color: var(--color-muted-foreground);">
+              We monitor 5 government intelligence sources and 250+ API endpoints to build real-time risk profiles for every destination your team visits.
+            </p>
+          </div>
+
+          <!-- Card 3: Tamper-Evident Documentation -->
+          <div class="card-static fade-up rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); border-radius: var(--radius-xl); transition-delay: 160ms;">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <!-- FileText icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">Tamper-Evident Documentation</h3>
+            <p class="text-body-md" style="color: var(--color-muted-foreground);">
+              Every binder is sealed with SHA-256 hash chain integrity&mdash;tamper-proof evidence that proves due diligence was performed, timestamped and court-admissible.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: THE TEAM                                             -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="team-heading"
+      class="py-16 sm:py-20 md:py-24 lg:py-32"
+      style="background: var(--color-card);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="mb-10 lg:mb-12">
+          <div class="fade-up mb-4">
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">THE TEAM</span>
+          </div>
+          <h2
+            id="team-heading"
+            class="text-heading-lg fade-up"
+            style="color: var(--color-foreground); transition-delay: 80ms;"
+          >
+            Real People. Real Credentials.
+          </h2>
+        </div>
+
+        <!-- Team Cards Grid -->
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+
+          <!-- Founder Card -->
+          <div class="fade-up rounded-xl p-8 card-static" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); border-radius: var(--radius-xl); transition-delay: 160ms;">
+            <!-- Avatar Placeholder -->
+            <div class="h-20 w-20 rounded-full flex items-center justify-center mb-6" style="background: var(--color-primary-50);" aria-hidden="true">
+              <span class="text-heading-md font-bold" style="color: var(--color-primary-700);">JT</span>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Justin Tabb</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">Founder &amp; CEO</p>
+            <p class="text-body-md max-w-[45ch]" style="color: var(--color-muted-foreground);">
+              Justin Tabb founded SafeTrekr after seeing firsthand how organizations manage travel safety with improvised tools and informal processes. With a background in technology and safety operations, he built SafeTrekr to bring the same rigor that governs aviation safety to every group trip.
+            </p>
+          </div>
+
+          <!-- Analyst Team Card -->
+          <div class="fade-up rounded-xl p-8 card-static" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); border-radius: var(--radius-xl); transition-delay: 240ms;">
+            <!-- Shield Icon Composition -->
+            <div class="h-16 w-16 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+              <svg class="h-8 w-8" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">Our Safety Analysts</h3>
+            <p class="text-body-md mb-4 max-w-[45ch]" style="color: var(--color-muted-foreground);">
+              Every trip binder is reviewed by a credentialed safety analyst with expertise in travel risk assessment, regulatory compliance, and emergency planning.
+            </p>
+            <p class="text-body-md font-medium italic mb-6" style="color: var(--color-foreground);">
+              &ldquo;Our analysts have reviewed trips across 47 countries for 12 organization types.&rdquo;
+            </p>
+            <a href="/about/analysts" class="inline-flex items-center gap-1.5 text-sm font-semibold group" style="color: var(--color-primary-700);" aria-label="Meet our safety analysts -- view full team profiles">
+              Meet Our Analysts
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: BY THE NUMBERS (DARK)                                -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="metrics-heading"
+      class="py-20 sm:py-24 lg:py-32"
+      data-theme="dark"
+      style="background: var(--color-secondary);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12 lg:mb-16">
+          <div class="fade-up mb-4">
+            <span class="text-eyebrow" style="color: #6cbc8b;">BY THE NUMBERS</span>
+          </div>
+          <h2
+            id="metrics-heading"
+            class="text-display-md fade-up max-w-[28ch] mx-auto mb-4 lg:mb-6"
+            style="color: #f7f8f8; transition-delay: 80ms;"
+          >
+            Verifiable. Not Vanity.
+          </h2>
+          <p class="text-body-lg fade-up max-w-prose mx-auto" style="color: #b8c3c7; transition-delay: 160ms;">
+            Every number on this page comes from our production database. We don&rsquo;t do inflated marketing metrics.
+          </p>
+        </div>
+
+        <!-- Primary Stat Cards Grid (5 columns) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+          <!-- Stat 1 -->
+          <div class="fade-up rounded-xl p-6 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); transition-delay: 0ms;">
+            <span class="counter-value text-display-md font-mono block" style="color: #f7f8f8;" aria-label="104 organizations served" data-target="104">104</span>
+            <span class="text-eyebrow mt-2 block" style="color: #b8c3c7;">Organizations Served</span>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="fade-up rounded-xl p-6 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); transition-delay: 80ms;">
+            <span class="counter-value text-display-md font-mono block" style="color: #f7f8f8;" aria-label="5 government intelligence sources" data-target="5">5</span>
+            <span class="text-eyebrow mt-2 block" style="color: #b8c3c7;">Government Intel Sources</span>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="fade-up rounded-xl p-6 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); transition-delay: 160ms;">
+            <span class="counter-value text-display-md font-mono block" style="color: #f7f8f8;" aria-label="17 review sections per trip" data-target="17">17</span>
+            <span class="text-eyebrow mt-2 block" style="color: #b8c3c7;">Review Sections Per Trip</span>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="fade-up rounded-xl p-6 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); transition-delay: 240ms;">
+            <span class="counter-value text-display-md font-mono block" style="color: #f7f8f8;" aria-label="More than 250 API endpoints monitored" data-target="250" data-suffix="+">250+</span>
+            <span class="text-eyebrow mt-2 block" style="color: #b8c3c7;">API Endpoints Monitored</span>
+          </div>
+
+          <!-- Stat 5 -->
+          <div class="fade-up rounded-xl p-6 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); transition-delay: 320ms;">
+            <span class="text-display-md font-mono block" style="color: #f7f8f8;" aria-label="3 to 5 day turnaround">3-5</span>
+            <span class="text-eyebrow mt-2 block" style="color: #b8c3c7;">Day Turnaround</span>
+          </div>
+
+        </div>
+
+        <!-- Secondary Metrics Row -->
+        <div class="flex justify-center gap-8 lg:gap-12 mt-8 lg:mt-10 flex-wrap">
+          <div class="fade-up flex items-baseline gap-2" style="transition-delay: 400ms;">
+            <span class="text-heading-md font-mono" style="color: #6cbc8b;">AES-256</span>
+            <span class="text-body-sm" style="color: #b8c3c7;">Encryption Standard</span>
+          </div>
+          <div class="fade-up flex items-baseline gap-2" style="transition-delay: 480ms;">
+            <span class="text-heading-md font-mono" style="color: #6cbc8b;">SHA-256</span>
+            <span class="text-body-sm" style="color: #b8c3c7;">Evidence Chain</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 6: OUR MISSION                                          -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="mission-heading"
+      class="py-16 sm:py-20 md:py-24 lg:py-32"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+
+        <!-- Eyebrow -->
+        <div class="fade-up mb-6 lg:mb-8">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">OUR MISSION</span>
+        </div>
+
+        <!-- Mission Statement -->
+        <h2
+          id="mission-heading"
+          class="text-display-md fade-up max-w-[28ch] mx-auto mb-10 lg:mb-12"
+          style="color: var(--color-foreground); transition-delay: 100ms;"
+        >
+          Protect every traveler through professional safety analysis, government intelligence, and documented evidence.
+        </h2>
+
+        <!-- Divider -->
+        <div class="fade-up flex justify-center my-10 lg:my-12" aria-hidden="true" style="transition-delay: 250ms;">
+          <div class="w-[120px] h-px" style="background: var(--color-primary-300);"></div>
+        </div>
+
+        <!-- Vision Label -->
+        <div class="fade-up mb-4" style="transition-delay: 350ms;">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">OUR VISION</span>
+        </div>
+
+        <!-- Vision Statement -->
+        <p class="text-body-lg fade-up max-w-prose mx-auto" style="color: var(--color-muted-foreground); transition-delay: 430ms;">
+          A world where every group trip has the safety rigor it deserves&mdash;where preparation is the standard, not the exception.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 7: TRUSTED BY                                           -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="trusted-by-heading"
+      class="py-12 sm:py-16 md:py-20 lg:py-24"
+      style="background: var(--color-card);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Header -->
+        <div class="text-center">
+          <h2
+            id="trusted-by-heading"
+            class="text-heading-lg fade-up max-w-[28ch] mx-auto mb-4"
+            style="color: var(--color-foreground);"
+          >
+            Trusted by Schools, Universities, Churches, and Businesses
+          </h2>
+          <p class="text-body-lg fade-up max-w-prose mx-auto mb-10 lg:mb-12" style="color: var(--color-muted-foreground); transition-delay: 80ms;">
+            SafeTrekr serves 104 organizations across education, faith-based, and corporate sectors.
+          </p>
+        </div>
+
+        <!-- Org Type Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-3xl mx-auto">
+
+          <!-- K-12 Schools -->
+          <div class="fade-up card-static rounded-xl p-6 text-center" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-xs); border-radius: var(--radius-xl); transition-delay: 0ms;">
+            <div class="h-12 w-12 mx-auto rounded-lg flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- GraduationCap icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="text-heading-sm" style="color: var(--color-foreground);">K-12 Schools</div>
+            <div class="text-body-sm mt-1" style="color: var(--color-muted-foreground);">Districts &amp; independent schools</div>
+          </div>
+
+          <!-- Higher Education -->
+          <div class="fade-up card-static rounded-xl p-6 text-center" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-xs); border-radius: var(--radius-xl); transition-delay: 80ms;">
+            <div class="h-12 w-12 mx-auto rounded-lg flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- BookOpen icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <div class="text-heading-sm" style="color: var(--color-foreground);">Higher Education</div>
+            <div class="text-body-sm mt-1" style="color: var(--color-muted-foreground);">Universities &amp; colleges</div>
+          </div>
+
+          <!-- Churches & Missions -->
+          <div class="fade-up card-static rounded-xl p-6 text-center" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-xs); border-radius: var(--radius-xl); transition-delay: 160ms;">
+            <div class="h-12 w-12 mx-auto rounded-lg flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- Heart icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </div>
+            <div class="text-heading-sm" style="color: var(--color-foreground);">Churches &amp; Missions</div>
+            <div class="text-body-sm mt-1" style="color: var(--color-muted-foreground);">Congregations &amp; mission organizations</div>
+          </div>
+
+          <!-- Corporate & Sports -->
+          <div class="fade-up card-static rounded-xl p-6 text-center" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-xs); border-radius: var(--radius-xl); transition-delay: 240ms;">
+            <div class="h-12 w-12 mx-auto rounded-lg flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- Building2 icon -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+              </svg>
+            </div>
+            <div class="text-heading-sm" style="color: var(--color-foreground);">Corporate &amp; Sports</div>
+            <div class="text-body-sm mt-1" style="color: var(--color-muted-foreground);">Businesses, leagues, &amp; sports teams</div>
+          </div>
+
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="fade-up text-body-sm text-center mt-8" style="color: var(--color-muted-foreground); transition-delay: 300ms;">
+          Specific client logos and organization names available upon request.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 8: CTA BANNER (DARK)                                    -->
+    <!-- ============================================================== -->
+    <section
+      aria-label="Request a demonstration"
+      class="py-20 lg:py-28"
+      data-theme="dark"
+      style="background: var(--color-secondary);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
+
+        <!-- Headline -->
+        <h2 class="text-display-md fade-up mb-4 lg:mb-6" style="color: #f7f8f8;">
+          Ready to See SafeTrekr in Action?
+        </h2>
+
+        <!-- Body -->
+        <p class="text-body-lg fade-up max-w-prose mx-auto mb-8" style="color: #b8c3c7; transition-delay: 100ms;">
+          See how professional trip safety management works for your organization. Our team will walk you through a real safety binder.
+        </p>
+
+        <!-- CTAs -->
+        <div class="fade-up flex flex-col sm:flex-row gap-4 justify-center" style="transition-delay: 200ms;">
+          <a
+            href="/demo"
+            class="btn btn-lg rounded-lg font-heading font-semibold px-8 py-4 text-base"
+            style="background: white; color: var(--color-secondary);"
+            aria-label="Get a demo of SafeTrekr"
+          >
+            Get a Demo
+          </a>
+          <a
+            href="/how-it-works"
+            class="btn btn-lg rounded-lg font-heading font-semibold px-8 py-4 text-base"
+            style="background: transparent; border: 1.5px solid rgba(255,255,255,0.2); color: #f7f8f8;"
+          >
+            See How It Works
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER                                                         -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================================================================== -->
+  <!-- SCRIPTS                                                             -->
+  <!-- ================================================================== -->
+  <script>
+    // ── Intersection Observer for fade-up animations ──
+    (function() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        // Show everything immediately
+        document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+        document.querySelectorAll('.route-path').forEach(el => el.classList.add('drawn'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Get all fade-up children within the observed element, or the element itself
+            const targets = entry.target.classList.contains('fade-up')
+              ? [entry.target]
+              : entry.target.querySelectorAll('.fade-up');
+
+            targets.forEach(el => {
+              el.classList.add('visible');
+            });
+
+            // Handle route path drawing
+            const paths = entry.target.querySelectorAll('.route-path');
+            paths.forEach(p => p.classList.add('drawn'));
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observe individual fade-up elements
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      // Observe the route divider container
+      const routeContainer = document.querySelector('.route-path');
+      if (routeContainer) {
+        observer.observe(routeContainer.closest('div'));
+      }
+    })();
+
+    // ── Header scroll behavior ──
+    (function() {
+      const header = document.querySelector('.site-header');
+      let lastScroll = 0;
+
+      function onScroll() {
+        const scrollY = window.scrollY;
+        if (scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        lastScroll = scrollY;
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // ── Mobile menu toggle ──
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('mobile-overlay');
+      const toggle = document.getElementById('menu-toggle');
+      const hamburger = toggle.querySelector('.hamburger-icon');
+      const closeIcon = toggle.querySelector('.close-icon');
+
+      const isOpen = menu.classList.contains('open');
+
+      if (isOpen) {
+        menu.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburger.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        menu.classList.add('open');
+        overlay.classList.add('open');
+        hamburger.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // ── Counter animation for stat values ──
+    (function() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const counters = document.querySelectorAll('.counter-value[data-target]');
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target, 10);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1500;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease out cubic
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = Math.round(eased * target);
+
+              el.textContent = current + suffix;
+
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              } else {
+                el.textContent = target + suffix;
+              }
+            }
+
+            el.textContent = '0' + suffix;
+            requestAnimationFrame(update);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(c => counterObserver.observe(c));
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works -- SafeTrekr</title>
+  <meta name="description" content="From trip submission to safety binder in 3-5 days. See how SafeTrekr's analyst review, government intelligence, and tamper-evident documentation protect every trip.">
+  <meta property="og:title" content="How SafeTrekr Works: Intelligence, Review, Documentation">
+  <meta property="og:description" content="Every trip goes through the same rigorous 3-step process. 5 government data sources. 17-section analyst review. SHA-256 tamper-evident safety binder.">
+  <meta property="og:image" content="/og/how-it-works.png">
+  <link rel="canonical" href="https://safetrekr.com/how-it-works">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'st-bg': '#e7ecee',
+            'st-fg': '#061a23',
+            'st-card': '#f7f8f8',
+            'st-border': '#b8c3c7',
+            'st-muted': '#4d5153',
+            'st-primary': {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b'
+            },
+            'st-secondary': { DEFAULT: '#123646', light: '#1a4a5e', muted: '#b8c3c7', fg: '#f7f8f8' },
+            'st-dark-surface': 'rgba(255,255,255,0.06)',
+            'st-dark-border': 'rgba(255,255,255,0.1)',
+            'st-dark-accent': '#6cbc8b',
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How SafeTrekr Works",
+    "description": "From trip submission to safety binder in 3-5 days. Every trip goes through the same rigorous process.",
+    "totalTime": "P5D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Submit Your Trip",
+        "text": "Your organization submits trip details through a guided form: destination, dates, participants, activities, and logistics. Takes approximately 15 minutes.",
+        "url": "https://safetrekr.com/how-it-works#process"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Analyst Reviews Everything",
+        "text": "A trained safety analyst conducts a comprehensive 17-section review. The Risk Intelligence Engine scores every destination using NOAA, USGS, CDC, GDACS, and ReliefWeb data with Monte Carlo simulations.",
+        "url": "https://safetrekr.com/how-it-works#review"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Receive Your Safety Binder",
+        "text": "Audit-ready documentation delivered with SHA-256 hash-chain integrity. Every finding, every recommendation, every emergency contact, every risk score.",
+        "url": "https://safetrekr.com/how-it-works#binder"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ---- Scroll margin for anchors ---- */
+    [id] { scroll-margin-top: 8rem; }
+
+    /* ---- Sticky Anchor Nav ---- */
+    .anchor-nav { transition: opacity 0.2s ease, transform 0.2s ease; }
+    .anchor-nav.hidden-nav { opacity: 0; pointer-events: none; transform: translateY(-100%); }
+    .anchor-nav.visible-nav { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .anchor-link { white-space: nowrap; padding: 0.75rem 0; font-size: 0.875rem; color: var(--color-muted-foreground); border-bottom: 2px solid transparent; transition: color 0.15s ease, border-color 0.15s ease; }
+    .anchor-link:hover { color: var(--color-foreground); }
+    .anchor-link.active { color: var(--color-foreground); font-weight: 600; border-bottom-color: var(--color-primary); }
+
+    /* ---- Scrollbar hide ---- */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ---- Card hover ---- */
+    .review-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .review-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    /* ---- Segment card hover ---- */
+    .segment-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .segment-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .segment-card:hover .segment-title { color: var(--color-primary-700); }
+    .segment-card:hover .segment-arrow { transform: translateX(4px); }
+    .segment-arrow { transition: transform 0.15s ease; }
+
+    /* ---- Proof card hover ---- */
+    .proof-card { transition: box-shadow 0.2s ease; }
+    .proof-card:hover { box-shadow: var(--shadow-md); }
+
+    /* ---- Monte Carlo SVG ---- */
+    .bell-curve-path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawCurve 1.2s ease-out forwards; }
+    @keyframes drawCurve { to { stroke-dashoffset: 0; } }
+    .data-dot { opacity: 0; animation: popDot 0.3s ease-out forwards; }
+    .data-dot:nth-child(1) { animation-delay: 1.2s; }
+    .data-dot:nth-child(2) { animation-delay: 1.3s; }
+    .data-dot:nth-child(3) { animation-delay: 1.4s; }
+    .data-dot:nth-child(4) { animation-delay: 1.5s; }
+    .data-dot:nth-child(5) { animation-delay: 1.6s; }
+    @keyframes popDot { to { opacity: 1; } }
+
+    /* ---- Timeline connector (desktop) ---- */
+    .timeline-connector { stroke-dasharray: 6 4; }
+
+    /* ---- Mobile vertical timeline ---- */
+    .mobile-timeline-line { width: 2px; background: var(--color-border); }
+    .mobile-timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-primary-500); box-shadow: 0 0 0 4px var(--color-primary-100); flex-shrink: 0; }
+
+    /* ---- Fade-up animation ---- */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .bell-curve-path { stroke-dashoffset: 0; animation: none; }
+      .data-dot { opacity: 1; animation: none; }
+    }
+
+    /* ---- Status pulse ---- */
+    @keyframes statusPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .status-pulse { animation: statusPulse 2s ease-in-out infinite; }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body class="bg-[#e7ecee] text-[#061a23] font-body">
+
+  <!-- Skip Nav -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:text-[#33704b] focus:outline-2 focus:outline-[#365462]">Skip to main content</a>
+
+  <!-- ============================================================ -->
+  <!-- SITE HEADER (sticky)                                         -->
+  <!-- ============================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134ZM8.33343 8.03669C6.23343 8.15669 4.77332 9.8267 4.97332 11.8367C4.99332 23.5267 4.9734 35.6267 5.0534 47.3067C6.0434 46.4667 6.92342 45.5167 7.82342 44.5867C16.9534 35.3067 26.6634 25.5667 35.7934 16.2767C36.4034 15.6667 36.9234 15.3167 37.8234 15.3167C38.8134 15.3167 39.2034 15.5767 39.8535 16.2567C43.4635 20.1467 47.3033 24.0167 50.9633 27.8667C51.5833 28.4867 52.1733 29.1967 52.9833 29.5867C54.2633 30.1467 55.7333 29.3367 56.9933 29.9767C57.9933 30.5367 58.7034 31.4567 59.5134 32.2467C63.2234 36.0167 66.8032 39.9267 70.6432 43.5667C70.6832 33.0567 70.6433 22.2967 70.6633 11.7867C70.7033 10.5967 70.3433 9.58669 69.4333 8.77668C68.6133 7.97668 67.4234 7.80668 66.3334 7.69668C58.4834 6.94668 48.7135 5.97669 40.8635 5.21669C38.4335 4.90669 37.3933 4.90669 34.7033 5.21669C25.9133 6.14669 17.1334 7.10668 8.35345 8.02668L8.33343 8.03669ZM33.4333 80.6367C34.6233 81.3567 36.1435 82.2867 37.8835 82.2867C39.5135 82.2867 41.0333 81.3667 42.2233 80.6367C45.6933 78.0267 48.2733 75.4867 51.4933 72.5667C53.4433 70.7667 54.8633 68.8167 56.1533 66.4567C57.6433 63.7967 57.5932 60.1967 55.6432 57.7767C53.6732 55.2667 50.6233 54.0467 47.7233 52.9767C44.8233 51.8167 41.7433 51.0767 38.9433 49.6667C38.1533 49.2267 37.0734 48.5667 37.3034 47.4967C37.6234 46.2967 38.8334 45.6867 39.8234 45.1167C41.6534 44.0667 43.5335 43.9667 45.6235 42.7367C44.6635 42.6567 44.0334 42.6667 42.7534 42.8167C39.8534 43.2367 36.9535 43.6667 34.1135 44.4067C32.4135 44.8767 30.6733 45.5167 29.4133 46.7867C28.7033 47.4867 28.3434 48.6367 28.8234 49.5567C29.3734 50.5867 30.4433 51.1867 31.4333 51.7367C33.4933 52.8067 35.6035 53.7767 37.6135 54.9467C38.9335 55.7167 40.3233 56.6367 40.9133 58.1067C41.4733 59.5767 40.9134 61.1967 40.0734 62.4367C38.6934 64.4167 36.5434 65.6467 34.5734 66.9467C30.2834 69.7167 26.4533 71.3267 21.9033 73.6067L33.4533 80.6067L33.4333 80.6367Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567C109.393 68.5767 106.593 66.7967 103.963 64.3567C103.763 64.1667 103.743 63.8567 103.913 63.6467L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667C130.963 55.1267 130.653 54.2167 130.023 53.5367C129.403 52.8567 128.514 52.2467 127.374 51.6967C126.234 51.1567 124.873 50.5567 123.303 49.8967L116.384 47.0367C114.594 46.2167 112.863 45.1767 111.213 43.8967C109.553 42.6167 108.223 41.0367 107.223 39.1667C106.223 37.2867 105.713 35.0467 105.713 32.4367C105.713 29.4967 106.514 26.8467 108.114 24.4867C109.714 22.1167 111.943 20.2167 114.793 18.7767C117.643 17.3367 120.913 16.6167 124.603 16.6167C127.803 16.6167 130.904 17.1867 133.884 18.3267C136.714 19.4067 139.203 20.9567 141.353 22.9667C141.553 23.1567 141.573 23.4667 141.393 23.6767L135.653 30.6767C135.483 30.8867 135.173 30.9167 134.953 30.7667C133.343 29.5967 131.693 28.6867 130.013 28.0367C128.193 27.3267 126.393 26.9767 124.603 26.9767C122.543 26.9767 120.893 27.3967 119.673 28.2367C118.453 29.0767 117.843 30.2667 117.843 31.7867C117.843 32.8167 118.193 33.7067 118.903 34.4367C119.603 35.1667 120.583 35.7967 121.833 36.3167C123.083 36.8367 124.443 37.4167 125.903 38.0667L132.743 40.8367C134.913 41.7067 136.773 42.7967 138.323 44.0967C139.873 45.4067 141.073 46.9667 141.943 48.7867C142.813 50.6067 143.243 52.7767 143.243 55.2767C143.243 58.2167 142.454 60.9367 140.884 63.4367C139.304 65.9367 137.033 67.9567 134.043 69.4767C131.053 70.9967 127.443 71.7567 123.213 71.7567L123.233 71.7767Z" fill="#123646"/>
+          <path d="M191.373 70.1265L175.003 18.0465C174.933 17.8365 174.733 17.6865 174.513 17.6865H161.013C160.793 17.6865 160.593 17.8365 160.523 18.0465L144.153 70.1265C144.053 70.4565 144.293 70.7965 144.643 70.7965H155.753C155.983 70.7965 156.193 70.6365 156.253 70.4065L159.403 58.1465H175.623L178.773 70.4065C178.833 70.6365 179.033 70.7965 179.273 70.7965H190.873C191.223 70.7965 191.463 70.4565 191.363 70.1265H191.373ZM161.823 48.7665L163.083 43.8665C163.843 41.2065 164.593 38.3865 165.323 35.4265C166.053 32.4665 166.723 29.5365 167.313 26.6565H167.643C168.343 29.4865 169.053 32.3965 169.763 35.3865C170.463 38.3765 171.203 41.2065 171.963 43.8765L173.223 48.7765H161.833L161.823 48.7665Z" fill="#123646"/>
+          <path d="M195.963 70.2769V18.1069C195.963 17.8269 196.193 17.5869 196.473 17.5869H228.913C229.193 17.5869 229.423 17.8169 229.423 18.1069V27.1969C229.423 27.4769 229.193 27.7169 228.913 27.7169H208.443C208.163 27.7169 207.933 27.9469 207.933 28.2369V39.5269C207.933 39.8069 208.163 40.0469 208.443 40.0469H225.813C226.093 40.0469 226.323 40.2769 226.323 40.5669V49.6569C226.323 49.9369 226.093 50.1769 225.813 50.1769H208.443C208.163 50.1769 207.933 50.4069 207.933 50.6969V70.3069C207.933 70.5869 207.703 70.8269 207.423 70.8269H196.483C196.203 70.8269 195.973 70.5969 195.973 70.3069L195.963 70.2769Z" fill="#123646"/>
+          <path d="M235.693 70.2769V18.1069C235.693 17.8269 235.923 17.5869 236.203 17.5869H268.393C268.673 17.5869 268.903 17.8169 268.903 18.1069V27.1969C268.903 27.4769 268.673 27.7169 268.393 27.7169H248.173C247.893 27.7169 247.663 27.9469 247.663 28.2369V37.8969C247.663 38.1769 247.893 38.4169 248.173 38.4169H265.223C265.503 38.4169 265.733 38.6469 265.733 38.9369V47.9469C265.733 48.2269 265.503 48.4669 265.223 48.4669H248.173C247.893 48.4669 247.663 48.6969 247.663 48.9869V60.1969C247.663 60.4769 247.893 60.7169 248.173 60.7169H269.213C269.493 60.7169 269.723 60.9469 269.723 61.2369V70.3269C269.723 70.6069 269.493 70.8469 269.213 70.8469H236.203C235.923 70.8469 235.693 70.6169 235.693 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M288.933 70.3265V28.2765C288.933 27.9965 288.703 27.7565 288.423 27.7565H274.874C274.594 27.7565 274.364 27.5265 274.364 27.2365V18.2265C274.364 17.9465 274.594 17.7065 274.874 17.7065H315.043C315.323 17.7065 315.553 17.9365 315.553 18.2265V27.2365C315.553 27.5165 315.323 27.7565 315.043 27.7565H301.493C301.213 27.7565 300.983 27.9865 300.983 28.2765V70.3265C300.983 70.6065 300.753 70.8465 300.473 70.8465H289.453C289.173 70.8465 288.943 70.6165 288.943 70.3265H288.933Z" fill="#123646"/>
+          <path d="M363.533 70.0267L351.124 49.4567C353.864 48.2367 356.093 46.4567 357.783 44.1067C359.623 41.5467 360.553 38.2367 360.553 34.1567C360.553 30.0767 359.633 26.6667 357.783 24.2467C355.933 21.8267 353.464 20.1167 350.374 19.1067C347.284 18.0967 343.864 17.5967 340.114 17.5967H321.493C321.213 17.5967 320.983 17.8267 320.983 18.1167V70.2867C320.983 70.5667 321.213 70.8067 321.493 70.8067H332.433C332.713 70.8067 332.943 70.5767 332.943 70.2867V52.1467C332.943 51.8667 333.173 51.6267 333.453 51.6267H339.553L350.384 70.5267C350.474 70.6967 350.643 70.7967 350.833 70.7967H363.083C363.473 70.7967 363.723 70.3667 363.533 70.0267ZM332.943 41.5567V27.6567C332.943 27.3767 333.173 27.1367 333.453 27.1367H339.124C342.274 27.1367 344.673 27.6567 346.333 28.6867C347.993 29.7167 348.813 31.5467 348.813 34.1567C348.813 36.7667 347.983 38.7367 346.333 40.0767C344.673 41.4067 342.274 42.0767 339.124 42.0767H333.453C333.173 42.0767 332.943 41.8467 332.943 41.5567Z" fill="#123646"/>
+          <path d="M369.763 70.2769V18.1069C369.763 17.8269 369.993 17.5869 370.273 17.5869H402.463C402.743 17.5869 402.973 17.8169 402.973 18.1069V27.1969C402.973 27.4769 402.743 27.7169 402.463 27.7169H382.243C381.963 27.7169 381.733 27.9469 381.733 28.2369V37.8969C381.733 38.1769 381.963 38.4169 382.243 38.4169H399.293C399.573 38.4169 399.803 38.6469 399.803 38.9369V47.9469C399.803 48.2269 399.573 48.4669 399.293 48.4669H382.243C381.963 48.4669 381.733 48.6969 381.733 48.9869V60.1969C381.733 60.4769 381.963 60.7169 382.243 60.7169H403.283C403.563 60.7169 403.793 60.9469 403.793 61.2369V70.3269C403.793 70.6069 403.563 70.8469 403.283 70.8469H370.273C369.993 70.8469 369.763 70.6169 369.763 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M410.114 70.2769V18.1069C410.114 17.8269 410.344 17.5869 410.624 17.5869H421.563C421.843 17.5869 422.073 17.8169 422.073 18.1069V39.3769H422.403L438.043 17.8069C438.143 17.6769 438.293 17.5969 438.463 17.5969H450.354C450.774 17.5969 451.023 18.0869 450.763 18.4269L435.553 38.5369C435.423 38.7069 435.413 38.9269 435.523 39.1069L453.854 70.0169C454.054 70.3569 453.813 70.7969 453.413 70.7969H441.503C441.323 70.7969 441.153 70.6969 441.053 70.5369L428.643 49.0269C428.463 48.7069 428.013 48.6769 427.793 48.9769L422.173 56.3769C422.103 56.4669 422.073 56.5769 422.073 56.6869V70.2769C422.073 70.5569 421.843 70.7969 421.563 70.7969H410.624C410.344 70.7969 410.114 70.5669 410.114 70.2769Z" fill="#123646"/>
+          <path d="M501.983 70.0267L489.573 49.4567C492.313 48.2367 494.543 46.4567 496.233 44.1067C498.073 41.5467 499.003 38.2367 499.003 34.1567C499.003 30.0767 498.083 26.6667 496.233 24.2467C494.383 21.8267 491.913 20.1167 488.823 19.1067C485.733 18.0967 482.313 17.5967 478.563 17.5967H459.943C459.663 17.5967 459.433 17.8267 459.433 18.1167V70.2867C459.433 70.5667 459.663 70.8067 459.943 70.8067H470.884C471.164 70.8067 471.393 70.5767 471.393 70.2867V52.1467C471.393 51.8667 471.623 51.6267 471.903 51.6267H478.003L488.833 70.5267C488.923 70.6967 489.093 70.7967 489.283 70.7967H501.533C501.923 70.7967 502.173 70.3667 501.983 70.0267ZM471.393 41.5567V27.6567C471.393 27.3767 471.623 27.1367 471.903 27.1367H477.573C480.723 27.1367 483.123 27.6567 484.783 28.6867C486.443 29.7167 487.263 31.5467 487.263 34.1567C487.263 36.7667 486.433 38.7367 484.783 40.0767C483.123 41.4067 480.723 42.0767 477.573 42.0767H471.903C471.623 42.0767 471.393 41.8467 471.393 41.5567Z" fill="#123646"/>
+        </svg>
+        <svg height="26" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667" fill="#123646"/>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- STICKY ANCHOR NAV (appears after hero scroll)                -->
+  <!-- ============================================================ -->
+  <div id="anchor-nav" class="anchor-nav hidden-nav sticky top-16 z-30 bg-[#f7f8f8]/95 backdrop-blur-sm border-b border-[#b8c3c7] h-12">
+    <nav class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center gap-6 overflow-x-auto scrollbar-hide" aria-label="Page sections">
+      <a href="#process" class="anchor-link active" data-anchor="process">The Process</a>
+      <a href="#intelligence" class="anchor-link" data-anchor="intelligence">Intelligence</a>
+      <a href="#review" class="anchor-link" data-anchor="review">17 Sections</a>
+      <a href="#binder" class="anchor-link" data-anchor="binder">Binder</a>
+      <a href="#field-ops" class="anchor-link" data-anchor="field-ops">Field Ops</a>
+      <a href="#after-trip" class="anchor-link" data-anchor="after-trip">After Trip</a>
+    </nav>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MAIN CONTENT                                                  -->
+  <!-- ============================================================ -->
+  <main id="main-content">
+
+    <!-- ========================================================== -->
+    <!-- SECTION 1: HERO                                             -->
+    <!-- ========================================================== -->
+    <section id="hero" aria-labelledby="hero-heading" class="pt-16 pb-20 lg:pt-24 lg:pb-32 bg-[#e7ecee]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="max-w-3xl mx-auto text-center">
+
+          <!-- Eyebrow -->
+          <div class="flex items-center justify-center gap-2 mb-4 fade-up">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#33704b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L4 7v6c0 5.55 3.41 10.74 8 12 4.59-1.26 8-6.45 8-12V7l-8-5z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span class="text-eyebrow text-[#33704b]">How It Works</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 id="hero-heading" class="text-display-lg text-[#061a23] font-display font-bold max-w-[20ch] mx-auto mb-6 fade-up">
+            From Trip Submission to Safety Binder in 3&#8209;5&nbsp;Days.
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-body-lg text-[#4d5153] font-body max-w-[65ch] mx-auto mb-10 fade-up">
+            Every trip goes through the same rigorous process. Here's exactly how.
+          </p>
+
+          <!-- CTA Group -->
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center fade-up">
+            <a href="/demo" class="btn btn-primary btn-lg w-full sm:w-auto">Get a Demo</a>
+            <a href="/resources/sample-binders" class="btn btn-secondary btn-lg w-full sm:w-auto">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download a Sample Binder
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 2: PROCESS TIMELINE (Three-Act Structure)           -->
+    <!-- ========================================================== -->
+    <section id="process" aria-labelledby="process-heading" class="py-24 lg:py-32 bg-[#e7ecee]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 lg:mb-20">
+          <p class="text-eyebrow text-[#33704b] uppercase mb-4 fade-up">The Process</p>
+          <h2 id="process-heading" class="text-display-md text-[#061a23] max-w-[28ch] mx-auto text-center fade-up">
+            Three Steps. One Standard.
+          </h2>
+        </div>
+
+        <!-- Desktop Timeline (lg+) -->
+        <div class="hidden lg:block" role="list">
+          <div class="grid grid-cols-3 gap-8 relative">
+
+            <!-- Connecting SVG lines (decorative) -->
+            <svg class="absolute top-6 left-0 w-full h-12 pointer-events-none" aria-hidden="true" style="z-index:0;">
+              <!-- Line 1->2 -->
+              <line x1="18.5%" y1="24" x2="48.5%" y2="24" stroke="#c0e2cd" stroke-width="2" class="timeline-connector" />
+              <!-- Line 2->3 -->
+              <line x1="51.5%" y1="24" x2="81.5%" y2="24" stroke="#c0e2cd" stroke-width="2" class="timeline-connector" />
+            </svg>
+
+            <!-- Step 1 -->
+            <article class="relative z-10 fade-up" role="listitem">
+              <div class="h-12 w-12 rounded-full bg-[#e0f1e6] border-2 border-[#96cfac] flex items-center justify-center mb-6">
+                <span class="text-heading-sm text-[#33704b] font-bold">1</span>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#f1f9f4] text-[#33704b] mb-3">ACT 1: INTELLIGENCE</span>
+              <h3 class="text-heading-md text-[#061a23] font-semibold mb-3">Submit Your Trip</h3>
+              <p class="text-body-md text-[#4d5153] max-w-[45ch] mb-6">
+                Your organization submits trip details through a guided form. Destination, dates, participants, activities, and logistics.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Destination and travel dates</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Participant count and demographics</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Planned activities and venues</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Transportation and lodging details</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Special requirements or concerns</span>
+                </li>
+              </ul>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#e7ecee] border border-[#b8c3c7] text-[#4d5153]" aria-label="Estimated time: 15 minutes">Takes ~15 minutes</span>
+            </article>
+
+            <!-- Step 2 -->
+            <article class="relative z-10 fade-up" role="listitem" style="transition-delay:400ms;">
+              <div class="h-12 w-12 rounded-full bg-[#e0f1e6] border-2 border-[#96cfac] flex items-center justify-center mb-6">
+                <span class="text-heading-sm text-[#33704b] font-bold">2</span>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#f1f9f4] text-[#33704b] mb-3">ACT 2: REVIEW</span>
+              <h3 class="text-heading-md text-[#061a23] font-semibold mb-3">Analyst Reviews Everything</h3>
+              <p class="text-body-md text-[#4d5153] max-w-[45ch] mb-6">
+                A trained safety analyst conducts a comprehensive 17-section review. The Risk Intelligence Engine scores every destination using 5 government data sources.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">17-section professional safety review</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Monte Carlo risk scoring simulation</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">5 government intelligence sources analyzed</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Every venue, route, and provider evaluated</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Recommendations written for each finding</span>
+                </li>
+              </ul>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#e7ecee] border border-[#b8c3c7] text-[#4d5153]" aria-label="Estimated time: 3 to 5 business days">3-5 business days</span>
+            </article>
+
+            <!-- Step 3 -->
+            <article class="relative z-10 fade-up" role="listitem" style="transition-delay:800ms;">
+              <div class="h-12 w-12 rounded-full bg-[#e0f1e6] border-2 border-[#96cfac] flex items-center justify-center mb-6">
+                <span class="text-heading-sm text-[#33704b] font-bold">3</span>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#f1f9f4] text-[#33704b] mb-3">ACT 3: DOCUMENTATION</span>
+              <h3 class="text-heading-md text-[#061a23] font-semibold mb-3">Receive Your Safety Binder</h3>
+              <p class="text-body-md text-[#4d5153] max-w-[45ch] mb-6">
+                Audit-ready documentation delivered with SHA-256 hash-chain integrity. Every finding, every recommendation, every emergency contact, every risk score.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Complete findings and recommendations</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Emergency contacts and procedures</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Risk scores with probability analysis</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Maps, routes, and venue details</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm text-[#061a23]">Tamper-evident cryptographic verification</span>
+                </li>
+              </ul>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#e7ecee] border border-[#b8c3c7] text-[#4d5153]" aria-label="Delivered digitally">Delivered digitally</span>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Mobile Timeline (< lg) -->
+        <div class="lg:hidden">
+          <div class="relative">
+
+            <!-- Step 1 Mobile -->
+            <div class="flex gap-6 pb-12 fade-up">
+              <div class="flex flex-col items-center">
+                <div class="mobile-timeline-dot"></div>
+                <div class="mobile-timeline-line flex-1 mt-3"></div>
+              </div>
+              <div class="pb-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#f1f9f4] text-[#33704b] mb-3">ACT 1: INTELLIGENCE</span>
+                <h3 class="text-heading-md text-[#061a23] font-semibold mb-2">Submit Your Trip</h3>
+                <p class="text-body-md text-[#4d5153] mb-4">Your organization submits trip details through a guided form. Destination, dates, participants, activities, and logistics.</p>
+                <ul class="space-y-2 mb-4">
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Destination and travel dates</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Participant count and demographics</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Planned activities and venues</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Transportation and lodging details</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Special requirements or concerns</span></li>
+                </ul>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#e7ecee] border border-[#b8c3c7] text-[#4d5153]">Takes ~15 minutes</span>
+              </div>
+            </div>
+
+            <!-- Step 2 Mobile -->
+            <div class="flex gap-6 pb-12 fade-up">
+              <div class="flex flex-col items-center">
+                <div class="mobile-timeline-dot"></div>
+                <div class="mobile-timeline-line flex-1 mt-3"></div>
+              </div>
+              <div class="pb-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#f1f9f4] text-[#33704b] mb-3">ACT 2: REVIEW</span>
+                <h3 class="text-heading-md text-[#061a23] font-semibold mb-2">Analyst Reviews Everything</h3>
+                <p class="text-body-md text-[#4d5153] mb-4">A trained safety analyst conducts a comprehensive 17-section review. The Risk Intelligence Engine scores every destination using 5 government data sources.</p>
+                <ul class="space-y-2 mb-4">
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">17-section professional safety review</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Monte Carlo risk scoring simulation</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">5 government intelligence sources analyzed</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Every venue, route, and provider evaluated</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Recommendations written for each finding</span></li>
+                </ul>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#e7ecee] border border-[#b8c3c7] text-[#4d5153]">3-5 business days</span>
+              </div>
+            </div>
+
+            <!-- Step 3 Mobile -->
+            <div class="flex gap-6 fade-up">
+              <div class="flex flex-col items-center">
+                <div class="mobile-timeline-dot"></div>
+              </div>
+              <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#f1f9f4] text-[#33704b] mb-3">ACT 3: DOCUMENTATION</span>
+                <h3 class="text-heading-md text-[#061a23] font-semibold mb-2">Receive Your Safety Binder</h3>
+                <p class="text-body-md text-[#4d5153] mb-4">Audit-ready documentation delivered with SHA-256 hash-chain integrity. Every finding, every recommendation, every emergency contact, every risk score.</p>
+                <ul class="space-y-2 mb-4">
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Complete findings and recommendations</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Emergency contacts and procedures</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Risk scores with probability analysis</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Maps, routes, and venue details</span></li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#4ca46e] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm text-[#061a23]">Tamper-evident cryptographic verification</span></li>
+                </ul>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#e7ecee] border border-[#b8c3c7] text-[#4d5153]">Delivered digitally</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 3: INTELLIGENCE SOURCES (DARK SECTION 1)            -->
+    <!-- ========================================================== -->
+    <section id="intelligence" aria-labelledby="intelligence-heading" class="py-24 lg:py-32" data-theme="dark" style="background:#123646;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <p class="text-eyebrow text-[#6cbc8b] uppercase tracking-[0.08em] mb-4 fade-up">Intelligence Engine</p>
+          <h2 id="intelligence-heading" class="text-display-md text-[#f7f8f8] max-w-[28ch] mx-auto text-center mb-6 fade-up">
+            We Analyze Data You Can't Get from a Google Search.
+          </h2>
+          <p class="text-body-lg text-[#b8c3c7] max-w-[65ch] mx-auto text-center fade-up">
+            SafeTrekr's Risk Intelligence Engine pulls from 5 authoritative government data sources and runs Monte Carlo simulations to produce probability-weighted risk scores.
+          </p>
+        </div>
+
+        <!-- Intelligence Source Cards (5) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 mb-16">
+
+          <!-- NOAA -->
+          <article class="rounded-xl border p-6 text-center lg:text-left fade-up" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);">
+            <div class="h-10 w-10 mx-auto lg:mx-0 mb-4 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.08);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.8"><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#f7f8f8] font-semibold mb-2">NOAA</h3>
+            <p class="text-xs text-[#b8c3c7] mb-3">National Oceanic and Atmospheric Administration</p>
+            <p class="text-body-sm text-[#b8c3c7]">Weather forecasts, severe storm alerts, historical climate patterns for travel dates and destination</p>
+          </article>
+
+          <!-- USGS -->
+          <article class="rounded-xl border p-6 text-center lg:text-left fade-up" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);transition-delay:80ms;">
+            <div class="h-10 w-10 mx-auto lg:mx-0 mb-4 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.08);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.8"><path d="M2 22 L6 14 L10 18 L14 8 L18 12 L22 2"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#f7f8f8] font-semibold mb-2">USGS</h3>
+            <p class="text-xs text-[#b8c3c7] mb-3">United States Geological Survey</p>
+            <p class="text-body-sm text-[#b8c3c7]">Seismic activity, earthquake risk, volcanic alerts, geological hazards for destination region</p>
+          </article>
+
+          <!-- CDC -->
+          <article class="rounded-xl border p-6 text-center lg:text-left fade-up" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);transition-delay:160ms;">
+            <div class="h-10 w-10 mx-auto lg:mx-0 mb-4 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.08);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#f7f8f8] font-semibold mb-2">CDC</h3>
+            <p class="text-xs text-[#b8c3c7] mb-3">Centers for Disease Control and Prevention</p>
+            <p class="text-body-sm text-[#b8c3c7]">Health advisories, disease outbreaks, vaccination requirements, travel health notices</p>
+          </article>
+
+          <!-- GDACS -->
+          <article class="rounded-xl border p-6 text-center lg:text-left fade-up" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);transition-delay:240ms;">
+            <div class="h-10 w-10 mx-auto lg:mx-0 mb-4 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.08);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#f7f8f8] font-semibold mb-2">GDACS</h3>
+            <p class="text-xs text-[#b8c3c7] mb-3">Global Disaster Alerting Coordination System</p>
+            <p class="text-body-sm text-[#b8c3c7]">Real-time disaster alerts, earthquake/flood/cyclone monitoring, humanitarian impact assessments</p>
+          </article>
+
+          <!-- ReliefWeb -->
+          <article class="rounded-xl border p-6 text-center lg:text-left fade-up" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);transition-delay:320ms;">
+            <div class="h-10 w-10 mx-auto lg:mx-0 mb-4 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.08);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#f7f8f8] font-semibold mb-2">ReliefWeb</h3>
+            <p class="text-xs text-[#b8c3c7] mb-3">UN Office for Coordination of Humanitarian Affairs</p>
+            <p class="text-body-sm text-[#b8c3c7]">Humanitarian situation reports, conflict updates, country-level safety assessments</p>
+          </article>
+
+        </div>
+
+        <!-- Monte Carlo Explanation Card -->
+        <div class="rounded-xl border p-8 lg:p-12 grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-center fade-up" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);">
+
+          <!-- Left: Text -->
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold mb-4" style="background:rgba(108,188,139,0.15);color:#6cbc8b;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16"/></svg>
+              RISK SCORING
+            </span>
+            <h3 class="text-heading-lg text-[#f7f8f8] mb-4">Probability-Weighted Risk Scores</h3>
+            <p class="text-body-md text-[#b8c3c7] max-w-[65ch] mb-6">
+              Our Risk Intelligence Engine runs Monte Carlo simulations across all data sources to produce probability-weighted risk scores -- not simple averages, but statistically modeled projections of what could affect your trip.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-[#6cbc8b] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm text-[#b8c3c7]">Thousands of simulations per trip</span>
+              </li>
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-[#6cbc8b] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm text-[#b8c3c7]">Weather, seismic, health, conflict data cross-referenced</span>
+              </li>
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-[#6cbc8b] mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm text-[#b8c3c7]">Scores update until departure date</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Bell Curve Visualization (decorative) -->
+          <div class="max-w-[400px] mx-auto w-full" aria-hidden="true">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+              <!-- Axes -->
+              <line x1="40" y1="200" x2="380" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="40" y1="200" x2="40" y2="20" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+              <!-- Shaded area under curve -->
+              <path d="M60 200 Q100 195 140 170 Q180 100 210 50 Q240 100 280 170 Q320 195 360 200 Z" fill="#6cbc8b" fill-opacity="0.1"/>
+
+              <!-- Bell curve -->
+              <path d="M60 200 Q100 195 140 170 Q180 100 210 50 Q240 100 280 170 Q320 195 360 200" stroke="#6cbc8b" stroke-width="2" fill="none" class="bell-curve-path"/>
+
+              <!-- Data points -->
+              <g>
+                <circle cx="120" cy="185" r="5" fill="#96cfac" class="data-dot"/>
+                <circle cx="165" cy="145" r="5" fill="#6cbc8b" class="data-dot"/>
+                <circle cx="210" cy="50" r="6" fill="#4ca46e" class="data-dot"/>
+                <circle cx="255" cy="145" r="5" fill="#6cbc8b" class="data-dot"/>
+                <circle cx="310" cy="188" r="5" fill="#96cfac" class="data-dot"/>
+              </g>
+
+              <!-- X-axis labels -->
+              <text x="80" y="225" fill="#b8c3c7" font-family="JetBrains Mono, monospace" font-size="11">Low</text>
+              <text x="190" y="225" fill="#b8c3c7" font-family="JetBrains Mono, monospace" font-size="11">Medium</text>
+              <text x="330" y="225" fill="#b8c3c7" font-family="JetBrains Mono, monospace" font-size="11">High</text>
+
+              <!-- Y-axis label -->
+              <text x="10" y="110" fill="#b8c3c7" font-family="JetBrains Mono, monospace" font-size="10" transform="rotate(-90, 15, 110)">Probability</text>
+            </svg>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 4: 17-SECTION REVIEW GRID                           -->
+    <!-- ========================================================== -->
+    <section id="review" aria-labelledby="review-heading" class="py-24 lg:py-32 bg-[#e7ecee]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center gap-2 mb-4 fade-up">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#33704b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+            <span class="text-eyebrow text-[#33704b]">The Review</span>
+          </div>
+          <h2 id="review-heading" class="text-display-md text-[#061a23] max-w-[28ch] mx-auto text-center mb-4 fade-up">
+            17 Sections. Nothing Missed.
+          </h2>
+          <p class="text-body-lg text-[#4d5153] max-w-[65ch] mx-auto text-center fade-up">
+            Every trip receives the same comprehensive analyst review. Here is every section your safety analyst evaluates.
+          </p>
+        </div>
+
+        <!-- Category Groups -->
+        <div class="space-y-12">
+
+          <!-- Category 1: Trip Planning -->
+          <div class="fade-up">
+            <h3 class="text-eyebrow text-[#4d5153] uppercase mb-6">Trip Planning</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">1</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Overview</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Trip purpose, objectives, organizational context, and overall scope of the travel plan</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">2</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Participants</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Participant count, demographics, age ranges, special needs, medical considerations, and chaperone-to-participant ratios</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">3</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Itinerary</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Day-by-day schedule, activity timing, transit windows, rest periods, and contingency buffers</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">4</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Transportation</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Ground transportation providers, vehicle safety records, driver credentials, and route risk assessment</p>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Category 2: Destinations & Venues -->
+          <div class="fade-up">
+            <h3 class="text-eyebrow text-[#4d5153] uppercase mb-6">Destinations & Venues</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">5</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Air Travel</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Airlines, airports, layover risks, baggage policies, and flight timing relative to destination conditions</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">6</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Lodging</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Accommodation safety ratings, fire egress, proximity to medical facilities, neighborhood risk profile</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">7</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Venues</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Activity venues, crowd capacity, structural safety, historical incident records, and accessibility</p>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Category 3: Safety & Intelligence -->
+          <div class="fade-up">
+            <h3 class="text-eyebrow text-[#4d5153] uppercase mb-6">Safety & Intelligence</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">8</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Safety</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Destination-level safety assessment: crime rates, political stability, natural hazard exposure, health risks</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">9</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Background Checks</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Verification requirements for chaperones, volunteers, and third-party providers in contact with participants</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">10</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Intel Alerts</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Active intelligence alerts from government sources: weather, seismic, health, conflict, and humanitarian data</p>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Category 4: Emergency Preparedness -->
+          <div class="fade-up">
+            <h3 class="text-eyebrow text-[#4d5153] uppercase mb-6">Emergency Preparedness</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">11</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.27 9 3h6l1.5 1.27"/><path d="M2.27 16.27 4 17h16l1.73-.73"/><circle cx="12" cy="10" r="6"/><line x1="12" y1="7" x2="12" y2="10"/><line x1="12" y1="10" x2="14" y2="12"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Emergency Prep</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Emergency action plans, evacuation routes, rally points, communication chains, and nearest medical facilities</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">12</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Issues</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Known risks, flagged concerns, unresolved issues, and analyst-recommended mitigations requiring action</p>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Category 5: Documentation & Compliance -->
+          <div class="fade-up">
+            <h3 class="text-eyebrow text-[#4d5153] uppercase mb-6">Documentation & Compliance</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">13</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Documents</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Required forms, waivers, permissions, insurance certificates, and regulatory compliance documentation</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">14</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Evidence</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Tamper-evident evidence chain, SHA-256 hash verification, audit trail integrity, and record preservation</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">15</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Checklists</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Pre-departure checklists, day-of checklists, post-trip checklists, and completion verification</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">16</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Packet Builder</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Assembled trip packet: printed materials, digital distribution, chaperone copies, and administrative copies</p>
+              </article>
+
+              <article class="review-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-5" style="box-shadow:var(--shadow-sm);">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-7 w-7 rounded-full bg-[#f1f9f4] text-[#33704b] text-xs font-semibold flex items-center justify-center">17</div>
+                  <svg class="h-5 w-5 text-[#4ca46e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h4 class="text-heading-sm text-[#061a23] font-semibold mb-2">Approval</h4>
+                <p class="text-body-sm text-[#4d5153] line-clamp-3">Final review sign-off, organizational approval workflow, stakeholder acknowledgment, and release authorization</p>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 5: THE SAFETY BINDER                                -->
+    <!-- ========================================================== -->
+    <section id="binder" aria-labelledby="binder-heading" class="py-24 lg:py-32 bg-[#f7f8f8] border-y border-[#b8c3c7]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Left Column: Text -->
+          <div class="order-2 lg:order-1">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-2 mb-4 fade-up">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#33704b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <span class="text-eyebrow text-[#33704b]">The Deliverable</span>
+            </div>
+
+            <h2 id="binder-heading" class="text-display-md text-[#061a23] mb-6 fade-up">What You Receive.</h2>
+
+            <p class="text-body-lg text-[#4d5153] max-w-[65ch] mb-8 fade-up">
+              Your Trip Safety Binder is a complete, audit-ready documentation package. Every finding. Every recommendation. Every emergency contact. Every risk score.
+            </p>
+
+            <!-- Binder Contents List -->
+            <ul class="space-y-3 mb-8">
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Risk score summary with probability analysis</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Section-by-section findings and recommendations</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Emergency contacts and procedures</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Maps, routes, and venue documentation</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Insurance and compliance records</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Cryptographic verification chain</span>
+              </li>
+            </ul>
+
+            <div class="fade-up">
+              <a href="/resources/sample-binders" class="btn btn-primary btn-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download a Sample Binder
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Document Preview -->
+          <div class="order-1 lg:order-2 fade-up" aria-hidden="true">
+            <div class="max-w-[360px] mx-auto relative">
+              <!-- Back sheets (offset) -->
+              <div class="absolute top-3 left-3 right-[-3px] bottom-[-3px] rounded-xl bg-[#e7ecee] border border-[#b8c3c7]"></div>
+              <div class="absolute top-1.5 left-1.5 right-[-1.5px] bottom-[-1.5px] rounded-xl bg-[#eef1f2] border border-[#b8c3c7]"></div>
+
+              <!-- Front sheet -->
+              <div class="relative bg-white rounded-xl border border-[#b8c3c7] p-8 shadow-lg">
+                <p class="text-eyebrow text-[#4d5153] mb-4">Trip Safety Binder</p>
+
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold mb-6" style="background:rgba(34,197,94,0.12);color:#16a34a;">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                  Verified
+                </span>
+
+                <div class="space-y-3 mb-6 text-body-sm">
+                  <div class="flex justify-between">
+                    <span class="text-[#4d5153]">Organization:</span>
+                    <span class="text-[#061a23] font-medium">Example Org</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-[#4d5153]">Trip:</span>
+                    <span class="text-[#061a23] font-medium">Spring Field Trip</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-[#4d5153]">Date:</span>
+                    <span class="text-[#061a23] font-medium">March 2026</span>
+                  </div>
+                </div>
+
+                <div class="h-px bg-[#b8c3c7] my-5"></div>
+
+                <div class="mb-4">
+                  <div class="flex items-baseline gap-2 mb-1">
+                    <span class="font-display font-bold text-2xl text-[#33704b]">23</span>
+                    <span class="text-body-sm text-[#4d5153]">/ 100</span>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold" style="background:rgba(34,197,94,0.12);color:#16a34a;">Low Risk</span>
+                </div>
+
+                <div class="space-y-2 text-body-sm mb-5">
+                  <div class="flex justify-between">
+                    <span class="text-[#4d5153]">Sections Reviewed:</span>
+                    <span class="text-[#061a23] font-semibold">17</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-[#4d5153]">Findings:</span>
+                    <span class="text-[#061a23] font-semibold">4</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-[#4d5153]">Recommendations:</span>
+                    <span class="text-[#061a23] font-semibold">6</span>
+                  </div>
+                </div>
+
+                <div class="h-px bg-[#b8c3c7] my-5"></div>
+
+                <div>
+                  <p class="text-xs text-[#4d5153] mb-1">SHA-256:</p>
+                  <p class="font-mono text-xs text-[#4d5153]" aria-label="SHA-256 hash: a7f3c9...d4e2b1">a7f3c9...d4e2b1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SHA-256 Explanation Strip -->
+        <div class="mt-16 bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start fade-up" style="box-shadow:var(--shadow-sm);">
+          <div class="h-10 w-10 rounded-lg bg-[#f1f9f4] flex items-center justify-center flex-shrink-0">
+            <svg class="h-5 w-5 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h3 class="text-heading-sm text-[#061a23] font-semibold mb-2">Tamper-Evident Integrity</h3>
+            <p class="text-body-md text-[#4d5153] max-w-[65ch]">
+              Every page of your Safety Binder is cryptographically signed using SHA-256 hash chains. Any modification -- even a single character -- is detectable. Your documentation is as trustworthy the day it was created as it will be years later.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 6: DURING THE TRIP                                  -->
+    <!-- ========================================================== -->
+    <section id="field-ops" aria-labelledby="during-trip-heading" class="py-24 lg:py-32 bg-[#e7ecee]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Text Column (left on desktop) -->
+          <div class="order-2 lg:order-1">
+            <div class="flex items-center gap-2 mb-4 fade-up">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#33704b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span class="text-eyebrow text-[#33704b]">Field Operations</span>
+            </div>
+
+            <h2 id="during-trip-heading" class="text-display-md text-[#061a23] mb-6 fade-up">
+              Everything Your Chaperones Need in Their Pocket.
+            </h2>
+
+            <p class="text-body-lg text-[#4d5153] max-w-[65ch] mb-8 fade-up">
+              During the trip, SafeTrekr's mobile app gives chaperones real-time tools for participant safety and communication.
+            </p>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Live map with participant locations</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Geofence boundary alerts</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Rally point muster check-ins</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">SMS broadcast to all participants</span>
+              </li>
+              <li class="flex gap-3 fade-up">
+                <svg class="w-4 h-4 text-[#4ca46e] mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md text-[#061a23]">Emergency contacts one tap away</span>
+              </li>
+            </ul>
+
+            <div class="fade-up">
+              <a href="/platform/mobile-app" class="btn btn-secondary btn-md">
+                Explore Mobile App
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual Column: Phone Mockup (right on desktop) -->
+          <div class="order-1 lg:order-2 flex justify-center fade-up" aria-hidden="true">
+            <div class="w-[240px] lg:w-[280px] rounded-[2rem] border-[6px] border-[#061a23]/20 bg-[#f7f8f8] shadow-xl overflow-hidden">
+              <!-- Status bar -->
+              <div class="h-8 bg-white flex items-center justify-between px-5">
+                <span class="text-[10px] font-semibold text-[#061a23]">9:41</span>
+                <div class="flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#061a23" aria-hidden="true"><rect x="1" y="14" width="4" height="8" rx="1"/><rect x="7" y="10" width="4" height="12" rx="1"/><rect x="13" y="6" width="4" height="16" rx="1"/><rect x="19" y="2" width="4" height="20" rx="1"/></svg>
+                  <svg width="14" height="12" viewBox="0 0 24 16" fill="#061a23" aria-hidden="true"><rect x="0" y="2" width="20" height="12" rx="2" stroke="#061a23" stroke-width="1" fill="none"/><rect x="20" y="5" width="3" height="6" rx="1"/><rect x="2" y="4" width="12" height="8" rx="1" fill="#061a23"/></svg>
+                </div>
+              </div>
+
+              <!-- Map area -->
+              <div class="bg-[#e0f1e6] h-40 relative overflow-hidden">
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 280 160" fill="none">
+                  <!-- Roads -->
+                  <line x1="20" y1="80" x2="260" y2="80" stroke="#c0e2cd" stroke-width="3"/>
+                  <line x1="140" y1="10" x2="140" y2="150" stroke="#c0e2cd" stroke-width="3"/>
+                  <line x1="60" y1="30" x2="220" y2="130" stroke="#c0e2cd" stroke-width="2"/>
+
+                  <!-- Route line -->
+                  <path d="M40 120 Q100 60 140 80 Q180 100 230 50" stroke="#3f885b" stroke-width="3" stroke-dasharray="8 4" fill="none"/>
+
+                  <!-- Location dots -->
+                  <circle cx="140" cy="80" r="6" fill="#3f885b" stroke="white" stroke-width="2"/>
+                  <circle cx="100" cy="65" r="4" fill="#4ca46e" stroke="white" stroke-width="1.5"/>
+                  <circle cx="180" cy="90" r="4" fill="#4ca46e" stroke="white" stroke-width="1.5"/>
+                  <circle cx="160" cy="60" r="4" fill="#4ca46e" stroke="white" stroke-width="1.5"/>
+                </svg>
+              </div>
+
+              <!-- Bottom sheet -->
+              <div class="bg-white p-4 border-t border-[#b8c3c7]">
+                <div class="flex items-center justify-between mb-2">
+                  <p class="font-display font-semibold text-sm text-[#061a23]">Rally Point A</p>
+                  <span class="w-2 h-2 rounded-full bg-[#22c55e] status-pulse"></span>
+                </div>
+                <p class="text-xs text-[#4d5153] mb-1">12 of 15 checked in</p>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                  <span class="text-xs font-medium text-[#16a34a]">All participants safe</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 7: AFTER THE TRIP                                   -->
+    <!-- ========================================================== -->
+    <section id="after-trip" aria-labelledby="after-trip-heading" class="py-24 lg:py-32 bg-[#f7f8f8] border-y border-[#b8c3c7]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <div class="flex items-center justify-center gap-2 mb-4 fade-up">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#33704b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="text-eyebrow text-[#33704b]">After the Trip</span>
+          </div>
+          <h2 id="after-trip-heading" class="text-display-md text-[#061a23] max-w-[28ch] mx-auto mb-6 fade-up">
+            Every Decision Documented. Every Precaution Verifiable.
+          </h2>
+          <p class="text-body-lg text-[#4d5153] max-w-[65ch] mx-auto fade-up">
+            Years after the trip, your SafeTrekr documentation remains intact and verifiable. The evidence chain cannot be altered, providing permanent proof of the safety measures your organization took.
+          </p>
+        </div>
+
+        <!-- 3-Column Proof Grid -->
+        <div class="grid sm:grid-cols-3 gap-6">
+
+          <!-- Audit Trail -->
+          <article class="proof-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 text-center fade-up" style="box-shadow:var(--shadow-sm);">
+            <div class="h-14 w-14 rounded-xl bg-[#f1f9f4] mx-auto mb-4 flex items-center justify-center">
+              <svg class="h-7 w-7 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#061a23] font-semibold mb-2">Audit Trail</h3>
+            <p class="text-body-sm text-[#4d5153]">Complete record of every decision and action taken throughout the review process.</p>
+          </article>
+
+          <!-- Compliance Documentation -->
+          <article class="proof-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 text-center fade-up" style="box-shadow:var(--shadow-sm);transition-delay:80ms;">
+            <div class="h-14 w-14 rounded-xl bg-[#f1f9f4] mx-auto mb-4 flex items-center justify-center">
+              <svg class="h-7 w-7 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#061a23] font-semibold mb-2">Compliance Documentation</h3>
+            <p class="text-body-sm text-[#4d5153]">FERPA, SOC 2, GDPR-ready documentation for regulatory review.</p>
+          </article>
+
+          <!-- Insurance Records -->
+          <article class="proof-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 text-center fade-up" style="box-shadow:var(--shadow-sm);transition-delay:160ms;">
+            <div class="h-14 w-14 rounded-xl bg-[#f1f9f4] mx-auto mb-4 flex items-center justify-center">
+              <svg class="h-7 w-7 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3 class="text-heading-sm text-[#061a23] font-semibold mb-2">Insurance Records</h3>
+            <p class="text-body-sm text-[#4d5153]">Documented proof of safety measures for liability and claims support.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 8: SEGMENT EXAMPLES                                 -->
+    <!-- ========================================================== -->
+    <section id="segments" aria-labelledby="segments-heading" class="py-24 lg:py-32 bg-[#e7ecee]">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <p class="text-eyebrow text-[#33704b] uppercase mb-4 fade-up">Your Organization</p>
+          <h2 id="segments-heading" class="text-display-md text-[#061a23] max-w-[28ch] mx-auto text-center fade-up">
+            See How It Works for Your Organization.
+          </h2>
+        </div>
+
+        <!-- 4-Column Segment Card Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- K-12 -->
+          <a href="/solutions/k12" class="group segment-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 block no-underline fade-up" style="box-shadow:var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg bg-[#f1f9f4] flex items-center justify-center mb-4">
+              <svg class="h-6 w-6 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-5"/></svg>
+            </div>
+            <h3 class="segment-title text-heading-sm text-[#061a23] font-semibold mb-2 transition-colors">K-12 Schools & Districts</h3>
+            <p class="text-body-sm text-[#4d5153] mb-4">Field trips, athletic travel, band competitions</p>
+            <span class="text-body-sm font-medium text-[#33704b] flex items-center gap-1">
+              Learn more
+              <svg class="segment-arrow w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+          <!-- Higher Ed -->
+          <a href="/solutions/higher-education" class="group segment-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 block no-underline fade-up" style="box-shadow:var(--shadow-sm);transition-delay:100ms;">
+            <div class="h-12 w-12 rounded-lg bg-[#f1f9f4] flex items-center justify-center mb-4">
+              <svg class="h-6 w-6 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-5"/><line x1="12" y1="22" x2="12" y2="17"/></svg>
+            </div>
+            <h3 class="segment-title text-heading-sm text-[#061a23] font-semibold mb-2 transition-colors">Higher Education</h3>
+            <p class="text-body-sm text-[#4d5153] mb-4">Study abroad, research travel, athletic programs</p>
+            <span class="text-body-sm font-medium text-[#33704b] flex items-center gap-1">
+              Learn more
+              <svg class="segment-arrow w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+          <!-- Churches -->
+          <a href="/solutions/churches" class="group segment-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 block no-underline fade-up" style="box-shadow:var(--shadow-sm);transition-delay:200ms;">
+            <div class="h-12 w-12 rounded-lg bg-[#f1f9f4] flex items-center justify-center mb-4">
+              <svg class="h-6 w-6 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 22V8l-6-6-6 6v14"/><path d="M2 22h20"/><path d="M12 2v4"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>
+            </div>
+            <h3 class="segment-title text-heading-sm text-[#061a23] font-semibold mb-2 transition-colors">Churches & Mission Orgs</h3>
+            <p class="text-body-sm text-[#4d5153] mb-4">Mission trips, youth retreats, volunteer travel</p>
+            <span class="text-body-sm font-medium text-[#33704b] flex items-center gap-1">
+              Learn more
+              <svg class="segment-arrow w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+          <!-- Corporate -->
+          <a href="/solutions/corporate" class="group segment-card bg-[#f7f8f8] rounded-xl border border-[#b8c3c7] p-6 block no-underline fade-up" style="box-shadow:var(--shadow-sm);transition-delay:300ms;">
+            <div class="h-12 w-12 rounded-lg bg-[#f1f9f4] flex items-center justify-center mb-4">
+              <svg class="h-6 w-6 text-[#33704b]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+            </div>
+            <h3 class="segment-title text-heading-sm text-[#061a23] font-semibold mb-2 transition-colors">Corporate & Sports Teams</h3>
+            <p class="text-body-sm text-[#4d5153] mb-4">Team retreats, conferences, league travel</p>
+            <span class="text-body-sm font-medium text-[#33704b] flex items-center gap-1">
+              Learn more
+              <svg class="segment-arrow w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 9: CONVERSION CTA BANNER (DARK SECTION 2)           -->
+    <!-- ========================================================== -->
+    <section id="cta" aria-labelledby="cta-heading" class="py-20 lg:py-28" data-theme="dark" style="background:#123646;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
+
+        <h2 id="cta-heading" class="text-display-md text-[#f7f8f8] max-w-[28ch] mx-auto mb-6 fade-up">
+          Ready to See It in Action?
+        </h2>
+
+        <p class="text-body-lg text-[#b8c3c7] max-w-[65ch] mx-auto mb-10 fade-up">
+          Schedule a personalized walkthrough. We'll show you exactly what a safety binder looks like for your organization.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up">
+          <a href="/demo" class="btn btn-primary-on-dark btn-lg">Get a Demo</a>
+          <a href="/resources/sample-binders" class="btn btn-ghost-on-dark btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download a Sample Binder
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- SITE FOOTER                                                   -->
+  <!-- ============================================================ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT: IntersectionObserver for animations & anchor nav  -->
+  <!-- ============================================================ -->
+  <script>
+    // ---- Fade-up animation on scroll ----
+    const fadeUpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeUpObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-up').forEach(el => fadeUpObserver.observe(el));
+
+    // ---- Sticky anchor nav visibility ----
+    const heroSection = document.getElementById('hero');
+    const anchorNav = document.getElementById('anchor-nav');
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          anchorNav.classList.remove('visible-nav');
+          anchorNav.classList.add('hidden-nav');
+        } else {
+          anchorNav.classList.remove('hidden-nav');
+          anchorNav.classList.add('visible-nav');
+        }
+      });
+    }, { threshold: 0 });
+
+    heroObserver.observe(heroSection);
+
+    // ---- Active anchor tracking ----
+    const anchorLinks = document.querySelectorAll('.anchor-link');
+    const sections = ['process', 'intelligence', 'review', 'binder', 'field-ops', 'after-trip'];
+    const sectionElements = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          anchorLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`[data-anchor="${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '-128px 0px -50% 0px' });
+
+    sectionElements.forEach(section => sectionObserver.observe(section));
+  </script>
+
+</body>
+</html>

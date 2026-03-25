@@ -1,0 +1,810 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./design-tokens-vars.css";
+@import "./design-tokens-components.css";
+
+/* ================================================================
+   SafeTrekr Marketing Site -- Design Token System
+   Source: designs/DESIGN-SYSTEM.md (Canonical Single Source of Truth)
+   Ticket: ST-795 / REQ-012
+   Stack: Tailwind CSS 4 @theme inline
+   ================================================================ */
+
+@theme inline {
+  /* ──────────────────────────────────────
+     COLORS -- Semantic System
+     ────────────────────────────────────── */
+  --color-background: #e7ecee;
+  --color-foreground: #061a23;
+  --color-card: #f7f8f8;
+  --color-card-foreground: #061a23;
+  --color-border: #b8c3c7;
+  --color-input: #80959b;
+  --color-ring: #365462;
+  --color-muted: #e7ecee;
+  --color-muted-foreground: #4d5153;
+  --color-popover: #f7f8f8;
+  --color-popover-foreground: #061a23;
+  --color-accent: #f1f9f4;
+  --color-accent-foreground: #061a23;
+
+  /* ──────────────────────────────────────
+     COLORS -- Brand Primary (Green)
+     11-step scale + alias + foreground
+     ────────────────────────────────────── */
+  --color-primary-50: #f1f9f4;
+  --color-primary-100: #e0f1e6;
+  --color-primary-200: #c0e2cd;
+  --color-primary-300: #96cfac;
+  --color-primary-400: #6cbc8b;
+  --color-primary-500: #4ca46e;
+  --color-primary-600: #3f885b;
+  --color-primary-700: #33704b;
+  --color-primary-800: #2a5b3d;
+  --color-primary-900: #20462f;
+  --color-primary-950: #132a1c;
+  --color-primary: #3f885b;
+  --color-primary-foreground: #ffffff;
+
+  /* ──────────────────────────────────────
+     COLORS -- Secondary (Authority Blue)
+     ────────────────────────────────────── */
+  --color-secondary: #123646;
+  --color-secondary-foreground: #f7f8f8;
+  --color-secondary-light: #1a4a5e;
+  --color-secondary-muted: #b8c3c7;
+
+  /* ──────────────────────────────────────
+     COLORS -- Destructive
+     ────────────────────────────────────── */
+  --color-destructive: #c1253e;
+  --color-destructive-foreground: #ffffff;
+
+  /* ──────────────────────────────────────
+     COLORS -- Safety Status (Operational Only)
+     ────────────────────────────────────── */
+  --color-safety-green: #22c55e;
+  --color-safety-yellow: #eab308;
+  --color-safety-red: #ef4444;
+
+  /* ──────────────────────────────────────
+     COLORS -- Warning Scale
+     ────────────────────────────────────── */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  /* ──────────────────────────────────────
+     COLORS -- Dark Surface Overrides
+     ────────────────────────────────────── */
+  --color-dark-surface: rgba(255, 255, 255, 0.06);
+  --color-dark-border: rgba(255, 255, 255, 0.12);
+  --color-dark-text-primary: #f7f8f8;
+  --color-dark-text-secondary: #b8c3c7;
+  --color-dark-accent: #6cbc8b;
+
+  /* ──────────────────────────────────────
+     SPACING -- 8-Point Grid
+     ────────────────────────────────────── */
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-0-5: 2px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+  --spacing-40: 160px;
+
+  /* ──────────────────────────────────────
+     BORDER RADIUS
+     ────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+  --radius: 8px;
+
+  /* ──────────────────────────────────────
+     SHADOWS -- Cool-Toned (foreground-based)
+     ────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(6, 26, 35, 0.04), 0 1px 3px rgba(6, 26, 35, 0.06);
+  --shadow-md: 0 2px 4px rgba(6, 26, 35, 0.04), 0 4px 12px rgba(6, 26, 35, 0.08);
+  --shadow-lg: 0 4px 8px rgba(6, 26, 35, 0.04), 0 8px 24px rgba(6, 26, 35, 0.1);
+  --shadow-xl: 0 8px 16px rgba(6, 26, 35, 0.06), 0 16px 48px rgba(6, 26, 35, 0.12);
+  --shadow-inner: inset 0 1px 2px rgba(6, 26, 35, 0.06);
+  --shadow-card: 0 1px 3px rgba(6, 26, 35, 0.04), 0 2px 8px rgba(6, 26, 35, 0.06);
+  --shadow-card-hover: 0 4px 12px rgba(6, 26, 35, 0.06), 0 8px 24px rgba(6, 26, 35, 0.08);
+
+  /* ──────────────────────────────────────
+     TYPOGRAPHY -- Font Families
+     ────────────────────────────────────── */
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* ──────────────────────────────────────
+     TYPOGRAPHY -- Font Sizes
+     ────────────────────────────────────── */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.375rem;
+  --font-size-3xl: 1.75rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 2.75rem;
+  --font-size-6xl: 3.5rem;
+  --font-size-7xl: 4.5rem;
+
+  /* ──────────────────────────────────────
+     ANIMATION -- Easing Curves
+     ────────────────────────────────────── */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ──────────────────────────────────────
+     ANIMATION -- Durations
+     ────────────────────────────────────── */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-moderate: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --duration-reveal: 1000ms;
+  --duration-draw: 1200ms;
+
+  /* ──────────────────────────────────────
+     Z-INDEX
+     ────────────────────────────────────── */
+  --z-behind: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 20;
+  --z-sticky: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+
+  /* ──────────────────────────────────────
+     LAYOUT -- Containers
+     ────────────────────────────────────── */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1440px;
+  --container-max: 1280px;
+  --container-bleed: 1440px;
+
+  /* ──────────────────────────────────────
+     ANIMATIONS -- shadcn/ui Component Keyframes
+     Ticket: ST-798 / REQ-015
+     ────────────────────────────────────── */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* ──────────────────────────────────────
+   Keyframes -- shadcn/ui Component Animations
+   Ticket: ST-798 / REQ-015
+   ────────────────────────────────────── */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* ──────────────────────────────────────
+   Dark Section Token Overrides
+   Activated via [data-theme="dark"] on section elements
+   ────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-background: #123646;
+  --color-foreground: #f7f8f8;
+  --color-card: rgba(255, 255, 255, 0.06);
+  --color-card-foreground: #f7f8f8;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-muted-foreground: #b8c3c7;
+  --color-primary: #6cbc8b;
+  --color-primary-foreground: #123646;
+  --color-ring: #6cbc8b;
+}
+
+/* ──────────────────────────────────────
+   Typography Utility Classes
+   Fluid responsive via clamp() -- no media query breakpoints
+   ────────────────────────────────────── */
+@layer components {
+  .text-display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 1.25rem + 3.47vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .text-display-lg {
+    font-family: var(--font-display);
+    font-size: clamp(2.125rem, 1.15rem + 2.72vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .text-display-md {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .text-heading-lg {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 0.97rem + 1.49vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .text-heading-md {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 0.9rem + 0.99vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .text-heading-sm {
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 0.95rem + 0.5vw, 1.375rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+  .text-body-lg {
+    font-family: var(--font-body);
+    font-size: clamp(1.125rem, 1.04rem + 0.25vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+  .text-body-md {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+  .text-body-sm {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+  }
+  .text-body-xs {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+  .text-eyebrow {
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 0.7rem + 0.14vw, 0.8125rem);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .text-mono-md {
+    font-family: var(--font-mono);
+    font-size: clamp(0.8125rem, 0.77rem + 0.11vw, 0.875rem);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .text-mono-sm {
+    font-family: var(--font-mono);
+    font-size: clamp(0.6875rem, 0.64rem + 0.11vw, 0.75rem);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ──────────────────────────────────────
+   Background Patterns
+   ────────────────────────────────────── */
+.bg-dot-grid {
+  background-image:
+    radial-gradient(circle, rgba(150, 207, 172, 0.04) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* ──────────────────────────────────────
+   Base Styles
+   ────────────────────────────────────── */
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ──────────────────────────────────────
+   WCAG 2.2 AA Contrast Validation
+   Ticket: ST-800 / REQ-017
+   ──────────────────────────────────────
+   * foreground (#061a23) on background (#e7ecee): 13.2:1 PASS
+   * muted-foreground (#4d5153) on background (#e7ecee): 5.2:1 PASS
+   * muted-foreground (#4d5153) on card (#f7f8f8): 5.8:1 PASS
+   * white (#ffffff) on primary-600 (#3f885b): 4.6:1 PASS
+   * white (#ffffff) on secondary (#123646): 11.6:1 PASS
+   * primary-700 (#33704b) on background (#e7ecee): 6.1:1 PASS
+   * primary-700 (#33704b) on card (#f7f8f8): 6.9:1 PASS
+   * white (#ffffff) on primary-500 (#4ca46e): 3.4:1 FAIL (normal) -- use primary-600 for buttons
+   * Button backgrounds MUST use primary-600 (#3f885b), NOT primary-500 (#4ca46e)
+   ────────────────────────────────────── */
+
+/* ──────────────────────────────────────
+   Base HTML & Reset
+   Ticket: ST-796 / REQ-013
+   Source: designs/html/design-tokens.css
+   ────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* REMOVED: Unlayered *, *::before, *::after { margin:0; padding:0 } reset
+   was killing ALL Tailwind utility padding/margin. Tailwind v4's own preflight
+   (inside @layer base) handles box-sizing and resets correctly. */
+
+/* REMOVED: Unlayered a { color } was overriding Tailwind text-white on buttons.
+   Link colors handled by Tailwind utilities and inline styles. */
+
+/* ──────────────────────────────────────
+   Skip Navigation Link -- Accessibility
+   Ticket: ST-796 / REQ-013
+   ────────────────────────────────────── */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 12px 24px;
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: top 150ms var(--ease-default);
+}
+
+.skip-nav:focus {
+  top: 12px;
+}
+
+/* ──────────────────────────────────────
+   Focus-Visible Ring -- Accessibility
+   Ticket: ST-796 / REQ-013
+   ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* ──────────────────────────────────────
+   Screen Reader Only -- Accessibility
+   Ticket: ST-796 / REQ-013
+   ────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ──────────────────────────────────────
+   Reduced Motion -- WCAG 2.2 Compliance
+   Ticket: ST-796 / REQ-013
+   ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Section, container, grid, button, card, badge, input, eyebrow, trust-strip,
+   stat-card, nav-item, divider, dark/brand overrides, and responsive rules
+   are now ALL provided by design-tokens.css via @import layer(components).
+   Removed duplicate unlayered definitions that were overriding Tailwind utilities. */
+
+/* Grid utilities provided by design-tokens.css layer(components) */
+
+/* All component classes below this point were duplicates of design-tokens.css.
+   They have been removed. design-tokens.css is imported via layer(components)
+   at the top of this file. */
+
+/* ──────────────────────────────────────
+   LEGACY MARKER: Everything from the old "Component: Buttons" section
+   through "Responsive Overrides" has been deleted.
+   ────────────────────────────────────── */
+/* DELETED: .btn through responsive overrides — all in design-tokens.css layer(components) now */
+/* ──────────────────────────────────────
+   Legal Page Prose Typography
+   Ticket: ST-863
+   Used by /legal/privacy and /legal/terms
+   ────────────────────────────────────── */
+.legal-prose h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.625rem, 1.25rem + 1.25vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 6rem;
+}
+.legal-prose h2:first-child {
+  margin-top: 0;
+}
+.legal-prose h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.375rem, 1.125rem + 0.75vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--color-foreground);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+.legal-prose h4 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-foreground);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.legal-prose p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+.legal-prose strong {
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+.legal-prose a {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+.legal-prose a:hover {
+  color: var(--color-primary-800);
+}
+.legal-prose ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.legal-prose ul li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+  margin-bottom: 0.375rem;
+}
+.legal-prose ol {
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.legal-prose ol li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+  margin-bottom: 0.375rem;
+}
+.legal-prose blockquote {
+  border-left: 4px solid var(--color-border);
+  padding-left: 1.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--color-muted-foreground);
+}
+.legal-prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+.legal-prose code {
+  background: var(--color-card);
+  color: var(--color-foreground);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+.legal-prose table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.legal-prose thead {
+  background: var(--color-card);
+}
+.legal-prose th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+.legal-prose td {
+  font-size: 0.875rem;
+  color: var(--color-muted-foreground);
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.legal-prose tr:last-child td {
+  border-bottom: none;
+}
+
+/* ──────────────────────────────────────
+   RANGE SLIDER -- Custom styling for pricing calculators
+   Ticket: ST-871 / REQ-064
+   ────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-border);
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary-600);
+  border: 2px solid white;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary-600);
+  border: 2px solid white;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: var(--color-primary-700);
+  transform: scale(1.1);
+}
+input[type="range"]:hover::-moz-range-thumb {
+  background: var(--color-primary-700);
+  transform: scale(1.1);
+}
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+input[type="range"]:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  input[type="range"]:hover::-webkit-slider-thumb { transform: none; }
+  input[type="range"]:hover::-moz-range-thumb { transform: none; }
+}
+
+/* ──────────────────────────────────────
+   Scrollbar Hide Utility
+   Ticket: ST-912 -- Blog category filter bar
+   ────────────────────────────────────── */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ──────────────────────────────────────
+   Blog Prose Typography
+   Ticket: ST-912
+   Used by /blog/[slug] article content.
+   Mirrors the blog post mockup styles.
+   ────────────────────────────────────── */
+.blog-prose blockquote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-primary-700);
+  line-height: 1.3;
+  max-width: none;
+}
+
+/* Component classes now provided by design-tokens.css via @import layer(components) */
+
+/* Print styles for legal pages */
+@media print {
+  .legal-prose h2,
+  .legal-prose h3,
+  .legal-prose h4 {
+    color: black;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .legal-prose p,
+  .legal-prose li,
+  .legal-prose td {
+    color: #333;
+  }
+  .legal-prose a {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+/* ──────────────────────────────────────
+   Homepage Mockup-Matched Styles
+   @see designs/html/mockup-homepage.html
+   ────────────────────────────────────── */
+
+/* Hero: dot grid pattern */
+.hero-dot-grid {
+  background-image: radial-gradient(circle, var(--color-primary-300) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.04;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Hero: radial glow */
+.hero-radial-glow {
+  background: radial-gradient(600px circle at 70% 50%, rgba(241,249,244,0.2), transparent);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Gauge fill animation */
+@keyframes gaugeFill {
+  from { stroke-dashoffset: 226.2; }
+  to { stroke-dashoffset: 33.93; }
+}
+.gauge-arc {
+  animation: gaugeFill 1.2s ease-out forwards;
+  animation-delay: 1.2s;
+  stroke-dasharray: 226.2;
+  stroke-dashoffset: 226.2;
+}
+
+/* Status dot pulse animation */
+@keyframes statusPulse {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.status-pulse {
+  animation: statusPulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 1.4s;
+  transform: scale(0);
+}
+
+/* Progress bar fill animation */
+@keyframes progressFill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.progress-fill {
+  animation: progressFill 1s ease-out forwards;
+  animation-delay: 1s;
+  width: 0;
+}
+
+/* Card interactive hover */
+.card-interactive {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.card-interactive:hover .card-link-arrow {
+  transform: translateX(4px);
+}
+.card-link-arrow {
+  transition: transform 0.2s ease;
+}
+
+/* Pricing featured tier scale on desktop */
+@media (min-width: 1024px) {
+  .pricing-featured {
+    transform: scale(1.03);
+    z-index: 1;
+    position: relative;
+  }
+}
+
+/* Comparison table SafeTrekr column highlight */
+.safetrekr-col {
+  background: var(--color-primary-50);
+}

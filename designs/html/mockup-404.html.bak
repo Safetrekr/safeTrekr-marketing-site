@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found -- SafeTrekr</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            'card-foreground': '#061a23',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: '#e7ecee',
+            'muted-foreground': '#4d5153',
+            primary: {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b', foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646', foreground: '#f7f8f8',
+              light: '#1a4a5e', muted: '#b8c3c7',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Nav hover */
+    .nav-item:hover { color: var(--color-foreground) !important; }
+    /* Footer hover */
+    footer a:hover { color: #ffffff !important; }
+
+    /* Popular page link hover */
+    .popular-link { display: inline-flex; align-items: center; gap: 4px; font-weight: 500; color: var(--color-primary-700); text-decoration: none; transition: all 0.15s; }
+    .popular-link:hover { color: var(--color-primary-800); }
+    .popular-link:hover .link-arrow { transform: translateX(2px); }
+    .link-arrow { transition: transform 0.15s; }
+
+    /* Responsive */
+    @media (max-width: 639px) {
+      .container { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .container { padding-left: 32px !important; padding-right: 32px !important; }
+    }
+    @media (min-width: 1024px) {
+      .container { padding-left: 48px !important; padding-right: 48px !important; }
+    }
+    @media (max-width: 1023px) {
+      header > div { height: 56px !important; }
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg font-heading font-semibold text-sm">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER                                                         -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT                                                        -->
+  <!-- ================================================================== -->
+  <main id="main-content" style="min-height: calc(100vh - 64px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+
+    <div style="max-width: 640px; margin: 0 auto; padding: 64px 24px;">
+
+      <!-- SafeTrekr Mark (30% opacity) -->
+      <div style="margin-bottom: 24px; opacity: 0.3;">
+        <svg width="64" height="64" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="margin: 0 auto;">
+          <path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16.73C22.88 30.96 28 23.73 28 16V8L16 2z" fill="#123646"/>
+          <path d="M16 6C12 10 10 14 12 18c2 4 6 6 8 4s2-6-2-10c-2-2-3-4-2-6z" fill="#3f885b" opacity="0.9"/>
+          <path d="M16 6C20 10 22 14 20 18c-2 4-6 6-8 4s-2-6 2-10c2-2 3-4 2-6z" fill="#4ca46e" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <!-- 404 Number -->
+      <p class="text-display-lg" style="font-family: var(--font-mono); color: var(--color-foreground); opacity: 0.2; margin-bottom: 16px; line-height: 1;">404</p>
+
+      <!-- Headline -->
+      <h1 class="text-heading-lg" style="color: var(--color-foreground); margin-bottom: 12px;">Page not found</h1>
+
+      <!-- Body -->
+      <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 35ch; margin: 0 auto 32px;">The page you're looking for doesn't exist or has been moved.</p>
+
+      <!-- Search Input -->
+      <div style="max-width: 24rem; margin: 0 auto 32px; position: relative; width: 100%;">
+        <label for="search-404" class="sr-only">Search SafeTrekr</label>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--color-muted-foreground); pointer-events: none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search-404" type="search" role="searchbox" aria-label="Search SafeTrekr" placeholder="Search SafeTrekr..." class="input" style="background: var(--color-card); padding-left: 40px; height: 44px;">
+      </div>
+
+      <!-- Divider -->
+      <div style="width: 64px; height: 1px; background: var(--color-border); margin: 0 auto 32px;"></div>
+
+      <!-- Popular Pages -->
+      <p class="text-body-sm" style="color: var(--color-muted-foreground); margin-bottom: 16px;">Popular pages:</p>
+      <nav aria-label="Popular pages">
+        <ul style="list-style: none; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <li>
+            <a href="/" class="popular-link text-body-md">
+              Homepage
+              <svg class="link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="/solutions" class="popular-link text-body-md">
+              Solutions
+              <svg class="link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="/pricing" class="popular-link text-body-md">
+              Pricing
+              <svg class="link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="popular-link text-body-md">
+              Contact Us
+              <svg class="link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Divider -->
+      <div style="width: 64px; height: 1px; background: var(--color-border); margin: 32px auto;"></div>
+
+      <!-- Tagline -->
+      <p style="font-size: 12px; color: var(--color-muted-foreground); font-style: italic; opacity: 0.6;">Even our 404 page is documented.</p>
+
+    </div>
+
+  </main>
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER                                                        -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

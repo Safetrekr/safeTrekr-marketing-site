@@ -1,0 +1,94 @@
+# ST-793: REQ-010 - cert-manager Helm Values
+#
+# Helm values for cert-manager installation on the SafeTrekr Marketing
+# DOKS cluster. Used by:
+#
+#   helm upgrade --install cert-manager jetstack/cert-manager \
+#     --namespace cert-manager --create-namespace \
+#     -f cert-manager-values.yaml
+#
+# See cluster-spec.md Section 5 for add-on version requirements.
+# See cluster-spec.md Section 4.2 for namespace resource quotas.
+---
+
+# ---------------------------------------------------------------------------
+# CRD Installation
+# ---------------------------------------------------------------------------
+# Install CustomResourceDefinitions as part of the Helm release.
+# This is the recommended approach for Helm-managed installations and
+# ensures CRDs are upgraded alongside the chart.
+crds:
+  enabled: true
+  keep: true  # Retain CRDs on helm uninstall to avoid deleting certs
+
+# ---------------------------------------------------------------------------
+# Controller Resources
+# ---------------------------------------------------------------------------
+# Sized for a small marketing-site cluster (2-4 nodes, s-2vcpu-4gb).
+# cert-manager is idle most of the time -- it only activates for certificate
+# issuance (every ~60 days) and ACME challenge resolution.
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+# ---------------------------------------------------------------------------
+# Webhook
+# ---------------------------------------------------------------------------
+# The webhook validates and mutates cert-manager resources.
+# It must be fully ready before ClusterIssuers or Certificates are created.
+webhook:
+  timeoutSeconds: 30
+  resources:
+    requests:
+      cpu: 25m
+      memory: 32Mi
+    limits:
+      cpu: 100m
+      memory: 64Mi
+
+# ---------------------------------------------------------------------------
+# CA Injector
+# ---------------------------------------------------------------------------
+# Injects CA bundles into webhook configurations and CRDs.
+cainjector:
+  resources:
+    requests:
+      cpu: 25m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+# ---------------------------------------------------------------------------
+# Prometheus Metrics
+# ---------------------------------------------------------------------------
+# Expose cert-manager metrics for monitoring certificate health.
+# Alerts on certificates expiring within 14 days are defined in the
+# monitoring stack (cluster-spec.md Section 10).
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: false  # Enable when Prometheus Operator is installed
+
+# ---------------------------------------------------------------------------
+# Pod Security
+# ---------------------------------------------------------------------------
+# cert-manager runs in its own namespace without the "restricted" PSS label,
+# but we still pin to non-root for defense-in-depth.
+global:
+  podSecurityPolicy:
+    enabled: false  # PSPs removed in K8s 1.25+
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+# Structured JSON logging for aggregation with the cluster logging stack.
+extraArgs:
+  - --logging-format=json
+  # Renew certificates 30 days before expiry (default is 2/3 of lifetime).
+  # For 90-day Let's Encrypt certs this means renewal at day 60.
+  - --renew-before-expiry-duration=720h0m0s

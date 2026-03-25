@@ -1,0 +1,23 @@
+# ST-789: REQ-006 - Docker Compose for SafeTrekr Marketing Site
+#
+# Production-like configuration. Builds the full multi-stage Dockerfile
+# and runs the standalone Next.js server.
+#
+# Usage:
+#   docker compose up              # dev mode (override auto-loaded)
+#   docker compose up --build      # dev mode with fresh build
+#   docker compose -f docker-compose.yml up  # production mode only
+#
+# See docker-compose.override.yml for local development overrides.
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped

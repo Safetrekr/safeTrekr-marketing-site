@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request a Demo - SafeTrekr</title>
+  <meta name="description" content="Schedule a personalized demo of SafeTrekr. See exactly what a trip safety binder looks like for your organization. No obligation." />
+  <link rel="canonical" href="https://www.safetrekr.com/demo" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="See Your Safety Binder - Request a Demo | SafeTrekr" />
+  <meta property="og:description" content="Schedule a personalized walkthrough. We'll show you exactly what a safety binder looks like for your organization." />
+  <meta property="og:url" content="https://www.safetrekr.com/demo" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.safetrekr.com/og/demo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="See Your Safety Binder - Request a Demo | SafeTrekr" />
+  <meta name="twitter:description" content="Schedule a personalized walkthrough. We'll show you exactly what a safety binder looks like for your organization." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="design-tokens.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: { DEFAULT: '#e7ecee', foreground: '#4d5153' },
+            popover: { DEFAULT: '#f7f8f8', foreground: '#061a23' },
+            accent: { DEFAULT: '#f1f9f4', foreground: '#061a23' },
+            primary: {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b', foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646', foreground: '#f7f8f8',
+              light: '#1a4a5e', muted: '#b8c3c7',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+            warning: { 600: '#ca8a04' },
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '12px', xl: '16px', '2xl': '20px',
+          },
+          boxShadow: {
+            xs: '0 1px 2px 0 rgba(6,26,35,0.04)',
+            sm: '0 1px 3px 0 rgba(6,26,35,0.06), 0 1px 2px -1px rgba(6,26,35,0.04)',
+            md: '0 4px 6px -1px rgba(6,26,35,0.06), 0 2px 4px -2px rgba(6,26,35,0.04)',
+            lg: '0 10px 15px -3px rgba(6,26,35,0.07), 0 4px 6px -4px rgba(6,26,35,0.04)',
+            xl: '0 20px 25px -5px rgba(6,26,35,0.08), 0 8px 10px -6px rgba(6,26,35,0.03)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    /* ── Additional utility classes not in design-tokens.css ── */
+    .text-body-xs { font-size: 0.75rem; line-height: 1.5; letter-spacing: 0.01em; }
+
+    /* ── Dot grid background pattern ── */
+    .bg-dot-grid {
+      background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.035;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Form field focus ring using tokens ── */
+    .field-focus:focus {
+      outline: none;
+      border-color: var(--color-ring);
+      box-shadow: 0 0 0 3px rgba(54, 84, 98, 0.15), inset 0 1px 2px rgba(6, 26, 35, 0.06);
+    }
+
+    .field-error {
+      border-color: var(--color-destructive) !important;
+      box-shadow: 0 0 0 3px rgba(193, 37, 62, 0.15) !important;
+    }
+
+    /* ── Step transition animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes statusPulse {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-fadeUp {
+      animation: fadeUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease forwards;
+    }
+    .animate-statusPulse {
+      animation: statusPulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .animate-spin {
+      animation: spin 0.6s linear infinite;
+    }
+
+    /* Stagger delays */
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-250 { animation-delay: 250ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+
+    /* ── Select styling ── */
+    select.form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234d5153' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+
+    /* ── Header glassmorphic scroll state ── */
+    .header-scrolled {
+      background: rgba(231, 236, 238, 0.8) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5) !important;
+      box-shadow: var(--shadow-sm) !important;
+      height: 64px !important;
+    }
+
+    /* ── Card hover for alt paths ── */
+    .alt-card {
+      transition: all 0.2s ease;
+    }
+    .alt-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .alt-card:hover .alt-card-title {
+      color: var(--color-primary-700);
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fadeUp,
+      .animate-fadeIn,
+      .animate-statusPulse {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .alt-card:hover {
+        transform: none;
+      }
+    }
+
+    /* ── Mobile nav overlay ── */
+    .mobile-nav-overlay {
+      background: rgba(6, 26, 35, 0.4);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body class="bg-background min-h-screen flex flex-col" style="font-family: var(--font-body); color: var(--color-foreground);">
+
+  <!-- ===== SKIP NAV ===== -->
+  <a href="#main-content"
+     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-700 focus:text-white focus:rounded-md focus:outline-none"
+     style="font-family: var(--font-heading); font-weight: 600;">
+    Skip to main content
+  </a>
+
+  <!-- ===== SITE HEADER ===== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content" class="flex-1 relative">
+    <!-- Dot grid background overlay -->
+    <div class="bg-dot-grid"></div>
+
+    <div class="relative z-10">
+      <!-- ===== SECTION 1: HERO HEADLINE ===== -->
+      <section class="pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-10 md:pb-12 text-center"
+               style="padding-top: calc(80px + 48px);">
+        <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+          <!-- Eyebrow -->
+          <div class="flex items-center justify-center gap-2 mb-4 opacity-0 animate-fadeIn"
+               style="animation-delay: 0ms; animation-fill-mode: forwards;">
+            <i data-lucide="play" class="w-3.5 h-3.5" style="color: var(--color-primary-700);"></i>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">Personalized Demo</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-display-md text-center mx-auto opacity-0 animate-fadeUp"
+              style="max-width: 28ch; color: var(--color-foreground); animation-delay: 100ms; animation-fill-mode: forwards;">
+            See How SafeTrekr Protects Every Trip.
+          </h1>
+
+          <!-- Sub-headline -->
+          <p class="text-body-lg text-center mx-auto mt-4 opacity-0 animate-fadeUp"
+             style="max-width: 55ch; color: var(--color-muted-foreground); animation-delay: 250ms; animation-fill-mode: forwards;">
+            Schedule a personalized walkthrough of the SafeTrekr platform. We'll show you exactly what a safety binder looks like for your organization.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 2: FORM + SIDEBAR ===== -->
+      <section class="pb-0">
+        <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start opacity-0 animate-fadeUp"
+               style="animation-delay: 400ms; animation-fill-mode: forwards;">
+
+            <!-- ===== FORM CARD (7 cols) ===== -->
+            <div class="lg:col-span-7">
+              <div id="form-card"
+                   class="rounded-2xl border shadow-lg p-8 sm:p-10 transition-all duration-300"
+                   style="background: var(--color-card); border-color: var(--color-border); border-radius: var(--radius-2xl);">
+
+                <!-- Error Banner (hidden by default) -->
+                <div id="error-banner" class="hidden items-start gap-3 p-4 mb-6 rounded-lg"
+                     role="alert"
+                     style="background: rgba(193, 37, 62, 0.05); border: 1px solid rgba(193, 37, 62, 0.2);">
+                  <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--color-destructive);"></i>
+                  <div>
+                    <p id="error-banner-headline" class="text-body-sm font-medium" style="color: var(--color-destructive);"></p>
+                    <p id="error-banner-detail" class="text-body-xs mt-1" style="color: var(--color-muted-foreground);"></p>
+                  </div>
+                </div>
+
+                <!-- Live region for step announcements -->
+                <div id="step-announcer" class="sr-only" aria-live="polite" role="status"></div>
+
+                <form id="demo-form" novalidate>
+                  <!-- Honeypot -->
+                  <div class="absolute -left-[9999px]" aria-hidden="true" tabindex="-1">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+                  </div>
+
+                  <!-- ===== STEP 1 ===== -->
+                  <div id="step-1">
+                    <!-- Step Indicator -->
+                    <div class="flex items-center justify-between mb-8">
+                      <p class="text-body-sm font-medium" style="color: var(--color-foreground);">
+                        Step <span style="color: var(--color-primary-700);">1</span> of 2
+                      </p>
+                      <div class="flex gap-2">
+                        <div class="h-1.5 w-20 rounded-full" style="background: var(--color-primary-500);"></div>
+                        <div class="h-1.5 w-20 rounded-full" style="background: var(--color-border);"></div>
+                      </div>
+                    </div>
+
+                    <div class="space-y-6">
+                      <!-- Email Field -->
+                      <div class="input-group">
+                        <label for="email" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                          Work Email <span style="color: var(--color-destructive);">*</span>
+                        </label>
+                        <div class="relative">
+                          <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--color-muted-foreground);"></i>
+                          <input type="email"
+                                 id="email"
+                                 name="email"
+                                 required
+                                 aria-required="true"
+                                 autocomplete="email"
+                                 placeholder="you@organization.com"
+                                 class="input field-focus pl-10"
+                                 style="height: 44px;" />
+                        </div>
+                        <div id="email-error" class="hidden text-body-xs mt-1.5 flex items-center gap-1" aria-live="polite" style="color: var(--color-destructive);">
+                          <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                          <span></span>
+                        </div>
+                      </div>
+
+                      <!-- Organization Name Field -->
+                      <div class="input-group">
+                        <label for="organizationName" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                          Organization Name <span style="color: var(--color-destructive);">*</span>
+                        </label>
+                        <div class="relative">
+                          <i data-lucide="building-2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--color-muted-foreground);"></i>
+                          <input type="text"
+                                 id="organizationName"
+                                 name="organizationName"
+                                 required
+                                 aria-required="true"
+                                 autocomplete="organization"
+                                 placeholder="e.g. Springfield Unified School District"
+                                 class="input field-focus pl-10"
+                                 style="height: 44px;" />
+                        </div>
+                        <div id="organizationName-error" class="hidden text-body-xs mt-1.5 flex items-center gap-1" aria-live="polite" style="color: var(--color-destructive);">
+                          <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                          <span></span>
+                        </div>
+                      </div>
+
+                      <!-- Continue Button -->
+                      <button type="button"
+                              id="continue-btn"
+                              class="btn btn-primary btn-lg w-full"
+                              style="height: 52px; font-family: var(--font-heading);">
+                        Continue
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                      </button>
+                    </div>
+
+                    <!-- Turnstile placeholder -->
+                    <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY" data-theme="light" data-size="invisible"></div>
+                  </div>
+
+                  <!-- ===== STEP 2 (hidden by default) ===== -->
+                  <div id="step-2" class="hidden">
+                    <!-- Step Indicator -->
+                    <div class="flex items-center justify-between mb-8">
+                      <p class="text-body-sm font-medium" style="color: var(--color-foreground);">
+                        Step <span style="color: var(--color-primary-700);">2</span> of 2
+                      </p>
+                      <div class="flex gap-2">
+                        <div class="h-1.5 w-20 rounded-full" style="background: var(--color-primary-500);"></div>
+                        <div class="h-1.5 w-20 rounded-full" style="background: var(--color-primary-500);"></div>
+                      </div>
+                    </div>
+
+                    <!-- Back Link -->
+                    <button type="button"
+                            id="back-btn"
+                            class="text-body-sm font-medium inline-flex items-center gap-1.5 mb-6 transition-colors"
+                            style="color: var(--color-primary-700);">
+                      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                      Back to Step 1
+                    </button>
+
+                    <div class="space-y-6">
+                      <!-- Full Name -->
+                      <div class="input-group">
+                        <label for="fullName" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                          Full Name <span style="color: var(--color-destructive);">*</span>
+                        </label>
+                        <div class="relative">
+                          <i data-lucide="user" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--color-muted-foreground);"></i>
+                          <input type="text"
+                                 id="fullName"
+                                 name="fullName"
+                                 required
+                                 aria-required="true"
+                                 autocomplete="name"
+                                 placeholder="Your full name"
+                                 class="input field-focus pl-10"
+                                 style="height: 44px;" />
+                        </div>
+                        <div id="fullName-error" class="hidden text-body-xs mt-1.5 flex items-center gap-1" aria-live="polite" style="color: var(--color-destructive);">
+                          <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                          <span></span>
+                        </div>
+                      </div>
+
+                      <!-- Org Type + Estimated Trips (side by side on md+) -->
+                      <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Organization Type -->
+                        <div class="input-group">
+                          <label for="organizationType" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                            Organization Type <span style="color: var(--color-destructive);">*</span>
+                          </label>
+                          <select id="organizationType"
+                                  name="organizationType"
+                                  required
+                                  aria-required="true"
+                                  class="input field-focus form-select"
+                                  style="height: 44px; cursor: pointer;">
+                            <option value="" disabled selected>Select one...</option>
+                            <option value="k12">K-12 School or District</option>
+                            <option value="higher-ed">Higher Education</option>
+                            <option value="church">Church or Mission Organization</option>
+                            <option value="corporate">Corporate or Business</option>
+                            <option value="sports">Sports League or Team</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <div id="organizationType-error" class="hidden text-body-xs mt-1.5 flex items-center gap-1" aria-live="polite" style="color: var(--color-destructive);">
+                            <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span></span>
+                          </div>
+                        </div>
+
+                        <!-- Estimated Annual Trips -->
+                        <div class="input-group">
+                          <label for="estimatedTrips" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                            Estimated Annual Trips <span style="color: var(--color-destructive);">*</span>
+                          </label>
+                          <select id="estimatedTrips"
+                                  name="estimatedTrips"
+                                  required
+                                  aria-required="true"
+                                  class="input field-focus form-select"
+                                  style="height: 44px; cursor: pointer;">
+                            <option value="" disabled selected>Select range...</option>
+                            <option value="1-10">1-10</option>
+                            <option value="11-25">11-25</option>
+                            <option value="26-50">26-50</option>
+                            <option value="50+">50+</option>
+                          </select>
+                          <div id="estimatedTrips-error" class="hidden text-body-xs mt-1.5 flex items-center gap-1" aria-live="polite" style="color: var(--color-destructive);">
+                            <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Preferred Demo Format -->
+                      <div class="input-group">
+                        <label for="demoFormat" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                          Preferred Demo Format <span style="color: var(--color-destructive);">*</span>
+                        </label>
+                        <select id="demoFormat"
+                                name="demoFormat"
+                                required
+                                aria-required="true"
+                                class="input field-focus form-select"
+                                style="height: 44px; cursor: pointer;">
+                          <option value="" disabled selected>Select one...</option>
+                          <option value="video-call">Video call (30 min)</option>
+                          <option value="in-person">In-person (if available)</option>
+                          <option value="self-guided">Self-guided tour</option>
+                        </select>
+                        <div id="demoFormat-error" class="hidden text-body-xs mt-1.5 flex items-center gap-1" aria-live="polite" style="color: var(--color-destructive);">
+                          <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                          <span></span>
+                        </div>
+                      </div>
+
+                      <!-- Message (optional) -->
+                      <div class="input-group">
+                        <label for="message" class="text-body-sm font-medium block mb-1.5" style="color: var(--color-foreground);">
+                          Message <span class="font-normal" style="color: var(--color-muted-foreground);">(optional)</span>
+                        </label>
+                        <textarea id="message"
+                                  name="message"
+                                  maxlength="500"
+                                  placeholder="Anything specific you'd like to see in the demo?"
+                                  rows="4"
+                                  class="input field-focus"
+                                  style="min-height: 120px; resize: vertical; max-height: 240px; padding: 12px 16px;"></textarea>
+                        <div class="flex justify-end mt-1">
+                          <span id="char-counter" class="text-body-xs" style="color: var(--color-muted-foreground);">0 / 500</span>
+                        </div>
+                      </div>
+
+                      <!-- Submit Button -->
+                      <button type="submit"
+                              id="submit-btn"
+                              class="btn btn-primary btn-lg w-full"
+                              style="height: 52px; font-family: var(--font-heading);">
+                        <span id="submit-label">Request Your Demo</span>
+                        <i data-lucide="send" class="w-4 h-4" id="submit-icon"></i>
+                        <svg id="submit-spinner" class="hidden animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                          <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                          <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+                        </svg>
+                      </button>
+
+                      <!-- Legal Disclaimer -->
+                      <p class="text-body-xs text-center mt-4" style="color: var(--color-muted-foreground);">
+                        By submitting, you agree to our
+                        <a href="/legal/privacy" class="hover:underline" style="color: var(--color-primary-700);">Privacy Policy</a>
+                        and <a href="/legal/terms" class="hover:underline" style="color: var(--color-primary-700);">Terms of Service</a>.
+                      </p>
+                    </div>
+                  </div>
+                </form>
+
+                <!-- ===== SUCCESS STATE (hidden by default) ===== -->
+                <div id="success-state" class="hidden" role="status" aria-live="polite">
+                  <div class="text-center">
+                    <!-- Check Icon -->
+                    <div class="mx-auto" style="width: 64px; height: 64px;">
+                      <svg id="success-icon" class="mx-auto animate-statusPulse" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                      </svg>
+                    </div>
+
+                    <!-- Headline -->
+                    <h2 class="text-heading-lg mt-6" style="color: var(--color-foreground);">
+                      We've Received Your Request
+                    </h2>
+
+                    <!-- Body -->
+                    <p class="text-body-lg mt-3 mx-auto" style="color: var(--color-muted-foreground); max-width: 45ch;">
+                      Expect to hear from us within 1 business day. We'll personalize your demo for
+                      <span id="success-org-type">your organization</span>.
+                    </p>
+
+                    <!-- What Happens Next Card -->
+                    <div class="mt-8 rounded-xl p-6 text-left" style="background: var(--color-primary-50);">
+                      <h3 class="text-heading-sm mb-4" style="color: var(--color-foreground);">What Happens Next</h3>
+                      <ol class="space-y-4" role="list">
+                        <li class="flex gap-4 items-start">
+                          <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                                style="background: var(--color-primary-100); color: var(--color-primary-700);">1</span>
+                          <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                            A SafeTrekr team member will email you at <strong id="success-email" class="font-medium" style="color: var(--color-foreground);">your email</strong> to confirm your demo time.
+                          </p>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                          <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                                style="background: var(--color-primary-100); color: var(--color-primary-700);">2</span>
+                          <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                            We'll prepare a personalized safety binder example for your organization type.
+                          </p>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                          <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                                style="background: var(--color-primary-100); color: var(--color-primary-700);">3</span>
+                          <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                            Your <strong id="success-format" class="font-medium" style="color: var(--color-foreground);">demo</strong> will take about 30 minutes.
+                          </p>
+                        </li>
+                      </ol>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                      <a href="/resources/sample-binders" class="btn btn-primary btn-lg" style="font-family: var(--font-heading);">
+                        Download a Sample Binder
+                      </a>
+                      <a href="/" class="btn btn-secondary btn-lg" style="font-family: var(--font-heading);">
+                        Return to Homepage
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ===== TRUST SIDEBAR (5 cols) ===== -->
+            <aside class="lg:col-span-5 lg:sticky lg:top-24">
+              <!-- What to Expect -->
+              <div id="sidebar-expect" class="space-y-6">
+                <h2 id="sidebar-heading" class="text-heading-sm" style="color: var(--color-foreground);">What to Expect</h2>
+                <ol id="sidebar-list" class="space-y-5" role="list">
+                  <li class="flex gap-4 items-start">
+                    <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                          style="background: var(--color-primary-50); color: var(--color-primary-700);">1</span>
+                    <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                      We'll confirm your demo within <strong class="font-medium" style="color: var(--color-foreground);">1 business day</strong>.
+                    </p>
+                  </li>
+                  <li class="flex gap-4 items-start">
+                    <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                          style="background: var(--color-primary-50); color: var(--color-primary-700);">2</span>
+                    <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                      Your demo will be <strong class="font-medium" style="color: var(--color-foreground);">personalized</strong> for your organization type.
+                    </p>
+                  </li>
+                  <li class="flex gap-4 items-start">
+                    <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                          style="background: var(--color-primary-50); color: var(--color-primary-700);">3</span>
+                    <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                      We'll walk through a <strong class="font-medium" style="color: var(--color-foreground);">real safety binder</strong> for your kind of trip.
+                    </p>
+                  </li>
+                  <li class="flex gap-4 items-start">
+                    <span class="flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-body-sm font-semibold"
+                          style="background: var(--color-primary-50); color: var(--color-primary-700);">4</span>
+                    <p class="text-body-md pt-1" style="color: var(--color-muted-foreground);">
+                      No pressure. No obligation. <strong class="font-medium" style="color: var(--color-foreground);">Just clarity</strong>.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Sidebar: Thank You state (hidden by default, shown on success) -->
+              <div id="sidebar-thank-you" class="hidden space-y-4">
+                <h2 class="text-heading-sm" style="color: var(--color-foreground);">Thank You</h2>
+                <p class="text-body-md" style="color: var(--color-muted-foreground);">
+                  You're one step closer to protecting every trip with professional safety review.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <div class="my-8" style="height: 1px; background: var(--color-border);"></div>
+
+              <!-- Trust Proof Points -->
+              <div class="space-y-4">
+                <h3 class="text-eyebrow" style="color: var(--color-primary-700);">Trusted Platform</h3>
+                <ul class="space-y-4" role="list">
+                  <li class="flex items-center gap-3">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center"
+                         style="background: var(--color-primary-50);">
+                      <i data-lucide="shield" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+                    </div>
+                    <div>
+                      <p class="text-body-sm font-semibold" style="color: var(--color-foreground);">5</p>
+                      <p class="text-body-xs" style="color: var(--color-muted-foreground);">Government Intel Sources</p>
+                    </div>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center"
+                         style="background: var(--color-primary-50);">
+                      <i data-lucide="clipboard-check" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+                    </div>
+                    <div>
+                      <p class="text-body-sm font-semibold" style="color: var(--color-foreground);">17</p>
+                      <p class="text-body-xs" style="color: var(--color-muted-foreground);">Safety Review Sections</p>
+                    </div>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center"
+                         style="background: var(--color-primary-50);">
+                      <i data-lucide="clock" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+                    </div>
+                    <div>
+                      <p class="text-body-sm font-semibold" style="color: var(--color-foreground);">3-5 Day</p>
+                      <p class="text-body-xs" style="color: var(--color-muted-foreground);">Turnaround</p>
+                    </div>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center"
+                         style="background: var(--color-primary-50);">
+                      <i data-lucide="lock" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+                    </div>
+                    <div>
+                      <p class="text-body-sm font-semibold" style="color: var(--color-foreground);">AES-256</p>
+                      <p class="text-body-xs" style="color: var(--color-muted-foreground);">Encryption Standard</p>
+                    </div>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-lg flex items-center justify-center"
+                         style="background: var(--color-primary-50);">
+                      <i data-lucide="file-text" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+                    </div>
+                    <div>
+                      <p class="text-body-sm font-semibold" style="color: var(--color-foreground);">SHA-256</p>
+                      <p class="text-body-xs" style="color: var(--color-muted-foreground);">Evidence Chain</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Divider -->
+              <div class="my-8" style="height: 1px; background: var(--color-border);"></div>
+
+              <!-- Security Assurance -->
+              <div class="flex items-start gap-3 p-4 rounded-lg"
+                   style="background: var(--color-primary-50); border: 1px solid var(--color-primary-100);">
+                <i data-lucide="lock" class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--color-primary-700);"></i>
+                <div>
+                  <p class="text-body-sm font-medium" style="color: var(--color-foreground);">Your data is secure</p>
+                  <p class="text-body-xs mt-1" style="color: var(--color-muted-foreground);">
+                    SOC 2 compliant infrastructure. FERPA and GDPR ready.
+                    Your information is encrypted in transit and at rest.
+                  </p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 4: ALTERNATIVE PATHS ===== -->
+      <section class="mt-16 lg:mt-20 pb-24 lg:pb-32" aria-labelledby="alt-paths-heading">
+        <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h2 id="alt-paths-heading" class="text-heading-sm mb-8" style="color: var(--color-foreground);">
+            Not ready for a demo?
+          </h2>
+          <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <!-- Card 1: Sample Binder -->
+            <a href="/resources/sample-binders"
+               class="alt-card group block rounded-xl border p-6 text-left"
+               style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm);">
+              <div class="h-10 w-10 rounded-lg flex items-center justify-center mb-4"
+                   style="background: var(--color-primary-50);">
+                <i data-lucide="file-text" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+              </div>
+              <h3 class="text-heading-sm alt-card-title transition-colors" style="color: var(--color-foreground);">
+                Download a Sample Binder
+              </h3>
+              <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+                See what a real safety binder looks like for your trip type.
+              </p>
+            </a>
+
+            <!-- Card 2: Pricing -->
+            <a href="/pricing"
+               class="alt-card group block rounded-xl border p-6 text-left"
+               style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm);">
+              <div class="h-10 w-10 rounded-lg flex items-center justify-center mb-4"
+                   style="background: var(--color-primary-50);">
+                <i data-lucide="dollar-sign" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+              </div>
+              <h3 class="text-heading-sm alt-card-title transition-colors" style="color: var(--color-foreground);">
+                View Pricing
+              </h3>
+              <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+                Transparent per-student pricing. No hidden fees.
+              </p>
+            </a>
+
+            <!-- Card 3: Contact -->
+            <a href="/contact"
+               class="alt-card group block rounded-xl border p-6 text-left"
+               style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm);">
+              <div class="h-10 w-10 rounded-lg flex items-center justify-center mb-4"
+                   style="background: var(--color-primary-50);">
+                <i data-lucide="message-square" class="w-5 h-5" style="color: var(--color-primary-700);"></i>
+              </div>
+              <h3 class="text-heading-sm alt-card-title transition-colors" style="color: var(--color-foreground);">
+                Contact Us
+              </h3>
+              <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+                Have a question before booking? We're here.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== SITE FOOTER ===== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // ── DOM References ──
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const form = document.getElementById('demo-form');
+    const formCard = document.getElementById('form-card');
+    const successState = document.getElementById('success-state');
+    const continueBtn = document.getElementById('continue-btn');
+    const backBtn = document.getElementById('back-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitLabel = document.getElementById('submit-label');
+    const submitIcon = document.getElementById('submit-icon');
+    const submitSpinner = document.getElementById('submit-spinner');
+    const charCounter = document.getElementById('char-counter');
+    const messageField = document.getElementById('message');
+    const errorBanner = document.getElementById('error-banner');
+    const stepAnnouncer = document.getElementById('step-announcer');
+
+    // Sidebar elements
+    const sidebarExpect = document.getElementById('sidebar-expect');
+    const sidebarThankYou = document.getElementById('sidebar-thank-you');
+    const sidebarHeading = document.getElementById('sidebar-heading');
+    const sidebarList = document.getElementById('sidebar-list');
+
+    // Success state elements
+    const successEmail = document.getElementById('success-email');
+    const successOrgType = document.getElementById('success-org-type');
+    const successFormat = document.getElementById('success-format');
+
+    // Mobile nav
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    // Header
+    const siteHeader = document.getElementById('site-header');
+
+    // ── Field validation rules ──
+    const validationRules = {
+      email: {
+        required: true,
+        validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+        message: 'Please enter a valid work email.',
+      },
+      organizationName: {
+        required: true,
+        validate: (v) => v.trim().length >= 2,
+        message: 'Organization name is required.',
+      },
+      fullName: {
+        required: true,
+        validate: (v) => v.trim().length >= 2,
+        message: 'Please enter your full name.',
+      },
+      organizationType: {
+        required: true,
+        validate: (v) => v !== '',
+        message: 'Please select an organization type.',
+      },
+      estimatedTrips: {
+        required: true,
+        validate: (v) => v !== '',
+        message: 'Please select an estimated trip range.',
+      },
+      demoFormat: {
+        required: true,
+        validate: (v) => v !== '',
+        message: 'Please select a demo format.',
+      },
+      message: {
+        required: false,
+        validate: (v) => v.length <= 500,
+        message: 'Message must be under 500 characters.',
+      },
+    };
+
+    // Track which fields have been touched
+    const touchedFields = new Set();
+
+    // ── Validation helpers ──
+    function showFieldError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      const errorEl = document.getElementById(fieldId + '-error');
+      if (field) field.classList.add('field-error');
+      if (field) field.setAttribute('aria-describedby', fieldId + '-error');
+      if (errorEl) {
+        errorEl.classList.remove('hidden');
+        errorEl.classList.add('flex');
+        const span = errorEl.querySelector('span');
+        if (span) span.textContent = message;
+      }
+    }
+
+    function clearFieldError(fieldId) {
+      const field = document.getElementById(fieldId);
+      const errorEl = document.getElementById(fieldId + '-error');
+      if (field) field.classList.remove('field-error');
+      if (field) field.removeAttribute('aria-describedby');
+      if (errorEl) {
+        errorEl.classList.add('hidden');
+        errorEl.classList.remove('flex');
+      }
+    }
+
+    function validateField(fieldId) {
+      const field = document.getElementById(fieldId);
+      const rule = validationRules[fieldId];
+      if (!field || !rule) return true;
+      const value = field.value;
+      if (rule.required && (!value || !rule.validate(value))) {
+        showFieldError(fieldId, rule.message);
+        return false;
+      }
+      if (!rule.required && value && !rule.validate(value)) {
+        showFieldError(fieldId, rule.message);
+        return false;
+      }
+      clearFieldError(fieldId);
+      return true;
+    }
+
+    // ── Field event listeners for validation ──
+    const allFields = ['email', 'organizationName', 'fullName', 'organizationType', 'estimatedTrips', 'demoFormat', 'message'];
+    allFields.forEach((fieldId) => {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+
+      // On blur: mark as touched, validate
+      field.addEventListener('blur', () => {
+        touchedFields.add(fieldId);
+        validateField(fieldId);
+      });
+
+      // On change/input: validate if already touched
+      const eventType = field.tagName === 'SELECT' ? 'change' : 'input';
+      field.addEventListener(eventType, () => {
+        if (touchedFields.has(fieldId)) {
+          validateField(fieldId);
+        }
+      });
+    });
+
+    // ── Character counter ──
+    messageField.addEventListener('input', () => {
+      const len = messageField.value.length;
+      charCounter.textContent = len + ' / 500';
+      if (len >= 500) {
+        charCounter.style.color = 'var(--color-destructive)';
+      } else if (len > 450) {
+        charCounter.style.color = '#ca8a04';
+      } else {
+        charCounter.style.color = 'var(--color-muted-foreground)';
+      }
+    });
+
+    // ── Step 1 -> Step 2 transition ──
+    continueBtn.addEventListener('click', () => {
+      // Mark step 1 fields as touched
+      touchedFields.add('email');
+      touchedFields.add('organizationName');
+
+      const emailValid = validateField('email');
+      const orgValid = validateField('organizationName');
+
+      if (!emailValid || !orgValid) {
+        const firstError = !emailValid ? 'email' : 'organizationName';
+        document.getElementById(firstError).focus();
+        return;
+      }
+
+      // Hide step 1, show step 2
+      step1.style.opacity = '0';
+      step1.style.transition = 'opacity 200ms ease';
+      setTimeout(() => {
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        step2.style.opacity = '0';
+        step2.style.transform = 'translateY(16px)';
+        requestAnimationFrame(() => {
+          step2.style.transition = 'opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+          step2.style.opacity = '1';
+          step2.style.transform = 'translateY(0)';
+        });
+        // Focus the first field in step 2
+        setTimeout(() => {
+          document.getElementById('fullName').focus();
+        }, 100);
+        // Announce step change
+        stepAnnouncer.textContent = 'Step 2 of 2: Tell Us More. Please provide additional details.';
+      }, 200);
+    });
+
+    // ── Step 2 -> Step 1 (back) ──
+    backBtn.addEventListener('click', () => {
+      step2.style.opacity = '0';
+      step2.style.transition = 'opacity 200ms ease';
+      setTimeout(() => {
+        step2.classList.add('hidden');
+        step1.classList.remove('hidden');
+        step1.style.opacity = '0';
+        step1.style.transform = 'translateY(16px)';
+        requestAnimationFrame(() => {
+          step1.style.transition = 'opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+          step1.style.opacity = '1';
+          step1.style.transform = 'translateY(0)';
+        });
+        // Focus email field
+        setTimeout(() => {
+          document.getElementById('email').focus();
+        }, 100);
+        stepAnnouncer.textContent = 'Step 1 of 2: Basic Info.';
+      }, 200);
+    });
+
+    // ── Form submission ──
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Mark all fields as touched
+      allFields.forEach((f) => touchedFields.add(f));
+
+      // Validate all fields
+      const step1Fields = ['email', 'organizationName'];
+      const step2Fields = ['fullName', 'organizationType', 'estimatedTrips', 'demoFormat', 'message'];
+      let allValid = true;
+      let firstErrorField = null;
+
+      [...step1Fields, ...step2Fields].forEach((fieldId) => {
+        const isValid = validateField(fieldId);
+        if (!isValid && !firstErrorField) {
+          firstErrorField = fieldId;
+        }
+        if (!isValid) allValid = false;
+      });
+
+      if (!allValid) {
+        if (firstErrorField) {
+          document.getElementById(firstErrorField).focus();
+        }
+        return;
+      }
+
+      // Check honeypot
+      const honeypot = document.getElementById('website');
+      if (honeypot && honeypot.value) {
+        // Silently show success (bot trap)
+        showSuccessState();
+        return;
+      }
+
+      // Set loading state
+      submitBtn.setAttribute('aria-busy', 'true');
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      submitBtn.style.pointerEvents = 'none';
+      submitLabel.textContent = 'Submitting...';
+      submitIcon.classList.add('hidden');
+      submitSpinner.classList.remove('hidden');
+
+      // Simulate submission (in a real app this would be a Server Action)
+      setTimeout(() => {
+        showSuccessState();
+      }, 1500);
+    });
+
+    // ── Success state ──
+    function showSuccessState() {
+      // Populate dynamic content
+      const emailVal = document.getElementById('email').value;
+      const orgTypeSelect = document.getElementById('organizationType');
+      const orgTypeText = orgTypeSelect.options[orgTypeSelect.selectedIndex]?.text || 'your organization';
+      const demoFormatSelect = document.getElementById('demoFormat');
+      const demoFormatText = demoFormatSelect.options[demoFormatSelect.selectedIndex]?.text || 'demo';
+
+      successEmail.textContent = emailVal;
+      successOrgType.textContent = orgTypeText;
+      successFormat.textContent = demoFormatText;
+
+      // Transition form out
+      form.style.opacity = '0';
+      form.style.transition = 'opacity 200ms ease';
+      setTimeout(() => {
+        form.classList.add('hidden');
+        successState.classList.remove('hidden');
+        successState.style.opacity = '0';
+        successState.style.transform = 'translateY(20px)';
+        requestAnimationFrame(() => {
+          successState.style.transition = 'opacity 400ms cubic-bezier(0.34, 1.56, 0.64, 1), transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+          successState.style.opacity = '1';
+          successState.style.transform = 'translateY(0)';
+        });
+      }, 200);
+
+      // Update sidebar
+      sidebarExpect.classList.add('hidden');
+      sidebarThankYou.classList.remove('hidden');
+
+      // Scroll to top of form card
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ── Error banner ──
+    function showErrorBanner(headline, detail) {
+      const bannerHeadline = document.getElementById('error-banner-headline');
+      const bannerDetail = document.getElementById('error-banner-detail');
+      bannerHeadline.textContent = headline;
+      bannerDetail.textContent = detail;
+      errorBanner.classList.remove('hidden');
+      errorBanner.classList.add('flex');
+      errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function hideErrorBanner() {
+      errorBanner.classList.add('hidden');
+      errorBanner.classList.remove('flex');
+    }
+
+    // ── Header scroll behavior ──
+    let lastScrollY = 0;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        siteHeader.classList.add('header-scrolled');
+      } else {
+        siteHeader.classList.remove('header-scrolled');
+      }
+      lastScrollY = scrollY;
+    }, { passive: true });
+
+    // ── Mobile menu ──
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      // Focus close button
+      setTimeout(() => mobileMenuClose.focus(), 100);
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      mobileMenuBtn.focus();
+    }
+
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | SafeTrekr -- Professional Trip Safety</title>
+  <meta name="description" content="Professional trip safety starting at $15 per participant. Every trip reviewed by a safety analyst. Field trips, mission trips, study abroad, and corporate travel.">
+  <link rel="canonical" href="https://www.safetrekr.com/pricing">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pricing | SafeTrekr -- Professional Trip Safety">
+  <meta property="og:description" content="Professional trip safety starting at $15 per participant. Every trip reviewed by a safety analyst.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.safetrekr.com/pricing">
+
+  <!-- Design Tokens -->
+  <link rel="stylesheet" href="design-tokens.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            border: 'var(--color-border)',
+            ring: 'var(--color-ring)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            primary: {
+              DEFAULT: 'var(--color-primary)',
+              50: 'var(--color-primary-50)',
+              100: 'var(--color-primary-100)',
+              200: 'var(--color-primary-200)',
+              300: 'var(--color-primary-300)',
+              400: 'var(--color-primary-400)',
+              500: 'var(--color-primary-500)',
+              600: 'var(--color-primary-600)',
+              700: 'var(--color-primary-700)',
+              800: 'var(--color-primary-800)',
+              900: 'var(--color-primary-900)',
+              950: 'var(--color-primary-950)',
+              foreground: 'var(--color-primary-foreground)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              foreground: 'var(--color-secondary-foreground)',
+              light: 'var(--color-secondary-light)',
+              muted: 'var(--color-secondary-muted)',
+            },
+            warning: {
+              100: '#fef3c7',
+              700: '#b45309',
+            },
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            'xl': '16px',
+            '2xl': '20px',
+          },
+          maxWidth: {
+            'container': '1280px',
+            'container-lg': '1024px',
+            'prose': '65ch',
+          },
+          boxShadow: {
+            'card': 'var(--shadow-sm)',
+            'card-hover': 'var(--shadow-md)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "SafeTrekr Professional Trip Safety",
+      "description": "Professional safety analyst review, risk intelligence scoring, and audit-ready documentation for every trip.",
+      "brand": { "@type": "Brand", "name": "SafeTrekr" },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Field Trip",
+          "price": "450",
+          "priceCurrency": "USD",
+          "description": "Domestic day and overnight field trips. ~$15 per student for a 30-person group.",
+          "url": "https://www.safetrekr.com/pricing#field-trip"
+        },
+        {
+          "@type": "Offer",
+          "name": "Extended Trip",
+          "price": "750",
+          "priceCurrency": "USD",
+          "description": "Multi-day domestic trips, sports travel, retreats. ~$30 per participant for a 25-person group.",
+          "url": "https://www.safetrekr.com/pricing#extended-trip"
+        },
+        {
+          "@type": "Offer",
+          "name": "International",
+          "price": "1250",
+          "priceCurrency": "USD",
+          "description": "International travel, study abroad, mission trips. ~$62.50 per participant for a 20-person group.",
+          "url": "https://www.safetrekr.com/pricing#international"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What counts as a \"trip\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A trip is any organized travel event with a defined destination, dates, and participant group. A one-day field trip to a local museum counts as one trip. A week-long mission trip to Guatemala counts as one trip. Multi-stop itineraries within the same travel event are one trip. Each trip receives its own analyst review and safety binder."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we start with just one trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There is no minimum commitment. Many organizations start with a single trip to experience the full SafeTrekr process before committing to additional trips. Volume discounts apply automatically as you add more trips within a 12-month period."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does volume pricing work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Volume discounts are calculated based on the total number of trips your organization submits within a rolling 12-month window. Discounts range from 5% (5-9 trips) to 20% (50+ trips) and are applied automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there an annual plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer annual agreements for organizations with predictable trip volumes. Annual plans lock in volume discount rates and include priority analyst assignment. Contact our sales team to discuss annual plan options tailored to your organization's schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods do you accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept credit cards (Visa, Mastercard, American Express), ACH bank transfers, and purchase orders for organizations with established procurement processes. School districts and government entities can use standard PO workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after we purchase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After purchase, you submit your trip details through the SafeTrekr platform. Submission takes approximately 15 minutes. Your trip is assigned to a dedicated safety analyst who conducts the 17-section review. You receive your complete safety binder within 3-5 business days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we upgrade trip type after submission?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If your trip scope changes, contact your assigned analyst. We will adjust the review scope and billing accordingly. Upgrades are pro-rated based on the difference between trip types."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer nonprofit or church discounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our volume pricing structure is designed to accommodate organizations of all sizes. Churches and nonprofits with multiple annual trips typically qualify for volume discounts of 10-20%. Contact our sales team to discuss pricing for your specific situation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does per-student pricing work for large groups?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per-student cost decreases as group size increases because SafeTrekr pricing is per-trip, not per-participant. A field trip with 30 students costs $450 ($15/student). The same $450 field trip with 60 students drops to $7.50/student."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if we need to cancel a trip review?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you cancel before the analyst review begins, you receive a full refund. If the review is already in progress, we will complete the review and deliver the safety binder. Completed reviews can be applied to rescheduled trips to the same destination within 90 days."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <style>
+    /* Page-specific overrides and utilities not in design-tokens */
+
+    /* Pricing card featured scale on desktop */
+    @media (min-width: 768px) {
+      .pricing-card-featured {
+        transform: scale(1.05);
+        z-index: 1;
+      }
+    }
+
+    /* FAQ Accordion */
+    .faq-item-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-item-content {
+      max-height: 500px;
+    }
+    .faq-item .faq-chevron {
+      transition: transform 0.2s ease;
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Smooth scroll for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Volume table mobile stack */
+    @media (max-width: 639px) {
+      .volume-table { display: none; }
+      .volume-cards { display: flex; }
+    }
+    @media (min-width: 640px) {
+      .volume-table { display: table; }
+      .volume-cards { display: none; }
+    }
+
+    /* Header backdrop */
+    .site-header {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-nav.open {
+      max-height: 400px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .faq-item-content,
+      .faq-item .faq-chevron,
+      .mobile-nav {
+        transition: none !important;
+      }
+    }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- ================================================================== -->
+  <!-- SKIP NAV -->
+  <!-- ================================================================== -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-foreground focus:rounded-md focus:shadow-lg">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ================================================================ -->
+    <!-- SECTION 1: HERO / HEADLINE -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-background);" aria-label="Pricing hero">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-12 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20 xl:pt-28 xl:pb-24 text-center">
+        <!-- Eyebrow -->
+        <p class="eyebrow mb-4">Transparent Pricing</p>
+
+        <!-- Headline -->
+        <h1 class="text-display-lg max-w-4xl mx-auto" style="color: var(--color-foreground);">
+          Professional Trip Safety Starting at <span style="color: var(--color-primary-700);">$15 Per Participant</span>
+        </h1>
+
+        <!-- Sub-headline -->
+        <p class="text-body-lg mt-6 max-w-prose mx-auto" style="color: var(--color-muted-foreground);">
+          Every trip reviewed by a safety analyst. Every document audit-ready.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a href="/demo" class="btn btn-primary btn-lg w-full sm:w-auto">Get a Demo</a>
+          <a href="/contact" class="btn btn-secondary btn-lg w-full sm:w-auto">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 2: VALUE ANCHOR -->
+    <!-- ================================================================ -->
+    <section aria-label="Value comparison" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-10 sm:py-12 lg:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Liability Card -->
+          <div class="flex md:flex-col items-start md:items-start gap-4 md:gap-0 p-6 rounded-xl" style="background: var(--color-card); border: 1px solid var(--color-border);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center shrink-0" style="background: var(--color-warning-100, #fef3c7);">
+              <!-- AlertTriangle icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="md:mt-4">
+              <p class="text-display-md" style="color: var(--color-foreground);" aria-label="Average trip-related injury settlement: $500,000 to $2 million">$500K &ndash; $2M</p>
+              <p class="text-body-md mt-2" style="color: var(--color-muted-foreground);">Average trip-related injury settlement</p>
+            </div>
+          </div>
+
+          <!-- Staff Time Card -->
+          <div class="flex md:flex-col items-start md:items-start gap-4 md:gap-0 p-6 rounded-xl" style="background: var(--color-card); border: 1px solid var(--color-border);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center shrink-0" style="background: var(--color-muted);">
+              <!-- Clock icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="md:mt-4">
+              <p class="text-display-md" style="color: var(--color-foreground);" aria-label="Staff time for manual safety planning per trip: $700 to $1,400">$700 &ndash; $1,400</p>
+              <p class="text-body-md mt-2" style="color: var(--color-muted-foreground);">Staff time for manual safety planning per trip</p>
+            </div>
+          </div>
+
+          <!-- SafeTrekr Card (emphasized) -->
+          <div class="flex md:flex-col items-start md:items-start gap-4 md:gap-0 p-6 rounded-xl" style="background: #ffffff; border: 2px solid var(--color-primary-200);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center shrink-0" style="background: var(--color-primary-50);">
+              <!-- Shield icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="md:mt-4">
+              <p class="text-display-md" style="color: var(--color-primary-700);" aria-label="Per student with SafeTrekr analyst review: $15">$15</p>
+              <p class="text-body-md mt-2" style="color: var(--color-muted-foreground);">Per student with SafeTrekr analyst review</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 3: PRICING TIER CARDS -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-background);" aria-label="Pricing tiers">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24 xl:py-32">
+        <!-- Section Header -->
+        <div class="text-center">
+          <p class="eyebrow mb-4">Choose Your Trip Type</p>
+          <p class="text-body-lg max-w-prose mx-auto" style="color: var(--color-muted-foreground);">
+            One price per trip. Every feature included.
+          </p>
+        </div>
+
+        <!-- Pricing Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start mt-12 lg:mt-16">
+
+          <!-- FIELD TRIP Card -->
+          <div id="field-trip" class="rounded-2xl p-8 flex flex-col" style="background: var(--color-card); border: 2px solid var(--color-border); box-shadow: var(--shadow-lg);">
+            <!-- Tier Name -->
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">Field Trip</h3>
+
+            <!-- Price -->
+            <div class="mt-4" aria-label="Field Trip: $450 per trip, approximately $15 per student based on a 30-person group">
+              <p class="text-display-md" style="color: var(--color-foreground);">$450</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">per trip</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px my-4" style="background: var(--color-border);"></div>
+
+            <!-- Per-participant -->
+            <div>
+              <p>
+                <span class="text-heading-sm font-bold" style="color: var(--color-primary-700);">$15</span>
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);"> / student</span>
+              </p>
+              <p class="text-body-sm mt-1" style="color: var(--color-muted-foreground); font-size: 12px;">based on 30 participants</p>
+            </div>
+
+            <!-- Description -->
+            <p class="text-body-sm mt-4" style="color: var(--color-muted-foreground);">
+              Domestic day and overnight trips
+            </p>
+
+            <!-- Divider -->
+            <div class="h-px my-6" style="background: var(--color-border);"></div>
+
+            <!-- Features -->
+            <p class="text-eyebrow mb-4" style="color: var(--color-muted-foreground);">Includes:</p>
+            <ul role="list" class="flex flex-col gap-3 flex-1">
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">17-section analyst safety review</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Risk intelligence from 5 government sources</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Complete trip safety binder</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Mobile field operations access</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Real-time monitoring and geofencing</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Compliance documentation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Dedicated analyst assignment</span>
+              </li>
+            </ul>
+
+            <!-- CTA -->
+            <a href="/demo" class="btn btn-primary btn-lg w-full mt-8 text-center">Get a Demo</a>
+          </div>
+
+          <!-- EXTENDED TRIP Card (Featured) -->
+          <div id="extended-trip" class="pricing-card-featured rounded-2xl p-8 flex flex-col relative" style="background: var(--color-card); border: 2px solid var(--color-primary-500); box-shadow: var(--shadow-xl);">
+            <!-- Badge -->
+            <div class="mb-4">
+              <span class="badge badge-brand" aria-label="Most common plan">Most Common</span>
+            </div>
+
+            <!-- Tier Name -->
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">Extended Trip</h3>
+
+            <!-- Price -->
+            <div class="mt-4" aria-label="Extended Trip: $750 per trip, approximately $30 per participant based on a 25-person group">
+              <p class="text-display-md" style="color: var(--color-foreground);">$750</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">per trip</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px my-4" style="background: var(--color-border);"></div>
+
+            <!-- Per-participant -->
+            <div>
+              <p>
+                <span class="text-heading-sm font-bold" style="color: var(--color-primary-700);">$30</span>
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);"> / participant</span>
+              </p>
+              <p class="text-body-sm mt-1" style="color: var(--color-muted-foreground); font-size: 12px;">based on 25 participants</p>
+            </div>
+
+            <!-- Description -->
+            <p class="text-body-sm mt-4" style="color: var(--color-muted-foreground);">
+              Multi-day domestic, sports travel, retreats
+            </p>
+
+            <!-- Divider -->
+            <div class="h-px my-6" style="background: var(--color-border);"></div>
+
+            <!-- Features -->
+            <p class="text-eyebrow mb-4" style="color: var(--color-muted-foreground);">Includes:</p>
+            <ul role="list" class="flex flex-col gap-3 flex-1">
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">17-section analyst safety review</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Risk intelligence from 5 government sources</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Complete trip safety binder</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Mobile field operations access</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Real-time monitoring and geofencing</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Compliance documentation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Dedicated analyst assignment</span>
+              </li>
+            </ul>
+
+            <!-- CTA -->
+            <a href="/demo" class="btn btn-primary btn-lg w-full mt-8 text-center">Get a Demo</a>
+          </div>
+
+          <!-- INTERNATIONAL Card -->
+          <div id="international" class="rounded-2xl p-8 flex flex-col" style="background: var(--color-card); border: 2px solid var(--color-border); box-shadow: var(--shadow-lg);">
+            <!-- Tier Name -->
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">International</h3>
+
+            <!-- Price -->
+            <div class="mt-4" aria-label="International: $1,250 per trip, approximately $62.50 per participant based on a 20-person group">
+              <p class="text-display-md" style="color: var(--color-foreground);">$1,250</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">per trip</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px my-4" style="background: var(--color-border);"></div>
+
+            <!-- Per-participant -->
+            <div>
+              <p>
+                <span class="text-heading-sm font-bold" style="color: var(--color-primary-700);">$62.50</span>
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);"> / participant</span>
+              </p>
+              <p class="text-body-sm mt-1" style="color: var(--color-muted-foreground); font-size: 12px;">based on 20 participants</p>
+            </div>
+
+            <!-- Description -->
+            <p class="text-body-sm mt-4" style="color: var(--color-muted-foreground);">
+              International travel, study abroad, mission trips
+            </p>
+
+            <!-- Divider -->
+            <div class="h-px my-6" style="background: var(--color-border);"></div>
+
+            <!-- Features -->
+            <p class="text-eyebrow mb-4" style="color: var(--color-muted-foreground);">Includes:</p>
+            <ul role="list" class="flex flex-col gap-3 flex-1">
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">17-section analyst safety review</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Risk intelligence from 5 government sources</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Complete trip safety binder</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Mobile field operations access</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Real-time monitoring and geofencing</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Compliance documentation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Dedicated analyst assignment</span>
+              </li>
+            </ul>
+
+            <!-- CTA -->
+            <a href="/demo" class="btn btn-primary btn-lg w-full mt-8 text-center">Get a Demo</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 4: VOLUME DISCOUNTS -->
+    <!-- ================================================================ -->
+    <section aria-label="Volume discounts" style="background: var(--color-background);">
+      <div class="max-w-[1024px] mx-auto px-6 sm:px-8 lg:px-12 py-10 sm:py-12 lg:py-16">
+        <!-- Section Header -->
+        <div class="text-center">
+          <p class="eyebrow mb-4">Volume Pricing</p>
+          <p class="text-body-lg" style="color: var(--color-muted-foreground);">
+            More trips. Better rates.
+          </p>
+        </div>
+
+        <!-- Table (sm+) -->
+        <div class="mt-8 rounded-xl overflow-hidden" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+          <table class="volume-table w-full" aria-label="Volume discount pricing table">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--color-border); background: rgba(231,236,238,0.5);">
+                <th scope="col" class="text-left text-eyebrow py-4 px-6" style="color: var(--color-muted-foreground);">Trips Per Year</th>
+                <th scope="col" class="text-left text-eyebrow py-4 px-6" style="color: var(--color-muted-foreground);">Discount</th>
+                <th scope="col" class="text-right text-eyebrow py-4 px-6" style="color: var(--color-muted-foreground);">Example (Field Trip)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td class="text-body-md py-4 px-6" style="color: var(--color-foreground);">1 &ndash; 4 trips</td>
+                <td class="text-body-md py-4 px-6" style="color: var(--color-foreground);">Standard rate</td>
+                <td class="text-body-md py-4 px-6 text-right" style="color: var(--color-foreground);">$450 / trip</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td class="text-body-md py-4 px-6" style="color: var(--color-foreground);">5 &ndash; 9 trips</td>
+                <td class="text-body-md py-4 px-6" style="color: var(--color-foreground);">5% off</td>
+                <td class="text-body-md py-4 px-6 text-right" style="color: var(--color-foreground);">$427.50 / trip</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td class="text-body-md py-4 px-6" style="color: var(--color-foreground);">10 &ndash; 24 trips</td>
+                <td class="text-body-md py-4 px-6" style="color: var(--color-foreground);">10% off</td>
+                <td class="text-body-md py-4 px-6 text-right" style="color: var(--color-foreground);">$405 / trip</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td class="text-body-md py-4 px-6 font-medium" style="color: var(--color-foreground);">25 &ndash; 49 trips</td>
+                <td class="text-body-md py-4 px-6 font-medium" style="color: var(--color-foreground);">15% off</td>
+                <td class="text-body-md py-4 px-6 text-right font-medium" style="color: var(--color-foreground);">$382.50 / trip</td>
+              </tr>
+              <tr style="background: rgba(241,249,244,0.5);">
+                <td class="text-body-md py-4 px-6 font-semibold" style="color: var(--color-primary-700);">50+ trips</td>
+                <td class="text-body-md py-4 px-6 font-semibold" style="color: var(--color-primary-700);">20% off</td>
+                <td class="text-body-md py-4 px-6 text-right font-semibold" style="color: var(--color-primary-700);">$360 / trip</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Mobile Cards (< sm) -->
+          <div class="volume-cards flex-col divide-y" style="border-color: var(--color-border);">
+            <div class="p-4">
+              <dt class="text-heading-sm" style="color: var(--color-foreground);">1 &ndash; 4 trips</dt>
+              <dd class="flex justify-between mt-2">
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);">Standard rate</span>
+                <span class="text-body-sm font-medium" style="color: var(--color-foreground);">$450 / trip</span>
+              </dd>
+            </div>
+            <div class="p-4">
+              <dt class="text-heading-sm" style="color: var(--color-foreground);">5 &ndash; 9 trips</dt>
+              <dd class="flex justify-between mt-2">
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);">5% off</span>
+                <span class="text-body-sm font-medium" style="color: var(--color-foreground);">$427.50 / trip</span>
+              </dd>
+            </div>
+            <div class="p-4">
+              <dt class="text-heading-sm" style="color: var(--color-foreground);">10 &ndash; 24 trips</dt>
+              <dd class="flex justify-between mt-2">
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);">10% off</span>
+                <span class="text-body-sm font-medium" style="color: var(--color-foreground);">$405 / trip</span>
+              </dd>
+            </div>
+            <div class="p-4">
+              <dt class="text-heading-sm" style="color: var(--color-foreground);">25 &ndash; 49 trips</dt>
+              <dd class="flex justify-between mt-2">
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);">15% off</span>
+                <span class="text-body-sm font-medium" style="color: var(--color-foreground);">$382.50 / trip</span>
+              </dd>
+            </div>
+            <div class="p-4" style="background: rgba(241,249,244,0.5);">
+              <dt class="text-heading-sm" style="color: var(--color-primary-700);">50+ trips</dt>
+              <dd class="flex justify-between mt-2">
+                <span class="text-body-sm font-semibold" style="color: var(--color-primary-700);">20% off</span>
+                <span class="text-body-sm font-semibold" style="color: var(--color-primary-700);">$360 / trip</span>
+              </dd>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-8">
+          <p class="text-body-md" style="color: var(--color-muted-foreground);">
+            Need an annual plan or custom volume pricing?
+          </p>
+          <a href="/contact" class="btn btn-secondary btn-md mt-4 inline-flex">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 5: WHAT'S INCLUDED IN EVERY TRIP -->
+    <!-- ================================================================ -->
+    <section aria-labelledby="included-heading" style="background: var(--color-primary-50);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24 xl:py-32">
+        <!-- Section Header -->
+        <div class="text-center">
+          <p class="eyebrow mb-4">Included in Every Trip</p>
+          <h2 id="included-heading" class="text-display-md" style="color: var(--color-foreground);">
+            No Tiers. No Feature Gates. No Surprises.
+          </h2>
+          <p class="text-body-lg mt-4 max-w-prose mx-auto" style="color: var(--color-muted-foreground);">
+            Every trip type includes the full SafeTrekr platform. The only difference is destination complexity.
+          </p>
+        </div>
+
+        <!-- Feature Cards Grid -->
+        <div class="grid sm:grid-cols-2 gap-6 mt-12">
+
+          <!-- Card 1: Analyst Safety Review -->
+          <div class="rounded-xl p-6 sm:p-8" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- ClipboardCheck icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                <rect x="9" y="3" width="6" height="4" rx="1"/>
+                <path d="M9 14l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">17-Section Analyst Safety Review</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              A trained safety analyst reviews every trip across 17 safety dimensions. No automated scoring alone -- human expertise on every review.
+            </p>
+          </div>
+
+          <!-- Card 2: Risk Intelligence Engine -->
+          <div class="rounded-xl p-6 sm:p-8" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Activity icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Risk Intelligence Engine</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Monte Carlo probability scoring from five government data sources: NOAA, USGS, CDC, GDACS, and ReliefWeb.
+            </p>
+          </div>
+
+          <!-- Card 3: Complete Trip Safety Binder -->
+          <div class="rounded-xl p-6 sm:p-8" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- FileText icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Complete Trip Safety Binder</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Audit-ready documentation delivered in 3-5 days. SHA-256 hash-chain ensures tamper-evident integrity on every page.
+            </p>
+          </div>
+
+          <!-- Card 4: Mobile Field Operations -->
+          <div class="rounded-xl p-6 sm:p-8" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Smartphone icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Mobile Field Operations</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Live trip map, geofencing, rally points, muster check-ins, and SMS broadcast in every chaperone's pocket.
+            </p>
+          </div>
+
+          <!-- Card 5: Real-Time Monitoring -->
+          <div class="rounded-xl p-6 sm:p-8" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Radio icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="2"/>
+                <path d="M16.24 7.76a6 6 0 010 8.49m-8.48-.01a6 6 0 010-8.49m11.31-2.82a10 10 0 010 14.14m-14.14 0a10 10 0 010-14.14"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Real-Time Monitoring</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Geofence alerts, participant location visibility, and emergency coordination tools available throughout the trip.
+            </p>
+          </div>
+
+          <!-- Card 6: Compliance Documentation -->
+          <div class="rounded-xl p-6 sm:p-8" style="background: white; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Scale icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="3" x2="12" y2="21"/>
+                <polyline points="1 14 5 10 9 14"/>
+                <polyline points="15 14 19 10 23 14"/>
+                <line x1="5" y1="10" x2="19" y2="10"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Compliance Documentation</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              FERPA, SOC 2, and GDPR-ready documentation. Complete tamper-evident audit trail with purge proof capabilities.
+            </p>
+          </div>
+
+          <!-- Card 7: Dedicated Analyst (Featured, full-width) -->
+          <div class="sm:col-span-2 rounded-xl p-6 sm:p-8" style="background: white; border: 2px solid var(--color-primary-200); box-shadow: var(--shadow-sm);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- User icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Dedicated Analyst Assignment</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Every trip is assigned to a named safety analyst who serves as your point of contact throughout the review process.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 6: ROI CALCULATOR LINK -->
+    <!-- ================================================================ -->
+    <section aria-label="ROI calculator" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="max-w-[1024px] mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 text-center">
+        <!-- Calculator Icon -->
+        <div class="mx-auto h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-10 w-10 sm:h-12 sm:w-12">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <line x1="8" y1="6" x2="16" y2="6"/>
+            <line x1="16" y1="14" x2="16" y2="18"/>
+            <line x1="8" y1="10" x2="8" y2="10.01"/>
+            <line x1="12" y1="10" x2="12" y2="10.01"/>
+            <line x1="16" y1="10" x2="16" y2="10.01"/>
+            <line x1="8" y1="14" x2="8" y2="14.01"/>
+            <line x1="12" y1="14" x2="12" y2="14.01"/>
+            <line x1="8" y1="18" x2="8" y2="18.01"/>
+            <line x1="12" y1="18" x2="12" y2="18.01"/>
+          </svg>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-display-md mt-6" style="color: var(--color-foreground);">
+          Calculate Your Organization's ROI
+        </h2>
+
+        <!-- Body -->
+        <p class="text-body-lg mt-4 max-w-prose mx-auto" style="color: var(--color-muted-foreground);">
+          See how much SafeTrekr saves in staff time, liability reduction, and documentation costs compared to manual safety planning.
+        </p>
+
+        <!-- CTA -->
+        <a href="/resources/roi-calculator" class="btn btn-primary btn-lg mt-8 inline-flex items-center gap-2">
+          Use the ROI Calculator
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 7: SEGMENT-SPECIFIC PRICING SCENARIOS -->
+    <!-- ================================================================ -->
+    <section aria-label="Pricing scenarios" style="background: var(--color-background);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24 xl:py-32">
+        <!-- Section Header -->
+        <div class="text-center">
+          <p class="eyebrow mb-4">What It Costs in Practice</p>
+          <h2 class="text-display-md" style="color: var(--color-foreground);">
+            Real Scenarios for Real Organizations
+          </h2>
+        </div>
+
+        <!-- Scenario Cards Grid -->
+        <div class="grid sm:grid-cols-2 gap-6 lg:gap-8 mt-12">
+
+          <!-- K-12 School District -->
+          <a href="/solutions/k12" class="group rounded-xl p-6 sm:p-8 block transition-all duration-200 hover:-translate-y-0.5" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);" aria-label="Annual cost for a K-12 school district with 20 field trips per year: $9,000">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- School icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 22h20"/>
+                <path d="M6 18V10"/>
+                <path d="M18 18V10"/>
+                <path d="M2 10l10-6 10 6"/>
+                <path d="M10 22V14h4v8"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">K-12 School District</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              20 field trips / year<br>
+              30 students per trip
+            </p>
+            <p class="text-heading-md mt-4" style="color: var(--color-foreground);">$9,000 / year</p>
+            <p class="text-body-sm font-medium mt-1" style="color: var(--color-primary-700);">$15 per student</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1 mt-4" style="color: var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Church or Mission Org -->
+          <a href="/solutions/churches" class="group rounded-xl p-6 sm:p-8 block transition-all duration-200 hover:-translate-y-0.5" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);" aria-label="Annual cost for a church or mission organization with 3 mission trips per year: $2,700">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Church icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 22H6"/>
+                <path d="M6 22V10l6-6 6 6v12"/>
+                <path d="M12 4V2"/>
+                <path d="M9 4h6"/>
+                <path d="M10 22v-4h4v4"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Church or Mission Org</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              3 mission trips / year<br>
+              Mixed domestic and international
+            </p>
+            <p class="text-heading-md mt-4" style="color: var(--color-foreground);">$2,700 / year</p>
+            <p class="text-body-sm font-medium mt-1" style="color: var(--color-primary-700);">Less than 1% of annual missions budget</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1 mt-4" style="color: var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Higher Education -->
+          <a href="/solutions/higher-education" class="group rounded-xl p-6 sm:p-8 block transition-all duration-200 hover:-translate-y-0.5" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);" aria-label="Annual cost for higher education with 8 study abroad programs per year: $10,000">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- GraduationCap icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Higher Education</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              8 study abroad programs / year<br>
+              20-25 participants each
+            </p>
+            <p class="text-heading-md mt-4" style="color: var(--color-foreground);">$10,000 / year</p>
+            <p class="text-body-sm font-medium mt-1" style="color: var(--color-primary-700);">Less than $50 per student for global safety coverage</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1 mt-4" style="color: var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Corporate / Sports -->
+          <a href="/solutions/corporate" class="group rounded-xl p-6 sm:p-8 block transition-all duration-200 hover:-translate-y-0.5" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);" aria-label="Annual cost for corporate or sports organizations with 15 team trips per year: $11,250">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Building2 icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18Z"/>
+                <path d="M6 12H4a2 2 0 00-2 2v6a2 2 0 002 2h2"/>
+                <path d="M18 9h2a2 2 0 012 2v9a2 2 0 01-2 2h-2"/>
+                <path d="M10 6h4"/>
+                <path d="M10 10h4"/>
+                <path d="M10 14h4"/>
+                <path d="M10 18h4"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-4" style="color: var(--color-foreground);">Corporate / Sports</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              15 team trips / year<br>
+              25 participants each
+            </p>
+            <p class="text-heading-md mt-4" style="color: var(--color-foreground);">$11,250 / year</p>
+            <p class="text-body-sm font-medium mt-1" style="color: var(--color-primary-700);">$30 per participant</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1 mt-4" style="color: var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 8: PROCUREMENT PATH (Dark Section) -->
+    <!-- ================================================================ -->
+    <section data-theme="dark" aria-label="Procurement resources" style="background: var(--color-secondary);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+          <!-- Left Column: CTA -->
+          <div>
+            <h2 class="text-display-md" style="color: #f7f8f8;">
+              Ready to Purchase?
+            </h2>
+            <p class="text-body-lg mt-4" style="color: #b8c3c7;">
+              We have everything your procurement team needs. Skip the sales cycle with ready-made documentation.
+            </p>
+            <a href="/procurement" class="btn btn-primary-on-dark btn-lg mt-8 inline-flex items-center gap-2">
+              For Procurement
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right Column: Checklist -->
+          <div>
+            <p class="text-eyebrow mb-6" style="color: var(--color-primary-400);">Procurement documents:</p>
+            <ul class="flex flex-col gap-4">
+              <li class="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: #b8c3c7;">W-9 form</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: #b8c3c7;">Security questionnaire</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: #b8c3c7;">Contract templates</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: #b8c3c7;">Data Processing Agreement (DPA)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: #b8c3c7;">Insurance certificate</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6cbc8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: #b8c3c7;">Compliance overview</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 9: COMMON QUESTIONS (FAQ) -->
+    <!-- ================================================================ -->
+    <section aria-label="Frequently asked questions" style="background: var(--color-background);">
+      <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24 xl:py-32">
+        <!-- Section Header -->
+        <div class="text-center">
+          <p class="eyebrow mb-4">Common Questions</p>
+          <h2 class="text-display-md" style="color: var(--color-foreground);">
+            Everything you need to know about pricing.
+          </h2>
+        </div>
+
+        <!-- Accordion -->
+        <div class="mt-12" role="region" aria-label="FAQ accordion">
+
+          <!-- Q1 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">What counts as a &ldquo;trip&rdquo;?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                A trip is any organized travel event with a defined destination, dates, and participant group. A one-day field trip to a local museum counts as one trip. A week-long mission trip to Guatemala counts as one trip. Multi-stop itineraries within the same travel event are one trip. Each trip receives its own analyst review and safety binder.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Can we start with just one trip?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Yes. There is no minimum commitment. Many organizations start with a single trip to experience the full SafeTrekr process -- analyst review, risk intelligence scoring, and safety binder delivery -- before committing to additional trips. Volume discounts apply automatically as you add more trips within a 12-month period.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">How does volume pricing work?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Volume discounts are calculated based on the total number of trips your organization submits within a rolling 12-month window. Discounts range from 5% (5-9 trips) to 20% (50+ trips) and are applied automatically. If you cross into a new tier mid-year, the new discount rate applies to all subsequent trips.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Is there an annual plan?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                We offer annual agreements for organizations with predictable trip volumes. Annual plans lock in volume discount rates and include priority analyst assignment. Contact our sales team to discuss annual plan options tailored to your organization's schedule.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">What payment methods do you accept?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                We accept credit cards (Visa, Mastercard, American Express), ACH bank transfers, and purchase orders for organizations with established procurement processes. School districts and government entities can use standard PO workflows. Invoicing is available for annual plans.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">What happens after we purchase?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                After purchase, you submit your trip details through the SafeTrekr platform -- destination, dates, participants, activities, and logistics. Submission takes approximately 15 minutes. Your trip is assigned to a dedicated safety analyst who conducts the 17-section review. You receive your complete safety binder within 3-5 business days.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Can we upgrade trip type after submission?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                If your trip scope changes -- for example, a domestic trip adds an international leg -- contact your assigned analyst. We will adjust the review scope and billing accordingly. Upgrades are pro-rated based on the difference between trip types.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Do you offer nonprofit or church discounts?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Our volume pricing structure is designed to accommodate organizations of all sizes. Churches and nonprofits with multiple annual trips typically qualify for volume discounts of 10-20%. Contact our sales team to discuss pricing for your specific situation. We also offer annual plans that can further reduce per-trip costs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">How does per-student pricing work for large groups?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Per-student cost decreases as group size increases because SafeTrekr pricing is per-trip, not per-participant. A field trip with 30 students costs $450 ($15/student). The same $450 field trip with 60 students drops to $7.50/student. The analyst review covers the entire trip regardless of group size.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="faq-item border-b" style="border-color: var(--color-border);">
+            <button
+              class="w-full flex items-center justify-between py-5 text-left cursor-pointer bg-transparent border-none"
+              aria-expanded="false"
+              onclick="toggleFAQ(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">What if we need to cancel a trip review?</span>
+              <svg class="faq-chevron shrink-0 ml-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-item-content">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                If you cancel before the analyst review begins, you receive a full refund. If the review is already in progress, we will complete the review and deliver the safety binder -- the work has value even if the trip is postponed. Completed reviews can be applied to rescheduled trips to the same destination within 90 days.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA Below FAQ -->
+        <div class="text-center mt-8">
+          <p class="text-body-md" style="color: var(--color-muted-foreground);">
+            Have a question we didn't answer?
+          </p>
+          <a href="/contact" class="btn btn-secondary btn-md mt-4 inline-flex">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SECTION 10: CONVERSION CTA BANNER -->
+    <!-- ================================================================ -->
+    <section aria-label="Get started" style="background: var(--color-primary-700);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-28 text-center">
+        <h2 class="text-display-md" style="color: #ffffff;">
+          Protect Your Next Trip
+        </h2>
+        <p class="text-body-lg mt-4 max-w-prose mx-auto" style="color: rgba(255,255,255,0.8);">
+          Every trip deserves a safety analyst. Start with a personalized demo.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a href="/demo" class="btn btn-primary-on-dark btn-lg w-full sm:w-auto">Get a Demo</a>
+          <a href="/contact" class="btn btn-ghost-on-dark btn-lg w-full sm:w-auto">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================== -->
+  <!-- SCRIPTS -->
+  <!-- ================================================================== -->
+  <script>
+    // FAQ Accordion (single-expand, collapsible)
+    function toggleFAQ(button) {
+      const faqItem = button.parentElement;
+      const isOpen = faqItem.classList.contains('open');
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item.open').forEach(item => {
+        item.classList.remove('open');
+        item.querySelector('button').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current item
+      if (!isOpen) {
+        faqItem.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // FAQ keyboard navigation (ArrowDown/ArrowUp between triggers)
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqButtons = document.querySelectorAll('.faq-item button');
+
+      faqButtons.forEach((btn, index) => {
+        btn.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const next = faqButtons[index + 1];
+            if (next) next.focus();
+          }
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prev = faqButtons[index - 1];
+            if (prev) prev.focus();
+          }
+        });
+      });
+    });
+
+    // Mobile Navigation Toggle
+    function toggleMobileNav(button) {
+      const nav = document.getElementById('mobile-nav');
+      const isOpen = nav.classList.contains('open');
+
+      if (isOpen) {
+        nav.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        nav.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+
+</body>
+</html>

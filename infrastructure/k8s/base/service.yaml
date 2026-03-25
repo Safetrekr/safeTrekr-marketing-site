@@ -1,0 +1,23 @@
+# ST-792: REQ-009 - Kubernetes Manifests for SafeTrekr Marketing Site
+#
+# ClusterIP Service exposes the Next.js pods internally on port 80.
+# The Ingress resource routes external traffic to this service.
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: safetrekr-web
+  labels:
+    app.kubernetes.io/name: safetrekr-web
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: web
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: safetrekr-web
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP

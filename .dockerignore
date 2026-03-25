@@ -1,0 +1,50 @@
+# ST-788: REQ-005 - Docker build context exclusions
+#
+# Keep the build context small and avoid leaking secrets or non-essential
+# artifacts into any build stage.
+
+# Dependencies -- reinstalled via npm ci inside the image
+node_modules
+
+# Build output -- rebuilt inside the image
+.next
+
+# Version control
+.git
+.gitignore
+
+# Project docs and planning artifacts
+infrastructure
+designs
+analysis
+plans
+discover-artifacts
+client-artifacts
+client-deliverables
+
+# Markdown files (except README.md)
+*.md
+!README.md
+
+# Environment and secret files
+.env*
+
+# Editor / OS artifacts
+.DS_Store
+*.pem
+.vscode
+.idea
+
+# Test and CI tooling (not needed in production image)
+coverage
+playwright-report
+test-results
+.github
+
+# Claude / AI tooling
+.claude
+.mcp.json
+.factory-config.json
+
+# Supabase local dev
+supabase

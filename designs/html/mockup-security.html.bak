@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security &amp; Trust -- How SafeTrekr Protects Your Data | SafeTrekr</title>
+  <meta name="description" content="AES-256 encryption at rest. TLS 1.2+ in transit. SHA-256 hash-chain evidence integrity. SOC 2 audit in progress. See exactly how SafeTrekr protects student, participant, and organizational data.">
+  <link rel="canonical" href="https://www.safetrekr.com/security">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Security &amp; Trust -- SafeTrekr">
+  <meta property="og:description" content="AES-256 encryption at rest. TLS 1.2+ in transit. SHA-256 hash-chain evidence integrity. SOC 2 audit in progress. See exactly how SafeTrekr protects student, participant, and organizational data.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.safetrekr.com/security">
+  <meta property="og:image" content="/og/security.png">
+
+  <!-- Design Tokens -->
+  <link rel="stylesheet" href="design-tokens.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            border: 'var(--color-border)',
+            ring: 'var(--color-ring)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            primary: {
+              DEFAULT: 'var(--color-primary)',
+              50: 'var(--color-primary-50)',
+              100: 'var(--color-primary-100)',
+              200: 'var(--color-primary-200)',
+              300: 'var(--color-primary-300)',
+              400: 'var(--color-primary-400)',
+              500: 'var(--color-primary-500)',
+              600: 'var(--color-primary-600)',
+              700: 'var(--color-primary-700)',
+              800: 'var(--color-primary-800)',
+              900: 'var(--color-primary-900)',
+              950: 'var(--color-primary-950)',
+              foreground: 'var(--color-primary-foreground)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              foreground: 'var(--color-secondary-foreground)',
+              light: 'var(--color-secondary-light)',
+              muted: 'var(--color-secondary-muted)',
+            },
+            destructive: {
+              DEFAULT: 'var(--color-destructive)',
+            },
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            'xl': '16px',
+            '2xl': '20px',
+          },
+          maxWidth: {
+            'container': '1280px',
+            'container-lg': '1024px',
+            'prose': '65ch',
+          },
+          boxShadow: {
+            'card': 'var(--shadow-sm)',
+            'card-hover': 'var(--shadow-md)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SafeTrekr Security & Trust",
+    "description": "Security posture, encryption standards, compliance roadmap, data handling policies, and infrastructure details for SafeTrekr.",
+    "url": "https://www.safetrekr.com/security",
+    "about": {
+      "@type": "Thing",
+      "name": "Information Security",
+      "description": "AES-256 encryption at rest, TLS 1.2+ in transit, SHA-256 evidence chain integrity, SOC 2 compliance."
+    }
+  }
+  </script>
+
+  <style>
+    /* Header backdrop */
+    .site-header {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-nav.open {
+      max-height: 400px;
+    }
+
+    /* Shield motif pattern for hero */
+    .shield-pattern {
+      opacity: 0.025;
+    }
+
+    /* Route divider draw animation */
+    .route-path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 1.2s ease;
+    }
+    .route-path.drawn {
+      stroke-dashoffset: 0;
+    }
+
+    /* Compliance timeline connector */
+    .timeline-connector {
+      transition: width 0.8s ease;
+    }
+
+    /* Pulsing dot for in-progress milestone */
+    @keyframes pulse-ring {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    .pulse-dot {
+      animation: pulse-ring 2s ease-in-out infinite;
+    }
+
+    /* Incident response vertical connector */
+    .ir-connector {
+      width: 2px;
+      margin-left: 15px;
+    }
+
+    /* Scroll-triggered fade-up animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .card-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mobile-nav,
+      .route-path,
+      .timeline-connector,
+      .fade-up,
+      .card-reveal {
+        transition: none !important;
+      }
+      .fade-up,
+      .card-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .pulse-dot {
+        animation: none !important;
+      }
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- ================================================================== -->
+  <!-- SKIP NAV -->
+  <!-- ================================================================== -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-foreground focus:rounded-md focus:shadow-lg">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ================================================================ -->
+    <!-- SECTION 1: HERO -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-background);" aria-labelledby="security-hero-heading" class="relative overflow-hidden">
+      <!-- Shield motif background pattern (decorative) -->
+      <div class="absolute inset-0 overflow-hidden shield-pattern" aria-hidden="true">
+        <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" width="900" height="900" viewBox="0 0 900 900" fill="none">
+          <path d="M450 50L150 200v250c0 165 127.5 318.75 300 375 172.5-56.25 300-210 300-375V200L450 50z" stroke="var(--color-primary-200)" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <path d="M450 120L200 245v200c0 135 104 260 250 310 146-50 250-175 250-310V245L450 120z" stroke="var(--color-primary-200)" stroke-width="1" fill="none" opacity="0.35"/>
+          <path d="M450 190L260 290v150c0 105 80 202.5 190 240 110-37.5 190-135 190-240V290L450 190z" stroke="var(--color-primary-200)" stroke-width="0.75" fill="none" opacity="0.2"/>
+        </svg>
+      </div>
+
+      <div class="relative max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 pt-24 pb-16 lg:pt-32 lg:pb-24 xl:pt-36 xl:pb-28">
+        <!-- Eyebrow -->
+        <p class="eyebrow mb-4 lg:mb-6 flex items-center gap-2 fade-up">
+          <!-- Shield icon -->
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Security &amp; Trust
+        </p>
+
+        <!-- Headline -->
+        <h1 id="security-hero-heading" class="text-display-lg max-w-[20ch] fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+          Your Data Is Protected. Here's Exactly How.
+        </h1>
+
+        <!-- Sub-headline -->
+        <p class="text-body-lg max-w-prose mt-6 lg:mt-8 fade-up" style="color: var(--color-muted-foreground); transition-delay: 160ms;">
+          We do not ask you to trust us blindly. This page documents every encryption standard, every compliance commitment, and every infrastructure decision we have made to protect your organization's data.
+        </p>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap gap-3 mt-10 lg:mt-12">
+          <!-- Badge: AES-256 -->
+          <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-body-sm font-medium fade-up" style="border-color: var(--color-border); background: var(--color-card); box-shadow: var(--shadow-sm); color: var(--color-foreground); transition-delay: 240ms;">
+            <svg class="h-4 w-4" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            AES-256 At Rest
+          </span>
+
+          <!-- Badge: TLS 1.2+ -->
+          <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-body-sm font-medium fade-up" style="border-color: var(--color-border); background: var(--color-card); box-shadow: var(--shadow-sm); color: var(--color-foreground); transition-delay: 300ms;">
+            <svg class="h-4 w-4" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+            TLS 1.2+ In Transit
+          </span>
+
+          <!-- Badge: SHA-256 -->
+          <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-body-sm font-medium fade-up" style="border-color: var(--color-border); background: var(--color-card); box-shadow: var(--shadow-sm); color: var(--color-foreground); transition-delay: 360ms;">
+            <svg class="h-4 w-4" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>
+            </svg>
+            SHA-256 Evidence Chain
+          </span>
+
+          <!-- Badge: SOC 2 -->
+          <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-body-sm font-medium fade-up" style="border-color: var(--color-border); background: var(--color-card); box-shadow: var(--shadow-sm); color: var(--color-foreground); transition-delay: 420ms;">
+            <svg class="h-4 w-4" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/>
+            </svg>
+            SOC 2 Audit
+          </span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 2: ENCRYPTION -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-card);" aria-labelledby="encryption-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Centered heading -->
+        <div class="text-center mb-10 lg:mb-14">
+          <p class="eyebrow mb-4 fade-up">Encryption</p>
+          <h2 id="encryption-heading" class="text-display-md fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+            Two Layers of Encryption. No Exceptions.
+          </h2>
+        </div>
+
+        <!-- 2-column cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+          <!-- At Rest Card -->
+          <div class="rounded-xl border p-8 card-reveal" style="background: var(--color-background); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 160ms;">
+            <!-- Icon -->
+            <div class="h-14 w-14 rounded-lg flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+              <svg class="h-7 w-7" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <!-- Label -->
+            <p class="text-eyebrow mb-2" style="color: var(--color-muted-foreground);">At Rest</p>
+            <!-- Heading -->
+            <h3 class="text-heading-md mb-4" style="color: var(--color-foreground);">
+              <abbr title="Advanced Encryption Standard, 256-bit" style="text-decoration: none;">AES-256</abbr>
+            </h3>
+            <!-- Body -->
+            <p class="text-body-md mb-6" style="color: var(--color-muted-foreground);">
+              Every piece of data stored in SafeTrekr -- trip plans, participant information, safety binders, evidence records -- is encrypted using AES-256, the same standard used by financial institutions and government agencies.
+            </p>
+            <!-- Details -->
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Database: Encrypted at volume level (LUKS)
+              </li>
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                File storage: Encrypted at object level
+              </li>
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Backups: Encrypted with separate key
+              </li>
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Key management: Provider-managed, rotated automatically
+              </li>
+            </ul>
+          </div>
+
+          <!-- In Transit Card -->
+          <div class="rounded-xl border p-8 card-reveal" style="background: var(--color-background); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 240ms;">
+            <!-- Icon -->
+            <div class="h-14 w-14 rounded-lg flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+              <svg class="h-7 w-7" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <!-- Label -->
+            <p class="text-eyebrow mb-2" style="color: var(--color-muted-foreground);">In Transit</p>
+            <!-- Heading -->
+            <h3 class="text-heading-md mb-4" style="color: var(--color-foreground);">
+              <abbr title="Transport Layer Security" style="text-decoration: none;">TLS</abbr> 1.2+
+            </h3>
+            <!-- Body -->
+            <p class="text-body-md mb-6" style="color: var(--color-muted-foreground);">
+              Every connection between your browser and SafeTrekr is encrypted with TLS 1.2 or higher. We enforce HTTPS on all endpoints. HSTS headers are set with a 1-year max-age. No data travels in plaintext. Ever.
+            </p>
+            <!-- Details -->
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Protocol: TLS 1.2 minimum, TLS 1.3 where supported
+              </li>
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Certificates: Auto-renewed via Cloudflare
+              </li>
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                HSTS: Strict-Transport-Security with 1-year max-age
+              </li>
+              <li class="flex items-start gap-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Cipher suites: Modern only (no legacy TLS 1.0/1.1)
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- ROUTE DIVIDER -->
+    <!-- ================================================================ -->
+    <div class="flex justify-center" style="background: var(--color-background);" aria-hidden="true">
+      <svg class="route-divider" width="600" height="40" viewBox="0 0 600 40" fill="none" style="max-width: 100%;">
+        <path class="route-path" d="M0 20 C150 0, 150 40, 300 20 S450 0, 600 20" stroke="var(--color-primary-200)" stroke-width="2" stroke-opacity="0.3" fill="none" pathLength="1"/>
+      </svg>
+    </div>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 3: EVIDENCE INTEGRITY (SHA-256 Hash Chain) -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-background);" aria-labelledby="evidence-integrity-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+          <!-- Left: Text Content -->
+          <div>
+            <p class="eyebrow mb-4 fade-up">Evidence Integrity</p>
+            <h2 id="evidence-integrity-heading" class="text-display-md mb-6 lg:mb-8 fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+              Every Document. Tamper-Evident.
+            </h2>
+            <p class="text-body-lg max-w-prose mb-6 fade-up" style="color: var(--color-muted-foreground); transition-delay: 160ms;">
+              Every safety binder produced by SafeTrekr is sealed with a <abbr title="Secure Hash Algorithm, 256-bit" style="text-decoration: none;">SHA-256</abbr> cryptographic hash. This hash creates a tamper-evident chain: if a single character in any document changes, the hash changes, and the tampering is detectable.
+            </p>
+
+            <!-- Code block -->
+            <div class="rounded-lg border p-4 mb-6 fade-up" style="background: var(--color-card); border-color: var(--color-border); transition-delay: 240ms;">
+              <pre style="margin: 0;"><code class="font-mono text-sm" style="color: var(--color-foreground);" aria-label="SHA-256 hash chain formula">SHA-256(previous_hash + document_content + timestamp) = new_hash</code></pre>
+            </div>
+
+            <!-- Why This Matters -->
+            <h3 class="text-heading-sm mb-4 fade-up" style="color: var(--color-foreground); transition-delay: 320ms;">Why This Matters</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-body-md fade-up" style="color: var(--color-muted-foreground); transition-delay: 360ms;">
+                <svg class="h-5 w-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Proves documents have not been altered after creation
+              </li>
+              <li class="flex items-start gap-3 text-body-md fade-up" style="color: var(--color-muted-foreground); transition-delay: 400ms;">
+                <svg class="h-5 w-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Satisfies evidence chain requirements for legal proceedings and audits
+              </li>
+              <li class="flex items-start gap-3 text-body-md fade-up" style="color: var(--color-muted-foreground); transition-delay: 440ms;">
+                <svg class="h-5 w-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Verifiable by any third party without needing SafeTrekr access
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Hash Chain Visual -->
+          <div class="rounded-xl border p-6 lg:p-8 card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm);" aria-label="Diagram showing how SHA-256 hashes chain documents together to prevent tampering">
+            <div class="space-y-4">
+              <!-- Document v1 -->
+              <div class="rounded-lg border p-4" style="background: var(--color-background); border-color: var(--color-border);">
+                <p class="text-body-sm font-medium" style="color: var(--color-foreground);">Document v1</p>
+                <p class="font-mono text-sm mt-1" style="color: var(--color-primary-700);" aria-hidden="true">SHA-256: a7f3c8...</p>
+              </div>
+
+              <!-- Connector arrow -->
+              <div class="flex justify-center" aria-hidden="true">
+                <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+                  <line x1="12" y1="0" x2="12" y2="24" stroke="var(--color-primary-300)" stroke-width="2" stroke-dasharray="4 3"/>
+                  <polyline points="7 19 12 26 17 19" stroke="var(--color-primary-300)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+
+              <!-- Document v2 -->
+              <div class="rounded-lg border p-4" style="background: var(--color-background); border-color: var(--color-border);">
+                <p class="text-body-sm font-medium" style="color: var(--color-foreground);">Document v2</p>
+                <p class="font-mono text-sm mt-1" style="color: var(--color-primary-700);" aria-hidden="true">SHA-256: prev + new = b9e2d1...</p>
+              </div>
+
+              <!-- Connector arrow -->
+              <div class="flex justify-center" aria-hidden="true">
+                <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+                  <line x1="12" y1="0" x2="12" y2="24" stroke="var(--color-primary-300)" stroke-width="2" stroke-dasharray="4 3"/>
+                  <polyline points="7 19 12 26 17 19" stroke="var(--color-primary-300)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+
+              <!-- Document v3 -->
+              <div class="rounded-lg border p-4" style="background: var(--color-background); border-color: var(--color-border);">
+                <p class="text-body-sm font-medium" style="color: var(--color-foreground);">Document v3</p>
+                <p class="font-mono text-sm mt-1" style="color: var(--color-primary-700);" aria-hidden="true">SHA-256: prev + new = c4d1f0...</p>
+              </div>
+            </div>
+
+            <!-- Bottom badge -->
+            <div class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mt-6" style="background: var(--color-primary-50);">
+              <svg class="h-4 w-4" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+              </svg>
+              <span class="text-body-sm font-medium" style="color: var(--color-primary-800);">Any modification breaks the chain.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 4: COMPLIANCE ROADMAP (Dark Section 1 of 2) -->
+    <!-- ================================================================ -->
+    <section data-theme="dark" style="background: var(--color-secondary);" aria-labelledby="compliance-roadmap-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Centered heading -->
+        <div class="text-center">
+          <p class="eyebrow mb-4 fade-up" style="color: var(--color-primary-400);">Compliance Roadmap</p>
+          <h2 id="compliance-roadmap-heading" class="text-display-md mb-4 lg:mb-6 fade-up" style="color: #f7f8f8; transition-delay: 80ms;">
+            Honest About Where We Are. Clear About Where We're Going.
+          </h2>
+          <p class="text-body-lg max-w-prose mx-auto mb-12 lg:mb-16 fade-up" style="color: #b8c3c7; transition-delay: 160ms;">
+            We believe transparency earns more trust than overclaiming. Here is our compliance roadmap with honest status markers.
+          </p>
+        </div>
+
+        <!-- Desktop Timeline (horizontal) -->
+        <div class="relative hidden lg:block">
+          <!-- Connector line -->
+          <div class="absolute top-[20px] left-[12.5%] right-[12.5%] h-[2px]" style="background: rgba(255,255,255,0.15);"></div>
+
+          <ol class="grid grid-cols-4 gap-6" aria-label="Compliance milestones">
+            <!-- Milestone 1: Student Privacy Pledge - Complete -->
+            <li class="text-center relative card-reveal" style="transition-delay: 280ms;">
+              <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-4 relative z-10" style="background: var(--color-primary-400); color: var(--color-secondary);" aria-label="Status: Complete">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 class="text-heading-sm mb-2" style="color: #f7f8f8;">Student Privacy Pledge</h3>
+              <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium mb-3" style="background: rgba(76,164,110,0.15); color: var(--color-primary-400);">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Signed 2024
+              </span>
+              <p class="text-body-sm" style="color: #b8c3c7;">Signed the Student Privacy Pledge, committing to responsible handling of student data in K-12 contexts.</p>
+            </li>
+
+            <!-- Milestone 2: FERPA / COPPA Alignment - Complete -->
+            <li class="text-center relative card-reveal" style="transition-delay: 400ms;">
+              <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-4 relative z-10" style="background: var(--color-primary-400); color: var(--color-secondary);" aria-label="Status: Complete">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 class="text-heading-sm mb-2" style="color: #f7f8f8;">FERPA / COPPA Alignment</h3>
+              <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium mb-3" style="background: rgba(76,164,110,0.15); color: var(--color-primary-400);">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Designed for compliance
+              </span>
+              <p class="text-body-sm" style="color: #b8c3c7;">Platform designed with FERPA and COPPA requirements in mind. Architecture review complete. Formal certification pending.</p>
+            </li>
+
+            <!-- Milestone 3: SOC 2 Type I - In Progress -->
+            <li class="text-center relative card-reveal" style="transition-delay: 520ms;">
+              <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-4 relative z-10" style="border: 2px solid var(--color-primary-400); background: transparent;" aria-label="Status: In Progress">
+                <span class="h-2.5 w-2.5 rounded-full pulse-dot" style="background: var(--color-primary-400);"></span>
+              </div>
+              <h3 class="text-heading-sm mb-2" style="color: #f7f8f8;">SOC 2 Type I</h3>
+              <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium mb-3" style="background: rgba(76,164,110,0.1); color: var(--color-primary-400);">
+                Audit began Q1 2026
+              </span>
+              <p class="text-body-sm" style="color: #b8c3c7;">SOC 2 Type I audit covering Security, Availability, and Confidentiality trust service criteria. Report expected Q2 2026.</p>
+            </li>
+
+            <!-- Milestone 4: SOC 2 Type II - Planned -->
+            <li class="text-center relative card-reveal" style="transition-delay: 640ms;">
+              <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-4 relative z-10" style="border: 2px solid rgba(255,255,255,0.15); background: transparent;" aria-label="Status: Planned">
+              </div>
+              <h3 class="text-heading-sm mb-2" style="color: #f7f8f8;">SOC 2 Type II</h3>
+              <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium mb-3" style="background: rgba(255,255,255,0.08); color: #b8c3c7;">
+                Target: Q4 2026
+              </span>
+              <p class="text-body-sm" style="color: #b8c3c7;">6-month observation period following Type I completion. Type II report demonstrates sustained compliance over time.</p>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Mobile Timeline (vertical stack) -->
+        <ol class="lg:hidden space-y-6" aria-label="Compliance milestones">
+          <!-- Milestone 1 -->
+          <li class="flex gap-4 card-reveal" style="transition-delay: 280ms;">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center" style="background: var(--color-primary-400); color: var(--color-secondary);" aria-label="Status: Complete">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: #f7f8f8;">Student Privacy Pledge</h3>
+              <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium mb-2" style="background: rgba(76,164,110,0.15); color: var(--color-primary-400);">Signed 2024</span>
+              <p class="text-body-sm" style="color: #b8c3c7;">Signed the Student Privacy Pledge, committing to responsible handling of student data in K-12 contexts.</p>
+            </div>
+          </li>
+          <!-- Milestone 2 -->
+          <li class="flex gap-4 card-reveal" style="transition-delay: 400ms;">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center" style="background: var(--color-primary-400); color: var(--color-secondary);" aria-label="Status: Complete">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: #f7f8f8;">FERPA / COPPA Alignment</h3>
+              <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium mb-2" style="background: rgba(76,164,110,0.15); color: var(--color-primary-400);">Designed for compliance</span>
+              <p class="text-body-sm" style="color: #b8c3c7;">Platform designed with FERPA and COPPA requirements in mind. Architecture review complete. Formal certification pending.</p>
+            </div>
+          </li>
+          <!-- Milestone 3 -->
+          <li class="flex gap-4 card-reveal" style="transition-delay: 520ms;">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center" style="border: 2px solid var(--color-primary-400); background: transparent;" aria-label="Status: In Progress">
+              <span class="h-2.5 w-2.5 rounded-full pulse-dot" style="background: var(--color-primary-400);"></span>
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: #f7f8f8;">SOC 2 Type I</h3>
+              <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium mb-2" style="background: rgba(76,164,110,0.1); color: var(--color-primary-400);">Audit began Q1 2026</span>
+              <p class="text-body-sm" style="color: #b8c3c7;">SOC 2 Type I audit covering Security, Availability, and Confidentiality trust service criteria. Report expected Q2 2026.</p>
+            </div>
+          </li>
+          <!-- Milestone 4 -->
+          <li class="flex gap-4 card-reveal" style="transition-delay: 640ms;">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center" style="border: 2px solid rgba(255,255,255,0.15); background: transparent;" aria-label="Status: Planned">
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: #f7f8f8;">SOC 2 Type II</h3>
+              <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium mb-2" style="background: rgba(255,255,255,0.08); color: #b8c3c7;">Target: Q4 2026</span>
+              <p class="text-body-sm" style="color: #b8c3c7;">6-month observation period following Type I completion. Type II report demonstrates sustained compliance over time.</p>
+            </div>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 5: DATA HANDLING -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-card);" aria-labelledby="data-handling-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Centered heading -->
+        <div class="text-center mb-10 lg:mb-14">
+          <p class="eyebrow mb-4 fade-up">Data Handling</p>
+          <h2 id="data-handling-heading" class="text-display-md fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+            What We Collect. Where It Lives. How Long We Keep It.
+          </h2>
+        </div>
+
+        <!-- 3-column cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1: What We Collect -->
+          <div class="rounded-xl border p-6 lg:p-8 card-reveal" style="background: var(--color-background); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 160ms;">
+            <!-- Icon -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-4" style="color: var(--color-foreground);">What We Collect</h3>
+            <ul class="space-y-2 text-body-sm" style="color: var(--color-muted-foreground);">
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Trip plans: destinations, dates, itineraries, and planned activities
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Participant information: names, emergency contacts, and dietary/medical notes as provided
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Organization data: organization name, administrator contacts, and billing information
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Safety binders: analyst findings, risk scores, recommendations, and the SHA-256 evidence chain
+              </li>
+            </ul>
+
+            <!-- Do NOT collect separator -->
+            <div class="mt-4 pt-4" style="border-top: 1px solid var(--color-border);">
+              <p class="text-body-sm font-semibold mb-2" style="color: var(--color-foreground);">We do NOT collect:</p>
+              <ul class="space-y-2 text-body-sm" style="color: var(--color-muted-foreground);">
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-destructive);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span><span class="sr-only">Not collected: </span>Social security numbers</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-destructive);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span><span class="sr-only">Not collected: </span>Medical records</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-destructive);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span><span class="sr-only">Not collected: </span>Financial account data</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-destructive);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span><span class="sr-only">Not collected: </span>Biometric data</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 2: Where It Is Stored -->
+          <div class="rounded-xl border p-6 lg:p-8 card-reveal" style="background: var(--color-background); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 260ms;">
+            <!-- Icon -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-4" style="color: var(--color-foreground);">Where It Is Stored</h3>
+            <ul class="space-y-2 text-body-sm" style="color: var(--color-muted-foreground);">
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Application hosting: DigitalOcean (US-East region)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Database: Supabase (PostgreSQL, US-hosted instances)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                File storage: DigitalOcean Spaces (S3-compatible, US region)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                CDN: Cloudflare (global edge, no PII cached at edge)
+              </li>
+            </ul>
+            <p class="text-body-sm font-medium mt-6 pt-4" style="color: var(--color-foreground); border-top: 1px solid var(--color-border);">
+              All data resides in US-based data centers.
+            </p>
+          </div>
+
+          <!-- Card 3: Retention Policy -->
+          <div class="rounded-xl border p-6 lg:p-8 card-reveal" style="background: var(--color-background); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 360ms;">
+            <!-- Icon -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-4" style="color: var(--color-foreground);">Retention Policy</h3>
+            <ul class="space-y-3 text-body-sm" style="color: var(--color-muted-foreground);">
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color: var(--color-foreground);">Active trips:</strong> Data available for the duration of the trip plus 90 days</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color: var(--color-foreground);">Completed trips:</strong> Safety binders retained for 7 years for evidence preservation and regulatory compliance</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color: var(--color-foreground);">Account closure:</strong> Data purged within 30 days upon written request. Purge confirmation provided.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color: var(--color-foreground);">Regulatory hold:</strong> Retention extended if required by law or active legal proceeding</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Footer note -->
+        <p class="text-body-sm text-center max-w-prose mx-auto mt-8 fade-up" style="color: var(--color-muted-foreground); transition-delay: 400ms;">
+          Full details are documented in our <a href="/legal/privacy" class="font-medium hover:underline" style="color: var(--color-primary-700);">Privacy Policy</a> and <a href="/procurement" class="font-medium hover:underline" style="color: var(--color-primary-700);">Data Processing Agreement</a>, both available for download on the Procurement page.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 6: INFRASTRUCTURE -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-background);" aria-labelledby="infrastructure-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Centered heading -->
+        <div class="text-center">
+          <p class="eyebrow mb-4 fade-up">Infrastructure</p>
+          <h2 id="infrastructure-heading" class="text-heading-lg mb-4 lg:mb-6 fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+            Built on Trusted Platforms
+          </h2>
+          <p class="text-body-lg max-w-prose mx-auto mb-10 lg:mb-12 fade-up" style="color: var(--color-muted-foreground); transition-delay: 160ms;">
+            We chose infrastructure partners with proven security track records, not the cheapest option.
+          </p>
+        </div>
+
+        <!-- 3-column card grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- DigitalOcean -->
+          <div class="rounded-xl border p-6 lg:p-8 text-center transition-all duration-200 hover:-translate-y-0.5 card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 240ms;">
+            <div class="mx-auto h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <!-- Cloud icon for DigitalOcean -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">DigitalOcean</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">
+              Application hosting and file storage. Docker containers orchestrated via DOKS (managed Kubernetes). US-East region. SOC 2 Type II certified.
+            </p>
+            <span class="badge badge-brand" aria-label="SOC 2 Type II certified">SOC 2 Type II</span>
+          </div>
+
+          <!-- Supabase -->
+          <div class="rounded-xl border p-6 lg:p-8 text-center transition-all duration-200 hover:-translate-y-0.5 card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 320ms;">
+            <div class="mx-auto h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <!-- Database icon for Supabase -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">Supabase</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">
+              Database and authentication. PostgreSQL with row-level security policies. Real-time subscriptions for monitoring. US-hosted instances. SOC 2 Type II certified.
+            </p>
+            <span class="badge badge-brand" aria-label="SOC 2 Type II certified">SOC 2 Type II</span>
+          </div>
+
+          <!-- Cloudflare -->
+          <div class="rounded-xl border p-6 lg:p-8 text-center transition-all duration-200 hover:-translate-y-0.5 card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 400ms;">
+            <div class="mx-auto h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <!-- Globe icon for Cloudflare -->
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: var(--color-foreground);">Cloudflare</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">
+              CDN, DDoS protection, SSL/TLS termination, and Web Application Firewall. Global edge network. No PII cached at edge nodes. SOC 2 Type II certified.
+            </p>
+            <span class="badge badge-brand" aria-label="SOC 2 Type II certified">SOC 2 Type II</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 7: INCIDENT RESPONSE -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-card);" aria-labelledby="incident-response-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Centered heading -->
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="eyebrow mb-4 fade-up">Incident Response</p>
+          <h2 id="incident-response-heading" class="text-heading-lg mb-4 lg:mb-6 fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+            If Something Goes Wrong, We Act Fast.
+          </h2>
+          <p class="text-body-lg max-w-prose mx-auto mb-10 lg:mb-12 fade-up" style="color: var(--color-muted-foreground); transition-delay: 160ms;">
+            We maintain a documented incident response plan that is reviewed quarterly. Here is our commitment to you if a security event occurs.
+          </p>
+        </div>
+
+        <!-- Vertical timeline -->
+        <div class="text-left max-w-2xl mx-auto">
+          <ol aria-label="Incident response steps">
+
+            <!-- Step 1 -->
+            <li class="flex gap-4 pb-8 card-reveal" style="transition-delay: 240ms;">
+              <div class="flex flex-col items-center">
+                <div class="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-body-sm" style="background: var(--color-primary-100); color: var(--color-primary-700);" aria-hidden="true">1</div>
+                <div class="flex-1 mt-2 ir-connector" style="background: var(--color-border);"></div>
+              </div>
+              <div class="pt-1">
+                <h3 class="text-heading-sm" style="color: var(--color-foreground);">Detection and Assessment</h3>
+                <p class="text-body-md mt-1" style="color: var(--color-muted-foreground);">Within 1 hour of becoming aware of a potential security incident, our response team assesses scope and severity.</p>
+              </div>
+            </li>
+
+            <!-- Step 2 -->
+            <li class="flex gap-4 pb-8 card-reveal" style="transition-delay: 360ms;">
+              <div class="flex flex-col items-center">
+                <div class="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-body-sm" style="background: var(--color-primary-100); color: var(--color-primary-700);" aria-hidden="true">2</div>
+                <div class="flex-1 mt-2 ir-connector" style="background: var(--color-border);"></div>
+              </div>
+              <div class="pt-1">
+                <h3 class="text-heading-sm" style="color: var(--color-foreground);">Notification</h3>
+                <p class="text-body-md mt-1" style="color: var(--color-muted-foreground);">Affected organizations notified within 72 hours of confirming a data breach, in compliance with applicable regulations including FERPA breach notification requirements.</p>
+              </div>
+            </li>
+
+            <!-- Step 3 -->
+            <li class="flex gap-4 pb-8 card-reveal" style="transition-delay: 480ms;">
+              <div class="flex flex-col items-center">
+                <div class="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-body-sm" style="background: var(--color-primary-100); color: var(--color-primary-700);" aria-hidden="true">3</div>
+                <div class="flex-1 mt-2 ir-connector" style="background: var(--color-border);"></div>
+              </div>
+              <div class="pt-1">
+                <h3 class="text-heading-sm" style="color: var(--color-foreground);">Containment and Remediation</h3>
+                <p class="text-body-md mt-1" style="color: var(--color-muted-foreground);">Immediate steps to contain the incident, followed by root cause analysis and system hardening to prevent recurrence.</p>
+              </div>
+            </li>
+
+            <!-- Step 4 -->
+            <li class="flex gap-4 card-reveal" style="transition-delay: 600ms;">
+              <div class="flex flex-col items-center">
+                <div class="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-body-sm" style="background: var(--color-primary-100); color: var(--color-primary-700);" aria-hidden="true">4</div>
+              </div>
+              <div class="pt-1">
+                <h3 class="text-heading-sm" style="color: var(--color-foreground);">Post-Incident Report</h3>
+                <p class="text-body-md mt-1" style="color: var(--color-muted-foreground);">Written report provided to all affected organizations detailing what happened, what data was involved, what actions we took, and what changes we implemented.</p>
+              </div>
+            </li>
+
+          </ol>
+
+          <!-- Contact -->
+          <div class="text-center mt-10 pt-8 fade-up" style="border-top: 1px solid var(--color-border); transition-delay: 700ms;">
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">Report a security concern:</p>
+            <a href="mailto:security@safetrekr.com" class="text-body-md font-medium hover:underline" style="color: var(--color-primary-700);">security@safetrekr.com</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 8: TRUST BADGES GRID -->
+    <!-- ================================================================ -->
+    <section style="background: var(--color-background);" aria-labelledby="trust-badges-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28">
+
+        <!-- Centered heading -->
+        <div class="text-center mb-10 lg:mb-12">
+          <p class="eyebrow mb-4 fade-up">Trust Signals</p>
+          <h2 id="trust-badges-heading" class="text-heading-lg fade-up" style="color: var(--color-foreground); transition-delay: 80ms;">
+            The Standards We Meet
+          </h2>
+        </div>
+
+        <!-- Badge grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+
+          <!-- 1. AES-256 Encryption -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 160ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">AES-256 Encryption</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">At rest</p>
+          </div>
+
+          <!-- 2. TLS 1.2+ -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 220ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">TLS 1.2+</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">In transit</p>
+          </div>
+
+          <!-- 3. SHA-256 Hash Chain -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 280ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">SHA-256 Hash Chain</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">Evidence integrity</p>
+          </div>
+
+          <!-- 4. Student Privacy Pledge -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 340ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- GraduationCap icon -->
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">Student Privacy Pledge</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">Signed 2024</p>
+          </div>
+
+          <!-- 5. SOC 2 Type I -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 400ms;" aria-label="SOC 2 Type I: Audit in progress">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">SOC 2 Type I</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">In progress</p>
+          </div>
+
+          <!-- 6. FERPA Alignment -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 460ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- Scale icon -->
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="3" x2="12" y2="21"/><polyline points="1 14 12 3 23 14"/><path d="M1 14c0 2.5 4.5 5 5.5 5s5.5-2.5 5.5-5"/><path d="M12 14c0 2.5 4.5 5 5.5 5s5.5-2.5 5.5-5"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">FERPA Alignment</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">Designed for compliance</p>
+          </div>
+
+          <!-- 7. US Data Centers -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 520ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">US Data Centers</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">All data US-hosted</p>
+          </div>
+
+          <!-- 8. COPPA Alignment -->
+          <div class="rounded-xl border p-5 text-center transition-all duration-150 hover:-translate-y-px card-reveal" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 580ms;">
+            <div class="mx-auto h-10 w-10 rounded-full flex items-center justify-center mb-3" style="background: var(--color-primary-50);">
+              <!-- Baby/child icon -->
+              <svg class="h-5 w-5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 12h.01M15 12h.01M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M12 2a8 8 0 0 0-8 8 10.7 10.7 0 0 0 1.2 4.3C6.4 16.5 8 20 12 22c4-2 5.6-5.5 6.8-7.7A10.7 10.7 0 0 0 20 10a8 8 0 0 0-8-8z"/>
+              </svg>
+            </div>
+            <p class="text-body-sm font-medium" style="color: var(--color-foreground);">COPPA Alignment</p>
+            <p class="text-xs mt-1" style="color: var(--color-muted-foreground);">Designed for compliance</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================ -->
+    <!-- SECTION 9: CONVERSION CTA BANNER (Dark Section 2 of 2) -->
+    <!-- ================================================================ -->
+    <section data-theme="dark" style="background: var(--color-secondary);" aria-labelledby="security-cta-heading">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 text-center">
+
+        <h2 id="security-cta-heading" class="text-display-md mb-6 fade-up" style="color: #f7f8f8;">
+          Questions About Our Security Posture?
+        </h2>
+
+        <p class="text-body-lg max-w-prose mx-auto mb-10 fade-up" style="color: rgba(247,248,248,0.8); transition-delay: 80ms;">
+          We are happy to answer any security, compliance, or data handling question. Or schedule a demo and we will walk you through everything.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up" style="transition-delay: 160ms;">
+          <a href="/demo" class="btn btn-lg btn-primary-on-dark">Get a Demo</a>
+          <a href="/contact" class="btn btn-lg btn-ghost-on-dark">Contact Us</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================== -->
+  <!-- SCRIPTS -->
+  <!-- ================================================================== -->
+  <script>
+    // Mobile Navigation Toggle
+    function toggleMobileNav(button) {
+      const nav = document.getElementById('mobile-nav');
+      const isOpen = nav.classList.contains('open');
+
+      if (isOpen) {
+        nav.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        nav.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Scroll-triggered animations via IntersectionObserver
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document.querySelectorAll('.fade-up, .card-reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Route divider draw animation
+      const routeDivider = document.querySelector('.route-divider');
+      if (routeDivider) {
+        const routeObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.querySelector('.route-path').classList.add('drawn');
+              routeObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        routeObserver.observe(routeDivider);
+      }
+    });
+  </script>
+
+</body>
+</html>

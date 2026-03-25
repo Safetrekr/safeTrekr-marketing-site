@@ -1,0 +1,134 @@
+# ST-830: REQ-096 - Kubernetes Network Policies for SafeTrekr Marketing Site
+#
+# Defense-in-depth network segmentation for the safetrekr-marketing namespace.
+#
+# Policy summary:
+#   1. default-deny-all        -- Deny all ingress and egress by default.
+#   2. allow-ingress-from-nginx -- Allow traffic from nginx-ingress controller
+#                                  to safetrekr-web pods on port 3000.
+#   3. allow-egress-dns        -- Allow DNS resolution via kube-dns (port 53).
+#   4. allow-egress-https      -- Allow outbound HTTPS (port 443) to external
+#                                  services: Supabase, SendGrid, Turnstile,
+#                                  Plausible, and MapTiler.
+#
+# These policies apply to pods with label app.kubernetes.io/name: safetrekr-web.
+# The default-deny policy applies to ALL pods in the namespace as a baseline.
+
+---
+# ---------------------------------------------------------------------------
+# 1. Default deny all ingress and egress for the entire namespace.
+#    This ensures zero-trust: only explicitly allowed traffic flows.
+# ---------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
+
+---
+# ---------------------------------------------------------------------------
+# 2. Allow ingress from the nginx-ingress controller to safetrekr-web on
+#    port 3000 (the Next.js standalone server port).
+#
+#    The ingress controller is identified by the standard label applied by
+#    the ingress-nginx Helm chart: app.kubernetes.io/name: ingress-nginx.
+#    It runs in the ingress-nginx namespace.
+# ---------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-from-nginx
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: safetrekr-web
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 3000
+
+---
+# ---------------------------------------------------------------------------
+# 3. Allow egress to kube-dns for DNS resolution.
+#    Both TCP and UDP on port 53 are required (UDP for standard queries,
+#    TCP for responses exceeding 512 bytes).
+# ---------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-egress-dns
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: safetrekr-web
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+---
+# ---------------------------------------------------------------------------
+# 4. Allow egress to external HTTPS services on port 443.
+#
+#    Required external dependencies:
+#      - Supabase API          (*.supabase.co)
+#      - SendGrid API          (api.sendgrid.com)
+#      - Cloudflare Turnstile  (challenges.cloudflare.com)
+#      - Plausible Analytics   (plausible.io)
+#      - MapTiler              (api.maptiler.com)
+#
+#    Kubernetes NetworkPolicy does not support FQDN-based rules natively.
+#    We allow all egress on port 443 here. For FQDN-level restriction,
+#    use a service mesh (Istio AuthorizationPolicy) or Cilium
+#    CiliumNetworkPolicy with DNS-aware rules as a future enhancement.
+# ---------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-egress-https
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: safetrekr-web
+  policyTypes:
+    - Egress
+  egress:
+    - ports:
+        - protocol: TCP
+          port: 443

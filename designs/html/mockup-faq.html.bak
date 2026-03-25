@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions -- SafeTrekr</title>
+  <meta name="description" content="Find answers to common questions about SafeTrekr's professional trip safety service. Learn about pricing, process, security, compliance, and how SafeTrekr protects your organization's travel.">
+  <meta property="og:title" content="FAQ -- SafeTrekr">
+  <meta property="og:description" content="Find answers to common questions about SafeTrekr's professional trip safety service. Learn about pricing, process, security, compliance, and how SafeTrekr protects your organization's travel.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og/faq.png">
+  <link rel="canonical" href="https://www.safetrekr.com/resources/faq">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            'card-foreground': '#061a23',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: '#e7ecee',
+            'muted-foreground': '#4d5153',
+            primary: {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b', foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646', foreground: '#f7f8f8',
+              light: '#1a4a5e', muted: '#b8c3c7',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Nav hover */
+    .nav-item:hover { color: var(--color-foreground) !important; }
+    /* Footer hover */
+    footer a:hover { color: #ffffff !important; }
+
+    /* Category tab styles */
+    .category-tab { padding: 8px 16px; border-radius: 9999px; font-size: 14px; color: var(--color-muted-foreground); background: transparent; border: 1px solid transparent; cursor: pointer; transition: all 0.15s; text-decoration: none; white-space: nowrap; }
+    .category-tab:hover { color: var(--color-foreground); background: var(--color-card); }
+    .category-tab.active { color: var(--color-primary-800); background: var(--color-primary-50); border-color: var(--color-primary-200); font-weight: 500; }
+
+    /* Accordion styles */
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0; text-align: left; background: none; border: none; cursor: pointer; gap: 16px; }
+    .faq-trigger:hover .faq-question { color: var(--color-foreground); }
+    .faq-question { font-family: var(--font-heading); font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); font-weight: 600; line-height: 1.3; color: var(--color-foreground); transition: color 0.15s; }
+    .faq-chevron { width: 16px; height: 16px; color: var(--color-muted-foreground); flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .faq-trigger[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+    .faq-content { overflow: hidden; max-height: 0; transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .faq-content.open { max-height: 600px; }
+    .faq-answer { padding-bottom: 16px; font-size: 1rem; line-height: 1.6; color: var(--color-muted-foreground); max-width: 65ch; }
+    .faq-answer a { color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 2px; }
+    .faq-answer a:hover { color: var(--color-primary-800); }
+    .faq-answer strong { font-weight: 600; color: var(--color-foreground); }
+
+    /* Responsive */
+    @media (max-width: 639px) {
+      .container { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .container { padding-left: 32px !important; padding-right: 32px !important; }
+    }
+    @media (min-width: 1024px) {
+      .container { padding-left: 48px !important; padding-right: 48px !important; }
+    }
+    @media (max-width: 1023px) {
+      header > div { height: 56px !important; }
+    }
+  </style>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is SafeTrekr?", "acceptedAnswer": {"@type": "Answer", "text": "SafeTrekr is a professional trip safety service. Every trip is reviewed by a trained safety analyst across 17 dimensions using government intelligence data, producing tamper-evident documentation."}},
+      {"@type": "Question", "name": "Who uses SafeTrekr?", "acceptedAnswer": {"@type": "Answer", "text": "K-12 schools, higher education institutions, churches and mission organizations, corporate and sports teams. Any organization that sends groups on trips."}},
+      {"@type": "Question", "name": "How much does SafeTrekr cost?", "acceptedAnswer": {"@type": "Answer", "text": "Starting at $15 per participant. Three tiers: Field Trip ($450/trip), Extended Trip ($750/trip), International ($1,250/trip)."}},
+      {"@type": "Question", "name": "How long does a safety review take?", "acceptedAnswer": {"@type": "Answer", "text": "3-5 business days from trip submission to completed safety binder delivery."}},
+      {"@type": "Question", "name": "How does SafeTrekr protect our data?", "acceptedAnswer": {"@type": "Answer", "text": "AES-256 encryption at rest and in transit. SOC 2 compliance (in progress). All data stored in US-based infrastructure. Role-based access controls."}}
+    ]
+  }
+  </script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg font-heading font-semibold text-sm">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER                                                         -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT                                                        -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1: FAQ Hero + Search                                   -->
+    <!-- ============================================================== -->
+    <section aria-labelledby="faq-hero-heading" style="background: var(--color-background); padding-top: 32px; padding-bottom: 32px;">
+      <div class="container mx-auto" style="max-width: 1280px; padding: 0 24px;">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="mb-6 lg:mb-8">
+          <ol class="hidden sm:flex items-center gap-2 text-body-sm" style="list-style: none; color: var(--color-muted-foreground);">
+            <li><a href="/" style="color: var(--color-muted-foreground); text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='var(--color-primary-700)'" onmouseout="this.style.color='var(--color-muted-foreground)'">Home</a></li>
+            <li style="color: var(--color-border);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></li>
+            <li><a href="/resources" style="color: var(--color-muted-foreground); text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='var(--color-primary-700)'" onmouseout="this.style.color='var(--color-muted-foreground)'">Resources</a></li>
+            <li style="color: var(--color-border);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></li>
+            <li aria-current="page" style="color: var(--color-foreground); font-weight: 500;">FAQ</li>
+          </ol>
+          <a href="/resources" class="sm:hidden flex items-center gap-1 text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Resources
+          </a>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="text-center">
+          <p class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">HELP CENTER</p>
+          <h1 id="faq-hero-heading" class="text-display-md" style="color: var(--color-foreground); max-width: 28ch; margin: 0 auto 16px;">Frequently Asked Questions</h1>
+          <p class="text-body-lg" style="color: var(--color-muted-foreground); max-width: 50ch; margin: 0 auto 32px;">Everything you need to know about SafeTrekr's professional trip safety service.</p>
+
+          <!-- Search Input -->
+          <div style="max-width: 28rem; margin: 0 auto; position: relative;">
+            <label for="faq-search" class="sr-only">Search frequently asked questions</label>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--color-muted-foreground); pointer-events: none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="faq-search" type="search" role="searchbox" aria-label="Search questions" placeholder="Search questions..." class="input" style="background: var(--color-card); padding-left: 40px; height: 44px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: Category Filter Tabs                                -->
+    <!-- ============================================================== -->
+    <section style="background: var(--color-background); padding-top: 16px; padding-bottom: 0;">
+      <div class="container mx-auto" style="max-width: 1280px; padding: 0 24px;">
+        <div role="tablist" aria-label="FAQ categories" class="flex flex-nowrap lg:flex-wrap justify-start lg:justify-center gap-2 overflow-x-auto scrollbar-hide" style="padding-bottom: 40px;">
+          <a href="#faq-category-general" role="tab" aria-selected="true" aria-controls="faq-category-general" class="category-tab active">General</a>
+          <a href="#faq-category-pricing" role="tab" aria-selected="false" aria-controls="faq-category-pricing" class="category-tab">Pricing</a>
+          <a href="#faq-category-process" role="tab" aria-selected="false" aria-controls="faq-category-process" class="category-tab">Process</a>
+          <a href="#faq-category-security" role="tab" aria-selected="false" aria-controls="faq-category-security" class="category-tab">Security</a>
+          <a href="#faq-category-compliance" role="tab" aria-selected="false" aria-controls="faq-category-compliance" class="category-tab">Compliance</a>
+          <a href="#faq-category-technical" role="tab" aria-selected="false" aria-controls="faq-category-technical" class="category-tab">Technical</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: FAQ Accordion Groups                                -->
+    <!-- ============================================================== -->
+    <section style="background: var(--color-background); padding-top: 0; padding-bottom: 64px;">
+      <div class="container mx-auto" style="max-width: 640px; padding: 0 24px;">
+
+        <!-- GENERAL -->
+        <div id="faq-category-general" aria-labelledby="faq-general-heading" style="margin-bottom: 48px; scroll-margin-top: 96px;">
+          <h2 id="faq-general-heading" class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">GENERAL</h2>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What is SafeTrekr?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">SafeTrekr is a professional trip safety service. Every trip submitted to SafeTrekr is reviewed by a trained safety analyst across <strong>17 dimensions</strong> using government intelligence data from five federal sources. The result is a tamper-evident safety binder that documents your organization's due diligence.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Who uses SafeTrekr?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">K-12 schools, higher education institutions, churches and mission organizations, corporate teams, and sports organizations. Any organization that sends groups on trips and needs to document their duty of care.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">How is SafeTrekr different from travel insurance?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">SafeTrekr is professional safety analysis and documentation, not insurance. We review destinations, score risks, and produce audit-ready evidence of due diligence. Insurance pays claims after incidents occur. SafeTrekr helps <strong>prevent incidents</strong> and documents that your organization took reasonable precautions. <a href="/blog/safetrekr-vs-travel-insurance">Read the full comparison</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Do I need SafeTrekr for domestic trips too?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. Domestic trips carry real liability risk. Courts evaluate whether reasonable precautions were taken regardless of destination. A field trip to a state park deserves the same documented safety review as an international trip.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRICING -->
+        <div id="faq-category-pricing" aria-labelledby="faq-pricing-heading" style="margin-bottom: 48px; scroll-margin-top: 96px;">
+          <h2 id="faq-pricing-heading" class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">PRICING</h2>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">How much does SafeTrekr cost?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Starting at <strong>$15 per participant</strong>. Three tiers: Field Trip ($450/trip), Extended Trip ($750/trip), International ($1,250/trip). <a href="/pricing">See full pricing details</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Is there a per-participant price?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. The per-trip price translates to per-participant cost based on group size. A 30-student field trip at $450 is <strong>$15/student</strong>. Larger groups bring the per-participant cost down further.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Do you offer volume discounts?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. 5-9 trips: 5% off. 10-24 trips: 10% off. 25-49 trips: 15% off. 50+ trips: 20% off. Contact us for annual plans. <a href="/pricing">See pricing page</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Can we start with just one trip?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Absolutely. No minimum commitment. Purchase one trip review and see the quality before committing to more.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROCESS -->
+        <div id="faq-category-process" aria-labelledby="faq-process-heading" style="margin-bottom: 48px; scroll-margin-top: 96px;">
+          <h2 id="faq-process-heading" class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">PROCESS</h2>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">How long does a safety review take?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer"><strong>3-5 business days</strong> from trip submission to completed safety binder delivery.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What is included in the safety binder?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">A 17-section analyst review including risk intelligence scores from 5 government sources, emergency contact compilation, transportation safety analysis, accommodation review, health and medical considerations, compliance documentation, and <strong>SHA-256 hash-chain integrity verification</strong>. <a href="/how-it-works">Learn more about the process</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What information do I need to submit?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Destination, travel dates, number of participants, planned activities, transportation method, and accommodations. Takes about <strong>15 minutes</strong>. No training required.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Can I update trip details after submission?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. Notify your assigned analyst of changes and they will update the review. Material destination changes may require additional review time.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What happens if my destination changes?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Contact your analyst. A new destination requires a new review. We offer <strong>expedited processing</strong> for changes within 48 hours of travel.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECURITY -->
+        <div id="faq-category-security" aria-labelledby="faq-security-heading" style="margin-bottom: 48px; scroll-margin-top: 96px;">
+          <h2 id="faq-security-heading" class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">SECURITY</h2>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">How does SafeTrekr protect our data?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer"><strong>AES-256 encryption</strong> at rest and in transit. SOC 2 compliance (in progress). All data stored in US-based infrastructure. Role-based access controls. <a href="/security">Read our security overview</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What is the SHA-256 evidence chain?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Every page of your safety binder is cryptographically hashed. Any modification is detectable. This creates a <strong>tamper-evident audit trail</strong> that proves the binder has not been altered after delivery.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Who can access our safety binders?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Only authorized users within your organization. You control access permissions. SafeTrekr analysts access trip data only during the active review period.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Where is our data stored?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">US-based cloud infrastructure with AES-256 encryption. Data retention follows your organization's preferences and applicable regulations.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPLIANCE -->
+        <div id="faq-category-compliance" aria-labelledby="faq-compliance-heading" style="margin-bottom: 48px; scroll-margin-top: 96px;">
+          <h2 id="faq-compliance-heading" class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">COMPLIANCE</h2>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Is SafeTrekr FERPA compliant?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">SafeTrekr is designed with FERPA requirements in mind. We minimize student data collection and provide data processing agreements. FERPA certification is in progress. <a href="/legal/dpa">View our DPA</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Does SafeTrekr comply with GDPR?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. We offer a Data Processing Agreement (DPA) for organizations subject to GDPR. We support data subject rights requests and maintain lawful processing bases. <a href="/legal/dpa">View our DPA</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Can SafeTrekr satisfy our insurance documentation requirements?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. The safety binder is designed to satisfy insurance carrier documentation requirements for trip safety. Many carriers accept SafeTrekr binders as evidence of <strong>professional safety review</strong>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Does SafeTrekr help with Clery Act compliance?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Yes. For higher education institutions, SafeTrekr documentation supports Clery Act reporting for off-campus programs including study abroad. <a href="/solutions/higher-education">Learn more about higher education solutions</a>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECHNICAL -->
+        <div id="faq-category-technical" aria-labelledby="faq-technical-heading" style="margin-bottom: 0; scroll-margin-top: 96px;">
+          <h2 id="faq-technical-heading" class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">TECHNICAL</h2>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What government data sources does SafeTrekr use?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Five primary sources: <strong>NOAA</strong> (weather/climate), <strong>USGS</strong> (seismic/geological), <strong>CDC</strong> (health advisories), <strong>GDACS</strong> (disaster alerts), and <strong>ReliefWeb</strong> (humanitarian situations). <a href="/how-it-works">Learn how we use these sources</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Is there an API?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Not currently. SafeTrekr is a service-based platform. API access for enterprise integrations is on our roadmap.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">What browsers are supported?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">All modern browsers: Chrome, Firefox, Safari, Edge (latest two versions). Mobile: iOS Safari, Chrome for Android.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); this.nextElementSibling.classList.toggle('open');">
+              <span class="faq-question">Can SafeTrekr integrate with our existing systems?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">Contact us to discuss integration needs. We support SSO for enterprise accounts and can provide data exports in standard formats. <a href="/contact">Get in touch</a>.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: Still Have Questions CTA (Dark)                     -->
+    <!-- ============================================================== -->
+    <section aria-labelledby="faq-cta-heading" data-theme="dark" style="background: var(--color-secondary); padding: 64px 0;">
+      <div class="container mx-auto text-center" style="max-width: 1280px; padding: 0 24px;">
+        <h2 id="faq-cta-heading" class="text-heading-lg" style="color: #f7f8f8; margin-bottom: 16px;">Still have questions?</h2>
+        <p class="text-body-md" style="color: var(--color-secondary-muted); max-width: 50ch; margin: 0 auto 32px;">Our team is here to help. Get answers about SafeTrekr for your organization.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/contact" class="btn btn-md" style="background: transparent; border: 1.5px solid rgba(255,255,255,0.2); color: #f7f8f8; text-decoration: none;">Contact Us</a>
+          <a href="/demo" class="btn btn-md" style="background: #ffffff; color: var(--color-secondary); text-decoration: none; font-weight: 600;">Get a Demo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER                                                        -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

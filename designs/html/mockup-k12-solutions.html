@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Safety for K-12 Schools &amp; Districts &mdash; SafeTrekr</title>
+  <meta name="description" content="Every field trip reviewed by a safety analyst. Per-student pricing starting at $15. Board-ready documentation that proves your district took every reasonable precaution.">
+  <link rel="canonical" href="https://safetrekr.com/solutions/k12">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Trip Safety for K-12 Schools &amp; Districts &mdash; SafeTrekr">
+  <meta property="og:description" content="Every field trip reviewed by a safety analyst. Per-student pricing starting at $15. Board-ready documentation that proves your district took every reasonable precaution.">
+  <meta property="og:url" content="https://safetrekr.com/solutions/k12">
+
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            'st-primary': {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b',
+            },
+            'st-secondary': {
+              DEFAULT: '#123646', light: '#1a4a5e', muted: '#b8c3c7',
+              foreground: '#f7f8f8',
+            },
+            'st-bg': '#e7ecee',
+            'st-card': '#f7f8f8',
+            'st-foreground': '#061a23',
+            'st-border': '#b8c3c7',
+            'st-muted': '#4d5153',
+            'st-ring': '#365462',
+            'st-destructive': '#c1253e',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Breadcrumb JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://safetrekr.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://safetrekr.com/solutions" },
+      { "@type": "ListItem", "position": 3, "name": "K-12 Schools & Districts" }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is SafeTrekr FERPA compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SafeTrekr is designed with FERPA requirements in mind. Our data handling practices follow FERPA guidelines for student education records, including access controls, data minimization, and secure storage. We are currently pursuing formal FERPA certification. We believe in transparency -- we will never claim a certification we have not earned."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to student data after the trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Student data is retained only for the documentation period required by your district's records retention policy. After that period, data is purged with a verifiable deletion record. You control the retention timeline. We provide cryptographic proof of deletion upon request."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can our school district use SafeTrekr for all field trips?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. SafeTrekr handles field trips of every type -- from a single-day museum visit to a multi-day out-of-state educational trip. Every trip gets the same 17-section professional safety review, regardless of distance or duration. Volume pricing is available for districts with 25 or more trips per year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does SafeTrekr handle parent consent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SafeTrekr includes a Parent/Guardian Portal where parents can view trip safety details you choose to share. This is separate from your district's existing permission slip process. SafeTrekr provides the professional safety documentation; your district maintains its consent workflow. Parents see safety information -- not raw risk data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if a field trip destination changes at the last minute?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Submit the new destination and our team will expedite a review. For minor changes (same city, different venue), we can often turn around an updated review within 24-48 hours. The original binder is versioned, not replaced -- you maintain a complete audit trail of all destination changes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does per-student pricing work for large groups?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing is $15 per student per trip. A field trip with 30 students costs $450. A field trip with 100 students costs $1,500. Volume discounts apply for districts committing to 25 or more trips per year. Contact us for district-wide pricing that covers all schools in your system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can board members access the safety binder directly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can generate a read-only link for board members to review any safety binder. The binder includes the full 17-section review, risk intelligence summary, emergency response plan, and SHA-256 evidence chain verification. Board members see exactly what you see."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does SafeTrekr replace our existing field trip approval process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. SafeTrekr supplements your existing process with professional safety analysis and documentation. Your district keeps its approval workflow, permission slip procedures, and chain of command. SafeTrekr adds the evidence layer that proves your district took every reasonable precaution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly do we receive the safety binder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard turnaround is 3-5 business days from trip submission. For field trips within the continental United States to well-documented destinations, turnaround is often faster. Rush processing is available for time-sensitive trips."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What government data sources does SafeTrekr use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Risk Intelligence Engine aggregates data from 5 government sources: NOAA (weather and natural hazards), USGS (seismic and geological data), CDC (health advisories and disease surveillance), GDACS (global disaster alerts), and ReliefWeb (humanitarian situation reports). This data is scored using Monte Carlo simulation to produce a quantified risk profile for every destination."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Page-specific overrides ── */
+
+    /* Sticky in-page nav */
+    .anchor-nav {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      background: rgba(247,248,248,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      pointer-events: none;
+    }
+    .anchor-nav.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .anchor-nav a {
+      white-space: nowrap;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-muted-foreground);
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+    .anchor-nav a:hover {
+      color: var(--color-foreground);
+      background: rgba(6,26,35,0.04);
+    }
+    .anchor-nav a.active {
+      color: var(--color-primary-700);
+      font-weight: 600;
+      background: var(--color-primary-50);
+    }
+    .anchor-nav-scroll {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding: 8px 0;
+    }
+    .anchor-nav-scroll::-webkit-scrollbar { display: none; }
+
+    /* Scroll offset for sticky header + anchor bar */
+    [id] { scroll-margin-top: 140px; }
+
+    /* Document preview component */
+    .doc-preview {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .doc-page {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .doc-stack {
+      position: relative;
+    }
+    .doc-stack::before,
+    .doc-stack::after {
+      content: '';
+      position: absolute;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .doc-stack::before {
+      top: 6px; right: -6px; bottom: -6px; left: 6px;
+      z-index: -1;
+    }
+    .doc-stack::after {
+      top: 12px; right: -12px; bottom: -12px; left: 12px;
+      z-index: -2;
+    }
+
+    /* Binder fan thumbnails */
+    .binder-fan {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      padding: 20px 0 40px;
+    }
+    .binder-thumb {
+      width: 140px;
+      height: 182px;
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      padding: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .binder-thumb:nth-child(1) { transform: rotate(-3deg) translateX(20px); z-index: 4; }
+    .binder-thumb:nth-child(2) { transform: rotate(-1deg) translateX(8px); z-index: 3; }
+    .binder-thumb:nth-child(3) { transform: rotate(1deg) translateX(-8px); z-index: 2; }
+    .binder-thumb:nth-child(4) { transform: rotate(3deg) translateX(-20px); z-index: 1; }
+
+    @media (max-width: 639px) {
+      .binder-fan {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 0;
+      }
+      .binder-thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+        transform: none !important;
+      }
+    }
+
+    /* Pricing slider custom style */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 9999px;
+      background: var(--color-border);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-primary-600);
+      border: 2px solid white;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-primary-600);
+      border: 2px solid white;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    input[type="range"]:hover::-webkit-slider-thumb {
+      background: var(--color-primary-700);
+      transform: scale(1.1);
+    }
+    input[type="range"]:hover::-moz-range-thumb {
+      background: var(--color-primary-700);
+      transform: scale(1.1);
+    }
+    input[type="range"]:focus-visible::-webkit-slider-thumb {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+    input[type="range"]:focus-visible::-moz-range-thumb {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+
+    /* FAQ accordion via details/summary */
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-heading);
+      font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-foreground);
+      transition: color 0.15s ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::marker { display: none; content: ''; }
+    .faq-item summary:hover { color: var(--color-primary-700); }
+    .faq-item summary .chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease;
+      color: var(--color-muted-foreground);
+    }
+    .faq-item[open] summary .chevron {
+      transform: rotate(180deg);
+    }
+    .faq-item .faq-answer {
+      padding: 0 0 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-muted-foreground);
+      max-width: 65ch;
+    }
+
+    /* Dark section surfaces */
+    .dark-surface {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Checklist check icon */
+    .check-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--color-primary-500);
+      margin-top: 2px;
+    }
+
+    /* Card hover */
+    .feature-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Mobile header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(247,248,248,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .feature-card:hover { transform: none; }
+      .binder-thumb { transition: none; }
+      input[type="range"]:hover::-webkit-slider-thumb { transform: none; }
+      input[type="range"]:hover::-moz-range-thumb { transform: none; }
+      .faq-item summary .chevron { transition: none; }
+      .anchor-nav { transition: none; }
+    }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only" style="position:absolute;top:0;left:0;z-index:100;padding:12px 24px;background:var(--color-primary);color:white;font-weight:600;border-radius:0 0 var(--radius-md) 0;" onfocus="this.style.position='fixed';this.style.clip='auto';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.clip='rect(0,0,0,0)';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to main content</a>
+
+  <!-- ============================================================
+       SITE HEADER
+       ============================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134ZM8.33343 8.03669C6.23343 8.15669 4.77332 9.8267 4.97332 11.8367C4.99332 23.5267 4.9734 35.6267 5.0534 47.3067C6.0434 46.4667 6.92342 45.5167 7.82342 44.5867C16.9534 35.3067 26.6634 25.5667 35.7934 16.2767C36.4034 15.6667 36.9234 15.3167 37.8234 15.3167C38.8134 15.3167 39.2034 15.5767 39.8535 16.2567C43.4635 20.1467 47.3033 24.0167 50.9633 27.8667C51.5833 28.4867 52.1733 29.1967 52.9833 29.5867C54.2633 30.1467 55.7333 29.3367 56.9933 29.9767C57.9933 30.5367 58.7034 31.4567 59.5134 32.2467C63.2234 36.0167 66.8032 39.9267 70.6432 43.5667C70.6832 33.0567 70.6433 22.2967 70.6633 11.7867C70.7033 10.5967 70.3433 9.58669 69.4333 8.77668C68.6133 7.97668 67.4234 7.80668 66.3334 7.69668C58.4834 6.94668 48.7135 5.97669 40.8635 5.21669C38.4335 4.90669 37.3933 4.90669 34.7033 5.21669C25.9133 6.14669 17.1334 7.10668 8.35345 8.02668L8.33343 8.03669ZM33.4333 80.6367C34.6233 81.3567 36.1435 82.2867 37.8835 82.2867C39.5135 82.2867 41.0333 81.3667 42.2233 80.6367C45.6933 78.0267 48.2733 75.4867 51.4933 72.5667C53.4433 70.7667 54.8633 68.8167 56.1533 66.4567C57.6433 63.7967 57.5932 60.1967 55.6432 57.7767C53.6732 55.2667 50.6233 54.0467 47.7233 52.9767C44.8233 51.8167 41.7433 51.0767 38.9433 49.6667C38.1533 49.2267 37.0734 48.5667 37.3034 47.4967C37.6234 46.2967 38.8334 45.6867 39.8234 45.1167C41.6534 44.0667 43.5335 43.9667 45.6235 42.7367C44.6635 42.6567 44.0334 42.6667 42.7534 42.8167C39.8534 43.2367 36.9535 43.6667 34.1135 44.4067C32.4135 44.8767 30.6733 45.5167 29.4133 46.7867C28.7033 47.4867 28.3434 48.6367 28.8234 49.5567C29.3734 50.5867 30.4433 51.1867 31.4333 51.7367C33.4933 52.8067 35.6035 53.7767 37.6135 54.9467C38.9335 55.7167 40.3233 56.6367 40.9133 58.1067C41.4733 59.5767 40.9134 61.1967 40.0734 62.4367C38.6934 64.4167 36.5434 65.6467 34.5734 66.9467C30.2834 69.7167 26.4533 71.3267 21.9033 73.6067L33.4533 80.6067L33.4333 80.6367Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567C109.393 68.5767 106.593 66.7967 103.963 64.3567C103.763 64.1667 103.743 63.8567 103.913 63.6467L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667C130.963 55.1267 130.653 54.2167 130.023 53.5367C129.403 52.8567 128.514 52.2467 127.374 51.6967C126.234 51.1567 124.873 50.5567 123.303 49.8967L116.384 47.0367C114.594 46.2167 112.863 45.1767 111.213 43.8967C109.553 42.6167 108.223 41.0367 107.223 39.1667C106.223 37.2867 105.713 35.0467 105.713 32.4367C105.713 29.4967 106.514 26.8467 108.114 24.4867C109.714 22.1167 111.943 20.2167 114.793 18.7767C117.643 17.3367 120.913 16.6167 124.603 16.6167C127.803 16.6167 130.904 17.1867 133.884 18.3267C136.714 19.4067 139.203 20.9567 141.353 22.9667C141.553 23.1567 141.573 23.4667 141.393 23.6767L135.653 30.6767C135.483 30.8867 135.173 30.9167 134.953 30.7667C133.343 29.5967 131.693 28.6867 130.013 28.0367C128.193 27.3267 126.393 26.9767 124.603 26.9767C122.543 26.9767 120.893 27.3967 119.673 28.2367C118.453 29.0767 117.843 30.2667 117.843 31.7867C117.843 32.8167 118.193 33.7067 118.903 34.4367C119.603 35.1667 120.583 35.7967 121.833 36.3167C123.083 36.8367 124.443 37.4167 125.903 38.0667L132.743 40.8367C134.913 41.7067 136.773 42.7967 138.323 44.0967C139.873 45.4067 141.073 46.9667 141.943 48.7867C142.813 50.6067 143.243 52.7767 143.243 55.2767C143.243 58.2167 142.454 60.9367 140.884 63.4367C139.304 65.9367 137.033 67.9567 134.043 69.4767C131.053 70.9967 127.443 71.7567 123.213 71.7567L123.233 71.7767Z" fill="#123646"/>
+          <path d="M191.373 70.1265L175.003 18.0465C174.933 17.8365 174.733 17.6865 174.513 17.6865H161.013C160.793 17.6865 160.593 17.8365 160.523 18.0465L144.153 70.1265C144.053 70.4565 144.293 70.7965 144.643 70.7965H155.753C155.983 70.7965 156.193 70.6365 156.253 70.4065L159.403 58.1465H175.623L178.773 70.4065C178.833 70.6365 179.033 70.7965 179.273 70.7965H190.873C191.223 70.7965 191.463 70.4565 191.363 70.1265H191.373ZM161.823 48.7665L163.083 43.8665C163.843 41.2065 164.593 38.3865 165.323 35.4265C166.053 32.4665 166.723 29.5365 167.313 26.6565H167.643C168.343 29.4865 169.053 32.3965 169.763 35.3865C170.463 38.3765 171.203 41.2065 171.963 43.8765L173.223 48.7765H161.833L161.823 48.7665Z" fill="#123646"/>
+          <path d="M195.963 70.2769V18.1069C195.963 17.8269 196.193 17.5869 196.473 17.5869H228.913C229.193 17.5869 229.423 17.8169 229.423 18.1069V27.1969C229.423 27.4769 229.193 27.7169 228.913 27.7169H208.443C208.163 27.7169 207.933 27.9469 207.933 28.2369V39.5269C207.933 39.8069 208.163 40.0469 208.443 40.0469H225.813C226.093 40.0469 226.323 40.2769 226.323 40.5669V49.6569C226.323 49.9369 226.093 50.1769 225.813 50.1769H208.443C208.163 50.1769 207.933 50.4069 207.933 50.6969V70.3069C207.933 70.5869 207.703 70.8269 207.423 70.8269H196.483C196.203 70.8269 195.973 70.5969 195.973 70.3069L195.963 70.2769Z" fill="#123646"/>
+          <path d="M235.693 70.2769V18.1069C235.693 17.8269 235.923 17.5869 236.203 17.5869H268.393C268.673 17.5869 268.903 17.8169 268.903 18.1069V27.1969C268.903 27.4769 268.673 27.7169 268.393 27.7169H248.173C247.893 27.7169 247.663 27.9469 247.663 28.2369V37.8969C247.663 38.1769 247.893 38.4169 248.173 38.4169H265.223C265.503 38.4169 265.733 38.6469 265.733 38.9369V47.9469C265.733 48.2269 265.503 48.4669 265.223 48.4669H248.173C247.893 48.4669 247.663 48.6969 247.663 48.9869V60.1969C247.663 60.4769 247.893 60.7169 248.173 60.7169H269.213C269.493 60.7169 269.723 60.9469 269.723 61.2369V70.3269C269.723 70.6069 269.493 70.8469 269.213 70.8469H236.203C235.923 70.8469 235.693 70.6169 235.693 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M288.933 70.3265V28.2765C288.933 27.9965 288.703 27.7565 288.423 27.7565H274.874C274.594 27.7565 274.364 27.5265 274.364 27.2365V18.2265C274.364 17.9465 274.594 17.7065 274.874 17.7065H315.043C315.323 17.7065 315.553 17.9365 315.553 18.2265V27.2365C315.553 27.5165 315.323 27.7565 315.043 27.7565H301.493C301.213 27.7565 300.983 27.9865 300.983 28.2765V70.3265C300.983 70.6065 300.753 70.8465 300.473 70.8465H289.453C289.173 70.8465 288.943 70.6165 288.943 70.3265H288.933Z" fill="#123646"/>
+          <path d="M363.533 70.0267L351.124 49.4567C353.864 48.2367 356.093 46.4567 357.783 44.1067C359.623 41.5467 360.553 38.2367 360.553 34.1567C360.553 30.0767 359.633 26.6667 357.783 24.2467C355.933 21.8267 353.464 20.1167 350.374 19.1067C347.284 18.0967 343.864 17.5967 340.114 17.5967H321.493C321.213 17.5967 320.983 17.8267 320.983 18.1167V70.2867C320.983 70.5667 321.213 70.8067 321.493 70.8067H332.433C332.713 70.8067 332.943 70.5767 332.943 70.2867V52.1467C332.943 51.8667 333.173 51.6267 333.453 51.6267H339.553L350.384 70.5267C350.474 70.6967 350.643 70.7967 350.833 70.7967H363.083C363.473 70.7967 363.723 70.3667 363.533 70.0267ZM332.943 41.5567V27.6567C332.943 27.3767 333.173 27.1367 333.453 27.1367H339.124C342.274 27.1367 344.673 27.6567 346.333 28.6867C347.993 29.7167 348.813 31.5467 348.813 34.1567C348.813 36.7667 347.983 38.7367 346.333 40.0767C344.673 41.4067 342.274 42.0767 339.124 42.0767H333.453C333.173 42.0767 332.943 41.8467 332.943 41.5567Z" fill="#123646"/>
+          <path d="M369.763 70.2769V18.1069C369.763 17.8269 369.993 17.5869 370.273 17.5869H402.463C402.743 17.5869 402.973 17.8169 402.973 18.1069V27.1969C402.973 27.4769 402.743 27.7169 402.463 27.7169H382.243C381.963 27.7169 381.733 27.9469 381.733 28.2369V37.8969C381.733 38.1769 381.963 38.4169 382.243 38.4169H399.293C399.573 38.4169 399.803 38.6469 399.803 38.9369V47.9469C399.803 48.2269 399.573 48.4669 399.293 48.4669H382.243C381.963 48.4669 381.733 48.6969 381.733 48.9869V60.1969C381.733 60.4769 381.963 60.7169 382.243 60.7169H403.283C403.563 60.7169 403.793 60.9469 403.793 61.2369V70.3269C403.793 70.6069 403.563 70.8469 403.283 70.8469H370.273C369.993 70.8469 369.763 70.6169 369.763 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M410.114 70.2769V18.1069C410.114 17.8269 410.344 17.5869 410.624 17.5869H421.563C421.843 17.5869 422.073 17.8169 422.073 18.1069V39.3769H422.403L438.043 17.8069C438.143 17.6769 438.293 17.5969 438.463 17.5969H450.354C450.774 17.5969 451.023 18.0869 450.763 18.4269L435.553 38.5369C435.423 38.7069 435.413 38.9269 435.523 39.1069L453.854 70.0169C454.054 70.3569 453.813 70.7969 453.413 70.7969H441.503C441.323 70.7969 441.153 70.6969 441.053 70.5369L428.643 49.0269C428.463 48.7069 428.013 48.6769 427.793 48.9769L422.173 56.3769C422.103 56.4669 422.073 56.5769 422.073 56.6869V70.2769C422.073 70.5569 421.843 70.7969 421.563 70.7969H410.624C410.344 70.7969 410.114 70.5669 410.114 70.2769Z" fill="#123646"/>
+          <path d="M501.983 70.0267L489.573 49.4567C492.313 48.2367 494.543 46.4567 496.233 44.1067C498.073 41.5467 499.003 38.2367 499.003 34.1567C499.003 30.0767 498.083 26.6667 496.233 24.2467C494.383 21.8267 491.913 20.1167 488.823 19.1067C485.733 18.0967 482.313 17.5967 478.563 17.5967H459.943C459.663 17.5967 459.433 17.8267 459.433 18.1167V70.2867C459.433 70.5667 459.663 70.8067 459.943 70.8067H470.884C471.164 70.8067 471.393 70.5767 471.393 70.2867V52.1467C471.393 51.8667 471.623 51.6267 471.903 51.6267H478.003L488.833 70.5267C488.923 70.6967 489.093 70.7967 489.283 70.7967H501.533C501.923 70.7967 502.173 70.3667 501.983 70.0267ZM471.393 41.5567V27.6567C471.393 27.3767 471.623 27.1367 471.903 27.1367H477.573C480.723 27.1367 483.123 27.6567 484.783 28.6867C486.443 29.7167 487.263 31.5467 487.263 34.1567C487.263 36.7667 486.433 38.7367 484.783 40.0767C483.123 41.4067 480.723 42.0767 477.573 42.0767H471.903C471.623 42.0767 471.393 41.8467 471.393 41.5567Z" fill="#123646"/>
+        </svg>
+        <svg height="26" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667" fill="#123646"/>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       STICKY IN-PAGE NAVIGATION
+       ============================================================ -->
+  <nav class="anchor-nav" id="anchor-nav" aria-label="Page sections">
+    <div class="container">
+      <div class="anchor-nav-scroll">
+        <a href="#challenge">The Problem</a>
+        <a href="#solutions">How It Works</a>
+        <a href="#binder-preview">Sample Binder</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         SECTION 1: HERO
+         ============================================================ -->
+    <section id="hero" style="background:var(--color-background);padding-top:32px;padding-bottom:48px;" class="sm:py-12 md:py-16 lg:py-20 xl:py-24">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" style="margin-bottom:24px;">
+          <ol class="flex items-center gap-2" style="list-style:none;font-size:14px;line-height:1.5;color:var(--color-muted-foreground);">
+            <li><a href="/" style="color:var(--color-muted-foreground);text-decoration:none;">Home</a></li>
+            <li aria-hidden="true" style="color:var(--color-border);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+            </li>
+            <li><a href="/solutions" style="color:var(--color-muted-foreground);text-decoration:none;">Solutions</a></li>
+            <li aria-hidden="true" style="color:var(--color-border);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+            </li>
+            <li><span aria-current="page" style="color:var(--color-foreground);font-weight:500;">K-12 Schools &amp; Districts</span></li>
+          </ol>
+        </nav>
+
+        <!-- Hero Grid -->
+        <div class="grid gap-12 lg:gap-20 items-center" style="grid-template-columns:1fr;" id="hero-grid">
+          <!-- Visual Column (shows first on mobile) -->
+          <div class="lg:order-2" aria-hidden="true" style="display:flex;justify-content:center;">
+            <div class="doc-stack doc-preview">
+              <div class="doc-page">
+                <!-- Document Header -->
+                <div class="flex items-center gap-2" style="margin-bottom:16px;">
+                  <svg width="16" height="16" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <rect width="32" height="32" rx="8" fill="#3f885b"/>
+                    <path d="M16 6L22 12V22C22 23.1 21.1 24 20 24H12C10.9 24 10 23.1 10 22V12L16 6Z" fill="white" opacity="0.9"/>
+                  </svg>
+                  <span style="font-family:var(--font-heading);font-size:clamp(1.125rem, 1rem + 0.5vw, 1.375rem);font-weight:600;color:var(--color-foreground);">Field Trip Safety Binder</span>
+                </div>
+
+                <!-- Destination badge -->
+                <span class="badge badge-brand" style="margin-bottom:16px;">Springfield Science Museum</span>
+
+                <!-- Review summary strip -->
+                <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0;padding:12px 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+                  <div style="text-align:center;">
+                    <div style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary-700);">17</div>
+                    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted-foreground);">Sections</div>
+                  </div>
+                  <div style="text-align:center;border-left:1px solid var(--color-border);border-right:1px solid var(--color-border);">
+                    <div style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:#22c55e;">Low</div>
+                    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted-foreground);">Risk Score</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary-700);">3</div>
+                    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted-foreground);">Hazard Flags</div>
+                  </div>
+                </div>
+
+                <!-- Checklist preview -->
+                <div class="flex flex-col gap-2" style="margin-bottom:16px;">
+                  <div class="flex items-center gap-2" style="font-size:13px;color:var(--color-foreground);">
+                    <svg class="check-icon" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Transportation route assessed
+                  </div>
+                  <div class="flex items-center gap-2" style="font-size:13px;color:var(--color-foreground);">
+                    <svg class="check-icon" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Weather conditions reviewed
+                  </div>
+                  <div class="flex items-center gap-2" style="font-size:13px;color:var(--color-foreground);">
+                    <svg class="check-icon" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Emergency facilities mapped
+                  </div>
+                  <div class="flex items-center gap-2" style="font-size:13px;color:var(--color-foreground);">
+                    <svg class="check-icon" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Parent notification ready
+                  </div>
+                </div>
+
+                <!-- Board Ready stamp -->
+                <div class="flex items-center justify-between" style="padding-top:12px;border-top:1px solid var(--color-border);">
+                  <span class="badge badge-brand" style="font-size:13px;padding:4px 14px;gap:6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Board Ready
+                  </span>
+                  <span style="font-family:var(--font-mono);font-size:11px;color:var(--color-muted-foreground);">sha256:a3f8c2...9d1e</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Column -->
+          <div class="lg:order-1">
+            <!-- Pricing Badge -->
+            <span class="badge badge-brand" aria-label="Per-student pricing: $15 per student" style="margin-bottom:16px;font-size:12px;font-weight:600;letter-spacing:0.04em;">$15 PER STUDENT</span>
+
+            <!-- Eyebrow -->
+            <p class="eyebrow" style="color:var(--color-primary-700);margin-bottom:12px;">K-12 TRIP SAFETY</p>
+
+            <!-- Headline -->
+            <h1 class="text-display-lg" style="color:var(--color-foreground);max-width:20ch;">Every Field Trip Deserves a Safety Analyst.</h1>
+
+            <!-- Sub-headline -->
+            <p class="text-body-lg" style="color:var(--color-muted-foreground);max-width:65ch;margin-top:24px;">Professional safety analysis for every field trip your district runs. Board-ready documentation. Designed with FERPA requirements in mind. Starting at $15 per student.</p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4" style="margin-top:32px;">
+              <a href="/resources/sample-binders/k12-field-trip" class="btn btn-primary btn-lg" aria-label="Download K-12 Field Trip Sample Binder (opens gated download)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download K-12 Sample Binder
+              </a>
+              <a href="/demo" class="btn btn-secondary btn-lg">Get a Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: PROOF STRIP
+         ============================================================ -->
+    <section aria-label="Trust metrics" style="background:var(--color-card);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);padding:48px 0;">
+      <div class="container">
+        <div class="grid gap-8" style="grid-template-columns:repeat(2,1fr);" id="proof-grid">
+          <div class="stat-card" aria-label="5 Government Intelligence Sources">
+            <div class="stat-value" style="font-size:36px;">5</div>
+            <div class="stat-label">Government Intel Sources</div>
+          </div>
+          <div class="stat-card" aria-label="17 Safety Review Sections">
+            <div class="stat-value" style="font-size:36px;">17</div>
+            <div class="stat-label">Safety Review Sections</div>
+          </div>
+          <div class="stat-card" aria-label="3 to 5 Day Turnaround">
+            <div class="stat-value" style="font-size:36px;">3-5</div>
+            <div class="stat-label">Day Turnaround</div>
+          </div>
+          <div class="stat-card" aria-label="AES-256 Encryption Standard">
+            <div class="stat-value" style="font-size:36px;">AES-256</div>
+            <div class="stat-label">Encryption Standard</div>
+          </div>
+          <div class="stat-card" style="grid-column:1/-1;" aria-label="SHA-256 Evidence Chain">
+            <div class="stat-value" style="font-size:36px;">SHA-256</div>
+            <div class="stat-label">Evidence Chain</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: THE CHALLENGE (DARK)
+         ============================================================ -->
+    <section id="challenge" data-theme="dark" aria-labelledby="challenge-heading" class="section" style="background:var(--color-secondary);color:var(--color-secondary-foreground);">
+      <div class="container">
+        <!-- Header -->
+        <p class="eyebrow" style="color:var(--color-primary-400);">THE STATUS QUO</p>
+        <h2 id="challenge-heading" class="text-display-md" style="color:#f7f8f8;margin-top:12px;">What Schools Currently Rely On</h2>
+        <p class="text-body-lg" style="color:var(--color-secondary-muted);max-width:65ch;margin-top:16px;">Teachers assemble spreadsheets. Permission slips serve as the only documentation. Risk assessment means checking the weather forecast the morning of departure.</p>
+
+        <!-- Pain Cards -->
+        <div class="grid gap-8" style="margin-top:48px;grid-template-columns:1fr;" id="pain-grid">
+          <!-- Pain Card 1: Staff Time -->
+          <div class="dark-surface" style="border-radius:var(--radius-xl);padding:24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="text-display-md" style="color:#f7f8f8;margin-top:16px;font-weight:700;" aria-label="$700 to $1,400 in staff hours per field trip">$700 - $1,400</div>
+            <p class="text-eyebrow" style="color:var(--color-secondary-muted);margin-top:4px;">in staff hours per trip</p>
+            <p class="text-body-md" style="color:var(--color-secondary-muted);margin-top:16px;">Every field trip requires 15-30 hours of manual safety planning by teachers who are not risk professionals.</p>
+          </div>
+
+          <!-- Pain Card 2: Liability Exposure -->
+          <div class="dark-surface" style="border-radius:var(--radius-xl);padding:24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning">
+              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <div class="text-display-md" style="color:#f7f8f8;margin-top:16px;font-weight:700;" aria-label="$500,000 to $2 million average settlement for trip-related incidents">$500K - $2M</div>
+            <p class="text-eyebrow" style="color:var(--color-secondary-muted);margin-top:4px;">average settlement for trip-related incidents</p>
+            <p class="text-body-md" style="color:var(--color-secondary-muted);margin-top:16px;">When a student is injured on a trip, &ldquo;What precautions did the district take?&rdquo; is the first question asked.</p>
+          </div>
+
+          <!-- Pain Card 3: Documentation Gap -->
+          <div class="dark-surface" style="border-radius:var(--radius-xl);padding:24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="9.5" y1="12.5" x2="14.5" y2="17.5"/><line x1="14.5" y1="12.5" x2="9.5" y2="17.5"/>
+            </svg>
+            <div class="text-display-md" style="color:#f7f8f8;margin-top:16px;font-weight:700;" aria-label="Zero formal risk documentation">Zero</div>
+            <p class="text-eyebrow" style="color:var(--color-secondary-muted);margin-top:4px;">formal risk documentation</p>
+            <p class="text-body-md" style="color:var(--color-secondary-muted);margin-top:16px;">Permission slips are not safety plans. A signed waiver is not evidence of due diligence.</p>
+          </div>
+        </div>
+
+        <!-- Liability Comparison -->
+        <div class="dark-surface" style="border-radius:var(--radius-xl);padding:32px;margin-top:48px;" role="group" aria-label="Board liability comparison: without versus with SafeTrekr">
+          <h3 class="text-heading-sm" style="color:#f7f8f8;margin-bottom:24px;">The Board Liability Question</h3>
+          <div class="grid gap-8" style="grid-template-columns:1fr;" id="liability-grid">
+            <!-- Without -->
+            <div>
+              <p class="text-eyebrow" style="color:var(--color-destructive);letter-spacing:0.08em;">WITHOUT SAFETREKR</p>
+              <p class="text-body-lg" style="color:var(--color-secondary-muted);font-style:italic;margin-top:12px;">&ldquo;What documentation did the district have before approving this trip?&rdquo;</p>
+              <p class="text-body-md" style="color:var(--color-secondary-muted);margin-top:16px;">Answer: Permission slips. A teacher&rsquo;s spreadsheet. Verbal assurances.</p>
+            </div>
+            <!-- With -->
+            <div>
+              <p class="text-eyebrow" style="color:var(--color-primary-400);letter-spacing:0.08em;">WITH SAFETREKR</p>
+              <p class="text-body-lg" style="color:var(--color-secondary-muted);font-style:italic;margin-top:12px;">&ldquo;Here is the 17-section safety review conducted by a professional analyst, the government intelligence risk score, and the complete evidence binder with SHA-256 verification.&rdquo;</p>
+              <p class="text-body-md" style="color:var(--color-secondary-muted);margin-top:16px;">Answer: A documented, tamper-evident record of every precaution the district took.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: HOW SAFETREKR SOLVES IT
+         ============================================================ -->
+    <section id="solutions" aria-labelledby="solutions-heading" class="section" style="background:var(--color-background);">
+      <div class="container">
+        <!-- Header -->
+        <div style="text-align:center;max-width:768px;margin:0 auto;">
+          <p class="eyebrow" style="color:var(--color-primary-700);">BUILT FOR K-12 DISTRICTS</p>
+          <h2 id="solutions-heading" class="text-display-md" style="color:var(--color-foreground);margin-top:12px;">Professional Trip Safety for Every Field Trip</h2>
+          <p class="text-body-lg" style="color:var(--color-muted-foreground);max-width:65ch;margin:16px auto 0;">From the science museum to the state capital, every destination your students visit gets the same level of professional safety analysis.</p>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="grid gap-6 lg:gap-8" style="margin-top:48px;grid-template-columns:1fr;" id="features-grid">
+          <!-- Feature Card 1 -->
+          <a href="/platform/analyst-review" class="card feature-card" style="text-decoration:none;display:block;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+            <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">Analyst Safety Review</h3>
+            <p class="text-body-md" style="color:var(--color-muted-foreground);margin-top:8px;">Every field trip destination reviewed across 17 safety dimensions by a professional analyst. Not a checklist. Not software. A human review.</p>
+            <span class="flex items-center gap-1" style="margin-top:16px;font-size:14px;font-weight:500;color:var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Feature Card 2 -->
+          <a href="/platform/risk-intelligence" class="card feature-card" style="text-decoration:none;display:block;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">Risk Intelligence Engine</h3>
+            <p class="text-body-md" style="color:var(--color-muted-foreground);margin-top:8px;">Weather, health, crime, and natural hazard data from 5 government sources scored for every destination your students visit. Monte Carlo simulation, not guesswork.</p>
+            <span class="flex items-center gap-1" style="margin-top:16px;font-size:14px;font-weight:500;color:var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Feature Card 3 -->
+          <a href="/platform/safety-binder" class="card feature-card" style="text-decoration:none;display:block;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">Trip Safety Binder</h3>
+            <p class="text-body-md" style="color:var(--color-muted-foreground);margin-top:8px;">Board-ready documentation that proves your district took every reasonable precaution. Tamper-evident with SHA-256 hash chain. Audit-ready on day one.</p>
+            <span class="flex items-center gap-1" style="margin-top:16px;font-size:14px;font-weight:500;color:var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Feature Card 4 -->
+          <a href="/platform/mobile-app" class="card feature-card" style="text-decoration:none;display:block;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+            <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">Parent/Guardian Portal</h3>
+            <p class="text-body-md" style="color:var(--color-muted-foreground);margin-top:8px;">Parents see trip safety details on their phone. Rally points, emergency contacts, and real-time check-in status. You control exactly what they see.</p>
+            <span class="flex items-center gap-1" style="margin-top:16px;font-size:14px;font-weight:500;color:var(--color-primary-700);">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: SAMPLE BINDER PREVIEW
+         ============================================================ -->
+    <section id="binder-preview" data-theme="brand" aria-labelledby="binder-preview-heading" class="section" style="background:var(--color-primary-50);">
+      <div class="container">
+        <div class="grid gap-12 lg:gap-20 items-center" style="grid-template-columns:1fr;" id="binder-grid">
+          <!-- Visual Column -->
+          <div class="lg:order-1">
+            <div class="binder-fan">
+              <!-- Thumbnail 1 -->
+              <div class="binder-thumb">
+                <div style="width:100%;height:8px;background:var(--color-primary-200);border-radius:4px;margin-bottom:8px;"></div>
+                <div style="width:60%;height:6px;background:var(--color-border);border-radius:3px;margin-bottom:12px;"></div>
+                <div style="width:100%;height:40px;background:var(--color-primary-50);border-radius:4px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:18px;font-weight:700;color:var(--color-primary-700);font-family:var(--font-heading);">Low</span>
+                </div>
+                <div style="width:100%;height:4px;background:var(--color-border);border-radius:2px;margin-bottom:4px;"></div>
+                <div style="width:80%;height:4px;background:var(--color-border);border-radius:2px;margin-bottom:4px;"></div>
+                <div style="width:90%;height:4px;background:var(--color-border);border-radius:2px;"></div>
+                <p style="font-size:10px;color:var(--color-muted-foreground);text-align:center;margin-top:auto;padding-top:8px;">Risk Score</p>
+              </div>
+              <!-- Thumbnail 2 -->
+              <div class="binder-thumb">
+                <div style="width:100%;height:8px;background:var(--color-primary-200);border-radius:4px;margin-bottom:8px;"></div>
+                <div style="width:70%;height:6px;background:var(--color-border);border-radius:3px;margin-bottom:10px;"></div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex items-center gap-1"><div style="width:8px;height:8px;border-radius:50%;background:var(--color-primary-400);"></div><div style="width:70%;height:3px;background:var(--color-border);border-radius:2px;"></div></div>
+                  <div class="flex items-center gap-1"><div style="width:8px;height:8px;border-radius:50%;background:var(--color-primary-400);"></div><div style="width:60%;height:3px;background:var(--color-border);border-radius:2px;"></div></div>
+                  <div class="flex items-center gap-1"><div style="width:8px;height:8px;border-radius:50%;background:var(--color-primary-400);"></div><div style="width:80%;height:3px;background:var(--color-border);border-radius:2px;"></div></div>
+                  <div class="flex items-center gap-1"><div style="width:8px;height:8px;border-radius:50%;background:var(--color-primary-400);"></div><div style="width:55%;height:3px;background:var(--color-border);border-radius:2px;"></div></div>
+                  <div class="flex items-center gap-1"><div style="width:8px;height:8px;border-radius:50%;background:var(--color-primary-400);"></div><div style="width:65%;height:3px;background:var(--color-border);border-radius:2px;"></div></div>
+                </div>
+                <p style="font-size:10px;color:var(--color-muted-foreground);text-align:center;margin-top:auto;padding-top:8px;">17-Section Review</p>
+              </div>
+              <!-- Thumbnail 3 -->
+              <div class="binder-thumb">
+                <div style="width:100%;height:8px;background:var(--color-destructive);border-radius:4px;margin-bottom:8px;opacity:0.3;"></div>
+                <div style="width:50%;height:6px;background:var(--color-border);border-radius:3px;margin-bottom:10px;"></div>
+                <div style="width:100%;height:50px;background:var(--color-primary-50);border-radius:4px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-600)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div style="width:100%;height:3px;background:var(--color-border);border-radius:2px;margin-bottom:3px;"></div>
+                <div style="width:85%;height:3px;background:var(--color-border);border-radius:2px;margin-bottom:3px;"></div>
+                <div style="width:70%;height:3px;background:var(--color-border);border-radius:2px;"></div>
+                <p style="font-size:10px;color:var(--color-muted-foreground);text-align:center;margin-top:auto;padding-top:8px;">Emergency Plan</p>
+              </div>
+              <!-- Thumbnail 4 -->
+              <div class="binder-thumb">
+                <div style="width:100%;height:8px;background:var(--color-primary-200);border-radius:4px;margin-bottom:8px;"></div>
+                <div style="width:65%;height:6px;background:var(--color-border);border-radius:3px;margin-bottom:10px;"></div>
+                <div style="width:100%;height:40px;background:var(--color-card);border:1px solid var(--color-border);border-radius:4px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-600)" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div style="font-family:var(--font-mono);font-size:8px;color:var(--color-muted-foreground);word-break:break-all;line-height:1.3;">sha256:a3f8c2d1...</div>
+                <p style="font-size:10px;color:var(--color-muted-foreground);text-align:center;margin-top:auto;padding-top:8px;">Evidence Chain</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Column -->
+          <div class="lg:order-2">
+            <p class="eyebrow" style="color:var(--color-primary-700);">SEE THE DELIVERABLE</p>
+            <h2 id="binder-preview-heading" class="text-display-md" style="color:var(--color-foreground);margin-top:12px;">See What Your Superintendent Will Review</h2>
+            <p class="text-body-lg" style="color:var(--color-muted-foreground);max-width:65ch;margin-top:16px;">Every field trip produces a comprehensive safety binder. This is what your school board will see when they ask about trip safety documentation.</p>
+
+            <!-- Checklist -->
+            <ul role="list" style="list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+              <li class="flex items-start gap-3">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                <span class="text-body-md" style="color:var(--color-foreground);">Risk score summary for every destination</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                <span class="text-body-md" style="color:var(--color-foreground);">17-section professional safety review</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                <span class="text-body-md" style="color:var(--color-foreground);">Emergency response protocols and contacts</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                <span class="text-body-md" style="color:var(--color-foreground);">SHA-256 tamper-evident verification</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                <span class="text-body-md" style="color:var(--color-foreground);">Government intelligence data cited</span>
+              </li>
+            </ul>
+
+            <!-- CTA -->
+            <div style="margin-top:32px;">
+              <a href="/resources/sample-binders/k12-field-trip" class="btn btn-primary btn-lg" aria-label="Download K-12 Field Trip Sample Binder (free, email required)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download K-12 Sample Binder
+              </a>
+              <p class="text-body-sm" style="color:var(--color-muted-foreground);margin-top:12px;">Free. No credit card. Email required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: PER-STUDENT PRICING CALCULATOR
+         ============================================================ -->
+    <section id="pricing" aria-labelledby="pricing-heading" class="section" style="background:var(--color-background);">
+      <div class="container">
+        <!-- Header -->
+        <div style="text-align:center;max-width:768px;margin:0 auto;">
+          <p class="eyebrow" style="color:var(--color-primary-700);">PRICING</p>
+          <h2 id="pricing-heading" class="text-display-md" style="color:var(--color-foreground);margin-top:12px;">$15 Per Student. Do the Math.</h2>
+          <p class="text-body-lg" style="color:var(--color-muted-foreground);max-width:65ch;margin:16px auto 0;">Professional safety analysis costs less than a permission slip printing budget. Compare to what your district risks without it.</p>
+        </div>
+
+        <!-- Calculator Card -->
+        <div style="max-width:672px;margin:48px auto 0;">
+          <div style="background:var(--color-card);border:2px solid var(--color-border);border-radius:var(--radius-2xl);padding:32px;box-shadow:var(--shadow-lg);" class="lg:p-10">
+            <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-bottom:32px;">Calculate Your District&rsquo;s Cost</h3>
+
+            <!-- Slider: Students Per Trip -->
+            <div style="margin-bottom:28px;">
+              <div class="flex items-center justify-between" style="margin-bottom:12px;">
+                <label for="students-slider" class="text-eyebrow" style="color:var(--color-muted-foreground);">STUDENTS PER TRIP</label>
+                <span id="students-value" class="text-heading-md" style="color:var(--color-foreground);font-family:var(--font-heading);font-variant-numeric:tabular-nums;">30</span>
+              </div>
+              <input type="range" id="students-slider" min="10" max="200" step="5" value="30"
+                aria-valuemin="10" aria-valuemax="200" aria-valuenow="30"
+                aria-valuetext="30 students per trip"
+                style="width:100%;">
+              <div class="flex justify-between" style="margin-top:4px;">
+                <span style="font-size:12px;color:var(--color-muted-foreground);">10</span>
+                <span style="font-size:12px;color:var(--color-muted-foreground);">200</span>
+              </div>
+            </div>
+
+            <!-- Slider: Trips Per Year -->
+            <div style="margin-bottom:28px;">
+              <div class="flex items-center justify-between" style="margin-bottom:12px;">
+                <label for="trips-slider" class="text-eyebrow" style="color:var(--color-muted-foreground);">TRIPS PER YEAR</label>
+                <span id="trips-value" class="text-heading-md" style="color:var(--color-foreground);font-family:var(--font-heading);font-variant-numeric:tabular-nums;">20</span>
+              </div>
+              <input type="range" id="trips-slider" min="1" max="100" step="1" value="20"
+                aria-valuemin="1" aria-valuemax="100" aria-valuenow="20"
+                aria-valuetext="20 trips per year"
+                style="width:100%;">
+              <div class="flex justify-between" style="margin-top:4px;">
+                <span style="font-size:12px;color:var(--color-muted-foreground);">1</span>
+                <span style="font-size:12px;color:var(--color-muted-foreground);">100</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div style="height:1px;background:var(--color-border);margin:28px 0;"></div>
+
+            <!-- Results Grid -->
+            <div class="grid gap-6" style="grid-template-columns:repeat(3,1fr);text-align:center;">
+              <div>
+                <output id="result-annual" class="text-display-md" style="display:block;color:var(--color-foreground);font-family:var(--font-heading);font-variant-numeric:tabular-nums;font-weight:700;" aria-live="polite" aria-label="Annual SafeTrekr cost: $9,000">$9,000</output>
+                <span class="text-eyebrow" style="color:var(--color-muted-foreground);margin-top:4px;display:block;">ANNUAL COST</span>
+              </div>
+              <div>
+                <output class="text-body-lg" style="display:block;color:var(--color-primary-700);font-weight:600;font-variant-numeric:tabular-nums;" aria-label="Per student cost: $15">$15</output>
+                <span class="text-eyebrow" style="color:var(--color-muted-foreground);margin-top:4px;display:block;">PER STUDENT</span>
+              </div>
+              <div>
+                <output id="result-per-trip" class="text-body-lg" style="display:block;color:var(--color-foreground);font-weight:600;font-variant-numeric:tabular-nums;" aria-live="polite" aria-label="Cost per trip: $450">$450</output>
+                <span class="text-eyebrow" style="color:var(--color-muted-foreground);margin-top:4px;display:block;">PER TRIP</span>
+              </div>
+            </div>
+
+            <!-- Comparison Strip -->
+            <div style="background:var(--color-primary-50);border-radius:var(--radius-lg);padding:20px;margin-top:32px;" role="group" aria-label="Cost comparison: SafeTrekr versus status quo">
+              <div class="grid gap-4" style="grid-template-columns:1fr;" id="comparison-grid">
+                <!-- SafeTrekr -->
+                <div style="text-align:center;">
+                  <p style="font-size:13px;font-weight:600;color:var(--color-foreground);text-transform:uppercase;letter-spacing:0.04em;">SafeTrekr</p>
+                  <p id="compare-safetrekr" style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--color-primary-700);margin-top:4px;font-variant-numeric:tabular-nums;">$9,000/year</p>
+                  <p style="font-size:13px;color:var(--color-muted-foreground);margin-top:2px;">Professional analyst review</p>
+                </div>
+                <!-- Staff Time -->
+                <div style="text-align:center;">
+                  <p style="font-size:13px;font-weight:600;color:var(--color-foreground);text-transform:uppercase;letter-spacing:0.04em;">Staff Time Without SafeTrekr</p>
+                  <p id="compare-staff" style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--color-muted-foreground);margin-top:4px;font-variant-numeric:tabular-nums;">$14,000 - $28,000/year</p>
+                  <p style="font-size:13px;color:var(--color-muted-foreground);margin-top:2px;"><span id="compare-trips-count">20</span> trips &times; $700-$1,400 per trip</p>
+                </div>
+                <!-- Lawsuit Risk -->
+                <div style="text-align:center;">
+                  <p style="font-size:13px;font-weight:600;color:var(--color-foreground);text-transform:uppercase;letter-spacing:0.04em;">Lawsuit Exposure</p>
+                  <p style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--color-destructive);margin-top:4px;">$500K - $2M</p>
+                  <p style="font-size:13px;color:var(--color-muted-foreground);margin-top:2px;">Average settlement for trip-related incidents</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer link -->
+            <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--color-muted-foreground);">
+              See full pricing details including volume discounts for large districts.
+              <a href="/pricing" class="flex items-center gap-1 justify-center" style="font-size:14px;font-weight:500;color:var(--color-primary-700);margin-top:4px;display:inline-flex;">
+                View Full Pricing
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7: COMPLIANCE & TRUST
+         ============================================================ -->
+    <section id="compliance" aria-labelledby="compliance-heading" class="section" style="background:var(--color-card);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+      <div class="container">
+        <div class="grid gap-12 lg:gap-20 items-start" style="grid-template-columns:1fr;" id="compliance-grid">
+          <!-- Text Column -->
+          <div>
+            <p class="eyebrow" style="color:var(--color-primary-700);">COMPLIANCE &amp; TRUST</p>
+            <h2 id="compliance-heading" class="text-display-md" style="color:var(--color-foreground);margin-top:12px;">Designed with FERPA Requirements in Mind</h2>
+            <p class="text-body-lg" style="color:var(--color-muted-foreground);margin-top:16px;">Student data is sensitive. We built SafeTrekr knowing that. Our data handling practices follow FERPA guidelines for student education records. Certification is in progress.</p>
+            <p class="text-body-lg" style="color:var(--color-foreground);font-weight:500;margin-top:16px;">We do not overclaim. We do not cut corners. We document everything.</p>
+
+            <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+              <a href="/security" class="flex items-center gap-1" style="font-size:14px;font-weight:500;color:var(--color-primary-700);">
+                View our security practices
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="/procurement" class="flex items-center gap-1" style="font-size:14px;font-weight:500;color:var(--color-primary-700);">
+                Procurement resources
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Badge Cards -->
+          <div>
+            <div class="grid gap-6" style="grid-template-columns:1fr;" id="badges-grid">
+              <!-- FERPA -->
+              <div style="background:var(--color-background);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow-sm);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">FERPA</h3>
+                <p class="text-body-sm" style="color:var(--color-muted-foreground);margin-top:8px;">Designed with FERPA requirements in mind. Student data handling follows FERPA guidelines. Certification in progress.</p>
+              </div>
+
+              <!-- AES-256 -->
+              <div style="background:var(--color-background);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow-sm);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+                </svg>
+                <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">AES-256 Encryption</h3>
+                <p class="text-body-sm" style="color:var(--color-muted-foreground);margin-top:8px;">All student data encrypted at rest and in transit using AES-256 standard.</p>
+              </div>
+
+              <!-- SOC 2 -->
+              <div style="background:var(--color-background);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow-sm);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/>
+                </svg>
+                <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">SOC 2 Type II</h3>
+                <p class="text-body-sm" style="color:var(--color-muted-foreground);margin-top:8px;">Type II audit in progress. Security controls documented and verified by independent auditors.</p>
+              </div>
+
+              <!-- SHA-256 -->
+              <div style="background:var(--color-background);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow-sm);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                </svg>
+                <h3 class="text-heading-sm" style="color:var(--color-foreground);margin-top:12px;">SHA-256 Evidence Chain</h3>
+                <p class="text-body-sm" style="color:var(--color-muted-foreground);margin-top:8px;">Tamper-evident evidence chain. Every document in every safety binder is hash-verified and immutable.</p>
+              </div>
+            </div>
+
+            <!-- COPPA Note -->
+            <p class="text-body-sm" style="color:var(--color-muted-foreground);margin-top:32px;max-width:65ch;">SafeTrekr does not collect data directly from students under 13. All student information is provided by authorized school administrators in accordance with COPPA guidelines.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 8: COMMON QUESTIONS (FAQ)
+         ============================================================ -->
+    <section id="faq" aria-labelledby="faq-heading" class="section" style="background:var(--color-background);">
+      <div class="container" style="max-width:768px;">
+        <!-- Header -->
+        <div style="text-align:center;">
+          <p class="eyebrow" style="color:var(--color-primary-700);">COMMON QUESTIONS</p>
+          <h2 id="faq-heading" class="text-display-md" style="color:var(--color-foreground);margin-top:12px;">Everything Your Board Will Ask</h2>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div style="margin-top:48px;border-top:1px solid var(--color-border);">
+
+          <details class="faq-item">
+            <summary>
+              Is SafeTrekr FERPA compliant?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">SafeTrekr is designed with FERPA requirements in mind. Our data handling practices follow FERPA guidelines for student education records, including access controls, data minimization, and secure storage. We are currently pursuing formal FERPA certification. We believe in transparency &mdash; we will never claim a certification we have not earned.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              What happens to student data after the trip?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Student data is retained only for the documentation period required by your district&rsquo;s records retention policy. After that period, data is purged with a verifiable deletion record. You control the retention timeline. We provide cryptographic proof of deletion upon request.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Can our school district use SafeTrekr for all field trips?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Yes. SafeTrekr handles field trips of every type &mdash; from a single-day museum visit to a multi-day out-of-state educational trip. Every trip gets the same 17-section professional safety review, regardless of distance or duration. Volume pricing is available for districts with 25 or more trips per year.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How does SafeTrekr handle parent consent?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">SafeTrekr includes a Parent/Guardian Portal where parents can view trip safety details you choose to share. This is separate from your district&rsquo;s existing permission slip process. SafeTrekr provides the professional safety documentation; your district maintains its consent workflow. Parents see safety information &mdash; not raw risk data.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              What if a field trip destination changes at the last minute?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Submit the new destination and our team will expedite a review. For minor changes (same city, different venue), we can often turn around an updated review within 24-48 hours. The original binder is versioned, not replaced &mdash; you maintain a complete audit trail of all destination changes.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How does per-student pricing work for large groups?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Pricing is $15 per student per trip. A field trip with 30 students costs $450. A field trip with 100 students costs $1,500. Volume discounts apply for districts committing to 25 or more trips per year. Contact us for district-wide pricing that covers all schools in your system.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Can board members access the safety binder directly?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Yes. You can generate a read-only link for board members to review any safety binder. The binder includes the full 17-section review, risk intelligence summary, emergency response plan, and SHA-256 evidence chain verification. Board members see exactly what you see.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Does SafeTrekr replace our existing field trip approval process?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">No. SafeTrekr supplements your existing process with professional safety analysis and documentation. Your district keeps its approval workflow, permission slip procedures, and chain of command. SafeTrekr adds the evidence layer that proves your district took every reasonable precaution.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              How quickly do we receive the safety binder?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Standard turnaround is 3-5 business days from trip submission. For field trips within the continental United States to well-documented destinations, turnaround is often faster. Rush processing is available for time-sensitive trips.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              What government data sources does SafeTrekr use?
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-answer">Our Risk Intelligence Engine aggregates data from 5 government sources: NOAA (weather and natural hazards), USGS (seismic and geological data), CDC (health advisories and disease surveillance), GDACS (global disaster alerts), and ReliefWeb (humanitarian situation reports). This data is scored using Monte Carlo simulation to produce a quantified risk profile for every destination.</div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 9: CONVERSION CTA BANNER (DARK)
+         ============================================================ -->
+    <section id="cta" data-theme="dark" aria-labelledby="cta-heading" style="background:var(--color-secondary);color:var(--color-secondary-foreground);padding:80px 0;" class="lg:py-28">
+      <div class="container" style="text-align:center;">
+        <h2 id="cta-heading" class="text-display-md" style="color:#f7f8f8;">Ready to Protect Your Next Field Trip?</h2>
+        <p class="text-body-lg" style="color:var(--color-secondary-muted);max-width:65ch;margin:16px auto 0;">Join districts that document every precaution. Download a sample binder to see the deliverable, or schedule a demo to discuss your district&rsquo;s needs.</p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center" style="margin-top:32px;">
+          <a href="/demo" class="btn btn-primary-on-dark btn-lg">Get a Demo</a>
+          <a href="/resources/sample-binders/k12-field-trip" class="btn btn-ghost-on-dark btn-lg">Download Sample Binder</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SITE FOOTER
+       ============================================================ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // ── Pricing Calculator ──
+    (function() {
+      const studentsSlider = document.getElementById('students-slider');
+      const tripsSlider = document.getElementById('trips-slider');
+      const studentsValue = document.getElementById('students-value');
+      const tripsValue = document.getElementById('trips-value');
+      const resultAnnual = document.getElementById('result-annual');
+      const resultPerTrip = document.getElementById('result-per-trip');
+      const compareSafetrekr = document.getElementById('compare-safetrekr');
+      const compareStaff = document.getElementById('compare-staff');
+      const compareTripsCount = document.getElementById('compare-trips-count');
+
+      function formatCurrency(n) {
+        return '$' + n.toLocaleString('en-US');
+      }
+
+      function updateCalculator() {
+        var students = parseInt(studentsSlider.value);
+        var trips = parseInt(tripsSlider.value);
+        var annual = students * 15 * trips;
+        var perTrip = students * 15;
+        var staffLow = trips * 700;
+        var staffHigh = trips * 1400;
+
+        studentsValue.textContent = students;
+        tripsValue.textContent = trips;
+
+        resultAnnual.textContent = formatCurrency(annual);
+        resultAnnual.setAttribute('aria-label', 'Annual SafeTrekr cost: ' + formatCurrency(annual));
+
+        resultPerTrip.textContent = formatCurrency(perTrip);
+        resultPerTrip.setAttribute('aria-label', 'Cost per trip: ' + formatCurrency(perTrip));
+
+        compareSafetrekr.textContent = formatCurrency(annual) + '/year';
+        compareStaff.textContent = formatCurrency(staffLow) + ' - ' + formatCurrency(staffHigh) + '/year';
+        compareTripsCount.textContent = trips;
+
+        studentsSlider.setAttribute('aria-valuenow', students);
+        studentsSlider.setAttribute('aria-valuetext', students + ' students per trip');
+        tripsSlider.setAttribute('aria-valuenow', trips);
+        tripsSlider.setAttribute('aria-valuetext', trips + ' trips per year');
+      }
+
+      studentsSlider.addEventListener('input', updateCalculator);
+      tripsSlider.addEventListener('input', updateCalculator);
+    })();
+
+    // ── Sticky Anchor Nav ──
+    (function() {
+      var anchorNav = document.getElementById('anchor-nav');
+      var hero = document.getElementById('hero');
+      var sections = ['challenge', 'solutions', 'binder-preview', 'pricing', 'compliance', 'faq'];
+      var navLinks = anchorNav.querySelectorAll('a');
+
+      // Show/hide anchor nav based on hero scroll position
+      var heroObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            anchorNav.classList.remove('visible');
+          } else {
+            anchorNav.classList.add('visible');
+          }
+        });
+      }, { threshold: 0, rootMargin: '-72px 0px 0px 0px' });
+
+      heroObserver.observe(hero);
+
+      // Active section tracking
+      var sectionObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            navLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+            // Auto-scroll active item into view on mobile
+            var activeLink = anchorNav.querySelector('a.active');
+            if (activeLink) {
+              activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '-140px 0px -50% 0px' });
+
+      sections.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
+      });
+    })();
+  </script>
+
+  <!-- ── Responsive Grid Adjustments via Tailwind + inline media queries ── -->
+  <style>
+    /* Hero grid: 2-column on lg */
+    @media (min-width: 1024px) {
+      #hero-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Proof strip: responsive columns */
+    @media (min-width: 768px) {
+      #proof-grid { grid-template-columns: repeat(3, 1fr); }
+      #proof-grid > :nth-child(4),
+      #proof-grid > :nth-child(5) {
+        grid-column: auto;
+      }
+      #proof-grid > :last-child { grid-column: auto; }
+    }
+    @media (min-width: 1024px) {
+      #proof-grid { grid-template-columns: repeat(5, 1fr); }
+      #proof-grid > :last-child { grid-column: auto; }
+    }
+
+    /* Pain cards: 3-column on md+ */
+    @media (min-width: 768px) {
+      #pain-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Liability grid: 2-column on md+ */
+    @media (min-width: 768px) {
+      #liability-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Feature cards: 2-column on sm+ */
+    @media (min-width: 640px) {
+      #features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Binder grid: 2-column on lg */
+    @media (min-width: 1024px) {
+      #binder-grid { grid-template-columns: 7fr 5fr; }
+    }
+
+    /* Comparison grid: 3-column on md+ */
+    @media (min-width: 768px) {
+      #comparison-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Compliance grid: 2-column on lg */
+    @media (min-width: 1024px) {
+      #compliance-grid { grid-template-columns: 5fr 7fr; }
+    }
+
+    /* Badges grid: 2-column on sm+ */
+    @media (min-width: 640px) {
+      #badges-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Footer grid: responsive columns */
+    @media (min-width: 640px) {
+      #footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      #footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    }
+
+    /* Hero section responsive padding */
+    @media (min-width: 640px) {
+      #hero { padding-top: 48px !important; padding-bottom: 64px !important; }
+    }
+    @media (min-width: 768px) {
+      #hero { padding-top: 64px !important; padding-bottom: 80px !important; }
+    }
+    @media (min-width: 1024px) {
+      #hero { padding-top: 80px !important; padding-bottom: 96px !important; }
+    }
+    @media (min-width: 1280px) {
+      #hero { padding-top: 96px !important; padding-bottom: 128px !important; }
+    }
+
+    /* Footer link hover */
+    footer a:hover { color: #f7f8f8 !important; }
+  </style>
+
+</body>
+</html>

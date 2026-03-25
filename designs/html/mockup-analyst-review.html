@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyst Safety Review -- SafeTrekr</title>
+  <meta name="description" content="Every trip professionally reviewed across 17 safety sections by a trained analyst. Destination safety, transportation, emergency preparedness, and compliance -- nothing missed.">
+  <meta property="og:title" content="Analyst Safety Review: 17 Sections, Nothing Missed">
+  <meta property="og:description" content="SafeTrekr assigns a trained safety analyst to every trip. 17 structured review sections. 5 government data sources. Professional findings and recommendations delivered in your Safety Binder.">
+  <meta property="og:image" content="/og/analyst-review.png">
+  <link rel="canonical" href="https://safetrekr.com/platform/analyst-review">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            border: 'var(--color-border)',
+            input: 'var(--color-input)',
+            ring: 'var(--color-ring)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            accent: 'var(--color-accent)',
+            'accent-foreground': 'var(--color-accent-foreground)',
+            primary: {
+              50: 'var(--color-primary-50)',
+              100: 'var(--color-primary-100)',
+              200: 'var(--color-primary-200)',
+              300: 'var(--color-primary-300)',
+              400: 'var(--color-primary-400)',
+              500: 'var(--color-primary-500)',
+              600: 'var(--color-primary-600)',
+              700: 'var(--color-primary-700)',
+              800: 'var(--color-primary-800)',
+              900: 'var(--color-primary-900)',
+              950: 'var(--color-primary-950)',
+              DEFAULT: 'var(--color-primary)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              foreground: 'var(--color-secondary-foreground)',
+              light: 'var(--color-secondary-light)',
+              muted: 'var(--color-secondary-muted)',
+            },
+            destructive: {
+              DEFAULT: 'var(--color-destructive)',
+              foreground: 'var(--color-destructive-foreground)',
+            },
+            safety: {
+              green: 'var(--color-safety-green)',
+              yellow: 'var(--color-safety-yellow)',
+              red: 'var(--color-safety-red)',
+            },
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            md: 'var(--radius-md)',
+            lg: 'var(--radius-lg)',
+            xl: 'var(--radius-xl)',
+            '2xl': 'var(--radius-2xl)',
+          },
+          boxShadow: {
+            xs: 'var(--shadow-xs)',
+            sm: 'var(--shadow-sm)',
+            md: 'var(--shadow-md)',
+            lg: 'var(--shadow-lg)',
+            xl: 'var(--shadow-xl)',
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- JSON-LD: FAQPage + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who are the safety analysts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every SafeTrekr analyst is a trained professional who has completed our structured training program covering risk assessment methodology, government intelligence interpretation, and the 17-section review framework."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a review take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most reviews are completed in 3-5 business days from the time you submit your trip. The timeline depends on trip complexity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if my trip details change after submission?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can update your trip details after submission and before the review is finalized. If a change is significant, your analyst will re-evaluate the affected sections."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I communicate directly with my analyst?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your analyst's findings and recommendations are delivered through the SafeTrekr platform as part of your Trip Safety Binder."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the review the same for a domestic day trip and an international mission trip?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every trip receives the same 17-section framework, but the depth and focus of each section adapts to your trip type."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if the analyst finds a serious risk?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If your analyst identifies a significant risk, it is documented in Section 12 (Known Issues and Flags) with a severity rating and a specific recommendation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from a travel advisory?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Government travel advisories are country-level assessments updated periodically. A SafeTrekr analyst review is trip-specific, destination-specific, date-specific, and group-specific."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I share the review with my board or insurance carrier?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Your Trip Safety Binder is designed to be shared with boards, insurance carriers, legal counsel, and any stakeholder who needs to see your safety documentation."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Analyst Safety Review",
+        "provider": {
+          "@type": "Organization",
+          "name": "SafeTrekr"
+        },
+        "description": "Every trip professionally reviewed across 17 safety sections by a trained analyst.",
+        "serviceType": "Safety Review"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ---- Glassmorphic header ---- */
+    .header-scrolled {
+      background: rgba(231, 236, 238, 0.80);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---- Mobile menu overlay ---- */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 26, 35, 0.5);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(320px, 85vw);
+      background: var(--color-card);
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      padding: 24px;
+    }
+    .mobile-menu-panel.active {
+      transform: translateX(0);
+    }
+
+    /* ---- Progress bar fill ---- */
+    @keyframes progressFill {
+      from { width: 0; }
+      to { width: 70%; }
+    }
+    .progress-fill-hero {
+      animation: progressFill 1s ease-out forwards;
+      animation-delay: 0.8s;
+      width: 0;
+    }
+
+    /* ---- Fade-up animation ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ---- Scale-in for hero card ---- */
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-scale-in {
+      animation: scaleIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+      opacity: 0;
+    }
+
+    /* ---- Accordion ---- */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .accordion-content.open {
+      max-height: 2000px;
+    }
+    .accordion-chevron {
+      transition: transform 0.2s ease;
+    }
+    .accordion-chevron.rotated {
+      transform: rotate(180deg);
+    }
+    .accordion-trigger:hover {
+      background: rgba(241,249,244,0.5);
+    }
+    .accordion-trigger.active-trigger {
+      background: rgba(241,249,244,0.3);
+    }
+
+    /* ---- FAQ accordion ---- */
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-content.open {
+      max-height: 800px;
+    }
+
+    /* ---- Timeline connecting line ---- */
+    .timeline-line {
+      stroke-dasharray: 6 4;
+    }
+
+    /* ---- Scrollspy active ---- */
+    .scrollspy-link {
+      transition: color 0.15s ease;
+    }
+    .scrollspy-link.active {
+      color: var(--color-primary-700);
+      font-weight: 500;
+    }
+
+    /* ---- Comparison table SafeTrekr column ---- */
+    @media (min-width: 1024px) {
+      .comparison-table td:nth-child(2),
+      .comparison-table th:nth-child(2) {
+        background: rgba(241,249,244,0.4);
+      }
+    }
+
+    /* ---- Stacked paper effect ---- */
+    .doc-preview-stack {
+      position: relative;
+    }
+    .doc-preview-stack::before,
+    .doc-preview-stack::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      width: 90%;
+      height: 100%;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+    .doc-preview-stack::after {
+      top: 16px;
+      width: 82%;
+      opacity: 0.6;
+      z-index: -2;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .progress-fill-hero { animation: none; width: 70%; }
+      .animate-fade-up { animation: none; opacity: 1; transform: none; }
+      .animate-scale-in { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       SKIP NAV
+       ================================================================ -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-700 focus:text-white focus:rounded-md">Skip to main content</a>
+
+  <!-- ================================================================
+       HEADER
+       ================================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134ZM8.33343 8.03669C6.23343 8.15669 4.77332 9.8267 4.97332 11.8367C4.99332 23.5267 4.9734 35.6267 5.0534 47.3067C6.0434 46.4667 6.92342 45.5167 7.82342 44.5867C16.9534 35.3067 26.6634 25.5667 35.7934 16.2767C36.4034 15.6667 36.9234 15.3167 37.8234 15.3167C38.8134 15.3167 39.2034 15.5767 39.8535 16.2567C43.4635 20.1467 47.3033 24.0167 50.9633 27.8667C51.5833 28.4867 52.1733 29.1967 52.9833 29.5867C54.2633 30.1467 55.7333 29.3367 56.9933 29.9767C57.9933 30.5367 58.7034 31.4567 59.5134 32.2467C63.2234 36.0167 66.8032 39.9267 70.6432 43.5667C70.6832 33.0567 70.6433 22.2967 70.6633 11.7867C70.7033 10.5967 70.3433 9.58669 69.4333 8.77668C68.6133 7.97668 67.4234 7.80668 66.3334 7.69668C58.4834 6.94668 48.7135 5.97669 40.8635 5.21669C38.4335 4.90669 37.3933 4.90669 34.7033 5.21669C25.9133 6.14669 17.1334 7.10668 8.35345 8.02668L8.33343 8.03669ZM33.4333 80.6367C34.6233 81.3567 36.1435 82.2867 37.8835 82.2867C39.5135 82.2867 41.0333 81.3667 42.2233 80.6367C45.6933 78.0267 48.2733 75.4867 51.4933 72.5667C53.4433 70.7667 54.8633 68.8167 56.1533 66.4567C57.6433 63.7967 57.5932 60.1967 55.6432 57.7767C53.6732 55.2667 50.6233 54.0467 47.7233 52.9767C44.8233 51.8167 41.7433 51.0767 38.9433 49.6667C38.1533 49.2267 37.0734 48.5667 37.3034 47.4967C37.6234 46.2967 38.8334 45.6867 39.8234 45.1167C41.6534 44.0667 43.5335 43.9667 45.6235 42.7367C44.6635 42.6567 44.0334 42.6667 42.7534 42.8167C39.8534 43.2367 36.9535 43.6667 34.1135 44.4067C32.4135 44.8767 30.6733 45.5167 29.4133 46.7867C28.7033 47.4867 28.3434 48.6367 28.8234 49.5567C29.3734 50.5867 30.4433 51.1867 31.4333 51.7367C33.4933 52.8067 35.6035 53.7767 37.6135 54.9467C38.9335 55.7167 40.3233 56.6367 40.9133 58.1067C41.4733 59.5767 40.9134 61.1967 40.0734 62.4367C38.6934 64.4167 36.5434 65.6467 34.5734 66.9467C30.2834 69.7167 26.4533 71.3267 21.9033 73.6067L33.4533 80.6067L33.4333 80.6367Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567C109.393 68.5767 106.593 66.7967 103.963 64.3567C103.763 64.1667 103.743 63.8567 103.913 63.6467L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667C130.963 55.1267 130.653 54.2167 130.023 53.5367C129.403 52.8567 128.514 52.2467 127.374 51.6967C126.234 51.1567 124.873 50.5567 123.303 49.8967L116.384 47.0367C114.594 46.2167 112.863 45.1767 111.213 43.8967C109.553 42.6167 108.223 41.0367 107.223 39.1667C106.223 37.2867 105.713 35.0467 105.713 32.4367C105.713 29.4967 106.514 26.8467 108.114 24.4867C109.714 22.1167 111.943 20.2167 114.793 18.7767C117.643 17.3367 120.913 16.6167 124.603 16.6167C127.803 16.6167 130.904 17.1867 133.884 18.3267C136.714 19.4067 139.203 20.9567 141.353 22.9667C141.553 23.1567 141.573 23.4667 141.393 23.6767L135.653 30.6767C135.483 30.8867 135.173 30.9167 134.953 30.7667C133.343 29.5967 131.693 28.6867 130.013 28.0367C128.193 27.3267 126.393 26.9767 124.603 26.9767C122.543 26.9767 120.893 27.3967 119.673 28.2367C118.453 29.0767 117.843 30.2667 117.843 31.7867C117.843 32.8167 118.193 33.7067 118.903 34.4367C119.603 35.1667 120.583 35.7967 121.833 36.3167C123.083 36.8367 124.443 37.4167 125.903 38.0667L132.743 40.8367C134.913 41.7067 136.773 42.7967 138.323 44.0967C139.873 45.4067 141.073 46.9667 141.943 48.7867C142.813 50.6067 143.243 52.7767 143.243 55.2767C143.243 58.2167 142.454 60.9367 140.884 63.4367C139.304 65.9367 137.033 67.9567 134.043 69.4767C131.053 70.9967 127.443 71.7567 123.213 71.7567L123.233 71.7767Z" fill="#123646"/>
+          <path d="M191.373 70.1265L175.003 18.0465C174.933 17.8365 174.733 17.6865 174.513 17.6865H161.013C160.793 17.6865 160.593 17.8365 160.523 18.0465L144.153 70.1265C144.053 70.4565 144.293 70.7965 144.643 70.7965H155.753C155.983 70.7965 156.193 70.6365 156.253 70.4065L159.403 58.1465H175.623L178.773 70.4065C178.833 70.6365 179.033 70.7965 179.273 70.7965H190.873C191.223 70.7965 191.463 70.4565 191.363 70.1265H191.373ZM161.823 48.7665L163.083 43.8665C163.843 41.2065 164.593 38.3865 165.323 35.4265C166.053 32.4665 166.723 29.5365 167.313 26.6565H167.643C168.343 29.4865 169.053 32.3965 169.763 35.3865C170.463 38.3765 171.203 41.2065 171.963 43.8765L173.223 48.7765H161.833L161.823 48.7665Z" fill="#123646"/>
+          <path d="M195.963 70.2769V18.1069C195.963 17.8269 196.193 17.5869 196.473 17.5869H228.913C229.193 17.5869 229.423 17.8169 229.423 18.1069V27.1969C229.423 27.4769 229.193 27.7169 228.913 27.7169H208.443C208.163 27.7169 207.933 27.9469 207.933 28.2369V39.5269C207.933 39.8069 208.163 40.0469 208.443 40.0469H225.813C226.093 40.0469 226.323 40.2769 226.323 40.5669V49.6569C226.323 49.9369 226.093 50.1769 225.813 50.1769H208.443C208.163 50.1769 207.933 50.4069 207.933 50.6969V70.3069C207.933 70.5869 207.703 70.8269 207.423 70.8269H196.483C196.203 70.8269 195.973 70.5969 195.973 70.3069L195.963 70.2769Z" fill="#123646"/>
+          <path d="M235.693 70.2769V18.1069C235.693 17.8269 235.923 17.5869 236.203 17.5869H268.393C268.673 17.5869 268.903 17.8169 268.903 18.1069V27.1969C268.903 27.4769 268.673 27.7169 268.393 27.7169H248.173C247.893 27.7169 247.663 27.9469 247.663 28.2369V37.8969C247.663 38.1769 247.893 38.4169 248.173 38.4169H265.223C265.503 38.4169 265.733 38.6469 265.733 38.9369V47.9469C265.733 48.2269 265.503 48.4669 265.223 48.4669H248.173C247.893 48.4669 247.663 48.6969 247.663 48.9869V60.1969C247.663 60.4769 247.893 60.7169 248.173 60.7169H269.213C269.493 60.7169 269.723 60.9469 269.723 61.2369V70.3269C269.723 70.6069 269.493 70.8469 269.213 70.8469H236.203C235.923 70.8469 235.693 70.6169 235.693 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M288.933 70.3265V28.2765C288.933 27.9965 288.703 27.7565 288.423 27.7565H274.874C274.594 27.7565 274.364 27.5265 274.364 27.2365V18.2265C274.364 17.9465 274.594 17.7065 274.874 17.7065H315.043C315.323 17.7065 315.553 17.9365 315.553 18.2265V27.2365C315.553 27.5165 315.323 27.7565 315.043 27.7565H301.493C301.213 27.7565 300.983 27.9865 300.983 28.2765V70.3265C300.983 70.6065 300.753 70.8465 300.473 70.8465H289.453C289.173 70.8465 288.943 70.6165 288.943 70.3265H288.933Z" fill="#123646"/>
+          <path d="M363.533 70.0267L351.124 49.4567C353.864 48.2367 356.093 46.4567 357.783 44.1067C359.623 41.5467 360.553 38.2367 360.553 34.1567C360.553 30.0767 359.633 26.6667 357.783 24.2467C355.933 21.8267 353.464 20.1167 350.374 19.1067C347.284 18.0967 343.864 17.5967 340.114 17.5967H321.493C321.213 17.5967 320.983 17.8267 320.983 18.1167V70.2867C320.983 70.5667 321.213 70.8067 321.493 70.8067H332.433C332.713 70.8067 332.943 70.5767 332.943 70.2867V52.1467C332.943 51.8667 333.173 51.6267 333.453 51.6267H339.553L350.384 70.5267C350.474 70.6967 350.643 70.7967 350.833 70.7967H363.083C363.473 70.7967 363.723 70.3667 363.533 70.0267ZM332.943 41.5567V27.6567C332.943 27.3767 333.173 27.1367 333.453 27.1367H339.124C342.274 27.1367 344.673 27.6567 346.333 28.6867C347.993 29.7167 348.813 31.5467 348.813 34.1567C348.813 36.7667 347.983 38.7367 346.333 40.0767C344.673 41.4067 342.274 42.0767 339.124 42.0767H333.453C333.173 42.0767 332.943 41.8467 332.943 41.5567Z" fill="#123646"/>
+          <path d="M369.763 70.2769V18.1069C369.763 17.8269 369.993 17.5869 370.273 17.5869H402.463C402.743 17.5869 402.973 17.8169 402.973 18.1069V27.1969C402.973 27.4769 402.743 27.7169 402.463 27.7169H382.243C381.963 27.7169 381.733 27.9469 381.733 28.2369V37.8969C381.733 38.1769 381.963 38.4169 382.243 38.4169H399.293C399.573 38.4169 399.803 38.6469 399.803 38.9369V47.9469C399.803 48.2269 399.573 48.4669 399.293 48.4669H382.243C381.963 48.4669 381.733 48.6969 381.733 48.9869V60.1969C381.733 60.4769 381.963 60.7169 382.243 60.7169H403.283C403.563 60.7169 403.793 60.9469 403.793 61.2369V70.3269C403.793 70.6069 403.563 70.8469 403.283 70.8469H370.273C369.993 70.8469 369.763 70.6169 369.763 70.3269V70.2769Z" fill="#123646"/>
+          <path d="M410.114 70.2769V18.1069C410.114 17.8269 410.344 17.5869 410.624 17.5869H421.563C421.843 17.5869 422.073 17.8169 422.073 18.1069V39.3769H422.403L438.043 17.8069C438.143 17.6769 438.293 17.5969 438.463 17.5969H450.354C450.774 17.5969 451.023 18.0869 450.763 18.4269L435.553 38.5369C435.423 38.7069 435.413 38.9269 435.523 39.1069L453.854 70.0169C454.054 70.3569 453.813 70.7969 453.413 70.7969H441.503C441.323 70.7969 441.153 70.6969 441.053 70.5369L428.643 49.0269C428.463 48.7069 428.013 48.6769 427.793 48.9769L422.173 56.3769C422.103 56.4669 422.073 56.5769 422.073 56.6869V70.2769C422.073 70.5569 421.843 70.7969 421.563 70.7969H410.624C410.344 70.7969 410.114 70.5669 410.114 70.2769Z" fill="#123646"/>
+          <path d="M501.983 70.0267L489.573 49.4567C492.313 48.2367 494.543 46.4567 496.233 44.1067C498.073 41.5467 499.003 38.2367 499.003 34.1567C499.003 30.0767 498.083 26.6667 496.233 24.2467C494.383 21.8267 491.913 20.1167 488.823 19.1067C485.733 18.0967 482.313 17.5967 478.563 17.5967H459.943C459.663 17.5967 459.433 17.8267 459.433 18.1167V70.2867C459.433 70.5667 459.663 70.8067 459.943 70.8067H470.884C471.164 70.8067 471.393 70.5767 471.393 70.2867V52.1467C471.393 51.8667 471.623 51.6267 471.903 51.6267H478.003L488.833 70.5267C488.923 70.6967 489.093 70.7967 489.283 70.7967H501.533C501.923 70.7967 502.173 70.3667 501.983 70.0267ZM471.393 41.5567V27.6567C471.393 27.3767 471.623 27.1367 471.903 27.1367H477.573C480.723 27.1367 483.123 27.6567 484.783 28.6867C486.443 29.7167 487.263 31.5467 487.263 34.1567C487.263 36.7667 486.433 38.7367 484.783 40.0767C483.123 41.4067 480.723 42.0767 477.573 42.0767H471.903C471.623 42.0767 471.393 41.8467 471.393 41.5567Z" fill="#123646"/>
+        </svg>
+        <svg height="26" viewBox="0 0 503 89" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M35.8134 0.0666935C36.8834-0.0333065 38.7334-0.013312 39.8034 0.076688C48.7234 0.916688 56.8634 1.7167 65.7834 2.6167C67.3334 2.7967 68.9432 2.78668 70.3932 3.41668C72.8432 4.47668 74.6834 6.75669 75.3334 9.32669C75.6934 10.7667 75.5834 12.2567 75.5934 13.7167C75.5934 24.6967 75.5934 35.6667 75.5934 46.6467C75.5934 49.0667 75.6833 51.4867 75.4333 53.8967C74.8033 58.9867 72.6635 63.8667 69.3635 67.7967C67.0935 70.6067 64.2334 72.8767 61.3034 74.9567C54.5934 79.6767 46.9734 83.9667 39.8134 87.9367C38.6334 88.6867 36.9934 88.6567 35.7734 87.8967C30.4834 85.2067 25.8934 82.3267 20.8134 79.2667C17.3834 77.2867 14.0533 75.1167 10.9633 72.6467C3.92331 67.2667-0.356629 58.4567 0.023371 49.5667C0.033371 36.9167 0.00338081 24.2667 0.0333808 11.6267C0.0333808 7.61669 3.05328 3.53669 7.18328 3.13669C16.7133 2.06669 26.2634 1.10669 35.7934 0.0666935H35.8134Z" fill="#123646"/>
+          <path d="M123.233 71.7767C119.703 71.7767 116.233 71.1367 112.813 69.8567L109.634 56.5867C109.814 56.3667 110.133 56.3367 110.353 56.5167C112.153 57.9867 114.183 59.1567 116.433 60.0167C118.843 60.9467 121.223 61.4067 123.553 61.4067C126.053 61.4067 127.914 60.9467 129.134 60.0167C130.354 59.0967 130.963 57.8467 130.963 56.2667" fill="#123646"/>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+  <div id="mobile-panel" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div class="flex justify-between items-center mb-8">
+      <span class="font-display font-bold text-lg text-foreground">Menu</span>
+      <button id="mobile-close-btn" class="p-2 text-foreground" aria-label="Close navigation menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2">
+      <a href="/platform" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Platform</a>
+      <a href="/solutions" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Solutions</a>
+      <a href="/how-it-works" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">How It Works</a>
+      <a href="/pricing" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Pricing</a>
+      <a href="/resources" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Resources</a>
+      <div class="border-t mt-4 pt-4" style="border-color: var(--color-border);">
+        <a href="/demo" class="block w-full text-center py-3 rounded-md text-base font-semibold text-white" style="background: var(--color-primary-600); font-family: var(--font-heading);">Get a Demo</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- ================================================================
+         SECTION 1: HERO
+         ================================================================ -->
+    <section aria-labelledby="hero-heading" class="pt-24 pb-16 lg:pt-28 lg:pb-24" style="background: var(--color-background);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="mb-8">
+          <ol class="hidden sm:flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground); font-family: var(--font-body);">
+            <li><a href="/" class="hover:text-foreground transition-colors">Home</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="/platform" class="hover:text-foreground transition-colors">Platform</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><span aria-current="page" style="color: var(--color-foreground); font-weight: 500;">Analyst Safety Review</span></li>
+          </ol>
+          <a href="/platform" class="sm:hidden inline-flex items-center gap-1 text-sm hover:text-foreground transition-colors" style="color: var(--color-muted-foreground); font-family: var(--font-body);">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            Back to Platform
+          </a>
+        </nav>
+
+        <!-- 2-Column Hero -->
+        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
+
+          <!-- Left: Text -->
+          <div>
+            <div class="flex items-center gap-2 mb-4 animate-fade-up" style="animation-delay: 80ms;">
+              <svg class="w-4 h-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+              <span class="text-eyebrow" style="color: var(--color-primary-700);">ANALYST REVIEW</span>
+            </div>
+
+            <h1 id="hero-heading" class="text-display-lg mb-6 animate-fade-up" style="color: var(--color-foreground); max-width: 20ch; animation-delay: 160ms;">
+              Every Trip Reviewed by a Safety Analyst.
+            </h1>
+
+            <p class="text-body-lg mb-10 animate-fade-up" style="color: var(--color-muted-foreground); max-width: 65ch; animation-delay: 240ms;">
+              No algorithm. No checklist. A trained professional reviews your trip across 17 structured safety sections -- from destination intelligence to emergency preparedness to compliance documentation.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 animate-fade-up" style="animation-delay: 320ms;">
+              <a href="/resources/sample-binders" class="btn btn-lg btn-primary" style="padding: 16px 32px; font-size: 16px;">
+                See a Sample Review
+              </a>
+              <a href="/demo" class="btn btn-lg btn-secondary" style="padding: 16px 32px; font-size: 16px;">
+                Request a Demo
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Hero Composition Panel -->
+          <div class="animate-scale-in" style="animation-delay: 400ms;">
+            <div class="rounded-2xl shadow-xl border p-6 lg:p-8 max-w-[480px] lg:ml-auto" style="background: var(--color-card); border-color: var(--color-border);">
+
+              <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700);">ANALYST REVIEW</span>
+              <span class="badge badge-brand mb-4 inline-block">In Progress</span>
+
+              <h3 class="text-heading-sm mb-1" style="color: var(--color-foreground);">Spring Field Trip</h3>
+              <p class="text-body-sm mb-6" style="color: var(--color-muted-foreground);">Springfield USD</p>
+
+              <!-- Progress Bar -->
+              <div class="mb-2 h-2 rounded-full" style="background: var(--color-primary-100);" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="17" aria-label="Review progress: 12 of 17 sections reviewed">
+                <div class="h-2 rounded-full progress-fill-hero" style="background: var(--color-primary-500);"></div>
+              </div>
+              <p class="text-xs mb-6" style="color: var(--color-muted-foreground);">12 of 17 sections reviewed</p>
+
+              <!-- Checklist Preview -->
+              <div role="list" class="space-y-2">
+                <div role="listitem" class="flex items-center gap-3" aria-label="Completed: Destination Safety">
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Destination Safety</span>
+                </div>
+                <div role="listitem" class="flex items-center gap-3" aria-label="Completed: Transportation">
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Transportation</span>
+                </div>
+                <div role="listitem" class="flex items-center gap-3" aria-label="Completed: Emergency Prep">
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Emergency Prep</span>
+                </div>
+                <div role="listitem" class="flex items-center gap-3">
+                  <div class="w-5 h-5 rounded-full border-2 flex-shrink-0" style="border-color: var(--color-border);"></div>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Compliance Docs</span>
+                </div>
+                <div role="listitem" class="flex items-center gap-3">
+                  <div class="w-5 h-5 rounded-full border-2 flex-shrink-0" style="border-color: var(--color-border);"></div>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Final Approval</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 2: WHO ARE THE ANALYSTS (DARK)
+         ================================================================ -->
+    <section id="analysts" aria-labelledby="analysts-heading" data-theme="dark" style="background: var(--color-secondary); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <span class="text-eyebrow block mb-4" style="color: var(--color-primary-400);">YOUR SAFETY TEAM</span>
+          <h2 id="analysts-heading" class="text-display-md mb-6" style="color: #f7f8f8; max-width: 28ch; margin: 0 auto;">
+            Trained Analysts. Not Algorithms.
+          </h2>
+          <p class="text-body-lg mx-auto" style="color: var(--color-secondary-muted); max-width: 65ch;">
+            Every SafeTrekr review is conducted by a trained safety analyst -- not generated by software, not assembled from templates, not outsourced to a call center. Your analyst reads every detail of your trip plan and evaluates it against real-world conditions.
+          </p>
+        </div>
+
+        <!-- Credential Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+
+          <!-- Card 1: Professionally Trained -->
+          <article class="rounded-xl p-6 lg:p-8" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-6" style="background: rgba(76,164,110,0.1);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: #f7f8f8; font-weight: 600;">Professionally Trained</h3>
+            <p class="text-body-md" style="color: var(--color-secondary-muted);">Every analyst completes a structured training program covering risk assessment methodology, government intelligence interpretation, and SafeTrekr's 17-section review framework before conducting a single review.</p>
+          </article>
+
+          <!-- Card 2: Standardized Methodology -->
+          <article class="rounded-xl p-6 lg:p-8" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-6" style="background: rgba(76,164,110,0.1);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: #f7f8f8; font-weight: 600;">Standardized Methodology</h3>
+            <p class="text-body-md" style="color: var(--color-secondary-muted);">Analysts follow a documented, repeatable methodology for every review. The same 17 sections. The same evaluation criteria. The same evidence standards. Consistency you can audit.</p>
+          </article>
+
+          <!-- Card 3: Dedicated Assignment -->
+          <article class="rounded-xl p-6 lg:p-8 sm:col-span-2 lg:col-span-1" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center mb-6" style="background: rgba(76,164,110,0.1);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+            </div>
+            <h3 class="text-heading-sm mb-3" style="color: #f7f8f8; font-weight: 600;">Dedicated Assignment</h3>
+            <p class="text-body-md" style="color: var(--color-secondary-muted);">Your trip is assigned to a specific analyst who owns the review from start to finish. One person. Full accountability. Direct findings and recommendations -- not a committee output.</p>
+          </article>
+        </div>
+
+        <!-- Process Strip -->
+        <div class="rounded-xl p-6 lg:p-8" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+
+            <div role="listitem" class="text-center">
+              <div class="h-10 w-10 rounded-full mx-auto flex items-center justify-center mb-4" style="background: rgba(76,164,110,0.2); color: var(--color-primary-400); font-weight: 600; font-size: 16px; font-family: var(--font-heading);">1</div>
+              <h4 class="text-heading-sm mb-2" style="color: #f7f8f8; font-weight: 600; font-size: 16px;">Trip Assigned</h4>
+              <p class="text-body-sm" style="color: var(--color-secondary-muted);">Your submission is routed to an available analyst with relevant expertise for your destination and trip type.</p>
+            </div>
+
+            <div role="listitem" class="text-center">
+              <div class="h-10 w-10 rounded-full mx-auto flex items-center justify-center mb-4" style="background: rgba(76,164,110,0.2); color: var(--color-primary-400); font-weight: 600; font-size: 16px; font-family: var(--font-heading);">2</div>
+              <h4 class="text-heading-sm mb-2" style="color: #f7f8f8; font-weight: 600; font-size: 16px;">Full-Context Read</h4>
+              <p class="text-body-sm" style="color: var(--color-secondary-muted);">The analyst reads your complete trip plan -- destination, dates, participants, activities, logistics, and any concerns you flagged.</p>
+            </div>
+
+            <div role="listitem" class="text-center">
+              <div class="h-10 w-10 rounded-full mx-auto flex items-center justify-center mb-4" style="background: rgba(76,164,110,0.2); color: var(--color-primary-400); font-weight: 600; font-size: 16px; font-family: var(--font-heading);">3</div>
+              <h4 class="text-heading-sm mb-2" style="color: #f7f8f8; font-weight: 600; font-size: 16px;">17-Section Evaluation</h4>
+              <p class="text-body-sm" style="color: var(--color-secondary-muted);">Each section is evaluated against current conditions, government intelligence data, and SafeTrekr's evidence standards.</p>
+            </div>
+
+            <div role="listitem" class="text-center">
+              <div class="h-10 w-10 rounded-full mx-auto flex items-center justify-center mb-4" style="background: rgba(76,164,110,0.2); color: var(--color-primary-400); font-weight: 600; font-size: 16px; font-family: var(--font-heading);">4</div>
+              <h4 class="text-heading-sm mb-2" style="color: #f7f8f8; font-weight: 600; font-size: 16px;">Findings Delivered</h4>
+              <p class="text-body-sm" style="color: var(--color-secondary-muted);">The analyst writes specific findings and actionable recommendations. No boilerplate. Every finding references your trip.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Cross-Link -->
+        <div class="mt-8 text-center">
+          <a href="/about/analysts" class="inline-flex items-center gap-2 text-body-md transition-colors hover:underline" style="color: var(--color-primary-400); font-weight: 500;">
+            Meet our full analyst team
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 3: INTERACTIVE 17-SECTION REVIEW GRID
+         ================================================================ -->
+    <section id="review-sections" aria-labelledby="review-sections-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <svg class="w-4 h-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">THE 17 SECTIONS</span>
+          </div>
+          <h2 id="review-sections-heading" class="text-display-md mb-4" style="color: var(--color-foreground); max-width: 28ch; margin: 0 auto;">
+            Every Detail Evaluated.
+          </h2>
+          <p class="text-body-lg mx-auto" style="color: var(--color-muted-foreground); max-width: 65ch;">
+            Your analyst reviews your trip across 17 structured sections organized into 5 categories. Expand any section to see exactly what is evaluated and why.
+          </p>
+        </div>
+
+        <!-- Category Accordion Groups -->
+        <div class="space-y-8" id="review-grid">
+
+          <!-- ============ CATEGORY 1: TRIP PLANNING ============ -->
+          <div class="rounded-xl overflow-hidden" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <!-- Category Header -->
+            <div class="px-6 lg:px-8 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--color-border);">
+              <div class="flex items-center gap-4">
+                <span class="badge badge-brand" style="font-size: 11px;">4 SECTIONS</span>
+                <h3 class="text-heading-sm" style="color: var(--color-foreground); font-weight: 600;">Trip Planning</h3>
+              </div>
+              <span class="text-body-sm hidden lg:block" style="color: var(--color-muted-foreground);">Sections 1-4</span>
+            </div>
+            <!-- Sections -->
+            <div style="border-top: 0;">
+
+              <!-- Section 1: Overview -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-1-content" id="section-1-trigger" onclick="toggleSection(1)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">1</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Overview</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-1"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-1-content" role="region" aria-labelledby="section-1-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Trip purpose, objectives, organizational context, and overall scope of the travel plan.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Stated trip objectives and educational or organizational goals</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Group composition and organizational affiliation</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Trip duration and seasonal timing considerations</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Historical context if this is a recurring trip</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">A clear trip overview ensures the analyst understands the full context of your travel. Ambiguous objectives can mask risks that become apparent only when the purpose is well-defined.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 2: Participants -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-2-content" id="section-2-trigger" onclick="toggleSection(2)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">2</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Participants</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-2-content" role="region" aria-labelledby="section-2-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Participant count, demographics, age ranges, special needs, medical considerations, and chaperone-to-participant ratios.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Total participant count and age distribution</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Chaperone-to-participant ratio against best-practice standards</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Medical conditions, allergies, or mobility requirements</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Experience level of participants for planned activities</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Special accommodations or dietary needs</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">The participant profile directly determines risk thresholds. A group of 12-year-olds hiking requires fundamentally different safety planning than a corporate leadership retreat. Your analyst calibrates every finding to your specific group.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3: Itinerary -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-3-content" id="section-3-trigger" onclick="toggleSection(3)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">3</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Itinerary</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-3-content" role="region" aria-labelledby="section-3-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Day-by-day schedule, activity timing, transit windows, rest periods, and contingency buffers.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Complete day-by-day activity schedule</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Transit times between locations with realistic buffers</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Rest periods and meal breaks</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Free time windows and supervision plans</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Schedule contingency for weather or disruption</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Overpacked itineraries create fatigue-related risks. Tight transit windows leave no margin for delays. Your analyst evaluates whether the schedule is realistic and safe for your specific group.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 4: Transportation -->
+              <div>
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-4-content" id="section-4-trigger" onclick="toggleSection(4)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">4</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 00-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Transportation</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-4-content" role="region" aria-labelledby="section-4-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Ground transportation providers, vehicle safety records, driver credentials, and route risk assessment.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Ground transportation provider verification</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Vehicle type, capacity, and safety equipment</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Driver credential verification requirements</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Route assessment including road conditions and construction</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Backup transportation contingency</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Transportation incidents are among the most common and preventable risks in group travel. Verifying provider safety records and assessing route conditions are foundational to any responsible trip plan.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ CATEGORY 2: DESTINATIONS & VENUES ============ -->
+          <div class="rounded-xl overflow-hidden" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="px-6 lg:px-8 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--color-border);">
+              <div class="flex items-center gap-4">
+                <span class="badge badge-brand" style="font-size: 11px;">3 SECTIONS</span>
+                <h3 class="text-heading-sm" style="color: var(--color-foreground); font-weight: 600;">Destinations &amp; Venues</h3>
+              </div>
+              <span class="text-body-sm hidden lg:block" style="color: var(--color-muted-foreground);">Sections 5-7</span>
+            </div>
+            <div>
+              <!-- Section 5: Air Travel -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-5-content" id="section-5-trigger" onclick="toggleSection(5)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">5</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Air Travel</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-5-content" role="region" aria-labelledby="section-5-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Airlines, airports, layover risks, baggage policies, and flight timing relative to destination conditions.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Airline safety record and operational reliability</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Airport security and accessibility at origin and destination</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Layover duration, airport facilities, and connection risks</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Arrival timing relative to local conditions and transportation availability</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Group seating and baggage logistics for participant count</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Missed connections, overnight layovers in unfamiliar airports, and arrival into destinations after dark create cascading risks. Your analyst evaluates the full air travel chain -- not just the ticket.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 6: Lodging -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-6-content" id="section-6-trigger" onclick="toggleSection(6)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">6</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18z"/><path d="M6 12H4a2 2 0 00-2 2v6a2 2 0 002 2h2"/><path d="M18 9h2a2 2 0 012 2v9a2 2 0 01-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Lodging</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-6-content" role="region" aria-labelledby="section-6-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Accommodation safety ratings, fire egress, proximity to medical facilities, and neighborhood risk profile.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Property safety certifications and inspection history</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Fire egress routes and emergency assembly areas</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Proximity to nearest hospital, urgent care, and pharmacy</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Neighborhood safety profile including crime data</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Room configuration for appropriate supervision and participant separation</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Your group spends more hours at lodging than any other single location. Fire safety, neighborhood conditions, and proximity to medical care directly affect your duty-of-care posture.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 7: Venues & Activities -->
+              <div>
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-7-content" id="section-7-trigger" onclick="toggleSection(7)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">7</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Venues &amp; Activities</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-7"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-7-content" role="region" aria-labelledby="section-7-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Activity venues, crowd capacity, structural safety, historical incident records, and accessibility.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Venue safety certifications and insurance documentation</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Maximum occupancy and crowd management procedures</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Activity-specific risk assessment (water sports, heights, equipment)</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Historical incident records for the venue or activity type</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Accessibility for participants with mobility or sensory needs</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">The venue's insurance paperwork does not tell you about the last three incidents at that zip-line course. Your analyst cross-references venue data with activity-specific risk profiles.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ CATEGORY 3: SAFETY & INTELLIGENCE ============ -->
+          <div class="rounded-xl overflow-hidden" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="px-6 lg:px-8 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--color-border);">
+              <div class="flex items-center gap-4">
+                <span class="badge badge-brand" style="font-size: 11px;">3 SECTIONS</span>
+                <h3 class="text-heading-sm" style="color: var(--color-foreground); font-weight: 600;">Safety &amp; Intelligence</h3>
+              </div>
+              <span class="text-body-sm hidden lg:block" style="color: var(--color-muted-foreground);">Sections 8-10</span>
+            </div>
+            <div>
+              <!-- Section 8: Destination Safety -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-8-content" id="section-8-trigger" onclick="toggleSection(8)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">8</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Destination Safety</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-8-content" role="region" aria-labelledby="section-8-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Destination-level safety assessment covering crime rates, political stability, natural hazard exposure, and health risks.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Crime rate analysis for destination city and specific neighborhoods</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Political stability assessment and civil unrest monitoring</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Natural hazard exposure (seismic, weather, flood zones)</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Health risk profile (disease prevalence, water safety, air quality)</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Cultural safety considerations for your specific group demographics</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">This is where SafeTrekr's Risk Intelligence Engine is deployed. Your analyst combines government data from NOAA, USGS, CDC, GDACS, and ReliefWeb with Monte Carlo simulations to produce a probability-weighted risk score -- not a generic travel advisory.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 9: Background Checks -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-9-content" id="section-9-trigger" onclick="toggleSection(9)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">9</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Background Checks</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-9"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-9-content" role="region" aria-labelledby="section-9-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Verification requirements for chaperones, volunteers, and third-party providers in contact with participants.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Background check requirements for chaperones and volunteers</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Third-party provider credential verification</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Compliance with organizational and regulatory screening policies</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Documentation of completed screenings</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Gap identification for any unverified personnel</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">For trips involving minors, background screening is not optional -- it is a legal and ethical baseline. Your analyst verifies that your screening practices meet the requirements of your organization type and destination.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 10: Intelligence Alerts -->
+              <div>
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-10-content" id="section-10-trigger" onclick="toggleSection(10)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">10</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Intelligence Alerts</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-10"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-10-content" role="region" aria-labelledby="section-10-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Active intelligence alerts from government sources covering weather, seismic, health, conflict, and humanitarian data.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Active NOAA weather alerts for travel dates and region</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">USGS seismic and volcanic activity monitoring</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">CDC health advisories and outbreak notifications</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">GDACS disaster alerts and impact projections</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">ReliefWeb humanitarian situation reports</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Conditions change between booking and departure. Your analyst reviews live intelligence data at the time of review and flags any active alerts that affect your trip timeline or destination.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ CATEGORY 4: EMERGENCY PREPAREDNESS ============ -->
+          <div class="rounded-xl overflow-hidden" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="px-6 lg:px-8 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--color-border);">
+              <div class="flex items-center gap-4">
+                <span class="badge badge-brand" style="font-size: 11px;">2 SECTIONS</span>
+                <h3 class="text-heading-sm" style="color: var(--color-foreground); font-weight: 600;">Emergency Preparedness</h3>
+              </div>
+              <span class="text-body-sm hidden lg:block" style="color: var(--color-muted-foreground);">Sections 11-12</span>
+            </div>
+            <div>
+              <!-- Section 11: Emergency Preparedness -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-11-content" id="section-11-trigger" onclick="toggleSection(11)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">11</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 104 16.1L2 22z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Emergency Preparedness</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-11"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-11-content" role="region" aria-labelledby="section-11-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Emergency action plans, evacuation routes, rally points, communication chains, and nearest medical facilities.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Emergency action plan completeness and specificity</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Evacuation routes from each venue and lodging</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Rally point designations with GPS coordinates</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Communication chain with backup contact methods</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Nearest Level I and Level II trauma centers mapped</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Emergency contact cards for every chaperone</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">The time to write an evacuation plan is not during an evacuation. Your analyst evaluates whether your emergency preparedness is specific, practiced, and realistic for every location on your itinerary.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 12: Known Issues & Flags -->
+              <div>
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-12-content" id="section-12-trigger" onclick="toggleSection(12)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">12</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Known Issues &amp; Flags</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-12"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-12-content" role="region" aria-labelledby="section-12-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Known risks, flagged concerns, unresolved issues, and analyst-recommended mitigations requiring action.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Open risk items requiring organizational action</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Analyst-flagged concerns with severity rating</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Recommended mitigations with implementation guidance</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Items requiring resolution before departure</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Historical issues from previous trips to same destination</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">This section is where your analyst tells you what needs to change. Every flag comes with a specific recommendation and a severity rating. These are not generic warnings -- they reference your trip.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ CATEGORY 5: DOCUMENTATION & COMPLIANCE ============ -->
+          <div class="rounded-xl overflow-hidden" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+            <div class="px-6 lg:px-8 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--color-border);">
+              <div class="flex items-center gap-4">
+                <span class="badge badge-brand" style="font-size: 11px;">5 SECTIONS</span>
+                <h3 class="text-heading-sm" style="color: var(--color-foreground); font-weight: 600;">Documentation &amp; Compliance</h3>
+              </div>
+              <span class="text-body-sm hidden lg:block" style="color: var(--color-muted-foreground);">Sections 13-17</span>
+            </div>
+            <div>
+              <!-- Section 13: Required Documents -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-13-content" id="section-13-trigger" onclick="toggleSection(13)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">13</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Required Documents</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-13"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-13-content" role="region" aria-labelledby="section-13-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Required forms, waivers, permissions, insurance certificates, and regulatory compliance documentation.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Permission and consent forms for all participants</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Liability waivers appropriate to activities and jurisdiction</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Insurance certificates from transportation and venue providers</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Regulatory compliance documentation for destination</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Organizational policy acknowledgment forms</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Missing a single form can void your insurance coverage or create regulatory exposure. Your analyst verifies that your documentation package is complete for your specific trip type and destination.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 14: Evidence Chain -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-14-content" id="section-14-trigger" onclick="toggleSection(14)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">14</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Evidence Chain</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-14"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-14-content" role="region" aria-labelledby="section-14-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Tamper-evident evidence chain, SHA-256 hash verification, audit trail integrity, and record preservation.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">SHA-256 cryptographic hash generation for every binder page</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Hash chain linking to ensure sequential integrity</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Timestamp verification for every document modification</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Audit trail completeness from submission through final approval</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Long-term preservation strategy for compliance retention periods</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">If your safety documentation is ever questioned -- by an insurance carrier, by a board, by legal counsel -- you need proof it has not been modified after the fact. The evidence chain provides that proof, cryptographically.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 15: Checklists -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-15-content" id="section-15-trigger" onclick="toggleSection(15)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">15</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Checklists</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-15"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-15-content" role="region" aria-labelledby="section-15-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Pre-departure checklists, day-of checklists, post-trip checklists, and completion verification.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Pre-departure preparation checklist with responsible party assignments</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Day-of-departure verification checklist</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Daily trip operation checklists</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Post-trip documentation and debrief checklist</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Completion tracking and sign-off requirements</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Checklists prevent the most common oversight: assuming something was done because it was supposed to be done. Your analyst builds checklists specific to your trip with assigned owners for every item.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 16: Packet Builder -->
+              <div class="border-b" style="border-color: var(--color-border);">
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-16-content" id="section-16-trigger" onclick="toggleSection(16)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">16</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Packet Builder</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-16"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-16-content" role="region" aria-labelledby="section-16-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Assembled trip packet including printed materials, digital distribution, chaperone copies, and administrative copies.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Complete trip packet assembly and organization</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Print-ready formatting for field use</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Digital distribution to chaperone mobile devices</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Administrative copies for organizational records</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Insurance carrier documentation package</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">The best safety plan is worthless if chaperones cannot access it in the field. Your packet is assembled for real-world use -- printed copies, mobile access, and archival records.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 17: Final Approval -->
+              <div>
+                <button class="accordion-trigger w-full px-6 lg:px-8 py-4 flex items-center gap-4 cursor-pointer transition-colors" aria-expanded="false" aria-controls="section-17-content" id="section-17-trigger" onclick="toggleSection(17)">
+                  <span class="h-7 w-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-50); color: var(--color-primary-700); font-family: var(--font-heading);">17</span>
+                  <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span class="flex-1 text-left text-body-lg font-medium" style="color: var(--color-foreground);">Final Approval</span>
+                  <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="chevron-17"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content" id="section-17-content" role="region" aria-labelledby="section-17-trigger">
+                  <div class="px-6 lg:px-8 pb-6" style="padding-left: calc(1.5rem + 1.75rem + 1rem + 1.25rem + 1rem);">
+                    <p class="text-body-md mb-4" style="color: var(--color-muted-foreground);">Final review sign-off, organizational approval workflow, stakeholder acknowledgment, and release authorization.</p>
+                    <div class="space-y-2 mb-4">
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Analyst sign-off with professional attestation</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Organizational approval workflow routing</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Stakeholder acknowledgment and documentation</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Outstanding item resolution verification</span></div>
+                      <div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Release authorization for trip departure</span></div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-lg" style="background: rgba(241,249,244,0.5); border-left: 2px solid var(--color-primary-300);">
+                      <span class="text-eyebrow block mb-2" style="color: var(--color-primary-700); font-size: 11px;">WHY THIS MATTERS</span>
+                      <p class="text-body-sm" style="color: var(--color-muted-foreground);">Final approval closes the loop. Your analyst attests that the review is complete, flags are addressed, and documentation meets SafeTrekr's evidence standards. This is the professional sign-off that protects your organization.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section Count Summary -->
+        <p class="mt-12 text-center text-body-lg font-medium" style="color: var(--color-muted-foreground);">
+          17 sections. 5 categories. Every trip.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 4: WALKTHROUGH
+         ================================================================ -->
+    <section id="walkthrough" aria-labelledby="walkthrough-heading" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <svg class="w-4 h-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">THE REVIEW PROCESS</span>
+          </div>
+          <h2 id="walkthrough-heading" class="text-display-md mb-4" style="color: var(--color-foreground); max-width: 28ch; margin: 0 auto;">
+            What Happens After You Submit Your Trip.
+          </h2>
+          <p class="text-body-lg mx-auto" style="color: var(--color-muted-foreground); max-width: 65ch;">
+            Here is the step-by-step process your analyst follows from the moment your trip is submitted.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="max-w-3xl mx-auto" role="list">
+
+          <!-- Step 1 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">1</div>
+              <div class="w-0.5 flex-1" style="background: var(--color-border);"></div>
+            </div>
+            <div class="flex-1 pb-12">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">You Submit Your Trip</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">You fill out the trip submission form with your destination, dates, participant details, planned activities, and logistics. No training required -- the form guides you through everything we need.</p>
+              <span class="badge badge-neutral" aria-label="Estimated time: 15 minutes">~15 minutes</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">2</div>
+              <div class="w-0.5 flex-1" style="background: var(--color-border);"></div>
+            </div>
+            <div class="flex-1 pb-12">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">Your Analyst Receives the Assignment</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">Your trip is assigned to a trained analyst based on destination expertise and trip type. They receive your complete submission and begin a full-context read of every detail.</p>
+              <span class="badge badge-neutral" aria-label="Estimated time: Within 24 hours">Within 24 hours</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">3</div>
+              <div class="w-0.5 flex-1" style="background: var(--color-border);"></div>
+            </div>
+            <div class="flex-1 pb-12">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">Government Intelligence Is Pulled</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">The Risk Intelligence Engine queries NOAA, USGS, CDC, GDACS, and ReliefWeb for current conditions at your destination. Monte Carlo simulations produce probability-weighted risk scores.</p>
+              <span class="badge badge-neutral" aria-label="Automated process">Automated</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">4</div>
+              <div class="w-0.5 flex-1" style="background: var(--color-border);"></div>
+            </div>
+            <div class="flex-1 pb-12">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">17-Section Review Begins</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">Your analyst works through every section of the review framework -- from destination safety to emergency preparedness to compliance documentation. Each section produces specific findings and recommendations.</p>
+              <span class="badge badge-neutral" aria-label="Estimated time: 1-3 days">1-3 days</span>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">5</div>
+              <div class="w-0.5 flex-1" style="background: var(--color-border);"></div>
+            </div>
+            <div class="flex-1 pb-12">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">Findings Are Written</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">Your analyst writes specific, actionable findings for your trip. Not templates. Not boilerplate. Every finding references your destination, your group, your itinerary.</p>
+              <span class="badge badge-neutral" aria-label="Included in review">Included in review</span>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">6</div>
+              <div class="w-0.5 flex-1" style="background: var(--color-border);"></div>
+            </div>
+            <div class="flex-1 pb-12">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">Your Safety Binder Is Assembled</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">All findings, recommendations, risk scores, emergency contacts, maps, and compliance documentation are compiled into your Trip Safety Binder with SHA-256 tamper-evident integrity.</p>
+              <span class="badge badge-neutral" aria-label="Delivered digitally">Delivered digitally</span>
+            </div>
+          </div>
+
+          <!-- Step 7 -->
+          <div role="listitem" class="flex gap-6">
+            <div class="flex-shrink-0 flex flex-col items-center">
+              <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-semibold" style="background: var(--color-primary-100); border: 2px solid var(--color-primary-300); color: var(--color-primary-700); font-family: var(--font-heading);">7</div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground); font-weight: 600;">You Receive Your Binder</h3>
+              <p class="text-body-md mb-4" style="color: var(--color-muted-foreground); max-width: 65ch;">Your complete, audit-ready Safety Binder is delivered. Share it with your board, your insurance carrier, your chaperones, and your participants' families.</p>
+              <span class="badge badge-brand" aria-label="Estimated time: 3-5 business days total">3-5 business days total</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 5: SAMPLE OUTPUT PREVIEW
+         ================================================================ -->
+    <section id="sample-output" aria-labelledby="sample-output-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Left: Document Preview -->
+          <div class="order-2 lg:order-1">
+            <div class="doc-preview-stack max-w-[400px] mx-auto lg:mx-0">
+              <div class="rounded-xl shadow-xl p-6 lg:p-8 relative" style="background: var(--color-card); border: 1px solid var(--color-border);">
+                <span class="text-eyebrow block mb-1" style="color: var(--color-primary-700); font-size: 11px;">ANALYST REVIEW</span>
+                <span class="text-eyebrow block mb-4" style="color: var(--color-primary-700); font-size: 11px;">FINDINGS</span>
+
+                <h4 class="text-heading-sm mb-4" style="color: var(--color-foreground);">Section 8: Destination Safety</h4>
+
+                <!-- Risk Score -->
+                <div class="mb-4">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-body-sm font-medium" style="color: var(--color-foreground);">Risk Score: 23/100</span>
+                    <span class="badge badge-success" style="font-size: 11px;">Low Risk</span>
+                  </div>
+                  <div class="h-2 rounded-full" style="background: var(--color-primary-100);" role="img" aria-label="Risk score: 23 out of 100, Low Risk">
+                    <div class="h-2 rounded-full" style="background: var(--color-safety-green); width: 23%;"></div>
+                  </div>
+                </div>
+
+                <p class="text-body-sm mb-3" style="color: var(--color-foreground);"><strong>Finding:</strong> "Destination crime rate is below national average. Nearest hospital is 4.2 miles from primary venue."</p>
+                <p class="text-body-sm italic mb-4" style="color: var(--color-muted-foreground);"><strong>Recommendation:</strong> "Confirm hospital route with all chaperones before departure."</p>
+
+                <div class="divider mb-4" style="border-top: 1px dashed var(--color-border);"></div>
+
+                <p class="text-mono" style="font-size: 11px; color: var(--color-muted-foreground);" aria-label="SHA-256 verification hash">SHA-256: a7f3c9...d4e2b1</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Text -->
+          <div class="order-1 lg:order-2">
+            <div class="flex items-center gap-2 mb-4">
+              <svg class="w-4 h-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="text-eyebrow" style="color: var(--color-primary-700);">SAMPLE OUTPUT</span>
+            </div>
+            <h2 id="sample-output-heading" class="text-display-md mb-6" style="color: var(--color-foreground);">
+              See What Your Analyst Delivers.
+            </h2>
+            <p class="text-body-lg mb-8" style="color: var(--color-muted-foreground); max-width: 65ch;">
+              Every review produces specific findings and actionable recommendations for your trip. Not templates. Not generic advice. Your analyst writes about your destination, your group, and your itinerary.
+            </p>
+
+            <div class="space-y-3 mb-8">
+              <div class="flex gap-3"><svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-md" style="color: var(--color-foreground);">Destination-specific risk scores with probability analysis</span></div>
+              <div class="flex gap-3"><svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-md" style="color: var(--color-foreground);">Section-by-section findings referencing your trip</span></div>
+              <div class="flex gap-3"><svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-md" style="color: var(--color-foreground);">Actionable recommendations with implementation guidance</span></div>
+              <div class="flex gap-3"><svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-md" style="color: var(--color-foreground);">Emergency contacts and evacuation procedures</span></div>
+              <div class="flex gap-3"><svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-md" style="color: var(--color-foreground);">Maps and route documentation</span></div>
+              <div class="flex gap-3"><svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-md" style="color: var(--color-foreground);">SHA-256 tamper-evident verification</span></div>
+            </div>
+
+            <a href="/resources/sample-binders" class="btn btn-lg btn-primary inline-flex items-center gap-2" style="padding: 16px 32px; font-size: 16px;">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download a Sample Binder
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 6: TIMELINE
+         ================================================================ -->
+    <section id="timeline" aria-labelledby="timeline-heading" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="text-center mb-16 lg:mb-20">
+          <span class="text-eyebrow block mb-4" style="color: var(--color-primary-700);">TURNAROUND TIME</span>
+          <h2 id="timeline-heading" class="text-display-md" style="color: var(--color-foreground); max-width: 28ch; margin: 0 auto;">
+            Submit to Binder in 3-5 Days.
+          </h2>
+        </div>
+
+        <!-- Horizontal Timeline (desktop) -->
+        <div class="hidden lg:grid grid-cols-3 gap-0 relative" role="list">
+
+          <!-- Connecting Lines -->
+          <svg class="absolute top-8 left-0 w-full h-4" aria-hidden="true" style="z-index: 0;">
+            <line x1="16.67%" y1="50%" x2="50%" y2="50%" stroke="var(--color-primary-200)" stroke-width="2" stroke-dasharray="6 4" class="timeline-line"/>
+            <line x1="50%" y1="50%" x2="83.33%" y2="50%" stroke="var(--color-primary-200)" stroke-width="2" stroke-dasharray="6 4" class="timeline-line"/>
+          </svg>
+
+          <div role="listitem" class="text-center px-6 relative z-10">
+            <div class="h-16 w-16 rounded-2xl mx-auto flex items-center justify-center mb-6" style="background: var(--color-primary-50); border: 2px solid var(--color-primary-200);">
+              <svg class="w-7 h-7" style="color: var(--color-primary-600);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </div>
+            <h3 class="text-heading-md mb-2" style="color: var(--color-foreground); font-weight: 600;">Submit Your Trip</h3>
+            <p class="text-body-md mb-4 mx-auto" style="color: var(--color-muted-foreground); max-width: 30ch;">Fill out the guided trip submission form with your destination, dates, and details.</p>
+            <span class="badge badge-brand">~15 minutes</span>
+          </div>
+
+          <div role="listitem" class="text-center px-6 relative z-10">
+            <div class="h-16 w-16 rounded-2xl mx-auto flex items-center justify-center mb-6" style="background: var(--color-primary-50); border: 2px solid var(--color-primary-200);">
+              <svg class="w-7 h-7" style="color: var(--color-primary-600);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-heading-md mb-2" style="color: var(--color-foreground); font-weight: 600;">Analyst Reviews</h3>
+            <p class="text-body-md mb-4 mx-auto" style="color: var(--color-muted-foreground); max-width: 30ch;">A trained analyst conducts the full 17-section review using government intelligence data.</p>
+            <span class="badge badge-brand">1-3 business days</span>
+          </div>
+
+          <div role="listitem" class="text-center px-6 relative z-10">
+            <div class="h-16 w-16 rounded-2xl mx-auto flex items-center justify-center mb-6" style="background: var(--color-primary-50); border: 2px solid var(--color-primary-200);">
+              <svg class="w-7 h-7" style="color: var(--color-primary-600);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-heading-md mb-2" style="color: var(--color-foreground); font-weight: 600;">Receive Your Binder</h3>
+            <p class="text-body-md mb-4 mx-auto" style="color: var(--color-muted-foreground); max-width: 30ch;">Your complete, audit-ready Trip Safety Binder is delivered digitally.</p>
+            <span class="badge badge-brand">3-5 days total</span>
+          </div>
+
+        </div>
+
+        <!-- Vertical Timeline (mobile) -->
+        <div class="lg:hidden space-y-8" role="list">
+          <div role="listitem" class="flex gap-4 items-start">
+            <div class="h-12 w-12 rounded-xl flex-shrink-0 flex items-center justify-center" style="background: var(--color-primary-50); border: 2px solid var(--color-primary-200);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-600);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: var(--color-foreground); font-weight: 600;">Submit Your Trip</h3>
+              <p class="text-body-sm mb-2" style="color: var(--color-muted-foreground);">Fill out the guided submission form.</p>
+              <span class="badge badge-brand" style="font-size: 11px;">~15 minutes</span>
+            </div>
+          </div>
+          <div role="listitem" class="flex gap-4 items-start">
+            <div class="h-12 w-12 rounded-xl flex-shrink-0 flex items-center justify-center" style="background: var(--color-primary-50); border: 2px solid var(--color-primary-200);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-600);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: var(--color-foreground); font-weight: 600;">Analyst Reviews</h3>
+              <p class="text-body-sm mb-2" style="color: var(--color-muted-foreground);">Full 17-section review with government intelligence.</p>
+              <span class="badge badge-brand" style="font-size: 11px;">1-3 business days</span>
+            </div>
+          </div>
+          <div role="listitem" class="flex gap-4 items-start">
+            <div class="h-12 w-12 rounded-xl flex-shrink-0 flex items-center justify-center" style="background: var(--color-primary-50); border: 2px solid var(--color-primary-200);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-600);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h3 class="text-heading-sm mb-1" style="color: var(--color-foreground); font-weight: 600;">Receive Your Binder</h3>
+              <p class="text-body-sm mb-2" style="color: var(--color-muted-foreground);">Audit-ready Safety Binder delivered digitally.</p>
+              <span class="badge badge-brand" style="font-size: 11px;">3-5 days total</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 7: COMPARISON TABLE
+         ================================================================ -->
+    <section id="comparison" aria-labelledby="comparison-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="text-center mb-16">
+          <span class="text-eyebrow block mb-4" style="color: var(--color-primary-700);">WHY AN ANALYST</span>
+          <h2 id="comparison-heading" class="text-display-md mb-4" style="color: var(--color-foreground); max-width: 28ch; margin: 0 auto;">
+            Professional Review vs. DIY Checklists.
+          </h2>
+          <p class="text-body-lg mx-auto" style="color: var(--color-muted-foreground); max-width: 65ch;">
+            See what you gain when a trained analyst reviews your trip instead of relying on a self-serve checklist.
+          </p>
+        </div>
+
+        <!-- Desktop Table -->
+        <div class="hidden lg:block max-w-4xl mx-auto rounded-xl overflow-hidden comparison-table" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);" role="region" aria-label="Feature comparison table">
+          <table class="w-full">
+            <thead>
+              <tr style="background: var(--color-primary-50); border-bottom: 1px solid var(--color-border);">
+                <th scope="col" class="text-left px-6 py-4 text-body-sm" style="color: var(--color-muted-foreground); font-weight: 500;">Capability</th>
+                <th scope="col" class="text-left px-6 py-4 text-heading-sm" style="color: var(--color-primary-700); font-weight: 600;">SafeTrekr Analyst Review</th>
+                <th scope="col" class="text-left px-6 py-4 text-heading-sm" style="color: var(--color-muted-foreground); font-weight: 600;">DIY Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Professional risk assessment</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Trained analyst evaluates every section</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Self-assessed by trip organizer</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Government intelligence data</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">5 sources: NOAA, USGS, CDC, GDACS, ReliefWeb</span> <span class="badge badge-brand ml-2" style="font-size: 10px;">ADVANCED</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Not available</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Monte Carlo risk scoring</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Probability-weighted scores per destination</span> <span class="badge badge-brand ml-2" style="font-size: 10px;">ADVANCED</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">No quantitative scoring</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">17-section structured review</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Standardized methodology, every trip</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-safety-yellow);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Ad hoc checklist, inconsistent scope</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Specific findings &amp; recommendations</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Written for your trip, your group, your destination</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Generic guidance at best</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Emergency preparedness evaluation</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Rally points, evacuation routes, hospital mapping</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-safety-yellow);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Basic emergency contact list</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Tamper-evident documentation</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">SHA-256 hash chain, audit-ready</span> <span class="badge badge-brand ml-2" style="font-size: 10px;">ADVANCED</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Editable documents, no integrity proof</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Compliance documentation</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Built for board, insurance, and regulatory review</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-safety-yellow);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Informal records, no standard format</span></div></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);" class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Turnaround time</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">3-5 business days, no staff time</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">$700-$1,400 in staff time per trip</span></div></td>
+              </tr>
+              <tr class="hover:bg-primary-50/30 transition-colors">
+                <td class="px-6 py-4 text-body-md" style="color: var(--color-foreground);">Ongoing intelligence updates</td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-body-sm" style="color: var(--color-foreground);">Data refreshed until departure date</span></div></td>
+                <td class="px-6 py-4"><div class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color: var(--color-muted-foreground); opacity: 0.5;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="text-body-sm" style="color: var(--color-muted-foreground);">Static at time of creation</span></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile Comparison Cards -->
+        <div class="lg:hidden space-y-3" id="mobile-comparison">
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">Professional risk assessment</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">Trained analyst evaluates every section</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: Self-assessed by trip organizer</span></div></div>
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">Government intelligence data</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">5 sources: NOAA, USGS, CDC, GDACS, ReliefWeb</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: Not available</span></div></div>
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">Monte Carlo risk scoring</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">Probability-weighted scores per destination</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: No quantitative scoring</span></div></div>
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">17-section structured review</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">Standardized methodology, every trip</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: Ad hoc checklist, inconsistent scope</span></div></div>
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">Specific findings &amp; recommendations</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">Written for your trip, your group, your destination</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: Generic guidance at best</span></div></div>
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">Tamper-evident documentation</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">SHA-256 hash chain, audit-ready</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: Editable documents, no integrity proof</span></div></div>
+          <div class="rounded-lg p-4" style="background: var(--color-card); border: 1px solid var(--color-border);"><p class="text-body-md font-medium mb-3" style="color: var(--color-foreground);">Turnaround time</p><div class="flex items-start gap-2 mb-2"><span class="badge badge-brand" style="font-size: 10px;">SAFETREKR</span><span class="text-body-sm" style="color: var(--color-foreground);">3-5 business days, no staff time</span></div><div class="flex items-start gap-2"><span class="text-body-sm" style="color: var(--color-muted-foreground);">DIY: $700-$1,400 in staff time per trip</span></div></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 8: FAQ
+         ================================================================ -->
+    <section id="faq" aria-labelledby="faq-heading" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 96px 0;">
+      <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
+
+        <div class="text-center mb-12">
+          <span class="text-eyebrow block mb-4" style="color: var(--color-primary-700);">COMMON QUESTIONS</span>
+          <h2 id="faq-heading" class="text-display-md" style="color: var(--color-foreground); max-width: 28ch; margin: 0 auto;">
+            Analyst Review FAQ
+          </h2>
+        </div>
+
+        <div id="faq-accordion" style="border-top: 1px solid var(--color-border);">
+
+          <!-- FAQ 1 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">Who are the safety analysts?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">Every SafeTrekr analyst is a trained professional who has completed our structured training program covering risk assessment methodology, government intelligence interpretation, and the 17-section review framework. They are not volunteers, not contractors pulled from a gig platform, and not customer support agents following a script. Each analyst maintains ongoing certification in SafeTrekr's review methodology.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">How long does a review take?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">Most reviews are completed in 3-5 business days from the time you submit your trip. The timeline depends on trip complexity -- a domestic day trip is typically faster than a multi-country international itinerary. Your analyst works through all 17 sections with the same thoroughness regardless of trip type.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">What if my trip details change after submission?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">You can update your trip details after submission and before the review is finalized. If a change is significant -- such as a new destination or major itinerary revision -- your analyst will re-evaluate the affected sections. Minor changes (participant count adjustments, schedule tweaks) are incorporated without extending the timeline.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">Can I communicate directly with my analyst?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">Your analyst's findings and recommendations are delivered through the SafeTrekr platform as part of your Trip Safety Binder. The review process is structured to ensure consistency and thoroughness. If you have specific concerns about your trip, include them in the submission form and your analyst will address them in the relevant sections.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">Is the review the same for a domestic day trip and an international mission trip?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">Every trip receives the same 17-section framework, but the depth and focus of each section adapts to your trip type. A domestic field trip may have minimal air travel or lodging concerns but significant venue and transportation evaluation. An international mission trip will have extensive destination safety, health advisory, and emergency preparedness analysis. The framework is consistent; the content is specific to your trip.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">What happens if the analyst finds a serious risk?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">If your analyst identifies a significant risk, it is documented in Section 12 (Known Issues and Flags) with a severity rating and a specific recommendation. High-severity findings are highlighted in the binder summary. SafeTrekr does not make go/no-go decisions for your organization -- we provide the evidence and recommendations so your leadership can make informed decisions.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">How is this different from a travel advisory?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">Government travel advisories are country-level assessments updated periodically. A SafeTrekr analyst review is trip-specific, destination-specific, date-specific, and group-specific. We evaluate your exact itinerary against current conditions using 5 government data sources, then write findings that reference your group size, your venues, your transportation, and your timeline. A travel advisory tells you a country has risk. An analyst review tells you what that risk means for your specific trip.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div style="border-bottom: 1px solid var(--color-border);">
+            <button class="w-full py-5 flex items-center justify-between text-left cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+              <span class="text-heading-sm pr-4" style="color: var(--color-foreground); font-weight: 600;">Can I share the review with my board or insurance carrier?</span>
+              <svg class="accordion-chevron w-5 h-5 flex-shrink-0" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content">
+              <p class="pb-5 text-body-md" style="color: var(--color-muted-foreground); max-width: 65ch;">Yes. Your Trip Safety Binder is designed to be shared with boards, insurance carriers, legal counsel, and any stakeholder who needs to see your safety documentation. The SHA-256 tamper-evident integrity means any recipient can verify the document has not been modified since it was created. Many organizations use the binder specifically for board presentations and insurance documentation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 9: RELATED FEATURES
+         ================================================================ -->
+    <section style="background: var(--color-background); padding: 48px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <nav aria-label="Related platform features">
+          <span class="text-eyebrow block mb-6" style="color: var(--color-primary-700);">EXPLORE THE PLATFORM</span>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" role="list">
+            <a href="/platform/risk-intelligence" role="listitem" class="rounded-lg p-4 shadow-sm hover:shadow-md transition-all block" style="background: var(--color-card); border: 1px solid var(--color-border); text-decoration: none;">
+              <svg class="w-5 h-5 mb-2" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span class="text-body-sm font-medium block mb-1" style="color: var(--color-foreground);">Risk Intelligence Engine</span>
+              <svg class="w-3.5 h-3.5" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/platform/safety-binder" role="listitem" class="rounded-lg p-4 shadow-sm hover:shadow-md transition-all block" style="background: var(--color-card); border: 1px solid var(--color-border); text-decoration: none;">
+              <svg class="w-5 h-5 mb-2" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span class="text-body-sm font-medium block mb-1" style="color: var(--color-foreground);">Trip Safety Binder</span>
+              <svg class="w-3.5 h-3.5" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/platform/mobile-app" role="listitem" class="rounded-lg p-4 shadow-sm hover:shadow-md transition-all block" style="background: var(--color-card); border: 1px solid var(--color-border); text-decoration: none;">
+              <svg class="w-5 h-5 mb-2" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span class="text-body-sm font-medium block mb-1" style="color: var(--color-foreground);">Mobile Field Operations</span>
+              <svg class="w-3.5 h-3.5" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/platform/monitoring" role="listitem" class="rounded-lg p-4 shadow-sm hover:shadow-md transition-all block" style="background: var(--color-card); border: 1px solid var(--color-border); text-decoration: none;">
+              <svg class="w-5 h-5 mb-2" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.44 9a16 16 0 0111.85-3.95"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+              <span class="text-body-sm font-medium block mb-1" style="color: var(--color-foreground);">Real-Time Monitoring</span>
+              <svg class="w-3.5 h-3.5" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/platform/compliance" role="listitem" class="rounded-lg p-4 shadow-sm hover:shadow-md transition-all block" style="background: var(--color-card); border: 1px solid var(--color-border); text-decoration: none;">
+              <svg class="w-5 h-5 mb-2" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span class="text-body-sm font-medium block mb-1" style="color: var(--color-foreground);">Compliance &amp; Evidence</span>
+              <svg class="w-3.5 h-3.5" style="color: var(--color-muted-foreground);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 10: DARK CTA BAND
+         ================================================================ -->
+    <section id="cta" aria-labelledby="cta-heading" data-theme="dark" style="background: var(--color-secondary); padding: 80px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <h2 id="cta-heading" class="text-display-md mb-6" style="color: #f7f8f8; max-width: 28ch; margin: 0 auto;">
+          Ready to See What a Professional Review Looks Like?
+        </h2>
+        <p class="text-body-lg mx-auto mb-10" style="color: var(--color-secondary-muted); max-width: 65ch;">
+          Every trip deserves a safety analyst. See a sample binder or request a personalized demo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/demo" class="btn btn-lg btn-primary-on-dark" style="padding: 16px 32px; font-size: 16px; background: #fff; color: var(--color-secondary); text-decoration: none;">
+            Get a Demo
+          </a>
+          <a href="/resources/sample-binders" class="btn btn-lg btn-ghost-on-dark" style="padding: 16px 32px; font-size: 16px; border: 1.5px solid rgba(255,255,255,0.2); color: #f7f8f8; text-decoration: none;">
+            See a Sample Binder
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================================================================
+       JAVASCRIPT
+       ================================================================ -->
+  <script>
+    // ---- Header scroll behavior ----
+    const header = document.getElementById('site-header');
+    function onScroll() {
+      if (window.scrollY > 100) {
+        header.classList.add('header-scrolled');
+        header.style.height = '64px';
+      } else {
+        header.classList.remove('header-scrolled');
+        header.style.height = '80px';
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ---- Mobile menu ----
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('mobile-close-btn');
+    const overlay = document.getElementById('mobile-overlay');
+    const panel = document.getElementById('mobile-panel');
+
+    function openMenu() {
+      overlay.classList.add('active');
+      panel.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('active');
+      panel.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // ---- 17-Section Accordion ----
+    function toggleSection(n) {
+      const content = document.getElementById('section-' + n + '-content');
+      const chevron = document.getElementById('chevron-' + n);
+      const trigger = document.getElementById('section-' + n + '-trigger');
+      const isOpen = content.classList.contains('open');
+
+      if (isOpen) {
+        content.classList.remove('open');
+        chevron.classList.remove('rotated');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.classList.remove('active-trigger');
+      } else {
+        content.classList.add('open');
+        chevron.classList.add('rotated');
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger.classList.add('active-trigger');
+      }
+    }
+
+    // Auto-expand first section after 500ms
+    setTimeout(function() {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        toggleSection(1);
+      }
+    }, 500);
+
+    // Handle hash navigation
+    function handleHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        const match = hash.match(/section-(\d+)/);
+        if (match) {
+          const n = parseInt(match[1]);
+          const content = document.getElementById('section-' + n + '-content');
+          if (content && !content.classList.contains('open')) {
+            toggleSection(n);
+          }
+          const trigger = document.getElementById('section-' + n + '-trigger');
+          if (trigger) {
+            setTimeout(function() { trigger.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+          }
+        }
+      }
+    }
+    window.addEventListener('hashchange', handleHash);
+    if (window.location.hash) { setTimeout(handleHash, 600); }
+
+    // ---- FAQ Accordion (single open) ----
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const chevron = btn.querySelector('.accordion-chevron');
+      const isOpen = content.classList.contains('open');
+
+      // Close all others
+      document.querySelectorAll('#faq-accordion .faq-content.open').forEach(function(el) {
+        el.classList.remove('open');
+        el.previousElementSibling.querySelector('.accordion-chevron').classList.remove('rotated');
+        el.previousElementSibling.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        content.classList.add('open');
+        chevron.classList.add('rotated');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+
+</body>
+</html>

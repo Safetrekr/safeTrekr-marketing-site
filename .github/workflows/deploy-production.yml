@@ -1,0 +1,269 @@
+# ST-794: REQ-011 -- Deploy to Production
+#
+# Triggered by:
+#   1. Manual dispatch (workflow_dispatch) -- operator selects the image tag to promote
+#   2. Tag push matching v* (e.g., v1.0.0, v0.2.1)
+#
+# Prerequisites:
+#   - The image must already exist in DOCR (built during staging deploy)
+#   - For manual dispatch, the operator provides the git SHA whose staging deploy passed
+#   - For tag push, the tagged commit must have a successful staging deploy
+#
+# Steps:
+#   1. Verify the image exists in DOCR (fail fast if not)
+#   2. Optionally re-tag with the release version (for tag pushes)
+#   3. Deploy to DOKS production namespace via kubectl set image
+#   4. Wait for rollout to complete
+#   5. Health check
+#   6. Automatic rollback if health check fails
+#   7. Sentry release creation (placeholder)
+#
+# Required secrets:
+#   DIGITALOCEAN_ACCESS_TOKEN -- DigitalOcean API token with read/write on DOCR and DOKS
+#   KUBECONFIG_BASE64         -- Base64-encoded kubeconfig for the DOKS cluster
+#   SENTRY_AUTH_TOKEN         -- Sentry authentication token (placeholder, not required yet)
+#   SENTRY_ORG                -- Sentry organization slug (placeholder)
+#   SENTRY_PROJECT            -- Sentry project slug (placeholder)
+#
+# Image naming convention (per registry-spec.md Section 2):
+#   registry.digitalocean.com/safetrekr-marketing/safetrekr-web:sha-{short_hash}
+
+name: Deploy Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: "Git commit SHA to deploy (must have a successful staging deploy). Uses the first 7 characters for the image tag."
+        required: true
+        type: string
+      skip_health_check:
+        description: "Skip health check after deploy (emergency use only)"
+        required: false
+        type: boolean
+        default: false
+  push:
+    tags:
+      - "v*"
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  REGISTRY: registry.digitalocean.com/safetrekr-marketing
+  IMAGE_NAME: safetrekr-web
+  NAMESPACE: production
+  DEPLOYMENT: safetrekr-web
+  CONTAINER: safetrekr-web
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Resolve the image tag to deploy
+  # ---------------------------------------------------------------------------
+  resolve-tag:
+    name: Resolve Image Tag
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      image-tag: ${{ steps.resolve.outputs.tag }}
+      image-ref: ${{ steps.resolve.outputs.image }}
+      release-version: ${{ steps.resolve.outputs.release-version }}
+
+    steps:
+      - name: Resolve image tag from trigger
+        id: resolve
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # Manual dispatch -- use the provided commit SHA
+            FULL_SHA="${{ github.event.inputs.commit_sha }}"
+            SHORT_SHA="${FULL_SHA:0:7}"
+            TAG="sha-${SHORT_SHA}"
+            RELEASE_VERSION="manual-${TAG}"
+          else
+            # Tag push -- use the tagged commit SHA
+            SHORT_SHA="${GITHUB_SHA:0:7}"
+            TAG="sha-${SHORT_SHA}"
+            RELEASE_VERSION="${GITHUB_REF_NAME}"
+          fi
+
+          IMAGE="${REGISTRY}/${IMAGE_NAME}:${TAG}"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "image=${IMAGE}" >> "$GITHUB_OUTPUT"
+          echo "release-version=${RELEASE_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Resolved image: ${IMAGE}"
+          echo "Release version: ${RELEASE_VERSION}"
+
+  # ---------------------------------------------------------------------------
+  # Verify the image exists in DOCR before deploying
+  # ---------------------------------------------------------------------------
+  verify-image:
+    name: Verify Image in DOCR
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: resolve-tag
+
+    steps:
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Authenticate to DOCR
+        run: doctl registry login --expiry-seconds 300
+
+      - name: Verify image exists
+        run: |
+          echo "Checking for image: ${{ needs.resolve-tag.outputs.image-ref }}"
+
+          # Pull the manifest to verify the image exists without downloading layers
+          if ! docker manifest inspect "${{ needs.resolve-tag.outputs.image-ref }}" > /dev/null 2>&1; then
+            echo "::error::Image ${{ needs.resolve-tag.outputs.image-ref }} not found in DOCR."
+            echo "::error::Ensure the staging deploy completed successfully for this commit."
+            exit 1
+          fi
+
+          echo "Image verified."
+
+  # ---------------------------------------------------------------------------
+  # Deploy to DOKS production namespace
+  # ---------------------------------------------------------------------------
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [resolve-tag, verify-image]
+    environment:
+      name: production
+      url: https://safetrekr.com
+
+    steps:
+      - name: Configure kubectl
+        run: |
+          mkdir -p "$HOME/.kube"
+          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 --decode > "$HOME/.kube/config"
+          chmod 600 "$HOME/.kube/config"
+
+      - name: Record pre-deploy state
+        id: pre-deploy
+        run: |
+          CURRENT_IMAGE=$(kubectl get deployment/${{ env.DEPLOYMENT }} \
+            -n ${{ env.NAMESPACE }} \
+            -o jsonpath='{.spec.template.spec.containers[0].image}' 2>/dev/null || echo "unknown")
+          echo "previous-image=${CURRENT_IMAGE}" >> "$GITHUB_OUTPUT"
+          echo "Current production image: ${CURRENT_IMAGE}"
+
+      - name: Set image on deployment
+        run: |
+          kubectl set image deployment/${{ env.DEPLOYMENT }} \
+            ${{ env.CONTAINER }}=${{ needs.resolve-tag.outputs.image-ref }} \
+            -n ${{ env.NAMESPACE }}
+
+      - name: Wait for rollout to complete
+        id: rollout
+        run: |
+          if ! kubectl rollout status deployment/${{ env.DEPLOYMENT }} \
+            -n ${{ env.NAMESPACE }} \
+            --timeout=300s; then
+            echo "rollout-failed=true" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
+      - name: Health check
+        id: health
+        if: ${{ github.event.inputs.skip_health_check != 'true' }}
+        run: |
+          echo "Waiting 15s for pods to stabilize..."
+          sleep 15
+
+          # Run health check from inside the cluster
+          HEALTH_STATUS=$(kubectl run health-check-${{ github.run_id }} \
+            --image=curlimages/curl:8.10.1 \
+            --restart=Never \
+            --rm \
+            -i \
+            --timeout=60s \
+            -n ${{ env.NAMESPACE }} \
+            --override-type=strategic \
+            --overrides='{"spec":{"securityContext":{"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}},"containers":[{"name":"health-check-${{ github.run_id }}","securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]}}}]}}' \
+            -- curl -sf -o /dev/null -w '%{http_code}' \
+              "http://${{ env.DEPLOYMENT }}.${{ env.NAMESPACE }}.svc.cluster.local/api/health" \
+            2>/dev/null || echo "000")
+
+          echo "Health check returned HTTP status: ${HEALTH_STATUS}"
+
+          if [ "$HEALTH_STATUS" = "200" ]; then
+            echo "Health check passed."
+          else
+            echo "health-failed=true" >> "$GITHUB_OUTPUT"
+            echo "::error::Health check failed with HTTP status ${HEALTH_STATUS}"
+            exit 1
+          fi
+
+      - name: Rollback on failure
+        if: failure() && (steps.rollout.outputs.rollout-failed == 'true' || steps.health.outputs.health-failed == 'true')
+        run: |
+          echo "::error::Production deploy failed. Rolling back to previous version."
+          echo "Previous image: ${{ steps.pre-deploy.outputs.previous-image }}"
+
+          kubectl rollout undo deployment/${{ env.DEPLOYMENT }} -n ${{ env.NAMESPACE }}
+          kubectl rollout status deployment/${{ env.DEPLOYMENT }} \
+            -n ${{ env.NAMESPACE }} \
+            --timeout=300s
+
+          echo "::error::Production deploy rolled back. Investigate before re-deploying."
+
+      - name: Clean up kubeconfig
+        if: always()
+        run: rm -f "$HOME/.kube/config"
+
+  # ---------------------------------------------------------------------------
+  # Sentry release (placeholder)
+  # ---------------------------------------------------------------------------
+  sentry-release:
+    name: Sentry Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [resolve-tag, deploy]
+    if: success()
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # -----------------------------------------------------------------------
+      # PLACEHOLDER: Sentry release creation
+      #
+      # Uncomment and configure once Sentry is provisioned for the project.
+      # Required secrets: SENTRY_AUTH_TOKEN, SENTRY_ORG, SENTRY_PROJECT
+      #
+      # - name: Create Sentry release
+      #   uses: getsentry/action-release@v1
+      #   env:
+      #     SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      #     SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      #     SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      #   with:
+      #     environment: production
+      #     version: ${{ needs.resolve-tag.outputs.release-version }}
+      #     sourcemaps: .next
+      #     set_commits: auto
+      # -----------------------------------------------------------------------
+
+      - name: Log release info (placeholder)
+        run: |
+          echo "=========================================="
+          echo "  Sentry Release (placeholder)"
+          echo "=========================================="
+          echo "Version: ${{ needs.resolve-tag.outputs.release-version }}"
+          echo "Image:   ${{ needs.resolve-tag.outputs.image-ref }}"
+          echo ""
+          echo "Sentry integration is not yet configured."
+          echo "See the commented-out step in this job for setup instructions."
+          echo "Required secrets: SENTRY_AUTH_TOKEN, SENTRY_ORG, SENTRY_PROJECT"
+          echo "=========================================="

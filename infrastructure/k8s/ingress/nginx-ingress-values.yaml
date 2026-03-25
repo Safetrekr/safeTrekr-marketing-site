@@ -1,0 +1,230 @@
+# ST-793: REQ-010 - Nginx Ingress Controller Helm Values
+#
+# Helm values for ingress-nginx on the SafeTrekr Marketing DOKS cluster.
+# Used by:
+#
+#   helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
+#     --namespace ingress-nginx --create-namespace \
+#     -f nginx-ingress-values.yaml
+#
+# See cluster-spec.md Section 5 for chart version pinning,
+# Section 6.1 for Load Balancer configuration, and
+# Section 6.2 for DNS integration with Cloudflare.
+---
+
+# ---------------------------------------------------------------------------
+# Controller Configuration
+# ---------------------------------------------------------------------------
+controller:
+
+  # -------------------------------------------------------------------------
+  # Replicas & Availability
+  # -------------------------------------------------------------------------
+  # 2 replicas spread across nodes for zero-downtime during rolling updates
+  # and node failures. Matches the cluster's 2-node minimum.
+  replicaCount: 2
+
+  # Spread ingress controller pods across nodes so a single node failure
+  # does not take down all ingress traffic.
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: DoNotSchedule
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/name: ingress-nginx
+          app.kubernetes.io/component: controller
+
+  # -------------------------------------------------------------------------
+  # Resource Requests & Limits
+  # -------------------------------------------------------------------------
+  # Sized for a small marketing-site cluster. The ingress controller
+  # handles TLS termination, compression, and proxying -- it needs more
+  # resources than a typical sidecar but less than a full-stack app.
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+
+  # -------------------------------------------------------------------------
+  # DigitalOcean Load Balancer Annotations
+  # -------------------------------------------------------------------------
+  # DOKS automatically provisions a DO Load Balancer when it sees a Service
+  # of type LoadBalancer. These annotations configure the LB properties.
+  # See: https://docs.digitalocean.com/products/kubernetes/how-to/configure-load-balancers/
+  service:
+    type: LoadBalancer
+    annotations:
+      # Human-readable name in the DO console.
+      service.beta.kubernetes.io/do-loadbalancer-name: "safetrekr-marketing-lb"
+
+      # Smallest LB unit -- sufficient for a marketing site.
+      # 1 unit = 10,000 simultaneous connections, ~$12/month.
+      service.beta.kubernetes.io/do-loadbalancer-size-unit: "1"
+
+      # Hostname for the LB -- DO will set this as the LB's hostname.
+      # Cloudflare DNS points safetrekr.com to the LB external IP.
+      service.beta.kubernetes.io/do-loadbalancer-hostname: "safetrekr.com"
+
+      # Use PROXY protocol to preserve client source IPs through the LB.
+      # The ingress controller must also be configured to accept PROXY
+      # protocol (see controller.config.use-proxy-protocol below).
+      service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+
+      # Health checks -- TCP on port 80 (the ingress controller HTTP port).
+      service.beta.kubernetes.io/do-loadbalancer-healthcheck-protocol: "tcp"
+      service.beta.kubernetes.io/do-loadbalancer-healthcheck-port: "80"
+      service.beta.kubernetes.io/do-loadbalancer-healthcheck-check-interval-seconds: "10"
+      service.beta.kubernetes.io/do-loadbalancer-healthcheck-response-timeout-seconds: "5"
+      service.beta.kubernetes.io/do-loadbalancer-healthcheck-unhealthy-threshold: "3"
+      service.beta.kubernetes.io/do-loadbalancer-healthcheck-healthy-threshold: "5"
+
+    # Expose both HTTP (80) and HTTPS (443) on the LoadBalancer.
+    # TLS termination happens at the ingress controller, not the LB.
+    externalTrafficPolicy: Local  # Preserves source IP with PROXY protocol
+
+  # -------------------------------------------------------------------------
+  # Nginx ConfigMap -- Global Settings
+  # -------------------------------------------------------------------------
+  # These values are written into the nginx.conf ConfigMap and apply to
+  # all Ingress resources handled by this controller.
+  config:
+    # -- PROXY Protocol --
+    # Required when DO LB has proxy-protocol enabled. Without this,
+    # the controller sees the LB IP instead of the real client IP.
+    use-proxy-protocol: "true"
+
+    # -- Compression: Gzip --
+    use-gzip: "true"
+    gzip-level: "6"
+    gzip-min-length: "256"
+    gzip-types: >-
+      text/plain
+      text/css
+      text/javascript
+      application/javascript
+      application/json
+      application/xml
+      application/xml+rss
+      image/svg+xml
+      font/woff2
+
+    # -- Compression: Brotli --
+    enable-brotli: "true"
+    brotli-level: "6"
+    brotli-min-length: "256"
+    brotli-types: >-
+      text/plain
+      text/css
+      text/javascript
+      application/javascript
+      application/json
+      application/xml
+      application/xml+rss
+      image/svg+xml
+      font/woff2
+
+    # -- TLS Hardening --
+    # TLS 1.2 minimum -- TLS 1.0 and 1.1 are deprecated (RFC 8996).
+    ssl-protocols: "TLSv1.2 TLSv1.3"
+
+    # Forward-secrecy cipher suite. Prioritizes ECDHE key exchange and
+    # AEAD ciphers (GCM, CHACHA20). No CBC or RC4.
+    ssl-ciphers: "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384"
+    ssl-prefer-server-ciphers: "false"  # Let client pick (modern best practice)
+
+    # HSTS header -- instruct browsers to always use HTTPS.
+    # max-age=31536000 (1 year), includeSubDomains for staging.safetrekr.com.
+    hsts: "true"
+    hsts-max-age: "31536000"
+    hsts-include-subdomains: "true"
+    hsts-preload: "true"
+
+    # -- Security Headers --
+    # Applied globally; individual Ingress resources can override.
+    hide-headers: "X-Powered-By,Server"
+
+    # -- Client Body Size --
+    # 10 MB max for form submissions and file uploads (contact form, etc.).
+    proxy-body-size: "10m"
+
+    # -- Timeouts --
+    # Aligned with Next.js SSR render times. 60s is generous for a
+    # marketing site; prevents proxy timeout on slow ISR regeneration.
+    proxy-read-timeout: "60"
+    proxy-send-timeout: "60"
+    proxy-connect-timeout: "10"
+
+    # -- Keep-Alive --
+    keep-alive: "75"
+    keep-alive-requests: "1000"
+
+    # -- Logging --
+    # JSON access logs for structured log aggregation.
+    log-format-upstream: >-
+      {"time":"$time_iso8601","remote_addr":"$remote_addr",
+      "x_forwarded_for":"$proxy_add_x_forwarded_for",
+      "request_method":"$request_method","request_uri":"$request_uri",
+      "status":$status,"body_bytes_sent":$body_bytes_sent,
+      "request_time":$request_time,"upstream_response_time":"$upstream_response_time",
+      "http_referrer":"$http_referer","http_user_agent":"$http_user_agent",
+      "request_id":"$req_id"}
+
+    # -- Custom Error Pages --
+    # Serve custom error pages from the default backend.
+    # When enabled, the controller intercepts error responses from upstreams
+    # and replaces them with its own error pages.
+    custom-http-errors: "404,500,502,503,504"
+
+  # -------------------------------------------------------------------------
+  # Default Backend (Custom Error Pages)
+  # -------------------------------------------------------------------------
+  # The default backend serves responses for requests that don't match any
+  # Ingress rule and for custom error pages (404, 5xx).
+  defaultBackend:
+    enabled: true
+    resources:
+      requests:
+        cpu: 10m
+        memory: 16Mi
+      limits:
+        cpu: 50m
+        memory: 32Mi
+
+  # -------------------------------------------------------------------------
+  # Prometheus Metrics
+  # -------------------------------------------------------------------------
+  # Expose nginx metrics at :10254/metrics for Prometheus scraping.
+  # Provides request rate, latency histograms, active connections,
+  # and upstream health -- critical for SLO monitoring.
+  # See cluster-spec.md Section 10 for alert thresholds.
+  metrics:
+    enabled: true
+    service:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
+    serviceMonitor:
+      enabled: false  # Enable when Prometheus Operator is installed
+
+  # -------------------------------------------------------------------------
+  # Admission Webhook
+  # -------------------------------------------------------------------------
+  # Validates Ingress resources before they are persisted. Catches
+  # misconfigurations (bad annotations, invalid TLS refs) at apply time.
+  admissionWebhooks:
+    enabled: true
+
+  # -------------------------------------------------------------------------
+  # Update Strategy
+  # -------------------------------------------------------------------------
+  # RollingUpdate with maxUnavailable=1 allows one controller pod to be
+  # replaced at a time. With 2 replicas, this ensures at least 1 pod
+  # is always serving traffic during upgrades.
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1

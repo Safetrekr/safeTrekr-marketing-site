@@ -1,0 +1,14 @@
+# ST-813 / REQ-030: Code Ownership for SafeTrekr Marketing Site
+# GitHub will automatically request reviews from these owners
+# when a pull request modifies matching paths.
+#
+# Order matters -- last matching pattern takes precedence.
+
+# Default owner for everything in the repository
+*                       @justintabb
+
+# Infrastructure (Terraform, Docker, CI/CD configs)
+/infrastructure/        @justintabb
+
+# Application source code
+/src/                   @justintabb

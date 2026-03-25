@@ -1,0 +1,12 @@
+# ST-895: Content Publishing Workflow -- CODEOWNERS
+#
+# GitHub will automatically request reviews from the listed teams
+# when a pull request modifies files matching these patterns.
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Content requires editorial review
+/src/content/ @safetrekr/content-team
+/src/app/(marketing)/blog/ @safetrekr/content-team
+/src/app/(marketing)/compliance/ @safetrekr/content-team
+/src/app/(marketing)/resources/glossary/ @safetrekr/content-team

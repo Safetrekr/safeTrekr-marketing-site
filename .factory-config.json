@@ -1,0 +1,54 @@
+{
+  "project_name": "SafeTrekr Marketing Site",
+  "jira_board_id": "ST",
+  "jira_cloud_id": "cc916ecf-00a8-44e5-b28f-5798aeadb35c",
+  "jira_site": "grace-ai.atlassian.net",
+  "figma_url": "https://www.figma.com/design/FhMHB9AvXQCBOreQhSBc4I/SafeTrekr-Marketing?node-id=0-1&t=CJZ46Pqf1lCcsGWQ-1",
+  "supabase_project_id": "olgjdqguafidgrutubih",
+  "core_agents": [
+    "world-class-ux-designer",
+    "world-class-ui-designer",
+    "information-architect",
+    "world-class-product-narrative-strategist",
+    "world-class-product-strategy-analyst-market",
+    "world-class-digital-marketing-lead"
+  ],
+  "agent_mode": "master_only",
+  "factory_mode": "greenfield",
+  "touchpoints": [
+    {
+      "selection": 1,
+      "name": "Web (Desktop Browser)",
+      "framework": "Next.js / React",
+      "notes": "Desktop-first responsive"
+    },
+    {
+      "selection": 2,
+      "name": "Mobile Web (Responsive)",
+      "framework": "Next.js / React (same as Web)",
+      "notes": "Responsive breakpoints required"
+    }
+  ],
+  "tech_stack": {
+    "architecture": "Static-first (SSG/ISR) with Docker containers",
+    "backend": "Next.js 15 API Routes (Server Actions + Route Handlers)",
+    "database": "PostgreSQL via Supabase (separate project for marketing)",
+    "auth": "N/A (marketing site — future self-service uses Supabase Auth)",
+    "frontend": "Next.js 15 (App Router) + React 19",
+    "design_framework": "Tailwind CSS 4 + shadcn/ui",
+    "state_management": "React Context (minimal — mostly static pages)",
+    "caching": "Nginx reverse proxy cache + Next.js ISR",
+    "transactional_email": "SendGrid",
+    "containerization": "Docker",
+    "container_orchestration": "Kubernetes (DigitalOcean Kubernetes / DOKS)",
+    "ci_cd": "GitHub Actions",
+    "hosting": "DigitalOcean",
+    "maps": "MapLibre GL JS",
+    "analytics": "Plausible (primary) + GA4 (optional)",
+    "animation": "Framer Motion",
+    "bot_protection": "Cloudflare Turnstile",
+    "cdn": "DigitalOcean Spaces CDN or Cloudflare"
+  },
+  "created_at": "2026-03-24T18:00:00.000Z",
+  "updated_at": "2026-03-24T19:30:00.000Z"
+}

@@ -1,0 +1,146 @@
+# ST-812: REQ-029 - Preview Environment Overlay
+#
+# Deploys an ephemeral preview of the marketing site for pull request
+# validation. Each PR gets its own deployment in the preview namespace.
+#
+# Characteristics:
+# - 1 replica, minimal resources (cost-conscious)
+# - No HPA or PDB (single replica, short-lived)
+# - Ingress at pr-<NUMBER>.preview.safetrekr.com
+# - Cleaned up automatically when the PR is closed (see CI workflow)
+#
+# CI usage:
+#   export PR_NUMBER=42
+#   cd infrastructure/k8s/overlays/preview
+#   kustomize edit set namesuffix -- "-pr-${PR_NUMBER}"
+#   kustomize edit set image \
+#     registry.digitalocean.com/safetrekr-marketing/safetrekr-web=\
+#     registry.digitalocean.com/safetrekr-marketing/safetrekr-web:sha-abc1234
+#   # Patch the ingress host for this specific PR:
+#   sed -i "s/PR_NUMBER/${PR_NUMBER}/g" kustomization.yaml
+#   kubectl apply -k .
+#
+# Cleanup (on PR close):
+#   kubectl delete -k . || true
+#   # Or delete all resources with the PR label:
+#   kubectl delete all,ingress,configmap,secret,sa \
+#     -n preview -l safetrekr.com/pr=<NUMBER>
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: preview
+
+# nameSuffix is set dynamically by CI via `kustomize edit set namesuffix`.
+# Example: -pr-42
+# nameSuffix: -pr-42
+
+labels:
+  - pairs:
+      environment: preview
+    includeSelectors: false
+
+resources:
+  - ../../base
+
+# ---------------------------------------------------------------------------
+# ConfigMap -- preview uses staging Supabase to avoid polluting production.
+# ---------------------------------------------------------------------------
+configMapGenerator:
+  - name: safetrekr-web-config
+    behavior: replace
+    literals:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_SUPABASE_URL=https://staging-project.supabase.co
+      - NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+      - NEXT_PUBLIC_SITE_URL=https://pr-PR_NUMBER.preview.safetrekr.com
+
+# ---------------------------------------------------------------------------
+# Image override -- CI sets the sha-based tag from the PR head commit.
+# ---------------------------------------------------------------------------
+images:
+  - name: registry.digitalocean.com/safetrekr-marketing/safetrekr-web
+    newTag: latest
+
+# ---------------------------------------------------------------------------
+# Remove resources that are unnecessary for single-replica preview deploys.
+# HPA and PDB add no value for a 1-replica ephemeral environment.
+# ---------------------------------------------------------------------------
+patches:
+  # --- Deployment: 1 replica, lower resources, no topology constraints ---
+  - target:
+      kind: Deployment
+      name: safetrekr-web
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: safetrekr-web
+      spec:
+        replicas: 1
+        template:
+          spec:
+            topologySpreadConstraints: []
+            containers:
+              - name: safetrekr-web
+                resources:
+                  requests:
+                    memory: "96Mi"
+                    cpu: "50m"
+                  limits:
+                    memory: "192Mi"
+                    cpu: "250m"
+
+  # --- Remove HPA: not needed for ephemeral single-replica preview ---
+  - target:
+      kind: HorizontalPodAutoscaler
+      name: safetrekr-web
+    patch: |-
+      $patch: delete
+      apiVersion: autoscaling/v2
+      kind: HorizontalPodAutoscaler
+      metadata:
+        name: safetrekr-web
+
+  # --- Remove PDB: meaningless with 1 replica ---
+  - target:
+      kind: PodDisruptionBudget
+      name: safetrekr-web
+    patch: |-
+      $patch: delete
+      apiVersion: policy/v1
+      kind: PodDisruptionBudget
+      metadata:
+        name: safetrekr-web
+
+  # --- Ingress: PR-specific subdomain + staging cert issuer ---
+  # CI replaces PR_NUMBER with the actual PR number before apply.
+  - target:
+      kind: Ingress
+      name: safetrekr-web
+    patch: |-
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: safetrekr-web
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-staging"
+          # Mark as ephemeral so cleanup scripts can identify preview ingresses
+          safetrekr.com/ephemeral: "true"
+      spec:
+        tls:
+          - hosts:
+              - pr-PR_NUMBER.preview.safetrekr.com
+            secretName: preview-safetrekr-web-tls-pr-PR_NUMBER
+        rules:
+          - host: pr-PR_NUMBER.preview.safetrekr.com
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: safetrekr-web
+                      port:
+                        number: 80

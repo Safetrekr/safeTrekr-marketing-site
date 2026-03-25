@@ -1,0 +1,112 @@
+# ST-812: REQ-029 - Production Environment Overlay
+#
+# Deploys the marketing site to the production namespace with:
+# - 2 replicas (matches base for HA with topologySpreadConstraints)
+# - Production Supabase project URL and live Turnstile key
+# - HPA range 2-4 replicas (matches base)
+# - Higher resource limits for production traffic
+# - Ingress at safetrekr.com with Let's Encrypt production issuer
+# - Image tag MUST be a sha-based tag; CI sets this before apply
+#
+# Apply:
+#   kubectl apply -k infrastructure/k8s/overlays/production/
+#
+# CI usage:
+#   cd infrastructure/k8s/overlays/production
+#   kustomize edit set image \
+#     registry.digitalocean.com/safetrekr-marketing/safetrekr-web=\
+#     registry.digitalocean.com/safetrekr-marketing/safetrekr-web:sha-abc1234
+#   kubectl apply -k .
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: production
+
+labels:
+  - pairs:
+      environment: production
+    includeSelectors: false
+
+resources:
+  - ../../base
+
+# ---------------------------------------------------------------------------
+# ConfigMap -- replaces base configmap with production values.
+# Secrets are managed via Sealed Secrets or CI-injected kubectl create secret.
+# ---------------------------------------------------------------------------
+configMapGenerator:
+  - name: safetrekr-web-config
+    behavior: replace
+    literals:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_SUPABASE_URL=https://your-production-project.supabase.co
+      - NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAAAAA_YOUR_PRODUCTION_SITE_KEY
+      - NEXT_PUBLIC_SITE_URL=https://safetrekr.com
+
+# ---------------------------------------------------------------------------
+# Image override -- CI MUST set a sha-based tag before production apply.
+# The "latest" default here is a safety fallback; the deploy pipeline
+# rejects "latest" for production via a pre-deploy check.
+# ---------------------------------------------------------------------------
+images:
+  - name: registry.digitalocean.com/safetrekr-marketing/safetrekr-web
+    newTag: latest
+
+# ---------------------------------------------------------------------------
+# Patches
+# ---------------------------------------------------------------------------
+patches:
+  # --- Deployment: higher resource limits for production traffic ---
+  - target:
+      kind: Deployment
+      name: safetrekr-web
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: safetrekr-web
+      spec:
+        template:
+          spec:
+            containers:
+              - name: safetrekr-web
+                resources:
+                  requests:
+                    memory: "256Mi"
+                    cpu: "150m"
+                  limits:
+                    memory: "512Mi"
+                    cpu: "1000m"
+
+  # --- Ingress: production domain with production cert issuer ---
+  # The base ingress already targets safetrekr.com, but we re-declare
+  # it here to make the overlay self-documenting and to ensure the
+  # cert-manager issuer is explicitly set to the production issuer.
+  - target:
+      kind: Ingress
+      name: safetrekr-web
+    patch: |-
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: safetrekr-web
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+      spec:
+        tls:
+          - hosts:
+              - safetrekr.com
+            secretName: safetrekr-web-tls
+        rules:
+          - host: safetrekr.com
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: safetrekr-web
+                      port:
+                        number: 80

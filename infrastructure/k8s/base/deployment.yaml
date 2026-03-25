@@ -1,0 +1,136 @@
+# ST-792: REQ-009 - Kubernetes Manifests for SafeTrekr Marketing Site
+#
+# Deployment for the Next.js standalone server.
+#
+# Key design decisions:
+# - 2 replicas with topologySpreadConstraints ensure pods land on separate nodes
+#   for zero-downtime rolling updates (see cluster-spec.md Section 2.2).
+# - readOnlyRootFilesystem with a tmpfs mount at /.next/cache satisfies the
+#   "restricted" Pod Security Standard while allowing Next.js ISR cache writes.
+# - Startup probe with high failureThreshold (30 * 5s = 150s) accommodates
+#   cold starts where the standalone server compiles routes on first request.
+# - runAsUser 1001 matches the "nextjs" user created in the Dockerfile.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safetrekr-web
+  labels:
+    app.kubernetes.io/name: safetrekr-web
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: web
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: safetrekr-web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: safetrekr-web
+        app.kubernetes.io/part-of: safetrekr-marketing
+        app.kubernetes.io/component: web
+    spec:
+      serviceAccountName: safetrekr-web
+      terminationGracePeriodSeconds: 30
+
+      # ---------- Scheduling ----------
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: safetrekr-web
+
+      # ---------- Security ----------
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
+        seccompProfile:
+          type: RuntimeDefault
+
+      containers:
+        - name: safetrekr-web
+          image: registry.digitalocean.com/safetrekr-marketing/safetrekr-web:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+
+          # ---------- Environment ----------
+          envFrom:
+            - configMapRef:
+                name: safetrekr-web-config
+            - secretRef:
+                name: safetrekr-web-secrets
+
+          # ---------- Resources ----------
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+
+          # ---------- Probes ----------
+          startupProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            failureThreshold: 30
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 30
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          # ---------- Container Security ----------
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+
+          # ---------- Volumes ----------
+          volumeMounts:
+            - name: next-cache
+              mountPath: /.next/cache
+            - name: tmp
+              mountPath: /tmp
+
+      volumes:
+        - name: next-cache
+          emptyDir:
+            sizeLimit: 128Mi
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi

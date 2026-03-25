@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do Liability Waivers Actually Protect Schools on Field Trips? -- SafeTrekr Blog</title>
+  <meta name="description" content="Most school districts rely on liability waivers as their primary legal protection for field trips. But do they actually hold up? A look at what courts have ruled -- and what actually protects your district.">
+  <meta property="og:title" content="Do Liability Waivers Actually Protect Schools on Field Trips?">
+  <meta property="og:description" content="Most school districts rely on liability waivers as their primary legal protection for field trips. But do they actually hold up? A look at what courts have ruled -- and what actually protects your district.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/og/blog/do-liability-waivers-protect-schools-field-trips.png">
+  <meta property="article:published_time" content="2026-03-20T08:00:00Z">
+  <meta property="article:author" content="Sarah Chen">
+  <meta property="article:section" content="K-12 Compliance">
+  <link rel="canonical" href="https://www.safetrekr.com/blog/do-liability-waivers-protect-schools-field-trips">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            'card-foreground': '#061a23',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: '#e7ecee',
+            'muted-foreground': '#4d5153',
+            primary: {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b', foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646', foreground: '#f7f8f8',
+              light: '#1a4a5e', muted: '#b8c3c7',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* Card hover */
+    .group:hover .group-hover\:text-primary-700 { color: #33704b; }
+    .group:hover .group-hover\:translate-x-1 { transform: translateX(4px); }
+
+    /* TOC active states */
+    .toc-link { transition: color 0.15s, border-color 0.15s; }
+    .toc-link.active { color: var(--color-primary-700) !important; font-weight: 500; border-left: 2px solid var(--color-primary-500); padding-left: 12px; }
+    .toc-link.active.toc-h3 { padding-left: 28px; }
+
+    /* Article prose styles */
+    .prose h2 { font-family: var(--font-heading); font-size: clamp(1.625rem, 1.25rem + 1.25vw, 2.25rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: var(--color-foreground); margin-top: 48px; margin-bottom: 16px; scroll-margin-top: 96px; }
+    .prose h3 { font-family: var(--font-heading); font-size: clamp(1.375rem, 1.125rem + 0.75vw, 1.75rem); font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; color: var(--color-foreground); margin-top: 32px; margin-bottom: 12px; scroll-margin-top: 96px; }
+    .prose p { font-size: 1rem; line-height: 1.6; color: var(--color-muted-foreground); margin-bottom: 16px; max-width: 65ch; }
+    .prose p strong { font-weight: 600; color: var(--color-foreground); }
+    .prose a { color: var(--color-primary-700); text-decoration: underline; text-underline-offset: 2px; transition: color 0.15s; }
+    .prose a:hover { color: var(--color-primary-800); }
+    .prose blockquote { border-left: 4px solid var(--color-primary-500); padding-left: 24px; padding-top: 4px; padding-bottom: 4px; margin: 32px 0; }
+    .prose blockquote p { font-family: var(--font-heading); font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); font-weight: 500; font-style: italic; color: var(--color-primary-700); line-height: 1.3; max-width: none; }
+    .prose ul { list-style: none; padding: 0; margin: 16px 0; display: flex; flex-direction: column; gap: 8px; }
+    .prose ul li { font-size: 1rem; line-height: 1.6; color: var(--color-muted-foreground); padding-left: 28px; position: relative; }
+    .prose ul li::before { content: ''; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234ca46e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: contain; }
+    .prose ol { list-style: decimal; list-style-position: inside; margin: 16px 0; display: flex; flex-direction: column; gap: 8px; }
+    .prose ol li { font-size: 1rem; line-height: 1.6; color: var(--color-muted-foreground); }
+    .prose ol li::marker { color: var(--color-primary-700); font-weight: 600; }
+    .prose hr { border: none; border-top: 1px solid var(--color-border); margin: 40px 0; }
+
+    /* Callout component */
+    .callout { border-radius: var(--radius-lg); border-left: 4px solid; padding: 16px 20px; margin: 24px 0; }
+    .callout-info { border-left-color: var(--color-primary-500); background: var(--color-primary-50); }
+    .callout-warning { border-left-color: #eab308; background: rgba(234,179,8,0.08); }
+    .callout-title { font-size: 1rem; font-weight: 600; color: var(--color-foreground); display: flex; align-items: center; gap: 8px; }
+    .callout-body { font-size: 0.875rem; color: var(--color-muted-foreground); margin-top: 4px; line-height: 1.5; }
+
+    /* Nav hover */
+    .nav-item:hover { color: var(--color-foreground) !important; }
+    /* Footer hover */
+    footer a:hover { color: #ffffff !important; }
+
+    /* Responsive */
+    @media (max-width: 639px) {
+      .container { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .container { padding-left: 32px !important; padding-right: 32px !important; }
+    }
+    @media (min-width: 1024px) {
+      .container { padding-left: 48px !important; padding-right: 48px !important; }
+    }
+    @media (max-width: 1023px) {
+      header > div { height: 56px !important; }
+    }
+  </style>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Do Liability Waivers Actually Protect Schools on Field Trips?",
+    "description": "Most school districts rely on liability waivers as their primary legal protection for field trips. But do they actually hold up?",
+    "image": "https://www.safetrekr.com/og/blog/do-liability-waivers-protect-schools-field-trips.png",
+    "datePublished": "2026-03-20T08:00:00Z",
+    "dateModified": "2026-03-20T08:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "Sarah Chen",
+      "jobTitle": "Safety Analyst",
+      "url": "https://www.safetrekr.com/about/analysts"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SafeTrekr",
+      "logo": { "@type": "ImageObject", "url": "https://www.safetrekr.com/logo.svg" }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.safetrekr.com/blog/do-liability-waivers-protect-schools-field-trips"
+    },
+    "wordCount": 2400,
+    "articleSection": "K-12 Compliance"
+  }
+  </script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg font-heading font-semibold text-sm">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER                                                         -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT                                                        -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1: Article Hero                                        -->
+    <!-- ============================================================== -->
+    <section aria-labelledby="blog-post-heading" style="background: var(--color-background); padding-top: 32px; padding-bottom: 24px;">
+      <div class="container mx-auto" style="max-width: 1280px; padding: 0 24px;">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="mb-6 lg:mb-8">
+          <!-- Desktop breadcrumb -->
+          <ol class="hidden sm:flex items-center gap-2 text-body-sm" style="list-style: none; color: var(--color-muted-foreground);">
+            <li><a href="/" style="color: var(--color-muted-foreground); text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='var(--color-primary-700)'" onmouseout="this.style.color='var(--color-muted-foreground)'">Home</a></li>
+            <li style="color: var(--color-border);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </li>
+            <li><a href="/blog" style="color: var(--color-muted-foreground); text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='var(--color-primary-700)'" onmouseout="this.style.color='var(--color-muted-foreground)'">Blog</a></li>
+            <li style="color: var(--color-border);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </li>
+            <li aria-current="page" style="color: var(--color-foreground); font-weight: 500;">Do Liability Waivers Actually Protect Schools...</li>
+          </ol>
+          <!-- Mobile back link -->
+          <a href="/blog" class="sm:hidden flex items-center gap-1 text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Blog
+          </a>
+        </nav>
+
+        <!-- Category Badge -->
+        <div class="mb-4 lg:mb-6">
+          <span class="badge badge-brand" style="padding: 4px 12px; font-size: 13px;">K-12 Compliance</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 id="blog-post-heading" class="text-display-md" style="color: var(--color-foreground); max-width: 20ch; margin-bottom: 24px;">
+          Do Liability Waivers Actually Protect Schools on Field Trips?
+        </h1>
+
+        <!-- Author Row -->
+        <div class="flex items-center gap-3 mb-6">
+          <!-- Avatar -->
+          <div style="width: 40px; height: 40px; border-radius: 9999px; background: var(--color-primary-100); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span class="font-heading font-semibold" style="color: var(--color-primary-700); font-size: 14px;">SC</span>
+          </div>
+          <div>
+            <p class="text-body-sm" style="color: var(--color-foreground); font-weight: 500; margin: 0; line-height: 1.4;">Sarah Chen, Safety Analyst</p>
+            <div class="flex items-center gap-2 text-body-sm" style="color: var(--color-muted-foreground); margin: 0;">
+              <span>March 20, 2026</span>
+              <span style="color: var(--color-border);">&#183;</span>
+              <span class="flex items-center gap-1">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-muted-foreground);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                12 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Share Buttons -->
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost" style="width: 36px; height: 36px; padding: 0; border-radius: var(--radius-md);" aria-label="Share on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-muted-foreground);"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </button>
+          <button class="btn btn-ghost" style="width: 36px; height: 36px; padding: 0; border-radius: var(--radius-md);" aria-label="Share on X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-muted-foreground);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </button>
+          <button class="btn btn-ghost" style="width: 36px; height: 36px; padding: 0; border-radius: var(--radius-md);" aria-label="Copy link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-muted-foreground);"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: Article Body + Table of Contents Sidebar            -->
+    <!-- ============================================================== -->
+    <section style="background: var(--color-background); padding-top: 0; padding-bottom: 64px;">
+      <div class="container mx-auto" style="max-width: 1280px; padding: 0 24px;">
+        <div class="article-layout" style="display: grid; grid-template-columns: 1fr; gap: 48px;">
+          <style>
+            @media (min-width: 1024px) {
+              .article-layout { grid-template-columns: 1fr 280px !important; gap: 64px !important; }
+            }
+          </style>
+
+          <!-- Article Column -->
+          <article style="max-width: 720px; min-width: 0;">
+            <!-- Featured Image -->
+            <div style="border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 32px; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-primary-200) 50%, var(--color-secondary) 100%);">
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                <div style="text-align: center; padding: 32px;">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: rgba(255,255,255,0.6); margin: 0 auto 12px;">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>
+                  </svg>
+                  <p class="text-body-sm" style="color: rgba(255,255,255,0.5); margin: 0;">Featured Image Placeholder</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile TOC (visible < lg) -->
+            <div class="lg:hidden" style="border-bottom: 1px solid var(--color-border); margin-bottom: 32px;">
+              <button onclick="this.parentElement.querySelector('.mobile-toc-content').classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180');" class="flex items-center justify-between w-full" style="padding: 12px 0;">
+                <span class="text-body-sm" style="font-weight: 500; color: var(--color-foreground);">Table of Contents</span>
+                <span class="flex items-center gap-2">
+                  <span class="text-body-sm" style="font-size: 12px; color: var(--color-muted-foreground);">6 sections</span>
+                  <svg class="chevron transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-muted-foreground);"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+              </button>
+              <nav class="mobile-toc-content hidden" aria-label="Table of contents" style="padding-top: 8px; padding-bottom: 16px;">
+                <ol style="list-style: none; display: flex; flex-direction: column; gap: 6px;">
+                  <li><a href="#the-waiver-myth" class="text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">The Waiver Myth</a></li>
+                  <li><a href="#what-courts-have-said" class="text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">What Courts Have Said</a></li>
+                  <li><a href="#the-negligence-standard" class="text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">The Negligence Standard</a></li>
+                  <li><a href="#what-actually-protects-schools" class="text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">What Actually Protects Schools</a></li>
+                  <li><a href="#building-real-protection" class="text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">Building Real Protection</a></li>
+                  <li><a href="#the-bottom-line" class="text-body-sm" style="color: var(--color-muted-foreground); text-decoration: none;">The Bottom Line</a></li>
+                </ol>
+              </nav>
+            </div>
+
+            <!-- Article Body (MDX Prose) -->
+            <div class="prose">
+              <h2 id="the-waiver-myth">The Waiver Myth</h2>
+              <p>Every year, millions of permission slips are sent home with students before field trips. Most include a liability waiver -- a paragraph or two of legal language that parents sign alongside the permission form. For many school administrators, this signed waiver feels like a safety net. <strong>It is not.</strong></p>
+              <p>The assumption is straightforward: if a parent signs a waiver releasing the school from liability, the school is protected in the event something goes wrong. This belief is so widespread that many districts have built their entire field trip risk management strategy around it.</p>
+              <p>But the legal reality is far more nuanced than the paper suggests. In the majority of jurisdictions, liability waivers involving minors carry significantly less weight than most administrators assume -- and in some states, they carry no weight at all.</p>
+
+              <h2 id="what-courts-have-said">What Courts Have Said</h2>
+              <p>Courts across the country have consistently limited the enforceability of liability waivers when minors are involved. The reasoning is rooted in a fundamental legal principle: <strong>a minor cannot legally consent to waive their own rights</strong>, and a parent's authority to waive those rights on the child's behalf is restricted.</p>
+
+              <blockquote>
+                <p>"A waiver cannot excuse negligence in the supervision of minors. The duty of care owed to children in the custody of a school is non-delegable."</p>
+              </blockquote>
+
+              <p>In <em>Wagenblast v. Odessa School District</em>, the Washington Supreme Court ruled that pre-injury liability releases signed by parents for school-sponsored activities were invalid as against public policy. The court held that schools hold a near-monopoly on public education, and requiring waivers as a condition of participation was coercive.</p>
+              <p>Similar rulings have emerged in California, New York, and Virginia. While the specifics vary by jurisdiction, the trend is clear: courts are skeptical of waivers that attempt to absolve schools of their fundamental supervisory obligations.</p>
+
+              <h2 id="the-negligence-standard">The Negligence Standard</h2>
+              <p>Understanding why waivers fail requires understanding what courts actually evaluate when a field trip injury occurs. The legal framework centers on <strong>negligence</strong>, which has four elements:</p>
+              <ol>
+                <li><strong>Duty of Care</strong> -- Schools have a legal obligation to protect students during school-sponsored activities, including field trips.</li>
+                <li><strong>Breach</strong> -- The school failed to meet the expected standard of care through action or inaction.</li>
+                <li><strong>Causation</strong> -- The breach directly caused or contributed to the injury.</li>
+                <li><strong>Damages</strong> -- The student suffered actual harm as a result.</li>
+              </ol>
+              <p>A waiver attempts to eliminate the first element -- duty of care -- before an incident occurs. But courts have repeatedly held that the duty of care owed to minors is <strong>non-delegable</strong>. No piece of paper can remove it.</p>
+
+              <h3>What "Reasonable Care" Means in Practice</h3>
+              <p>Courts evaluate whether the school took reasonable precautions given the circumstances. This includes assessing the destination, the activities planned, the supervision ratios, the emergency preparedness, and whether the school conducted a meaningful risk assessment before the trip.</p>
+              <p>The key word is "documented." If a school can demonstrate that it systematically evaluated risks and took reasonable steps to mitigate them, it has a much stronger defense than any waiver could provide.</p>
+
+              <h2 id="what-actually-protects-schools">What Actually Protects Schools</h2>
+              <p>If waivers are unreliable, what does hold up in court? The answer is <strong>documented due diligence</strong>. Courts want to see evidence that the school acted responsibly -- not that it tried to avoid responsibility.</p>
+              <ul>
+                <li><strong>Professional safety analysis</strong> of the destination and planned activities</li>
+                <li><strong>Documented risk assessment</strong> covering transportation, accommodations, health, and environmental factors</li>
+                <li><strong>Emergency action plans</strong> specific to the destination and activities</li>
+                <li><strong>Evidence of adequate supervision</strong> with appropriate adult-to-student ratios</li>
+                <li><strong>Insurance documentation</strong> showing appropriate coverage for the trip type</li>
+                <li><strong>Compliance records</strong> demonstrating awareness of applicable regulations (FERPA, state education codes)</li>
+              </ul>
+
+              <!-- Callout: Info -->
+              <div class="callout callout-info">
+                <div class="callout-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700); flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                  SafeTrekr's 17-Section Review
+                </div>
+                <p class="callout-body">SafeTrekr's professional safety binder covers all of the elements courts look for when evaluating due diligence: destination intelligence, risk scoring, emergency contacts, transportation analysis, accommodation review, health considerations, and compliance documentation -- all verified with SHA-256 hash-chain integrity.</p>
+              </div>
+
+              <h2 id="building-real-protection">Building Real Protection</h2>
+              <p>Transitioning from waiver-dependent risk management to documented due diligence is not complicated, but it does require intention. Here are the practical steps every school district should take:</p>
+              <ol>
+                <li><strong>Conduct a formal risk assessment</strong> for every trip, regardless of destination. A field trip to a local museum deserves the same systematic evaluation as an international journey.</li>
+                <li><strong>Document everything.</strong> Record the risk assessment process, the decisions made, and the rationale behind them. Verbal approvals are insufficient.</li>
+                <li><strong>Create destination-specific emergency plans</strong> that include local emergency services, nearest medical facilities, and communication protocols.</li>
+                <li><strong>Verify insurance coverage</strong> matches the specific activities and destinations planned. Standard school policies may have exclusions for certain trip types.</li>
+                <li><strong>Establish supervision protocols</strong> with defined adult-to-student ratios, chaperone responsibilities, and communication chains.</li>
+                <li><strong>Engage professional safety review</strong> to identify risks that internal staff may not recognize. Third-party analysis adds credibility to the due diligence record.</li>
+              </ol>
+
+              <h2 id="the-bottom-line">The Bottom Line</h2>
+              <p>Liability waivers are not worthless. They serve a useful purpose: they inform parents about the inherent risks of an activity and set expectations. That transparency has value. But <strong>a waiver should never be treated as a substitute for proper safety planning.</strong></p>
+              <p>The schools that are best protected are not the ones with the most ironclad waiver language. They are the ones that can produce a comprehensive, documented record of professional safety analysis and proactive risk management.</p>
+              <p>When a court asks, "What did you do to keep these students safe?", the answer should not be "We had them sign a waiver." The answer should be a binder full of evidence that the school took every reasonable step to identify, evaluate, and mitigate the risks of the trip.</p>
+              <p>That is what protection looks like. And it does not require a single signature from a parent.</p>
+            </div>
+          </article>
+
+          <!-- Table of Contents Sidebar (Desktop) -->
+          <aside class="hidden lg:block" style="width: 280px;">
+            <div style="position: sticky; top: 112px; max-height: calc(100vh - 8rem); overflow-y: auto;">
+              <!-- TOC Card -->
+              <div style="background: var(--color-card); border-radius: var(--radius-xl); border: 1px solid var(--color-border); padding: 20px;">
+                <p class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 16px;">TABLE OF CONTENTS</p>
+                <nav aria-label="Table of contents">
+                  <ol style="list-style: none; display: flex; flex-direction: column; gap: 4px;">
+                    <li><a href="#the-waiver-myth" class="toc-link text-body-sm block" style="color: var(--color-muted-foreground); text-decoration: none; padding: 6px 0; transition: color 0.15s;">The Waiver Myth</a></li>
+                    <li><a href="#what-courts-have-said" class="toc-link text-body-sm block" style="color: var(--color-muted-foreground); text-decoration: none; padding: 6px 0; transition: color 0.15s;">What Courts Have Said</a></li>
+                    <li><a href="#the-negligence-standard" class="toc-link text-body-sm block" style="color: var(--color-muted-foreground); text-decoration: none; padding: 6px 0; transition: color 0.15s;">The Negligence Standard</a></li>
+                    <li><a href="#what-actually-protects-schools" class="toc-link text-body-sm block" style="color: var(--color-muted-foreground); text-decoration: none; padding: 6px 0; transition: color 0.15s;">What Actually Protects Schools</a></li>
+                    <li><a href="#building-real-protection" class="toc-link text-body-sm block" style="color: var(--color-muted-foreground); text-decoration: none; padding: 6px 0; transition: color 0.15s;">Building Real Protection</a></li>
+                    <li><a href="#the-bottom-line" class="toc-link text-body-sm block" style="color: var(--color-muted-foreground); text-decoration: none; padding: 6px 0; transition: color 0.15s;">The Bottom Line</a></li>
+                  </ol>
+                </nav>
+              </div>
+
+              <!-- Sidebar CTA -->
+              <div style="background: var(--color-primary-50); border-radius: var(--radius-xl); padding: 20px; margin-top: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700); margin-bottom: 12px;"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                <p class="text-body-sm" style="color: var(--color-foreground); margin-bottom: 12px;">See what a professional safety review looks like.</p>
+                <a href="/resources/sample-binders" class="text-body-sm flex items-center gap-1" style="font-weight: 500; color: var(--color-primary-700); text-decoration: none; transition: all 0.15s;">
+                  Download a Sample Binder
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.15s;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: Author Bio Card                                     -->
+    <!-- ============================================================== -->
+    <section aria-labelledby="author-bio-heading" style="background: var(--color-card); padding: 40px 0;">
+      <div class="container mx-auto" style="max-width: 720px; padding: 0 24px;">
+        <div class="flex items-start gap-4 sm:gap-6">
+          <!-- Avatar -->
+          <div style="width: 64px; height: 64px; border-radius: 9999px; background: var(--color-primary-100); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span class="font-heading font-bold" style="color: var(--color-primary-700); font-size: 20px;">SC</span>
+          </div>
+          <!-- Text -->
+          <div>
+            <p class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em; margin-bottom: 4px;">ABOUT THE AUTHOR</p>
+            <h2 id="author-bio-heading" class="text-heading-sm" style="color: var(--color-foreground); margin-bottom: 0;">Sarah Chen</h2>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground); margin-top: 2px;">Safety Analyst at SafeTrekr</p>
+            <p class="text-body-md" style="color: var(--color-muted-foreground); margin-top: 12px; max-width: 65ch;">
+              Sarah reviews trip safety plans for K-12 schools and districts. She specializes in FERPA compliance and has reviewed over 200 field trip safety binders.
+            </p>
+            <a href="/blog?author=sarah-chen" class="text-body-sm flex items-center gap-1" style="font-weight: 500; color: var(--color-primary-700); text-decoration: none; margin-top: 12px; transition: all 0.15s;">
+              View all posts by Sarah
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.15s;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: Related Posts                                       -->
+    <!-- ============================================================== -->
+    <section aria-labelledby="related-posts-heading" style="background: var(--color-background); padding: 64px 0 96px;">
+      <div class="container mx-auto" style="max-width: 1280px; padding: 0 24px;">
+        <p class="text-eyebrow" style="color: var(--color-primary-700); letter-spacing: 0.08em;">RELATED ARTICLES</p>
+        <h2 id="related-posts-heading" class="text-heading-lg" style="color: var(--color-foreground); margin-top: 12px; margin-bottom: 40px;">You might also like</h2>
+
+        <div class="grid gap-6" style="grid-template-columns: repeat(1, 1fr);">
+          <style>
+            @media (min-width: 640px) { .related-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+            @media (min-width: 1024px) { .related-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+          </style>
+          <div class="related-grid grid gap-6" style="grid-template-columns: 1fr;">
+
+            <!-- Related Post 1 -->
+            <a href="/blog/ferpa-compliance-checklist-school-field-trips" class="group block" style="text-decoration: none;">
+              <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; box-shadow: var(--shadow-sm);">
+                <div style="aspect-ratio: 16/9; background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%); display: flex; align-items: center; justify-content: center;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--color-primary-300);"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div style="padding: 20px;">
+                  <span class="badge badge-brand" style="font-size: 11px; margin-bottom: 10px;">K-12 Compliance</span>
+                  <h3 class="text-heading-sm line-clamp-2" style="color: var(--color-foreground); margin-bottom: 8px;">FERPA Compliance Checklist for School Field Trips</h3>
+                  <p class="text-body-sm line-clamp-2" style="color: var(--color-muted-foreground); margin-bottom: 16px;">A step-by-step guide to keeping student data protected before, during, and after off-campus activities.</p>
+                  <div class="flex items-center gap-2">
+                    <div style="width: 24px; height: 24px; border-radius: 9999px; background: var(--color-primary-100); display: flex; align-items: center; justify-content: center;">
+                      <span style="font-size: 10px; font-weight: 600; color: var(--color-primary-700);">SC</span>
+                    </div>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground); font-size: 12px;">Sarah Chen</span>
+                    <span style="color: var(--color-border);">&#183;</span>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground); font-size: 12px;">Mar 14, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Related Post 2 -->
+            <a href="/blog/5-government-data-sources-trip-safety" class="group block" style="text-decoration: none;">
+              <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; box-shadow: var(--shadow-sm);">
+                <div style="aspect-ratio: 16/9; background: linear-gradient(135deg, #f0f4f7 0%, #dce4e8 100%); display: flex; align-items: center; justify-content: center;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--color-primary-300);"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/></svg>
+                </div>
+                <div style="padding: 20px;">
+                  <span class="badge badge-brand" style="font-size: 11px; margin-bottom: 10px;">Safety Intelligence</span>
+                  <h3 class="text-heading-sm line-clamp-2" style="color: var(--color-foreground); margin-bottom: 8px;">The 5 Government Data Sources Behind Every Safety Binder</h3>
+                  <p class="text-body-sm line-clamp-2" style="color: var(--color-muted-foreground); margin-bottom: 16px;">How NOAA, USGS, CDC, GDACS, and ReliefWeb data power professional trip safety analysis.</p>
+                  <div class="flex items-center gap-2">
+                    <div style="width: 24px; height: 24px; border-radius: 9999px; background: var(--color-primary-100); display: flex; align-items: center; justify-content: center;">
+                      <span style="font-size: 10px; font-weight: 600; color: var(--color-primary-700);">MR</span>
+                    </div>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground); font-size: 12px;">Marcus Reeves</span>
+                    <span style="color: var(--color-border);">&#183;</span>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground); font-size: 12px;">Mar 8, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Related Post 3 -->
+            <a href="/blog/safetrekr-vs-travel-insurance" class="group block" style="text-decoration: none;">
+              <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; box-shadow: var(--shadow-sm);">
+                <div style="aspect-ratio: 16/9; background: linear-gradient(135deg, var(--color-primary-50) 0%, #e0f1e6 100%); display: flex; align-items: center; justify-content: center;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--color-primary-300);"><path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16.73C22.88 30.96 28 23.73 28 16V8L16 2z" transform="scale(0.75) translate(4, 2)"/></svg>
+                </div>
+                <div style="padding: 20px;">
+                  <span class="badge badge-brand" style="font-size: 11px; margin-bottom: 10px;">Industry Insight</span>
+                  <h3 class="text-heading-sm line-clamp-2" style="color: var(--color-foreground); margin-bottom: 8px;">SafeTrekr vs. Travel Insurance: What's the Difference?</h3>
+                  <p class="text-body-sm line-clamp-2" style="color: var(--color-muted-foreground); margin-bottom: 16px;">Insurance pays claims after an incident. SafeTrekr helps prevent incidents and documents due diligence.</p>
+                  <div class="flex items-center gap-2">
+                    <div style="width: 24px; height: 24px; border-radius: 9999px; background: var(--color-primary-100); display: flex; align-items: center; justify-content: center;">
+                      <span style="font-size: 10px; font-weight: 600; color: var(--color-primary-700);">JT</span>
+                    </div>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground); font-size: 12px;">James Tran</span>
+                    <span style="color: var(--color-border);">&#183;</span>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground); font-size: 12px;">Feb 28, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: Newsletter Signup CTA (Dark)                        -->
+    <!-- ============================================================== -->
+    <section aria-labelledby="newsletter-heading" data-theme="dark" style="background: var(--color-secondary); padding: 64px 0;">
+      <div class="container mx-auto text-center" style="max-width: 1280px; padding: 0 24px;">
+        <p class="text-eyebrow" style="color: #6cbc8b; letter-spacing: 0.08em; margin-bottom: 16px;">STAY INFORMED</p>
+        <h2 id="newsletter-heading" class="text-heading-lg" style="color: #f7f8f8; margin-bottom: 16px;">Get trip safety insights in your inbox.</h2>
+        <p class="text-body-sm" style="color: var(--color-secondary-muted); max-width: 50ch; margin: 0 auto 24px;">We send 1-2 emails per month. No spam. Unsubscribe anytime.</p>
+        <form role="form" aria-label="Newsletter signup" class="flex flex-col sm:flex-row gap-3" style="max-width: 28rem; margin: 0 auto;">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" placeholder="you@school.edu" class="input" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: #f7f8f8; flex: 1; height: 44px;">
+          <button type="submit" class="btn btn-md" style="background: #ffffff; color: var(--color-secondary); font-weight: 600; white-space: nowrap;">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER                                                        -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

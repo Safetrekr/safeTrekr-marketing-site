@@ -1,0 +1,64 @@
+# SafeTrekr -- llms.txt
+# https://safetrekr.com/.well-known/llms.txt
+# Last updated: 2026-03-24
+
+> SafeTrekr is a travel risk management platform that provides real-time
+> intelligence, professional trip reviews, and duty-of-care compliance for
+> organizations of every size.
+
+## Name
+
+SafeTrekr
+
+## URL
+
+https://safetrekr.com
+
+## Description
+
+SafeTrekr delivers professional travel risk management for K-12 schools,
+universities, churches, and corporate organizations. Every trip is
+professionally reviewed against real-time threat intelligence so that travel
+coordinators, risk managers, and administrators can fulfill their duty of care
+with confidence.
+
+The platform combines automated risk scoring, live threat feeds, interactive
+risk maps, and expert analyst review into a single workflow that replaces
+spreadsheets, email chains, and guesswork.
+
+## Key Features
+
+- Real-time travel risk intelligence with automated threat monitoring
+- Professional trip review by certified risk analysts
+- Interactive risk maps powered by live geopolitical and safety data
+- Duty-of-care compliance documentation and audit trails
+- Traveler tracking and emergency communication tools
+- Customizable risk policies per organization type
+- Incident response planning and crisis management support
+- Integration with travel booking systems and itinerary data
+
+## Solutions
+
+- K-12 Schools: Field trip and student travel risk management
+- Higher Education: Study-abroad and faculty travel oversight
+- Churches: Mission trip and congregational travel safety
+- Corporate: Business travel risk and employee duty of care
+
+## Pricing
+
+Visit https://safetrekr.com/pricing for current plan details.
+Plans are available for small teams through enterprise organizations.
+
+## Contact
+
+- Website: https://safetrekr.com
+- Demo request: https://safetrekr.com/demo
+- Contact form: https://safetrekr.com/contact
+- Email: hello@safetrekr.com
+
+## Technical Details
+
+- Platform type: SaaS (Software as a Service)
+- Deployment: Cloud-hosted, accessible via web browser
+- Data security: SOC 2 Type II compliant infrastructure
+- API: RESTful API available for enterprise integrations

@@ -1,0 +1,146 @@
+# ST-794: REQ-011 -- Continuous Integration Pipeline
+#
+# Runs on every pull request and push to main.
+#
+# Steps:
+#   1. Install dependencies (npm ci)
+#   2. Lint (eslint)
+#   3. Type-check (tsc --noEmit)
+#   4. Unit tests (vitest -- allowed to fail if no tests exist yet)
+#   5. Build (next build)
+#   6. Docker build verification (ensures Dockerfile produces a valid image)
+#
+# Required secrets: none (CI is read-only)
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: "22"
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Lint, type-check, test, build
+  # ---------------------------------------------------------------------------
+  ci:
+    name: Lint / Type-check / Test / Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run type-check
+
+      - name: Unit tests
+        # Allow failure -- tests may not exist yet in early project phases.
+        # Remove continue-on-error once the first test suite is committed.
+        continue-on-error: true
+        run: npm run test:unit
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate JSON-LD structured data
+        # Non-blocking warning step -- promotes to required once schemas stabilize.
+        continue-on-error: true
+        run: npm run validate:schema
+
+      - name: Bundle size check (ST-868)
+        # Enforces performance budgets: max 150KB JS, 50KB CSS, 100KB per chunk (gzipped)
+        continue-on-error: true
+        run: npm run bundlewatch
+
+      # Cache the .next/cache directory to speed up subsequent builds.
+      # The build step above populates .next/cache; this persists it across runs.
+      - name: Save Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
+          restore-keys: |
+            nextjs-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
+
+  # ---------------------------------------------------------------------------
+  # SBOM generation (ST-832: REQ-098)
+  # ---------------------------------------------------------------------------
+  sbom:
+    name: Generate SBOM
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: ci
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate CycloneDX SBOM
+        run: npx @cyclonedx/cyclonedx-npm --output-file sbom.json
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ github.sha }}
+          path: sbom.json
+          retention-days: 90
+
+  # ---------------------------------------------------------------------------
+  # Docker build verification
+  # ---------------------------------------------------------------------------
+  docker-build:
+    name: Docker Build Verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: ci
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: safetrekr-web:ci-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

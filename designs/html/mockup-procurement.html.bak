@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Procurement -- Vendor Documentation and Resources | SafeTrekr</title>
+  <meta name="description" content="Everything your procurement team needs to evaluate and purchase SafeTrekr. W-9, security questionnaire, contract templates, DPA, insurance certificate, and SOC 2 report. Response within 4 hours.">
+  <meta property="og:title" content="For Procurement -- SafeTrekr">
+  <meta property="og:description" content="Everything your procurement team needs to evaluate and purchase SafeTrekr. W-9, security questionnaire, contract templates, DPA, insurance certificate, and SOC 2 report. Response within 4 hours.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og/procurement.png">
+  <link rel="canonical" href="https://www.safetrekr.com/procurement">
+
+  <!-- Design Tokens -->
+  <link rel="stylesheet" href="design-tokens.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            'card-foreground': '#061a23',
+            border: '#b8c3c7',
+            input: '#80959b',
+            ring: '#365462',
+            muted: '#e7ecee',
+            'muted-foreground': '#4d5153',
+            primary: {
+              DEFAULT: '#3f885b',
+              50: '#f1f9f4',
+              100: '#e0f1e6',
+              200: '#c0e2cd',
+              300: '#96cfac',
+              400: '#6cbc8b',
+              500: '#4ca46e',
+              600: '#3f885b',
+              700: '#33704b',
+              800: '#2a5b3d',
+              900: '#20462f',
+              950: '#132a1c',
+              foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#123646',
+              light: '#1a4a5e',
+              muted: '#b8c3c7',
+              foreground: '#f7f8f8',
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SafeTrekr Procurement Hub",
+    "description": "Vendor documentation, security questionnaire, W-9, contract templates, and procurement resources for evaluating SafeTrekr.",
+    "url": "https://www.safetrekr.com/procurement",
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does SafeTrekr offer volume or bulk pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We offer tiered volume discounts: 5-9 trips (5% off), 10-24 trips (10% off), 25-49 trips (15% off), 50+ trips (20% off). Annual plans are available for organizations with predictable trip volumes. Contact us for a custom quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods does SafeTrekr accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept credit card (Visa, Mastercard, American Express), ACH bank transfer, wire transfer, and purchase orders for qualified organizations. NET 30 terms are available for annual plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we use a purchase order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We accept purchase orders from schools, universities, churches, government entities, and businesses with established credit. Submit your PO to procurement@safetrekr.com and we will confirm within 1 business day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SafeTrekr a registered vendor in state procurement systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are actively registering in state procurement systems. If your state or district requires a specific registration, contact us and we will prioritize it. Current W-9 and insurance documentation is available for immediate download."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer nonprofit or church discounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Volume discounts apply to all organization types, including nonprofits and churches. Multi-trip annual plans offer the deepest savings. Contact us to discuss your specific needs and trip volume."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the contract term?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per-trip purchases require no contract. Annual plans are 12-month agreements with auto-renewal and 30-day cancellation notice. Enterprise agreements are customized to your procurement requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can we get started after purchase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Immediately. Once payment is processed or a PO is confirmed, you can submit your first trip for review within minutes. There is no implementation period, no training requirement, and no software installation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who signs the contract on SafeTrekr's side?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All contracts are signed by SafeTrekr's authorized representative. We can accommodate your organization's signature workflow, including DocuSign, Adobe Sign, or wet signature if required."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* ── Fade-up animation ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Card reveal animation ── */
+    .card-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Route divider draw animation ── */
+    .route-path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .route-path.drawn {
+      stroke-dashoffset: 0;
+    }
+
+    /* ── Header scroll state ── */
+    .site-header {
+      transition: background-color 0.3s ease, height 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .site-header.scrolled {
+      background-color: rgba(231, 236, 238, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+    }
+    .site-header.scrolled .header-inner {
+      height: 64px;
+    }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .mobile-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Document card hover ── */
+    .doc-card {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .doc-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ── FAQ Accordion ── */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-answer.open {
+      max-height: 400px;
+    }
+    .faq-chevron {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* ── Non-interactive card (suppress card hover from design-tokens) ── */
+    .card-static:hover {
+      transform: none !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .card-reveal { opacity: 1; transform: none; transition: none; }
+      .route-path { stroke-dashoffset: 0; transition: none; }
+      .site-header { transition: none; }
+      .mobile-menu { transition: none; }
+      .doc-card { transition: none; }
+      .faq-answer { transition: none; }
+      .faq-chevron { transition: none; }
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:text-primary-700 focus:outline-none focus:ring-2 focus:ring-ring">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================== -->
+  <!-- SITE HEADER                                                         -->
+  <!-- ================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ================================================================== -->
+  <!-- MAIN CONTENT                                                        -->
+  <!-- ================================================================== -->
+  <main id="main-content">
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1: HERO                                                 -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="procurement-hero-heading"
+      class="pt-24 pb-16 lg:pt-32 lg:pb-24 xl:pt-36 xl:pb-28"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+
+        <!-- Eyebrow -->
+        <div class="fade-up mb-4 lg:mb-6 flex items-center gap-2">
+          <!-- Building2 icon (Lucide) -->
+          <svg class="h-3.5 w-3.5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+            <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+            <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+            <path d="M10 6h4"/>
+            <path d="M10 10h4"/>
+            <path d="M10 14h4"/>
+            <path d="M10 18h4"/>
+          </svg>
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">FOR PROCUREMENT</span>
+        </div>
+
+        <!-- Headline -->
+        <h1
+          id="procurement-hero-heading"
+          class="text-display-lg fade-up max-w-[20ch] mb-6 lg:mb-8"
+          style="color: var(--color-foreground); transition-delay: 80ms;"
+        >
+          Everything Your Procurement Team Needs. In One Place.
+        </h1>
+
+        <!-- Sub-headline -->
+        <p
+          class="text-body-lg fade-up max-w-prose mb-8 lg:mb-10"
+          style="color: var(--color-muted-foreground); transition-delay: 160ms;"
+        >
+          W-9, security questionnaire, contract templates, insurance certificate, and compliance documentation -- ready to download. Procurement inquiries answered within 4 hours.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="fade-up flex flex-col sm:flex-row gap-4" style="transition-delay: 240ms;">
+          <a
+            href="#"
+            class="btn btn-primary btn-lg rounded-lg"
+            aria-label="Download all procurement documents as a ZIP file"
+          >
+            <!-- Download icon -->
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download All Documents
+          </a>
+          <a
+            href="#procurement-contact"
+            class="btn btn-secondary btn-lg rounded-lg"
+            aria-label="Jump to procurement contact form"
+          >
+            Contact Procurement
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- ROUTE DIVIDER (Watchtower Light)                                -->
+    <!-- ============================================================== -->
+    <div class="relative overflow-hidden" style="height: 48px; background: var(--color-background);" aria-hidden="true">
+      <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 48">
+        <path
+          class="route-path"
+          d="M0 24 C300 24, 300 12, 600 12 S900 24, 1200 24"
+          fill="none"
+          stroke="var(--color-primary-200)"
+          stroke-width="1.5"
+          stroke-dasharray="8 6"
+          pathLength="1"
+        />
+        <circle cx="600" cy="12" r="4" fill="var(--color-primary-400)" opacity="0.5"/>
+      </svg>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: RESPONSE TIME COMMITMENT                             -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="response-commitment-heading"
+      style="background: var(--color-card);"
+    >
+      <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28 text-center">
+
+        <!-- Eyebrow -->
+        <p class="fade-up text-eyebrow mb-4" style="color: var(--color-primary-700);">OUR COMMITMENT</p>
+
+        <!-- Headline -->
+        <h2
+          id="response-commitment-heading"
+          class="text-heading-lg fade-up mb-10 lg:mb-12"
+          style="color: var(--color-foreground); transition-delay: 80ms;"
+        >
+          We Respond Fast. Every Time.
+        </h2>
+
+        <!-- Response Time Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+          <!-- General Inquiries Card -->
+          <div
+            class="card-reveal card-static rounded-xl p-8 text-center"
+            style="background: var(--color-background); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 160ms;"
+            role="group"
+            aria-label="Response time: General inquiries, 1 business day"
+          >
+            <!-- Clock Icon -->
+            <div class="mx-auto h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <p class="text-eyebrow mb-2" style="color: var(--color-muted-foreground);">GENERAL INQUIRIES</p>
+            <p class="text-display-md font-heading font-bold mb-4" style="color: var(--color-foreground);">1 Business Day</p>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">Questions about the platform, pricing, or getting started.</p>
+          </div>
+
+          <!-- Procurement Card -->
+          <div
+            class="card-reveal card-static rounded-xl p-8 text-center"
+            style="background: var(--color-background); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 240ms;"
+            role="group"
+            aria-label="Response time: Procurement, 4 hours"
+          >
+            <!-- Zap Icon -->
+            <div class="mx-auto h-12 w-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="h-6 w-6" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <p class="text-eyebrow mb-2" style="color: var(--color-muted-foreground);">PROCUREMENT</p>
+            <p class="text-display-md font-heading font-bold mb-4" style="color: var(--color-foreground);">4 Hours</p>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">W-9 requests, security questionnaires, PO processing, contract reviews, and vendor registration.</p>
+          </div>
+
+        </div>
+
+        <!-- Business Hours Note -->
+        <p class="fade-up text-body-sm mt-8" style="color: var(--color-muted-foreground); transition-delay: 320ms;">
+          Business hours: Monday -- Friday, 8 AM - 6 PM CT. Procurement emails sent outside business hours are answered by 10 AM the next business day.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: DOCUMENT DOWNLOADS GRID                              -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="document-downloads-heading"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Section Header (centered) -->
+        <div class="text-center">
+          <!-- Eyebrow -->
+          <div class="fade-up flex items-center justify-center gap-2 mb-4">
+            <!-- FileText icon -->
+            <svg class="h-3.5 w-3.5" style="color: var(--color-primary-700);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">VENDOR DOCUMENTATION</span>
+          </div>
+
+          <!-- Headline -->
+          <h2
+            id="document-downloads-heading"
+            class="text-display-md fade-up mb-4 lg:mb-6"
+            style="color: var(--color-foreground); transition-delay: 80ms;"
+          >
+            Download. Review. Purchase.
+          </h2>
+
+          <!-- Sub-text -->
+          <p
+            class="text-body-lg fade-up max-w-prose mx-auto mb-10 lg:mb-14"
+            style="color: var(--color-muted-foreground); transition-delay: 160ms;"
+          >
+            Every document your procurement team typically requests -- ready for immediate download. No login required.
+          </p>
+        </div>
+
+        <!-- Document Card Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1: W-9 -->
+          <div class="doc-card card-reveal rounded-xl p-6 flex flex-col" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 0ms;">
+            <span class="badge badge-neutral self-start mb-4" aria-hidden="true">PDF</span>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">W-9</h3>
+            <p class="text-body-sm flex-1 mb-6" style="color: var(--color-muted-foreground);">Current W-9 tax identification form for vendor onboarding and payment processing.</p>
+            <a
+              href="/docs/safetrekr-w9-2026.pdf"
+              class="btn btn-secondary btn-sm w-full rounded-lg mt-auto inline-flex items-center justify-center gap-2"
+              aria-label="Download W-9 (PDF)"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Card 2: Security Questionnaire -->
+          <div class="doc-card card-reveal rounded-xl p-6 flex flex-col" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 80ms;">
+            <span class="badge badge-neutral self-start mb-4" aria-hidden="true">PDF</span>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Security Questionnaire</h3>
+            <p class="text-body-sm flex-1 mb-6" style="color: var(--color-muted-foreground);">Completed SIG Lite / CAIQ security assessment covering encryption, access controls, incident response, and data handling.</p>
+            <a
+              href="/docs/safetrekr-security-questionnaire.pdf"
+              class="btn btn-secondary btn-sm w-full rounded-lg mt-auto inline-flex items-center justify-center gap-2"
+              aria-label="Download Security Questionnaire (PDF)"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Card 3: Contract Template -->
+          <div class="doc-card card-reveal rounded-xl p-6 flex flex-col" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 160ms;">
+            <span class="badge badge-neutral self-start mb-4" aria-hidden="true">DOCX</span>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Contract Template</h3>
+            <p class="text-body-sm flex-1 mb-6" style="color: var(--color-muted-foreground);">Master services agreement template ready for redline. Includes standard terms, SLA, and data handling provisions.</p>
+            <a
+              href="/docs/safetrekr-msa-template.docx"
+              class="btn btn-secondary btn-sm w-full rounded-lg mt-auto inline-flex items-center justify-center gap-2"
+              aria-label="Download Contract Template (DOCX)"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Card 4: Data Processing Agreement -->
+          <div class="doc-card card-reveal rounded-xl p-6 flex flex-col" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 240ms;">
+            <span class="badge badge-neutral self-start mb-4" aria-hidden="true">PDF</span>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Data Processing Agreement</h3>
+            <p class="text-body-sm flex-1 mb-6" style="color: var(--color-muted-foreground);">Standard DPA covering FERPA, COPPA, and GDPR data processing obligations with subprocessor list.</p>
+            <a
+              href="/docs/safetrekr-dpa.pdf"
+              class="btn btn-secondary btn-sm w-full rounded-lg mt-auto inline-flex items-center justify-center gap-2"
+              aria-label="Download Data Processing Agreement (PDF)"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Card 5: Insurance Certificate -->
+          <div class="doc-card card-reveal rounded-xl p-6 flex flex-col" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 320ms;">
+            <span class="badge badge-neutral self-start mb-4" aria-hidden="true">PDF</span>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Insurance Certificate</h3>
+            <p class="text-body-sm flex-1 mb-6" style="color: var(--color-muted-foreground);">Certificate of general liability and professional indemnity insurance. Updated annually.</p>
+            <a
+              href="/docs/safetrekr-insurance-certificate.pdf"
+              class="btn btn-secondary btn-sm w-full rounded-lg mt-auto inline-flex items-center justify-center gap-2"
+              aria-label="Download Insurance Certificate (PDF)"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Card 6: SOC 2 Report -->
+          <div class="doc-card card-reveal rounded-xl p-6 flex flex-col" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); transition-delay: 400ms;">
+            <span class="badge badge-neutral self-start mb-4" aria-hidden="true">PDF</span>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">SOC 2 Report</h3>
+            <p class="text-body-sm flex-1 mb-6" style="color: var(--color-muted-foreground);">SOC 2 Type I report covering security, availability, and confidentiality trust service criteria.</p>
+            <a
+              href="/docs/safetrekr-soc2-report.pdf"
+              class="btn btn-secondary btn-sm w-full rounded-lg mt-auto inline-flex items-center justify-center gap-2"
+              aria-label="Download SOC 2 Report (PDF)"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: PROCUREMENT CONTACT                                  -->
+    <!-- ============================================================== -->
+    <section
+      id="procurement-contact"
+      aria-labelledby="procurement-contact-heading"
+      style="background: var(--color-card);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+
+          <!-- Left Column: Text + Direct Contact -->
+          <div class="lg:col-span-5">
+            <!-- Eyebrow -->
+            <p class="fade-up text-eyebrow mb-4" style="color: var(--color-primary-700);">GET IN TOUCH</p>
+
+            <!-- Headline -->
+            <h2
+              id="procurement-contact-heading"
+              class="text-heading-lg fade-up mb-4 lg:mb-6"
+              style="color: var(--color-foreground); transition-delay: 80ms;"
+            >
+              Questions? We're Here.
+            </h2>
+
+            <!-- Body -->
+            <p
+              class="text-body-lg fade-up max-w-prose mb-8 lg:mb-10"
+              style="color: var(--color-muted-foreground); transition-delay: 160ms;"
+            >
+              Have a procurement question that is not answered here? Reach out directly and we will respond within 4 hours during business hours.
+            </p>
+
+            <!-- Direct Contact -->
+            <div class="fade-up" style="transition-delay: 240ms;">
+              <p class="text-eyebrow mb-2" style="color: var(--color-muted-foreground);">DIRECT CONTACT</p>
+
+              <!-- Email -->
+              <a
+                href="mailto:procurement@safetrekr.com"
+                class="text-body-md font-medium hover:underline inline-flex items-center gap-2"
+                style="color: var(--color-primary-700);"
+              >
+                <!-- Mail icon -->
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                procurement@safetrekr.com
+              </a>
+
+              <!-- Hours -->
+              <p class="text-body-sm mt-4" style="color: var(--color-muted-foreground);">
+                Monday -- Friday, 8 AM - 6 PM CT
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Contact Form -->
+          <div class="lg:col-span-7 fade-up" style="transition-delay: 200ms;">
+            <div class="rounded-xl p-6 lg:p-8" style="background: var(--color-background); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+
+              <form id="procurement-form" class="space-y-4" novalidate>
+
+                <!-- Name + Email Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Full Name -->
+                  <div class="input-group">
+                    <label for="full-name" class="input-label">Full Name <span style="color: var(--color-destructive);">*</span></label>
+                    <input
+                      type="text"
+                      id="full-name"
+                      name="fullName"
+                      class="input"
+                      placeholder="Your full name"
+                      required
+                      minlength="2"
+                      autocomplete="name"
+                    >
+                  </div>
+                  <!-- Work Email -->
+                  <div class="input-group">
+                    <label for="work-email" class="input-label">Work Email <span style="color: var(--color-destructive);">*</span></label>
+                    <input
+                      type="email"
+                      id="work-email"
+                      name="workEmail"
+                      class="input"
+                      placeholder="you@organization.com"
+                      required
+                      autocomplete="email"
+                    >
+                  </div>
+                </div>
+
+                <!-- Organization -->
+                <div class="input-group">
+                  <label for="organization" class="input-label">Organization <span style="color: var(--color-destructive);">*</span></label>
+                  <input
+                    type="text"
+                    id="organization"
+                    name="organization"
+                    class="input"
+                    placeholder="Organization name"
+                    required
+                    minlength="2"
+                    autocomplete="organization"
+                  >
+                </div>
+
+                <!-- Subject -->
+                <div class="input-group">
+                  <label for="subject" class="input-label">Subject <span style="color: var(--color-destructive);">*</span></label>
+                  <div class="relative">
+                    <select
+                      id="subject"
+                      name="subject"
+                      class="input appearance-none pr-10 cursor-pointer"
+                      required
+                      style="color: var(--color-input);"
+                      onchange="if(this.value) this.style.color = 'var(--color-foreground)'; else this.style.color = 'var(--color-input)';"
+                    >
+                      <option value="" disabled selected>Select a topic</option>
+                      <option value="w9">W-9 or Tax Documentation</option>
+                      <option value="security">Security Questionnaire</option>
+                      <option value="contract">Contract or MSA Review</option>
+                      <option value="po">Purchase Order Processing</option>
+                      <option value="insurance">Insurance Documentation</option>
+                      <option value="compliance">Compliance Question</option>
+                      <option value="volume">Volume Pricing or Annual Plan</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <!-- ChevronDown icon -->
+                    <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 pointer-events-none" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Message -->
+                <div class="input-group">
+                  <label for="message" class="input-label">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="input"
+                    placeholder="How can we help?"
+                    rows="4"
+                    maxlength="1000"
+                    style="min-height: 120px; resize: vertical;"
+                  ></textarea>
+                </div>
+
+                <!-- Honeypot (hidden) -->
+                <div class="sr-only" aria-hidden="true">
+                  <label for="website">Do not fill this field</label>
+                  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-md rounded-lg w-full sm:w-auto"
+                  >
+                    <!-- Send icon -->
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="22" y1="2" x2="11" y2="13"/>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    Send Message
+                  </button>
+                </div>
+
+              </form>
+
+              <!-- Success State (hidden by default) -->
+              <div id="form-success" class="hidden text-center py-12" role="status" aria-live="polite">
+                <!-- Check Circle Icon -->
+                <div class="mx-auto h-16 w-16 rounded-full flex items-center justify-center mb-6" style="background: var(--color-primary-50);">
+                  <svg class="h-8 w-8" style="color: var(--color-primary-500);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <p class="text-heading-sm mb-2" style="color: var(--color-foreground);">Message received.</p>
+                <p class="text-body-md mb-6" style="color: var(--color-muted-foreground);">We will respond within 4 hours during business hours.</p>
+                <a href="#" class="btn btn-secondary btn-md rounded-lg inline-flex items-center gap-2">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  Download All Documents
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: PROCUREMENT FAQ                                      -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="procurement-faq-heading"
+      style="background: var(--color-background);"
+    >
+      <div class="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-32">
+
+        <!-- Section Header (centered) -->
+        <div class="text-center">
+          <p class="fade-up text-eyebrow mb-4" style="color: var(--color-primary-700);">COMMON QUESTIONS</p>
+          <h2
+            id="procurement-faq-heading"
+            class="text-heading-lg fade-up mb-10 lg:mb-12"
+            style="color: var(--color-foreground); transition-delay: 80ms;"
+          >
+            Procurement FAQ
+          </h2>
+        </div>
+
+        <!-- Accordion -->
+        <div class="divide-y" style="border-color: var(--color-border); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+
+          <!-- FAQ 1 -->
+          <div class="fade-up" style="transition-delay: 0ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-1"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Does SafeTrekr offer volume or bulk pricing?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-1" class="faq-answer" role="region" aria-labelledby="faq-q-1">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Yes. We offer tiered volume discounts: 5-9 trips (5% off), 10-24 trips (10% off), 25-49 trips (15% off), 50+ trips (20% off). Annual plans are available for organizations with predictable trip volumes. Contact us for a custom quote.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="fade-up" style="transition-delay: 60ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-2"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">What payment methods does SafeTrekr accept?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-2" class="faq-answer" role="region" aria-labelledby="faq-q-2">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                We accept credit card (Visa, Mastercard, American Express), ACH bank transfer, wire transfer, and purchase orders for qualified organizations. NET 30 terms are available for annual plans.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="fade-up" style="transition-delay: 120ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-3"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Can we use a purchase order?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-3" class="faq-answer" role="region" aria-labelledby="faq-q-3">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Yes. We accept purchase orders from schools, universities, churches, government entities, and businesses with established credit. Submit your PO to <a href="mailto:procurement@safetrekr.com" style="color: var(--color-primary-700); font-weight: 500;" class="hover:underline">procurement@safetrekr.com</a> and we will confirm within 1 business day.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="fade-up" style="transition-delay: 180ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-4"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Is SafeTrekr a registered vendor in state procurement systems?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-4" class="faq-answer" role="region" aria-labelledby="faq-q-4">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                We are actively registering in state procurement systems. If your state or district requires a specific registration, contact us and we will prioritize it. Current W-9 and insurance documentation is available for immediate download above.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="fade-up" style="transition-delay: 240ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-5"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Do you offer nonprofit or church discounts?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-5" class="faq-answer" role="region" aria-labelledby="faq-q-5">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Volume discounts apply to all organization types, including nonprofits and churches. Multi-trip annual plans offer the deepest savings. Contact us to discuss your specific needs and trip volume.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="fade-up" style="transition-delay: 300ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-6"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">What is the contract term?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-6" class="faq-answer" role="region" aria-labelledby="faq-q-6">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Per-trip purchases require no contract. Annual plans are 12-month agreements with auto-renewal and 30-day cancellation notice. Enterprise agreements are customized to your procurement requirements.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="fade-up" style="transition-delay: 360ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-7"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">How quickly can we get started after purchase?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-7" class="faq-answer" role="region" aria-labelledby="faq-q-7">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                Immediately. Once payment is processed or a PO is confirmed, you can submit your first trip for review within minutes. There is no implementation period, no training requirement, and no software installation.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="fade-up" style="transition-delay: 420ms;">
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+              aria-controls="faq-answer-8"
+              onclick="toggleFaq(this)"
+            >
+              <span class="text-heading-sm" style="color: var(--color-foreground);">Who signs the contract on SafeTrekr's side?</span>
+              <svg class="faq-chevron h-5 w-5 shrink-0" style="color: var(--color-muted-foreground);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div id="faq-answer-8" class="faq-answer" role="region" aria-labelledby="faq-q-8">
+              <p class="text-body-md pb-5" style="color: var(--color-muted-foreground);">
+                All contracts are signed by SafeTrekr's authorized representative. We can accommodate your organization's signature workflow, including DocuSign, Adobe Sign, or wet signature if required.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 6: CONVERSION CTA BANNER (Dark)                         -->
+    <!-- ============================================================== -->
+    <section
+      aria-labelledby="procurement-cta-heading"
+      data-theme="dark"
+      style="background: var(--color-secondary);"
+    >
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 text-center">
+
+        <!-- Headline -->
+        <h2
+          id="procurement-cta-heading"
+          class="text-display-md fade-up"
+          style="color: #ffffff;"
+        >
+          Ready to Move Forward?
+        </h2>
+
+        <!-- Body -->
+        <p
+          class="text-body-lg fade-up max-w-prose mx-auto mt-4 lg:mt-6"
+          style="color: rgba(255,255,255,0.8); transition-delay: 80ms;"
+        >
+          Download the documents you need. Or reach out and we will walk you through everything.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="fade-up flex flex-col sm:flex-row gap-4 justify-center mt-8 lg:mt-10" style="transition-delay: 160ms;">
+          <a
+            href="/demo"
+            class="btn btn-lg rounded-lg font-heading font-semibold"
+            style="background: white; color: var(--color-secondary);"
+            onmouseover="this.style.background='var(--color-primary-50)'"
+            onmouseout="this.style.background='white'"
+          >
+            Get a Demo
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a
+            href="/contact"
+            class="btn btn-lg rounded-lg font-heading font-semibold"
+            style="background: transparent; border: 1.5px solid rgba(255,255,255,0.2); color: #f7f8f8;"
+            onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+            onmouseout="this.style.background='transparent'"
+          >
+            Contact Us
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================================== -->
+  <!-- SITE FOOTER                                                         -->
+  <!-- ================================================================== -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ================================================================== -->
+  <!-- SCRIPTS                                                             -->
+  <!-- ================================================================== -->
+  <script>
+    // ── Intersection Observer for fade-up and card-reveal animations ──
+    (function() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        document.querySelectorAll('.fade-up, .card-reveal').forEach(el => el.classList.add('visible'));
+        document.querySelectorAll('.route-path').forEach(el => el.classList.add('drawn'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const targets = entry.target.classList.contains('fade-up') || entry.target.classList.contains('card-reveal')
+              ? [entry.target]
+              : entry.target.querySelectorAll('.fade-up, .card-reveal');
+
+            targets.forEach(el => {
+              el.classList.add('visible');
+            });
+
+            // Handle route path drawing
+            const paths = entry.target.querySelectorAll('.route-path');
+            paths.forEach(p => p.classList.add('drawn'));
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.fade-up, .card-reveal').forEach(el => observer.observe(el));
+
+      // Observe the route divider container
+      const routeContainer = document.querySelector('.route-path');
+      if (routeContainer) {
+        observer.observe(routeContainer.closest('div'));
+      }
+    })();
+
+    // ── Header scroll behavior ──
+    (function() {
+      const header = document.querySelector('.site-header');
+
+      function onScroll() {
+        const scrollY = window.scrollY;
+        if (scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // ── Mobile menu toggle ──
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('mobile-overlay');
+      const toggle = document.getElementById('menu-toggle');
+      const hamburger = toggle.querySelector('.hamburger-icon');
+      const closeIcon = toggle.querySelector('.close-icon');
+
+      const isOpen = menu.classList.contains('open');
+
+      if (isOpen) {
+        menu.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburger.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        menu.classList.add('open');
+        overlay.classList.add('open');
+        hamburger.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // ── FAQ Accordion toggle ──
+    function toggleFaq(trigger) {
+      const answer = trigger.nextElementSibling;
+      const chevron = trigger.querySelector('.faq-chevron');
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQ items (single-expand behavior)
+      document.querySelectorAll('.faq-trigger').forEach(t => {
+        if (t !== trigger) {
+          t.setAttribute('aria-expanded', 'false');
+          t.nextElementSibling.classList.remove('open');
+          t.querySelector('.faq-chevron').classList.remove('rotated');
+        }
+      });
+
+      // Toggle current item
+      if (isExpanded) {
+        trigger.setAttribute('aria-expanded', 'false');
+        answer.classList.remove('open');
+        chevron.classList.remove('rotated');
+      } else {
+        trigger.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+        chevron.classList.add('rotated');
+      }
+    }
+
+    // ── Procurement form submission ──
+    (function() {
+      const form = document.getElementById('procurement-form');
+      const successEl = document.getElementById('form-success');
+
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Check honeypot
+        const honeypot = form.querySelector('[name="website"]');
+        if (honeypot && honeypot.value) return;
+
+        // Basic validation
+        const name = form.querySelector('[name="fullName"]');
+        const email = form.querySelector('[name="workEmail"]');
+        const org = form.querySelector('[name="organization"]');
+        const subject = form.querySelector('[name="subject"]');
+
+        let valid = true;
+
+        // Clear previous errors
+        form.querySelectorAll('.field-error').forEach(el => el.remove());
+        form.querySelectorAll('.input').forEach(el => {
+          el.style.borderColor = '';
+        });
+
+        function showError(field, message) {
+          field.style.borderColor = 'var(--color-destructive)';
+          const err = document.createElement('p');
+          err.className = 'field-error text-body-sm mt-1';
+          err.style.color = 'var(--color-destructive)';
+          err.style.fontSize = '12px';
+          err.textContent = message;
+          err.setAttribute('role', 'alert');
+          field.parentNode.appendChild(err);
+          valid = false;
+        }
+
+        if (!name.value || name.value.length < 2) {
+          showError(name, 'Please enter your full name.');
+        }
+
+        if (!email.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          showError(email, 'Please enter a valid email address.');
+        }
+
+        if (!org.value || org.value.length < 2) {
+          showError(org, 'Please enter your organization name.');
+        }
+
+        if (!subject.value) {
+          showError(subject, 'Please select a topic.');
+        }
+
+        if (!valid) return;
+
+        // Show success state
+        form.classList.add('hidden');
+        successEl.classList.remove('hidden');
+      });
+    })();
+  </script>
+
+</body>
+</html>

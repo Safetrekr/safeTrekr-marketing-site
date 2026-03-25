@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Abroad Safety for Higher Education -- SafeTrekr</title>
+  <meta name="description" content="SafeTrekr assigns a professional safety analyst to review every study abroad program your institution sends -- across 17 dimensions of risk. Government intelligence. Clery Act documentation. Starting at $1,250 per international program.">
+  <meta property="og:title" content="Study Abroad Safety Built for Higher Education">
+  <meta property="og:description" content="Professional analyst review, government intelligence, and audit-ready documentation for every study abroad program. Complements your existing systems.">
+  <meta property="og:image" content="/og/solutions-higher-education.png">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://safetrekr.com/solutions/higher-education">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#e7ecee',
+            foreground: '#061a23',
+            card: '#f7f8f8',
+            border: '#b8c3c7',
+            ring: '#365462',
+            muted: { DEFAULT: '#e7ecee', foreground: '#4d5153' },
+            primary: {
+              50: '#f1f9f4', 100: '#e0f1e6', 200: '#c0e2cd', 300: '#96cfac',
+              400: '#6cbc8b', 500: '#4ca46e', 600: '#3f885b', 700: '#33704b',
+              800: '#2a5b3d', 900: '#20462f', 950: '#132a1c',
+              DEFAULT: '#3f885b', foreground: '#ffffff'
+            },
+            secondary: {
+              DEFAULT: '#123646', foreground: '#f7f8f8',
+              light: '#1a4a5e', muted: '#b8c3c7'
+            },
+            destructive: { DEFAULT: '#c1253e', foreground: '#ffffff' },
+            safety: { green: '#22c55e', yellow: '#eab308', red: '#ef4444' },
+            dark: {
+              surface: 'rgba(255,255,255,0.06)',
+              border: 'rgba(255,255,255,0.1)',
+              'text-primary': '#f7f8f8',
+              'text-secondary': '#b8c3c7',
+              accent: '#6cbc8b'
+            }
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          },
+          maxWidth: {
+            'container': '1280px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://safetrekr.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://safetrekr.com/solutions" },
+      { "@type": "ListItem", "position": 3, "name": "Higher Education", "item": "https://safetrekr.com/solutions/higher-education" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Does SafeTrekr replace our existing study abroad management system?", "acceptedAnswer": { "@type": "Answer", "text": "No. SafeTrekr is designed to complement systems like Terra Dotta, Via TRM, StudioAbroad, and custom institutional platforms. Your existing system manages program logistics -- applications, enrollment, housing assignments, academic credit. SafeTrekr adds the independent safety verification layer." }},
+      { "@type": "Question", "name": "How does SafeTrekr handle semester-long programs where conditions may change?", "acceptedAnswer": { "@type": "Answer", "text": "Our analyst reviews specifically account for program duration. For semester-long programs, the initial safety binder covers pre-departure conditions. During the program, your faculty leaders and resident directors receive morning and evening safety briefings." }},
+      { "@type": "Question", "name": "Can we use SafeTrekr for faculty-led short-term programs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Faculty-led programs of any duration benefit from independent safety review. A two-week faculty-led program in Peru carries the same institutional liability as a semester program in London." }},
+      { "@type": "Question", "name": "How does this help with Clery Act compliance?", "acceptedAnswer": { "@type": "Answer", "text": "The Clery Act requires institutions to report crimes and safety incidents at locations controlled by the institution -- including study abroad program sites. SafeTrekr's safety binder documents that your institution conducted a formal safety assessment." }},
+      { "@type": "Question", "name": "What about Title IX obligations for programs abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Title IX protections follow students to study abroad program locations. SafeTrekr's safety binder includes emergency protocol documentation, local law enforcement contacts, medical facility locations, and communication infrastructure assessment." }},
+      { "@type": "Question", "name": "How quickly do we get the safety binder back?", "acceptedAnswer": { "@type": "Answer", "text": "3-5 business days from program submission to binder delivery. For programs planned months in advance, this timeline integrates naturally into your pre-departure preparation." }},
+      { "@type": "Question", "name": "Can multiple offices access the safety binder?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You control access to each program's safety binder. It can be shared with your international education office, risk management, general counsel, the provost's office, program faculty, and any other stakeholder." }},
+      { "@type": "Question", "name": "How does pricing work for institutions with many programs?", "acceptedAnswer": { "@type": "Answer", "text": "Each program is priced at $1,250 for international programs. Institutions running 15 or more international programs per year qualify for volume pricing." }},
+      { "@type": "Question", "name": "Does SafeTrekr cover domestic programs and field trips?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SafeTrekr reviews domestic programs at $450 per program (day trips) and $750 per program (overnight/multi-day). The same 17-section analysis applies regardless of destination." }},
+      { "@type": "Question", "name": "What government data sources does SafeTrekr use?", "acceptedAnswer": { "@type": "Answer", "text": "Our Risk Intelligence Engine pulls data from five government and international agency sources: NOAA, USGS, CDC, GDACS, and ReliefWeb. Each data source is scored using Monte Carlo simulation." }},
+      { "@type": "Question", "name": "How does SafeTrekr handle programs with multiple sites?", "acceptedAnswer": { "@type": "Answer", "text": "Our analyst reviews each site independently -- the safety conditions in Barcelona's city center are different from those at a rural archaeological dig. The final binder consolidates all sites into a single comprehensive document." }},
+      { "@type": "Question", "name": "Can SafeTrekr handle programs in high-risk regions?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our analyst reviews specifically account for infrastructure gaps, political instability, health system limitations, and communication challenges. The safety binder documents the risks, mitigations, and emergency protocols." }}
+    ]
+  }
+  </script>
+
+  <style>
+    /* Dot grid background pattern */
+    .bg-dot-grid {
+      background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Sticky in-page nav */
+    .page-nav {
+      position: sticky;
+      top: 72px;
+      z-index: 20;
+      background: rgba(247, 248, 248, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .page-nav.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .page-nav-inner {
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+    .page-nav-inner::-webkit-scrollbar { display: none; }
+    .page-nav-link {
+      scroll-snap-align: start;
+      white-space: nowrap;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-muted-foreground);
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .page-nav-link:hover { color: var(--color-foreground); }
+    .page-nav-link.active {
+      color: var(--color-primary-700);
+      font-weight: 600;
+      border-bottom-color: var(--color-primary-500);
+    }
+
+    /* Accordion */
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-foreground);
+      gap: 16px;
+    }
+    .faq-trigger:hover { color: var(--color-primary-700); }
+    .faq-trigger svg {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .faq-trigger[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-content.open {
+      max-height: 800px;
+    }
+    .faq-content-inner {
+      padding-bottom: 20px;
+      font-size: clamp(0.9375rem, 0.875rem + 0.15vw, 1rem);
+      line-height: 1.65;
+      color: var(--color-muted-foreground);
+    }
+
+    /* Hero visual composition */
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+    }
+    .hero-map {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #d4dce0 0%, #c8d3d8 40%, #bcc8ce 100%);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-map svg { width: 100%; height: 100%; }
+    .hero-binder-card {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 260px;
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--color-border);
+      padding: 20px;
+    }
+    .hero-status-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 16px;
+    }
+
+    /* Binder preview stack */
+    .binder-stack { position: relative; width: 100%; max-width: 360px; padding: 20px; }
+    .binder-page {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      position: absolute;
+      width: 100%;
+    }
+    .binder-page-back {
+      transform: rotate(-2deg) translate(-12px, -16px);
+      opacity: 0.7;
+      box-shadow: var(--shadow-md);
+    }
+    .binder-page-mid {
+      transform: rotate(-1deg) translate(-6px, -8px);
+      opacity: 0.9;
+      box-shadow: var(--shadow-lg);
+    }
+    .binder-page-front {
+      position: relative;
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Comparison table layout */
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 767px) {
+      .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .comparison-item + .comparison-item {
+        border-top: 1px solid var(--color-border);
+        padding-top: 16px;
+        margin-top: 16px;
+      }
+    }
+
+    /* Feature card link arrow hover */
+    .feature-card:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+    .arrow-icon {
+      transition: transform 0.2s ease;
+    }
+
+    /* Site header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(247, 248, 248, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    /* Fade-up animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    /* Mobile menu */
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* Pricing card highlight */
+    .pricing-card-highlight {
+      position: relative;
+      border-color: var(--color-primary-400);
+      box-shadow: var(--shadow-md), 0 0 0 1px var(--color-primary-200);
+    }
+
+    /* Process timeline connector */
+    .timeline-connector {
+      height: 2px;
+      background: var(--color-border);
+      flex: 1;
+      margin: 0 -8px;
+      margin-top: 20px;
+    }
+    @media (max-width: 1023px) {
+      .timeline-connector { display: none; }
+    }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body class="font-body" style="background: var(--color-background); color: var(--color-foreground);">
+
+  <!-- Skip navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:text-primary-700 focus:font-semibold focus:outline-none focus:ring-2 focus:ring-ring">
+    Skip to main content
+  </a>
+
+  <!-- ════════════════════════════════════════════
+       SITE HEADER
+       ════════════════════════════════════════════ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       IN-PAGE NAVIGATION (Sticky, appears on scroll)
+       ════════════════════════════════════════════ -->
+  <nav id="page-nav" class="page-nav" aria-label="Page sections">
+    <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+      <div class="page-nav-inner flex items-center lg:justify-center gap-0">
+        <a href="#challenge" class="page-nav-link" data-section="challenge">The Challenge</a>
+        <a href="#how-it-works" class="page-nav-link" data-section="how-it-works">How It Works</a>
+        <a href="#sample-binder" class="page-nav-link" data-section="sample-binder">Sample Binder</a>
+        <a href="#pricing" class="page-nav-link" data-section="pricing">Pricing</a>
+        <a href="#compliance" class="page-nav-link" data-section="compliance">Security</a>
+        <a href="#faq" class="page-nav-link" data-section="faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ──────────────────────────────────────────
+         SECTION 1: HERO
+         ────────────────────────────────────────── -->
+    <section id="hero" aria-label="Hero" style="background: var(--color-background);" class="pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28 xl:pt-28 xl:pb-36">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="mb-6 lg:mb-8">
+          <ol class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+            <li><a href="/" class="hover:underline" style="color: var(--color-primary-700);">Home</a></li>
+            <li aria-hidden="true" class="select-none">/</li>
+            <li><a href="/solutions" class="hover:underline" style="color: var(--color-primary-700);">Solutions</a></li>
+            <li aria-hidden="true" class="select-none">/</li>
+            <li aria-current="page" class="font-medium" style="color: var(--color-foreground);">Higher Education</li>
+          </ol>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Text Column -->
+          <div>
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-2 mb-5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span class="text-eyebrow" style="color: var(--color-primary-700);">STUDY ABROAD SAFETY</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-display-xl max-w-[20ch]" style="color: var(--color-foreground);">
+              Your Study Abroad Programs Deserve a Safety Analyst
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-body-lg mt-6 max-w-[50ch]" style="color: var(--color-muted-foreground);">
+              SafeTrekr brings professional safety review to every study abroad program, faculty-led trip, and international research expedition your institution sends. Government intelligence. 17-section analyst review. Clery Act-ready documentation that complements your existing study abroad systems -- not replaces them.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
+              <a href="/resources/sample-binders/study-abroad" class="btn btn-lg btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Study Abroad Sample Binder
+              </a>
+              <a href="/demo" class="btn btn-lg btn-secondary">
+                Get a Demo
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual Column -->
+          <div class="flex justify-center lg:justify-end" aria-hidden="true">
+            <p class="sr-only">Composed interface showing a study abroad safety binder with map intelligence, analyst review status, and evidence documentation.</p>
+            <div class="hero-visual">
+              <!-- Map Fragment (Western Europe) -->
+              <div class="hero-map">
+                <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Desaturated map background -->
+                  <rect width="480" height="360" fill="#d4dce0"/>
+                  <!-- Water (Mediterranean) -->
+                  <path d="M0 260 Q80 240 160 270 Q240 300 320 260 Q400 220 480 250 V360 H0 Z" fill="#c0cdd3" opacity="0.5"/>
+                  <!-- Iberian Peninsula landmass -->
+                  <path d="M60 80 Q100 50 180 60 Q240 70 300 55 Q360 40 420 65 Q460 80 480 120 V220 Q440 240 380 230 Q320 220 260 240 Q200 260 140 230 Q80 200 40 180 Q20 160 20 130 Q20 100 60 80Z" fill="#bcc8ce"/>
+                  <!-- France/Southern Europe -->
+                  <path d="M300 40 Q340 20 400 30 Q440 40 480 60 V120 Q460 100 420 95 Q380 90 340 100 Q300 110 280 90 Q280 60 300 40Z" fill="#b0bec5"/>
+                  <!-- Route path: Barcelona - Madrid - Seville -->
+                  <path d="M340 130 Q280 145 220 155 Q180 165 140 190" stroke="var(--color-primary-500)" stroke-width="3" stroke-dasharray="8 4" fill="none" opacity="0.8"/>
+                  <!-- Waypoint: Barcelona -->
+                  <circle cx="340" cy="130" r="8" fill="white" stroke="var(--color-primary-500)" stroke-width="2.5"/>
+                  <circle cx="340" cy="130" r="3" fill="var(--color-primary-500)"/>
+                  <!-- Waypoint: Madrid -->
+                  <circle cx="220" cy="155" r="8" fill="white" stroke="var(--color-primary-500)" stroke-width="2.5"/>
+                  <circle cx="220" cy="155" r="3" fill="var(--color-primary-500)"/>
+                  <!-- Waypoint: Seville -->
+                  <circle cx="140" cy="190" r="8" fill="white" stroke="var(--color-primary-500)" stroke-width="2.5"/>
+                  <circle cx="140" cy="190" r="3" fill="var(--color-primary-500)"/>
+                  <!-- Labels -->
+                  <text x="350" y="120" font-family="Inter, sans-serif" font-size="10" fill="var(--color-muted-foreground)">Barcelona</text>
+                  <text x="230" y="148" font-family="Inter, sans-serif" font-size="10" fill="var(--color-muted-foreground)">Madrid</text>
+                  <text x="100" y="212" font-family="Inter, sans-serif" font-size="10" fill="var(--color-muted-foreground)">Seville</text>
+                </svg>
+              </div>
+
+              <!-- Binder Preview Card -->
+              <div class="hero-binder-card hidden sm:block">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs font-medium uppercase tracking-wider" style="color: var(--color-primary-700);">Study Abroad Program</span>
+                </div>
+                <div class="font-heading text-lg font-bold" style="color: var(--color-foreground);">Safety Binder</div>
+                <div class="mt-2">
+                  <span class="badge badge-brand text-xs">17 Sections Reviewed</span>
+                </div>
+                <div class="mt-3 space-y-2">
+                  <div class="flex items-center gap-2 text-xs" style="color: var(--color-muted-foreground);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Host Institution Verification -- Completed
+                  </div>
+                  <div class="flex items-center gap-2 text-xs" style="color: var(--color-muted-foreground);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Emergency Medical Facilities -- Verified
+                  </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-border">
+                  <span class="font-mono text-[10px]" style="color: var(--color-muted-foreground);">SHA-256: a3f8e2d1...</span>
+                </div>
+              </div>
+
+              <!-- Status Badge -->
+              <div class="hero-status-badge hidden sm:flex">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md" style="background: white; color: var(--color-primary-700); border: 1px solid var(--color-primary-200);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-safety-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Program Ready
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 2: TRUST METRICS STRIP
+         ────────────────────────────────────────── -->
+    <section aria-label="Platform capabilities" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);" class="py-10 lg:py-12">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+          <!-- Metric 1 -->
+          <div class="text-center">
+            <div class="font-heading text-3xl font-bold" style="color: var(--color-primary-700);" aria-label="5 government intelligence sources">5</div>
+            <div class="text-xs uppercase tracking-widest mt-1" style="color: var(--color-muted-foreground);">Government Intel Sources</div>
+          </div>
+          <!-- Metric 2 -->
+          <div class="text-center">
+            <div class="font-heading text-3xl font-bold" style="color: var(--color-primary-700);" aria-label="17 safety review sections">17</div>
+            <div class="text-xs uppercase tracking-widest mt-1" style="color: var(--color-muted-foreground);">Safety Review Sections</div>
+          </div>
+          <!-- Metric 3 -->
+          <div class="text-center">
+            <div class="font-heading text-3xl font-bold" style="color: var(--color-primary-700);" aria-label="3 to 5 day turnaround">3-5</div>
+            <div class="text-xs uppercase tracking-widest mt-1" style="color: var(--color-muted-foreground);">Day Turnaround</div>
+          </div>
+          <!-- Metric 4 -->
+          <div class="text-center">
+            <div class="font-heading text-3xl font-bold" style="color: var(--color-primary-700);">AES-256</div>
+            <div class="text-xs uppercase tracking-widest mt-1" style="color: var(--color-muted-foreground);">Encryption Standard</div>
+          </div>
+          <!-- Metric 5 -->
+          <div class="text-center col-span-2 md:col-span-1">
+            <div class="font-heading text-3xl font-bold" style="color: var(--color-primary-700);">SHA-256</div>
+            <div class="text-xs uppercase tracking-widest mt-1" style="color: var(--color-muted-foreground);">Evidence Chain</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 3: THE CHALLENGE
+         ────────────────────────────────────────── -->
+    <section id="challenge" aria-labelledby="challenge-heading" style="background: var(--color-background);" class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <!-- Left Column: Header + Narrative -->
+          <div class="lg:col-span-5">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-2 mb-5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span class="text-eyebrow" style="color: var(--color-primary-700);">THE REALITY TODAY</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 id="challenge-heading" class="text-display-md max-w-[28ch]" style="color: var(--color-foreground);">
+              Study Abroad Safety Cannot Live in a Spreadsheet
+            </h2>
+
+            <!-- Body -->
+            <p class="text-body-lg mt-6 max-w-prose" style="color: var(--color-muted-foreground);">
+              Every year, universities send thousands of students to unfamiliar countries through study abroad programs, faculty-led trips, and international research placements. Most institutions rely on third-party program providers to handle safety -- but when the State Department issues a travel advisory, when a natural disaster strikes, when a student is hospitalized overseas, the institution's name is on the Clery Act report. Not the provider's.
+            </p>
+
+            <!-- Closing -->
+            <p class="text-body-lg mt-4 max-w-prose font-medium" style="color: var(--color-foreground);">
+              Your institution's reputation is not something a third-party provider can protect for you.
+            </p>
+          </div>
+
+          <!-- Right Column: Status Quo Cards -->
+          <div class="lg:col-span-7">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- Card 1 -->
+              <div class="card card-flat p-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Third-Party Provider Safety Assessments You Cannot Verify</h3>
+                <p class="text-body-sm" style="color: var(--color-muted-foreground);">Program providers conduct their own safety reviews of their own programs. Your international education office receives summaries, not source data. When a parent asks what independent verification your institution performed, the honest answer is usually: we relied on the provider's word.</p>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="card card-flat p-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Risk Matrices Built from Travel Advisories and Google Searches</h3>
+                <p class="text-body-sm" style="color: var(--color-muted-foreground);">Study abroad offices compile safety information from State Department advisories, news articles, and colleague networks. No standardized methodology. No government intelligence beyond what is publicly searchable. No audit trail documenting the assessment process.</p>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="card card-flat p-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Clery Act Reporting Gaps for Off-Campus International Programs</h3>
+                <p class="text-body-sm" style="color: var(--color-muted-foreground);">The Clery Act requires timely reporting of crimes and safety incidents at institution-controlled locations -- including study abroad sites. Many institutions lack the documentation infrastructure to demonstrate they monitored conditions at international program locations before incidents occurred.</p>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="card card-flat p-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Title IX Obligations That Do Not Stop at the Border</h3>
+                <p class="text-body-sm" style="color: var(--color-muted-foreground);">Title IX protections follow students abroad. If an incident occurs during a faculty-led program in Florence, your institution's response is evaluated by the same standards as an on-campus incident. Without documented safety planning and emergency protocols, the institutional exposure is significant.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 4: HOW SAFETREKR SOLVES IT
+         ────────────────────────────────────────── -->
+    <section id="how-it-works" aria-labelledby="solution-heading" class="bg-dot-grid py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32" style="background-color: var(--color-background);">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+
+        <!-- Section Header (centered) -->
+        <div class="text-center mb-12 lg:mb-16">
+          <div class="flex items-center justify-center gap-2 mb-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">HOW SAFETREKR WORKS</span>
+          </div>
+          <h2 id="solution-heading" class="text-display-md max-w-[28ch] mx-auto" style="color: var(--color-foreground);">
+            Professional Safety Review for Every International Program
+          </h2>
+          <p class="text-body-lg mt-4 max-w-prose mx-auto" style="color: var(--color-muted-foreground);">
+            SafeTrekr complements your existing study abroad management systems. We handle the independent safety verification your institution cannot get from a program provider.
+          </p>
+        </div>
+
+        <!-- Three-Act Process Timeline -->
+        <ol class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 mb-16">
+          <!-- Step 1 -->
+          <li class="flex flex-col">
+            <div class="flex items-start gap-4 lg:flex-col">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-semibold text-lg" style="background: var(--color-primary-100); color: var(--color-primary-700);">1</div>
+              <div>
+                <h3 class="text-heading-md mb-2" style="color: var(--color-foreground);">Intelligence Gathering</h3>
+                <p class="text-body-md max-w-[45ch]" style="color: var(--color-muted-foreground);">Before your students arrive in-country, we pull real-time safety data from NOAA, USGS, CDC, ReliefWeb, and GDACS -- the same sources humanitarian agencies use to assess field conditions. Weather patterns at every program location. Seismic risk. Disease advisories. Political stability indicators. Every data point scored, not just collected.</p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Step 2 -->
+          <li class="flex flex-col">
+            <div class="flex items-start gap-4 lg:flex-col">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-semibold text-lg" style="background: var(--color-primary-100); color: var(--color-primary-700);">2</div>
+              <div>
+                <h3 class="text-heading-md mb-2" style="color: var(--color-foreground);">Analyst Safety Review</h3>
+                <p class="text-body-md max-w-[45ch]" style="color: var(--color-muted-foreground);">A trained safety analyst reviews every detail of your study abroad program across 17 sections -- host institution vetting, housing safety, in-country transportation, emergency medical facilities, evacuation routes, communication infrastructure, mental health resources, and more. Independent of the program provider. Independent of marketing materials.</p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Step 3 -->
+          <li class="flex flex-col">
+            <div class="flex items-start gap-4 lg:flex-col">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-semibold text-lg" style="background: var(--color-primary-100); color: var(--color-primary-700);">3</div>
+              <div>
+                <h3 class="text-heading-md mb-2" style="color: var(--color-foreground);">Documented Evidence Binder</h3>
+                <p class="text-body-md max-w-[45ch]" style="color: var(--color-muted-foreground);">Your institution receives a complete safety binder -- every review finding, every government data source, every decision documented with tamper-evident audit trails. When a parent asks what safety review was conducted, when the provost needs documentation for a Clery Act filing, when risk management requires evidence of due diligence for an insurance claim -- you hand them the binder.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Feature Cards (2x2) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Card 1: Analyst Safety Review -->
+          <a href="/platform/analyst-review" class="feature-card card p-6 group block no-underline" style="color: inherit;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Every Program Location Reviewed by an Independent Analyst</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">Your study abroad office focuses on student success. Our analyst focuses on safety. 17 sections covering host institutions, housing, transportation, emergency contacts, evacuation routes, local hospitals, mental health resources, and more -- independent of what the program provider tells you.</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1" style="color: var(--color-primary-700);">
+              Learn about analyst review
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 2: Risk Intelligence -->
+          <a href="/platform/risk-intelligence" class="feature-card card p-6 group block no-underline" style="color: inherit;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Government Data on Every Destination Your Students Visit</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">Real-time intelligence from 5 government sources -- not a travel advisory summary. NOAA weather data, CDC health advisories, USGS seismic activity, and two international humanitarian agencies. Risk scored with Monte Carlo simulation so you understand probability, not just State Department color codes.</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1" style="color: var(--color-primary-700);">
+              Learn about risk intelligence
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 3: Trip Safety Binder -->
+          <a href="/platform/safety-binder" class="feature-card card p-6 group block no-underline" style="color: inherit;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Clery Act-Ready Documentation for Your Institution</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">Every finding documented. Every data source cited. Every decision recorded with SHA-256 tamper-evident audit trails. The documentation your risk management office needs for Clery Act compliance, the evidence your general counsel needs for liability defense, and the proof parents need to trust your institution with their student.</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1" style="color: var(--color-primary-700);">
+              Learn about the safety binder
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 4: Mobile Field Operations -->
+          <a href="/platform/mobile-app" class="feature-card card p-6 group block no-underline" style="color: inherit;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-safety-green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-4"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <h3 class="text-heading-sm mb-2" style="color: var(--color-foreground);">Emergency Protocols and Check-Ins for Every Faculty Leader and Resident Director</h3>
+            <p class="text-body-sm mb-4" style="color: var(--color-muted-foreground);">During your program, every faculty leader and resident director gets the SafeTrekr mobile app -- live geofencing, muster check-ins, rally point navigation, SMS broadcast, and morning/evening safety briefings. When a student does not check in, your international education office knows immediately -- not 12 hours later.</p>
+            <span class="text-body-sm font-medium inline-flex items-center gap-1" style="color: var(--color-primary-700);">
+              Learn about mobile operations
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 5: SAMPLE BINDER PREVIEW
+         ────────────────────────────────────────── -->
+    <section id="sample-binder" aria-labelledby="binder-preview-heading" style="background: var(--color-primary-50);" class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Visual Column (shows first on mobile via order) -->
+          <div class="lg:col-span-7 flex justify-center order-first lg:order-last" aria-hidden="true">
+            <p class="sr-only">Preview of a Study Abroad Program safety binder showing cover page with destinations, review sections, and analyst verification status.</p>
+            <div class="binder-stack" style="min-height: 420px;">
+              <!-- Back page -->
+              <div class="binder-page binder-page-back" style="top: 20px; left: 20px; right: 20px;">
+                <div class="h-4 w-3/4 rounded" style="background: var(--color-border); opacity: 0.5;"></div>
+                <div class="h-3 w-1/2 rounded mt-3" style="background: var(--color-border); opacity: 0.3;"></div>
+              </div>
+              <!-- Middle page -->
+              <div class="binder-page binder-page-mid" style="top: 20px; left: 20px; right: 20px;">
+                <div class="h-4 w-3/4 rounded" style="background: var(--color-border); opacity: 0.6;"></div>
+                <div class="h-3 w-2/3 rounded mt-3" style="background: var(--color-border); opacity: 0.4;"></div>
+                <div class="h-3 w-1/2 rounded mt-2" style="background: var(--color-border); opacity: 0.3;"></div>
+              </div>
+              <!-- Front page -->
+              <div class="binder-page binder-page-front" style="top: 20px; left: 20px; right: 20px;">
+                <!-- Header -->
+                <div class="flex items-center gap-2 mb-3">
+                  <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#3f885b"/><path d="M16 6l8 4v6c0 5.33-3.33 10.33-8 12-4.67-1.67-8-6.67-8-12v-6l8-4z" fill="white" fill-opacity="0.9"/></svg>
+                  <span class="text-xs font-medium uppercase tracking-wider" style="color: var(--color-primary-700);">Study Abroad Program</span>
+                </div>
+                <div class="font-heading text-xl font-bold" style="color: var(--color-foreground);">Safety Binder</div>
+                <div class="mt-1 text-sm" style="color: var(--color-muted-foreground);">Barcelona -- Madrid -- Seville</div>
+                <div class="mt-1 text-xs" style="color: var(--color-muted-foreground);">September 1 -- December 15, 2026</div>
+                <div class="mt-3">
+                  <span class="badge badge-brand text-xs">17 Sections Reviewed</span>
+                </div>
+                <!-- Decorative map thumbnail -->
+                <div class="mt-4 rounded-md overflow-hidden" style="height: 60px; background: linear-gradient(135deg, #d4dce0, #bcc8ce); opacity: 0.8;">
+                  <svg viewBox="0 0 300 60" fill="none" style="width:100%;height:100%;">
+                    <path d="M0 40 Q50 20 100 35 Q150 50 200 30 Q250 10 300 25" stroke="var(--color-primary-400)" stroke-width="2" fill="none" opacity="0.6"/>
+                    <circle cx="60" cy="32" r="3" fill="var(--color-primary-500)"/>
+                    <circle cx="150" cy="38" r="3" fill="var(--color-primary-500)"/>
+                    <circle cx="240" cy="22" r="3" fill="var(--color-primary-500)"/>
+                  </svg>
+                </div>
+                <!-- Section preview lines -->
+                <div class="mt-4 space-y-2 text-xs" style="color: var(--color-muted-foreground);">
+                  <div>1. Destination Overview &amp; Risk Intelligence</div>
+                  <div>2. Host Institution Verification</div>
+                  <div>3. Emergency Contacts &amp; Medical Facilities</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Column -->
+          <div class="lg:col-span-5">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-2 mb-5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="text-eyebrow" style="color: var(--color-primary-700);">SAMPLE BINDER</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 id="binder-preview-heading" class="text-display-md max-w-[28ch]" style="color: var(--color-foreground);">
+              See Exactly What Your Provost and Risk Management Office Will Receive
+            </h2>
+
+            <!-- Body -->
+            <p class="text-body-lg mt-6 max-w-prose" style="color: var(--color-muted-foreground);">
+              Every SafeTrekr review produces a comprehensive safety binder customized to your study abroad program. This is not a generic country profile or a program provider's marketing summary. It is the documented output of an independent analyst reviewing your specific program -- your destinations, your dates, your housing, your host institutions.
+            </p>
+
+            <!-- Binder contents list -->
+            <ul class="space-y-3 mt-6">
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">Destination risk assessment with government intelligence data</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">Host institution and housing safety verification</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">Emergency medical facility locations including mental health resources</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">Evacuation routes and contingency plans per program location</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">In-country transportation safety evaluation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">Communication infrastructure and emergency contact protocols</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-body-md" style="color: var(--color-muted-foreground);">Tamper-evident audit trail with SHA-256 hash chain</span>
+              </li>
+            </ul>
+
+            <!-- CTA -->
+            <a href="/resources/sample-binders/study-abroad" class="btn btn-lg btn-primary mt-8" aria-label="Download the Study Abroad Sample Binder, opens email-gated form">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download the Study Abroad Sample Binder
+            </a>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">See a real safety binder output. Gated with email -- we will not spam you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 6: PROOF POINTS (DARK)
+         ────────────────────────────────────────── -->
+    <section id="proof-points" aria-labelledby="proof-heading" data-theme="dark" style="background: var(--color-secondary);" class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <span class="text-eyebrow" style="color: #6cbc8b;">BY THE NUMBERS</span>
+          <h2 id="proof-heading" class="text-display-md mt-4 max-w-[28ch] mx-auto" style="color: #f7f8f8;">
+            Independent Verification, Not Provider Self-Assessment
+          </h2>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Stat 1 -->
+          <div class="rounded-xl p-8 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);" aria-label="17 analyst review sections per program">
+            <div class="text-display-md font-mono" style="color: #f7f8f8;">17</div>
+            <div class="text-eyebrow mt-2" style="color: #b8c3c7;">Analyst Review Sections</div>
+            <p class="text-body-sm mt-3" style="color: #b8c3c7;">Every program reviewed across host institutions, housing, transportation, emergency contacts, evacuation routes, health advisories, mental health resources, and more</p>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="rounded-xl p-8 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);" aria-label="5 government intelligence sources">
+            <div class="text-display-md font-mono" style="color: #f7f8f8;">5</div>
+            <div class="text-eyebrow mt-2" style="color: #b8c3c7;">Government Intelligence Sources</div>
+            <p class="text-body-sm mt-3" style="color: #b8c3c7;">NOAA, USGS, CDC, ReliefWeb, GDACS -- the same sources humanitarian agencies rely on to assess field conditions</p>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="rounded-xl p-8 text-center" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);" aria-label="3 to 5 days from submission to binder delivery">
+            <div class="text-display-md font-mono" style="color: #f7f8f8;">3-5 Days</div>
+            <div class="text-eyebrow mt-2" style="color: #b8c3c7;">Submission to Binder Delivery</div>
+            <p class="text-body-sm mt-3" style="color: #b8c3c7;">Professional review and documentation delivered before your students depart for their program</p>
+          </div>
+        </div>
+
+        <!-- Proof Narrative -->
+        <p class="text-body-lg text-center max-w-prose mx-auto mt-12" style="color: #b8c3c7;">
+          The difference between an institution that documented its safety diligence and one that assumed a program provider handled it is not measured in intention. It is measured in the filing cabinet. SafeTrekr produces the independent, third-party documentation that transforms your institution's commitment to student safety from an unverifiable assertion into defensible evidence.
+        </p>
+
+        <!-- Testimonial Slot -->
+        <!-- Testimonial slot -- populate when verified customer quotes are available -->
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 7: PRICING CONTEXT
+         ────────────────────────────────────────── -->
+    <section id="pricing" aria-labelledby="pricing-heading" style="background: var(--color-background);" class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="mb-12">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">PRICING</span>
+          <h2 id="pricing-heading" class="text-display-md mt-4 max-w-[28ch]" style="color: var(--color-foreground);">
+            Professional Safety Review at a Fraction of Your Program Cost
+          </h2>
+          <p class="text-body-lg mt-4 max-w-prose" style="color: var(--color-muted-foreground);">
+            A professional safety review for a semester-long study abroad program costs less than one percent of a typical participant's program fee. That is the cost of independent, documented safety verification for every student your institution sends abroad.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1: Faculty-Led Short Program -->
+          <div class="card p-8 rounded-2xl pricing-card-highlight">
+            <span class="badge badge-brand text-xs mb-4 inline-flex">Most Common</span>
+            <div class="text-display-lg" style="color: var(--color-foreground);" aria-label="$1,250 per international study abroad program">$1,250</div>
+            <div class="text-body-md mt-1" style="color: var(--color-muted-foreground);">per international program</div>
+            <div class="space-y-1 mt-4">
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">$50 per student for a group of 25</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">Less than 1% of a $12,000 program fee</p>
+            </div>
+            <div class="border-t mt-6 pt-6" style="border-color: var(--color-border);">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">17-section independent analyst review</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Government intelligence risk scoring</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Complete safety binder with audit trail</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Mobile app access for faculty leaders</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">AM/PM safety briefings during program</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 2: Semester-Long -->
+          <div class="card p-8 rounded-2xl">
+            <div class="text-display-lg" style="color: var(--color-foreground);" aria-label="$1,250 per semester study abroad program">$1,250</div>
+            <div class="text-body-md mt-1" style="color: var(--color-muted-foreground);">per semester program</div>
+            <div class="space-y-1 mt-4">
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">$42 per student for a group of 30</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">Less than 0.3% of a $15,000 semester program fee</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">Includes mid-semester condition updates</p>
+            </div>
+            <div class="border-t mt-6 pt-6" style="border-color: var(--color-border);">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">17-section independent analyst review</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Government intelligence risk scoring</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Complete safety binder with audit trail</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Mobile app access for faculty leaders</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">AM/PM safety briefings during program</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-muted-foreground);">Mid-semester intelligence refresh</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 3: Multi-Program Institution -->
+          <div class="card p-8 rounded-2xl">
+            <div class="text-display-lg" style="color: var(--color-foreground);">Custom</div>
+            <div class="text-body-md mt-1" style="color: var(--color-muted-foreground);">volume pricing for 15+ programs per year</div>
+            <div class="space-y-1 mt-4">
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">A university sending 15 international programs per year:</p>
+              <p class="text-body-sm font-medium" style="color: var(--color-foreground);">$18,750/year for complete safety coverage</p>
+              <p class="text-body-sm" style="color: var(--color-muted-foreground);">Volume discounts available for 15+ programs annually</p>
+            </div>
+            <div class="mt-6">
+              <a href="/demo" class="btn btn-md btn-secondary w-full justify-center">Get a Custom Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cost-of-Inaction Comparison Block -->
+        <div class="card p-8 rounded-xl mt-12">
+          <h3 class="text-heading-md mb-6" style="color: var(--color-foreground);">The Cost of Not Having an Independent Safety Review</h3>
+
+          <table class="w-full" role="table">
+            <caption class="sr-only">Comparison of study abroad safety approaches</caption>
+            <thead class="hidden sm:table-header-group">
+              <tr>
+                <th class="text-left pb-4 text-body-sm font-semibold" style="color: var(--color-foreground); width: 50%;">Without SafeTrekr</th>
+                <th class="text-left pb-4 text-body-sm font-semibold" style="color: var(--color-foreground); width: 50%;">With SafeTrekr</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1 -->
+              <tr class="border-t" style="border-color: var(--color-border);">
+                <td class="py-4 pr-4 align-top">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">Without SafeTrekr:</span>
+                      Study abroad office compiles risk assessments from provider marketing materials and State Department advisories. No independent verification. No standardized methodology.
+                    </span>
+                  </div>
+                </td>
+                <td class="py-4 pl-4 align-top border-l sm:border-l-0" style="border-color: var(--color-border);">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">With SafeTrekr:</span>
+                      Independent analyst completes 17-section review using 5 government intelligence sources. Methodology documented and auditable.
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="border-t" style="border-color: var(--color-border);">
+                <td class="py-4 pr-4 align-top">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">Without SafeTrekr:</span>
+                      Clery Act documentation assembled retroactively after an incident. No pre-departure evidence of safety monitoring at program sites.
+                    </span>
+                  </div>
+                </td>
+                <td class="py-4 pl-4 align-top border-l sm:border-l-0" style="border-color: var(--color-border);">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">With SafeTrekr:</span>
+                      Clery Act-ready documentation delivered before students depart. Every program site independently assessed and documented.
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 3 -->
+              <tr class="border-t" style="border-color: var(--color-border);">
+                <td class="py-4 pr-4 align-top">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">Without SafeTrekr:</span>
+                      If something goes wrong: "We relied on the program provider's assessment" is your institutional defense.
+                    </span>
+                  </div>
+                </td>
+                <td class="py-4 pl-4 align-top border-l sm:border-l-0" style="border-color: var(--color-border);">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">With SafeTrekr:</span>
+                      If something goes wrong: a complete evidence binder with every decision documented, every data source cited, and tamper-proof integrity.
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 4 -->
+              <tr class="border-t" style="border-color: var(--color-border);">
+                <td class="py-4 pr-4 align-top">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted-foreground)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">Without SafeTrekr:</span>
+                      Average cost of a single student medical evacuation from Europe: $50,000-$100,000. Average litigation settlement for study abroad incidents: $500K-$2M.
+                    </span>
+                  </div>
+                </td>
+                <td class="py-4 pl-4 align-top border-l sm:border-l-0" style="border-color: var(--color-border);">
+                  <div class="flex items-start gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-body-sm" style="color: var(--color-muted-foreground);">
+                      <span class="sm:hidden font-semibold block mb-1" style="color: var(--color-foreground);">With SafeTrekr:</span>
+                      $1,250 per program for documented proof your institution conducted independent, professional safety verification.
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mt-6 pt-4 border-t" style="border-color: var(--color-border);">
+            <a href="/pricing" class="text-body-sm font-medium inline-flex items-center gap-1" style="color: var(--color-primary-700);">
+              View full pricing details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 8: COMPLIANCE & TRUST
+         ────────────────────────────────────────── -->
+    <section id="compliance" aria-labelledby="compliance-heading" style="background: var(--color-card);" class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12">
+
+        <!-- Section Header (centered) -->
+        <div class="text-center mb-12">
+          <div class="flex items-center justify-center gap-2 mb-5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">SECURITY &amp; COMPLIANCE</span>
+          </div>
+          <h2 id="compliance-heading" class="text-display-md max-w-[28ch] mx-auto" style="color: var(--color-foreground);">
+            Built to Satisfy Your Risk Management Office and General Counsel
+          </h2>
+        </div>
+
+        <!-- Trust Badge Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Badge 1 -->
+          <div class="rounded-xl p-6 text-center" style="background: var(--color-background); border: 1px solid var(--color-border);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mx-auto mb-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <h3 class="font-heading text-base font-semibold mb-2" style="color: var(--color-foreground);">AES-256 Encryption</h3>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">All data encrypted at rest and in transit. Student information is protected with the same standard used by financial institutions. FERPA-aligned data handling.</p>
+          </div>
+
+          <!-- Badge 2 -->
+          <div class="rounded-xl p-6 text-center" style="background: var(--color-background); border: 1px solid var(--color-border);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mx-auto mb-3"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <h3 class="font-heading text-base font-semibold mb-2" style="color: var(--color-foreground);">SHA-256 Evidence Chain</h3>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">Every review finding, every analyst decision, every data source documented with cryptographic integrity. Tamper-evident by design. Audit-ready by default.</p>
+          </div>
+
+          <!-- Badge 3 -->
+          <div class="rounded-xl p-6 text-center" style="background: var(--color-background); border: 1px solid var(--color-border);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mx-auto mb-3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <h3 class="font-heading text-base font-semibold mb-2" style="color: var(--color-foreground);">SOC 2 Type II</h3>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">Audit in progress. We are pursuing SOC 2 Type II certification to validate our security controls. (Status: In Progress)</p>
+          </div>
+
+          <!-- Badge 4 -->
+          <div class="rounded-xl p-6 text-center" style="background: var(--color-background); border: 1px solid var(--color-border);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mx-auto mb-3"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <h3 class="font-heading text-base font-semibold mb-2" style="color: var(--color-foreground);">Clery Act Documentation Support</h3>
+            <p class="text-body-sm" style="color: var(--color-muted-foreground);">Every binder is structured to provide the safety documentation your institution needs for Clery Act reporting and Title IX compliance when incidents occur at international program locations.</p>
+          </div>
+        </div>
+
+        <!-- Institutional Narrative Block -->
+        <div class="text-center mt-12">
+          <h3 class="text-heading-md" style="color: var(--color-foreground);">Your Risk Management Office Will Thank You</h3>
+          <p class="text-body-lg max-w-prose mx-auto mt-4" style="color: var(--color-muted-foreground);">
+            Most universities accept program provider assurances as their primary safety verification for international programs. The problem is that a provider's self-assessment is not independent evidence. When a parent's attorney asks what independent safety review your institution conducted before sending their student abroad, a provider's marketing materials are not a defensible answer. SafeTrekr produces the independent documentation: a professional 17-section safety review backed by government intelligence data, documented with tamper-evident audit trails. That is the evidence your general counsel and risk management office need.
+          </p>
+        </div>
+
+        <!-- Complement-Not-Replace Statement -->
+        <div class="max-w-prose mx-auto mt-8 rounded-xl p-6 text-center" style="background: var(--color-primary-50); border: 1px solid var(--color-primary-200);">
+          <p class="text-body-md" style="color: var(--color-foreground);">
+            SafeTrekr integrates alongside your existing study abroad management systems -- Terra Dotta, Via TRM, StudioAbroad, or your institution's custom solution. We do not replace your program management workflow. We add the independent safety verification layer that no program management system provides.
+          </p>
+        </div>
+
+        <!-- Procurement Link -->
+        <div class="text-center mt-8">
+          <p class="text-body-md" style="color: var(--color-muted-foreground);">
+            Institutional buyer? Download our W-9, security questionnaire responses, and insurance documentation.
+          </p>
+          <a href="/procurement" class="text-body-md font-medium inline-flex items-center gap-1 mt-2" style="color: var(--color-primary-700);">
+            Visit our procurement page
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 9: COMMON QUESTIONS (FAQ)
+         ────────────────────────────────────────── -->
+    <section id="faq" aria-labelledby="faq-heading" style="background: var(--color-background);" class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">COMMON QUESTIONS</span>
+          <h2 id="faq-heading" class="text-display-md mt-4 max-w-[28ch] mx-auto" style="color: var(--color-foreground);">
+            Everything Your International Education Office Will Ask
+          </h2>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div role="region" aria-label="Frequently asked questions">
+          <!-- Q1 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+                <h3>Does SafeTrekr replace our existing study abroad management system?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-1" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                No. SafeTrekr is designed to complement systems like Terra Dotta, Via TRM, StudioAbroad, and custom institutional platforms. Your existing system manages program logistics -- applications, enrollment, housing assignments, academic credit. SafeTrekr adds the independent safety verification layer: professional analyst review, government intelligence scoring, and tamper-evident documentation. The safety binder integrates into your existing workflow as an additional document attached to each program's file.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+                <h3>How does SafeTrekr handle semester-long programs where conditions may change?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-2" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Our analyst reviews specifically account for program duration. For semester-long programs, the initial safety binder covers pre-departure conditions. During the program, your faculty leaders and resident directors receive morning and evening safety briefings covering weather changes, political developments, health advisories, and local events. If conditions change significantly -- a political crisis, natural disaster, or public health emergency -- we issue an updated intelligence brief with current data and revised risk scoring.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+                <h3>Can we use SafeTrekr for faculty-led short-term programs?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-3" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Yes. Faculty-led programs of any duration benefit from independent safety review. A two-week faculty-led program in Peru carries the same institutional liability as a semester program in London. Our review covers every program location -- primary sites, field trip destinations, and excursion stops. Many institutions start with SafeTrekr for faculty-led programs because faculty members rarely have formal risk assessment training.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+                <h3>How does this help with Clery Act compliance?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-4" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                The Clery Act requires institutions to report crimes and safety incidents at locations controlled by the institution -- including study abroad program sites. SafeTrekr's safety binder documents that your institution conducted a formal safety assessment of program locations before students arrived. If an incident occurs, the binder provides evidence that your institution proactively monitored conditions and identified risks. This is the documentation most institutions are missing from their Clery Act compliance infrastructure for international programs.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-5">
+                <h3>What about Title IX obligations for programs abroad?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-5" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Title IX protections follow students to study abroad program locations. If an incident occurs during a program in Florence or Buenos Aires, your institution's response obligations are the same as for an on-campus incident. SafeTrekr's safety binder includes emergency protocol documentation, local law enforcement contacts, medical facility locations, and communication infrastructure assessment -- all the information your Title IX coordinator needs to mount an effective response from thousands of miles away.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-6">
+                <h3>How quickly do we get the safety binder back?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-6" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                3-5 business days from program submission to binder delivery. For programs planned months in advance, this timeline integrates naturally into your pre-departure preparation. For faculty-led programs with shorter planning windows, we prioritize submissions to meet departure schedules. If program conditions change after the initial review, our analyst can update the binder with current intelligence data.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-7">
+                <h3>Can multiple offices access the safety binder?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-7" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Yes. You control access to each program's safety binder. It can be shared with your international education office, risk management, general counsel, the provost's office, program faculty, and any other stakeholder who needs to review safety preparation. The binder includes a verification hash that confirms the document has not been altered since the analyst completed the review -- providing every stakeholder with confidence in the document's integrity.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-8">
+                <h3>How does pricing work for institutions with many programs?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-8" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Each program is priced at $1,250 for international programs. Institutions running 15 or more international programs per year qualify for volume pricing. A university sending 15 study abroad programs annually would pay approximately $18,750 before any volume discount -- less than the cost of a single student medical evacuation. Contact us for a custom quote that reflects your annual program calendar.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-9">
+                <h3>Does SafeTrekr cover domestic programs and field trips?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-9" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Yes. While most higher education institutions start with international programs, SafeTrekr reviews domestic programs at $450 per program (day trips) and $750 per program (overnight/multi-day). Geology field courses in remote areas, marine biology programs at coastal stations, and education practicums in urban settings all benefit from professional safety review. The same 17-section analysis applies regardless of destination.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-10">
+                <h3>What government data sources does SafeTrekr use?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-10" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Our Risk Intelligence Engine pulls data from five government and international agency sources: NOAA (weather and climate patterns), USGS (seismic and geological hazards), CDC (health advisories and disease outbreaks), GDACS (Global Disaster Alert and Coordination System), and ReliefWeb (UN humanitarian situation reports). Each data source is scored using Monte Carlo simulation to produce probability-weighted risk assessments -- not just binary safe/unsafe classifications.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q11 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-11">
+                <h3>How does SafeTrekr handle programs with multiple sites?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-11" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Many study abroad programs involve multiple cities, field trip locations, and excursion destinations. Our analyst reviews each site independently -- the safety conditions in Barcelona's city center are different from those at a rural archaeological dig. Each location gets its own risk intelligence assessment. The final binder consolidates all sites into a single, comprehensive document with per-location findings and a unified emergency response plan.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q12 -->
+          <div class="faq-item">
+            <div>
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-12">
+                <h3>Can SafeTrekr handle programs in high-risk regions?</h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <div id="faq-12" class="faq-content" role="region">
+              <div class="faq-content-inner">
+                Yes. Some of the most academically valuable study abroad destinations are in regions with elevated risk profiles -- Sub-Saharan Africa, Southeast Asia, Central America, the Middle East. Our analyst reviews specifically account for infrastructure gaps, political instability, health system limitations, and communication challenges. The intelligence data from ReliefWeb and GDACS is designed for exactly these regions. The safety binder does not tell you whether to send students -- it documents the risks, mitigations, and emergency protocols so your institution can make an informed decision with defensible documentation.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────────
+         SECTION 10: CTA BAND (DARK)
+         ────────────────────────────────────────── -->
+    <section id="cta-band" aria-labelledby="cta-heading" data-theme="dark" style="background: var(--color-secondary);" class="py-16 sm:py-20 lg:py-28">
+      <div class="max-w-container mx-auto px-5 sm:px-8 lg:px-12 text-center">
+        <span class="text-eyebrow" style="color: #6cbc8b;">READY?</span>
+        <h2 id="cta-heading" class="text-display-md mt-4 max-w-[28ch] mx-auto" style="color: #f7f8f8;">
+          Protect Your Next Study Abroad Program
+        </h2>
+        <p class="text-body-lg max-w-prose mx-auto mt-4" style="color: #b8c3c7;">
+          See exactly what an independently reviewed study abroad program looks like. Download a sample binder or schedule a 30-minute demo with our team.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <a href="/demo" class="btn btn-lg btn-primary-on-dark" aria-label="Get a Demo -- opens scheduling page">
+            Get a Demo
+          </a>
+          <a href="/resources/sample-binders/study-abroad" class="btn btn-lg btn-ghost-on-dark" aria-label="Download Sample Binder -- opens email-gated download">
+            Download Sample Binder
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════ -->
+  <script>
+    // ── Mobile Menu Toggle ──
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('open');
+        mobileMenu.classList.toggle('open');
+        mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+
+    // ── FAQ Accordion ──
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const content = trigger.parentElement.nextElementSibling;
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+        // Close all others (single mode)
+        faqTriggers.forEach(otherTrigger => {
+          if (otherTrigger !== trigger) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            const otherContent = otherTrigger.parentElement.nextElementSibling;
+            if (otherContent) otherContent.classList.remove('open');
+          }
+        });
+
+        // Toggle current
+        trigger.setAttribute('aria-expanded', !isOpen);
+        if (content) {
+          content.classList.toggle('open', !isOpen);
+        }
+      });
+
+      // Keyboard support
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextItem = trigger.closest('.faq-item').nextElementSibling;
+          if (nextItem) nextItem.querySelector('.faq-trigger')?.focus();
+        }
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevItem = trigger.closest('.faq-item').previousElementSibling;
+          if (prevItem) prevItem.querySelector('.faq-trigger')?.focus();
+        }
+      });
+    });
+
+    // ── Sticky In-Page Navigation ──
+    const pageNav = document.getElementById('page-nav');
+    const heroSection = document.getElementById('hero');
+
+    if (pageNav && heroSection) {
+      const heroObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            pageNav.classList.remove('visible');
+          } else {
+            pageNav.classList.add('visible');
+          }
+        },
+        { threshold: 0, rootMargin: '-72px 0px 0px 0px' }
+      );
+      heroObserver.observe(heroSection);
+    }
+
+    // ── Scroll Spy ──
+    const navLinks = document.querySelectorAll('.page-nav-link');
+    const sections = [];
+    navLinks.forEach(link => {
+      const sectionId = link.getAttribute('data-section');
+      const section = document.getElementById(sectionId);
+      if (section) sections.push({ el: section, link: link, id: sectionId });
+    });
+
+    if (sections.length > 0) {
+      const spyObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const matchedSection = sections.find(s => s.el === entry.target);
+            if (matchedSection) {
+              if (entry.isIntersecting) {
+                navLinks.forEach(l => {
+                  l.classList.remove('active');
+                  l.removeAttribute('aria-current');
+                });
+                matchedSection.link.classList.add('active');
+                matchedSection.link.setAttribute('aria-current', 'true');
+              }
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' }
+      );
+      sections.forEach(s => spyObserver.observe(s.el));
+    }
+
+    // ── Smooth scroll for in-page nav (respects prefers-reduced-motion) ──
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          const offset = 130; // header + nav height
+          const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({
+            top: y,
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+# ST-792: REQ-009 - Kubernetes Manifests for SafeTrekr Marketing Site
+#
+# PodDisruptionBudget guarantees at least 1 pod remains available during
+# voluntary disruptions (node drain, cluster upgrade, autoscaler scale-down).
+#
+# With 2 replicas and minAvailable: 1, the cluster can drain one node at a
+# time without downtime. This is referenced in cluster-spec.md Section 11
+# (Disaster Recovery) and Section 3.2 (Scale-Down Triggers).
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: safetrekr-web
+  labels:
+    app.kubernetes.io/name: safetrekr-web
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: web
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: safetrekr-web

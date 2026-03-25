@@ -1,0 +1,166 @@
+# ST-794: REQ-011 -- Deploy to Staging
+#
+# Triggered on every push to main (after CI passes).
+#
+# Steps:
+#   1. Build Docker image tagged with sha-{short_hash}
+#   2. Push to DigitalOcean Container Registry (DOCR)
+#   3. Deploy to DOKS staging namespace via kubectl set image
+#   4. Wait for rollout to complete
+#   5. Health check -- curl /api/health via kubectl port-forward
+#   6. Automatic rollback if health check fails
+#
+# Required secrets:
+#   DIGITALOCEAN_ACCESS_TOKEN -- DigitalOcean API token with read/write on DOCR and DOKS
+#   KUBECONFIG_BASE64         -- Base64-encoded kubeconfig for the DOKS cluster
+#
+# Image naming convention (per registry-spec.md Section 2):
+#   registry.digitalocean.com/safetrekr-marketing/safetrekr-web:sha-{short_hash}
+
+name: Deploy Staging
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  REGISTRY: registry.digitalocean.com/safetrekr-marketing
+  IMAGE_NAME: safetrekr-web
+  NAMESPACE: staging
+  DEPLOYMENT: safetrekr-web
+  CONTAINER: safetrekr-web
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Build and push Docker image to DOCR
+  # ---------------------------------------------------------------------------
+  build-and-push:
+    name: Build & Push to DOCR
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      image-tag: ${{ steps.meta.outputs.tag }}
+      image-ref: ${{ steps.meta.outputs.image }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Derive image tag from commit SHA
+        id: meta
+        run: |
+          SHORT_SHA="${GITHUB_SHA:0:7}"
+          TAG="sha-${SHORT_SHA}"
+          IMAGE="${REGISTRY}/${IMAGE_NAME}:${TAG}"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "image=${IMAGE}" >> "$GITHUB_OUTPUT"
+          echo "Building image: ${IMAGE}"
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Authenticate to DOCR
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.image }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: false
+
+  # ---------------------------------------------------------------------------
+  # Deploy to DOKS staging namespace
+  # ---------------------------------------------------------------------------
+  deploy:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: build-and-push
+    environment:
+      name: staging
+      url: https://staging.safetrekr.com
+
+    steps:
+      - name: Configure kubectl
+        run: |
+          mkdir -p "$HOME/.kube"
+          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 --decode > "$HOME/.kube/config"
+          chmod 600 "$HOME/.kube/config"
+
+      - name: Set image on deployment
+        run: |
+          kubectl set image deployment/${{ env.DEPLOYMENT }} \
+            ${{ env.CONTAINER }}=${{ needs.build-and-push.outputs.image-ref }} \
+            -n ${{ env.NAMESPACE }}
+
+      - name: Wait for rollout to complete
+        id: rollout
+        run: |
+          if ! kubectl rollout status deployment/${{ env.DEPLOYMENT }} \
+            -n ${{ env.NAMESPACE }} \
+            --timeout=300s; then
+            echo "rollout-failed=true" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
+      - name: Health check
+        id: health
+        run: |
+          echo "Waiting 15s for pods to stabilize..."
+          sleep 15
+
+          # Retrieve the ClusterIP service endpoint and run curl from inside
+          # the cluster to avoid needing an external URL or port-forward.
+          HEALTH_STATUS=$(kubectl run health-check-${{ github.run_id }} \
+            --image=curlimages/curl:8.10.1 \
+            --restart=Never \
+            --rm \
+            -i \
+            --timeout=60s \
+            -n ${{ env.NAMESPACE }} \
+            --override-type=strategic \
+            --overrides='{"spec":{"securityContext":{"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}},"containers":[{"name":"health-check-${{ github.run_id }}","securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]}}}]}}' \
+            -- curl -sf -o /dev/null -w '%{http_code}' \
+              "http://${{ env.DEPLOYMENT }}.${{ env.NAMESPACE }}.svc.cluster.local/api/health" \
+            2>/dev/null || echo "000")
+
+          echo "Health check returned HTTP status: ${HEALTH_STATUS}"
+
+          if [ "$HEALTH_STATUS" = "200" ]; then
+            echo "Health check passed."
+          else
+            echo "health-failed=true" >> "$GITHUB_OUTPUT"
+            echo "::error::Health check failed with HTTP status ${HEALTH_STATUS}"
+            exit 1
+          fi
+
+      - name: Rollback on failure
+        if: failure() && (steps.rollout.outputs.rollout-failed == 'true' || steps.health.outputs.health-failed == 'true')
+        run: |
+          echo "::warning::Rolling back deployment/${{ env.DEPLOYMENT }} in ${{ env.NAMESPACE }}"
+          kubectl rollout undo deployment/${{ env.DEPLOYMENT }} -n ${{ env.NAMESPACE }}
+          kubectl rollout status deployment/${{ env.DEPLOYMENT }} \
+            -n ${{ env.NAMESPACE }} \
+            --timeout=300s
+          echo "::error::Staging deploy rolled back. Investigate before re-deploying."
+
+      - name: Clean up kubeconfig
+        if: always()
+        run: rm -f "$HOME/.kube/config"

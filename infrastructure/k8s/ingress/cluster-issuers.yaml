@@ -1,0 +1,89 @@
+# ST-793: REQ-010 - Let's Encrypt ClusterIssuers
+#
+# Two ClusterIssuers for ACME certificate provisioning via Let's Encrypt:
+#
+#   letsencrypt-staging     -- Use for testing and initial setup.
+#                              Issues untrusted certs but has much higher
+#                              rate limits (no risk of being blocked).
+#
+#   letsencrypt-production  -- Use for live traffic on safetrekr.com.
+#                              Issues browser-trusted certs. Subject to
+#                              Let's Encrypt rate limits (50 certs/week
+#                              per registered domain).
+#
+# Both use the HTTP-01 challenge solver routed through the nginx ingress
+# class. cert-manager will automatically create temporary Ingress resources
+# to serve the ACME challenge tokens.
+#
+# Apply after cert-manager is installed and the webhook is ready:
+#   kubectl apply -f cluster-issuers.yaml
+#
+# Verify:
+#   kubectl get clusterissuer
+#   kubectl describe clusterissuer letsencrypt-production
+#
+# See cluster-spec.md Section 5 for add-on details and Section 6.2 for DNS.
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: certificate-management
+    app.kubernetes.io/managed-by: kubectl
+spec:
+  acme:
+    # Let's Encrypt staging endpoint -- untrusted certs, high rate limits.
+    # Use this issuer for initial deployment validation before switching
+    # the Ingress annotation to letsencrypt-production.
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+
+    # ACME account email -- receives certificate expiry warnings and
+    # account recovery notifications. Must be a monitored inbox.
+    email: devops@safetrekr.com
+
+    # Secret to store the ACME account private key.
+    # cert-manager creates this automatically on first use.
+    privateKeySecretRef:
+      name: letsencrypt-staging-key
+
+    solvers:
+      # HTTP-01 solver -- cert-manager creates a temporary Ingress to
+      # serve the ACME challenge at /.well-known/acme-challenge/<token>.
+      # The nginx ingress class routes the challenge traffic.
+      - http01:
+          ingress:
+            class: nginx
+
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: certificate-management
+    app.kubernetes.io/managed-by: kubectl
+spec:
+  acme:
+    # Let's Encrypt production endpoint -- browser-trusted certs.
+    # Rate limits: 50 certificates per registered domain per week.
+    # See https://letsencrypt.org/docs/rate-limits/
+    server: https://acme-v02.api.letsencrypt.org/directory
+
+    # Same account email as staging. Let's Encrypt will send expiry
+    # warnings to this address 20 days before certificate expiration.
+    # cert-manager handles renewal automatically (see cert-manager-values.yaml
+    # --renew-before-expiry-duration), so these emails serve as a safety net.
+    email: devops@safetrekr.com
+
+    # Secret to store the ACME account private key.
+    # Separate from the staging key to avoid cross-environment leakage.
+    privateKeySecretRef:
+      name: letsencrypt-production-key
+
+    solvers:
+      - http01:
+          ingress:
+            class: nginx

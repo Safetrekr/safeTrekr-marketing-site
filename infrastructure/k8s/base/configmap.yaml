@@ -1,0 +1,23 @@
+# ST-792: REQ-009 - Kubernetes Manifests for SafeTrekr Marketing Site
+#
+# ConfigMap for non-sensitive environment variables.
+# NEXT_PUBLIC_* values are baked into the client bundle at build time by Next.js,
+# but they are also available at runtime for server-side rendering.
+#
+# Replace placeholder values before deploying to a live environment.
+# In CI/CD, these are overridden via Kustomize overlays per namespace.
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: safetrekr-web-config
+  labels:
+    app.kubernetes.io/name: safetrekr-web
+    app.kubernetes.io/part-of: safetrekr-marketing
+    app.kubernetes.io/component: web
+    app.kubernetes.io/managed-by: kustomize
+data:
+  NODE_ENV: "production"
+  NEXT_TELEMETRY_DISABLED: "1"
+  NEXT_PUBLIC_SUPABASE_URL: "https://your-project.supabase.co"
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: "0x0000000000000000000000"

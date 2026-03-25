@@ -1,0 +1,30 @@
+# ST-792: REQ-009 - Kubernetes Manifests for SafeTrekr Marketing Site
+#
+# Kustomize base layer. Environment-specific overlays (production, staging,
+# preview) extend this base with namespace, image tags, replica counts,
+# and environment variable overrides.
+#
+# Apply directly (for development):
+#   kubectl apply -k infrastructure/k8s/base/
+#
+# Apply with overlay (for production):
+#   kubectl apply -k infrastructure/k8s/overlays/production/
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: safetrekr-marketing
+    includeSelectors: false
+
+resources:
+  - serviceaccount.yaml
+  - configmap.yaml
+  - secret.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - hpa.yaml
+  - pdb.yaml
+  - network-policy.yaml

@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeTrekr - Every Trip Professionally Reviewed</title>
+  <meta name="description" content="Professional trip safety review and evidence documentation platform. SafeTrekr combines government intelligence, analyst review, and tamper-evident documentation to protect your travelers.">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            border: 'var(--color-border)',
+            input: 'var(--color-input)',
+            ring: 'var(--color-ring)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            accent: 'var(--color-accent)',
+            'accent-foreground': 'var(--color-accent-foreground)',
+            primary: {
+              50: 'var(--color-primary-50)',
+              100: 'var(--color-primary-100)',
+              200: 'var(--color-primary-200)',
+              300: 'var(--color-primary-300)',
+              400: 'var(--color-primary-400)',
+              500: 'var(--color-primary-500)',
+              600: 'var(--color-primary-600)',
+              700: 'var(--color-primary-700)',
+              800: 'var(--color-primary-800)',
+              900: 'var(--color-primary-900)',
+              950: 'var(--color-primary-950)',
+              DEFAULT: 'var(--color-primary)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              foreground: 'var(--color-secondary-foreground)',
+              light: 'var(--color-secondary-light)',
+              muted: 'var(--color-secondary-muted)',
+            },
+            destructive: {
+              DEFAULT: 'var(--color-destructive)',
+              foreground: 'var(--color-destructive-foreground)',
+            },
+            safety: {
+              green: 'var(--color-safety-green)',
+              yellow: 'var(--color-safety-yellow)',
+              red: 'var(--color-safety-red)',
+            },
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            md: 'var(--radius-md)',
+            lg: 'var(--radius-lg)',
+            xl: 'var(--radius-xl)',
+            '2xl': 'var(--radius-2xl)',
+          },
+          boxShadow: {
+            xs: 'var(--shadow-xs)',
+            sm: 'var(--shadow-sm)',
+            md: 'var(--shadow-md)',
+            lg: 'var(--shadow-lg)',
+            xl: 'var(--shadow-xl)',
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        },
+      },
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "SafeTrekr",
+        "url": "https://safetrekr.com",
+        "description": "Professional trip safety review and evidence documentation platform."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SafeTrekr",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web"
+      },
+      {
+        "@type": "AggregateOffer",
+        "lowPrice": "450",
+        "highPrice": "1250",
+        "priceCurrency": "USD",
+        "offerCount": "3"
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* ---- Dot grid pattern for Hero ---- */
+    .hero-dot-grid {
+      background-image: radial-gradient(circle, var(--color-primary-300) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.04;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .hero-radial-glow {
+      background: radial-gradient(600px circle at 70% 50%, rgba(241,249,244,0.2), transparent);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ---- Glassmorphic header ---- */
+    .header-scrolled {
+      background: rgba(231, 236, 238, 0.80);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---- Gauge animation ---- */
+    @keyframes gaugeFill {
+      from { stroke-dashoffset: 226.2; }
+      to { stroke-dashoffset: 33.93; }
+    }
+    .gauge-arc {
+      animation: gaugeFill 1.2s ease-out forwards;
+      animation-delay: 1.2s;
+      stroke-dasharray: 226.2;
+      stroke-dashoffset: 226.2;
+    }
+
+    /* ---- Status dot pulse ---- */
+    @keyframes statusPulse {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.4); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .status-pulse {
+      animation: statusPulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      animation-delay: 1.4s;
+      transform: scale(0);
+    }
+
+    /* ---- Progress bar fill ---- */
+    @keyframes progressFill {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .progress-fill {
+      animation: progressFill 1s ease-out forwards;
+      animation-delay: 1s;
+      width: 0;
+    }
+
+    /* ---- Fade-up animation for sections ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ---- Binder fan pages ---- */
+    .binder-page {
+      position: absolute;
+      width: 200px;
+      height: 280px;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      padding: 20px;
+      border: 1px solid rgba(184, 195, 199, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .binder-page:hover {
+      transform: translateY(-4px) !important;
+    }
+
+    /* ---- Comparison table SafeTrekr column highlight ---- */
+    .safetrekr-col {
+      background: var(--color-primary-50);
+    }
+
+    /* ---- Card group hover ---- */
+    .card-interactive {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-interactive:hover .card-link-arrow {
+      transform: translateX(4px);
+    }
+    .card-link-arrow {
+      transition: transform 0.2s ease;
+    }
+
+    /* ---- Pricing featured scale ---- */
+    @media (min-width: 1024px) {
+      .pricing-featured {
+        transform: scale(1.03);
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    /* ---- Smooth scroll offset for sticky header ---- */
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    /* ---- Mobile menu overlay ---- */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 26, 35, 0.5);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: var(--color-card);
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      padding: 24px;
+    }
+    .mobile-menu-panel.active {
+      transform: translateX(0);
+    }
+  </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-card focus:text-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:ring-2 focus:ring-ring" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================
+       SECTION 1: SITE HEADER (Sticky Glassmorphic)
+       ================================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" style="font-family: var(--font-heading); font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-md);">Sign In</a>
+        <a href="/demo" class="btn btn-md btn-primary" style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; padding: 10px 20px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+  <div id="mobile-panel" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div class="flex justify-between items-center mb-8">
+      <span class="font-display font-bold text-lg text-foreground">Menu</span>
+      <button id="mobile-close-btn" class="p-2 text-foreground" aria-label="Close navigation menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2">
+      <a href="/platform" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Platform</a>
+      <a href="/solutions" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Solutions</a>
+      <a href="/how-it-works" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">How It Works</a>
+      <a href="/pricing" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Pricing</a>
+      <a href="/resources" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Resources</a>
+      <div class="border-t mt-4 pt-4" style="border-color: var(--color-border);">
+        <a href="/demo" class="block w-full text-center py-3 rounded-md text-base font-semibold text-white" style="background: var(--color-primary-600); font-family: var(--font-heading);">Get a Demo</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- ================================================================
+         SECTION 2: HERO
+         ================================================================ -->
+    <section aria-labelledby="hero-heading" class="relative overflow-hidden" style="background: var(--color-background); padding-top: 160px; padding-bottom: 128px;">
+      <!-- Dot grid -->
+      <div class="hero-dot-grid"></div>
+      <!-- Radial glow -->
+      <div class="hero-radial-glow"></div>
+
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
+          <!-- Text Column -->
+          <div class="lg:col-span-5 flex flex-col">
+            <!-- Eyebrow -->
+            <span class="text-eyebrow flex items-center gap-2" style="color: var(--color-primary-700);">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-primary-700);">
+                <path d="M12 2L4 7v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V7l-8-5z" stroke-linejoin="round"/>
+                <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              TRIP SAFETY MANAGEMENT PLATFORM
+            </span>
+
+            <!-- Headline -->
+            <h1 id="hero-heading" class="text-display-xl mt-4" style="color: var(--color-foreground); max-width: 20ch;">
+              Every trip professionally reviewed.
+            </h1>
+
+            <!-- Subtext -->
+            <p class="text-body-lg mt-6" style="color: var(--color-muted-foreground); max-width: 50ch;">
+              SafeTrekr combines intelligence from 5 government data sources, 17-section analyst review, and SHA-256 evidence documentation to protect your travelers and your organization.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
+              <a href="/resources/sample-binders" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-white text-center sm:text-left" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 16px 32px; font-size: 18px; border-radius: var(--radius-md);">
+                See Sample Binder
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </a>
+              <a href="/demo" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center sm:text-left" style="font-family: var(--font-heading); background: transparent; border: 1.5px solid var(--color-border); color: var(--color-foreground); padding: 16px 32px; font-size: 18px; border-radius: var(--radius-md);">
+                Schedule a Demo
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual Column: Product Composition -->
+          <div class="lg:col-span-7 relative hidden md:block" style="min-height: 440px;">
+            <!-- Layer 1: Map Base -->
+            <div class="relative rounded-xl overflow-hidden border" style="width: 100%; max-width: 560px; aspect-ratio: 14/10; box-shadow: var(--shadow-lg); border-color: var(--color-border); background: #dce3e6;">
+              <!-- Desaturated map placeholder -->
+              <div style="width:100%;height:100%;background: linear-gradient(135deg, #d4dce0 0%, #c8d2d6 25%, #d0d9dd 50%, #c5cfd4 75%, #d3dbdf 100%); position: relative; filter: saturate(0.15) contrast(0.85);">
+                <!-- Terrain features -->
+                <div style="position:absolute;top:15%;left:10%;width:35%;height:25%;background:linear-gradient(180deg, rgba(160,175,165,0.4), transparent);border-radius:60% 40% 50% 50%;"></div>
+                <div style="position:absolute;top:35%;left:50%;width:25%;height:20%;background:linear-gradient(180deg, rgba(170,185,175,0.3), transparent);border-radius:50%;"></div>
+                <div style="position:absolute;bottom:10%;right:10%;width:30%;height:30%;background:rgba(155,175,195,0.25);border-radius:40% 60% 50% 40%;"></div>
+              </div>
+              <!-- Route SVG overlay -->
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 560 400" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <!-- Route line -->
+                <path d="M 100 320 C 150 280, 200 200, 280 180 S 400 160, 460 100" stroke="#4ca46e" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="8 4" opacity="0.8"/>
+                <!-- Waypoint halos -->
+                <circle cx="100" cy="320" r="16" fill="#e0f1e6" opacity="0.5"/>
+                <circle cx="280" cy="180" r="16" fill="#e0f1e6" opacity="0.5"/>
+                <circle cx="460" cy="100" r="16" fill="#e0f1e6" opacity="0.5"/>
+                <!-- Waypoint dots -->
+                <circle cx="100" cy="320" r="6" fill="#3f885b"/>
+                <circle cx="280" cy="180" r="6" fill="#3f885b"/>
+                <circle cx="460" cy="100" r="6" fill="#3f885b"/>
+                <!-- Direction triangles -->
+                <polygon points="190,228 198,224 194,234" fill="#4ca46e" opacity="0.7"/>
+                <polygon points="370,148 378,144 374,154" fill="#4ca46e" opacity="0.7"/>
+              </svg>
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Map showing a trip route with safety waypoints" class="absolute inset-0 w-full h-full" style="opacity:0;">
+            </div>
+
+            <!-- Layer 2: Trip Review Panel -->
+            <div class="absolute rounded-xl bg-white shadow-xl border p-5 hidden lg:block" style="width: 260px; top: -20px; right: -10px; z-index: 10; border-color: var(--color-border);">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-heading-sm" style="color: var(--color-foreground); font-size: 18px;">Trip Safety Review</span>
+                <span class="badge badge-brand" style="font-size: 11px;">Reviewed</span>
+              </div>
+              <div class="flex flex-col gap-3 mb-4">
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#4ca46e"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Venue Safety</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#4ca46e"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Transportation</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#4ca46e"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Emergency Plan</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#4ca46e"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span class="text-body-sm" style="color: var(--color-foreground);">Health Advisory</span>
+                </div>
+              </div>
+              <!-- Progress bar -->
+              <div class="w-full h-2 rounded-full" style="background: var(--color-primary-100);">
+                <div class="h-full rounded-full progress-fill" style="background: var(--color-primary-500);"></div>
+              </div>
+              <!-- Analyst -->
+              <div class="flex items-center gap-2 mt-4">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold" style="background: var(--color-primary-200); color: var(--color-primary-800);">MR</div>
+                <span class="text-body-sm" style="color: var(--color-muted-foreground);">Analyst M.R.</span>
+              </div>
+            </div>
+
+            <!-- Layer 3: Document Preview -->
+            <div class="absolute hidden lg:block" style="right: -10px; top: 290px; z-index: 20;">
+              <!-- Stacked paper offset layers -->
+              <div class="absolute rounded-lg bg-white/80 border" style="width: 220px; height: 160px; top: 4px; left: 4px; border-color: rgba(184,195,199,0.3); box-shadow: var(--shadow-sm);"></div>
+              <div class="absolute rounded-lg bg-white/90 border" style="width: 220px; height: 160px; top: 2px; left: 2px; border-color: rgba(184,195,199,0.3); box-shadow: var(--shadow-sm);"></div>
+              <!-- Front sheet -->
+              <div class="relative rounded-lg bg-white border p-4" style="width: 220px; height: 160px; border-color: var(--color-border); box-shadow: var(--shadow-lg);">
+                <span class="text-eyebrow block" style="color: var(--color-muted-foreground); font-size: 10px;">EVIDENCE BINDER</span>
+                <div class="flex items-center gap-1.5 mt-1.5">
+                  <span class="badge badge-brand" style="font-size: 10px; padding: 1px 6px;">Verified</span>
+                  <span class="w-1.5 h-1.5 rounded-full" style="background: var(--color-safety-green);"></span>
+                </div>
+                <div class="mt-3 space-y-2">
+                  <div class="flex items-start gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style="background: var(--color-primary-500);"></div>
+                    <span style="font-size: 11px; color: var(--color-foreground); line-height: 1.3;">Risk assessment completed</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style="background: var(--color-primary-500);"></div>
+                    <span style="font-size: 11px; color: var(--color-foreground); line-height: 1.3;">Documentation finalized</span>
+                  </div>
+                </div>
+                <div class="mt-3 pt-2" style="border-top: 1px solid var(--color-border);">
+                  <code style="font-family: var(--font-mono); font-size: 10px; color: var(--color-muted-foreground); letter-spacing: 0.03em;">a3f2...c891</code>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layer 4: Readiness Gauge -->
+            <div class="absolute hidden lg:block rounded-xl bg-white border p-4 text-center" style="bottom: -16px; left: 24px; z-index: 15; width: 120px; border-color: var(--color-border); box-shadow: var(--shadow-lg);">
+              <svg viewBox="0 0 72 72" width="72" height="72" class="mx-auto">
+                <!-- Background track -->
+                <circle cx="36" cy="36" r="32" fill="none" stroke="#e0f1e6" stroke-width="4" transform="rotate(-90 36 36)"/>
+                <!-- Filled arc to ~85% -->
+                <circle cx="36" cy="36" r="32" fill="none" stroke="#4ca46e" stroke-width="4" stroke-linecap="round" transform="rotate(-90 36 36)" class="gauge-arc"/>
+                <!-- Center text -->
+                <text x="36" y="34" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="16" fill="#061a23">85%</text>
+                <text x="36" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#4d5153">Trip Ready</text>
+              </svg>
+              <!-- Status dot -->
+              <div class="flex items-center justify-center gap-1 mt-1">
+                <span class="w-2 h-2 rounded-full status-pulse" style="background: var(--color-safety-green);"></span>
+                <span style="font-size: 10px; color: var(--color-muted-foreground);">Active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile simplified composition -->
+          <div class="md:hidden relative rounded-xl overflow-hidden border" style="aspect-ratio: 16/10; background: linear-gradient(135deg, #d4dce0 0%, #c8d2d6 25%, #d0d9dd 50%, #c5cfd4 75%, #d3dbdf 100%); border-color: var(--color-border); box-shadow: var(--shadow-lg);">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 560 350" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <path d="M 80 280 C 150 220, 250 180, 350 150 S 450 120, 500 80" stroke="#4ca46e" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="8 4" opacity="0.8"/>
+              <circle cx="80" cy="280" r="14" fill="#e0f1e6" opacity="0.5"/>
+              <circle cx="350" cy="150" r="14" fill="#e0f1e6" opacity="0.5"/>
+              <circle cx="80" cy="280" r="6" fill="#3f885b"/>
+              <circle cx="350" cy="150" r="6" fill="#3f885b"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Responsive padding overrides -->
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="hero-heading"] { padding-top: 112px !important; padding-bottom: 80px !important; }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          section[aria-labelledby="hero-heading"] { padding-top: 140px !important; padding-bottom: 96px !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 3: TRUST METRICS STRIP
+         ================================================================ -->
+    <section aria-label="Platform credentials" class="border-y" style="background: var(--color-card); border-color: var(--color-border); padding: 48px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Stat Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+          <div class="text-center" aria-label="5 government intelligence sources">
+            <div style="font-family: var(--font-mono); font-size: clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem); font-weight: 700; color: var(--color-foreground); line-height: 1;">5</div>
+            <div class="text-eyebrow mt-2" style="color: var(--color-muted-foreground); font-size: 12px;">Government Intel Sources</div>
+          </div>
+          <div class="text-center" aria-label="17 safety review sections">
+            <div style="font-family: var(--font-mono); font-size: clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem); font-weight: 700; color: var(--color-foreground); line-height: 1;">17</div>
+            <div class="text-eyebrow mt-2" style="color: var(--color-muted-foreground); font-size: 12px;">Safety Review Sections</div>
+          </div>
+          <div class="text-center" aria-label="3 to 5 day turnaround">
+            <div style="font-family: var(--font-heading); font-size: clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem); font-weight: 700; color: var(--color-foreground); line-height: 1;">3-5</div>
+            <div class="text-eyebrow mt-2" style="color: var(--color-muted-foreground); font-size: 12px;">Day Turnaround</div>
+          </div>
+          <div class="text-center" aria-label="AES-256 encryption standard">
+            <div style="font-family: var(--font-mono); font-size: clamp(1.25rem, 0.8rem + 1.2vw, 1.75rem); font-weight: 700; color: var(--color-foreground); line-height: 1;">AES-256</div>
+            <div class="text-eyebrow mt-2" style="color: var(--color-muted-foreground); font-size: 12px;">Encryption Standard</div>
+          </div>
+          <div class="text-center col-span-2 sm:col-span-1" aria-label="SHA-256 evidence chain">
+            <div style="font-family: var(--font-mono); font-size: clamp(1.25rem, 0.8rem + 1.2vw, 1.75rem); font-weight: 700; color: var(--color-foreground); line-height: 1;">SHA-256</div>
+            <div class="text-eyebrow mt-2" style="color: var(--color-muted-foreground); font-size: 12px;">Evidence Chain</div>
+          </div>
+        </div>
+
+        <!-- Government source row -->
+        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mt-8 pt-6" style="border-top: 1px solid var(--color-border);">
+          <span style="font-size: 12px; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">NOAA</span>
+          <span style="height: 12px; width: 1px; background: var(--color-border);"></span>
+          <span style="font-size: 12px; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">USGS</span>
+          <span style="height: 12px; width: 1px; background: var(--color-border);"></span>
+          <span style="font-size: 12px; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">CDC</span>
+          <span style="height: 12px; width: 1px; background: var(--color-border);"></span>
+          <span style="font-size: 12px; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">GDACS</span>
+          <span style="height: 12px; width: 1px; background: var(--color-border);"></span>
+          <span style="font-size: 12px; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">ReliefWeb</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 4: PROBLEM / MECHANISM
+         ================================================================ -->
+    <section aria-labelledby="problem-mechanism-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">THE PROBLEM</span>
+          <h2 id="problem-mechanism-heading" class="text-display-md mt-4 mx-auto" style="color: var(--color-foreground); max-width: 28ch;">
+            Trip safety today runs on spreadsheets and hope.
+          </h2>
+          <p class="text-body-lg mt-4 mx-auto" style="color: var(--color-muted-foreground); max-width: 65ch;">
+            Most organizations manage travel safety with shared documents, PDF checklists, and the assumption that nothing will go wrong. When something does, there is no evidence of preparation -- only good intentions.
+          </p>
+        </div>
+
+        <!-- Transition Statement -->
+        <p class="text-heading-lg text-center font-semibold mt-12" style="color: var(--color-foreground);">
+          SafeTrekr replaces guesswork with evidence.
+        </p>
+
+        <!-- Mechanism Cards -->
+        <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <!-- Card 1 -->
+          <a href="/platform/analyst-review" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Professional Analyst Review</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              A trained safety analyst reviews every trip your organization takes -- across 17 dimensions, from venue safety to emergency evacuation. They flag what needs attention and document what is ready.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn about the review
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="/platform/risk-intelligence" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Government Intelligence Scoring</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Real-time safety data from NOAA, USGS, CDC, GDACS, and ReliefWeb -- the same sources emergency managers use. Risk scored by Monte Carlo simulation so you do not have to guess.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              See the intelligence engine
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 3 -->
+          <a href="/platform/safety-binder" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Tamper-Evident Documentation</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Every review finding, every data source, every decision documented with SHA-256 hash-chain integrity. When someone asks what you did to prepare -- you hand them the binder.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Explore the safety binder
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="problem-mechanism-heading"] { padding: 48px 0 !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 5: HOW IT WORKS PREVIEW
+         ================================================================ -->
+    <section aria-labelledby="how-it-works-heading" style="background: var(--color-primary-50); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">HOW IT WORKS</span>
+          <h2 id="how-it-works-heading" class="text-display-md mt-4 mx-auto" style="color: var(--color-foreground); max-width: 28ch;">
+            From submission to safety binder in 3-5 days.
+          </h2>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12 mt-16">
+          <!-- Step 1 -->
+          <div class="relative">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold" style="background: var(--color-primary-100); color: var(--color-primary-700); font-family: var(--font-heading); font-size: 18px;">1</div>
+              <!-- Connector line (desktop only) -->
+              <div class="hidden md:block flex-1 h-0.5" style="background: var(--color-primary-200);"></div>
+            </div>
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">Submit Your Trip</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Enter your destination, dates, participants, and trip details. Takes 15 minutes. No training required.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold" style="background: var(--color-primary-100); color: var(--color-primary-700); font-family: var(--font-heading); font-size: 18px;">2</div>
+              <div class="hidden md:block flex-1 h-0.5" style="background: var(--color-primary-200);"></div>
+            </div>
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">Analyst Reviews Everything</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              A professional safety analyst evaluates 17 safety dimensions using real-time intelligence from 5 government data sources. Risk scored by Monte Carlo simulation.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold" style="background: var(--color-primary-100); color: var(--color-primary-700); font-family: var(--font-heading); font-size: 18px;">3</div>
+            </div>
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">Receive Your Safety Binder</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Audit-ready documentation with every finding, every recommendation, and every risk score. Tamper-evident integrity via SHA-256 hash chain.
+            </p>
+          </div>
+        </div>
+
+        <!-- Link -->
+        <div class="text-center mt-10">
+          <a href="/how-it-works" class="inline-flex items-center gap-1.5 text-body-md font-medium" style="color: var(--color-primary-700); text-decoration: none;">
+            See the full process
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="how-it-works-heading"] { padding: 48px 0 !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 6: FEATURE GRID
+         ================================================================ -->
+    <section aria-labelledby="feature-grid-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="max-w-3xl">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">PLATFORM CAPABILITIES</span>
+          <h2 id="feature-grid-heading" class="text-display-md mt-4" style="color: var(--color-foreground); max-width: 28ch;">
+            Everything you need to protect every trip.
+          </h2>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <!-- Card 1: Analyst Safety Review -->
+          <a href="/platform/analyst-review" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Analyst Safety Review</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              17-section professional review of every trip plan by a trained safety analyst. Venues, transport, health, and emergency preparedness -- all evaluated.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 2: Risk Intelligence Engine -->
+          <a href="/platform/risk-intelligence" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Risk Intelligence Engine</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Monte Carlo risk scoring from NOAA, USGS, CDC, GDACS, and ReliefWeb. Probability-weighted risk bands, not binary pass/fail.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 3: Trip Safety Binder -->
+          <a href="/platform/safety-binder" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Trip Safety Binder</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Audit-ready documentation delivered in 3-5 days. Every finding, recommendation, and risk score preserved with SHA-256 hash-chain integrity.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 4: Mobile Field Operations -->
+          <a href="/platform/mobile-app" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Mobile Field Operations</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Live trip tracking, geofenced rally points, muster check-ins, and SMS broadcast. Everything your chaperones need in their pocket.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 5: Real-Time Monitoring -->
+          <a href="/platform/monitoring" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Real-Time Monitoring</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Geofence alerts, participant location visibility, and muster check-in status. Know where your travelers are at all times.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 6: Compliance and Evidence -->
+          <a href="/platform/compliance" class="card card-interactive group block" style="padding: 32px; text-decoration: none;">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: var(--color-primary-50);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Compliance and Evidence</h3>
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              AES-256 encryption, tamper-evident audit trails, and documentation designed for FERPA, SOC 2, and GDPR requirements.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="feature-grid-heading"] { padding: 48px 0 !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 7: BINDER SHOWCASE (DARK SECTION 1)
+         ================================================================ -->
+    <section aria-labelledby="binder-showcase-heading" data-theme="dark" style="background: var(--color-secondary); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <!-- Text Column -->
+          <div class="lg:col-span-5">
+            <span class="text-eyebrow" style="color: #6cbc8b;">THE SAFETY BINDER</span>
+            <h2 id="binder-showcase-heading" class="text-display-md mt-4" style="color: #f7f8f8; max-width: 28ch;">
+              See exactly what a reviewed trip looks like.
+            </h2>
+            <p class="text-body-lg mt-6" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+              Every trip reviewed by SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every risk assessment, every emergency contact -- with tamper-evident integrity. If a board member, insurer, or attorney asks what you did to prepare, you hand them this.
+            </p>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
+              <a href="/resources/sample-binders" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center" style="font-family: var(--font-heading); background: #ffffff; color: var(--color-secondary); padding: 16px 32px; font-size: 18px; border-radius: var(--radius-md); text-decoration: none;">
+                Download a Sample Binder
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </a>
+              <a href="/how-it-works#safety-binder" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center" style="font-family: var(--font-heading); background: transparent; border: 1.5px solid rgba(255,255,255,0.2); color: #f7f8f8; padding: 16px 32px; font-size: 18px; border-radius: var(--radius-md); text-decoration: none;">
+                See What's Inside
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual Column: Binder Fan -->
+          <div class="lg:col-span-7 relative" style="min-height: 400px;" aria-hidden="true">
+            <div class="relative mx-auto" style="max-width: 480px; height: 380px;">
+              <!-- Page 1 (back) -->
+              <div class="binder-page hidden sm:block" style="z-index: 1; transform: rotate(-8deg); left: 0; top: 40px;">
+                <div style="font-size: 11px; font-weight: 600; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase;">SafeTrekr</div>
+                <div style="font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--color-foreground); margin-top: 12px;">Safety Binder</div>
+                <div style="font-size: 11px; color: var(--color-muted-foreground); margin-top: 8px;">Acme Schools District</div>
+                <div style="font-size: 11px; color: var(--color-muted-foreground); margin-top: 4px;">March 15 - March 22, 2026</div>
+                <div style="height: 1px; background: var(--color-border); margin: 16px 0;"></div>
+                <div style="width: 50px; height: 50px; border-radius: 8px; background: var(--color-primary-50); margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3f885b" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+
+              <!-- Page 2 -->
+              <div class="binder-page hidden sm:block" style="z-index: 2; transform: rotate(-4deg); left: 60px; top: 30px;">
+                <div style="font-size: 10px; font-weight: 600; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase;">Risk Assessment</div>
+                <div style="margin-top: 12px;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                    <div style="width: 40px; height: 6px; border-radius: 3px; background: #22c55e;"></div>
+                    <span style="font-size: 10px; color: var(--color-muted-foreground);">Low (P5)</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                    <div style="width: 60px; height: 6px; border-radius: 3px; background: #eab308;"></div>
+                    <span style="font-size: 10px; color: var(--color-muted-foreground);">Medium (P50)</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <div style="width: 30px; height: 6px; border-radius: 3px; background: #ef4444;"></div>
+                    <span style="font-size: 10px; color: var(--color-muted-foreground);">Elevated (P95)</span>
+                  </div>
+                </div>
+                <div style="height: 1px; background: var(--color-border); margin: 14px 0;"></div>
+                <div style="font-size: 10px; color: var(--color-muted-foreground);">Overall Risk: Moderate</div>
+                <div style="width: 100%; height: 4px; border-radius: 2px; background: var(--color-border); margin-top: 6px;">
+                  <div style="width: 45%; height: 100%; border-radius: 2px; background: #eab308;"></div>
+                </div>
+              </div>
+
+              <!-- Page 3 (center, front on mobile) -->
+              <div class="binder-page" style="z-index: 3; transform: rotate(0deg); left: 120px; top: 20px;">
+                <div style="font-size: 10px; font-weight: 600; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase;">Review Findings</div>
+                <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ca46e" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <span style="font-size: 11px; color: var(--color-foreground);">Venue safety verified</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ca46e" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <span style="font-size: 11px; color: var(--color-foreground);">Transport assessed</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ca46e" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <span style="font-size: 11px; color: var(--color-foreground);">Emergency plan complete</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ca46e" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <span style="font-size: 11px; color: var(--color-foreground);">Health advisory cleared</span>
+                  </div>
+                </div>
+                <div style="height: 1px; background: var(--color-border); margin: 14px 0;"></div>
+                <div style="font-size: 10px; color: var(--color-muted-foreground);">17 of 17 sections reviewed</div>
+              </div>
+
+              <!-- Page 4 -->
+              <div class="binder-page hidden sm:block" style="z-index: 4; transform: rotate(4deg); left: 180px; top: 30px;">
+                <div style="font-size: 10px; font-weight: 600; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase;">Emergency Contacts</div>
+                <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-foreground)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91"/></svg>
+                    <span style="font-size: 10px; color: var(--color-foreground);">+1 (555) 234-5678</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-foreground)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <span style="font-size: 10px; color: var(--color-foreground);">St. Mary's Hospital</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-foreground)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span style="font-size: 10px; color: var(--color-foreground);">Local Police: 911</span>
+                  </div>
+                </div>
+                <div style="height: 1px; background: var(--color-border); margin: 14px 0;"></div>
+                <div style="font-size: 10px; color: var(--color-muted-foreground);">US Embassy: +1 (555) 890-1234</div>
+              </div>
+
+              <!-- Page 5 (front) -->
+              <div class="binder-page hidden sm:block" style="z-index: 5; transform: rotate(8deg); left: 240px; top: 40px;">
+                <div style="font-size: 10px; font-weight: 600; color: var(--color-muted-foreground); letter-spacing: 0.05em; text-transform: uppercase;">Evidence Documentation</div>
+                <div style="margin-top: 12px;">
+                  <div style="font-size: 10px; color: var(--color-muted-foreground); margin-bottom: 4px;">Document Hash</div>
+                  <code style="font-family: var(--font-mono); font-size: 9px; color: var(--color-foreground); word-break: break-all; display: block; background: rgba(231,236,238,0.5); padding: 6px; border-radius: 4px;">a3f29b7c...8e1d4c891</code>
+                </div>
+                <div style="margin-top: 12px;">
+                  <div style="font-size: 10px; color: var(--color-muted-foreground); margin-bottom: 4px;">Timestamp</div>
+                  <code style="font-family: var(--font-mono); font-size: 9px; color: var(--color-foreground);">2026-03-22T14:32:07Z</code>
+                </div>
+                <div style="height: 1px; background: var(--color-border); margin: 14px 0;"></div>
+                <div class="flex items-center gap-1">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ca46e" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span style="font-size: 9px; color: var(--color-primary-700); font-weight: 500;">Integrity verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="binder-showcase-heading"] { padding: 64px 0 !important; }
+          .binder-page { width: 160px !important; height: 220px !important; padding: 14px !important; }
+          .binder-page:nth-child(1) { left: 0 !important; }
+          .binder-page:nth-child(3) { left: 40px !important; transform: rotate(0deg) !important; }
+          .binder-page:nth-child(5) { left: 80px !important; }
+        }
+        @media (max-width: 639px) {
+          section[aria-labelledby="binder-showcase-heading"] .binder-page { position: relative !important; left: auto !important; top: auto !important; transform: none !important; width: 100% !important; height: auto !important; margin-bottom: 12px; }
+          section[aria-labelledby="binder-showcase-heading"] [style*="min-height: 400px"] { min-height: auto !important; }
+          section[aria-labelledby="binder-showcase-heading"] [style*="max-width: 480px"] { max-width: 100% !important; height: auto !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 8: SEGMENT ROUTING
+         ================================================================ -->
+    <section aria-labelledby="segment-routing-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">BUILT FOR YOUR ORGANIZATION</span>
+          <h2 id="segment-routing-heading" class="text-display-md mt-4 mx-auto" style="color: var(--color-foreground); max-width: 28ch;">
+            Built for organizations that take travel safety seriously.
+          </h2>
+        </div>
+
+        <!-- Segment Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <!-- Card 1: K-12 -->
+          <a href="/solutions/k12" class="card card-interactive group block" style="padding: 24px; text-decoration: none;" aria-label="Learn more about K-12 Schools and Districts solutions">
+            <svg class="w-8 h-8 mb-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">K-12 Schools and Districts</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              FERPA-ready field trip safety reviews. Professional analyst evaluation of every destination, from $15 per student. Board-ready documentation that proves due diligence.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 2: Higher Education -->
+          <a href="/solutions/higher-education" class="card card-interactive group block" style="padding: 24px; text-decoration: none;" aria-label="Learn more about Higher Education solutions">
+            <svg class="w-8 h-8 mb-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/></svg>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Higher Education</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Study abroad, Clery Act, and international program safety. Institutional-grade risk assessment with evidence documentation for general counsel and risk management.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 3: Churches -->
+          <a href="/solutions/churches" class="card card-interactive group block" style="padding: 24px; text-decoration: none;" aria-label="Learn more about Churches and Mission Organizations solutions">
+            <svg class="w-8 h-8 mb-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Churches and Mission Organizations</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Mission trip safety with volunteer screening documentation and youth protection. Stewardship-framed preparation that satisfies insurance requirements.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 4: Corporate -->
+          <a href="/solutions/corporate" class="card card-interactive group block" style="padding: 24px; text-decoration: none;" aria-label="Learn more about Corporate and Sports Teams solutions">
+            <svg class="w-8 h-8 mb-4" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+            <h3 class="text-heading-sm" style="color: var(--color-foreground);">Corporate and Sports Teams</h3>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">
+              Duty of care compliance for business travel and team transportation. Professional safety analysis for mid-market organizations without enterprise budgets.
+            </p>
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="segment-routing-heading"] { padding: 48px 0 !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 9: PRICING PREVIEW
+         ================================================================ -->
+    <section aria-labelledby="pricing-preview-heading" class="border-y" style="background: var(--color-card); border-color: var(--color-border); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">PRICING</span>
+          <h2 id="pricing-preview-heading" class="text-display-md mt-4 mx-auto" style="color: var(--color-foreground); max-width: 28ch;">
+            Professional trip safety starting at $15 per participant.
+          </h2>
+          <p class="text-body-lg mt-4 mx-auto" style="color: var(--color-muted-foreground); max-width: 65ch;">
+            The average trip-related legal settlement: <strong style="color: var(--color-foreground);">$500K-$2M</strong>. SafeTrekr: <strong style="color: var(--color-foreground);">$15 per student</strong>.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8 mt-12 items-start">
+          <!-- Tier 1: Field Trip -->
+          <div class="rounded-2xl border-2 p-8" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-lg);">
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">Field Trip</h3>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-display-md" style="color: var(--color-foreground);">$450</span>
+              <span class="text-body-sm" style="color: var(--color-muted-foreground);">per trip</span>
+            </div>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">~$15/student for a 30-person group</p>
+            <ul class="space-y-3 mt-6">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">17-section analyst review</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">5 government intelligence sources</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Complete safety binder</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Mobile field operations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">3-5 day turnaround</span>
+              </li>
+            </ul>
+            <a href="/demo" class="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 14px 24px; font-size: 16px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+          </div>
+
+          <!-- Tier 2: Extended Trip (Featured) -->
+          <div class="rounded-2xl border-2 p-8 pricing-featured" style="background: var(--color-card); border-color: var(--color-primary-500); box-shadow: var(--shadow-xl);">
+            <div class="flex items-center justify-between">
+              <h3 class="text-heading-md" style="color: var(--color-foreground);">Extended Trip</h3>
+              <span class="badge badge-brand" style="font-size: 12px;">Most Popular</span>
+            </div>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-display-md" style="color: var(--color-foreground);">$750</span>
+              <span class="text-body-sm" style="color: var(--color-muted-foreground);">per trip</span>
+            </div>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">~$19/student for a 40-person group</p>
+            <ul class="space-y-3 mt-6">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Everything in Field Trip</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Multi-day trip support</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Extended monitoring period</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Sports travel coverage</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Priority analyst assignment</span>
+              </li>
+            </ul>
+            <a href="/demo" class="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 14px 24px; font-size: 16px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+          </div>
+
+          <!-- Tier 3: International -->
+          <div class="rounded-2xl border-2 p-8" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-lg);">
+            <h3 class="text-heading-md" style="color: var(--color-foreground);">International</h3>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-display-md" style="color: var(--color-foreground);">$1,250</span>
+              <span class="text-body-sm" style="color: var(--color-muted-foreground);">per trip</span>
+            </div>
+            <p class="text-body-sm mt-2" style="color: var(--color-muted-foreground);">~$42/participant for a 30-person group</p>
+            <ul class="space-y-3 mt-6">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Everything in Extended Trip</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">International intelligence coverage</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Embassy and consulate contacts</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Cross-border risk assessment</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-body-sm" style="color: var(--color-foreground);">Evacuation planning documentation</span>
+              </li>
+            </ul>
+            <a href="/demo" class="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 14px 24px; font-size: 16px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+          </div>
+        </div>
+
+        <!-- Link to full pricing -->
+        <div class="text-center mt-10">
+          <a href="/pricing" class="inline-flex items-center gap-1.5 text-body-md font-medium" style="color: var(--color-primary-700); text-decoration: none;">
+            View full pricing and volume discounts
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="pricing-preview-heading"] { padding: 48px 0 !important; }
+          .pricing-featured { order: -1; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 10: CATEGORY CONTRAST
+         ================================================================ -->
+    <section aria-labelledby="category-contrast-heading" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto">
+          <span class="text-eyebrow" style="color: var(--color-primary-700);">NOT ANOTHER TRAVEL APP</span>
+          <h2 id="category-contrast-heading" class="text-display-md mt-4 mx-auto" style="color: var(--color-foreground); max-width: 32ch;">
+            This is not travel insurance.<br class="hidden sm:block">
+            This is not trip logistics.<br class="hidden sm:block">
+            This is professional safety analysis.
+          </h2>
+          <p class="text-body-lg mt-4 mx-auto" style="color: var(--color-muted-foreground); max-width: 65ch;">
+            SafeTrekr creates a category that did not exist before: professional safety analysis with evidence documentation. Here is how it compares to what organizations typically use.
+          </p>
+        </div>
+
+        <!-- Comparison Table (Desktop) -->
+        <div class="hidden md:block mt-12 rounded-xl border overflow-hidden" style="background: var(--color-card); border-color: var(--color-border); box-shadow: var(--shadow-sm);">
+          <!-- Header Row -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border);">
+            <div class="py-4 px-6"></div>
+            <div class="py-4 px-6 text-center">
+              <span class="text-body-sm font-semibold" style="color: var(--color-foreground);">DIY Spreadsheets</span>
+            </div>
+            <div class="py-4 px-6 text-center">
+              <span class="text-body-sm font-semibold" style="color: var(--color-foreground);">Travel Apps</span>
+            </div>
+            <div class="py-4 px-6 text-center">
+              <span class="text-body-sm font-semibold" style="color: var(--color-foreground);">Travel Insurance</span>
+            </div>
+            <div class="py-4 px-6 text-center safetrekr-col">
+              <span class="text-body-sm font-semibold" style="color: var(--color-primary-700);">SafeTrekr</span>
+            </div>
+          </div>
+          <!-- Row 1 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Professional safety analyst review</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 2 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border); background: rgba(231,236,238,0.35);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Government intelligence data</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 3 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Monte Carlo risk scoring</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 4 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border); background: rgba(231,236,238,0.35);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Tamper-evident documentation</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 5 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Audit-ready evidence binder</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 6 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border); background: rgba(231,236,238,0.35);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Real-time trip monitoring</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-5 h-5" style="color: rgba(6,26,35,0.4);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 7 -->
+          <div class="grid grid-cols-5 border-b" style="border-color: var(--color-border);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Legal and insurance documentation</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><span class="text-body-xs" style="color: var(--color-muted-foreground);">Partial</span></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <!-- Row 8 -->
+          <div class="grid grid-cols-5" style="background: rgba(231,236,238,0.35);">
+            <div class="py-4 px-6"><span class="text-body-sm font-medium" style="color: var(--color-foreground);">Mobile field operations</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center"><span class="text-body-xs" style="color: var(--color-muted-foreground);">Partial</span></div>
+            <div class="py-4 px-6 flex items-center justify-center"><svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M5 12h14"/></svg></div>
+            <div class="py-4 px-6 flex items-center justify-center safetrekr-col"><svg class="w-5 h-5" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+        </div>
+
+        <!-- Mobile Comparison Cards -->
+        <div class="md:hidden mt-12 space-y-4">
+          <!-- Feature Card 1 -->
+          <div class="rounded-lg border p-4" style="background: var(--color-card); border-color: var(--color-border);">
+            <span class="text-body-sm font-medium" style="color: var(--color-foreground);">Professional safety analyst review</span>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- DIY</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- Apps</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- Insurance</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium" style="background: var(--color-primary-50); color: var(--color-primary-700);">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                SafeTrekr
+              </span>
+            </div>
+          </div>
+          <div class="rounded-lg border p-4" style="background: var(--color-card); border-color: var(--color-border);">
+            <span class="text-body-sm font-medium" style="color: var(--color-foreground);">Government intelligence data</span>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- DIY</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- Apps</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- Insurance</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium" style="background: var(--color-primary-50); color: var(--color-primary-700);">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                SafeTrekr
+              </span>
+            </div>
+          </div>
+          <div class="rounded-lg border p-4" style="background: var(--color-card); border-color: var(--color-border);">
+            <span class="text-body-sm font-medium" style="color: var(--color-foreground);">Real-time trip monitoring</span>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- DIY</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium" style="background: var(--color-card); color: var(--color-foreground); border: 1px solid var(--color-border);">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Apps
+              </span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style="background: var(--color-muted); color: var(--color-muted-foreground);">-- Insurance</span>
+              <span class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium" style="background: var(--color-primary-50); color: var(--color-primary-700);">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                SafeTrekr
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="category-contrast-heading"] { padding: 48px 0 !important; }
+        }
+      </style>
+    </section>
+
+    <!-- ================================================================
+         SECTION 11: FINAL CTA BANNER (DARK SECTION 2)
+         ================================================================ -->
+    <section aria-labelledby="final-cta-heading" data-theme="dark" style="background: var(--color-secondary); padding: 112px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <h2 id="final-cta-heading" class="text-display-md mx-auto" style="color: #f7f8f8; max-width: 28ch;">
+          Ready to protect your next trip?
+        </h2>
+        <p class="text-body-lg mt-4 mx-auto" style="color: #b8c3c7; max-width: 65ch;">
+          Every trip goes well until one does not. The binder is for that day.
+        </p>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8">
+          <a href="/demo" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150" style="font-family: var(--font-heading); background: #ffffff; color: var(--color-secondary); padding: 16px 32px; font-size: 18px; border-radius: var(--radius-md); text-decoration: none;">
+            Get a Demo
+          </a>
+          <a href="/resources/sample-binders" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150" style="font-family: var(--font-heading); background: transparent; border: 1.5px solid rgba(255,255,255,0.2); color: #f7f8f8; padding: 16px 32px; font-size: 18px; border-radius: var(--radius-md); text-decoration: none;">
+            See a Sample Binder
+          </a>
+        </div>
+      </div>
+      <style>
+        @media (max-width: 767px) {
+          section[aria-labelledby="final-cta-heading"] { padding: 64px 0 !important; }
+        }
+      </style>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       SECTION 12: SITE FOOTER
+       ================================================================ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Zone 1 & 2: Brand + Link Columns -->
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+        <!-- Brand Column -->
+        <div class="col-span-2">
+          <!-- Logo light -->
+          <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#f7f8f8" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M10 14l4 4 8-8" stroke="#6cbc8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#f7f8f8">SafeTrekr</text>
+          </svg>
+          <p class="mt-4 text-body-sm" style="color: #b8c3c7; max-width: 35ch; line-height: 1.6;">
+            Professional trip safety review and evidence documentation for organizations that protect travelers.
+          </p>
+        </div>
+
+        <!-- Column A: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column B: Solutions / How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column C: Resources / Company -->
+        <nav aria-label="Resources and company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">FAQ</a></li>
+            <li><a href="/blog" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Blog</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Zone 3: Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Social Icons -->
+        <div class="flex items-center gap-4">
+          <a href="https://linkedin.com/company/safetrekr" aria-label="SafeTrekr on LinkedIn" class="transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://twitter.com/safetrekr" aria-label="SafeTrekr on Twitter" class="transition-colors duration-150" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);">|</span>
+          <a href="/legal/terms" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);">|</span>
+          <a href="/legal/privacy" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);">|</span>
+          <a href="/legal/dpa" style="color: #b8c3c7; text-decoration: none;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#b8c3c7'">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       JAVASCRIPT: Header scroll behavior + Mobile menu
+       ================================================================ -->
+  <script>
+    // Sticky header scroll behavior
+    const header = document.getElementById('site-header');
+    let lastScroll = 0;
+    function onScroll() {
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        header.classList.add('header-scrolled');
+        header.style.height = '64px';
+      } else {
+        header.classList.remove('header-scrolled');
+        header.style.height = '80px';
+      }
+      lastScroll = scrollY;
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('mobile-close-btn');
+    const overlay = document.getElementById('mobile-overlay');
+    const panel = document.getElementById('mobile-panel');
+
+    function openMenu() {
+      overlay.classList.add('active');
+      panel.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('active');
+      panel.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
+</body>
+</html>

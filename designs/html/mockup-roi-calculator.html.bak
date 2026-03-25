@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator | SafeTrekr -- Professional Trip Safety</title>
+  <meta name="description" content="Calculate your organization's return on investment with SafeTrekr. Compare manual safety planning costs to SafeTrekr pricing and see annual savings, per-student costs, and liability reduction.">
+  <link rel="canonical" href="https://www.safetrekr.com/resources/roi-calculator">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ROI Calculator | SafeTrekr -- Professional Trip Safety">
+  <meta property="og:description" content="Calculate your organization's return on investment with SafeTrekr. Compare manual safety planning costs to SafeTrekr pricing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.safetrekr.com/resources/roi-calculator">
+
+  <!-- Design Tokens -->
+  <link rel="stylesheet" href="design-tokens.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            border: 'var(--color-border)',
+            input: 'var(--color-input)',
+            ring: 'var(--color-ring)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            accent: 'var(--color-accent)',
+            'accent-foreground': 'var(--color-accent-foreground)',
+            primary: {
+              50: 'var(--color-primary-50)',
+              100: 'var(--color-primary-100)',
+              200: 'var(--color-primary-200)',
+              300: 'var(--color-primary-300)',
+              400: 'var(--color-primary-400)',
+              500: 'var(--color-primary-500)',
+              600: 'var(--color-primary-600)',
+              700: 'var(--color-primary-700)',
+              800: 'var(--color-primary-800)',
+              900: 'var(--color-primary-900)',
+              950: 'var(--color-primary-950)',
+              DEFAULT: 'var(--color-primary)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              foreground: 'var(--color-secondary-foreground)',
+              light: 'var(--color-secondary-light)',
+              muted: 'var(--color-secondary-muted)',
+            },
+            destructive: {
+              DEFAULT: 'var(--color-destructive)',
+              foreground: 'var(--color-destructive-foreground)',
+            },
+            safety: {
+              green: 'var(--color-safety-green)',
+              yellow: 'var(--color-safety-yellow)',
+              red: 'var(--color-safety-red)',
+            },
+            warning: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              800: '#92400e',
+            },
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            md: 'var(--radius-md)',
+            lg: 'var(--radius-lg)',
+            xl: 'var(--radius-xl)',
+            '2xl': 'var(--radius-2xl)',
+          },
+          boxShadow: {
+            xs: 'var(--shadow-xs)',
+            sm: 'var(--shadow-sm)',
+            md: 'var(--shadow-md)',
+            lg: 'var(--shadow-lg)',
+            xl: 'var(--shadow-xl)',
+            card: 'var(--shadow-sm)',
+            'card-hover': 'var(--shadow-md)',
+          },
+          maxWidth: {
+            container: '1280px',
+            prose: '65ch',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SafeTrekr ROI Calculator",
+    "description": "Calculate your organization's return on investment with SafeTrekr professional trip safety. Compare manual safety planning costs to SafeTrekr and see net annual savings.",
+    "url": "https://www.safetrekr.com/resources/roi-calculator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SafeTrekr"
+    }
+  }
+  </script>
+
+  <style>
+    /* ---- Glassmorphic header ---- */
+    .header-scrolled {
+      background: rgba(231, 236, 238, 0.80);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---- Smooth scroll offset for sticky header ---- */
+    html {
+      scroll-padding-top: 96px;
+    }
+
+    /* ---- Mobile menu ---- */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 26, 35, 0.5);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: var(--color-card);
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      padding: 24px;
+    }
+    .mobile-menu-panel.active {
+      transform: translateX(0);
+    }
+
+    /* ---- Fade-up animation ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ---- Card reveal ---- */
+    @keyframes cardReveal {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-card-reveal {
+      animation: cardReveal 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ---- Counter animate ---- */
+    @keyframes counterAnimate {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-counter {
+      animation: counterAnimate 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ---- Scale in for savings box ---- */
+    @keyframes scaleIn {
+      from { opacity: 0.9; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-scale-in {
+      animation: scaleIn 0.2s ease-out forwards;
+    }
+
+    /* ---- Modal ---- */
+    @keyframes modalScaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes backdropFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-backdrop {
+      animation: backdropFade 0.2s ease forwards;
+    }
+    .modal-surface {
+      animation: modalScaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    /* ---- Status pulse for success ---- */
+    @keyframes statusPulse {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.4); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .status-pulse {
+      animation: statusPulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      transform: scale(0);
+    }
+
+    /* ---- Custom slider styling ---- */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 9999px;
+      background: var(--color-border);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--color-primary-600);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: box-shadow 0.15s ease;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--color-primary-600);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+    }
+    input[type="range"]:focus-visible::-webkit-slider-thumb {
+      box-shadow: 0 0 0 3px rgba(54, 84, 98, 0.15);
+    }
+    input[type="range"]:focus-visible::-moz-range-thumb {
+      box-shadow: 0 0 0 3px rgba(54, 84, 98, 0.15);
+    }
+
+    /* ---- Slider filled track (JS-driven via background gradient) ---- */
+    input[type="range"].slider-filled {
+      background: linear-gradient(to right, var(--color-primary-500) 0%, var(--color-primary-500) var(--fill-percent, 50%), var(--color-border) var(--fill-percent, 50%), var(--color-border) 100%);
+    }
+
+    /* ---- Result value transition ---- */
+    .result-value {
+      transition: transform 0.2s ease;
+    }
+    .result-value.updating {
+      transform: scale(0.98);
+    }
+
+    /* ---- Scenario card hover ---- */
+    .scenario-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .scenario-card:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+
+    /* ---- Mobile sticky results bar ---- */
+    .mobile-results-bar {
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-results-bar.visible {
+      transform: translateY(0);
+    }
+
+    /* ---- Separator dashes ---- */
+    .result-separator {
+      border-top: 1px dashed var(--color-border);
+    }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .animate-card-reveal,
+      .animate-counter,
+      .animate-scale-in,
+      .modal-surface,
+      .modal-backdrop,
+      .status-pulse {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .result-value {
+        transition: none !important;
+      }
+      .scenario-card {
+        transition: none !important;
+      }
+      .mobile-results-bar {
+        transition: none !important;
+      }
+    }
+
+    /* ---- Hero radial glow ---- */
+    .hero-radial-glow {
+      background: radial-gradient(600px circle at 50% 80%, rgba(241,249,244,0.25), transparent);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ---- Tabular nums ---- */
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---- Select dropdown ---- */
+    select.calc-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234d5153' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 40px;
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-card focus:text-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:ring-2 focus:ring-ring" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================
+       SITE HEADER (Sticky Glassmorphic)
+       ================================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+  <div id="mobile-panel" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div class="flex justify-between items-center mb-8">
+      <span class="font-display font-bold text-lg text-foreground">Menu</span>
+      <button id="mobile-close-btn" class="p-2 text-foreground" aria-label="Close navigation menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2">
+      <a href="/platform" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Platform</a>
+      <a href="/solutions" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Solutions</a>
+      <a href="/how-it-works" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">How It Works</a>
+      <a href="/pricing" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Pricing</a>
+      <a href="/resources" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors font-semibold" style="font-family: var(--font-body);">Resources</a>
+      <div class="border-t mt-4 pt-4" style="border-color: var(--color-border);">
+        <a href="/demo" class="block w-full text-center py-3 rounded-md text-base font-semibold text-white" style="background: var(--color-primary-600); font-family: var(--font-heading);">Get a Demo</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12" style="padding-top: 96px;">
+      <ol class="flex items-center gap-2 text-body-sm" style="list-style: none; color: var(--color-muted-foreground);">
+        <li><a href="/" style="color: var(--color-muted-foreground); text-decoration: none;" class="hover:text-foreground transition-colors">Home</a></li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </li>
+        <li><a href="/resources" style="color: var(--color-muted-foreground); text-decoration: none;" class="hover:text-foreground transition-colors">Resources</a></li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4" style="color: var(--color-border);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </li>
+        <li aria-current="page" style="color: var(--color-foreground); font-weight: 500;">ROI Calculator</li>
+      </ol>
+    </nav>
+
+    <!-- ================================================================
+         SECTION 1: HERO
+         ================================================================ -->
+    <section aria-label="ROI calculator introduction" class="relative overflow-hidden" style="background: var(--color-background);">
+      <div class="hero-radial-glow"></div>
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 pt-8 pb-8 sm:pt-12 sm:pb-12 lg:pt-16 lg:pb-16 xl:pt-20 xl:pb-16 text-center">
+
+        <!-- Eyebrow -->
+        <span class="text-eyebrow flex items-center justify-center gap-2 animate-fade-up" style="color: var(--color-primary-700); animation-delay: 0ms;">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-primary-700);">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          COST ANALYSIS TOOL
+        </span>
+
+        <!-- Headline -->
+        <h1 class="text-display-lg mt-4 animate-fade-up" style="color: var(--color-foreground); animation-delay: 80ms;">
+          Calculate What Manual Trip<br class="hidden sm:inline"> Safety Planning Costs You
+        </h1>
+
+        <!-- Body -->
+        <p class="text-body-lg mt-6 mx-auto animate-fade-up" style="color: var(--color-muted-foreground); max-width: 65ch; animation-delay: 160ms;">
+          Most organizations spend <span class="font-semibold" style="color: var(--color-foreground);">$700--$1,400</span> in staff time per trip on manual safety planning. See what SafeTrekr saves your organization annually.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-8 animate-fade-up" style="animation-delay: 240ms;">
+          <a href="#calculator" class="btn btn-lg btn-primary inline-flex items-center gap-2 w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; text-decoration: none;">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            Start Calculating
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 2: INTERACTIVE CALCULATOR
+         ================================================================ -->
+    <section id="calculator" aria-label="ROI calculator" tabindex="-1" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+
+          <!-- ============ INPUTS PANEL ============ -->
+          <div class="lg:col-span-5">
+            <div class="bg-white rounded-xl p-6 sm:p-8" style="border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+              <h2 class="text-heading-sm font-semibold mb-6" style="color: var(--color-foreground); font-family: var(--font-heading);">YOUR ORGANIZATION</h2>
+
+              <!-- Organization Type -->
+              <div class="mb-6">
+                <label for="org-type" class="block text-sm font-medium mb-2" style="color: var(--color-foreground); font-family: var(--font-body);">Organization Type</label>
+                <select id="org-type" class="calc-select input w-full" style="background-color: var(--color-card); cursor: pointer;">
+                  <option value="k12">K-12 School / District</option>
+                  <option value="church">Church / Mission Org</option>
+                  <option value="highered">Higher Education</option>
+                  <option value="corporate">Corporate / Sports Team</option>
+                </select>
+              </div>
+
+              <!-- Trips Per Year -->
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                  <label for="trips-slider" class="text-sm font-medium" style="color: var(--color-foreground); font-family: var(--font-body);">Trips Per Year</label>
+                  <input type="number" id="trips-value" class="w-16 text-right font-semibold tabular-nums bg-transparent border-none outline-none text-base" style="color: var(--color-foreground); font-family: var(--font-body);" value="20" min="1" max="100" aria-label="Trips per year value">
+                </div>
+                <input type="range" id="trips-slider" class="slider-filled w-full" min="1" max="100" step="1" value="20" aria-label="Trips per year" aria-valuemin="1" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20 trips per year">
+                <div class="flex justify-between mt-1">
+                  <span class="text-xs" style="color: var(--color-muted-foreground);">1</span>
+                  <span class="text-xs" style="color: var(--color-muted-foreground);">100</span>
+                </div>
+              </div>
+
+              <!-- Average Group Size -->
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                  <label for="size-slider" class="text-sm font-medium" style="color: var(--color-foreground); font-family: var(--font-body);">Average Group Size</label>
+                  <input type="number" id="size-value" class="w-16 text-right font-semibold tabular-nums bg-transparent border-none outline-none text-base" style="color: var(--color-foreground); font-family: var(--font-body);" value="30" min="10" max="200" aria-label="Average group size value">
+                </div>
+                <input type="range" id="size-slider" class="slider-filled w-full" min="10" max="200" step="5" value="30" aria-label="Average group size" aria-valuemin="10" aria-valuemax="200" aria-valuenow="30" aria-valuetext="30 participants">
+                <div class="flex justify-between mt-1">
+                  <span class="text-xs" style="color: var(--color-muted-foreground);">10</span>
+                  <span class="text-xs" style="color: var(--color-muted-foreground);">200</span>
+                </div>
+              </div>
+
+              <!-- Hours Per Trip -->
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                  <label for="hours-slider" class="text-sm font-medium" style="color: var(--color-foreground); font-family: var(--font-body);">Hours Spent on Manual Safety Planning Per Trip</label>
+                  <input type="number" id="hours-value" class="w-16 text-right font-semibold tabular-nums bg-transparent border-none outline-none text-base" style="color: var(--color-foreground); font-family: var(--font-body);" value="8" min="2" max="40" aria-label="Hours per trip value">
+                </div>
+                <input type="range" id="hours-slider" class="slider-filled w-full" min="2" max="40" step="1" value="8" aria-label="Hours spent on manual safety planning per trip" aria-valuemin="2" aria-valuemax="40" aria-valuenow="8" aria-valuetext="8 hours per trip">
+                <div class="flex justify-between mt-1">
+                  <span class="text-xs" style="color: var(--color-muted-foreground);">2</span>
+                  <span class="text-xs" style="color: var(--color-muted-foreground);">40</span>
+                </div>
+              </div>
+
+              <!-- Staff Hourly Rate -->
+              <div>
+                <label for="rate-input" class="block text-sm font-medium mb-2" style="color: var(--color-foreground); font-family: var(--font-body);">Staff Hourly Rate</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-base" style="color: var(--color-muted-foreground);" aria-hidden="true">$</span>
+                  <input type="number" id="rate-input" class="input w-full tabular-nums" style="padding-left: 28px; background-color: var(--color-card);" value="45" min="15" max="200" step="1" aria-label="Staff hourly rate in dollars">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ RESULTS PANEL ============ -->
+          <div class="lg:col-span-7">
+            <div id="results-panel" class="bg-white rounded-xl p-6 sm:p-8 lg:sticky lg:top-24" style="border: 2px solid var(--color-primary-200); box-shadow: var(--shadow-sm);" aria-live="polite">
+              <h2 class="text-heading-sm font-semibold mb-6" style="color: var(--color-foreground); font-family: var(--font-heading);">YOUR RESULTS</h2>
+
+              <!-- Annual Manual Cost -->
+              <div class="mb-4 pb-4 result-separator">
+                <span class="block text-sm mb-1" style="color: var(--color-muted-foreground); font-family: var(--font-body);">Annual Cost of Manual Safety Planning</span>
+                <span id="result-manual-cost" class="result-value text-heading-lg tabular-nums block" style="color: var(--color-foreground); font-family: var(--font-heading);" aria-label="Annual manual cost">$7,200</span>
+              </div>
+
+              <!-- Annual SafeTrekr Cost -->
+              <div class="mb-4 pb-4 result-separator">
+                <span class="block text-sm mb-1" style="color: var(--color-muted-foreground); font-family: var(--font-body);">Annual SafeTrekr Investment</span>
+                <span id="result-safetrekr-cost" class="result-value text-heading-lg tabular-nums block" style="color: var(--color-primary-700); font-family: var(--font-heading);" aria-label="Annual SafeTrekr cost">$9,000</span>
+              </div>
+
+              <!-- Net Annual Savings (Highlight Box) -->
+              <div id="savings-box" class="rounded-lg p-4 sm:p-5 mb-4" style="background: var(--color-primary-50); border: 1px solid var(--color-primary-200);">
+                <span id="savings-label" class="text-eyebrow block" style="color: var(--color-primary-700);">YOUR NET ANNUAL SAVINGS</span>
+                <span id="result-net-savings" class="result-value text-display-md tabular-nums block mt-1 font-bold" style="color: var(--color-primary-700); font-family: var(--font-heading);" aria-label="Your net annual savings">$0</span>
+                <p id="savings-note" class="text-sm mt-2 hidden" style="color: var(--color-muted-foreground);">This comparison measures staff time only. SafeTrekr also provides liability protection, audit-ready documentation, and professional analyst review that manual planning cannot replicate.</p>
+              </div>
+
+              <!-- Per-Student Cost -->
+              <div class="mb-4 pb-4 result-separator">
+                <span class="block text-sm mb-1" style="color: var(--color-muted-foreground); font-family: var(--font-body);">Cost Per Student Per Trip</span>
+                <span id="result-per-student" class="result-value text-heading-md tabular-nums block" style="color: var(--color-foreground); font-family: var(--font-heading);" aria-label="Cost per student per trip">$15.00</span>
+              </div>
+
+              <!-- Liability Comparison -->
+              <div class="mb-6 pb-6 result-separator">
+                <span class="block text-sm mb-1" style="color: var(--color-muted-foreground); font-family: var(--font-body);">Liability Comparison</span>
+                <p id="result-liability" class="text-base" style="color: var(--color-muted-foreground); font-family: var(--font-body);">
+                  The average trip-related settlement is <strong style="color: var(--color-foreground);">$500K--$2M</strong>. Your annual SafeTrekr investment is <strong id="liability-low" style="color: var(--color-primary-700);">1.8%</strong> -- <strong id="liability-high" style="color: var(--color-primary-700);">0.5%</strong> of a single settlement.
+                </p>
+              </div>
+
+              <!-- CTA Buttons -->
+              <button onclick="openReportModal()" class="btn btn-md btn-primary w-full" style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; padding: 12px 24px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none;">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Download Full ROI Report
+              </button>
+              <button onclick="shareResults()" class="btn btn-md btn-secondary w-full mt-3" style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; padding: 12px 24px; border-radius: var(--radius-md); width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/></svg>
+                Share These Results
+              </button>
+
+              <!-- Footnote -->
+              <p class="mt-4 text-xs text-center" style="color: var(--color-muted-foreground);">
+                * Pricing varies by trip type. <a href="/contact" style="color: var(--color-primary-700); text-decoration: underline;">Contact us</a> for a precise quote.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MOBILE STICKY RESULTS BAR ============ -->
+    <div id="mobile-results-bar" class="mobile-results-bar fixed bottom-0 left-0 right-0 bg-white px-6 py-3 z-20 lg:hidden flex items-center justify-between" style="border-top: 1px solid var(--color-border); box-shadow: 0 -4px 6px -1px rgba(6,26,35,0.06);" aria-hidden="true">
+      <div>
+        <span class="text-xs block" style="color: var(--color-muted-foreground);">Savings</span>
+        <span id="mobile-savings-value" class="text-heading-sm tabular-nums" style="color: var(--color-primary-700); font-family: var(--font-heading);">$0/year</span>
+      </div>
+      <a href="#results-panel" class="btn btn-sm btn-primary inline-flex items-center gap-1" style="font-family: var(--font-heading); font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; text-decoration: none;">
+        See Results
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </a>
+    </div>
+
+    <!-- ================================================================
+         SECTION 3: PRE-FILLED SCENARIOS
+         ================================================================ -->
+    <section aria-label="Pre-filled calculator scenarios" style="background: var(--color-background);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-24">
+
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+          <span class="text-eyebrow animate-fade-up" style="color: var(--color-primary-700); animation-delay: 0ms;">SEE YOUR SCENARIO</span>
+          <h2 class="text-display-md mt-3 animate-fade-up" style="color: var(--color-foreground); font-family: var(--font-heading); animation-delay: 80ms;">Start With Numbers That Look Like Yours</h2>
+          <p class="text-body-lg mt-4 mx-auto animate-fade-up" style="color: var(--color-muted-foreground); max-width: 60ch; animation-delay: 160ms;">Click a scenario to pre-fill the calculator with typical values for your organization type.</p>
+        </div>
+
+        <!-- Scenario Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+          <!-- Scenario 1: K-12 -->
+          <button type="button" class="scenario-card bg-white rounded-xl p-6 text-left animate-card-reveal" style="border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); animation-delay: 200ms;" onclick="loadScenario('k12')" aria-label="Pre-fill calculator with K-12 School District scenario: 20 trips per year, 30 students, estimated savings of $19,000">
+            <div class="flex items-center justify-center rounded-lg" style="width: 40px; height: 40px; background: var(--color-primary-50);">
+              <svg class="w-5 h-5" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-3" style="color: var(--color-foreground); font-family: var(--font-heading);">K-12 School District</h3>
+            <ul class="mt-3 space-y-1.5" style="list-style: none;">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 20 trips/year
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 30 students
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 8 hrs manual/trip
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> $45/hr staff cost
+              </li>
+            </ul>
+            <div class="mt-4">
+              <span class="text-xs block" style="color: var(--color-muted-foreground);">Est. annual savings</span>
+              <span class="text-heading-md tabular-nums font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);" id="scenario-k12-savings">$0</span>
+            </div>
+            <span class="btn btn-sm btn-secondary w-full mt-4 pointer-events-none" style="font-family: var(--font-heading); font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              Try This Scenario
+            </span>
+          </button>
+
+          <!-- Scenario 2: Church / Mission Org -->
+          <button type="button" class="scenario-card bg-white rounded-xl p-6 text-left animate-card-reveal" style="border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); animation-delay: 300ms;" onclick="loadScenario('church')" aria-label="Pre-fill calculator with Church Mission Org scenario: 4 trips per year, 25 participants, investment of $5,000 per year">
+            <div class="flex items-center justify-center rounded-lg" style="width: 40px; height: 40px; background: var(--color-primary-50);">
+              <svg class="w-5 h-5" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-3" style="color: var(--color-foreground); font-family: var(--font-heading);">Church Mission Org</h3>
+            <ul class="mt-3 space-y-1.5" style="list-style: none;">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 4 trips/year
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 25 participants
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 12 hrs manual/trip
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> $35/hr staff cost
+              </li>
+            </ul>
+            <div class="mt-4">
+              <span class="text-xs block" style="color: var(--color-muted-foreground);">SafeTrekr investment</span>
+              <span class="text-heading-md tabular-nums font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);">$5,000/year</span>
+              <span class="block text-xs mt-1" style="color: var(--color-muted-foreground);">$50 per participant. Includes liability documentation your insurance carrier requires.</span>
+            </div>
+            <span class="btn btn-sm btn-secondary w-full mt-4 pointer-events-none" style="font-family: var(--font-heading); font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              Try This Scenario
+            </span>
+          </button>
+
+          <!-- Scenario 3: University -->
+          <button type="button" class="scenario-card bg-white rounded-xl p-6 text-left animate-card-reveal" style="border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); animation-delay: 400ms;" onclick="loadScenario('highered')" aria-label="Pre-fill calculator with University scenario: 8 trips per year, 20 students, estimated savings of $3,600">
+            <div class="flex items-center justify-center rounded-lg" style="width: 40px; height: 40px; background: var(--color-primary-50);">
+              <svg class="w-5 h-5" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-3" style="color: var(--color-foreground); font-family: var(--font-heading);">University</h3>
+            <ul class="mt-3 space-y-1.5" style="list-style: none;">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 8 trips/year
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 20 students
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 15 hrs manual/trip
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> $55/hr staff cost
+              </li>
+            </ul>
+            <div class="mt-4">
+              <span class="text-xs block" style="color: var(--color-muted-foreground);">Est. annual savings</span>
+              <span class="text-heading-md tabular-nums font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);" id="scenario-highered-savings">$0</span>
+            </div>
+            <span class="btn btn-sm btn-secondary w-full mt-4 pointer-events-none" style="font-family: var(--font-heading); font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              Try This Scenario
+            </span>
+          </button>
+
+          <!-- Scenario 4: Corporate / Sports -->
+          <button type="button" class="scenario-card bg-white rounded-xl p-6 text-left animate-card-reveal" style="border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); animation-delay: 500ms;" onclick="loadScenario('corporate')" aria-label="Pre-fill calculator with Corporate / Sports scenario: 15 trips per year, 25 participants, estimated savings of $8,500">
+            <div class="flex items-center justify-center rounded-lg" style="width: 40px; height: 40px; background: var(--color-primary-50);">
+              <svg class="w-5 h-5" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
+              </svg>
+            </div>
+            <h3 class="text-heading-sm mt-3" style="color: var(--color-foreground); font-family: var(--font-heading);">Corporate / Sports</h3>
+            <ul class="mt-3 space-y-1.5" style="list-style: none;">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 15 trips/year
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 25 participants
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> 10 hrs manual/trip
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-muted-foreground);">
+                <span style="color: var(--color-border);">--</span> $65/hr staff cost
+              </li>
+            </ul>
+            <div class="mt-4">
+              <span class="text-xs block" style="color: var(--color-muted-foreground);">Est. annual savings</span>
+              <span class="text-heading-md tabular-nums font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);" id="scenario-corporate-savings">$0</span>
+            </div>
+            <span class="btn btn-sm btn-secondary w-full mt-4 pointer-events-none" style="font-family: var(--font-heading); font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              Try This Scenario
+            </span>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 4: DARK TRUST METRICS STRIP
+         ================================================================ -->
+    <section aria-label="SafeTrekr trust metrics" data-theme="dark" style="background: var(--color-secondary);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
+
+          <div class="text-center animate-counter" style="animation-delay: 0ms;">
+            <div class="font-display text-3xl font-bold text-white tabular-nums" style="font-family: var(--font-heading);" aria-label="5 government intelligence sources">5</div>
+            <div class="text-xs uppercase tracking-wider mt-1" style="color: var(--color-secondary-muted); letter-spacing: 0.1em;">Government Intel Sources</div>
+          </div>
+
+          <div class="text-center animate-counter" style="animation-delay: 100ms;">
+            <div class="font-display text-3xl font-bold text-white tabular-nums" style="font-family: var(--font-heading);" aria-label="17 safety review sections">17</div>
+            <div class="text-xs uppercase tracking-wider mt-1" style="color: var(--color-secondary-muted); letter-spacing: 0.1em;">Safety Review Sections</div>
+          </div>
+
+          <div class="text-center animate-counter" style="animation-delay: 200ms;">
+            <div class="font-display text-3xl font-bold text-white" style="font-family: var(--font-heading);" aria-label="3 to 5 day turnaround">3-5</div>
+            <div class="text-xs uppercase tracking-wider mt-1" style="color: var(--color-secondary-muted); letter-spacing: 0.1em;">Day Turnaround</div>
+          </div>
+
+          <div class="text-center animate-counter" style="animation-delay: 300ms;">
+            <div class="font-display text-3xl font-bold text-white" style="font-family: var(--font-heading); font-size: 24px;" aria-label="AES-256 encryption standard">AES-256</div>
+            <div class="text-xs uppercase tracking-wider mt-1" style="color: var(--color-secondary-muted); letter-spacing: 0.1em;">Encryption Standard</div>
+          </div>
+
+          <div class="text-center animate-counter col-span-2 md:col-span-1" style="animation-delay: 400ms;">
+            <div class="font-display text-3xl font-bold text-white" style="font-family: var(--font-heading); font-size: 24px;" aria-label="SHA-256 evidence chain">SHA-256</div>
+            <div class="text-xs uppercase tracking-wider mt-1" style="color: var(--color-secondary-muted); letter-spacing: 0.1em;">Evidence Chain</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 5: CONVERSION CTA BANNER
+         ================================================================ -->
+    <section aria-label="Call to action" style="background: var(--color-primary-700);">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-28 text-center">
+
+        <h2 class="text-display-md animate-fade-up" style="color: #ffffff; font-family: var(--font-heading); animation-delay: 0ms;">
+          Ready to Replace Spreadsheets With Evidence?
+        </h2>
+
+        <p class="text-body-lg mt-4 mx-auto animate-fade-up" style="color: rgba(255,255,255,0.8); max-width: 60ch; animation-delay: 80ms;">
+          See SafeTrekr in action, or download a sample binder to review with your team.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 animate-fade-up" style="animation-delay: 160ms;">
+          <a href="/demo" class="btn btn-lg w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); background: #ffffff; color: var(--color-secondary); text-decoration: none;">Get a Demo</a>
+          <a href="/resources/sample-binders" class="btn btn-lg w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: #f7f8f8; text-decoration: none;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Download a Sample Binder</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       SITE FOOTER
+       ================================================================ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       ROI REPORT MODAL
+       ================================================================ -->
+  <div id="report-modal-overlay" class="fixed inset-0 z-40 hidden" style="background: rgba(0,0,0,0.5);" role="presentation" onclick="closeReportModal()"></div>
+  <div id="report-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="report-modal-headline">
+    <div class="modal-surface relative w-full max-w-md mx-auto" style="background: var(--color-card); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); padding: 32px;" onclick="event.stopPropagation()">
+
+      <!-- Close Button -->
+      <button onclick="closeReportModal()" class="absolute top-4 right-4 p-2 rounded-md transition-colors" style="color: var(--color-muted-foreground); background: none; border: none; cursor: pointer;" aria-label="Close dialog">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Form State -->
+      <div id="report-form-state">
+        <!-- Icon -->
+        <div class="mb-4" style="width: 40px; height: 40px;">
+          <svg class="w-8 h-8" style="color: var(--color-primary-700);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+          </svg>
+        </div>
+
+        <!-- Headline -->
+        <h3 id="report-modal-headline" class="text-heading-md" style="color: var(--color-foreground);">Download Your Full ROI Report</h3>
+        <p class="text-body-md mt-2" style="color: var(--color-muted-foreground);">Get a shareable PDF with your personalized ROI analysis, including liability comparisons and cost breakdowns for your <span id="report-org-name" class="font-medium" style="color: var(--color-foreground);">organization</span>.</p>
+
+        <!-- Form -->
+        <form id="report-form" class="mt-6" onsubmit="handleReportSubmit(event)">
+          <!-- Honeypot -->
+          <div style="display: none;" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="input-group">
+            <label for="report-email" class="input-label">Work Email</label>
+            <input type="email" id="report-email" name="email" class="input" placeholder="you@organization.com" required autocomplete="email">
+          </div>
+
+          <div class="input-group mt-4">
+            <label for="report-name" class="input-label">Full Name</label>
+            <input type="text" id="report-name" name="name" class="input" placeholder="Your full name" required minlength="2" autocomplete="name">
+          </div>
+
+          <div class="input-group mt-4">
+            <label for="report-org" class="input-label">Organization Name</label>
+            <input type="text" id="report-org" name="organization" class="input" placeholder="Your organization" required minlength="2" autocomplete="organization">
+          </div>
+
+          <button type="submit" class="btn btn-md btn-primary w-full mt-6" style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; padding: 12px 24px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none;">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download Report
+          </button>
+        </form>
+
+        <!-- Consent -->
+        <p class="mt-4 text-center" style="font-size: 12px; color: var(--color-muted-foreground); line-height: 1.5;">
+          We'll also send a brief email series on maximizing your trip safety ROI. Unsubscribe anytime.
+        </p>
+        <div class="flex items-center justify-center gap-1.5 mt-2" style="font-size: 12px; color: var(--color-muted-foreground);">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Your data is encrypted and never shared.
+        </div>
+      </div>
+
+      <!-- Success State -->
+      <div id="report-success-state" class="hidden text-center">
+        <div class="flex items-center justify-center mx-auto mb-4" style="width: 48px; height: 48px; border-radius: 9999px; background: var(--color-primary-50);">
+          <svg class="w-6 h-6 status-pulse" style="color: var(--color-primary-500);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 class="text-heading-md" style="color: var(--color-foreground);">Your Report Is on Its Way</h3>
+        <p class="text-body-md mt-2" style="color: var(--color-muted-foreground);">
+          We've sent your personalized ROI report to <span id="report-success-email" class="font-medium" style="color: var(--color-foreground);">your email</span>. Check your inbox -- it should arrive within 60 seconds.
+        </p>
+        <button class="btn btn-md btn-primary w-full mt-6" style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; padding: 12px 24px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none;">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Download Directly
+        </button>
+        <a href="/demo" class="btn btn-md btn-secondary w-full mt-3" style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; padding: 12px 24px; border-radius: var(--radius-md); width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;">
+          Request a Demo
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SHARE TOAST
+       ================================================================ -->
+  <div id="share-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300" style="background: var(--color-secondary); color: #fff; box-shadow: var(--shadow-xl); opacity: 0; transform: translate(-50%, 20px); pointer-events: none;">
+    <div class="flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Link copied to clipboard.
+    </div>
+  </div>
+
+  <!-- ================================================================
+       JAVASCRIPT
+       ================================================================ -->
+  <script>
+    // ================================================================
+    // STICKY HEADER
+    // ================================================================
+    const header = document.getElementById('site-header');
+    function onScroll() {
+      if (window.scrollY > 100) {
+        header.classList.add('header-scrolled');
+        header.style.height = '64px';
+      } else {
+        header.classList.remove('header-scrolled');
+        header.style.height = '80px';
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ================================================================
+    // MOBILE MENU
+    // ================================================================
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('mobile-close-btn');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobilePanel = document.getElementById('mobile-panel');
+
+    function openMenu() {
+      mobileOverlay.classList.add('active');
+      mobilePanel.classList.add('active');
+      mobileOverlay.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileOverlay.classList.remove('active');
+      mobilePanel.classList.remove('active');
+      mobileOverlay.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    // ================================================================
+    // CALCULATOR STATE & ELEMENTS
+    // ================================================================
+    const orgSelect = document.getElementById('org-type');
+    const tripsSlider = document.getElementById('trips-slider');
+    const tripsValue = document.getElementById('trips-value');
+    const sizeSlider = document.getElementById('size-slider');
+    const sizeValue = document.getElementById('size-value');
+    const hoursSlider = document.getElementById('hours-slider');
+    const hoursValue = document.getElementById('hours-value');
+    const rateInput = document.getElementById('rate-input');
+
+    // Result elements
+    const resultManualCost = document.getElementById('result-manual-cost');
+    const resultSafetrekrCost = document.getElementById('result-safetrekr-cost');
+    const resultNetSavings = document.getElementById('result-net-savings');
+    const resultPerStudent = document.getElementById('result-per-student');
+    const savingsBox = document.getElementById('savings-box');
+    const savingsLabel = document.getElementById('savings-label');
+    const savingsNote = document.getElementById('savings-note');
+    const liabilityLow = document.getElementById('liability-low');
+    const liabilityHigh = document.getElementById('liability-high');
+    const mobileSavingsValue = document.getElementById('mobile-savings-value');
+
+    // Scenario savings elements
+    const scenarioK12Savings = document.getElementById('scenario-k12-savings');
+    const scenarioHigheredSavings = document.getElementById('scenario-highered-savings');
+    const scenarioCorporateSavings = document.getElementById('scenario-corporate-savings');
+
+    // ================================================================
+    // SEGMENT PRE-FILL DEFAULTS
+    // ================================================================
+    const segmentDefaults = {
+      k12:       { trips: 20, size: 30, hours: 8,  rate: 45 },
+      church:    { trips: 4,  size: 25, hours: 12, rate: 35 },
+      highered:  { trips: 8,  size: 20, hours: 15, rate: 55 },
+      corporate: { trips: 15, size: 25, hours: 10, rate: 65 },
+    };
+
+    // ================================================================
+    // PRICING LOGIC: getTripCost(orgType, groupSize)
+    // ================================================================
+    function getTripCost(orgType, groupSize) {
+      switch (orgType) {
+        case 'k12':
+          return 450;
+        case 'church':
+          return 1250; // International default
+        case 'highered':
+          return 1250; // International
+        case 'corporate':
+          return 750;  // Extended
+        default:
+          return 450;
+      }
+    }
+
+    // ================================================================
+    // FORMAT CURRENCY
+    // ================================================================
+    function formatCurrency(value, decimals) {
+      if (decimals === undefined) decimals = 0;
+      const absVal = Math.abs(value);
+      const formatted = absVal.toLocaleString('en-US', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      });
+      return (value < 0 ? '-$' : '$') + formatted;
+    }
+
+    // ================================================================
+    // UPDATE SLIDER FILL VISUAL
+    // ================================================================
+    function updateSliderFill(slider) {
+      const min = parseFloat(slider.min);
+      const max = parseFloat(slider.max);
+      const val = parseFloat(slider.value);
+      const percent = ((val - min) / (max - min)) * 100;
+      slider.style.setProperty('--fill-percent', percent + '%');
+    }
+
+    // ================================================================
+    // CALCULATE & RENDER RESULTS
+    // ================================================================
+    function calculate() {
+      const orgType = orgSelect.value;
+      const trips = parseInt(tripsSlider.value) || 1;
+      const groupSize = parseInt(sizeSlider.value) || 10;
+      const hours = parseInt(hoursSlider.value) || 2;
+      const rate = parseFloat(rateInput.value) || 15;
+
+      // Core calculations
+      const annualManualCost = trips * hours * rate;
+      const tripCost = getTripCost(orgType, groupSize);
+      const annualSafetrekrCost = trips * tripCost;
+      const netSavings = annualManualCost - annualSafetrekrCost;
+      const perStudentCost = tripCost / groupSize;
+      const liabilityPctLow = (annualSafetrekrCost / 500000 * 100);
+      const liabilityPctHigh = (annualSafetrekrCost / 2000000 * 100);
+
+      // Update result displays
+      resultManualCost.textContent = formatCurrency(annualManualCost);
+      resultManualCost.setAttribute('aria-label', 'Annual manual cost: ' + formatCurrency(annualManualCost));
+
+      resultSafetrekrCost.textContent = formatCurrency(annualSafetrekrCost);
+      resultSafetrekrCost.setAttribute('aria-label', 'Annual SafeTrekr cost: ' + formatCurrency(annualSafetrekrCost));
+
+      resultPerStudent.textContent = formatCurrency(perStudentCost, 2);
+      resultPerStudent.setAttribute('aria-label', 'Cost per student per trip: ' + formatCurrency(perStudentCost, 2));
+
+      // Liability
+      liabilityLow.textContent = liabilityPctLow.toFixed(1) + '%';
+      liabilityHigh.textContent = liabilityPctHigh.toFixed(1) + '%';
+
+      // Net savings box -- positive vs negative state
+      if (netSavings >= 0) {
+        resultNetSavings.textContent = formatCurrency(netSavings);
+        resultNetSavings.setAttribute('aria-label', 'Your net annual savings: ' + formatCurrency(netSavings));
+        savingsBox.style.background = 'var(--color-primary-50)';
+        savingsBox.style.borderColor = 'var(--color-primary-200)';
+        savingsLabel.style.color = 'var(--color-primary-700)';
+        savingsLabel.textContent = 'YOUR NET ANNUAL SAVINGS';
+        resultNetSavings.style.color = 'var(--color-primary-700)';
+        savingsNote.classList.add('hidden');
+      } else {
+        resultNetSavings.textContent = formatCurrency(Math.abs(netSavings));
+        resultNetSavings.setAttribute('aria-label', 'SafeTrekr investment exceeds manual cost by ' + formatCurrency(Math.abs(netSavings)));
+        savingsBox.style.background = '#fffbeb';
+        savingsBox.style.borderColor = '#fde68a';
+        savingsLabel.style.color = '#92400e';
+        savingsLabel.textContent = 'SAFETREKR INVESTMENT EXCEEDS MANUAL COST';
+        resultNetSavings.style.color = '#92400e';
+        savingsNote.classList.remove('hidden');
+      }
+
+      // Subtle scale animation on savings box
+      savingsBox.classList.remove('animate-scale-in');
+      void savingsBox.offsetWidth; // force reflow
+      savingsBox.classList.add('animate-scale-in');
+
+      // Mobile sticky bar
+      if (netSavings >= 0) {
+        mobileSavingsValue.textContent = formatCurrency(netSavings) + '/year';
+      } else {
+        mobileSavingsValue.textContent = '+' + formatCurrency(Math.abs(netSavings)) + '/year';
+      }
+
+      // Update URL params silently
+      updateURLParams();
+    }
+
+    // ================================================================
+    // COMPUTE SCENARIO CARD SAVINGS
+    // ================================================================
+    function computeScenarioSavings(orgType) {
+      const d = segmentDefaults[orgType];
+      const manual = d.trips * d.hours * d.rate;
+      const stCost = d.trips * getTripCost(orgType, d.size);
+      return manual - stCost;
+    }
+
+    function updateScenarioCards() {
+      // K-12
+      const k12Savings = computeScenarioSavings('k12');
+      if (k12Savings >= 0) {
+        scenarioK12Savings.textContent = formatCurrency(k12Savings) + '/year';
+      } else {
+        scenarioK12Savings.textContent = formatCurrency(k12Savings) + '/year';
+      }
+
+      // Higher Ed
+      const heSavings = computeScenarioSavings('highered');
+      if (heSavings >= 0) {
+        scenarioHigheredSavings.textContent = formatCurrency(heSavings) + '/year';
+      } else {
+        scenarioHigheredSavings.textContent = formatCurrency(heSavings) + '/year';
+      }
+
+      // Corporate
+      const corpSavings = computeScenarioSavings('corporate');
+      if (corpSavings >= 0) {
+        scenarioCorporateSavings.textContent = formatCurrency(corpSavings) + '/year';
+      } else {
+        scenarioCorporateSavings.textContent = formatCurrency(corpSavings) + '/year';
+      }
+    }
+
+    // ================================================================
+    // SYNC SLIDER <-> NUMBER INPUT
+    // ================================================================
+    function syncSliderAndInput(slider, input) {
+      slider.addEventListener('input', function() {
+        input.value = slider.value;
+        updateSliderFill(slider);
+        slider.setAttribute('aria-valuenow', slider.value);
+        calculate();
+        showMobileBar();
+      });
+      input.addEventListener('input', function() {
+        let val = parseInt(input.value);
+        const min = parseInt(slider.min);
+        const max = parseInt(slider.max);
+        if (isNaN(val)) return;
+        if (val < min) val = min;
+        if (val > max) val = max;
+        slider.value = val;
+        input.value = val;
+        updateSliderFill(slider);
+        slider.setAttribute('aria-valuenow', val);
+        calculate();
+        showMobileBar();
+      });
+      input.addEventListener('blur', function() {
+        let val = parseInt(input.value);
+        const min = parseInt(slider.min);
+        const max = parseInt(slider.max);
+        if (isNaN(val) || val < min) val = min;
+        if (val > max) val = max;
+        input.value = val;
+        slider.value = val;
+        updateSliderFill(slider);
+        calculate();
+      });
+    }
+
+    syncSliderAndInput(tripsSlider, tripsValue);
+    syncSliderAndInput(sizeSlider, sizeValue);
+    syncSliderAndInput(hoursSlider, hoursValue);
+
+    // Rate input
+    rateInput.addEventListener('input', function() {
+      calculate();
+      showMobileBar();
+    });
+    rateInput.addEventListener('blur', function() {
+      let val = parseFloat(rateInput.value);
+      if (isNaN(val) || val < 15) val = 15;
+      if (val > 200) val = 200;
+      rateInput.value = val;
+      calculate();
+    });
+
+    // Org type change -- apply defaults
+    orgSelect.addEventListener('change', function() {
+      const defaults = segmentDefaults[orgSelect.value];
+      if (!defaults) return;
+
+      tripsSlider.value = defaults.trips;
+      tripsValue.value = defaults.trips;
+      updateSliderFill(tripsSlider);
+      tripsSlider.setAttribute('aria-valuenow', defaults.trips);
+
+      sizeSlider.value = defaults.size;
+      sizeValue.value = defaults.size;
+      updateSliderFill(sizeSlider);
+      sizeSlider.setAttribute('aria-valuenow', defaults.size);
+
+      hoursSlider.value = defaults.hours;
+      hoursValue.value = defaults.hours;
+      updateSliderFill(hoursSlider);
+      hoursSlider.setAttribute('aria-valuenow', defaults.hours);
+
+      rateInput.value = defaults.rate;
+
+      calculate();
+      showMobileBar();
+    });
+
+    // ================================================================
+    // SCENARIO CARD CLICK
+    // ================================================================
+    function loadScenario(orgType) {
+      orgSelect.value = orgType;
+      orgSelect.dispatchEvent(new Event('change'));
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ================================================================
+    // URL PARAMS (Shareable)
+    // ================================================================
+    let urlUpdateTimer;
+    function updateURLParams() {
+      clearTimeout(urlUpdateTimer);
+      urlUpdateTimer = setTimeout(function() {
+        const params = new URLSearchParams();
+        params.set('org', orgSelect.value);
+        params.set('trips', tripsSlider.value);
+        params.set('size', sizeSlider.value);
+        params.set('hours', hoursSlider.value);
+        params.set('rate', rateInput.value);
+        const newUrl = window.location.pathname + '?' + params.toString();
+        window.history.replaceState(null, '', newUrl);
+      }, 300);
+    }
+
+    function loadFromURLParams() {
+      const params = new URLSearchParams(window.location.search);
+      if (!params.has('org')) return false;
+
+      const org = params.get('org');
+      if (['k12', 'church', 'highered', 'corporate'].includes(org)) {
+        orgSelect.value = org;
+      }
+      if (params.has('trips')) {
+        const t = parseInt(params.get('trips'));
+        if (t >= 1 && t <= 100) { tripsSlider.value = t; tripsValue.value = t; }
+      }
+      if (params.has('size')) {
+        const s = parseInt(params.get('size'));
+        if (s >= 10 && s <= 200) { sizeSlider.value = s; sizeValue.value = s; }
+      }
+      if (params.has('hours')) {
+        const h = parseInt(params.get('hours'));
+        if (h >= 2 && h <= 40) { hoursSlider.value = h; hoursValue.value = h; }
+      }
+      if (params.has('rate')) {
+        const r = parseInt(params.get('rate'));
+        if (r >= 15 && r <= 200) { rateInput.value = r; }
+      }
+      return true;
+    }
+
+    // ================================================================
+    // SHARE RESULTS
+    // ================================================================
+    function shareResults() {
+      const url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          showToast();
+        });
+      } else {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = url;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast();
+      }
+    }
+
+    function showToast() {
+      const toast = document.getElementById('share-toast');
+      toast.style.opacity = '1';
+      toast.style.transform = 'translate(-50%, 0)';
+      toast.style.pointerEvents = 'auto';
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(-50%, 20px)';
+        toast.style.pointerEvents = 'none';
+      }, 3000);
+    }
+
+    // ================================================================
+    // MOBILE STICKY RESULTS BAR
+    // ================================================================
+    const mobileBar = document.getElementById('mobile-results-bar');
+    const resultsPanel = document.getElementById('results-panel');
+    let hasInteracted = false;
+
+    function showMobileBar() {
+      hasInteracted = true;
+      checkMobileBarVisibility();
+    }
+
+    function checkMobileBarVisibility() {
+      if (window.innerWidth >= 1024 || !hasInteracted) {
+        mobileBar.classList.remove('visible');
+        mobileBar.setAttribute('aria-hidden', 'true');
+        return;
+      }
+      // Check if results panel is in viewport
+      const rect = resultsPanel.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView) {
+        mobileBar.classList.remove('visible');
+        mobileBar.setAttribute('aria-hidden', 'true');
+      } else {
+        mobileBar.classList.add('visible');
+        mobileBar.setAttribute('aria-hidden', 'false');
+      }
+    }
+
+    window.addEventListener('scroll', checkMobileBarVisibility, { passive: true });
+    window.addEventListener('resize', checkMobileBarVisibility, { passive: true });
+
+    // ================================================================
+    // ROI REPORT MODAL
+    // ================================================================
+    let reportTriggerElement = null;
+
+    function openReportModal() {
+      reportTriggerElement = document.activeElement;
+
+      // Update org name in modal
+      const orgNames = {
+        k12: 'K-12 School / District',
+        church: 'Church / Mission Org',
+        highered: 'Higher Education',
+        corporate: 'Corporate / Sports Team',
+      };
+      document.getElementById('report-org-name').textContent = orgNames[orgSelect.value] || 'organization';
+
+      document.getElementById('report-modal-overlay').classList.remove('hidden');
+      document.getElementById('report-modal').classList.remove('hidden');
+      document.getElementById('report-modal').classList.add('flex');
+      document.getElementById('report-form-state').classList.remove('hidden');
+      document.getElementById('report-success-state').classList.add('hidden');
+      document.body.style.overflow = 'hidden';
+
+      setTimeout(function() {
+        document.getElementById('report-email').focus();
+      }, 100);
+    }
+
+    function closeReportModal() {
+      document.getElementById('report-modal-overlay').classList.add('hidden');
+      document.getElementById('report-modal').classList.add('hidden');
+      document.getElementById('report-modal').classList.remove('flex');
+      document.body.style.overflow = '';
+      if (reportTriggerElement) {
+        reportTriggerElement.focus();
+        reportTriggerElement = null;
+      }
+    }
+
+    function handleReportSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('report-email').value;
+      document.getElementById('report-success-email').textContent = email;
+      document.getElementById('report-form-state').classList.add('hidden');
+      document.getElementById('report-success-state').classList.remove('hidden');
+    }
+
+    // ================================================================
+    // KEYBOARD SHORTCUTS
+    // ================================================================
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeReportModal();
+        closeMenu();
+      }
+    });
+
+    // ================================================================
+    // INITIALIZATION
+    // ================================================================
+    // Try to load from URL params first
+    const hadParams = loadFromURLParams();
+
+    // Initialize all slider fills
+    updateSliderFill(tripsSlider);
+    updateSliderFill(sizeSlider);
+    updateSliderFill(hoursSlider);
+
+    // Compute scenario card savings
+    updateScenarioCards();
+
+    // Initial calculation
+    calculate();
+  </script>
+</body>
+</html>

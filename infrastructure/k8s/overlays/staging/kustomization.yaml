@@ -1,0 +1,128 @@
+# ST-812: REQ-029 - Staging Environment Overlay
+#
+# Deploys the marketing site to the staging namespace with:
+# - 1 replica (cost savings -- no HA requirement in pre-production)
+# - Staging Supabase project URL and Turnstile test keys
+# - Reduced HPA range (1-2 replicas)
+# - Ingress at staging.safetrekr.com with Let's Encrypt staging issuer
+# - Image tag overridden by CI via `kustomize edit set image`
+#
+# Apply:
+#   kubectl apply -k infrastructure/k8s/overlays/staging/
+#
+# CI usage:
+#   cd infrastructure/k8s/overlays/staging
+#   kustomize edit set image \
+#     registry.digitalocean.com/safetrekr-marketing/safetrekr-web=\
+#     registry.digitalocean.com/safetrekr-marketing/safetrekr-web:sha-abc1234
+#   kubectl apply -k .
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: staging
+namePrefix: staging-
+
+labels:
+  - pairs:
+      environment: staging
+    includeSelectors: false
+
+resources:
+  - ../../base
+
+# ---------------------------------------------------------------------------
+# ConfigMap -- replaces base configmap with staging-specific values.
+# Secrets are NOT generated here; they are managed via Sealed Secrets or
+# CI-injected kubectl create secret (see REQ-097).
+# ---------------------------------------------------------------------------
+configMapGenerator:
+  - name: safetrekr-web-config
+    behavior: replace
+    literals:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_SUPABASE_URL=https://staging-project.supabase.co
+      - NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+      - NEXT_PUBLIC_SITE_URL=https://staging.safetrekr.com
+
+# ---------------------------------------------------------------------------
+# Image override -- default to latest; CI replaces with sha-based tag.
+# ---------------------------------------------------------------------------
+images:
+  - name: registry.digitalocean.com/safetrekr-marketing/safetrekr-web
+    newTag: latest
+
+# ---------------------------------------------------------------------------
+# Patches
+# ---------------------------------------------------------------------------
+patches:
+  # --- Deployment: 1 replica, relaxed topology constraint ----
+  - target:
+      kind: Deployment
+      name: safetrekr-web
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: safetrekr-web
+      spec:
+        replicas: 1
+        template:
+          spec:
+            # With 1 replica, topologySpreadConstraints are unnecessary
+            # and would block scheduling if only 1 node is available.
+            topologySpreadConstraints: []
+
+  # --- HPA: scale between 1 and 2 replicas for staging ---
+  - target:
+      kind: HorizontalPodAutoscaler
+      name: safetrekr-web
+    patch: |-
+      apiVersion: autoscaling/v2
+      kind: HorizontalPodAutoscaler
+      metadata:
+        name: safetrekr-web
+      spec:
+        minReplicas: 1
+        maxReplicas: 2
+
+  # --- PDB: allow full disruption (only 1 replica) ---
+  - target:
+      kind: PodDisruptionBudget
+      name: safetrekr-web
+    patch: |-
+      apiVersion: policy/v1
+      kind: PodDisruptionBudget
+      metadata:
+        name: safetrekr-web
+      spec:
+        minAvailable: 0
+
+  # --- Ingress: staging subdomain + staging cert issuer ---
+  - target:
+      kind: Ingress
+      name: safetrekr-web
+    patch: |-
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: safetrekr-web
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-staging"
+      spec:
+        tls:
+          - hosts:
+              - staging.safetrekr.com
+            secretName: staging-safetrekr-web-tls
+        rules:
+          - host: staging.safetrekr.com
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: staging-safetrekr-web
+                      port:
+                        number: 80

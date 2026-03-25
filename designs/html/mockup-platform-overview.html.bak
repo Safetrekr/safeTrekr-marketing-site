@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Safety Platform | SafeTrekr - Intelligence, Review, Documentation</title>
+  <meta name="description" content="SafeTrekr combines government intelligence from 5 data sources, 17-section analyst review, and SHA-256 evidence documentation into a complete trip safety platform. Explore all capabilities.">
+  <meta property="og:title" content="The SafeTrekr Platform | Intelligence. Review. Documentation.">
+  <meta property="og:description" content="Professional trip safety review powered by government intelligence, analyst expertise, and tamper-evident documentation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.safetrekr.com/platform">
+  <link rel="canonical" href="https://www.safetrekr.com/platform">
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            border: 'var(--color-border)',
+            input: 'var(--color-input)',
+            ring: 'var(--color-ring)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            accent: 'var(--color-accent)',
+            'accent-foreground': 'var(--color-accent-foreground)',
+            primary: {
+              50: 'var(--color-primary-50)',
+              100: 'var(--color-primary-100)',
+              200: 'var(--color-primary-200)',
+              300: 'var(--color-primary-300)',
+              400: 'var(--color-primary-400)',
+              500: 'var(--color-primary-500)',
+              600: 'var(--color-primary-600)',
+              700: 'var(--color-primary-700)',
+              800: 'var(--color-primary-800)',
+              900: 'var(--color-primary-900)',
+              950: 'var(--color-primary-950)',
+              DEFAULT: 'var(--color-primary)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              foreground: 'var(--color-secondary-foreground)',
+              light: 'var(--color-secondary-light)',
+              muted: 'var(--color-secondary-muted)',
+            },
+            destructive: {
+              DEFAULT: 'var(--color-destructive)',
+              foreground: 'var(--color-destructive-foreground)',
+            },
+            safety: {
+              green: 'var(--color-safety-green)',
+              yellow: 'var(--color-safety-yellow)',
+              red: 'var(--color-safety-red)',
+            },
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            md: 'var(--radius-md)',
+            lg: 'var(--radius-lg)',
+            xl: 'var(--radius-xl)',
+            '2xl': 'var(--radius-2xl)',
+          },
+          boxShadow: {
+            xs: 'var(--shadow-xs)',
+            sm: 'var(--shadow-sm)',
+            md: 'var(--shadow-md)',
+            lg: 'var(--shadow-lg)',
+            xl: 'var(--shadow-xl)',
+          },
+          maxWidth: {
+            'container': '1280px',
+          },
+        },
+      },
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "SafeTrekr",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Professional trip safety review platform combining government intelligence data, analyst review, and tamper-evident documentation.",
+        "url": "https://www.safetrekr.com/platform",
+        "featureList": [
+          "Analyst Safety Review",
+          "Risk Intelligence Engine",
+          "Trip Safety Binder",
+          "Mobile Field Operations",
+          "Real-Time Monitoring",
+          "Compliance & Evidence"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "450",
+          "highPrice": "1250",
+          "priceCurrency": "USD",
+          "offerCount": "3"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.safetrekr.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Platform",
+            "item": "https://www.safetrekr.com/platform"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* ---- Dot grid pattern for Hero ---- */
+    .hero-dot-grid {
+      background-image: radial-gradient(circle, var(--color-primary-300) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.04;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ---- Glassmorphic header ---- */
+    .header-scrolled {
+      background: rgba(231, 236, 238, 0.80);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(184, 195, 199, 0.5);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---- Fade-up animation for sections ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes cardReveal {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .animate-fade-up {
+      opacity: 0;
+    }
+    .animate-fade-up.visible {
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-fade-in {
+      opacity: 0;
+    }
+    .animate-fade-in.visible {
+      animation: fadeIn 0.3s ease forwards;
+    }
+    .animate-card-reveal {
+      opacity: 0;
+    }
+    .animate-card-reveal.visible {
+      animation: cardReveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    /* ---- Card interactive hover ---- */
+    .card-interactive {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-interactive:hover .card-link-arrow {
+      transform: translateX(4px);
+    }
+    .card-link-arrow {
+      transition: transform 0.2s ease;
+    }
+
+    /* ---- Mechanism card connectors ---- */
+    .mechanism-card-connector::after {
+      content: '';
+      position: absolute;
+      right: -17px;
+      top: 20px;
+      width: 34px;
+      border-top: 2px dashed var(--color-primary-200);
+    }
+    @media (max-width: 1023px) {
+      .mechanism-card-connector::after {
+        display: none;
+      }
+    }
+
+    /* ---- Smooth scroll offset for sticky header ---- */
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    /* ---- Mobile menu overlay ---- */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 26, 35, 0.5);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: var(--color-card);
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      padding: 24px;
+    }
+    .mobile-menu-panel.active {
+      transform: translateX(0);
+    }
+
+    /* ---- Counter animation ---- */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .stat-animate {
+      opacity: 0;
+    }
+    .stat-animate.visible {
+      animation: countUp 0.4s ease-out forwards;
+    }
+
+    /* ---- Active nav indicator ---- */
+    .nav-active-indicator {
+      position: relative;
+    }
+    .nav-active-indicator::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-primary-500);
+      border-radius: 1px;
+    }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .animate-fade-in,
+      .animate-card-reveal,
+      .stat-animate {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+      .card-interactive:hover {
+        transform: none;
+      }
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-card focus:text-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:ring-2 focus:ring-ring" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    Skip to main content
+  </a>
+
+  <!-- ================================================================
+       SECTION 1: SITE HEADER (Sticky Glassmorphic)
+       ================================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300" style="height: 80px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 h-full flex items-center justify-between">
+      <!-- Logo: Horizontal lockup -->
+      <a href="/" aria-label="SafeTrekr home" class="flex-shrink-0">
+        <svg height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+        <svg height="28" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:hidden" aria-hidden="true">
+          <path d="M16 1L3 8v10c0 7.2 5.5 13.9 13 15.9 7.5-2 13-8.7 13-15.9V8L16 1z" fill="none" stroke="#123646" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14l4 4 8-8" stroke="#3f885b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="40" y="22" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" font-size="18" fill="#123646">SafeTrekr</text>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8">
+        <a href="/platform" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Platform
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/solutions" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Solutions
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/how-it-works" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">How It Works</a>
+        <a href="/pricing" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150" style="font-family: var(--font-body);">Pricing</a>
+        <a href="/resources" class="text-base font-medium text-foreground/70 hover:text-foreground transition-colors duration-150 flex items-center gap-1" style="font-family: var(--font-body);">
+          Resources
+          <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://app.safetrekr.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold transition-colors duration-150 hover:text-foreground" style="font-family: var(--font-heading); color: var(--color-muted-foreground);">Sign In</a>
+        <a href="/demo" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-150 text-white" style="font-family: var(--font-heading); background: var(--color-primary-600); padding: 10px 20px; font-size: 15px; border-radius: var(--radius-md); text-decoration: none;">Get a Demo</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-foreground" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+  <div id="mobile-panel" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div class="flex justify-between items-center mb-8">
+      <span class="font-display font-bold text-lg text-foreground">Menu</span>
+      <button id="mobile-close-btn" class="p-2 text-foreground" aria-label="Close navigation menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2">
+      <a href="/platform" class="py-3 px-4 rounded-md text-base font-semibold text-foreground bg-primary-50 transition-colors" style="font-family: var(--font-body);">Platform</a>
+      <a href="/solutions" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Solutions</a>
+      <a href="/how-it-works" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">How It Works</a>
+      <a href="/pricing" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Pricing</a>
+      <a href="/resources" class="py-3 px-4 rounded-md text-base font-medium text-foreground hover:bg-primary-50 transition-colors" style="font-family: var(--font-body);">Resources</a>
+      <div class="border-t mt-4 pt-4" style="border-color: var(--color-border);">
+        <a href="/demo" class="block w-full text-center py-3 rounded-md text-base font-semibold text-white" style="background: var(--color-primary-600); font-family: var(--font-heading);">Get a Demo</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- ================================================================
+         SECTION 2: HERO
+         Surface: background (#e7ecee)
+         ================================================================ -->
+    <section aria-label="Platform overview" class="relative overflow-hidden" style="background: var(--color-background); padding-top: 176px; padding-bottom: 80px;">
+      <!-- Dot grid background -->
+      <div class="hero-dot-grid" aria-hidden="true"></div>
+
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        <div class="text-center max-w-[800px] mx-auto">
+          <!-- Eyebrow -->
+          <div class="animate-fade-in flex items-center justify-center gap-2 mb-6" style="animation-delay: 0ms;">
+            <!-- Shield path icon -->
+            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span class="text-eyebrow" style="color: var(--color-primary-700);">THE SAFETREKR PLATFORM</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="animate-fade-up text-display-lg text-foreground" style="max-width: 28ch; margin: 0 auto; animation-delay: 100ms;">
+            Intelligence. Review.<br class="hidden sm:inline"> Documentation.
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="animate-fade-up text-body-lg text-muted mt-6" style="max-width: 60ch; margin-left: auto; margin-right: auto; color: var(--color-muted-foreground); animation-delay: 250ms;">
+            Every trip goes through the same rigorous process: government intelligence analysis, professional safety review, and tamper-evident documentation. Here is every capability that protects your travelers and your organization.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="animate-fade-up flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8" style="animation-delay: 400ms;">
+            <a href="/demo" class="btn btn-lg btn-primary w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); background: var(--color-primary-600); color: #fff; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+              Get a Demo
+              <!-- ArrowRight icon -->
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="/resources/sample-binders" class="btn btn-lg btn-secondary w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); border: 1.5px solid var(--color-border); background: transparent; color: var(--color-foreground); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+              See Sample Binder
+              <!-- Download icon -->
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 3: 3-ACT MECHANISM PREVIEW
+         Surface: primary-50 (#f1f9f4) -- accent wash
+         ================================================================ -->
+    <section aria-label="How SafeTrekr works" data-theme="brand" style="background: var(--color-primary-50); padding: 96px 0;" class="section-observer">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="animate-fade-up text-eyebrow" style="color: var(--color-primary-700);">HOW SAFETREKR WORKS</span>
+          <h2 class="animate-fade-up text-heading-lg text-foreground mt-3" style="animation-delay: 80ms;">Three acts. One rigorous process.</h2>
+        </div>
+
+        <!-- 3-Act Card Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-12">
+
+          <!-- Card 1: Intelligence -->
+          <a href="/platform/risk-intelligence" class="animate-card-reveal card-interactive relative group block rounded-xl p-6 lg:p-8 mechanism-card-connector" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 200ms;" aria-label="Intelligence: Explore risk intelligence capabilities">
+            <!-- Step Number -->
+            <div class="h-10 w-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary-100);" aria-hidden="true">
+              <span class="text-heading-sm font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);">1</span>
+            </div>
+            <!-- Icon Container -->
+            <div class="h-14 w-14 rounded-lg flex items-center justify-center mt-4" style="background: var(--color-primary-50);">
+              <!-- Route icon -->
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-500);">
+                <circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-md mt-4" style="color: var(--color-foreground); font-family: var(--font-heading);">Intelligence</h3>
+            <!-- Description -->
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Government data from 5 sources -- NOAA, USGS, CDC, GDACS, and ReliefWeb -- scored by Monte Carlo simulation for every destination on your itinerary.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Explore Risk Intelligence
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 2: Review -->
+          <a href="/platform/analyst-review" class="animate-card-reveal card-interactive relative group block rounded-xl p-6 lg:p-8 mechanism-card-connector" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 280ms;" aria-label="Review: See the analyst review capabilities">
+            <!-- Step Number -->
+            <div class="h-10 w-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary-100);" aria-hidden="true">
+              <span class="text-heading-sm font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);">2</span>
+            </div>
+            <!-- Icon Container -->
+            <div class="h-14 w-14 rounded-lg flex items-center justify-center mt-4" style="background: var(--color-primary-50);">
+              <!-- ClipboardCheck icon -->
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-500);">
+                <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-md mt-4" style="color: var(--color-foreground); font-family: var(--font-heading);">Review</h3>
+            <!-- Description -->
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              A trained safety analyst conducts a 17-section professional review covering every dimension of your trip -- venue, transportation, health, emergency planning, and more.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              See the Analyst Review
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 3: Documentation -->
+          <a href="/platform/safety-binder" class="animate-card-reveal card-interactive relative group block rounded-xl p-6 lg:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 360ms;" aria-label="Documentation: See the safety binder capabilities">
+            <!-- Step Number -->
+            <div class="h-10 w-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary-100);" aria-hidden="true">
+              <span class="text-heading-sm font-semibold" style="color: var(--color-primary-700); font-family: var(--font-heading);">3</span>
+            </div>
+            <!-- Icon Container -->
+            <div class="h-14 w-14 rounded-lg flex items-center justify-center mt-4" style="background: var(--color-primary-50);">
+              <!-- FileText icon -->
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-500);">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-md mt-4" style="color: var(--color-foreground); font-family: var(--font-heading);">Documentation</h3>
+            <!-- Description -->
+            <p class="text-body-md mt-2" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Every finding, recommendation, and risk score compiled into a tamper-evident Trip Safety Binder with SHA-256 hash-chain integrity. Audit-ready from the moment it is delivered.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              See the Safety Binder
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 4: FEATURE CARDS GRID
+         Surface: background (#e7ecee)
+         ================================================================ -->
+    <section aria-label="Platform capabilities" class="section-observer" style="background: var(--color-background); padding: 96px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="animate-fade-up text-eyebrow" style="color: var(--color-primary-700);">PLATFORM CAPABILITIES</span>
+          <h2 class="animate-fade-up text-heading-lg text-foreground mt-3" style="max-width: 28ch; margin: 0 auto; animation-delay: 80ms;">Everything your organization needs to protect every trip.</h2>
+        </div>
+
+        <!-- Feature Grid: 6 cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12">
+
+          <!-- Card 1: Analyst Safety Review -->
+          <a href="/platform/analyst-review" class="animate-card-reveal card-interactive group block rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 200ms;" aria-label="Analyst Safety Review -- learn more about professional trip safety review">
+            <!-- Icon Container -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- ClipboardCheck icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-sm mt-4 mb-2" style="color: var(--color-foreground); font-family: var(--font-heading);">Analyst Safety Review</h3>
+            <!-- Description -->
+            <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Every trip plan is reviewed across 17 safety dimensions by a trained analyst. Venue, transportation, health, emergency contacts, and 13 more sections -- nothing is left to guesswork.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 2: Risk Intelligence Engine -->
+          <a href="/platform/risk-intelligence" class="animate-card-reveal card-interactive group block rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 280ms;" aria-label="Risk Intelligence Engine -- learn more about probability-weighted risk assessments">
+            <!-- Icon Container -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Route icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-sm mt-4 mb-2" style="color: var(--color-foreground); font-family: var(--font-heading);">Risk Intelligence Engine</h3>
+            <!-- Description -->
+            <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Government data from NOAA, USGS, CDC, GDACS, and ReliefWeb scored through Monte Carlo simulation. Probability-weighted risk assessments for every destination on your itinerary.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 3: Trip Safety Binder -->
+          <a href="/platform/safety-binder" class="animate-card-reveal card-interactive group block rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 360ms;" aria-label="Trip Safety Binder -- learn more about audit-ready safety documentation">
+            <!-- Icon Container -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- FileText icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-sm mt-4 mb-2" style="color: var(--color-foreground); font-family: var(--font-heading);">Trip Safety Binder</h3>
+            <!-- Description -->
+            <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Every finding, risk score, and recommendation compiled into an audit-ready document. SHA-256 hash-chain ensures tamper-evident integrity from delivery through long-term archival.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 4: Mobile Field Operations -->
+          <a href="/platform/mobile-app" class="animate-card-reveal card-interactive group block rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 440ms;" aria-label="Mobile Field Operations -- learn more about live tracking and field tools">
+            <!-- Icon Container -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Smartphone icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-sm mt-4 mb-2" style="color: var(--color-foreground); font-family: var(--font-heading);">Mobile Field Operations</h3>
+            <!-- Description -->
+            <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Live participant tracking, geofence alerts, rally point navigation, muster check-ins, and SMS broadcast. Everything your chaperones need in their pocket during the trip.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 5: Real-Time Monitoring -->
+          <a href="/platform/monitoring" class="animate-card-reveal card-interactive group block rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 520ms;" aria-label="Real-Time Monitoring -- learn more about geofence alerts and tracking">
+            <!-- Icon Container -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Activity icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-sm mt-4 mb-2" style="color: var(--color-foreground); font-family: var(--font-heading);">Real-Time Monitoring</h3>
+            <!-- Description -->
+            <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Geofence boundary alerts, muster check-in tracking, participant location visibility, and automated escalation paths. Know where your people are and when something changes.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Card 6: Compliance & Evidence -->
+          <a href="/platform/compliance" class="animate-card-reveal card-interactive group block rounded-xl p-6 sm:p-8" style="background: var(--color-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); text-decoration: none; animation-delay: 600ms;" aria-label="Compliance and Evidence -- learn more about FERPA, SOC 2, and GDPR compliance">
+            <!-- Icon Container -->
+            <div class="h-12 w-12 rounded-lg flex items-center justify-center" style="background: var(--color-primary-50);">
+              <!-- Shield icon -->
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .5-.87l7-4a1 1 0 0 1 1 0l7 4A1 1 0 0 1 20 6z"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h3 class="text-heading-sm mt-4 mb-2" style="color: var(--color-foreground); font-family: var(--font-heading);">Compliance & Evidence</h3>
+            <!-- Description -->
+            <p class="text-body-md" style="color: var(--color-muted-foreground); max-width: 45ch;">
+              Designed with FERPA, SOC 2, and GDPR requirements in mind. Tamper-evident audit trail, automated purge proofs, and compliance documentation that satisfies your legal and insurance teams.
+            </p>
+            <!-- Link -->
+            <span class="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style="color: var(--color-primary-700);">
+              Learn more
+              <svg class="w-4 h-4 card-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 5: TRUST METRICS STRIP
+         Surface: card (#f7f8f8) with top/bottom borders
+         ================================================================ -->
+    <section aria-label="Platform credentials" class="section-observer" style="background: var(--color-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 48px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
+          <!-- Stat 1 -->
+          <div class="stat-animate text-center p-4 sm:p-6" style="animation-delay: 0ms;" aria-label="5 government intelligence sources">
+            <div class="stat-value font-display" data-count-to="5" style="font-family: var(--font-heading); font-size: 42px; font-weight: 800; color: var(--color-primary-700); line-height: 1;">5</div>
+            <div class="stat-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted-foreground); margin-top: 8px;">GOVERNMENT INTEL SOURCES</div>
+          </div>
+          <!-- Stat 2 -->
+          <div class="stat-animate text-center p-4 sm:p-6" style="animation-delay: 80ms;" aria-label="17 safety review sections">
+            <div class="stat-value font-display" data-count-to="17" style="font-family: var(--font-heading); font-size: 42px; font-weight: 800; color: var(--color-primary-700); line-height: 1;">17</div>
+            <div class="stat-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted-foreground); margin-top: 8px;">SAFETY REVIEW SECTIONS</div>
+          </div>
+          <!-- Stat 3 -->
+          <div class="stat-animate text-center p-4 sm:p-6" style="animation-delay: 160ms;" aria-label="3 to 5 day turnaround">
+            <div class="stat-value font-display" style="font-family: var(--font-heading); font-size: 42px; font-weight: 800; color: var(--color-primary-700); line-height: 1;">3-5</div>
+            <div class="stat-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted-foreground); margin-top: 8px;">DAY TURNAROUND</div>
+          </div>
+          <!-- Stat 4 -->
+          <div class="stat-animate text-center p-4 sm:p-6" style="animation-delay: 240ms;" aria-label="AES-256 encryption standard">
+            <div class="stat-value font-display" style="font-family: var(--font-heading); font-size: 36px; font-weight: 800; color: var(--color-primary-700); line-height: 1;">AES-256</div>
+            <div class="stat-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted-foreground); margin-top: 8px;">ENCRYPTION STANDARD</div>
+          </div>
+          <!-- Stat 5 -->
+          <div class="stat-animate text-center p-4 sm:p-6 col-span-2 sm:col-span-1" style="animation-delay: 320ms;" aria-label="SHA-256 evidence chain">
+            <div class="stat-value font-display" style="font-family: var(--font-heading); font-size: 36px; font-weight: 800; color: var(--color-primary-700); line-height: 1;">SHA-256</div>
+            <div class="stat-label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted-foreground); margin-top: 8px;">EVIDENCE CHAIN</div>
+          </div>
+        </div>
+
+        <!-- Government Source Labels -->
+        <div class="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-2 mt-8 pt-6" style="border-top: 1px solid var(--color-border);">
+          <span class="text-body-sm font-medium" style="color: var(--color-muted-foreground); letter-spacing: 0.03em;">NOAA</span>
+          <span style="color: var(--color-border);">|</span>
+          <span class="text-body-sm font-medium" style="color: var(--color-muted-foreground); letter-spacing: 0.03em;">USGS</span>
+          <span style="color: var(--color-border);">|</span>
+          <span class="text-body-sm font-medium" style="color: var(--color-muted-foreground); letter-spacing: 0.03em;">CDC</span>
+          <span style="color: var(--color-border);">|</span>
+          <span class="text-body-sm font-medium" style="color: var(--color-muted-foreground); letter-spacing: 0.03em;">GDACS</span>
+          <span style="color: var(--color-border);">|</span>
+          <span class="text-body-sm font-medium" style="color: var(--color-muted-foreground); letter-spacing: 0.03em;">ReliefWeb</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 6: DARK CTA BAND
+         Surface: secondary (#123646)
+         ================================================================ -->
+    <section aria-label="Request a demo" data-theme="dark" class="section-observer" style="background: var(--color-secondary); padding: 112px 0;">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="text-center max-w-prose mx-auto">
+          <!-- Headline -->
+          <h2 class="animate-fade-up text-display-md" style="color: #f7f8f8; font-family: var(--font-heading); animation-delay: 200ms;">
+            Ready to see the platform in action?
+          </h2>
+          <!-- Body -->
+          <p class="animate-fade-up text-body-lg mt-4" style="color: #b8c3c7; max-width: 65ch; margin-left: auto; margin-right: auto; animation-delay: 300ms;">
+            Schedule a personalized walkthrough and we will show you exactly what a safety binder looks like for your organization.
+          </p>
+          <!-- CTA Buttons -->
+          <div class="animate-fade-up flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8" style="animation-delay: 400ms;">
+            <a href="/demo" class="btn btn-lg w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); background: #ffffff; color: var(--color-secondary); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.15s ease;">
+              Get a Demo
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="/resources/sample-binders" class="btn btn-lg w-full sm:w-auto" style="font-family: var(--font-heading); font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-md); background: transparent; color: #f7f8f8; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.2); transition: background 0.15s ease;">
+              See Sample Binder
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       SECTION 7: SITE FOOTER
+       Surface: secondary (#123646)
+       ================================================================ -->
+  <footer style="background: var(--color-secondary); padding-top: 64px; padding-bottom: 32px;">
+    <div class="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <!-- Footer Link Columns: 4-column grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        <!-- Column 1: Platform -->
+        <nav aria-label="Platform links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Platform</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/platform" class="block py-1 text-body-sm footer-link">Platform Overview</a></li>
+            <li><a href="/platform/analyst-review" class="block py-1 text-body-sm footer-link">Analyst Review</a></li>
+            <li><a href="/platform/risk-intelligence" class="block py-1 text-body-sm footer-link">Risk Intelligence</a></li>
+            <li><a href="/platform/safety-binder" class="block py-1 text-body-sm footer-link">Safety Binder</a></li>
+            <li><a href="/platform/mobile-app" class="block py-1 text-body-sm footer-link">Mobile App</a></li>
+            <li><a href="/platform/monitoring" class="block py-1 text-body-sm footer-link">Monitoring</a></li>
+            <li><a href="/platform/compliance" class="block py-1 text-body-sm footer-link">Compliance</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 2: Solutions + How It Works -->
+        <nav aria-label="Solutions and process links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Solutions</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/solutions/k12" class="block py-1 text-body-sm footer-link">K-12 Schools</a></li>
+            <li><a href="/solutions/higher-education" class="block py-1 text-body-sm footer-link">Higher Education</a></li>
+            <li><a href="/solutions/churches" class="block py-1 text-body-sm footer-link">Churches and Mission Orgs</a></li>
+            <li><a href="/solutions/corporate" class="block py-1 text-body-sm footer-link">Corporate and Sports</a></li>
+          </ul>
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4 mt-6" style="color: #f7f8f8;">How It Works</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/how-it-works" class="block py-1 text-body-sm footer-link">How It Works</a></li>
+            <li><a href="/pricing" class="block py-1 text-body-sm footer-link">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Resources -->
+        <nav aria-label="Resources links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Resources</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/resources/case-studies" class="block py-1 text-body-sm footer-link">Case Studies</a></li>
+            <li><a href="/resources/guides" class="block py-1 text-body-sm footer-link">Guides</a></li>
+            <li><a href="/resources/sample-binders" class="block py-1 text-body-sm footer-link">Sample Binders</a></li>
+            <li><a href="/resources/faq" class="block py-1 text-body-sm footer-link">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4: Company -->
+        <nav aria-label="Company links">
+          <h3 class="text-body-sm font-semibold uppercase tracking-wide mb-4" style="color: #f7f8f8;">Company</h3>
+          <ul class="space-y-1" style="list-style: none;">
+            <li><a href="/about" class="block py-1 text-body-sm footer-link">About SafeTrekr</a></li>
+            <li><a href="/about/analysts" class="block py-1 text-body-sm footer-link">Our Analysts</a></li>
+            <li><a href="/security" class="block py-1 text-body-sm footer-link">Security and Trust</a></li>
+            <li><a href="/contact" class="block py-1 text-body-sm footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8" style="border-top: 1px solid rgba(255,255,255,0.12);">
+        <!-- Brand description -->
+        <p class="text-body-sm" style="color: #b8c3c7; max-width: 65ch; line-height: 1.6;">
+          Professional trip safety review and evidence documentation for organizations that protect travelers.
+        </p>
+
+        <!-- Copyright + Legal -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4" style="font-size: 12px; color: #b8c3c7;">
+          <span>&copy; 2026 SafeTrekr, Inc. All rights reserved.</span>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/terms" class="footer-link" style="font-size: 12px;">Terms of Service</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/privacy" class="footer-link" style="font-size: 12px;">Privacy Policy</a>
+          <span style="color: rgba(255,255,255,0.2);" aria-hidden="true">|</span>
+          <a href="/legal/dpa" class="footer-link" style="font-size: 12px;">DPA</a>
+        </div>
+
+        <!-- Data source attribution -->
+        <div class="mt-4" style="font-size: 12px; color: #b8c3c7;">
+          Data sourced from: NOAA | USGS | CDC | GDACS | ReliefWeb
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       JAVASCRIPT: Header scroll, Mobile menu, Intersection Observer, Counters
+       ================================================================ -->
+  <script>
+    // ---- Sticky header scroll behavior ----
+    const header = document.getElementById('site-header');
+    let lastScroll = 0;
+    function onScroll() {
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        header.classList.add('header-scrolled');
+        header.style.height = '64px';
+      } else {
+        header.classList.remove('header-scrolled');
+        header.style.height = '80px';
+      }
+      lastScroll = scrollY;
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ---- Mobile menu ----
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('mobile-close-btn');
+    const overlay = document.getElementById('mobile-overlay');
+    const panel = document.getElementById('mobile-panel');
+
+    function openMenu() {
+      overlay.classList.add('active');
+      panel.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('active');
+      panel.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // ---- Intersection Observer for scroll-triggered animations ----
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      const animatedElements = document.querySelectorAll('.animate-fade-up, .animate-fade-in, .animate-card-reveal, .stat-animate');
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = el.style.animationDelay || '0ms';
+            const delayMs = parseInt(delay);
+
+            setTimeout(function() {
+              el.classList.add('visible');
+            }, delayMs);
+
+            observer.unobserve(el);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      animatedElements.forEach(function(el) {
+        observer.observe(el);
+      });
+    } else {
+      // Reduced motion: show everything immediately
+      document.querySelectorAll('.animate-fade-up, .animate-fade-in, .animate-card-reveal, .stat-animate').forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+
+    // ---- Animated counters for stat values ----
+    if (!prefersReducedMotion) {
+      const counters = document.querySelectorAll('[data-count-to]');
+      const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-count-to'));
+            const duration = 800;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease out cubic
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = Math.round(eased * target);
+              el.textContent = current;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                el.textContent = target;
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+
+      counters.forEach(function(counter) {
+        counterObserver.observe(counter);
+      });
+    }
+
+    // ---- CTA Band button hover states ----
+    const ctaDarkPrimary = document.querySelector('[data-theme="dark"] a[href="/demo"]');
+    const ctaDarkSecondary = document.querySelector('[data-theme="dark"] a[href="/resources/sample-binders"]');
+
+    if (ctaDarkPrimary) {
+      ctaDarkPrimary.addEventListener('mouseenter', function() {
+        this.style.background = 'var(--color-primary-50)';
+      });
+      ctaDarkPrimary.addEventListener('mouseleave', function() {
+        this.style.background = '#ffffff';
+      });
+    }
+    if (ctaDarkSecondary) {
+      ctaDarkSecondary.addEventListener('mouseenter', function() {
+        this.style.background = 'rgba(255,255,255,0.1)';
+      });
+      ctaDarkSecondary.addEventListener('mouseleave', function() {
+        this.style.background = 'transparent';
+      });
+    }
+
+    // ---- Responsive section padding adjustments ----
+    function adjustResponsivePadding() {
+      const w = window.innerWidth;
+      const heroSection = document.querySelector('[aria-label="Platform overview"]');
+      const mechanismSection = document.querySelector('[aria-label="How SafeTrekr works"]');
+      const featureSection = document.querySelector('[aria-label="Platform capabilities"]');
+      const trustSection = document.querySelector('[aria-label="Platform credentials"]');
+      const ctaSection = document.querySelector('[aria-label="Request a demo"]');
+
+      if (w <= 767) {
+        // Mobile
+        if (heroSection) { heroSection.style.paddingTop = '144px'; heroSection.style.paddingBottom = '48px'; }
+        if (mechanismSection) { mechanismSection.style.padding = '48px 0'; }
+        if (featureSection) { featureSection.style.padding = '48px 0'; }
+        if (trustSection) { trustSection.style.padding = '32px 0'; }
+        if (ctaSection) { ctaSection.style.padding = '64px 0'; }
+      } else if (w <= 1023) {
+        // Tablet
+        if (heroSection) { heroSection.style.paddingTop = '160px'; heroSection.style.paddingBottom = '64px'; }
+        if (mechanismSection) { mechanismSection.style.padding = '64px 0'; }
+        if (featureSection) { featureSection.style.padding = '64px 0'; }
+        if (trustSection) { trustSection.style.padding = '40px 0'; }
+        if (ctaSection) { ctaSection.style.padding = '80px 0'; }
+      } else {
+        // Desktop
+        if (heroSection) { heroSection.style.paddingTop = '176px'; heroSection.style.paddingBottom = '80px'; }
+        if (mechanismSection) { mechanismSection.style.padding = '96px 0'; }
+        if (featureSection) { featureSection.style.padding = '96px 0'; }
+        if (trustSection) { trustSection.style.padding = '48px 0'; }
+        if (ctaSection) { ctaSection.style.padding = '112px 0'; }
+      }
+    }
+
+    adjustResponsivePadding();
+    window.addEventListener('resize', adjustResponsivePadding, { passive: true });
+  </script>
+</body>
+</html>

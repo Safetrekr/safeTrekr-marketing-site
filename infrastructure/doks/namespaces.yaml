@@ -1,0 +1,207 @@
+# SafeTrekr Marketing -- Kubernetes Namespace Definitions
+# Task: ST-790 (REQ-007)
+#
+# Apply with: kubectl apply -f namespaces.yaml
+#
+# These namespaces are created during cluster provisioning.
+# The ingress-nginx and cert-manager namespaces are created by their
+# respective Helm charts and are NOT defined here.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    environment: production
+    team: marketing
+    # Pod Security Standards -- restricted profile
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+  annotations:
+    description: "Live marketing site serving safetrekr.com"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: staging
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    environment: staging
+    team: marketing
+    # Pod Security Standards -- restricted profile
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+  annotations:
+    description: "Pre-production validation at staging.safetrekr.com"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: preview
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    environment: preview
+    team: marketing
+    # Pod Security Standards -- restricted profile
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+  annotations:
+    description: "Ephemeral per-PR preview deployments; cleaned up weekly"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+    environment: shared
+    team: platform
+    # Monitoring pods may need relaxed security for host metrics collection
+    pod-security.kubernetes.io/enforce: baseline
+    pod-security.kubernetes.io/enforce-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+  annotations:
+    description: "Prometheus, Grafana, and alerting stack"
+---
+# Resource Quotas -- prevent runaway consumption per namespace
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: production-quota
+  namespace: production
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  hard:
+    requests.cpu: "4"
+    requests.memory: 4Gi
+    limits.cpu: "8"
+    limits.memory: 8Gi
+    pods: "20"
+    services: "5"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: staging-quota
+  namespace: staging
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    pods: "10"
+    services: "3"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: preview-quota
+  namespace: preview
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    pods: "15"
+    services: "10"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: monitoring-quota
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    pods: "10"
+    services: "5"
+---
+# LimitRange -- set default resource requests/limits for pods that omit them
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: production-limits
+  namespace: production
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 500m
+        memory: 512Mi
+      defaultRequest:
+        cpu: 100m
+        memory: 256Mi
+      max:
+        cpu: "2"
+        memory: 2Gi
+      min:
+        cpu: 50m
+        memory: 64Mi
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: staging-limits
+  namespace: staging
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 250m
+        memory: 256Mi
+      defaultRequest:
+        cpu: 50m
+        memory: 128Mi
+      max:
+        cpu: "1"
+        memory: 1Gi
+      min:
+        cpu: 25m
+        memory: 32Mi
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: preview-limits
+  namespace: preview
+  labels:
+    app.kubernetes.io/part-of: safetrekr-marketing
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 250m
+        memory: 256Mi
+      defaultRequest:
+        cpu: 50m
+        memory: 128Mi
+      max:
+        cpu: "1"
+        memory: 1Gi
+      min:
+        cpu: 25m
+        memory: 32Mi
