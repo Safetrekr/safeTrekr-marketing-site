@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
   output: "export",
   reactStrictMode: true,
 
+  // GitHub Pages subdirectory path
+  basePath: "/safeTrekr-marketing-site",
+  assetPrefix: "/safeTrekr-marketing-site/",
+
   // Required for static export - disables image optimization
   images: {
     unoptimized: true,
