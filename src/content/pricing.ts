@@ -91,16 +91,16 @@ export interface ValueAnchor {
  */
 export const TRIP_TIERS: readonly TripTier[] = [
   {
-    id: "field-trip",
-    name: "Field Trip",
+    id: "day-trip",
+    name: "Day Trip",
     price: 450,
     perParticipant: "~$15/student for a 30-person group",
     typicalGroupSize: 30,
     features: [
-      "17-section analyst review",
-      "5 government intelligence sources",
+      "17-section professional review",
+      "Current safety information",
       "Complete safety binder",
-      "Mobile field operations",
+      "Chaperone mobile app",
       "3-5 day turnaround",
     ],
     featured: false,
@@ -112,11 +112,11 @@ export const TRIP_TIERS: readonly TripTier[] = [
     perParticipant: "~$19/student for a 40-person group",
     typicalGroupSize: 40,
     features: [
-      "Everything in Field Trip",
+      "Everything in Day Trip",
       "Multi-day trip support",
-      "Extended monitoring period",
+      "Extended trip coverage",
       "Sports travel coverage",
-      "Priority analyst assignment",
+      "Priority review assignment",
     ],
     featured: true,
     badge: "Most Popular",
@@ -201,26 +201,20 @@ export const SEGMENT_SCENARIOS: readonly SegmentScenario[] = [
  * Value anchors for cost-framing and ROI positioning.
  *
  * Used in pricing sections to contextualize SafeTrekr cost against the
- * financial exposure of unreviewed trips and the time cost of DIY prep.
+ * time investment of manual preparation and the value of consistency.
  */
 export const VALUE_ANCHORS: readonly ValueAnchor[] = [
-  {
-    label: "Average liability settlement",
-    value: "$500K-$2M",
-    description:
-      "The average trip-related legal settlement when an organization cannot demonstrate due diligence. One incident can exceed a decade of SafeTrekr investment.",
-  },
   {
     label: "Staff time per trip (DIY)",
     value: "8-12 hours",
     description:
-      "Hours spent by administrators assembling safety information from scattered sources, without professional analysis or evidence-grade documentation.",
+      "Hours spent by administrators assembling safety information from scattered sources, without professional review or consistent documentation.",
   },
   {
     label: "SafeTrekr cost",
     value: "From $15/participant",
     description:
-      "Professional analyst review, government intelligence scoring, and tamper-evident documentation -- delivered in 3-5 business days with no staff time required.",
+      "Professional review, current safety information, and board-ready documentation -- delivered in 3-5 business days with minimal staff time.",
   },
 ] as const;
 

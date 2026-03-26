@@ -48,7 +48,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 export const metadata = generatePageMetadata({
   title: "Platform Capabilities",
   description:
-    "SafeTrekr combines professional analyst review, government-sourced risk intelligence, and tamper-evident safety documentation into a single platform. Explore each capability in depth.",
+    "SafeTrekr combines professional analyst review, current safety information from government sources, and complete documentation into a single platform. Explore each capability in depth.",
   path: "/platform",
 });
 
@@ -61,23 +61,23 @@ const FEATURE_CARDS = [
     icon: <ClipboardCheck className="size-6" />,
     title: "Professional Analyst Review",
     description:
-      "Every trip is reviewed by a trained safety analyst across 17 dimensions -- venues, transportation, emergency planning, health advisories, and more. No algorithms. No automation. A real analyst who flags what needs attention and documents what is ready.",
+      "Every trip is reviewed by a trained safety analyst across 17 standardized sections -- venues, transportation, emergency planning, health considerations, and more. Assessment by professionals, not algorithms.",
     href: "/platform/analyst-review",
     linkText: "Explore the review process",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Real-Time Risk Intelligence",
+    title: "Current Safety Information",
     description:
-      "Monte Carlo risk scoring sourced from 5 government databases: NOAA weather data, USGS seismic monitoring, CDC health advisories, GDACS disaster alerts, and ReliefWeb humanitarian reports. Probability-weighted, not opinion-based.",
+      "Information from 5 government data sources: NOAA weather data, USGS geological monitoring, CDC health advisories, GDACS alerts, and ReliefWeb reports. Structured assessment methodology applied to your destination.",
     href: "/platform/risk-intelligence",
-    linkText: "See how scoring works",
+    linkText: "See how assessment works",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Digital Safety Binder",
+    title: "Complete Safety Binder",
     description:
-      "Audit-ready documentation with SHA-256 hash-chain integrity. Every finding, every recommendation, every emergency contact, every risk score -- compiled into a tamper-evident binder that satisfies your board, your insurance carrier, and your legal team.",
+      "Comprehensive documentation with verified integrity. Every finding, every recommendation, every emergency contact -- compiled into a complete binder that answers stakeholder questions.",
     href: "/platform/safety-binder",
     linkText: "See a sample binder",
   },
@@ -86,21 +86,21 @@ const FEATURE_CARDS = [
 const PROCESS_STEPS = [
   {
     number: 1,
-    title: "Submit Your Trip",
+    title: "Share Your Trip Details",
     description:
       "Enter destination, dates, participants, activities, and logistics through a guided form. Takes approximately 15 minutes.",
   },
   {
     number: 2,
-    title: "Analyst Reviews Everything",
+    title: "Professional Assessment",
     description:
-      "A trained safety analyst conducts a 17-section review using real-time government intelligence from 5 data sources. Delivered in 3-5 business days.",
+      "A trained safety analyst conducts a 17-section review using current information from 5 government data sources. Delivered in 3-5 business days.",
   },
   {
     number: 3,
-    title: "Receive Your Safety Binder",
+    title: "Receive Your Documentation",
     description:
-      "Audit-ready documentation with every finding, recommendation, and risk score. Tamper-evident integrity via SHA-256 hash chain.",
+      "Complete documentation with every finding, recommendation, and contact. Verified integrity for stakeholder confidence.",
   },
 ] as const;
 
@@ -149,8 +149,7 @@ export default function PlatformOverviewPage() {
                 className="mx-auto mt-4 text-display-lg text-foreground"
                 style={{ maxWidth: "28ch" }}
               >
-                Professional safety review. Government intelligence. Audit-ready
-                documentation.
+                Professional review. Current information. Complete documentation.
               </h1>
             </ScrollReveal>
 
@@ -160,10 +159,10 @@ export default function PlatformOverviewPage() {
                 className="mx-auto mt-6 text-body-lg text-muted-foreground"
                 style={{ maxWidth: "55ch" }}
               >
-                SafeTrekr combines a trained safety analyst, real-time
-                government data, and tamper-evident documentation into a single
+                SafeTrekr combines a trained safety analyst, current information
+                from government sources, and structured documentation into a single
                 platform -- so every trip your organization sends is reviewed,
-                scored, and documented to an evidence-grade standard.
+                assessed, and documented professionally.
               </p>
             </ScrollReveal>
 
@@ -172,7 +171,7 @@ export default function PlatformOverviewPage() {
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <Button variant="primary" size="lg" asChild>
                   <Link href="/demo">
-                    Get a Demo
+                    Schedule a Walkthrough
                     <ArrowRight className="size-[18px]" />
                   </Link>
                 </Button>
@@ -207,7 +206,7 @@ export default function PlatformOverviewPage() {
                 className="mx-auto mt-4 text-display-md text-foreground"
                 style={{ maxWidth: "30ch" }}
               >
-                Three capabilities that work together to protect every trip your
+                Three capabilities that work together to plan every trip your
                 organization sends.
               </h2>
             </div>
@@ -239,10 +238,10 @@ export default function PlatformOverviewPage() {
                 className="mx-auto mt-4 text-display-md text-foreground"
                 style={{ maxWidth: "28ch" }}
               >
-                From trip submission to safety binder in 3-5 business days.
+                From trip submission to complete documentation in 3-5 business days.
               </h2>
               <p className="mx-auto mt-4 text-body-lg text-muted-foreground" style={{ maxWidth: "50ch" }}>
-                Every trip follows the same rigorous process -- regardless of
+                Every trip follows the same structured process -- regardless of
                 organization type, destination, or group size.
               </p>
             </div>
@@ -260,9 +259,9 @@ export default function PlatformOverviewPage() {
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Ready to protect your next trip?"
-        body="See how SafeTrekr delivers professional safety review, government intelligence, and audit-ready documentation for your organization."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional safety review, current information, and complete documentation for your organization."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
 

@@ -73,7 +73,7 @@ export function generateOrganizationSchema(): JsonLdData {
     url: SITE_URL,
     logo: `${SITE_URL}/images/safetrekr-logo.png`,
     description:
-      "Professional travel risk management platform delivering real-time travel risk intelligence for organizations that take duty of care seriously.",
+      "Professional travel safety planning platform delivering trip safety documentation for organizations that take duty of care seriously.",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
@@ -284,7 +284,7 @@ export function generateSoftwareApplicationSchema(): JsonLdData {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "Professional travel risk management platform delivering real-time travel risk intelligence for organizations that take duty of care seriously.",
+      "Professional travel safety planning platform delivering trip safety documentation for organizations that take duty of care seriously.",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
@@ -333,7 +333,7 @@ export interface VideoObjectOptions {
  * ```tsx
  * <JsonLd data={generateVideoObjectSchema({
  *   name: "SafeTrekr Platform Overview",
- *   description: "See how SafeTrekr delivers real-time travel risk intelligence.",
+ *   description: "See how SafeTrekr delivers professional trip safety planning.",
  *   thumbnailUrl: "https://safetrekr.com/images/video-thumb-overview.jpg",
  *   uploadDate: "2026-03-15",
  *   duration: "PT2M45S",

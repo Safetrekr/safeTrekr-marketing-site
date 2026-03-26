@@ -26,11 +26,9 @@ interface TrustMetricData {
 }
 
 const TRUST_METRICS: TrustMetricData[] = [
-  { value: "5", label: "Government Intel Sources", isNumeric: true },
+  { value: "5", label: "Government Data Sources", isNumeric: true },
   { value: "17", label: "Safety Review Sections", isNumeric: true },
   { value: "3-5", label: "Day Turnaround", isNumeric: false },
-  { value: "AES-256", label: "Encryption Standard", isNumeric: false },
-  { value: "SHA-256", label: "Evidence Chain", isNumeric: false },
 ];
 
 // ---------------------------------------------------------------------------

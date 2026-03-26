@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-
 import { fontVariableClasses } from "@/lib/fonts";
 import { generatePageMetadata } from "@/lib/metadata";
 import {
@@ -9,50 +7,34 @@ import {
 import "./globals.css";
 
 /* ================================================================
-   Root Layout -- ST-833, ST-824
+   Root Layout
    ================================================================
    Provides the document shell shared by ALL routes (marketing pages,
-   API routes, future app routes). Marketing-specific chrome (header,
-   footer) lives in the (marketing) route-group layout.
+   future app routes). Marketing-specific chrome (header, footer)
+   lives in the (marketing) route-group layout.
 
-   Responsibilities:
-   - <html> + <body> with font variable classes
-   - Default page metadata via generatePageMetadata
-   - Organization JSON-LD for search-engine Knowledge Panel
-   - ST-824: Read CSP nonce from middleware and apply to <html>
-
-   The nonce is generated per-request in middleware.ts and passed
-   via the `x-nonce` request header. It is set as a `data-nonce`
-   attribute on <html> so that client components can read it for
-   dynamically injected scripts.
-
-   ST-903 VERIFIED: Organization schema rendered via <JsonLd>.
-   ST-907 VERIFIED: Root layout exports metadata via generatePageMetadata.
+   Note: CSP nonce handling removed for static export compatibility.
+   For production with full security headers, use output: "standalone".
    ================================================================ */
 
 export const metadata = generatePageMetadata({
-  title: "Professional Travel Risk Management",
+  title: "Professional Trip Safety Planning",
   description:
-    "Every trip professionally reviewed. SafeTrekr delivers real-time travel risk intelligence for organizations that take duty of care seriously.",
+    "Every trip professionally reviewed. SafeTrekr delivers trip safety documentation for organizations that take duty of care seriously.",
   path: "/",
 });
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // ST-824: Read the CSP nonce from the middleware-injected request header.
-  const headersList = await headers();
-  const nonce = headersList.get("x-nonce") ?? "";
-
   return (
     <html
       lang="en"
       className={`${fontVariableClasses} h-full antialiased`}
-      data-nonce={nonce}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <JsonLd data={generateOrganizationSchema()} />
         {children}
       </body>

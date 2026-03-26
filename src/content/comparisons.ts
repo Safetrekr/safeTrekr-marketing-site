@@ -66,42 +66,42 @@ export const COMPARISON_COLUMNS = [
  */
 export const DEFAULT_COMPARISON_ROWS: readonly ComparisonRow[] = [
   {
-    feature: "Professional analyst review",
+    feature: "17-section professional review",
     safetrekr: "yes",
     diy: "no",
     travelApps: "no",
     travelInsurance: "no",
   },
   {
-    feature: "Government intelligence data",
+    feature: "Current safety information",
     safetrekr: "yes",
     diy: "no",
     travelApps: "no",
     travelInsurance: "no",
   },
   {
-    feature: "Monte Carlo risk scoring",
+    feature: "Board-ready documentation",
     safetrekr: "yes",
     diy: "no",
     travelApps: "no",
     travelInsurance: "no",
   },
   {
-    feature: "Tamper-evident documentation",
+    feature: "Consistent process across trips",
     safetrekr: "yes",
     diy: "no",
     travelApps: "no",
     travelInsurance: "no",
   },
   {
-    feature: "Audit-ready evidence binder",
+    feature: "Complete safety binder",
     safetrekr: "yes",
     diy: "no",
     travelApps: "no",
     travelInsurance: "no",
   },
   {
-    feature: "Real-time trip monitoring",
+    feature: "Active trip awareness",
     safetrekr: "yes",
     diy: "no",
     travelApps: "partial",

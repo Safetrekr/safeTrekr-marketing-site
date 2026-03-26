@@ -1,17 +1,16 @@
 /**
  * ST-879: Security Page (/security)
  *
- * Public security posture page for enterprise buyer evaluation. Communicates
- * SafeTrekr's encryption standards, access controls, data handling practices,
- * infrastructure security, compliance trajectory, and responsible disclosure
- * policy in a scannable, trust-building format.
+ * Public security practices page for organizations evaluating SafeTrekr.
+ * Communicates how we protect sensitive trip planning information through
+ * encryption, access controls, data minimization, and secure infrastructure.
  *
  * Section order:
- *   1. Hero               -- "Security at SafeTrekr" with Shield icon, breadcrumb
- *   2. Capabilities Grid  -- 4 FeatureCards (Encryption, Auth, Data, Infrastructure)
- *   3. Compliance          -- SOC 2 Type II (planned), FERPA-ready, COPPA
- *   4. Responsible Disclosure -- security@safetrekr.com, PGP key reference
- *   5. CTA Band           -- "Have a security questionnaire?" dark variant
+ *   1. Hero               -- "How we protect your information" with Shield icon
+ *   2. Security Practices -- 6 FeatureCards (Encryption, RBAC, Verification, etc.)
+ *   3. Privacy            -- Student, Employee, and International considerations
+ *   4. Security Info      -- Available security documentation
+ *   5. CTA Band           -- "Questions about security?" dark variant
  *   6. JSON-LD            -- BreadcrumbList structured data
  *
  * Server Component -- no client-side interactivity required.
@@ -42,9 +41,9 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Security at SafeTrekr",
+  title: "How We Protect Your Information",
   description:
-    "SafeTrekr protects your data with AES-256 encryption, TLS 1.2+ in transit, role-based access controls, and infrastructure hardened on Kubernetes. SOC 2 Type II planned. FERPA-ready. Responsible disclosure welcome.",
+    "SafeTrekr is built with thoughtful security practices for organizations that handle sensitive trip planning information. Role-based access, encryption, and data minimization.",
   path: "/security",
 });
 
@@ -57,60 +56,72 @@ const SECURITY_CAPABILITIES: FeatureGridItem[] = [
     icon: <Lock className="size-6" />,
     title: "Encryption",
     description:
-      "All data is encrypted at rest using AES-256 and in transit using TLS 1.2 or higher. Database-level encryption ensures that stored trip assessments, traveler information, and organizational data remain protected even at the storage layer.",
+      "All data is encrypted at rest using industry-standard encryption. Data in transit is protected by TLS 1.3. Your information is secured both when stored and when transmitted.",
   },
   {
     icon: <Key className="size-6" />,
-    title: "Authentication & Access Controls",
+    title: "Role-Based Access Controls",
     description:
-      "Role-based access control (RBAC) ensures users only see the data relevant to their role. Session management follows OWASP best practices with secure, HTTP-only cookies and automatic expiration. SSO integration is on our near-term roadmap.",
+      "Access to traveler data is controlled by role. Trip coordinators see their trips. Administrators see organizational data. Analysts see only what they need for review. No one has access they don't need.",
+  },
+  {
+    icon: <CheckCircle className="size-6" />,
+    title: "Verified Documentation",
+    description:
+      "Every finding in your safety binder is recorded with integrity verification. Documentation demonstrates that content has not been modified after completion. Professional records you can rely on.",
   },
   {
     icon: <Eye className="size-6" />,
-    title: "Data Handling & Privacy",
+    title: "Data Minimization",
     description:
-      "We follow data minimization principles -- we collect only what is necessary to perform safety analysis. Retention policies are configurable per organization. Our practices are GDPR-ready, with data subject access and deletion capabilities built in.",
+      "We collect only the information necessary for safety assessment. No unnecessary data collection. No secondary use. No selling or sharing of traveler information.",
   },
   {
     icon: <Server className="size-6" />,
-    title: "Infrastructure Security",
+    title: "Secure Infrastructure",
     description:
-      "SafeTrekr runs on DigitalOcean DOKS (managed Kubernetes) with network policies enforcing pod-level isolation. All services communicate over private networking. Container images are scanned for vulnerabilities before deployment.",
+      "SafeTrekr runs on cloud infrastructure with strong security practices. Redundant systems, regular backups, and monitoring help protect availability.",
+  },
+  {
+    icon: <Shield className="size-6" />,
+    title: "Regular Assessment",
+    description:
+      "We conduct regular security assessments to validate our practices and identify areas for improvement.",
   },
 ];
 
 // ---------------------------------------------------------------------------
-// Data: Compliance Items
+// Data: Privacy Items
 // ---------------------------------------------------------------------------
 
-interface ComplianceItem {
+interface PrivacyItem {
   label: string;
   status: string;
   statusColor: "green" | "amber";
   description: string;
 }
 
-const COMPLIANCE_ITEMS: ComplianceItem[] = [
+const PRIVACY_ITEMS: PrivacyItem[] = [
   {
-    label: "SOC 2 Type II",
-    status: "Planned",
+    label: "Student Privacy",
+    status: "Designed For",
     statusColor: "amber",
     description:
-      "We are actively preparing for SOC 2 Type II certification. Our controls are designed to meet Trust Services Criteria for security, availability, and confidentiality.",
+      "SafeTrekr is designed with student data protection in mind. Role-based access controls, encryption, and data minimization practices support organizations handling student information.",
   },
   {
-    label: "FERPA",
-    status: "Ready",
-    statusColor: "green",
-    description:
-      "SafeTrekr is designed to support FERPA compliance for educational institutions. We do not use student data for marketing or third-party purposes.",
-  },
-  {
-    label: "COPPA",
-    status: "Considered",
+    label: "Employee Privacy",
+    status: "Designed For",
     statusColor: "amber",
     description:
-      "SafeTrekr does not knowingly collect personal information from children under 13. Our platform is designed for organizational administrators and trip coordinators, not minors directly.",
+      "For organizations sending employees, SafeTrekr collects only trip-relevant information. We don't track employees beyond trip coordination needs.",
+  },
+  {
+    label: "International Considerations",
+    status: "Supported",
+    statusColor: "amber",
+    description:
+      "For organizations with international operations or travelers, SafeTrekr supports data protection practices including data subject rights and appropriate handling measures.",
   },
 ];
 
@@ -146,7 +157,7 @@ export default function SecurityPage() {
           {/* Eyebrow */}
           <ScrollReveal variant="fadeUp">
             <Eyebrow color="primary" icon={<Shield className="size-3.5" />}>
-              SECURITY
+              SECURITY PRACTICES
             </Eyebrow>
           </ScrollReveal>
 
@@ -157,19 +168,36 @@ export default function SecurityPage() {
               className="text-display-lg mt-4 text-foreground"
               style={{ maxWidth: "24ch" }}
             >
-              Security at SafeTrekr
+              How we protect your information.
             </h1>
           </ScrollReveal>
 
           {/* Sub-headline */}
           <ScrollReveal variant="fadeUp" delay={0.16}>
             <p className="text-body-lg mt-6 max-w-prose text-muted-foreground lg:mt-8">
-              You trust us with sensitive travel data, traveler information, and
-              organizational risk assessments. We take that responsibility
-              seriously. This page outlines how SafeTrekr protects your data at
-              every layer&mdash;from encryption and access controls to
-              infrastructure hardening and compliance preparation.
+              SafeTrekr is built for organizations that handle sensitive
+              information&mdash;student details, employee data, traveler records.
+              We use industry-standard encryption, role-based access controls,
+              and structured documentation practices to keep your data secure.
             </p>
+          </ScrollReveal>
+
+          {/* Hero CTAs */}
+          <ScrollReveal variant="fadeUp" delay={0.24}>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
+              <a
+                href="/contact?subject=security"
+                className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              >
+                Request Security Information
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-white px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              >
+                Ask a Question
+              </a>
+            </div>
           </ScrollReveal>
         </Container>
       </SectionContainer>
@@ -187,18 +215,14 @@ export default function SecurityPage() {
           {/* Section Header */}
           <ScrollReveal variant="fadeUp">
             <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
-              <Eyebrow color="primary">HOW WE PROTECT YOUR DATA</Eyebrow>
+              <Eyebrow color="primary">SECURITY PRACTICES</Eyebrow>
               <h2
                 id="security-capabilities-heading"
                 className="text-display-md mx-auto mt-4 text-foreground"
                 style={{ maxWidth: "28ch" }}
               >
-                Security Built Into Every Layer
+                How we handle your data.
               </h2>
-              <p className="text-body-lg mx-auto mt-4 max-w-prose text-muted-foreground">
-                From the database to the browser, every component of SafeTrekr
-                is designed with defense in depth.
-              </p>
             </div>
           </ScrollReveal>
 
@@ -206,42 +230,38 @@ export default function SecurityPage() {
           <ScrollReveal variant="fadeUp" delay={0.16}>
             <FeatureGrid
               features={SECURITY_CAPABILITIES}
-              columns={2}
+              columns={3}
             />
           </ScrollReveal>
         </Container>
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 3: COMPLIANCE
+          SECTION 3: PRIVACY CONSIDERATIONS
           ================================================================ */}
-      <SectionContainer ariaLabelledBy="compliance-heading">
+      <SectionContainer ariaLabelledBy="privacy-heading">
         <Container>
           {/* Section Header */}
           <ScrollReveal variant="fadeUp">
             <div className="mb-12 max-w-3xl lg:mb-16">
               <Eyebrow
                 color="primary"
-                icon={<CheckCircle className="size-3.5" />}
+                icon={<Eye className="size-3.5" />}
               >
-                COMPLIANCE
+                PRIVACY
               </Eyebrow>
               <h2
-                id="compliance-heading"
+                id="privacy-heading"
                 className="text-heading-lg mt-4 text-foreground"
               >
-                Compliance Posture
+                Designed with privacy in mind.
               </h2>
-              <p className="text-body-lg mt-4 max-w-prose text-muted-foreground">
-                SafeTrekr is building toward industry-standard certifications.
-                Here is where we stand today and where we are headed.
-              </p>
             </div>
           </ScrollReveal>
 
-          {/* Compliance Cards */}
+          {/* Privacy Cards */}
           <StaggerChildren className="grid gap-6 md:grid-cols-3">
-            {COMPLIANCE_ITEMS.map((item, index) => (
+            {PRIVACY_ITEMS.map((item, index) => (
               <ScrollReveal
                 key={item.label}
                 variant="fadeUp"
@@ -272,11 +292,11 @@ export default function SecurityPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: RESPONSIBLE DISCLOSURE
+          SECTION 4: SECURITY INFORMATION
           ================================================================ */}
       <SectionContainer
         variant="card"
-        ariaLabelledBy="disclosure-heading"
+        ariaLabelledBy="security-info-heading"
         className="py-16 sm:py-20 md:py-24 lg:py-32"
       >
         <Container size="sm" className="max-w-3xl">
@@ -290,69 +310,61 @@ export default function SecurityPage() {
                 <Mail className="size-8 text-primary-700" />
               </div>
 
-              <Eyebrow color="primary">RESPONSIBLE DISCLOSURE</Eyebrow>
+              <Eyebrow color="primary">SECURITY INFORMATION</Eyebrow>
 
               <h2
-                id="disclosure-heading"
+                id="security-info-heading"
                 className="text-heading-lg mt-4 text-foreground"
               >
-                Found a Vulnerability?
+                Available Security Information
               </h2>
-
-              <p className="text-body-lg mx-auto mt-4 max-w-prose text-muted-foreground">
-                We welcome responsible disclosure from security researchers. If
-                you discover a potential security issue, please contact us
-                directly. We commit to acknowledging reports within 48 hours and
-                working toward resolution collaboratively.
-              </p>
             </div>
           </ScrollReveal>
 
-          {/* Contact Details */}
+          {/* Security Info Items */}
           <ScrollReveal variant="fadeUp" delay={0.16}>
             <div className="mx-auto mt-10 max-w-lg rounded-xl border border-border bg-white p-6 shadow-[var(--shadow-sm)] sm:p-8">
               <dl className="space-y-4">
-                {/* Email */}
+                {/* Security Overview */}
                 <div>
                   <dt className="text-eyebrow text-muted-foreground">
-                    Security Contact
+                    Security Overview
                   </dt>
-                  <dd className="mt-1">
-                    <a
-                      href="mailto:security@safetrekr.com"
-                      className="text-body-md font-semibold text-primary-700 underline decoration-primary-300 underline-offset-4 hover:text-primary-600 hover:decoration-primary-400"
-                    >
-                      security@safetrekr.com
-                    </a>
+                  <dd className="text-body-sm mt-1 text-muted-foreground">
+                    Description of our security practices and approach
                   </dd>
                 </div>
 
-                {/* PGP Key */}
+                {/* Data Handling */}
                 <div>
                   <dt className="text-eyebrow text-muted-foreground">
-                    PGP Key
+                    Data Handling Documentation
                   </dt>
                   <dd className="text-body-sm mt-1 text-muted-foreground">
-                    PGP public key available upon request. Reference key ID in
-                    your initial email and we will provide the fingerprint for
-                    verification.
+                    For procurement review processes
                   </dd>
                 </div>
 
-                {/* Response SLA */}
+                {/* Integration Info */}
                 <div>
                   <dt className="text-eyebrow text-muted-foreground">
-                    Response Time
+                    Integration Information
                   </dt>
                   <dd className="text-body-sm mt-1 text-muted-foreground">
-                    We acknowledge all security reports within{" "}
-                    <strong className="font-semibold text-foreground">
-                      48 hours
-                    </strong>{" "}
-                    and provide status updates as remediation progresses.
+                    For technical discussions
                   </dd>
                 </div>
               </dl>
+
+              {/* CTA Button */}
+              <div className="mt-8 text-center">
+                <a
+                  href="/contact?subject=security"
+                  className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                >
+                  Request Security Information
+                </a>
+              </div>
             </div>
           </ScrollReveal>
         </Container>
@@ -363,10 +375,10 @@ export default function SecurityPage() {
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Have a Security Questionnaire?"
-        body="We will complete your security questionnaire within 48 hours. Our team is ready to support your procurement and compliance review process."
-        primaryCta={{ text: "Contact Security Team", href: "/contact" }}
-        secondaryCta={{ text: "Request a Demo", href: "/demo" }}
+        headline="Questions about security?"
+        body="Our team is available to discuss your organization's specific requirements and provide additional information."
+        primaryCta={{ text: "Ask a Question", href: "/contact" }}
+        secondaryCta={{ text: "Request Information", href: "/contact?subject=security" }}
       />
 
       {/* ================================================================
@@ -377,7 +389,7 @@ export default function SecurityPage() {
         data={{
           ...generateOrganizationSchema(),
           description:
-            "SafeTrekr security posture: AES-256 encryption, TLS 1.2+, role-based access controls, Kubernetes infrastructure, SOC 2 Type II preparation, FERPA-ready.",
+            "SafeTrekr security practices: industry-standard encryption, role-based access controls, data minimization, and secure infrastructure for organizations handling sensitive trip planning information.",
         }}
       />
     </>

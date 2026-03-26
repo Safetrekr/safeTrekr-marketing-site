@@ -35,9 +35,9 @@ import {
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Every Trip Professionally Reviewed",
+  title: "Go With a Plan | SafeTrekr",
   description:
-    "Professional trip safety review and evidence documentation platform. SafeTrekr combines government intelligence, analyst review, and tamper-evident documentation to protect your travelers.",
+    "SafeTrekr provides structured trip safety planning for schools, churches, and organizations. Professional review, clear documentation, and the accountability your organization needs.",
   path: "/",
 });
 
@@ -103,27 +103,27 @@ export default function HomePage() {
                   <path d="M12 2L4 7v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V7l-8-5z" strokeLinejoin="round" />
                   <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                TRIP SAFETY MANAGEMENT PLATFORM
+                TRIP SAFETY PLANNING PLATFORM
               </span>
 
               {/* Headline */}
               <h1 id="hero-heading" className="text-display-xl mt-4" style={{ color: 'var(--color-foreground)', maxWidth: '20ch' }}>
-                Every trip professionally reviewed.
+                Every trip deserves a plan.
               </h1>
 
               {/* Subtext */}
               <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '50ch' }}>
-                SafeTrekr combines intelligence from 5 government data sources, 17-section analyst review, and SHA-256 evidence documentation to protect your travelers and your organization.
+                SafeTrekr provides structured safety planning for group travel -- professional review, clear documentation, and the accountability your organization needs. Maintain exceptional experiences while ensuring appropriate preparation is completed professionally.
               </p>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
-                <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-white text-center sm:text-left" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
-                  See Sample Binder
+                <Link href="/demo" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-white text-center sm:text-left" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
+                  Schedule a Walkthrough
                   <ArrowRightIcon />
                 </Link>
-                <Link href="/demo" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center sm:text-left" style={{ fontFamily: 'var(--font-heading)', background: 'transparent', border: '1.5px solid var(--color-border)', color: 'var(--color-foreground)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
-                  Schedule a Demo
+                <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center sm:text-left" style={{ fontFamily: 'var(--font-heading)', background: 'transparent', border: '1.5px solid var(--color-border)', color: 'var(--color-foreground)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
+                  View Sample Binder
                   <ArrowRightIcon />
                 </Link>
               </div>
@@ -251,28 +251,20 @@ export default function HomePage() {
           ================================================================ */}
       <section aria-label="Platform credentials" className="border-y" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', padding: '48px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
-            <div className="text-center" aria-label="5 government intelligence sources">
+          <div className="grid grid-cols-3 gap-6 lg:gap-8">
+            <div className="text-center" aria-label="5 government data sources">
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>5</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Government Intel Sources</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Government Data Sources</div>
             </div>
-            <div className="text-center" aria-label="17 safety review sections">
+            <div className="text-center" aria-label="17-section professional review">
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>17</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Safety Review Sections</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Section Professional Review</div>
             </div>
-            <div className="text-center" aria-label="3 to 5 day turnaround">
+            <div className="text-center" aria-label="3 to 5 day delivery">
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>3-5</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Day Turnaround</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Day Delivery</div>
             </div>
-            <div className="text-center" aria-label="AES-256 encryption standard">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.25rem, 0.8rem + 1.2vw, 1.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>AES-256</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Encryption Standard</div>
-            </div>
-            <div className="text-center col-span-2 sm:col-span-1" aria-label="SHA-256 evidence chain">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.25rem, 0.8rem + 1.2vw, 1.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>SHA-256</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Evidence Chain</div>
-            </div>
-          </div>
+                      </div>
 
           {/* Government source row */}
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mt-8 pt-6" style={{ borderTop: '1px solid var(--color-border)' }}>
@@ -295,17 +287,17 @@ export default function HomePage() {
       <section aria-labelledby="problem-mechanism-heading" style={{ background: 'var(--color-background)', padding: '96px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>THE PROBLEM</span>
+            <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>THE CHALLENGE</span>
             <h2 id="problem-mechanism-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Trip safety today runs on spreadsheets and hope.
+              Most organizations want to plan thoroughly. They just need the right tools.
             </h2>
             <p className="text-body-lg mt-4 mx-auto" style={{ color: 'var(--color-muted-foreground)', maxWidth: '65ch' }}>
-              Most organizations manage travel safety with shared documents, PDF checklists, and the assumption that nothing will go wrong. When something does, there is no evidence of preparation -- only good intentions.
+              Planning a trip involves dozens of considerations -- venues, transportation, health factors, emergency contacts, weather, and more. Most organizations rely on dedicated staff doing their best with spreadsheets, checklists, and good intentions. SafeTrekr provides the systematic approach that helps your team address each consideration, with documentation that demonstrates your thoroughness.
             </p>
           </div>
 
           <p className="text-heading-lg text-center font-semibold mt-12" style={{ color: 'var(--color-foreground)' }}>
-            SafeTrekr replaces guesswork with evidence.
+            SafeTrekr adds structure to what you're already doing.
           </p>
 
           {/* 3 Mechanism Cards */}
@@ -317,10 +309,10 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Professional Analyst Review</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                A trained safety analyst reviews every trip your organization takes -- across 17 dimensions, from venue safety to emergency evacuation. They flag what needs attention and document what is ready.
+                Every trip is reviewed by a trained safety analyst across 17 standardized sections -- from venue details to emergency contacts. Assessment by professionals, not automated scoring.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
-                Learn about the review
+                Learn about the review process
                 <SmallArrowIcon className="w-4 h-4 card-link-arrow" />
               </span>
             </Link>
@@ -330,12 +322,12 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
                 <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
               </div>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Government Intelligence Scoring</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Current Safety Information</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Real-time safety data from NOAA, USGS, CDC, GDACS, and ReliefWeb -- the same sources emergency managers use. Risk scored by Monte Carlo simulation so you do not have to guess.
+                Your review includes information from NOAA, USGS, CDC, and international humanitarian sources -- weather, health advisories, and regional conditions. Your analyst reviews it, so you don't have to.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
-                See the intelligence engine
+                See how information is gathered
                 <SmallArrowIcon className="w-4 h-4 card-link-arrow" />
               </span>
             </Link>
@@ -345,9 +337,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
                 <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               </div>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Tamper-Evident Documentation</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Documented Preparation</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Every review finding, every data source, every decision documented with SHA-256 hash-chain integrity. When someone asks what you did to prepare -- you hand them the binder.
+                Every finding, every recommendation, every emergency contact documented in a complete safety binder. When someone asks what you did to prepare -- you have professional documentation to share.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Explore the safety binder
@@ -371,7 +363,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>HOW IT WORKS</span>
             <h2 id="how-it-works-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              From submission to safety binder in 3-5 days.
+              From your trip details to complete documentation in 3-5 days.
             </h2>
           </div>
 
@@ -383,9 +375,9 @@ export default function HomePage() {
                 <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold" style={{ background: 'var(--color-primary-100)', color: 'var(--color-primary-700)', fontFamily: 'var(--font-heading)', fontSize: 18 }}>1</div>
                 <div className="hidden md:block flex-1 h-0.5" style={{ background: 'var(--color-primary-200)' }} aria-hidden="true" />
               </div>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Submit Your Trip</h3>
+              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Share Your Trip Details</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Enter your destination, dates, participants, and trip details. Takes 15 minutes. No training required.
+                Enter your destination, dates, participants, and planned activities through a guided form. Takes about 15 minutes. No special training required.
               </p>
             </div>
 
@@ -395,9 +387,9 @@ export default function HomePage() {
                 <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold" style={{ background: 'var(--color-primary-100)', color: 'var(--color-primary-700)', fontFamily: 'var(--font-heading)', fontSize: 18 }}>2</div>
                 <div className="hidden md:block flex-1 h-0.5" style={{ background: 'var(--color-primary-200)' }} aria-hidden="true" />
               </div>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Analyst Reviews Everything</h3>
+              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Professional Assessment</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                A professional safety analyst evaluates 17 safety dimensions using real-time intelligence from 5 government data sources. Risk scored by Monte Carlo simulation.
+                A trained safety analyst reviews your trip across 17 standardized sections using current information from government data sources. Findings documented. Recommendations provided.
               </p>
             </div>
 
@@ -406,9 +398,9 @@ export default function HomePage() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold" style={{ background: 'var(--color-primary-100)', color: 'var(--color-primary-700)', fontFamily: 'var(--font-heading)', fontSize: 18 }}>3</div>
               </div>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Receive Your Safety Binder</h3>
+              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Receive Your Documentation</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Audit-ready documentation with every finding, every recommendation, and every risk score. Tamper-evident integrity via SHA-256 hash chain.
+                Your organization receives a complete safety binder with every finding, recommendation, and contact organized for easy reference. Share with leadership, parents, or stakeholders.
               </p>
             </div>
           </div>
@@ -435,7 +427,7 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>PLATFORM CAPABILITIES</span>
             <h2 id="feature-grid-heading" className="text-display-md mt-4" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Everything you need to protect every trip.
+              Everything you need to plan every trip.
             </h2>
           </div>
 
@@ -448,7 +440,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Analyst Safety Review</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                17-section professional review of every trip plan by a trained safety analyst. Venues, transport, health, and emergency preparedness -- all evaluated.
+                17-section professional review of every trip by a trained safety analyst. Venues, transport, health, and emergency preparedness -- all evaluated and documented.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -461,9 +453,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
                 <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
               </div>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Risk Intelligence Engine</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Safety Information Engine</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Monte Carlo risk scoring from NOAA, USGS, CDC, GDACS, and ReliefWeb. Probability-weighted risk bands, not binary pass/fail.
+                Information from NOAA, USGS, CDC, GDACS, and ReliefWeb. Current conditions for your destination assessed with structured methodology.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -478,7 +470,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Trip Safety Binder</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Audit-ready documentation delivered in 3-5 days. Every finding, recommendation, and risk score preserved with SHA-256 hash-chain integrity.
+                Complete documentation delivered in 3-5 days. Every finding, recommendation, and contact preserved with verified integrity.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -491,9 +483,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
                 <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><rect x={5} y={2} width={14} height={20} rx={2} ry={2} /><path d="M12 18h.01" /></svg>
               </div>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Mobile Field Operations</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Mobile Field Support</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Live trip tracking, geofenced rally points, muster check-ins, and SMS broadcast. Everything your chaperones need in their pocket.
+                Active trip awareness, rally point coordination, and check-in tools. Everything your coordinators need accessible on their phones.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -506,9 +498,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
                 <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
               </div>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Real-Time Monitoring</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Active Trip Awareness</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Geofence alerts, participant location visibility, and muster check-in status. Know where your travelers are at all times.
+                Briefings and alerts during travel. Know what's happening. Coordinate communication when conditions change.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -521,9 +513,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
                 <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               </div>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Compliance and Evidence</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Clear Accountability</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                AES-256 encryption, tamper-evident audit trails, and documentation designed for FERPA, SOC 2, and GDPR requirements.
+                Documentation designed for the questions stakeholders ask. Organized records that demonstrate thorough preparation.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -549,14 +541,14 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <span className="text-eyebrow" style={{ color: '#6cbc8b' }}>THE SAFETY BINDER</span>
               <h2 id="binder-showcase-heading" className="text-display-md mt-4" style={{ color: '#f7f8f8', maxWidth: '28ch' }}>
-                See exactly what a reviewed trip looks like.
+                See what comprehensive trip planning looks like.
               </h2>
               <p className="text-body-lg mt-6" style={{ color: '#b8c3c7', maxWidth: '65ch', lineHeight: 1.6 }}>
-                Every trip reviewed by SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every risk assessment, every emergency contact -- with tamper-evident integrity. If a board member, insurer, or attorney asks what you did to prepare, you hand them this.
+                Every trip planned through SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every assessment, every emergency contact -- organized and verified. If a board member, parent, or stakeholder asks what you did to prepare, you share the binder.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
                 <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center" style={{ fontFamily: 'var(--font-heading)', background: '#ffffff', color: 'var(--color-secondary)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
-                  Download a Sample Binder
+                  View Sample Binder
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                 </Link>
                 <Link href="/how-it-works#safety-binder" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center" style={{ fontFamily: 'var(--font-heading)', background: 'transparent', border: '1.5px solid rgba(255,255,255,0.2)', color: '#f7f8f8', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
@@ -699,7 +691,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>BUILT FOR YOUR ORGANIZATION</span>
             <h2 id="segment-routing-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Built for organizations that take travel safety seriously.
+              Built for organizations that value thorough preparation.
             </h2>
           </div>
 
@@ -710,7 +702,7 @@ export default function HomePage() {
               <svg className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>K-12 Schools and Districts</h3>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                FERPA-ready field trip safety reviews. Professional analyst evaluation of every destination, from $15 per student. Board-ready documentation that proves due diligence.
+                Field trip planning that supports educational excellence. Consistent process across every school, every trip. Documentation that demonstrates due diligence to boards and parents.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -723,7 +715,7 @@ export default function HomePage() {
               <svg className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true"><path d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" /></svg>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Higher Education</h3>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Study abroad, Clery Act, and international program safety. Institutional-grade risk assessment with evidence documentation for general counsel and risk management.
+                Study abroad and faculty travel with institutional-grade documentation. Support your global educational mission with professional preparation.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -736,7 +728,7 @@ export default function HomePage() {
               <svg className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Churches and Mission Organizations</h3>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Mission trip safety with volunteer screening documentation and youth protection. Stewardship-framed preparation that satisfies insurance requirements.
+                Mission trip preparation that honors your calling. Simple guidance for volunteer leaders. Documentation that demonstrates good stewardship.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -747,9 +739,9 @@ export default function HomePage() {
             {/* Corporate */}
             <Link href="/solutions/corporate" className="card card-interactive group block" style={{ padding: 24, textDecoration: 'none' }} aria-label="Learn more about Corporate and Sports Teams solutions">
               <svg className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Corporate and Sports Teams</h3>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Corporate and Professional Travel</h3>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Duty of care compliance for business travel and team transportation. Professional safety analysis for mid-market organizations without enterprise budgets.
+                Business travel planning with clear accountability. Duty of care documentation without dedicated risk management staff.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -773,10 +765,10 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>PRICING</span>
             <h2 id="pricing-preview-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Professional trip safety starting at $15 per participant.
+              Professional trip assessment. Straightforward pricing.
             </h2>
             <p className="text-body-lg mt-4 mx-auto" style={{ color: 'var(--color-muted-foreground)', maxWidth: '65ch' }}>
-              The average trip-related legal settlement: <strong style={{ color: 'var(--color-foreground)' }}>$500K-$2M</strong>. SafeTrekr: <strong style={{ color: 'var(--color-foreground)' }}>$15 per student</strong>.
+              Most organizations find that structured trip planning saves time, reduces administrative burden, and creates valuable documentation for future reference.
             </p>
           </div>
 
@@ -784,21 +776,21 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 mt-12 items-start">
             {/* Tier 1: Field Trip ($450) */}
             <div className="rounded-2xl border-2 p-8" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Field Trip</h3>
+              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Day Trip</h3>
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$450</span>
                 <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
               </div>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$15/student for a 30-person group</p>
               <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['17-section analyst review', '5 government intelligence sources', 'Complete safety binder', 'Mobile field operations', '3-5 day turnaround'].map((feature) => (
+                {['17-section analyst review', '5 government data sources', 'Complete safety binder', 'Mobile field support', '3-5 day delivery'].map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
                     <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
                     <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Get a Demo</Link>
+              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
             </div>
 
             {/* Tier 2: Extended Trip ($750) - Featured */}
@@ -813,14 +805,14 @@ export default function HomePage() {
               </div>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$19/student for a 40-person group</p>
               <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Everything in Field Trip', 'Multi-day trip support', 'Extended monitoring period', 'Sports travel coverage', 'Priority analyst assignment'].map((feature) => (
+                {['Everything in Day Trip', 'Multi-day trip support', 'Extended monitoring period', 'Tournament and conference travel', 'Priority analyst assignment'].map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
                     <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
                     <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Get a Demo</Link>
+              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
             </div>
 
             {/* Tier 3: International ($1,250) */}
@@ -832,14 +824,14 @@ export default function HomePage() {
               </div>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$42/participant for a 30-person group</p>
               <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Everything in Extended Trip', 'International intelligence coverage', 'Embassy and consulate contacts', 'Cross-border risk assessment', 'Evacuation planning documentation'].map((feature) => (
+                {['Everything in Extended Trip', 'International information coverage', 'Embassy and consulate contacts', 'Regional condition assessment', 'Evacuation planning documentation'].map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
                     <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
                     <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Get a Demo</Link>
+              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
             </div>
           </div>
 
@@ -864,14 +856,14 @@ export default function HomePage() {
       <section aria-labelledby="category-contrast-heading" style={{ background: 'var(--color-background)', padding: '96px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>NOT ANOTHER TRAVEL APP</span>
+            <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>TRIP SAFETY PLANNING</span>
             <h2 id="category-contrast-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '32ch' }}>
               This is not travel insurance.<br className="hidden sm:block" />
               This is not trip logistics.<br className="hidden sm:block" />
-              This is professional safety analysis.
+              This is professional preparation.
             </h2>
             <p className="text-body-lg mt-4 mx-auto" style={{ color: 'var(--color-muted-foreground)', maxWidth: '65ch' }}>
-              SafeTrekr creates a category that did not exist before: professional safety analysis with evidence documentation. Here is how it compares to what organizations typically use.
+              SafeTrekr provides something most organizations don't have: systematic safety assessment with documented preparation. Here's how professional trip planning compares to what organizations typically use.
             </p>
           </div>
 
@@ -895,7 +887,7 @@ export default function HomePage() {
             </div>
             {/* Row 2 */}
             <div className="grid grid-cols-5 border-b" style={{ borderColor: 'var(--color-border)', background: 'rgba(231,236,238,0.35)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Government intelligence data</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Government information sources</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
@@ -903,7 +895,7 @@ export default function HomePage() {
             </div>
             {/* Row 3 */}
             <div className="grid grid-cols-5 border-b" style={{ borderColor: 'var(--color-border)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Monte Carlo risk scoring</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Structured assessment methodology</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
@@ -911,7 +903,7 @@ export default function HomePage() {
             </div>
             {/* Row 4 */}
             <div className="grid grid-cols-5 border-b" style={{ borderColor: 'var(--color-border)', background: 'rgba(231,236,238,0.35)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Tamper-evident documentation</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Documented preparation</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
@@ -919,7 +911,7 @@ export default function HomePage() {
             </div>
             {/* Row 5 */}
             <div className="grid grid-cols-5 border-b" style={{ borderColor: 'var(--color-border)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Audit-ready evidence binder</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Accountability records</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
@@ -927,7 +919,7 @@ export default function HomePage() {
             </div>
             {/* Row 6 */}
             <div className="grid grid-cols-5 border-b" style={{ borderColor: 'var(--color-border)', background: 'rgba(231,236,238,0.35)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Real-time trip monitoring</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Active trip awareness</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><CheckIcon className="w-5 h-5" style={{ color: 'rgba(6,26,35,0.4)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
@@ -935,7 +927,7 @@ export default function HomePage() {
             </div>
             {/* Row 7 */}
             <div className="grid grid-cols-5 border-b" style={{ borderColor: 'var(--color-border)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Legal and insurance documentation</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Stakeholder-ready documentation</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><span className="text-body-xs" style={{ color: 'var(--color-muted-foreground)' }}>Partial</span></div>
@@ -943,7 +935,7 @@ export default function HomePage() {
             </div>
             {/* Row 8 */}
             <div className="grid grid-cols-5" style={{ background: 'rgba(231,236,238,0.35)' }}>
-              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Mobile field operations</span></div>
+              <div className="py-4 px-6"><span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Mobile field support</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
               <div className="py-4 px-6 flex items-center justify-center"><span className="text-body-xs" style={{ color: 'var(--color-muted-foreground)' }}>Partial</span></div>
               <div className="py-4 px-6 flex items-center justify-center"><DashIcon style={{ color: 'var(--color-border)' }} /></div>
@@ -966,7 +958,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-lg border p-4" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)' }}>
-              <span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Government intelligence data</span>
+              <span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Government information sources</span>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style={{ background: 'var(--color-muted)', color: 'var(--color-muted-foreground)' }}>-- DIY</span>
                 <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style={{ background: 'var(--color-muted)', color: 'var(--color-muted-foreground)' }}>-- Apps</span>
@@ -978,7 +970,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-lg border p-4" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)' }}>
-              <span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Real-time trip monitoring</span>
+              <span className="text-body-sm font-medium" style={{ color: 'var(--color-foreground)' }}>Active trip awareness</span>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs" style={{ background: 'var(--color-muted)', color: 'var(--color-muted-foreground)' }}>-- DIY</span>
                 <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium" style={{ background: 'var(--color-card)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}>
@@ -1007,17 +999,17 @@ export default function HomePage() {
       <section aria-labelledby="final-cta-heading" data-theme="dark" style={{ background: 'var(--color-secondary)', padding: '112px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h2 id="final-cta-heading" className="text-display-md mx-auto" style={{ color: '#f7f8f8', maxWidth: '28ch' }}>
-            Ready to protect your next trip?
+            Ready to go with a plan?
           </h2>
           <p className="text-body-lg mt-4 mx-auto" style={{ color: '#b8c3c7', maxWidth: '65ch' }}>
-            Every trip goes well until one does not. The binder is for that day.
+            See how structured trip planning works for organizations like yours.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8">
             <Link href="/demo" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150" style={{ fontFamily: 'var(--font-heading)', background: '#ffffff', color: 'var(--color-secondary)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
-              Get a Demo
+              Schedule a Walkthrough
             </Link>
             <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150" style={{ fontFamily: 'var(--font-heading)', background: 'transparent', border: '1.5px solid rgba(255,255,255,0.2)', color: '#f7f8f8', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
-              See a Sample Binder
+              View Sample Binder
             </Link>
           </div>
         </div>

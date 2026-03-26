@@ -65,15 +65,15 @@ const cardHoverStyles =
  * // Static card (no link)
  * <FeatureCard
  *   icon={<ShieldCheck className="size-6" />}
- *   title="Evidence-Grade Records"
- *   description="Every assessment produces tamper-evident documentation."
+ *   title="Board-Ready Records"
+ *   description="Every assessment produces professional documentation."
  * />
  *
  * // Linked card
  * <FeatureCard
  *   icon={<Globe className="size-6" />}
- *   title="Global Coverage"
- *   description="Real-time data from 5 government intelligence sources."
+ *   title="Current Safety Information"
+ *   description="Data from multiple government sources."
  *   href="/features/coverage"
  *   linkText="Explore coverage"
  * />

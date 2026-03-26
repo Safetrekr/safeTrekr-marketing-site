@@ -36,7 +36,7 @@ import {
 export const metadata = generatePageMetadata({
   title: "Travel Safety Glossary",
   description:
-    "Definitions of key terms in travel risk management, school compliance, and organizational safety. From duty of care to FERPA, understand the language of responsible group travel.",
+    "Definitions of key travel planning terms. Understand duty of care, safety binders, risk assessment, and other concepts essential to organizational travel preparation.",
   path: "/resources/glossary",
 });
 
@@ -76,7 +76,7 @@ export default function GlossaryIndexPage() {
               icon={<BookOpen className="h-4 w-4" />}
               className="mb-5 justify-center"
             >
-              Travel Safety Glossary
+              Resources
             </Eyebrow>
 
             <h1
@@ -84,15 +84,15 @@ export default function GlossaryIndexPage() {
               className="text-display-md mx-auto text-[var(--color-foreground)]"
               style={{ maxWidth: "28ch" }}
             >
-              Know the language of travel safety.
+              Travel Safety Glossary
             </h1>
 
             <p
               className="text-body-lg mx-auto mt-4 text-[var(--color-muted-foreground)]"
               style={{ maxWidth: "65ch" }}
             >
-              Clear definitions of the compliance terms, legal doctrines, and
-              safety concepts that every trip coordinator should understand.
+              Essential definitions for travel planning professionals, school
+              administrators, and organizational safety coordinators.
             </p>
           </div>
         </Container>
@@ -198,9 +198,9 @@ export default function GlossaryIndexPage() {
       {/* ---------------------------------------------------------------- */}
       <CTABand
         variant="dark"
-        headline="Ready to protect every trip?"
-        body="See how SafeTrekr delivers analyst-reviewed safety binders for your organization."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        headline="Ready to go with a plan?"
+        body="SafeTrekr provides professional travel safety planning with all the documentation your organization needs."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
     </>

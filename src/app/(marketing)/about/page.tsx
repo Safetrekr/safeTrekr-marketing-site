@@ -2,15 +2,15 @@
  * ST-883: About Page (/about)
  *
  * Editorial narrative page that establishes SafeTrekr's origin story,
- * methodology, team, and mission. Builds trust through transparency --
+ * principles, team, and mission. Builds trust through transparency --
  * verifiable numbers, real credentials, and a clear founding narrative.
  *
  * Section order:
  *   1. Hero             -- Editorial text-only hero
- *   2. The Problem      -- "A Spreadsheet and a Prayer" narrative + blockquote
+ *   2. Our Story        -- Founding narrative explaining why SafeTrekr exists
  *   3. Route Divider    -- Decorative SVG divider
- *   4. Our Approach     -- 3 pillar cards (Analyst, Intelligence, Documentation)
- *   5. The Team         -- Founder card + analyst team card
+ *   4. What We Believe  -- 4 principle cards (Assessment, Documentation, Accessibility, Clarity)
+ *   5. Leadership       -- Founder card + analyst team card
  *   6. By the Numbers   -- Dark section with 5 stat cards + 2 secondary metrics
  *   7. Our Mission      -- Mission + vision statements
  *   8. Trusted By       -- 4 org type cards
@@ -51,7 +51,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "About SafeTrekr",
   description:
-    "SafeTrekr was built to close the gap between aviation-grade safety and what schools, churches, and businesses do for group travel. Professional analyst review. Government intelligence. Documented evidence.",
+    "SafeTrekr was founded to bring professional trip planning to every organization that sends people into the world. Learn our story and meet the team.",
   path: "/about",
   ogImage: "/images/og-about.png",
 });
@@ -60,24 +60,30 @@ export const metadata = generatePageMetadata({
 // Data: Approach Pillar Cards
 // ---------------------------------------------------------------------------
 
-const APPROACH_PILLARS = [
+const BELIEF_PRINCIPLES = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "Professional Analyst Review",
+    title: "Professional Assessment, Not Automation",
     description:
-      "Every trip is reviewed by a trained safety analyst across 17 standardized sections. Not AI. Not a checklist. A human expert with real accountability.",
-  },
-  {
-    icon: <Shield className="size-6" />,
-    title: "Government Intelligence Data",
-    description:
-      "We monitor 5 government intelligence sources and 250+ API endpoints to build real-time risk profiles for every destination your team visits.",
+      "Every trip is reviewed by a trained safety analyst. Algorithms can gather data, but professionals make judgments. When your organization sends people into the world, a real person should review the preparation.",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Tamper-Evident Documentation",
+    title: "Documentation, Not Promises",
     description:
-      "Every binder is sealed with SHA-256 hash chain integrity -- tamper-proof evidence that proves due diligence was performed, timestamped and court-admissible.",
+      "Good intentions are important. Documentation makes them visible. Every finding, every recommendation, every contact is recorded. When someone asks what you did to prepare, you share the binder.",
+  },
+  {
+    icon: <Shield className="size-6" />,
+    title: "Accessible to Everyone",
+    description:
+      "Professional trip planning shouldn't require enterprise budgets. We built SafeTrekr so that a church sending a mission team, a school planning a field trip, and a company sending employees to a conference can all access the same structured approach.",
+  },
+  {
+    icon: <BookOpen className="size-6" />,
+    title: "Clarity Over Complexity",
+    description:
+      "Safety documentation should be understood by everyone who needs it -- trip leaders, administrators, parents, board members, and stakeholders. We write for clarity, not to impress.",
   },
 ] as const;
 
@@ -120,8 +126,8 @@ const PRIMARY_STATS: StatCard[] = [
 ];
 
 const SECONDARY_METRICS = [
-  { value: "AES-256", label: "Encryption Standard" },
-  { value: "SHA-256", label: "Evidence Chain" },
+  { value: "Pro", label: "Review Standard" },
+  { value: "Board", label: "Ready Documentation" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -178,7 +184,7 @@ export default function AboutPage() {
           {/* Eyebrow */}
           <ScrollReveal variant="fadeUp">
             <Eyebrow color="primary" icon={<BookOpen className="size-3.5" />}>
-              OUR STORY
+              ABOUT SAFETREKR
             </Eyebrow>
           </ScrollReveal>
 
@@ -189,25 +195,24 @@ export default function AboutPage() {
               className="text-display-lg mt-4 text-foreground"
               style={{ maxWidth: "20ch" }}
             >
-              We Believe Every Trip Deserves the Same Safety Rigor as a Flight.
+              Professional trip planning for every organization.
             </h1>
           </ScrollReveal>
 
           {/* Sub-headline */}
           <ScrollReveal variant="fadeUp" delay={0.16}>
             <p className="text-body-lg mt-6 max-w-prose text-muted-foreground lg:mt-8">
-              Schools send students on field trips with a permission slip and a
-              prayer. Churches send mission teams to foreign countries with a
-              spreadsheet. Every day, airlines subject flight plans to rigorous
-              safety review&mdash;but group travel gets nothing. We started
-              SafeTrekr to change that.
+              SafeTrekr was founded on a simple premise: every organization that
+              sends people into the world&mdash;students, employees, volunteers,
+              athletes&mdash;deserves professional trip planning support.
+              Structured assessment. Clear documentation. Accessible to everyone.
             </p>
           </ScrollReveal>
         </Container>
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 2: THE PROBLEM WE SAW
+          SECTION 2: OUR STORY
           ================================================================ */}
       <SectionContainer
         variant="card"
@@ -217,7 +222,7 @@ export default function AboutPage() {
         <Container size="sm" className="max-w-3xl">
           {/* Eyebrow */}
           <ScrollReveal variant="fadeUp">
-            <Eyebrow color="primary">THE PROBLEM WE SAW</Eyebrow>
+            <Eyebrow color="primary">OUR STORY</Eyebrow>
           </ScrollReveal>
 
           {/* Headline */}
@@ -226,7 +231,7 @@ export default function AboutPage() {
               id="founding-narrative-heading"
               className="text-heading-lg mt-4 text-foreground"
             >
-              A Spreadsheet and a Prayer
+              Why we built SafeTrekr.
             </h2>
           </ScrollReveal>
 
@@ -234,47 +239,50 @@ export default function AboutPage() {
           <div className="mt-8 space-y-6 lg:mt-10">
             <ScrollReveal variant="fadeUp" delay={0.16} as="p">
               <span className="text-body-lg max-w-prose text-muted-foreground">
-                Every year, millions of people travel in organized
-                groups&mdash;school field trips, church mission teams, university
-                study abroad cohorts, corporate retreats. These trips carry real
-                risk: unfamiliar destinations, group logistics, medical
-                emergencies, political instability, natural disasters.
+                The founder of SafeTrekr spent years working with organizations
+                that send people on trips. Schools planning field trips. Churches
+                organizing mission trips. Companies coordinating business travel.
               </span>
             </ScrollReveal>
 
             <ScrollReveal variant="fadeUp" delay={0.24} as="p">
               <span className="text-body-lg max-w-prose text-muted-foreground">
-                Yet the safety planning for most of these trips amounts to a
-                spreadsheet, a Google search, and the hope that nothing goes
-                wrong. No professional risk assessment. No government
-                intelligence. No documented evidence of due diligence. Nothing
-                that would survive a courtroom.
+                What he noticed was a gap: these organizations cared deeply about
+                preparation, but they lacked tools designed for trip safety
+                planning. Teachers doing their best with spreadsheets. Volunteer
+                coordinators researching destinations between other
+                responsibilities. HR managers approving travel without a
+                structured assessment process.
               </span>
             </ScrollReveal>
 
-            {/* Pull Quote */}
-            <ScrollReveal
-              variant="fadeUp"
-              delay={0.2}
-              as="blockquote"
-            >
-              <div
-                className="my-10 border-l-4 border-primary-500 pl-6 lg:my-12 lg:pl-8"
-                style={{ maxWidth: "45ch" }}
-              >
-                <p className="text-heading-md italic text-primary-700">
-                  &ldquo;Airlines wouldn&rsquo;t dream of flying a route without
-                  professional safety review. Why do we accept less for our
-                  students, congregations, and employees?&rdquo;
-                </p>
-              </div>
+            <ScrollReveal variant="fadeUp" delay={0.32} as="p">
+              <span className="text-body-lg max-w-prose text-muted-foreground">
+                They weren&rsquo;t failing. They were doing their best with tools
+                that weren&rsquo;t built for this purpose.
+              </span>
             </ScrollReveal>
 
-            <ScrollReveal variant="fadeUp" delay={0.32} as="p">
+            <ScrollReveal variant="fadeUp" delay={0.4} as="p">
               <span className="text-body-lg max-w-prose font-medium text-foreground">
-                We built SafeTrekr to close that gap&mdash;to bring
-                professional-grade safety analysis to every organization that
-                sends people on trips.
+                SafeTrekr exists to fill that gap.
+              </span>
+            </ScrollReveal>
+
+            <ScrollReveal variant="fadeUp" delay={0.48} as="p">
+              <span className="text-body-lg max-w-prose text-muted-foreground">
+                We built a platform that provides professional trip planning
+                support to organizations that send people into the world.
+                Structured review. Government information sources. Complete
+                documentation. The same systematic approach that large
+                organizations use&mdash;accessible to schools, churches, sports
+                teams, and mid-market businesses.
+              </span>
+            </ScrollReveal>
+
+            <ScrollReveal variant="fadeUp" delay={0.56} as="p">
+              <span className="text-body-lg max-w-prose font-semibold text-foreground">
+                Every trip deserves a plan.
               </span>
             </ScrollReveal>
           </div>
@@ -306,33 +314,29 @@ export default function AboutPage() {
       </div>
 
       {/* ================================================================
-          SECTION 3: OUR APPROACH
+          SECTION 3: WHAT WE BELIEVE
           ================================================================ */}
-      <SectionContainer ariaLabelledBy="approach-heading">
+      <SectionContainer ariaLabelledBy="beliefs-heading">
         <Container>
           {/* Section Header */}
           <ScrollReveal variant="fadeUp">
             <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
-              <Eyebrow color="primary">OUR APPROACH</Eyebrow>
+              <Eyebrow color="primary">WHAT WE BELIEVE</Eyebrow>
               <h2
-                id="approach-heading"
+                id="beliefs-heading"
                 className="text-display-md mx-auto mt-4 text-foreground"
                 style={{ maxWidth: "28ch" }}
               >
-                Three Pillars. Zero Guesswork.
+                Our principles.
               </h2>
-              <p className="text-body-lg mx-auto mt-4 max-w-prose text-muted-foreground">
-                Every SafeTrekr binder is built on the same three non-negotiable
-                foundations.
-              </p>
             </div>
           </ScrollReveal>
 
-          {/* 3 Pillar Cards */}
-          <StaggerChildren className="grid gap-6 sm:grid-cols-3 lg:gap-8">
-            {APPROACH_PILLARS.map((pillar, index) => (
+          {/* 4 Principle Cards */}
+          <StaggerChildren className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            {BELIEF_PRINCIPLES.map((principle, index) => (
               <ScrollReveal
-                key={pillar.title}
+                key={principle.title}
                 variant="fadeUp"
                 delay={index * 0.08}
               >
@@ -342,14 +346,14 @@ export default function AboutPage() {
                     aria-hidden="true"
                   >
                     <span className="text-primary-700 [&_svg]:size-6">
-                      {pillar.icon}
+                      {principle.icon}
                     </span>
                   </div>
                   <h3 className="text-heading-sm text-foreground">
-                    {pillar.title}
+                    {principle.title}
                   </h3>
                   <p className="text-body-md mt-3 text-muted-foreground">
-                    {pillar.description}
+                    {principle.description}
                   </p>
                 </div>
               </ScrollReveal>
@@ -359,7 +363,7 @@ export default function AboutPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: THE TEAM
+          SECTION 4: LEADERSHIP
           ================================================================ */}
       <SectionContainer
         variant="card"
@@ -370,14 +374,14 @@ export default function AboutPage() {
           {/* Section Header */}
           <div className="mb-10 lg:mb-12">
             <ScrollReveal variant="fadeUp">
-              <Eyebrow color="primary">THE TEAM</Eyebrow>
+              <Eyebrow color="primary">LEADERSHIP</Eyebrow>
             </ScrollReveal>
             <ScrollReveal variant="fadeUp" delay={0.08}>
               <h2
                 id="team-heading"
                 className="text-heading-lg mt-4 text-foreground"
               >
-                Real People. Real Credentials.
+                The team building SafeTrekr.
               </h2>
             </ScrollReveal>
           </div>
@@ -654,10 +658,10 @@ export default function AboutPage() {
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Ready to See SafeTrekr in Action?"
-        body="See how professional trip safety management works for your organization. Our team will walk you through a real safety binder."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
-        secondaryCta={{ text: "See How It Works", href: "/how-it-works" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional trip planning for your organization."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
+        secondaryCta={{ text: "Contact Us", href: "/contact" }}
       />
 
       {/* ================================================================

@@ -28,7 +28,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 export const metadata = generatePageMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with the SafeTrekr team. General inquiries answered within 1 business day. Procurement questions answered within 4 hours.",
+    "Get in touch with the SafeTrekr team. Questions about pricing, walkthroughs, or how SafeTrekr works for your organization? We're here to help.",
   path: "/contact",
 });
 
@@ -54,21 +54,20 @@ export default function ContactPage() {
                 color="primary"
                 icon={<Mail className="h-3.5 w-3.5" />}
               >
-                Contact
+                Contact Us
               </Eyebrow>
             </div>
           </ScrollReveal>
 
           <ScrollReveal variant="fadeUp" delay={0.1}>
-            <h1 className="text-display-md mx-auto text-[var(--color-foreground)]" style={{ maxWidth: "24ch" }}>
-              Get in Touch
+            <h1 className="text-display-md mx-auto text-[var(--color-foreground)]" style={{ maxWidth: "32ch" }}>
+              Let&apos;s talk about trip planning.
             </h1>
           </ScrollReveal>
 
           <ScrollReveal variant="fadeUp" delay={0.2}>
-            <p className="text-body-lg mx-auto mt-4 text-[var(--color-muted-foreground)]" style={{ maxWidth: "50ch" }}>
-              Have a question about SafeTrekr? We&apos;re here to help. Fill out
-              the form below and our team will get back to you promptly.
+            <p className="text-body-lg mx-auto mt-4 text-[var(--color-muted-foreground)]" style={{ maxWidth: "60ch" }}>
+              Have questions about SafeTrekr? Want to discuss how professional trip planning works for your organization? Our team is ready to help.
             </p>
           </ScrollReveal>
         </Container>

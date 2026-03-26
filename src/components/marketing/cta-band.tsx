@@ -94,27 +94,27 @@ export interface CTABandProps
  * ```tsx
  * // Default band between sections
  * <CTABand
- *   headline="Ready to secure your next trip?"
- *   body="Get started with SafeTrekr in minutes."
- *   primaryCta={{ text: "Get a Demo", href: "/demo" }}
+ *   headline="Ready to go with a plan?"
+ *   body="See how SafeTrekr delivers professional trip planning."
+ *   primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
  *   secondaryCta={{ text: "View Pricing", href: "/pricing" }}
  * />
  *
  * // Dark band above the footer
  * <CTABand
  *   variant="dark"
- *   headline="Join 500+ schools already using SafeTrekr"
- *   body="Start your free trial today. No credit card required."
- *   primaryCta={{ text: "Start Free Trial", href: "/trial" }}
- *   secondaryCta={{ text: "Talk to Sales", href: "/contact" }}
+ *   headline="Join organizations using SafeTrekr"
+ *   body="Professional trip planning for your organization."
+ *   primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
+ *   secondaryCta={{ text: "Contact Us", href: "/contact" }}
  * />
  *
  * // Brand band with single CTA
  * <CTABand
  *   variant="brand"
  *   headline="See SafeTrekr in action"
- *   body="Book a personalized walkthrough with our safety experts."
- *   primaryCta={{ text: "Book a Demo", href: "/demo" }}
+ *   body="Book a personalized walkthrough with our team."
+ *   primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
  * />
  * ```
  */

@@ -12,7 +12,7 @@
  * Section order:
  *   1. Hero              -- Centered with dual CTAs
  *   2. Process Timeline  -- 3-act (Submit, Review, Binder) with details
- *   3. Intelligence      -- Dark: 5 agency cards + Monte Carlo explanation
+ *   3. Intelligence      -- Dark: 5 agency cards + professional analysis
  *   4. 17-Section Review -- All 17 sections in 5 categories with accordion
  *   5. Safety Binder     -- FeatureShowcase with DocumentPreview
  *   6. During Trip       -- Mobile app features with phone mockup placeholder
@@ -85,9 +85,9 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "How It Works",
+  title: "How SafeTrekr Works",
   description:
-    "From trip submission to safety binder in 3-5 days. Every trip goes through the same rigorous 17-section analyst review with government intelligence scoring.",
+    "From trip submission to complete documentation in 3-5 days. Learn how SafeTrekr's professional process combines current information, analyst evaluation, and complete documentation.",
   path: "/how-it-works",
 });
 
@@ -98,48 +98,50 @@ export const metadata = generatePageMetadata({
 const PROCESS_STEPS = [
   {
     number: 1,
-    act: "ACT 1: INTELLIGENCE",
-    title: "Submit Your Trip",
+    act: "STEP 1: SUBMIT",
+    title: "Share Your Trip Details",
     description:
-      "Your organization submits trip details through a guided form. Destination, dates, participants, activities, and logistics.",
+      "Enter your destination, dates, participants, activities, and logistics through a guided submission form. No specialized training required.",
     details: [
       "Destination and travel dates",
-      "Participant count and demographics",
+      "Number and composition of travelers",
       "Planned activities and venues",
-      "Transportation and lodging details",
-      "Special requirements or concerns",
+      "Transportation arrangements",
+      "Lodging details",
+      "Any known concerns or special requirements",
     ],
-    badge: "Takes ~15 minutes",
+    badge: "Day 1 (15 minutes)",
   },
   {
     number: 2,
-    act: "ACT 2: REVIEW",
+    act: "STEP 2: REVIEW",
     title: "Analyst Reviews Everything",
     description:
-      "A trained safety analyst conducts a comprehensive 17-section review. The Risk Intelligence Engine scores every destination using 5 government data sources.",
+      "A trained safety analyst conducts a comprehensive 17-section review of your trip. Every venue, every transportation leg, every activity is evaluated.",
     details: [
       "17-section professional safety review",
-      "Monte Carlo risk scoring simulation",
-      "5 government intelligence sources analyzed",
+      "Current data from 5 government sources",
       "Every venue, route, and provider evaluated",
+      "Professional judgment applied to your trip",
       "Recommendations written for each finding",
     ],
-    badge: "3-5 business days",
+    badge: "Days 2-4",
   },
   {
     number: 3,
-    act: "ACT 3: DOCUMENTATION",
+    act: "STEP 3: DELIVER",
     title: "Receive Your Safety Binder",
     description:
-      "Audit-ready documentation delivered with SHA-256 hash-chain integrity. Every finding, every recommendation, every emergency contact, every risk score.",
+      "Every finding, recommendation, and assessment is compiled into your safety binder. Structured for trip leaders, administrators, and stakeholders.",
     details: [
-      "Complete findings and recommendations",
-      "Emergency contacts and procedures",
-      "Risk scores with probability analysis",
-      "Maps, routes, and venue details",
-      "Tamper-evident cryptographic verification",
+      "Executive summary",
+      "Complete 17-section findings",
+      "Emergency contact directory",
+      "Maps and evacuation routes",
+      "Analyst recommendations",
+      "Integrity verification",
     ],
-    badge: "Delivered digitally",
+    badge: "Days 4-5",
   },
 ] as const;
 
@@ -148,31 +150,31 @@ const INTELLIGENCE_SOURCES = [
     abbr: "NOAA",
     name: "National Oceanic and Atmospheric Administration",
     description:
-      "Weather forecasts, severe storm alerts, historical climate patterns for travel dates and destination",
+      "Weather and environmental data for travel dates and destination",
   },
   {
     abbr: "USGS",
     name: "United States Geological Survey",
     description:
-      "Seismic activity, earthquake risk, volcanic alerts, geological hazards for destination region",
+      "Geological considerations for destination region",
   },
   {
     abbr: "CDC",
     name: "Centers for Disease Control and Prevention",
     description:
-      "Health advisories, disease outbreaks, vaccination requirements, travel health notices",
+      "Health advisories and information for your destination",
   },
   {
     abbr: "GDACS",
     name: "Global Disaster Alerting Coordination System",
     description:
-      "Real-time disaster alerts, earthquake/flood/cyclone monitoring, humanitarian impact assessments",
+      "Alerts and emergency information for your travel dates",
   },
   {
     abbr: "ReliefWeb",
     name: "UN Office for Coordination of Humanitarian Affairs",
     description:
-      "Humanitarian situation reports, conflict updates, country-level safety assessments",
+      "Regional conditions and situation reports",
   },
 ] as const;
 
@@ -282,7 +284,7 @@ const REVIEW_CATEGORIES = [
         num: 14,
         title: "Evidence",
         icon: <Lock className="size-5 text-primary-600" />,
-        description: "Tamper-evident evidence chain, SHA-256 hash verification, audit trail integrity, and record preservation",
+        description: "Verified documentation chain, audit trail integrity, and record preservation",
       },
       {
         num: 15,
@@ -308,16 +310,16 @@ const REVIEW_CATEGORIES = [
 
 const HOWTO_STEPS: HowToStep[] = [
   {
-    name: "Submit Your Trip",
-    text: "Submit trip details through the SafeTrekr platform including destination, dates, participants, activities, and logistics. Takes approximately 15 minutes.",
+    name: "Share Your Trip Details",
+    text: "Enter your destination, dates, participants, activities, and logistics through a guided submission form. Takes approximately 15 minutes.",
   },
   {
     name: "Analyst Reviews Everything",
-    text: "A trained safety analyst conducts a comprehensive 17-section review using 5 government intelligence sources and Monte Carlo risk scoring.",
+    text: "A trained safety analyst conducts a comprehensive 17-section review using current information from 5 government data sources.",
   },
   {
     name: "Receive Your Safety Binder",
-    text: "Receive your complete, audit-ready safety binder with SHA-256 hash-chain integrity within 3-5 business days.",
+    text: "Receive your complete safety binder with verified documentation within 3-5 business days.",
   },
 ];
 
@@ -353,30 +355,28 @@ export default function HowItWorksPage() {
                 id="hero-heading"
                 className="mx-auto max-w-[20ch] text-display-lg text-foreground"
               >
-                From Trip Submission to Safety Binder in 3&#8209;5&nbsp;Days.
+                From trip details to complete documentation in 3&#8209;5&nbsp;days.
               </h1>
             </ScrollReveal>
 
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-[65ch] text-body-lg text-muted-foreground">
-                SafeTrekr&apos;s three-step process starts when your organization
-                submits trip details, continues with a 17-section professional
-                safety analyst review powered by five government intelligence
-                sources and Monte Carlo risk scoring, and concludes with
-                delivery of a tamper-evident safety binder with SHA-256
-                hash-chain integrity -- all within 3-5 business days.
+                Every trip follows the same structured process: you share trip details,
+                a trained safety analyst reviews everything using current information
+                from government sources, and you receive complete documentation.
+                Professional preparation without complexity.
               </p>
             </ScrollReveal>
 
             <ScrollReveal>
               <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
                 <Button variant="primary" size="lg" asChild>
-                  <Link href="/demo">Get a Demo</Link>
+                  <Link href="/demo">Schedule a Walkthrough</Link>
                 </Button>
                 <Button variant="secondary" size="lg" asChild>
                   <Link href="/resources/sample-binders" className="inline-flex items-center gap-2">
                     <Download className="size-4" aria-hidden="true" />
-                    Download a Sample Binder
+                    View Sample Binder
                   </Link>
                 </Button>
               </div>
@@ -500,21 +500,20 @@ export default function HowItWorksPage() {
           {/* Section Header */}
           <div className="mb-16 text-center">
             <ScrollReveal>
-              <Eyebrow color="dark" className="mb-4">Intelligence Engine</Eyebrow>
+              <Eyebrow color="dark" className="mb-4">Government Information Sources</Eyebrow>
             </ScrollReveal>
             <ScrollReveal>
               <h2
                 id="intelligence-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-white"
               >
-                We Analyze Data You Can&apos;t Get from a Google Search.
+                Current Data from Sources Professionals Use.
               </h2>
             </ScrollReveal>
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-[65ch] text-body-lg text-[#b8c3c7]">
-                SafeTrekr&apos;s Risk Intelligence Engine pulls from 5 authoritative
-                government data sources and runs Monte Carlo simulations to produce
-                probability-weighted risk scores.
+                SafeTrekr gathers current safety information from 5 government data sources
+                for your specific destination and travel dates.
               </p>
             </ScrollReveal>
           </div>
@@ -536,29 +535,28 @@ export default function HowItWorksPage() {
             ))}
           </StaggerChildren>
 
-          {/* Monte Carlo Explanation Card */}
+          {/* Professional Analysis Card */}
           <ScrollReveal>
             <div className="grid items-center gap-8 rounded-xl border border-white/10 bg-white/[0.06] p-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12 lg:p-12">
               {/* Left: Text */}
               <div>
                 <span className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-[#6cbc8b]/15 px-2.5 py-0.5 text-xs font-semibold text-[#6cbc8b]">
                   <BarChart3 className="size-3.5" aria-hidden="true" />
-                  RISK SCORING
+                  STRUCTURED METHODOLOGY
                 </span>
                 <h3 className="mb-4 text-heading-lg text-white">
-                  Probability-Weighted Risk Scores
+                  Professional Analyst Review
                 </h3>
                 <p className="mb-6 max-w-[65ch] text-body-md text-[#b8c3c7]">
-                  Our Risk Intelligence Engine runs Monte Carlo simulations across all
-                  data sources to produce probability-weighted risk scores -- not simple
-                  averages, but statistically modeled projections of what could affect
-                  your trip.
+                  Every trip is reviewed by a trained safety analyst -- not processed
+                  by an algorithm. Professional judgment applied to your specific trip,
+                  with accountability for every finding.
                 </p>
                 <ul className="space-y-3">
                   {[
-                    "Thousands of simulations per trip",
-                    "Weather, seismic, health, conflict data cross-referenced",
-                    "Scores update until departure date",
+                    "Weather, geological, health, and regional data reviewed",
+                    "Current information specific to your travel dates",
+                    "Structured assessment methodology",
                   ].map((item) => (
                     <li key={item} className="flex gap-3">
                       <Check className="mt-0.5 size-4 shrink-0 text-[#6cbc8b]" aria-hidden="true" />
@@ -568,28 +566,22 @@ export default function HowItWorksPage() {
                 </ul>
               </div>
 
-              {/* Right: Bell Curve Visualization (decorative) */}
+              {/* Right: Simple Assessment Visualization (decorative) */}
               <div className="mx-auto w-full max-w-[400px]" aria-hidden="true">
                 <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-                  {/* Axes */}
+                  {/* Simple grid lines */}
                   <line x1="40" y1="200" x2="380" y2="200" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
                   <line x1="40" y1="200" x2="40" y2="20" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                  {/* Shaded area */}
-                  <path d="M60 200 Q100 195 140 170 Q180 100 210 50 Q240 100 280 170 Q320 195 360 200 Z" fill="#6cbc8b" fillOpacity="0.1" />
-                  {/* Bell curve */}
-                  <path d="M60 200 Q100 195 140 170 Q180 100 210 50 Q240 100 280 170 Q320 195 360 200" stroke="#6cbc8b" strokeWidth="2" fill="none" />
-                  {/* Data points */}
-                  <circle cx="120" cy="185" r="5" fill="#96cfac" />
-                  <circle cx="165" cy="145" r="5" fill="#6cbc8b" />
-                  <circle cx="210" cy="50" r="6" fill="#4ca46e" />
-                  <circle cx="255" cy="145" r="5" fill="#6cbc8b" />
-                  <circle cx="310" cy="188" r="5" fill="#96cfac" />
-                  {/* X-axis labels */}
-                  <text x="80" y="225" fill="#b8c3c7" fontFamily="JetBrains Mono, monospace" fontSize="11">Low</text>
-                  <text x="190" y="225" fill="#b8c3c7" fontFamily="JetBrains Mono, monospace" fontSize="11">Medium</text>
-                  <text x="330" y="225" fill="#b8c3c7" fontFamily="JetBrains Mono, monospace" fontSize="11">High</text>
-                  {/* Y-axis label */}
-                  <text x="10" y="110" fill="#b8c3c7" fontFamily="JetBrains Mono, monospace" fontSize="10" transform="rotate(-90, 15, 110)">Probability</text>
+                  {/* Assessment bars */}
+                  <rect x="70" y="60" width="50" height="140" rx="4" fill="#6cbc8b" fillOpacity="0.3" />
+                  <rect x="140" y="90" width="50" height="110" rx="4" fill="#6cbc8b" fillOpacity="0.5" />
+                  <rect x="210" y="120" width="50" height="80" rx="4" fill="#6cbc8b" fillOpacity="0.7" />
+                  <rect x="280" y="150" width="50" height="50" rx="4" fill="#6cbc8b" fillOpacity="0.9" />
+                  {/* Labels */}
+                  <text x="95" y="225" fill="#b8c3c7" fontFamily="system-ui" fontSize="10" textAnchor="middle">Weather</text>
+                  <text x="165" y="225" fill="#b8c3c7" fontFamily="system-ui" fontSize="10" textAnchor="middle">Health</text>
+                  <text x="235" y="225" fill="#b8c3c7" fontFamily="system-ui" fontSize="10" textAnchor="middle">Regional</text>
+                  <text x="305" y="225" fill="#b8c3c7" fontFamily="system-ui" fontSize="10" textAnchor="middle">Venue</text>
                 </svg>
               </div>
             </div>
@@ -691,7 +683,7 @@ export default function HowItWorksPage() {
         />
       </div>
 
-      {/* SHA-256 Explanation Strip */}
+      {/* Verified Documentation Strip */}
       <SectionContainer className="bg-card" as="div">
         <Container>
           <ScrollReveal>
@@ -701,13 +693,12 @@ export default function HowItWorksPage() {
               </div>
               <div>
                 <h3 className="text-heading-sm font-semibold text-foreground">
-                  Tamper-Evident Integrity
+                  Verified Documentation
                 </h3>
                 <p className="mt-2 max-w-[65ch] text-body-md text-muted-foreground">
-                  Every page of your Safety Binder is cryptographically signed using
-                  SHA-256 hash chains. Any modification -- even a single character --
-                  is detectable. Your documentation is as trustworthy the day it was
-                  created as it will be years later.
+                  Every finding is recorded with integrity verification. Your safety binder
+                  demonstrates that documentation has not been altered after completion.
+                  Professional records you can share with confidence.
                 </p>
               </div>
             </div>
@@ -744,15 +735,15 @@ export default function HowItWorksPage() {
               <ScrollReveal>
                 <p className="mb-8 max-w-[65ch] text-body-lg text-muted-foreground">
                   During the trip, SafeTrekr&apos;s mobile app gives chaperones
-                  real-time tools for participant safety and communication.
+                  current tools for participant safety and communication.
                 </p>
               </ScrollReveal>
 
               <ul className="mb-8 space-y-3">
                 {[
-                  "Live map with participant locations",
-                  "Geofence boundary alerts",
-                  "Rally point muster check-ins",
+                  "Active map with participant locations",
+                  "Boundary alerts when participants leave designated areas",
+                  "Rally point check-ins",
                   "SMS broadcast to all participants",
                   "Emergency contacts one tap away",
                 ].map((item) => (
@@ -947,10 +938,10 @@ export default function HowItWorksPage() {
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Ready to See It in Action?"
-        body="Schedule a personalized walkthrough. We'll show you exactly what a safety binder looks like for your organization."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
-        secondaryCta={{ text: "Download a Sample Binder", href: "/resources/sample-binders" }}
+        headline="Ready to see the process in action?"
+        body="Schedule a walkthrough to see a complete safety binder and understand exactly what your organization receives."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
+        secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
 
       {/* ================================================================

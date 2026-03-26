@@ -38,9 +38,9 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Procurement Hub",
+  title: "Procurement Resources",
   description:
-    "Everything enterprise buyers need to evaluate and purchase SafeTrekr. Download security questionnaires, budget templates, and board presentation materials.",
+    "Procurement resources for SafeTrekr. Documentation and support for institutional buyers navigating vendor approval processes.",
   path: "/procurement",
 });
 
@@ -128,7 +128,7 @@ export default function ProcurementPage() {
   return (
     <>
       {/* BreadcrumbList JSON-LD for procurement page */}
-      <BreadcrumbJsonLd path="/procurement" currentPageTitle="Procurement Hub" />
+      <BreadcrumbJsonLd path="/procurement" currentPageTitle="Procurement Resources" />
 
       {/* ================================================================
           SECTION 1: HERO
@@ -153,7 +153,7 @@ export default function ProcurementPage() {
                 <li aria-hidden="true">/</li>
                 <li>
                   <span className="text-foreground" aria-current="page">
-                    Procurement Hub
+                    Procurement Resources
                   </span>
                 </li>
               </ol>
@@ -163,7 +163,7 @@ export default function ProcurementPage() {
           {/* Eyebrow */}
           <ScrollReveal variant="fadeUp" delay={0.04}>
             <Eyebrow color="primary" icon={<FileText className="size-3.5" />}>
-              ENTERPRISE PROCUREMENT
+              PROCUREMENT
             </Eyebrow>
           </ScrollReveal>
 
@@ -174,17 +174,16 @@ export default function ProcurementPage() {
               className="text-display-lg mt-4 text-foreground"
               style={{ maxWidth: "22ch" }}
             >
-              Procurement Made Simple
+              Resources for institutional buyers.
             </h1>
           </ScrollReveal>
 
           {/* Sub-headline */}
           <ScrollReveal variant="fadeUp" delay={0.16}>
             <p className="text-body-lg mt-6 max-w-prose text-muted-foreground lg:mt-8">
-              Everything you need to evaluate, justify, and purchase SafeTrekr
-              for your organization. Download ready-made documents, review our
-              compliance posture, and get procurement questions answered within
-              24 hours.
+              Whether you&apos;re conducting vendor due diligence, navigating district
+              procurement, or preparing vendor approval paperwork, we have the
+              documentation you need.
             </p>
           </ScrollReveal>
         </Container>
@@ -384,10 +383,10 @@ export default function ProcurementPage() {
           ================================================================ */}
       <CTABand
         variant="brand"
-        headline="Ready to Move Forward?"
-        body="Schedule a demo to see SafeTrekr in action, or reach out to our team with any remaining procurement questions."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
-        secondaryCta={{ text: "Contact Us", href: "/contact" }}
+        headline="Ready to move forward?"
+        body="Request the documentation you need or schedule a call with our team."
+        primaryCta={{ text: "Request Documentation", href: "/contact" }}
+        secondaryCta={{ text: "Schedule a Call", href: "/contact" }}
       />
     </>
   );

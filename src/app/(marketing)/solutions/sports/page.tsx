@@ -32,7 +32,6 @@ import {
   Users,
   AlertCircle,
   ClipboardCheck,
-  MapPin,
   Activity,
   Check,
   ArrowRight,
@@ -65,9 +64,9 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Youth Sports & Tournament Travel Safety",
+  title: "Sports Team Travel Planning",
   description:
-    "SafeTrekr assigns a professional safety analyst to review every tournament trip your league sends -- across 17 dimensions of risk. Government intelligence. Audit-ready documentation. Starting at $450 per trip.",
+    "Tournament travel planning that keeps the focus on the game. SafeTrekr provides professional safety review, simple processes for volunteer coaches, and documentation that demonstrates responsible preparation.",
   path: "/solutions/sports",
 });
 
@@ -91,55 +90,54 @@ const BREADCRUMB_ITEMS = [
 const PROCESS_STEPS = [
   {
     number: 1,
-    title: "Intelligence Gathering",
+    title: "Coach Submits Trip Details",
     description:
-      "Before your team boards the bus, we pull real-time safety data from NOAA, USGS, CDC, and regional emergency management agencies -- the same sources professional event coordinators use. Weather patterns at your tournament venue. Road conditions on your route. Facility safety records. Every data point scored, not just collected.",
+      "The coach or team manager enters destination, dates, roster size, tournament details, and travel arrangements through a guided form. Takes 15 minutes.",
   },
   {
     number: 2,
-    title: "Analyst Safety Review",
+    title: "Analyst Reviews Everything",
     description:
-      "A trained safety analyst reviews every detail of your tournament trip across 17 sections -- venue safety, lodging conditions, transportation routes, emergency medical access, weather exposure, athletic trainer proximity, and more. They flag what needs attention and document what is ready.",
+      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Venues verified. Hotels assessed. Emergency contacts documented.",
   },
   {
     number: 3,
-    title: "Documented Evidence Binder",
+    title: "Documentation Delivered",
     description:
-      "Your league receives a complete safety binder -- every review finding, every government data source, every decision documented with tamper-evident audit trails. When your league board asks what precautions were taken, when a parent asks how you assessed the risk, when your insurance carrier needs documentation -- you hand them the binder.",
+      "Your organization receives a complete safety binder with every finding, recommendation, and contact. Share with parents, board, and organizational files.",
   },
 ] as const;
 
 const FEATURE_CARDS = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "Every Tournament Venue Reviewed by a Professional Analyst",
+    title: "Tournament Travel Assessment",
     description:
-      "Your coaches focus on the game. Our analyst focuses on safety. 17 sections covering venues, lodging, transportation, emergency contacts, evacuation routes, local hospitals, weather exposure, and more.",
+      "Comprehensive review for tournament travel. Venue safety, hotel evaluation, transportation assessment, and emergency contacts -- all documented by a trained analyst.",
     href: "/platform/analyst-review",
     linkText: "Learn about analyst review",
   },
   {
-    icon: <MapPin className="size-6" />,
-    title: "Government Data on Every Destination Your Team Visits",
+    icon: <Users className="size-6" />,
+    title: "Youth Care Documentation",
     description:
-      "Real-time intelligence from 5 government sources -- not a Google search. NOAA severe weather alerts, road condition reports, venue inspection records where available, and regional emergency management data. Risk scored so you understand probability, not just possibility.",
-    href: "/platform/risk-intelligence",
-    linkText: "Learn about risk intelligence",
+      "Safety binders structured to demonstrate responsibility for minor athletes. Documented supervision considerations, lodging arrangements, and travel policies.",
+    href: "/platform/safety-binder",
+    linkText: "Learn about the safety binder",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Audit-Ready Documentation for Your League and Insurance Carrier",
+    title: "Parent-Ready Documentation",
     description:
-      "Every finding documented. Every data source cited. Every decision recorded with SHA-256 tamper-evident audit trails. The binder your insurance carrier wishes every league had -- and the one parents will thank you for.",
+      "Safety binders designed to be shared with parents. When families ask about trip preparation, you have professional documentation that builds confidence.",
     href: "/platform/safety-binder",
     linkText: "Learn about the safety binder",
   },
   {
     icon: <Activity className="size-6" />,
-    title:
-      "Rally Points, Check-Ins, and Emergency Contacts in Every Coach's Pocket",
+    title: "Volunteer Coach Friendly",
     description:
-      "During your tournament, every team manager gets the SafeTrekr mobile app -- live geofencing, muster check-ins, rally point navigation, SMS broadcast, and morning/evening safety briefings. Offline mode keeps critical information accessible even without cell service.",
+      "Simple 15-minute trip submission designed for volunteer coaches. Guided form walks through the information needed. No specialized knowledge required.",
     href: "/platform/mobile-app",
     linkText: "Learn about mobile operations",
   },
@@ -148,153 +146,150 @@ const FEATURE_CARDS = [
 const CHALLENGE_CARDS = [
   {
     icon: <FileText className="size-6" />,
-    title: "Coach-Assembled Travel Plans",
+    title: "Volunteer Coaches Wear Many Hats",
     description:
-      "Head coaches compile safety information between practice schedules and game prep. Hotel addresses in a group text. Emergency contacts on a clipboard. No standardized review. No professional verification.",
+      "Volunteer coaches are focused on developing athletes -- not on becoming safety planning experts. Hotel bookings and game schedules get handled. Structured safety assessment often doesn't.",
   },
   {
     icon: <Shield className="size-6" />,
-    title: "SafeSport Compliance Gaps",
+    title: "No Formal Safety Planning Training",
     description:
-      "SafeSport requirements are complex and evolving. Many leagues handle compliance through self-reported checklists without documented verification -- creating liability exposure they may not recognize until an incident occurs.",
+      "Youth sports organizations send teams across the country with passionate coaches who have no formal safety planning background. Good intentions deserve professional support.",
   },
   {
     icon: <Users className="size-6" />,
-    title: "Chaperone Screening Without Consistency",
+    title: "Parents Want to Know the Plan",
     description:
-      "Background check requirements vary by sport, league, and state. Even organizations with screening policies rarely verify compliance for away-tournament travel or when parent volunteers step in last-minute.",
+      "When families ask about trip preparation, organizations benefit from having professional documentation that demonstrates responsible planning.",
   },
   {
     icon: <AlertCircle className="size-6" />,
-    title: "No Audit Trail When It Matters",
+    title: "Organizations Need Records",
     description:
-      "If an athlete is injured at an away tournament, what documentation proves your league took reasonable precautions? A group chat and a handwritten emergency contact list are not evidence of due diligence.",
+      "Boards, administrators, and organizational files benefit from structured documentation that shows safety planning was professionally reviewed.",
   },
 ] as const;
 
 const BINDER_CHECKLIST = [
-  "Tournament venue risk assessment with government data",
-  "Lodging and hotel safety verification",
-  "Emergency medical facility locations near venue and hotel",
-  "Transportation route safety evaluation",
-  "Severe weather contingency plans",
-  "Athletic trainer and medical access assessment",
-  "Tamper-evident audit trail with SHA-256 hash chain",
+  "17-section analyst review",
+  "5 government data sources",
+  "Complete safety binder",
+  "Mobile field support",
+  "3-5 day delivery",
 ] as const;
 
 const PRICING_FEATURES = [
-  "17-section professional analyst review",
-  "Government intelligence risk scoring",
-  "Complete safety binder with audit trail",
-  "Mobile app access for coaches and managers",
-  "AM/PM safety briefings during tournament",
+  "17-section analyst review",
+  "5 government data sources",
+  "Complete safety binder",
+  "Mobile field support",
+  "3-5 day delivery",
 ] as const;
 
 const COST_COMPARISON_ROWS = [
   {
     without:
-      "20-40 hours of coach and volunteer time per tournament assembling safety information between practices",
+      "Volunteer coaches spend hours assembling safety information between practices and games",
     withSafeTrekr:
-      "Professional analyst completes 17-section review in 3-5 days. Your coaching staff focuses on the athletes.",
+      "Professional analyst completes 17-section review in 3-5 days. Coaches focus on the athletes.",
   },
   {
     without:
-      "SafeSport compliance questionnaires answered with best guesses. No formal travel risk documentation.",
+      "Safety planning handled informally without structured documentation",
     withSafeTrekr:
-      "Every compliance question answered with cited evidence. Formal risk assessment your league board can audit.",
+      "Professional documentation your organization can share with parents, board, and files.",
   },
   {
     without:
-      'If something goes wrong at an away tournament: "We did what we always do" is your only defense.',
+      "No clear record of what safety planning was completed for each trip",
     withSafeTrekr:
-      "If something goes wrong: a complete evidence binder with every decision documented and tamper-proof.",
+      "Complete safety binder with every finding, recommendation, and contact documented.",
   },
   {
     without:
-      "Average youth sports liability settlement: $500,000-$2,000,000 when negligence is established.",
+      "Parents may have questions about trip preparation that are difficult to answer comprehensively",
     withSafeTrekr:
-      "$450 for documented proof your league took every reasonable precaution.",
+      "Professional documentation that builds parent confidence in your organization's preparation.",
   },
 ] as const;
 
 const TRUST_BADGES = [
   {
     icon: <Shield className="size-8" />,
-    title: "AES-256 Encryption",
+    title: "Club and League Support",
     description:
-      "All athlete and family data encrypted at rest and in transit. Protected with the same standard used by financial institutions.",
+      "Pricing and workflows designed for club organizations managing multiple teams. Central visibility with team-level access for coaches and managers.",
   },
   {
     icon: <FileText className="size-8" />,
-    title: "SHA-256 Evidence Chain",
+    title: "Organization Accountability",
     description:
-      "Every review finding, every analyst decision, every data source documented with cryptographic integrity. Tamper-evident by design.",
+      "Documentation that demonstrates your organization takes player safety seriously. Structured records for your board, parents, and organizational files.",
   },
   {
     icon: <Activity className="size-8" />,
-    title: "SOC 2 Type II",
+    title: "Professional Standards",
     description:
-      "Audit in progress. We are pursuing SOC 2 Type II certification to validate our security controls. (Status: In Progress)",
+      "Every trip reviewed by a trained safety analyst using standardized methodology and current government data sources.",
   },
   {
     icon: <Trophy className="size-8" />,
-    title: "SafeSport-Aligned Documentation",
+    title: "Parent Confidence",
     description:
-      "Our binder structure aligns with SafeSport travel safety documentation requirements, helping your league demonstrate compliance.",
+      "Safety binders designed to be shared with families, demonstrating that professional preparation was completed for team travel.",
   },
 ] as const;
 
 const FAQ_ITEMS: FAQItem[] = [
   {
-    question: "Do we need SafeTrekr for local tournaments too?",
+    question: "How does SafeTrekr help with youth sports accountability?",
     answer:
-      "Yes. Even a tournament 90 minutes away involves transporting minors to unfamiliar venues. Your duty of care obligation does not depend on distance. A local away tournament carries venue safety risks, weather exposure, transportation hazards, and emergency access challenges that deserve professional review. Our domestic tournament review costs $450.",
+      "Sports organizations are expected to have responsible practices for travel with minor athletes. SafeTrekr safety binders provide structured documentation of travel safety planning, including lodging arrangements, supervision considerations, and transportation assessment. This demonstrates your organization takes athlete safety seriously.",
   },
   {
-    question:
-      "How does SafeTrekr help with SafeSport compliance?",
+    question: "Can we use SafeTrekr for multiple teams in our club?",
     answer:
-      "SafeTrekr's safety binder documents the travel safety measures your league has in place -- venue assessments, emergency plans, supervision protocols, and transportation safety. While SafeSport compliance covers multiple dimensions beyond travel, our documentation provides the travel safety evidence that supports your broader compliance effort. The binder gives your league auditable proof of due diligence for every away trip.",
+      "Yes. SafeTrekr supports club-wide use with central administration. Club administrators can view all team trips, establish consistent processes, and access documentation. Individual coaches submit trips for their teams. Contact us for club pricing.",
   },
   {
-    question: "Can our volunteer team manager use this without training?",
+    question: "How do volunteer coaches use the system?",
     answer:
-      "Yes. Trip submission is a guided 10-step wizard that takes 15-20 minutes. Your team manager enters tournament venue, dates, hotel, team roster, and transportation details. Our analyst handles the rest. The mobile app for game-day operations is designed for busy coaches -- rally points, check-ins, and emergency contacts are accessible with one tap.",
+      "The trip submission process is designed for volunteer coaches without specialized training. A guided form walks coaches through entering destination, dates, roster size, tournament details, and travel arrangements. Takes about 15 minutes. No special knowledge required.",
   },
   {
-    question: "What about multi-team tournaments where we send several age groups?",
+    question: "Can we share the safety binder with parents?",
     answer:
-      "Each team traveling to a different venue or staying at a different hotel gets its own safety review, because the conditions are different. Multiple teams traveling to the same tournament at the same venue can share a single binder, reducing cost. Contact us for multi-team pricing that reflects your league's tournament schedule.",
+      "Yes. Safety binders are designed to be shared with parents, demonstrating that professional preparation was completed for team travel. Many organizations share binders proactively to build parent confidence.",
   },
   {
-    question: "How quickly do we get the safety binder back?",
+    question: "What if we're traveling to a large tournament complex with multiple venues?",
     answer:
-      "3-5 business days from trip submission to binder delivery. For leagues planning tournament seasons months in advance, this timeline fits naturally into your preparation schedule. If venue conditions change after the initial review, our analyst can update the binder with current intelligence data.",
+      "Multi-venue tournaments are assessed comprehensively. Each primary venue receives evaluation, and the safety binder documents the overall tournament environment including common areas, parking, and emergency facilities.",
   },
   {
-    question: "Does SafeTrekr cover out-of-state tournaments?",
+    question: "Do you assess the hotels we're booking?",
     answer:
-      "Yes. Out-of-state tournaments are one of the most common use cases. Our analyst reviews destination-specific conditions including state emergency management resources, regional weather patterns, local hospital proximity to the tournament venue, and transportation route safety. The binder documents everything a parent or league board would want to know about sending their athletes across state lines.",
+      "Yes. Our analyst review includes hotel assessment covering location, emergency egress, proximity to medical facilities, and youth-appropriate accommodations. We verify the hotel is suitable for team travel with minors.",
   },
   {
-    question: "How does pricing work for a full tournament season?",
+    question: "How does SafeTrekr handle transportation?",
     answer:
-      "Each tournament trip is priced independently -- $450 for domestic day tournaments, $750 for overnight tournaments. Leagues booking 5 or more trips per season qualify for volume pricing. A travel baseball league sending teams to 8 weekend tournaments would pay approximately $3,600-$6,000 depending on overnight stays, before volume discounts. Contact us for a season quote.",
+      "Transportation assessment is included in every review. Whether your team is traveling by charter bus, rental vehicles, or air travel, we evaluate the transportation component and document relevant considerations.",
   },
   {
-    question: "Is SafeTrekr appropriate for youth leagues with athletes under 13?",
+    question: "What sports organizations use SafeTrekr?",
     answer:
-      "Absolutely. Youth leagues with younger athletes carry heightened duty of care obligations. SafeTrekr's review includes factors specifically relevant to younger athletes -- venue appropriateness, emergency medical proximity for pediatric care, supervision ratio assessment, and communication reliability for parent updates. The binder provides your league with evidence that youth protection was professionally reviewed.",
+      "SafeTrekr serves youth sports organizations across soccer, baseball, basketball, hockey, volleyball, lacrosse, swimming, and other competitive sports. Club teams, travel leagues, and competitive programs all benefit from professional trip planning.",
   },
   {
-    question: "What if our national governing body already has travel policies?",
+    question: "Do you offer season arrangements or annual agreements?",
     answer:
-      "SafeTrekr complements and strengthens your NGB's travel safety requirements. Most governing bodies provide a policy framework -- SafeTrekr provides the documented execution. Your safety binder demonstrates compliance with NGB policies through professional verification, not self-reported checklists.",
+      "Yes. Organizations with multiple teams or frequent travel can benefit from annual agreements. Contact us to discuss volume pricing for your organization.",
   },
   {
-    question: "Do you handle international tournament travel?",
+    question: "How quickly can we get documentation for an upcoming tournament?",
     answer:
-      "Yes. International tournaments are reviewed at our extended trip rate ($1,250) with additional intelligence sources including State Department advisories, WHO health alerts, and international emergency management data. Our analyst reviews customs, visa requirements, medical insurance coverage internationally, and communication infrastructure at the destination.",
+      "Standard delivery is 3-5 business days. Priority processing is available for Multi-Day and National/International trips. Contact us for expedited options.",
   },
 ];
 
@@ -345,37 +340,36 @@ export default function SportsPage() {
               {/* Left column: copy */}
               <div>
                 <Eyebrow icon={<Trophy className="size-4" />}>
-                  Tournament Travel Safety
+                  Sports Team Planning
                 </Eyebrow>
 
                 <h1
                   id="sports-hero-heading"
                   className="mt-4 text-heading-xl text-secondary"
                 >
-                  Your Travel Party Deserves a{" "}
-                  <span className="text-primary-700">Safety Analyst</span>
+                  Tournament travel planning that keeps the{" "}
+                  <span className="text-primary-700">focus on the game</span>
                 </h1>
 
                 <p className="mt-6 text-body-lg text-muted-foreground">
-                  Every away tournament your league sends athletes to gets a
-                  professional safety review -- government intelligence on the
-                  destination, analyst assessment of the venue, and a
-                  documented evidence binder your board and insurance carrier
-                  can audit. Starting at{" "}
-                  <strong className="text-foreground">$450 per trip</strong>.
+                  Your coaches focus on developing athletes. SafeTrekr handles
+                  the safety documentation. Every tournament trip, away game,
+                  and training camp professionally reviewed. Simple for
+                  volunteer coaches. Shareable with parents. Ready for your
+                  organization.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button asChild size="lg">
-                    <Link href="/resources/sample-binders">
-                      <Download className="size-4" aria-hidden="true" />
-                      Download Tournament Sample Binder
+                    <Link href="/demo?segment=sports">
+                      Schedule a Walkthrough
+                      <ArrowRight className="size-4" aria-hidden="true" />
                     </Link>
                   </Button>
                   <Button asChild variant="secondary" size="lg">
-                    <Link href="/demo?segment=sports">
-                      Get a Demo
-                      <ArrowRight className="size-4" aria-hidden="true" />
+                    <Link href="/resources/sample-binders">
+                      <Download className="size-4" aria-hidden="true" />
+                      View Sample Binder
                     </Link>
                   </Button>
                 </div>
@@ -446,18 +440,20 @@ export default function SportsPage() {
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow icon={<AlertTriangle className="size-4" />} color="muted">
-                The Problem
+                The Challenge
               </Eyebrow>
               <h2
                 id="sports-challenge-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                Tournament Travel Shouldn&apos;t Be a Liability
+                Travel planning works better with professional support
               </h2>
               <p className="mt-4 text-body-lg text-muted-foreground">
-                Every weekend, thousands of youth sports teams travel to
-                tournaments with safety plans assembled by volunteer coaches
-                between practices. Good intentions are not a safety plan.
+                Youth sports organizations send teams across the country -- and
+                sometimes internationally -- with volunteer coaches who are
+                passionate about their sport but have no formal safety planning
+                training. SafeTrekr gives volunteer coaches professional support
+                for the safety planning component.
               </p>
             </div>
           </ScrollReveal>
@@ -497,7 +493,7 @@ export default function SportsPage() {
                 id="sports-how-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                Three Steps to a Safer Tournament Season
+                From trip registration to complete documentation in 3-5 days
               </h2>
             </div>
           </ScrollReveal>
@@ -568,24 +564,24 @@ export default function SportsPage() {
 
             {/* Right: copy */}
             <ScrollReveal delay={0.15}>
-              <Eyebrow>What Your League Receives</Eyebrow>
+              <Eyebrow>What Your Organization Receives</Eyebrow>
               <h2
                 id="sports-binder-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                A Complete Evidence Binder for Every Tournament
+                Professional preparation for every team trip
               </h2>
               <p className="mt-4 text-body-lg text-muted-foreground">
-                Not a checklist. Not a template. A professionally reviewed,
-                government-data-backed safety binder that documents every
-                decision your league made to protect its athletes. 17 sections.
-                5 government intelligence sources. Tamper-evident audit trail.
+                A professionally reviewed safety binder that documents venue
+                safety, hotel evaluation, transportation assessment, and
+                emergency contacts. 17 sections. 5 government data sources.
+                Ready to share with parents and organizational files.
               </p>
               <div className="mt-8">
                 <Button asChild>
                   <Link href="/resources/sample-binders">
                     <Download className="size-4" aria-hidden="true" />
-                    Download a Sample Tournament Binder
+                    View Sample Binder
                   </Link>
                 </Button>
               </div>
@@ -621,13 +617,13 @@ export default function SportsPage() {
                 stat: "17",
                 label: "Sections of Safety Review",
                 description:
-                  "Every tournament trip reviewed across 17 dimensions -- venue, lodging, transportation, weather, medical access, and more.",
+                  "Every tournament trip reviewed across 17 standardized sections -- venue, lodging, transportation, weather, medical access, and more.",
               },
               {
                 stat: "5",
-                label: "Government Intelligence Sources",
+                label: "Government Data Sources",
                 description:
-                  "NOAA, USGS, CDC, and regional emergency management data. Real government intelligence, not Google results.",
+                  "Current information from government data sources including weather, emergency management, and regional conditions.",
               },
               {
                 stat: "3-5",
@@ -659,16 +655,16 @@ export default function SportsPage() {
         <Container>
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>Pricing Context</Eyebrow>
+              <Eyebrow>Pricing</Eyebrow>
               <h2
                 id="sports-pricing-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                What Does a Season of Safety Cost?
+                Professional preparation. Straightforward pricing.
               </h2>
               <p className="mt-4 text-body-lg text-muted-foreground">
-                Less than one hour of legal consultation. Less than one
-                ambulance ride. Less than one percent of a negligence settlement.
+                Professional travel planning is accessible for youth sports
+                organizations of any size.
               </p>
             </div>
           </ScrollReveal>
@@ -677,29 +673,34 @@ export default function SportsPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {[
               {
-                title: "Local Tournament",
+                title: "Regional Tournament",
                 price: "$450",
-                subtitle: "Day trip, same state",
+                subtitle: "~$23/player for a 20-player roster",
                 features: PRICING_FEATURES,
               },
               {
-                title: "Overnight Tournament",
+                title: "Multi-Day Tournament",
                 price: "$750",
-                subtitle: "Multi-day, hotel stay",
+                subtitle: "~$38/player for a 20-player roster",
                 features: [
                   ...PRICING_FEATURES,
-                  "Hotel and lodging safety review",
+                  "Extended trip support",
+                  "Multi-venue assessment",
+                  "Hotel evaluation",
+                  "Priority analyst assignment",
                 ],
                 featured: true,
               },
               {
                 title: "National / International",
                 price: "$1,250",
-                subtitle: "Cross-country or abroad",
+                subtitle: "~$63/player for a 20-player roster",
                 features: [
                   ...PRICING_FEATURES,
-                  "Extended travel route analysis",
-                  "International intelligence sources",
+                  "Air travel assessment",
+                  "International information coverage",
+                  "Extended monitoring period",
+                  "Evacuation planning documentation",
                 ],
               },
             ].map((scenario, index) => (
@@ -713,7 +714,7 @@ export default function SportsPage() {
                 >
                   {scenario.featured && (
                     <Badge variant="brand" className="mb-4">
-                      Most Common
+                      Most Popular
                     </Badge>
                   )}
                   <h3 className="text-heading-sm text-foreground">
@@ -803,12 +804,12 @@ export default function SportsPage() {
         <Container>
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>Security & Compliance</Eyebrow>
+              <Eyebrow>Built for Sports Organizations</Eyebrow>
               <h2
                 id="sports-compliance-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                Built for Organizations That Take Athlete Safety Seriously
+                Professional preparation for every team trip
               </h2>
             </div>
           </ScrollReveal>
@@ -866,12 +867,12 @@ export default function SportsPage() {
           ---------------------------------------------------------------- */}
       <CTABand
         variant="dark"
-        headline="Protect Your Next Tournament Trip"
-        body="Your athletes train hard. Your coaches prepare game plans. Let a professional safety analyst prepare the safety plan. Starting at $450 per tournament."
-        primaryCta={{ text: "Get a Demo", href: "/demo?segment=sports" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional trip planning for sports organizations with documentation that demonstrates responsible preparation."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo?segment=sports" }}
         secondaryCta={{
-          text: "Download Sample Binder",
-          href: "/resources/sample-binders",
+          text: "View Pricing",
+          href: "/pricing",
         }}
       />
     </>

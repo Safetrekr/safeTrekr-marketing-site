@@ -43,9 +43,9 @@ import { SampleBinderCards } from "./_components/sample-binder-cards";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Download Sample Safety Binders",
+  title: "Sample Safety Binders",
   description:
-    "See what a professional safety binder looks like before you commit. Download segment-specific sample binders for K-12 schools, churches, and corporate travel -- free, no obligation.",
+    "View sample SafeTrekr safety binders for schools, churches, corporate travel, and sports organizations. See exactly what professional trip planning documentation looks like.",
   path: "/resources/sample-binders",
 });
 
@@ -69,21 +69,21 @@ const BREADCRUMB_ITEMS = [
 const TRUST_SIGNALS = [
   {
     icon: <FileText className="size-6" />,
-    title: "Real Binder Format",
+    title: "Executive Summary",
     description:
-      "Every sample binder follows the exact 17-section format our analysts use for production safety reviews.",
+      "One-page overview of key findings, assessments, and recommendations for quick stakeholder review.",
   },
   {
     icon: <Shield className="size-6" />,
-    title: "Government Intelligence Data",
+    title: "17-Section Analyst Findings",
     description:
-      "Sample risk scores come from the same NOAA, USGS, CDC, ReliefWeb, and GDACS sources we use for live assessments.",
+      "Complete documentation of every review section: destination overview, venue assessment, lodging, transportation, emergency medical facilities, evacuation routes, and more.",
   },
   {
     icon: <Lock className="size-6" />,
-    title: "No Obligation",
+    title: "Integrity Verification",
     description:
-      "Download the sample, review it with your team, and decide if SafeTrekr is right for your organization. No sales call required.",
+      "Verification demonstrating the binder was not altered after completion. Professional documentation you can share with confidence.",
   },
 ] as const;
 
@@ -144,7 +144,7 @@ export default function SampleBindersPage() {
                   color="primary"
                   icon={<FileText className="size-4" />}
                 >
-                  Free Download
+                  RESOURCES
                 </Eyebrow>
               </ScrollReveal>
 
@@ -153,16 +153,16 @@ export default function SampleBindersPage() {
                   className="mt-5 text-display-lg text-foreground"
                   id="sample-binders-heading"
                 >
-                  See What a Professional Safety Binder Looks Like
+                  See What a Safety Binder Looks Like
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal variant="fadeUp" delay={0.2}>
                 <p className="mt-6 text-body-lg text-muted-foreground">
-                  Before you commit to anything, download a sample safety binder
-                  for your segment. Review the 17-section analyst format, the
-                  government intelligence data, and the audit-ready documentation
-                  your organization needs. Free, no obligation, no sales call.
+                  View sample safety binders to understand exactly what your
+                  organization receives. Each binder demonstrates our 17-section
+                  analyst review, current information integration, and verified
+                  documentation.
                 </p>
               </ScrollReveal>
             </div>
@@ -214,15 +214,8 @@ export default function SampleBindersPage() {
                   id="trust-heading"
                   className="text-display-sm text-foreground"
                 >
-                  What You Will Find Inside
+                  Every Safety Binder Includes
                 </h2>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <p className="mt-4 text-body-lg text-muted-foreground">
-                  These are not marketing brochures. Every sample binder is built
-                  from the same template our safety analysts use for real client
-                  engagements.
-                </p>
               </ScrollReveal>
             </div>
 
@@ -276,10 +269,10 @@ export default function SampleBindersPage() {
             ================================================================ */}
         <CTABand
           variant="dark"
-          headline="Ready for a Safety Binder Built for Your Next Trip?"
-          body="Download the sample to see the format. When you are ready, our analysts will build a custom binder for your specific destinations, team, and timeline."
+          headline="Ready to go with a plan?"
+          body="Schedule a walkthrough to see a safety binder specific to your organization type and discuss your upcoming travel."
           primaryCta={{
-            text: "Get a Demo",
+            text: "Schedule a Walkthrough",
             href: "/demo",
           }}
           secondaryCta={{

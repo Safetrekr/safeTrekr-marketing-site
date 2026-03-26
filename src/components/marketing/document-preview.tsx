@@ -41,7 +41,7 @@ export interface DocumentPreviewProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof documentPreviewVariants> {
   /**
-   * Whether to display the SHA-256 evidence hash at the bottom of
+   * Whether to display the verification identifier at the bottom of
    * the front card. Disabled by default in compact mode.
    * @default true
    */
@@ -115,11 +115,11 @@ function BackPage({
           )}
         </div>
 
-        {/* SHA-256 hash */}
+        {/* Document ID */}
         {showHash && !isCompact && (
           <div className="mt-4 border-t border-border/30 pt-2">
             <code className="text-mono-sm text-muted-foreground">
-              sha256: e3b0c44298fc1c14...
+              Doc ID: ST-2026-0312-BCN
             </code>
           </div>
         )}
@@ -416,7 +416,7 @@ function FrontPage({
           </div>
         </div>
 
-        {/* SHA-256 hash line */}
+        {/* Document ID line */}
         {showHash && (
           <div
             className={cn(
@@ -430,7 +430,7 @@ function FrontPage({
                 isCompact ? "text-mono-sm text-[6px]" : "text-mono-sm",
               )}
             >
-              a3f2d8...c891e4
+              ST-2026-0312
             </code>
           </div>
         )}
@@ -449,7 +449,7 @@ function FrontPage({
  * Three layered cards with slight rotation and offset create a "fanned pages"
  * effect. Each page represents a different section of the safety binder:
  *
- * - **Back page** (rotate -4deg): Evidence documentation with SHA-256 hash
+ * - **Back page** (rotate -4deg): Evidence documentation with document ID
  * - **Middle page** (0deg): Risk assessment bars and review findings checklist
  * - **Front page** (rotate +4deg): SafeTrekr header, binder title, org, dates
  *
@@ -489,7 +489,7 @@ function DocumentPreview({
       // Screen readers should skip the visual detail and rely on
       // surrounding section copy to convey the binder concept.
       role="img"
-      aria-label="Stacked safety binder document preview showing risk assessments, review findings, and tamper-evident hash verification"
+      aria-label="Stacked safety binder document preview showing risk assessments and review findings"
       {...props}
     >
       {/* Layer 1 (back): Evidence documentation */}

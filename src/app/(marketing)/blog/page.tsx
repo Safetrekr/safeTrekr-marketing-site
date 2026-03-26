@@ -32,9 +32,9 @@ import { cn } from "@/lib/utils";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Trip Safety Insights",
+  title: "SafeTrekr Blog",
   description:
-    "Research, guides, and analysis for organizations that take travel safety seriously. Expert perspectives on K-12 compliance, higher ed risk, mission trip planning, and group travel safety.",
+    "Insights on travel planning, preparation best practices, and organizational duty of care. Expert perspectives for schools, churches, corporations, and sports organizations.",
   path: "/blog",
 });
 
@@ -77,7 +77,7 @@ export default function BlogIndexPage() {
               icon={<BookOpen className="h-4 w-4" />}
               className="mb-5 justify-center"
             >
-              SafeTrekr Blog
+              BLOG
             </Eyebrow>
 
             {/* Headline */}
@@ -86,7 +86,7 @@ export default function BlogIndexPage() {
               className="text-display-md mx-auto text-[var(--color-foreground)]"
               style={{ maxWidth: "28ch" }}
             >
-              Trip Safety Insights.
+              Insights on Trip Planning
             </h1>
 
             {/* Sub-headline */}
@@ -94,8 +94,9 @@ export default function BlogIndexPage() {
               className="text-body-lg mx-auto mt-4 text-[var(--color-muted-foreground)]"
               style={{ maxWidth: "65ch" }}
             >
-              Research, guides, and analysis for organizations that take travel
-              safety seriously.
+              Expert perspectives on travel preparation, duty of care, and
+              organizational planning. Practical guidance for schools, churches,
+              corporations, and sports organizations.
             </p>
           </div>
         </Container>
@@ -342,9 +343,9 @@ export default function BlogIndexPage() {
       {/* ---------------------------------------------------------------- */}
       <CTABand
         variant="dark"
-        headline="Ready to protect every trip?"
-        body="See how SafeTrekr delivers analyst-reviewed safety binders for your organization."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional trip planning for your organization."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
     </>

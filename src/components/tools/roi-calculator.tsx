@@ -3,9 +3,9 @@
 /**
  * ST-873: ROI Calculator -- Interactive Client Component
  *
- * Compares SafeTrekr cost against status-quo manual planning labor and
- * settlement risk. Users configure their organization profile (segment,
- * trips/year, group size, current method) and see real-time cost savings.
+ * Compares SafeTrekr cost against status-quo manual planning labor.
+ * Users configure their organization profile (segment, trips/year,
+ * group size, current method) and see calculated cost savings.
  *
  * Pricing data is imported from the single source of truth (src/content/pricing.ts).
  * Results are shareable via URL search params.
@@ -103,7 +103,7 @@ const SAFETY_METHODS: { value: SafetyMethod; label: string; description: string 
  * K-12 uses Field Trip; all others default to Extended Trip.
  */
 const SEGMENT_TIER_MAP: Record<Segment, string> = {
-  "k12": "field-trip",
+  "k12": "day-trip",
   "higher-ed": "extended-trip",
   "churches": "extended-trip",
   "corporate": "extended-trip",
@@ -658,14 +658,14 @@ export function ROICalculator({ className }: ROICalculatorProps) {
             reduction in liability exposure through professional safety documentation
           </p>
 
-          {/* Risk context */}
-          <div className="mt-4 rounded-lg bg-[#fef3c7] p-4">
-            <p className="text-body-sm font-medium text-[#92400e]">
-              Average trip-related settlement: $500K -- $2M
+          {/* Value context */}
+          <div className="mt-4 rounded-lg bg-primary-50 p-4">
+            <p className="text-body-sm font-medium text-primary-700">
+              Professional documentation builds confidence
             </p>
-            <p className="mt-1 text-body-sm text-[#92400e]/80">
-              SafeTrekr&apos;s analyst review and tamper-evident documentation
-              establish the due diligence record courts require.
+            <p className="mt-1 text-body-sm text-primary-700/80">
+              SafeTrekr&apos;s professional review and board-ready documentation
+              demonstrate organizational accountability.
             </p>
           </div>
         </div>
@@ -693,7 +693,7 @@ export function ROICalculator({ className }: ROICalculatorProps) {
 
           <Button variant="primary" size="lg" asChild>
             <Link href="/demo" className="inline-flex items-center gap-2">
-              Get a Demo
+              Schedule a Walkthrough
               <ArrowRight className="size-5" aria-hidden="true" />
             </Link>
           </Button>

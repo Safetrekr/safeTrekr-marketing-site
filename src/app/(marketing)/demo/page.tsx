@@ -38,9 +38,9 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Request a Demo",
+  title: "Schedule a Walkthrough",
   description:
-    "Schedule a personalized demo of SafeTrekr. See exactly what a trip safety binder looks like for your organization. No obligation.",
+    "See SafeTrekr in action. Schedule a personalized walkthrough to see how professional trip planning works for your organization.",
   path: "/demo",
 });
 
@@ -53,9 +53,9 @@ const EXPECT_ITEMS = [
   {
     text: (
       <>
-        We&apos;ll confirm your demo within{" "}
+        You&apos;ll receive an email{" "}
         <strong className="font-medium text-[var(--color-foreground)]">
-          1 business day
+          confirming your request
         </strong>
         .
       </>
@@ -64,33 +64,33 @@ const EXPECT_ITEMS = [
   {
     text: (
       <>
-        Your demo will be{" "}
+        Our team will reach out within{" "}
         <strong className="font-medium text-[var(--color-foreground)]">
-          personalized
+          one business day
         </strong>{" "}
-        for your organization type.
+        to schedule your walkthrough.
       </>
     ),
   },
   {
     text: (
       <>
-        We&apos;ll walk through a{" "}
+        We&apos;ll prepare a walkthrough{" "}
         <strong className="font-medium text-[var(--color-foreground)]">
-          real safety binder
-        </strong>{" "}
-        for your kind of trip.
-      </>
-    ),
-  },
-  {
-    text: (
-      <>
-        No pressure. No obligation.{" "}
-        <strong className="font-medium text-[var(--color-foreground)]">
-          Just clarity
+          tailored to your organization type
         </strong>
         .
+      </>
+    ),
+  },
+  {
+    text: (
+      <>
+        A{" "}
+        <strong className="font-medium text-[var(--color-foreground)]">
+          30-minute video call
+        </strong>{" "}
+        where we show you everything and answer your questions.
       </>
     ),
   },
@@ -101,7 +101,7 @@ const TRUST_POINTS = [
   {
     icon: Shield,
     stat: "5",
-    label: "Government Intel Sources",
+    label: "Government Data Sources",
   },
   {
     icon: ClipboardCheck,
@@ -112,16 +112,6 @@ const TRUST_POINTS = [
     icon: Clock,
     stat: "3-5 Day",
     label: "Turnaround",
-  },
-  {
-    icon: Lock,
-    stat: "AES-256",
-    label: "Encryption Standard",
-  },
-  {
-    icon: FileText,
-    stat: "SHA-256",
-    label: "Evidence Chain",
   },
 ] as const;
 
@@ -155,7 +145,7 @@ export default function DemoRequestPage() {
   return (
     <>
       {/* ST-904/ST-905: BreadcrumbList JSON-LD for demo page */}
-      <BreadcrumbJsonLd path="/demo" currentPageTitle="Request a Demo" />
+      <BreadcrumbJsonLd path="/demo" currentPageTitle="Schedule a Walkthrough" />
 
       {/* ── Hero ── */}
       <SectionContainer as="section" className="pb-8 pt-12 sm:pt-16 md:pt-20 lg:pt-24 text-center">
@@ -166,21 +156,22 @@ export default function DemoRequestPage() {
                 color="primary"
                 icon={<Play className="h-3.5 w-3.5" />}
               >
-                Personalized Demo
+                SCHEDULE A WALKTHROUGH
               </Eyebrow>
             </div>
           </ScrollReveal>
 
           <ScrollReveal variant="fadeUp" delay={0.1}>
             <h1 className="text-display-md mx-auto text-[var(--color-foreground)]" style={{ maxWidth: "28ch" }}>
-              See Your Safety Binder Before You Buy.
+              See professional trip planning in action.
             </h1>
           </ScrollReveal>
 
           <ScrollReveal variant="fadeUp" delay={0.25}>
             <p className="text-body-lg mx-auto mt-4 text-[var(--color-muted-foreground)]" style={{ maxWidth: "55ch" }}>
-              Schedule a personalized walkthrough of the SafeTrekr platform. We&apos;ll
-              show you exactly what a safety binder looks like for your organization.
+              Schedule a personalized walkthrough with our team. We&apos;ll show you a
+              complete safety binder for your organization type and answer any questions
+              about how SafeTrekr works.
             </p>
           </ScrollReveal>
         </Container>
@@ -199,11 +190,11 @@ export default function DemoRequestPage() {
               </div>
 
               {/* Trust Sidebar (5 cols) */}
-              <aside className="lg:col-span-5 lg:sticky lg:top-24" aria-label="What to expect from your demo">
-                {/* What to Expect */}
+              <aside className="lg:col-span-5 lg:sticky lg:top-24" aria-label="What to expect from your walkthrough">
+                {/* What Happens Next */}
                 <div className="space-y-6">
                   <h2 className="text-heading-sm text-[var(--color-foreground)]">
-                    What to Expect
+                    After you submit:
                   </h2>
                   <ol className="space-y-5" role="list">
                     {EXPECT_ITEMS.map((item, index) => (
@@ -292,7 +283,7 @@ export default function DemoRequestPage() {
             id="alt-paths-heading"
             className="text-heading-sm mb-8 text-[var(--color-foreground)]"
           >
-            Not ready for a demo?
+            Not ready for a walkthrough?
           </h2>
           <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-3">
             {ALT_PATHS.map((card) => (

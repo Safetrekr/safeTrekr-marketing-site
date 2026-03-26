@@ -286,7 +286,7 @@ export function SiteHeader() {
             Sign In
           </a>
           <Button variant="primary" size="sm" asChild>
-            <Link href={DEMO_HREF}>Get a Demo</Link>
+            <Link href={DEMO_HREF}>Schedule a Walkthrough</Link>
           </Button>
         </div>
 
@@ -311,7 +311,7 @@ export function SiteHeader() {
               <div className="mt-4 border-t border-border pt-4">
                 <SheetClose asChild>
                   <Button variant="primary" size="md" className="w-full" asChild>
-                    <Link href={DEMO_HREF}>Get a Demo</Link>
+                    <Link href={DEMO_HREF}>Schedule a Walkthrough</Link>
                   </Button>
                 </SheetClose>
               </div>

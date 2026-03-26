@@ -118,12 +118,12 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       safetrekr: "yes",
     },
     {
-      feature: "Monte Carlo risk scoring with probability modeling",
+      feature: "Structured safety assessment methodology",
       category: "no",
       safetrekr: "yes",
     },
     {
-      feature: "Tamper-evident documentation with SHA-256 hash chain",
+      feature: "Board-ready professional documentation",
       category: "no",
       safetrekr: "yes",
     },
@@ -133,7 +133,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       safetrekr: "yes",
     },
     {
-      feature: "Real-time monitoring during active trips",
+      feature: "Active trip awareness during travel",
       category: "no",
       safetrekr: "yes",
     },
@@ -173,14 +173,14 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       heading: "The Hidden Cost of DIY Safety Planning",
       paragraphs: [
         "Organizations that rely on spreadsheets and checklists often underestimate the true cost of the approach. A typical trip leader spends 40 to 60 hours assembling safety information for an international trip -- pulling weather data from one site, checking CDC advisories on another, Googling hospital locations near the destination, and hoping the embassy travel advisory page is current. That is volunteer labor with a real opportunity cost.",
-        "More critically, the information collected through manual research lacks the breadth and depth of professional intelligence sources. A Google search for 'safety conditions in Guatemala City' returns tourist blog posts and outdated travel forums. SafeTrekr pulls from NOAA weather modeling, USGS seismic activity data, CDC epidemiological advisories, and real-time humanitarian agency feeds from GDACS and ReliefWeb -- the same sources used by international aid organizations to make field decisions.",
+        "More critically, the information collected through manual research lacks the breadth and depth of professional intelligence sources. A Google search for 'safety conditions in Guatemala City' returns tourist blog posts and outdated travel forums. SafeTrekr pulls from NOAA weather modeling, USGS seismic activity data, CDC epidemiological advisories, and humanitarian agency feeds from GDACS and ReliefWeb -- the same sources used by international aid organizations to make field decisions.",
       ],
     },
     {
       heading: "Documentation That Holds Up to Scrutiny",
       paragraphs: [
         "The most significant gap between spreadsheet-based planning and professional risk management is documentation integrity. A spreadsheet can be edited by anyone with access, has no version control meaningful to an auditor, and provides no evidence of when assessments were made or by whom. If an incident occurs and litigation follows, a plaintiff's attorney will ask when the risk assessment was conducted, who conducted it, what data sources were used, and whether the document was altered after the fact.",
-        "SafeTrekr produces a complete evidence binder with every analyst finding cited to its source, every decision recorded with timestamps, and the entire document chain secured with SHA-256 cryptographic hashing. The binder is not a self-reported checklist -- it is a professionally reviewed, tamper-evident record that demonstrates your organization took specific, documented precautions.",
+        "SafeTrekr produces a complete safety binder with every finding cited to its source and every decision recorded with timestamps. The binder is not a self-reported checklist -- it is a professionally reviewed record that demonstrates your organization completed specific, documented preparation.",
       ],
     },
     {
@@ -196,7 +196,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       question:
         "Can we keep using our existing spreadsheets alongside SafeTrekr?",
       answer:
-        "Absolutely. Many organizations continue using spreadsheets for logistics coordination -- packing lists, budget tracking, itinerary management, and team communication. SafeTrekr handles the safety assessment and documentation layer that spreadsheets cannot provide: professional analyst review, government intelligence data, risk scoring, and tamper-evident audit trails. The two tools serve different purposes and work well together.",
+        "Absolutely. Many organizations continue using spreadsheets for logistics coordination -- packing lists, budget tracking, itinerary management, and team communication. SafeTrekr handles the safety assessment and documentation layer that spreadsheets cannot provide: professional review, government data, safety assessment, and board-ready documentation. The two tools serve different purposes and work well together.",
     },
     {
       question:
@@ -259,12 +259,12 @@ const LOGISTICS_APPS: ComparisonPageData = {
       safetrekr: "yes",
     },
     {
-      feature: "Monte Carlo risk scoring with probability modeling",
+      feature: "Structured safety assessment methodology",
       category: "no",
       safetrekr: "yes",
     },
     {
-      feature: "Tamper-evident documentation with SHA-256 hash chain",
+      feature: "Board-ready professional documentation",
       category: "no",
       safetrekr: "yes",
     },
@@ -321,7 +321,7 @@ const LOGISTICS_APPS: ComparisonPageData = {
       heading: "The Intelligence Gap",
       paragraphs: [
         "Some travel logistics apps include basic safety features -- travel advisories from the State Department, city safety ratings, or crowd-sourced crime reports. These are consumer-grade signals that provide general awareness. They are not the foundation for a professional risk assessment.",
-        "SafeTrekr's intelligence layer draws from five government and humanitarian data sources: NOAA for weather and environmental modeling, USGS for seismic and geological activity, CDC for epidemiological advisories, and GDACS and ReliefWeb for real-time humanitarian situation monitoring. This data is analyzed by a trained safety analyst who evaluates the specific conditions your team will encounter at your specific destinations on your specific dates -- not a generic country-level travel advisory.",
+        "SafeTrekr's intelligence layer draws from five government and humanitarian data sources: NOAA for weather and environmental modeling, USGS for seismic and geological activity, CDC for epidemiological advisories, and GDACS and ReliefWeb for humanitarian situation monitoring. This data is analyzed by a trained safety analyst who evaluates the specific conditions your team will encounter at your specific destinations on your specific dates -- not a generic country-level travel advisory.",
       ],
     },
     {
@@ -349,7 +349,7 @@ const LOGISTICS_APPS: ComparisonPageData = {
       question:
         "Why can't we just use the safety features in our existing travel app?",
       answer:
-        "The safety features in logistics apps serve a fundamentally different purpose than professional risk assessment. A travel advisory telling you 'exercise increased caution in Country X' is awareness information. A 17-section analyst review documenting specific risks at your specific destinations with government intelligence data and tamper-evident audit trails is evidence of due diligence. The distinction matters most when something goes wrong and your organization needs to demonstrate what precautions it took.",
+        "The safety features in logistics apps serve a fundamentally different purpose than professional safety assessment. A travel advisory telling you 'exercise increased caution in Country X' is awareness information. A 17-section professional review documenting specific considerations at your specific destinations with government data and audit-ready documentation is evidence of thorough preparation. The distinction matters when your organization needs to demonstrate what preparation it completed.",
     },
     {
       question:
@@ -361,7 +361,7 @@ const LOGISTICS_APPS: ComparisonPageData = {
       question:
         "What about travel apps that claim to offer 'risk management' features?",
       answer:
-        "Examine what the feature actually provides. If it is a country-level risk rating, a State Department advisory feed, or a crowd-sourced safety map, that is consumer awareness -- not professional risk management. Professional risk management means a trained analyst reviews your specific trip against government intelligence data across 17 safety dimensions and produces a tamper-evident evidence binder. If the tool does not provide analyst review, government data sources, and auditable documentation, it is not a risk management platform.",
+        "Examine what the feature actually provides. If it is a country-level risk rating, a State Department advisory feed, or a crowd-sourced safety map, that is consumer awareness -- not professional safety planning. Professional safety planning means a trained professional reviews your specific trip against government data across 17 safety dimensions and produces an audit-ready documentation binder. If the tool does not provide professional review, government data sources, and stakeholder-ready documentation, it is not a safety planning platform.",
     },
   ],
   articleHeadline:
@@ -401,12 +401,12 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       safetrekr: "yes",
     },
     {
-      feature: "Monte Carlo risk scoring at the trip level",
+      feature: "Professional safety assessment at the trip level",
       category: "no",
       safetrekr: "yes",
     },
     {
-      feature: "Tamper-evident documentation with SHA-256 hash chain",
+      feature: "Board-ready professional documentation",
       category: "no",
       safetrekr: "yes",
     },
@@ -469,7 +469,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
     {
       heading: "Complementary Approaches for Large Organizations",
       paragraphs: [
-        "For organizations that already operate an enterprise risk platform, SafeTrekr serves as the execution layer for trip-level safety. The enterprise platform identifies travel risk as a category requiring mitigation. SafeTrekr provides the specific mitigation evidence: professionally reviewed safety binders for each trip, with government intelligence data and tamper-evident documentation.",
+        "For organizations that already operate an enterprise risk platform, SafeTrekr serves as the execution layer for trip-level safety. The enterprise platform identifies travel risk as a category requiring mitigation. SafeTrekr provides the specific preparation evidence: professionally reviewed safety binders for each trip, with government data and board-ready documentation.",
         "This complementary approach means the risk management team can report to the board that travel risk is being actively mitigated -- and point to specific, auditable documentation for every trip the organization sends. The enterprise platform provides the strategic view. SafeTrekr provides the tactical evidence.",
       ],
     },
@@ -479,13 +479,13 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       question:
         "We already have an enterprise risk platform. Do we still need SafeTrekr?",
       answer:
-        "If your enterprise platform produces trip-specific analyst reviews with government intelligence data and tamper-evident audit trails for every trip your organization sends, you may not. Most enterprise risk platforms operate at the portfolio level -- they track travel risk as a category but do not produce the per-trip documentation that insurance carriers and legal counsel need. SafeTrekr provides that trip-level execution layer.",
+        "If your enterprise platform produces trip-specific professional reviews with government data and audit-ready documentation for every trip your organization sends, you may not. Most enterprise risk platforms operate at the portfolio level -- they track travel risk as a category but do not produce the per-trip documentation that insurance carriers and stakeholders appreciate. SafeTrekr provides that trip-level execution layer.",
     },
     {
       question:
         "Can SafeTrekr integrate with our existing enterprise risk management system?",
       answer:
-        "SafeTrekr's output -- the safety binder -- is a documented evidence package that can be attached to any risk management system as a mitigation artifact. Each binder includes all analyst findings, government data sources, risk scores, and the SHA-256 verification hash. Your risk management team can reference these binders as evidence of trip-level risk mitigation within your enterprise platform's risk register.",
+        "SafeTrekr's output -- the safety binder -- is a documented package that can be attached to any risk management system as a preparation artifact. Each binder includes all findings, government data sources, and safety assessments. Your risk management team can reference these binders as evidence of trip-level preparation within your enterprise platform's risk register.",
     },
     {
       question:
@@ -503,7 +503,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       question:
         "What if our enterprise platform already includes travel risk features?",
       answer:
-        "Evaluate what those features actually deliver at the individual trip level. If the platform provides country-level risk ratings and a policy compliance checklist, that is portfolio-level awareness. If it assigns a trained analyst to review each trip across 17 safety dimensions using government intelligence data and produces a tamper-evident evidence binder, that is trip-level safety assessment. Most enterprise platforms provide the former. SafeTrekr provides the latter.",
+        "Evaluate what those features actually deliver at the individual trip level. If the platform provides country-level risk ratings and a policy compliance checklist, that is portfolio-level awareness. If it assigns a trained professional to review each trip across 17 safety dimensions using government data and produces a board-ready documentation binder, that is trip-level safety assessment. Most enterprise platforms provide the former. SafeTrekr provides the latter.",
     },
   ],
   articleHeadline:
@@ -832,7 +832,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
             <div className="mt-12 flex flex-col gap-4 sm:flex-row">
               <Button variant="primary" size="lg" asChild>
                 <Link href="/demo">
-                  Get a Demo
+                  Schedule a Walkthrough
                   <ArrowRight className="size-[18px]" />
                 </Link>
               </Button>
@@ -871,9 +871,9 @@ export default async function ComparePage({ params }: ComparePageProps) {
             ================================================================ */}
         <CTABand
           variant="dark"
-          headline="See SafeTrekr in Action"
-          body="Book a personalized walkthrough with our safety experts. Discover how professional risk intelligence replaces guesswork with documented evidence."
-          primaryCta={{ text: "Get a Demo", href: "/demo" }}
+          headline="Ready to go with a plan?"
+          body="Schedule a walkthrough with our team to see how SafeTrekr delivers professional trip planning for your organization."
+          primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
           secondaryCta={{ text: "View Pricing", href: "/pricing" }}
         />
       </main>

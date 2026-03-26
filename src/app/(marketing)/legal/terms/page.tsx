@@ -207,8 +207,8 @@ export default function TermsOfServicePage() {
                   and regulatory compliance information
                 </li>
                 <li>
-                  <strong>Risk Intelligence</strong> -- real-time and
-                  historical risk data aggregated from government sources
+                  <strong>Safety Information</strong> -- current and
+                  historical data aggregated from government sources
                   including NOAA, USGS, CDC, GDACS, and ReliefWeb
                 </li>
                 <li>
@@ -217,7 +217,7 @@ export default function TermsOfServicePage() {
                   obligations for domestic and international travel
                 </li>
                 <li>
-                  <strong>Trip Monitoring</strong> -- real-time alerts and
+                  <strong>Trip Awareness</strong> -- alerts and
                   status updates during active trips
                 </li>
                 <li>

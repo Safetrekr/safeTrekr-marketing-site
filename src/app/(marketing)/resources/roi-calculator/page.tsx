@@ -1,17 +1,18 @@
 /**
- * ST-873: REQ-xxx -- ROI Calculator Page (/resources/roi-calculator)
+ * ST-873: REQ-xxx -- Value Calculator Page (/resources/roi-calculator)
  *
- * Interactive ROI calculator comparing SafeTrekr cost against status-quo
- * manual safety planning labor and settlement risk. Users configure their
- * organization profile and see real-time cost savings, shareable via URL.
+ * Interactive value calculator helping organizations understand what structured
+ * trip safety planning delivers in terms of time savings, consistency, and
+ * stakeholder confidence. Users configure their organization profile and see
+ * real-time value estimates.
  *
  * Server Component at the page level. The interactive calculator is rendered
  * as a client component child (ROICalculator).
  *
  * Section order:
- *   1. Hero          -- "Calculate Your ROI" headline
+ *   1. Hero          -- "Calculate Your Planning Investment" headline
  *   2. Calculator    -- Interactive inputs + results (client component)
- *   3. Context       -- Value anchors and trust signals
+ *   3. Context       -- Value explanation (time, consistency, confidence)
  *   4. CTA Band      -- Conversion band
  *   5. JSON-LD       -- BreadcrumbList + SoftwareApplication schemas
  *
@@ -22,9 +23,10 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import {
-  AlertTriangle,
   Clock,
-  Shield,
+  CheckCircle,
+  Users,
+  FileCheck,
   Calculator,
 } from "lucide-react";
 
@@ -42,9 +44,9 @@ import { ROICalculator } from "@/components/tools/roi-calculator";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "ROI Calculator",
+  title: "Trip Planning Value Calculator",
   description:
-    "Calculate how much SafeTrekr saves your organization in staff time, liability reduction, and documentation costs compared to manual safety planning.",
+    "Calculate the value of professional trip safety planning for your organization. Understand what structured preparation delivers in terms of time savings, consistency, and stakeholder confidence.",
   path: "/resources/roi-calculator",
 });
 
@@ -62,9 +64,9 @@ function ROICalculatorJsonLd() {
   const toolSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "SafeTrekr ROI Calculator",
+    name: "SafeTrekr Trip Planning Value Calculator",
     description:
-      "Interactive calculator comparing SafeTrekr cost against manual safety planning labor and settlement risk for K-12 schools, higher education, churches, corporate, and sports organizations.",
+      "Interactive calculator helping organizations understand the value of professional trip safety planning in terms of time savings, consistency, and stakeholder confidence.",
     url: "https://safetrekr.com/resources/roi-calculator",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
@@ -111,20 +113,19 @@ export default function ROICalculatorPage() {
             </ScrollReveal>
 
             <ScrollReveal>
-              <Eyebrow className="mt-6 mb-4">ROI Calculator</Eyebrow>
+              <Eyebrow className="mt-6 mb-4">Resources</Eyebrow>
             </ScrollReveal>
 
             <ScrollReveal>
               <h1 className="mx-auto max-w-4xl text-display-lg text-foreground">
-                Calculate Your Organization&apos;s{" "}
-                <span className="text-primary-700">Return on Investment</span>
+                Calculate Your{" "}
+                <span className="text-primary-700">Planning Investment</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-prose text-body-lg text-muted-foreground">
-                See how SafeTrekr compares to your current safety planning
-                approach in cost, time, and risk reduction.
+                Professional trip planning is an investment in structure, consistency, and confidence. Use this calculator to understand what SafeTrekr delivers for your organization.
               </p>
             </ScrollReveal>
           </div>
@@ -153,91 +154,88 @@ export default function ROICalculatorPage() {
       {/* ================================================================
           SECTION 3: VALUE CONTEXT
           ================================================================ */}
-      <SectionContainer aria-label="Cost context and value comparison">
+      <SectionContainer aria-label="Understanding the value">
         <Container>
           <div className="text-center">
             <ScrollReveal>
-              <Eyebrow className="mb-4">Why It Matters</Eyebrow>
+              <Eyebrow className="mb-4">Understanding the Value</Eyebrow>
             </ScrollReveal>
             <ScrollReveal>
               <h2 className="text-display-md text-foreground">
-                The Real Cost of &ldquo;Good Enough&rdquo;
+                The value of structured planning
               </h2>
             </ScrollReveal>
             <ScrollReveal>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                Manual safety planning costs more than most organizations realize --
-                in staff hours, in liability exposure, and in peace of mind.
+                Most organizations spend significant staff time coordinating trip safety without having tools designed for that purpose. SafeTrekr provides professional structure that saves time, creates consistency, and builds stakeholder confidence.
               </p>
             </ScrollReveal>
           </div>
 
           <ScrollReveal>
-            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-              {/* Liability Card */}
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 md:flex-col md:items-start md:gap-0">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-[#fef3c7]">
-                  <AlertTriangle
-                    className="size-6 text-[#b45309]"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="md:mt-4">
-                  <p
-                    className="text-display-md text-foreground"
-                    aria-label="Average trip-related injury settlement: $500,000 to $2 million"
-                  >
-                    $500K &ndash; $2M
-                  </p>
-                  <p className="mt-2 text-body-md text-muted-foreground">
-                    Average trip-related injury settlement when due diligence
-                    cannot be demonstrated
-                  </p>
-                </div>
-              </div>
-
-              {/* Staff Time Card */}
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 md:flex-col md:items-start md:gap-0">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-muted">
-                  <Clock
-                    className="size-6 text-muted-foreground"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="md:mt-4">
-                  <p
-                    className="text-display-md text-foreground"
-                    aria-label="Staff time for manual safety planning per trip: 8 to 12 hours"
-                  >
-                    8 &ndash; 12 hours
-                  </p>
-                  <p className="mt-2 text-body-md text-muted-foreground">
-                    Staff time spent on manual safety research and documentation
-                    per trip
-                  </p>
-                </div>
-              </div>
-
-              {/* SafeTrekr Card */}
-              <div className="flex items-start gap-4 rounded-xl border-2 border-primary-200 bg-white p-6 md:flex-col md:items-start md:gap-0">
+            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+              {/* Time Savings Card */}
+              <div className="rounded-xl border border-border bg-card p-6">
                 <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-50">
-                  <Shield
+                  <Clock
                     className="size-6 text-primary-700"
                     aria-hidden="true"
                   />
                 </div>
-                <div className="md:mt-4">
-                  <p
-                    className="text-display-md text-primary-700"
-                    aria-label="SafeTrekr: professional analyst review starting at $15 per participant"
-                  >
-                    From $15
-                  </p>
-                  <p className="mt-2 text-body-md text-muted-foreground">
-                    Per participant for professional analyst review with
-                    audit-ready documentation
-                  </p>
+                <h3 className="mt-4 text-title-lg text-foreground">
+                  Time Savings
+                </h3>
+                <p className="mt-2 text-body-md text-muted-foreground">
+                  Organizations report that coordinating trip safety information takes 3-8 hours per trip when done manually. Staff research destinations, compile emergency contacts, create checklists, and assemble documentation from scratch each time. SafeTrekr delivers a complete, professionally reviewed safety binder in 3-5 days, freeing your staff to focus on the educational or organizational aspects of the trip.
+                </p>
+              </div>
+
+              {/* Consistency Card */}
+              <div className="rounded-xl border border-border bg-card p-6">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-50">
+                  <CheckCircle
+                    className="size-6 text-primary-700"
+                    aria-hidden="true"
+                  />
                 </div>
+                <h3 className="mt-4 text-title-lg text-foreground">
+                  Consistency Across Trips
+                </h3>
+                <p className="mt-2 text-body-md text-muted-foreground">
+                  When trip planning relies on individual coordinators, quality varies. One coordinator may be thorough; another may miss important considerations. SafeTrekr ensures every trip -- regardless of who coordinates it -- receives the same 17-section professional review. Consistency builds organizational confidence.
+                </p>
+              </div>
+
+              {/* Stakeholder Confidence Card */}
+              <div className="rounded-xl border border-border bg-card p-6">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-50">
+                  <Users
+                    className="size-6 text-primary-700"
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className="mt-4 text-title-lg text-foreground">
+                  Stakeholder Confidence
+                </h3>
+                <p className="mt-2 text-body-md text-muted-foreground">
+                  When board members, parents, or leadership ask about trip preparation, you can share professional documentation. The safety binder demonstrates that structured planning was completed -- building confidence without requiring lengthy explanations.
+                </p>
+              </div>
+
+              {/* Insurance Considerations Card */}
+              <div className="rounded-xl border border-border bg-card p-6">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-50">
+                  <FileCheck
+                    className="size-6 text-primary-700"
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className="mt-4 text-title-lg text-foreground">
+                  Insurance Considerations
+                </h3>
+                <p className="mt-2 text-body-md text-muted-foreground">
+                  Many insurance carriers appreciate documented safety planning processes. Organizations with professional trip assessment may find it easier to demonstrate responsible preparation when discussing coverage.
+                </p>
               </div>
             </div>
           </ScrollReveal>
@@ -245,7 +243,7 @@ export default function ROICalculatorPage() {
           <ScrollReveal>
             <div className="mt-10 text-center">
               <Button variant="secondary" size="md" asChild>
-                <Link href="/pricing">View Full Pricing Details</Link>
+                <Link href="/pricing">View Pricing</Link>
               </Button>
             </div>
           </ScrollReveal>
@@ -257,10 +255,10 @@ export default function ROICalculatorPage() {
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Ready to Protect Your Next Trip?"
-        body="Every trip deserves a safety analyst. See SafeTrekr in action with a personalized demo."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
-        secondaryCta={{ text: "Contact Sales", href: "/contact" }}
+        headline="Ready to go with a plan?"
+        body="Schedule a walkthrough to see how SafeTrekr delivers professional trip planning for your organization."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
+        secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
 
       {/* ================================================================
