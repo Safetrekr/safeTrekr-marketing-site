@@ -544,7 +544,7 @@ export default function PricingPage() {
                 <h2 className="text-display-md text-white">Ready to Purchase?</h2>
               </ScrollReveal>
               <ScrollReveal>
-                <p className="mt-4 text-body-lg text-muted-foreground">
+                <p className="mt-4 text-body-lg text-white/80">
                   We have everything your procurement team needs. Skip the sales
                   cycle with ready-made documentation.
                 </p>
