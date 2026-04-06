@@ -143,7 +143,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       safetrekr: "yes",
     },
     {
-      feature: "Standardized review across 17 safety dimensions",
+      feature: "Standardized review across comprehensive safety dimensions",
       category: "no",
       safetrekr: "yes",
     },
@@ -202,7 +202,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       question:
         "How much time does SafeTrekr save compared to manual research?",
       answer:
-        "Trip leaders typically spend 40 to 60 hours assembling safety information for an international trip using manual methods. With SafeTrekr, you submit your trip details through a guided 10-step wizard in 15 to 20 minutes, and a professional analyst delivers a complete 17-section safety binder in 3 to 5 business days. Your trip leader's time shifts from amateur research to ministry and program preparation.",
+        "Trip leaders typically spend 40 to 60 hours assembling safety information for an international trip using manual methods. With SafeTrekr, you submit your trip details through a guided form in 15 to 20 minutes, and a professional analyst delivers a complete safety binder in as soon as 3 days. Your trip leader's time shifts from amateur research to ministry and program preparation.",
     },
     {
       question:
@@ -219,7 +219,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
     {
       question: "What if we only do domestic trips?",
       answer:
-        "Domestic trips still carry meaningful risk -- weather events, venue safety, transportation incidents, medical emergencies in remote areas, and duty of care obligations for minors. A domestic mission trip or school field trip to rural Appalachia or a Gulf Coast service project involves real hazards that deserve professional review. SafeTrekr's domestic trip assessment starts at $450 and covers the same 17 safety dimensions as international reviews.",
+        "Domestic trips still carry meaningful risk -- weather events, venue safety, transportation incidents, medical emergencies in remote areas, and duty of care obligations for minors. A domestic mission trip or school field trip to rural Appalachia or a Gulf Coast service project involves real hazards that deserve professional review. SafeTrekr's domestic trip assessment starts at $450 and covers the same comprehensive safety dimensions as international reviews.",
     },
   ],
   articleHeadline:
@@ -294,7 +294,7 @@ const LOGISTICS_APPS: ComparisonPageData = {
       safetrekr: "yes",
     },
     {
-      feature: "Standardized review across 17 safety dimensions",
+      feature: "Standardized review across comprehensive safety dimensions",
       category: "no",
       safetrekr: "yes",
     },
@@ -349,7 +349,7 @@ const LOGISTICS_APPS: ComparisonPageData = {
       question:
         "Why can't we just use the safety features in our existing travel app?",
       answer:
-        "The safety features in logistics apps serve a fundamentally different purpose than professional safety assessment. A travel advisory telling you 'exercise increased caution in Country X' is awareness information. A 17-section professional review documenting specific considerations at your specific destinations with government data and audit-ready documentation is evidence of thorough preparation. The distinction matters when your organization needs to demonstrate what preparation it completed.",
+        "The safety features in logistics apps serve a fundamentally different purpose than professional safety assessment. A travel advisory telling you 'exercise increased caution in Country X' is awareness information. A comprehensive professional review documenting specific considerations at your specific destinations with trusted data and audit-ready documentation is evidence of thorough preparation. The distinction matters when your organization needs to demonstrate what preparation it completed.",
     },
     {
       question:
@@ -361,7 +361,7 @@ const LOGISTICS_APPS: ComparisonPageData = {
       question:
         "What about travel apps that claim to offer 'risk management' features?",
       answer:
-        "Examine what the feature actually provides. If it is a country-level risk rating, a State Department advisory feed, or a crowd-sourced safety map, that is consumer awareness -- not professional safety planning. Professional safety planning means a trained professional reviews your specific trip against government data across 17 safety dimensions and produces an audit-ready documentation binder. If the tool does not provide professional review, government data sources, and stakeholder-ready documentation, it is not a safety planning platform.",
+        "Examine what the feature actually provides. If it is a country-level risk rating, a State Department advisory feed, or a crowd-sourced safety map, that is consumer awareness -- not professional safety planning. Professional safety planning means a trained professional reviews your specific trip against government data across comprehensive safety dimensions and produces an audit-ready documentation binder. If the tool does not provide professional review, government data sources, and stakeholder-ready documentation, it is not a safety planning platform.",
     },
   ],
   articleHeadline:
@@ -456,7 +456,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       heading: "Portfolio Risk vs. Trip-Level Safety: Different Granularity",
       paragraphs: [
         "Enterprise risk platforms operate at the organizational level. They help risk managers identify which categories of risk the organization faces, assign probability and impact scores to those categories, track mitigation efforts across departments, and report risk posture to the board. This is essential work -- and SafeTrekr does not attempt to replace it.",
-        "What enterprise platforms typically lack is the granularity to assess an individual trip. When your school district sends 30 students to Costa Rica next month, you need to know the specific weather conditions during those dates, the specific safety profile of the venues they will visit, the specific distance to the nearest emergency medical facility from each location, and the specific evacuation routes available. Enterprise risk platforms categorize 'travel risk' as one line item in a risk register. SafeTrekr produces a 17-section analyst review of that specific trip.",
+        "What enterprise platforms typically lack is the granularity to assess an individual trip. When your school district sends 30 students to Costa Rica next month, you need to know the specific weather conditions during those dates, the specific safety profile of the venues they will visit, the specific distance to the nearest emergency medical facility from each location, and the specific evacuation routes available. Enterprise risk platforms categorize 'travel risk' as one line item in a risk register. SafeTrekr produces a comprehensive analyst review of that specific trip.",
       ],
     },
     {
@@ -503,7 +503,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       question:
         "What if our enterprise platform already includes travel risk features?",
       answer:
-        "Evaluate what those features actually deliver at the individual trip level. If the platform provides country-level risk ratings and a policy compliance checklist, that is portfolio-level awareness. If it assigns a trained professional to review each trip across 17 safety dimensions using government data and produces a board-ready documentation binder, that is trip-level safety assessment. Most enterprise platforms provide the former. SafeTrekr provides the latter.",
+        "Evaluate what those features actually deliver at the individual trip level. If the platform provides country-level risk ratings and a policy compliance checklist, that is portfolio-level awareness. If it assigns a trained professional to review each trip across comprehensive safety dimensions using government data and produces a board-ready documentation binder, that is trip-level safety assessment. Most enterprise platforms provide the former. SafeTrekr provides the latter.",
     },
   ],
   articleHeadline:

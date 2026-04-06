@@ -94,7 +94,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Professional Assessment",
     description:
-      "A trained safety analyst conducts a 17-section review using current information from 5 government data sources. Delivered in 3-5 business days.",
+      "A trained safety analyst conducts a comprehensive review using current information from multiple trusted sources. Delivered in as soon as 3 days.",
   },
   {
     number: 3,

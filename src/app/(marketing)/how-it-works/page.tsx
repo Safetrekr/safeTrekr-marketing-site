@@ -3,7 +3,7 @@
  *
  * Educational page walking prospects through the SafeTrekr process from trip
  * submission to safety binder delivery. Establishes credibility through the
- * 3-act process, intelligence sources, 17-section review grid, binder
+ * 3-act process, intelligence sources, comprehensive review grid, binder
  * deliverable, mobile field ops, and post-trip documentation proof.
  *
  * Server Component at the page level. Client components (Accordion,
@@ -13,7 +13,7 @@
  *   1. Hero              -- Centered with dual CTAs
  *   2. Process Timeline  -- 3-act (Submit, Review, Binder) with details
  *   3. Intelligence      -- Dark: 5 agency cards + professional analysis
- *   4. 17-Section Review -- All 17 sections in 5 categories with accordion
+ *   4. Comprehensive Review -- All sections organized in 5 categories with accordion
  *   5. Safety Binder     -- FeatureShowcase with DocumentPreview
  *   6. During Trip       -- Mobile app features with phone mockup placeholder
  *   7. After Trip        -- 3 proof cards
@@ -192,11 +192,11 @@ const HOWTO_STEPS: HowToStep[] = [
   },
   {
     name: "Analyst Reviews Everything",
-    text: "A trained safety analyst conducts a comprehensive 17-section review using current information from 5 government data sources.",
+    text: "A trained safety analyst conducts a comprehensive review using current information from multiple trusted sources.",
   },
   {
     name: "Receive Your Safety Binder",
-    text: "Receive your complete safety binder with verified documentation within 3-5 business days.",
+    text: "Receive your complete safety binder with verified documentation in as soon as 3 days.",
   },
 ];
 

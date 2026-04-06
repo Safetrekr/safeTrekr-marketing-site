@@ -202,7 +202,7 @@ export default function ROICalculatorPage() {
                   Consistency Across Trips
                 </h3>
                 <p className="mt-2 text-body-md text-muted-foreground">
-                  When trip planning relies on individual coordinators, quality varies. One coordinator may be thorough; another may miss important considerations. SafeTrekr ensures every trip -- regardless of who coordinates it -- receives the same 17-section professional review. Consistency builds organizational confidence.
+                  When trip planning relies on individual coordinators, quality varies. One coordinator may be thorough; another may miss important considerations. SafeTrekr ensures every trip -- regardless of who coordinates it -- receives the same comprehensive professional review. Consistency builds organizational confidence.
                 </p>
               </div>
 

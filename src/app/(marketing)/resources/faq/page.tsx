@@ -101,7 +101,7 @@ const SAFETY_BINDER: FAQItem[] = [
   {
     question: "What's included in a safety binder?",
     answer:
-      "Every safety binder includes: executive summary, complete 17-section analyst findings, structured assessment, emergency contact directory, maps and evacuation routes, analyst recommendations, data source citations, and integrity verification.",
+      "Every safety binder includes: executive summary, complete analyst findings, structured assessment, emergency contact directory, maps and evacuation routes, analyst recommendations, data source citations, and integrity verification.",
   },
   {
     question: "How do I share the safety binder with stakeholders?",

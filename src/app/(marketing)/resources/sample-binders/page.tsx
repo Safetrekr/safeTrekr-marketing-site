@@ -160,7 +160,7 @@ export default function SampleBindersPage() {
               <ScrollReveal variant="fadeUp" delay={0.2}>
                 <p className="mt-6 text-body-lg text-muted-foreground">
                   View sample safety binders to understand exactly what your
-                  organization receives. Each binder demonstrates our 17-section
+                  organization receives. Each binder demonstrates our comprehensive
                   analyst review, current information integration, and verified
                   documentation.
                 </p>
