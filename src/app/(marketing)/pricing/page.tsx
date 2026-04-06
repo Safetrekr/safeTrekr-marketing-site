@@ -47,6 +47,7 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   PricingTierCard,
+  InternationalPricingCard,
   FAQSection,
   CTABand,
   FeatureCard,
@@ -323,11 +324,8 @@ export default function PricingPage() {
               badge="Most Popular"
             />
 
-            <PricingTierCard
+            <InternationalPricingCard
               id="international"
-              tierName="International"
-              price="$750 / $1,250"
-              perParticipant="$750 for ≤9 travelers • $1,250 for 10+"
               features={[...INTERNATIONAL_FEATURES]}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
