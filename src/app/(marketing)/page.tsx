@@ -252,31 +252,31 @@ export default function HomePage() {
       <section aria-label="Platform credentials" className="border-y" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', padding: '48px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-3 gap-6 lg:gap-8">
-            <div className="text-center" aria-label="5 government data sources">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>5</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Government Data Sources</div>
+            <div className="text-center" aria-label="Multiple trusted intel sources">
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>Multiple</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Trusted Intel Sources</div>
             </div>
-            <div className="text-center" aria-label="17-section professional review">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>17</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Section Professional Review</div>
+            <div className="text-center" aria-label="Full comprehensive review">
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>Full</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Comprehensive Review</div>
             </div>
-            <div className="text-center" aria-label="3 to 5 day delivery">
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>3-5</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Day Delivery</div>
+            <div className="text-center" aria-label="3 day fast turnaround">
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>3 Day</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Fast Turnaround</div>
             </div>
                       </div>
 
-          {/* Government source row */}
+          {/* Intel source bar */}
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mt-8 pt-6" style={{ borderTop: '1px solid var(--color-border)' }}>
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>NOAA</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Government</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>USGS</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Humanitarian</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>CDC</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Regional</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>GDACS</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Emergency</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>ReliefWeb</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Health</span>
           </div>
         </div>
       </section>
@@ -324,7 +324,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Current Safety Information</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Your review includes information from NOAA, USGS, CDC, and international humanitarian sources -- weather, health advisories, and regional conditions. Your analyst reviews it, so you don't have to.
+                Your review includes current information from multiple trusted sources -- weather, health advisories, and regional conditions. Your analyst evaluates it, so you don't have to.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 See how information is gathered
@@ -363,7 +363,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>HOW IT WORKS</span>
             <h2 id="how-it-works-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              From your trip details to complete documentation in 3-5 days.
+              From your trip details to complete documentation in as soon as 3 days.
             </h2>
           </div>
 
@@ -440,7 +440,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Analyst Safety Review</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                17-section professional review of every trip by a trained safety analyst. Venues, transport, health, and emergency preparedness -- all evaluated and documented.
+                Comprehensive professional review of every trip by experienced analysts including former Secret Service, Special Operations, and trained safety professionals.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -455,7 +455,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Safety Information Engine</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Information from NOAA, USGS, CDC, GDACS, and ReliefWeb. Current conditions for your destination assessed with structured methodology.
+                Current information from multiple trusted sources. Conditions for your destination professionally assessed and evaluated.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -470,7 +470,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Trip Safety Binder</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Complete documentation delivered in 3-5 days. Every finding, recommendation, and contact preserved with verified integrity.
+                Complete documentation delivered in as soon as 3 days. Every finding, recommendation, and contact preserved with verified integrity.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -783,7 +783,7 @@ export default function HomePage() {
               </div>
               <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$15/student for a 30-person group</p>
               <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['17-section analyst review', '5 government data sources', 'Complete safety binder', 'Mobile field support', '3-5 day delivery'].map((feature) => (
+                {['Experienced analyst review', 'Active intelligence monitoring', 'Complete safety binder', 'Mobile field support', 'Delivery in as soon as 3 days'].map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
                     <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
                     <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
