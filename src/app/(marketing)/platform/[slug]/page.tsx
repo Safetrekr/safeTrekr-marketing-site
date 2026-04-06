@@ -95,20 +95,20 @@ const FEATURES: Record<string, FeaturePageData> = {
   "analyst-review": {
     title: "Professional Analyst Review",
     metaDescription:
-      "Every SafeTrekr trip is reviewed by a trained safety analyst across 17 standardized sections. Venues, transportation, emergency planning, health considerations, and more -- professionally evaluated and documented.",
+      "Every SafeTrekr trip is reviewed by a trained safety analyst across comprehensive standardized sections. Venues, transportation, emergency planning, health considerations, and more -- professionally evaluated and documented.",
     eyebrow: "ANALYST REVIEW",
     eyebrowIcon: <ClipboardCheck className="size-4" />,
     headline: "Every Trip Reviewed by a Professional Safety Analyst",
     heroDescription:
-      "Your trip leader focuses on the experience. Our analyst focuses on preparation. Every trip goes through a 17-section review covering venues, lodging, transportation, emergency contacts, evacuation routes, local facilities, and more -- conducted by a trained professional, not an algorithm.",
+      "Your trip leader focuses on the experience. Our analyst focuses on preparation. Every trip goes through a comprehensive review covering venues, lodging, transportation, emergency contacts, evacuation routes, local facilities, and more -- conducted by a trained professional, not an algorithm.",
     capabilitiesHeadline:
-      "17 standardized sections. One professional review.",
+      "Comprehensive review. Professional standards.",
     capabilities: [
       {
         icon: <Eye className="size-6" />,
-        title: "17-Section Review Framework",
+        title: "Comprehensive Review Framework",
         description:
-          "Every trip is evaluated across 17 standardized sections -- from venue assessment and transportation to emergency medical facilities and communication infrastructure. Nothing is assumed. Everything is documented.",
+          "Every trip is evaluated across standardized sections -- from venue assessment and transportation to emergency medical facilities and communication infrastructure. Nothing is assumed. Everything is documented.",
       },
       {
         icon: <Users className="size-6" />,
@@ -131,49 +131,49 @@ const FEATURES: Record<string, FeaturePageData> = {
     ],
     processHeadline: "How the analyst review works",
     processDescription:
-      "From trip submission to completed review in 3-5 business days.",
+      "From trip submission to completed review -- professionally prepared.",
     processSteps: [
       {
         number: 1,
         title: "Trip Details Submitted",
         description:
-          "Your organization submits trip details through a guided form -- destination, dates, participants, activities, venues, and transportation. Takes approximately 15 minutes.",
+          "Your organization submits trip details through a guided form -- destination, dates, participants, activities, venues, and transportation.",
       },
       {
         number: 2,
-        title: "Analyst Conducts 17-Section Review",
+        title: "Analyst Conducts Comprehensive Review",
         description:
-          "A trained safety analyst reviews every dimension of your trip using current information from government sources. Venues verified. Routes assessed. Emergency contacts documented. Recommendations written.",
+          "A trained safety analyst reviews every dimension of your trip using current information from government and authoritative sources. Venues verified. Routes assessed. Emergency contacts documented. Recommendations written.",
       },
       {
         number: 3,
-        title: "Findings Delivered in Safety Binder",
+        title: "Findings Delivered via Traveler App",
         description:
-          "Every finding, recommendation, and assessment is compiled into your safety binder. Ready for stakeholders, leadership, and your records.",
+          "Every finding, recommendation, and assessment is compiled and delivered through the SafeTrekr Traveler app. Available on any device, with offline access and printable formats for your records.",
       },
     ],
     ctaHeadline: "See what a professional safety review looks like",
     ctaBody:
-      "Schedule a walkthrough to see a sample analyst review and safety binder for your organization type.",
+      "Schedule a walkthrough to see a sample analyst review for your organization type.",
   },
 
   "risk-intelligence": {
     title: "Current Safety Information",
     metaDescription:
-      "SafeTrekr assesses every destination using structured methodology and 5 government data sources: NOAA, USGS, CDC, GDACS, and ReliefWeb. Probability-based assessment, not binary pass/fail.",
+      "SafeTrekr assesses every destination using structured methodology and authoritative government data sources. Probability-based assessment, not binary pass/fail.",
     eyebrow: "SAFETY INFORMATION",
     eyebrowIcon: <Activity className="size-4" />,
     headline: "Current Information for Every Destination",
     heroDescription:
-      "Before your team departs, SafeTrekr gathers current safety information from NOAA, USGS, CDC, ReliefWeb, and GDACS -- the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
+      "Before your team departs, SafeTrekr gathers current safety information from government and authoritative sources -- the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
     capabilitiesHeadline:
-      "Five government sources. Structured assessment.",
+      "Authoritative sources. Structured assessment.",
     capabilities: [
       {
         icon: <Database className="size-6" />,
-        title: "5 Government Data Sources",
+        title: "Government & Authoritative Sources",
         description:
-          "NOAA weather forecasts, USGS geological monitoring, CDC health advisories, GDACS alerts, and ReliefWeb reports. Professional information sources, not web searches.",
+          "Weather forecasts, geological monitoring, health advisories, humanitarian alerts, and regional reports from official government and international sources. Professional information, not web searches.",
       },
       {
         icon: <BarChart3 className="size-6" />,
@@ -196,13 +196,13 @@ const FEATURES: Record<string, FeaturePageData> = {
     ],
     processHeadline: "How safety information is gathered",
     processDescription:
-      "From destination submission to assessed profile in your safety binder.",
+      "From destination submission to assessed profile delivered to your team.",
     processSteps: [
       {
         number: 1,
         title: "Information Gathering",
         description:
-          "Current data is gathered from 5 government sources for your specific destination and travel dates. Weather patterns, geological considerations, health advisories, alerts, and regional conditions.",
+          "Current data is gathered from government and authoritative sources for your specific destination and travel dates. Weather patterns, geological considerations, health advisories, alerts, and regional conditions.",
       },
       {
         number: 2,
@@ -223,68 +223,68 @@ const FEATURES: Record<string, FeaturePageData> = {
   },
 
   "safety-binder": {
-    title: "Digital Safety Binder",
+    title: "SafeTrekr Traveler App",
     metaDescription:
-      "SafeTrekr delivers complete safety documentation with verified integrity. Every finding, recommendation, and contact compiled into a comprehensive binder for stakeholders.",
-    eyebrow: "SAFETY BINDER",
+      "SafeTrekr delivers complete safety documentation through the Traveler app. Every finding, recommendation, and contact available on any device with offline access.",
+    eyebrow: "TRAVELER APP",
     eyebrowIcon: <FileText className="size-4" />,
-    headline: "Complete Documentation for Every Trip",
+    headline: "Everything Your Travelers Need, On Any Device",
     heroDescription:
-      "When your board asks what you did to prepare, when your insurance carrier asks about your safety process, when a parent asks how you evaluated the destination -- you share the binder. Every finding documented. Every data source cited. Every recommendation recorded.",
+      "Every finding, every contact, every recommendation -- delivered through the SafeTrekr Traveler app. Works on phones, tablets, and laptops. Available offline when connectivity is limited. Printable when your team prefers paper. Your preparation, always accessible.",
     capabilitiesHeadline:
-      "Every finding documented. Every recommendation recorded.",
+      "Complete preparation. Always accessible.",
     capabilities: [
       {
-        icon: <Lock className="size-6" />,
-        title: "Verified Documentation Integrity",
+        icon: <Globe className="size-6" />,
+        title: "Works On Any Device",
         description:
-          "Every review finding and analyst decision is recorded with integrity verification. Documentation demonstrates that content has not been modified after completion -- professional records you can share with confidence.",
-      },
-      {
-        icon: <FileText className="size-6" />,
-        title: "Complete 17-Section Documentation",
-        description:
-          "All 17 review sections are compiled into a single, structured document. Findings, recommendations, assessments, emergency contacts, maps, and evacuation routes -- everything in one place.",
+          "Access your trip information from any smartphone, tablet, or laptop. No app store downloads required -- works directly in the browser with full functionality across all platforms.",
       },
       {
         icon: <Download className="size-6" />,
-        title: "Digital Delivery and PDF Export",
+        title: "Offline Access",
         description:
-          "Your safety binder is delivered digitally through the SafeTrekr platform and can be exported as a PDF for your board, insurance carrier, leadership, or stakeholders.",
+          "Download your trip information for offline access. When connectivity is limited or unavailable, your team still has everything they need -- emergency contacts, maps, recommendations, and more.",
+      },
+      {
+        icon: <FileText className="size-6" />,
+        title: "Printable Documentation",
+        description:
+          "Prefer paper? Export and print your complete trip documentation. Perfect for chaperones, trip binders, and organizations that want physical backup copies.",
       },
       {
         icon: <CheckCircle2 className="size-6" />,
-        title: "Stakeholder-Ready Format",
+        title: "Stakeholder-Ready Reports",
         description:
-          "Structured to answer the questions stakeholders ask. When they want to know what preparation was completed, the binder provides organized documentation.",
+          "Generate formatted reports for your board, insurance carrier, leadership, or stakeholders. When they ask what preparation was completed, you have organized documentation ready to share.",
       },
     ],
-    processHeadline: "How your safety binder is built",
+    processHeadline: "How your team accesses trip information",
     processDescription:
-      "From analyst review to complete, verified delivery.",
+      "From analyst review to instant access for every traveler.",
     processSteps: [
       {
         number: 1,
-        title: "Findings Compiled",
+        title: "Review Completed",
         description:
-          "As the analyst completes each of the 17 review sections, findings, recommendations, and assessments are compiled into the binder structure. Every data source is cited.",
+          "As the analyst completes each review section, findings, recommendations, and assessments are compiled and organized. Every data source is cited.",
       },
       {
         number: 2,
-        title: "Documentation Verified",
+        title: "App Access Configured",
         description:
-          "Every finding is recorded with integrity verification. The completed binder demonstrates that content has not been altered -- professional documentation by design.",
+          "Your organization configures who receives access -- trip leaders, chaperones, participants, or administrators. Each person gets secure access to the information they need.",
       },
       {
         number: 3,
-        title: "Binder Delivered",
+        title: "Information Delivered",
         description:
-          "Your organization receives the complete safety binder digitally. Share it with your board, insurance carrier, leadership, or anyone who needs to review your preparation.",
+          "Travelers receive a link to access their trip information. Works immediately on any device. Download for offline use or print for physical copies.",
       },
     ],
-    ctaHeadline: "See what a safety binder looks like",
+    ctaHeadline: "See the Traveler app in action",
     ctaBody:
-      "Schedule a walkthrough to see a complete safety binder and understand what your organization receives for every trip.",
+      "Schedule a walkthrough to experience the Traveler app and see what your team receives for every trip.",
   },
 };
 
