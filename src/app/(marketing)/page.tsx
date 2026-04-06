@@ -837,7 +837,7 @@ export default function HomePage() {
 
           <div className="text-center mt-10">
             <Link href="/pricing" className="inline-flex items-center gap-1.5 text-body-md font-medium" style={{ color: 'var(--color-primary-700)', textDecoration: 'none' }}>
-              View full pricing and volume discounts
+              View full pricing details
               <SmallArrowIcon />
             </Link>
           </div>

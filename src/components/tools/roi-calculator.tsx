@@ -32,7 +32,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
-import { TRIP_TIERS, VOLUME_DISCOUNTS } from "@/content/pricing";
+import { TRIP_TIERS } from "@/content/pricing";
 import { Button } from "@/components/ui/button";
 
 // ---------------------------------------------------------------------------
@@ -50,7 +50,7 @@ interface CalculatorInputs {
 }
 
 interface CalculatorResults {
-  /** Annual SafeTrekr cost after volume discount. */
+  /** Annual SafeTrekr cost. */
   annualSafetrekrCost: number;
   /** Effective per-participant cost. */
   costPerStudent: number;
@@ -60,12 +60,8 @@ interface CalculatorResults {
   annualSavings: number;
   /** Estimated risk reduction as a percentage (0-100). */
   riskReductionPct: number;
-  /** Volume discount percentage applied. */
-  volumeDiscountPct: number;
-  /** Per-trip price before volume discount. */
-  baseTripPrice: number;
-  /** Per-trip price after volume discount. */
-  discountedTripPrice: number;
+  /** Per-trip price. */
+  tripPrice: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -161,51 +157,33 @@ function formatUSDCents(value: number): string {
 }
 
 /**
- * Looks up the volume discount percentage from VOLUME_DISCOUNTS based on
- * the number of trips per year. Uses the actual data from pricing.ts.
- */
-function getVolumeDiscountPct(tripsPerYear: number): number {
-  // Walk through brackets in reverse to find the matching one.
-  // VOLUME_DISCOUNTS is ordered ascending: "1-4", "5-9", "10-24", "25-49", "50+"
-  if (tripsPerYear >= 50) return VOLUME_DISCOUNTS[4]!.pct;
-  if (tripsPerYear >= 25) return VOLUME_DISCOUNTS[3]!.pct;
-  if (tripsPerYear >= 10) return VOLUME_DISCOUNTS[2]!.pct;
-  if (tripsPerYear >= 5) return VOLUME_DISCOUNTS[1]!.pct;
-  return VOLUME_DISCOUNTS[0]!.pct;
-}
-
-/**
  * Core calculation engine. Derives all outputs from the pricing data
  * and the user's inputs.
  */
 function calculateROI(inputs: CalculatorInputs): CalculatorResults {
   const { segment, tripsPerYear, avgGroupSize, currentMethod } = inputs;
 
-  // 1. Determine base trip price from tier
+  // 1. Determine trip price from tier
   const tierId = SEGMENT_TIER_MAP[segment];
   const tier = TRIP_TIERS.find((t) => t.id === tierId) ?? TRIP_TIERS[0]!;
-  const baseTripPrice = tier.price;
+  const tripPrice = tier.price;
 
-  // 2. Apply volume discount
-  const volumeDiscountPct = getVolumeDiscountPct(tripsPerYear);
-  const discountedTripPrice = baseTripPrice * (1 - volumeDiscountPct / 100);
+  // 2. Annual SafeTrekr cost
+  const annualSafetrekrCost = tripPrice * tripsPerYear;
 
-  // 3. Annual SafeTrekr cost
-  const annualSafetrekrCost = discountedTripPrice * tripsPerYear;
-
-  // 4. Cost per student (participant)
+  // 3. Cost per student (participant)
   const totalParticipants = tripsPerYear * avgGroupSize;
   const costPerStudent = totalParticipants > 0 ? annualSafetrekrCost / totalParticipants : 0;
 
-  // 5. Status quo cost: midpoint of staff hours range * hourly rate * trips
+  // 4. Status quo cost: midpoint of staff hours range * hourly rate * trips
   const hours = STAFF_HOURS_PER_TRIP[currentMethod];
   const avgHoursPerTrip = (hours.low + hours.high) / 2;
   const annualStatusQuoCost = avgHoursPerTrip * STAFF_HOURLY_RATE * tripsPerYear;
 
-  // 6. Annual savings
+  // 5. Annual savings
   const annualSavings = annualStatusQuoCost - annualSafetrekrCost;
 
-  // 7. Risk reduction estimate
+  // 6. Risk reduction estimate
   const riskReductionPct = RISK_REDUCTION_PCT[currentMethod];
 
   return {
@@ -214,9 +192,7 @@ function calculateROI(inputs: CalculatorInputs): CalculatorResults {
     annualStatusQuoCost,
     annualSavings,
     riskReductionPct,
-    volumeDiscountPct,
-    baseTripPrice,
-    discountedTripPrice,
+    tripPrice,
   };
 }
 
@@ -555,25 +531,9 @@ export function ROICalculator({ className }: ROICalculatorProps) {
           {/* Pricing breakdown */}
           <div className="mt-4 space-y-2 border-t border-border pt-4">
             <div className="flex justify-between text-body-sm">
-              <span className="text-muted-foreground">Base trip price</span>
+              <span className="text-muted-foreground">Trip price</span>
               <span className="font-medium text-foreground">
-                {formatUSD(results.baseTripPrice)}
-              </span>
-            </div>
-            {results.volumeDiscountPct > 0 && (
-              <div className="flex justify-between text-body-sm">
-                <span className="text-muted-foreground">
-                  Volume discount ({results.volumeDiscountPct}%)
-                </span>
-                <span className="font-medium text-primary-700">
-                  -{formatUSD(results.baseTripPrice - results.discountedTripPrice)}
-                </span>
-              </div>
-            )}
-            <div className="flex justify-between text-body-sm">
-              <span className="text-muted-foreground">Discounted trip price</span>
-              <span className="font-medium text-foreground">
-                {formatUSD(results.discountedTripPrice)}
+                {formatUSD(results.tripPrice)}
               </span>
             </div>
             <div className="flex justify-between border-t border-border pt-2 text-body-md">

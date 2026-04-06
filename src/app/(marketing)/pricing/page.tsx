@@ -2,8 +2,8 @@
  * ST-880: REQ-080 -- Pricing Page (/pricing)
  *
  * Straightforward pricing page for SafeTrekr. Presents three trip tiers
- * (Day Trip, Extended Trip, International), volume discounts, included features,
- * optional add-ons, segment scenarios, procurement resources, and FAQ.
+ * (Day Trip, Extended Trip, International), included features, optional add-ons,
+ * segment scenarios, procurement resources, and FAQ.
  *
  * Server Component at the page level. Client components (Accordion via FAQSection,
  * ScrollReveal, StaggerChildren) are rendered as children within this tree.
@@ -11,13 +11,12 @@
  * Section order:
  *   1. Hero              -- "Professional trip assessment. Straightforward pricing."
  *   2. Pricing Tiers     -- 3 PricingTierCards (Day Trip, Extended, International)
- *   3. Volume Discounts  -- 4-tier table with mobile cards
- *   4. What's Included   -- 8 FeatureCards on primary-50 wash
- *   5. Add-ons/Scenarios -- ROI Calculator + 4 pricing scenario cards
- *   5b. Procurement      -- Dark section with checklist + /procurement link
- *   6. FAQ               -- 6 pricing questions with FAQPage JSON-LD
- *   7. CTA Band          -- Conversion band
- *   8. JSON-LD           -- Product + Offer schemas
+ *   3. What's Included   -- 8 FeatureCards on primary-50 wash
+ *   4. Add-ons/Scenarios -- ROI Calculator + 4 pricing scenario cards
+ *   4b. Procurement      -- Dark section with checklist + /procurement link
+ *   5. FAQ               -- 6 pricing questions with FAQPage JSON-LD
+ *   6. CTA Band          -- Conversion band
+ *   7. JSON-LD           -- Product + Offer schemas
  *
  * @see designs/html/mockup-pricing.html
  */
@@ -103,13 +102,6 @@ const INTERNATIONAL_FEATURES = [
   "90-day post-trip access",
 ] as const;
 
-const VOLUME_TIERS = [
-  { trips: "10\u201324 trips", discount: "10% off", example: "$405 / trip", highlighted: false },
-  { trips: "25\u201349 trips", discount: "15% off", example: "$382.50 / trip", highlighted: false },
-  { trips: "50\u201399 trips", discount: "20% off", example: "$360 / trip", highlighted: false },
-  { trips: "100+ trips", discount: "Custom pricing", example: "Contact us", highlighted: true },
-] as const;
-
 const INCLUDED_FEATURES: Array<{
   icon: ReactNode;
   title: string;
@@ -170,7 +162,7 @@ const PRICING_FAQS: FAQItem[] = [
   {
     question: "Is there a minimum commitment or annual contract?",
     answer:
-      "No. You can submit a single trip with no ongoing commitment. Volume discounts are available for organizations that want annual agreements, but they're optional.",
+      "No. You can submit a single trip with no ongoing commitment or annual contract required.",
   },
   {
     question: "How do you calculate per-participant cost?",
@@ -185,7 +177,7 @@ const PRICING_FAQS: FAQItem[] = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept credit cards for individual trips. Organizations with volume agreements can pay by invoice.",
+      "We accept credit cards for individual trips. Organizations can also pay by invoice upon request.",
   },
   {
     question: "Do you offer nonprofit or educational pricing?",
@@ -345,136 +337,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 3: VOLUME DISCOUNTS
-          ================================================================ */}
-      <SectionContainer aria-label="Volume discounts">
-        <Container size="md">
-          <div className="text-center">
-            <ScrollReveal>
-              <h2 className="text-display-md text-foreground">Volume pricing for frequent travelers.</h2>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p className="mt-4 text-body-lg text-muted-foreground">
-                Organizations with regular travel programs can reduce per-trip costs with volume agreements.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-sm)]">
-              {/* Desktop Table */}
-              <table
-                className="hidden w-full sm:table"
-                aria-label="Volume discount pricing table"
-              >
-                <thead>
-                  <tr className="border-b border-border bg-muted/50">
-                    <th scope="col" className="px-6 py-4 text-left text-eyebrow text-muted-foreground">
-                      Trips Per Year
-                    </th>
-                    <th scope="col" className="px-6 py-4 text-left text-eyebrow text-muted-foreground">
-                      Discount
-                    </th>
-                    <th scope="col" className="px-6 py-4 text-right text-eyebrow text-muted-foreground">
-                      Example (Day Trip)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {VOLUME_TIERS.map((tier) => (
-                    <tr
-                      key={tier.trips}
-                      className={
-                        tier.highlighted
-                          ? "bg-primary-50/50"
-                          : "border-b border-border"
-                      }
-                    >
-                      <td
-                        className={`px-6 py-4 text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.trips}
-                      </td>
-                      <td
-                        className={`px-6 py-4 text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.discount}
-                      </td>
-                      <td
-                        className={`px-6 py-4 text-right text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.example}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              {/* Mobile Cards */}
-              <div className="flex flex-col divide-y divide-border sm:hidden">
-                {VOLUME_TIERS.map((tier) => (
-                  <div
-                    key={tier.trips}
-                    className={`p-4 ${tier.highlighted ? "bg-primary-50/50" : ""}`}
-                  >
-                    <dt
-                      className={`text-heading-sm ${
-                        tier.highlighted ? "text-primary-700" : "text-foreground"
-                      }`}
-                    >
-                      {tier.trips}
-                    </dt>
-                    <dd className="mt-2 flex justify-between">
-                      <span
-                        className={`text-body-sm ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-muted-foreground"
-                        }`}
-                      >
-                        {tier.discount}
-                      </span>
-                      <span
-                        className={`text-body-sm font-medium ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.example}
-                      </span>
-                    </dd>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <div className="mt-8 text-center">
-            <p className="text-body-md text-muted-foreground">
-              Contact us to discuss annual agreements tailored to your organization&apos;s travel patterns.
-            </p>
-            <Button variant="secondary" size="md" className="mt-4" asChild>
-              <Link href="/contact">Discuss Your Needs</Link>
-            </Button>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 4: WHAT'S INCLUDED IN EVERY TRIP
+          SECTION 3: WHAT'S INCLUDED IN EVERY TRIP
           ================================================================ */}
       <SectionContainer variant="brand" aria-labelledby="included-heading">
         <Container>
@@ -505,7 +368,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 5: ADD-ONS (Optional - kept from original)
+          SECTION 4: ADD-ONS (Optional - kept from original)
           ================================================================ */}
       <SectionContainer variant="card" aria-label="ROI calculator">
         <Container size="md">
@@ -542,7 +405,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 5a: SEGMENT-SPECIFIC PRICING SCENARIOS
+          SECTION 4a: SEGMENT-SPECIFIC PRICING SCENARIOS
           ================================================================ */}
       <SectionContainer aria-label="Pricing scenarios">
         <Container>
@@ -672,7 +535,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 5b: PROCUREMENT PATH (Dark Section)
+          SECTION 4b: PROCUREMENT PATH (Dark Section)
           ================================================================ */}
       <SectionContainer variant="dark" aria-label="Procurement resources">
         <Container>
@@ -727,7 +590,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 6: FAQ
+          SECTION 5: FAQ
           ================================================================ */}
       <SectionContainer aria-label="Frequently asked questions">
         <Container size="md">
@@ -755,7 +618,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 7: CONVERSION CTA BAND
+          SECTION 6: CONVERSION CTA BAND
           ================================================================ */}
       <CTABand
         variant="dark"

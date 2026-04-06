@@ -36,7 +36,6 @@ import {
   Building2,
   MapPin,
   AlertTriangle,
-  Lock,
   ArrowRight,
   Download,
   GraduationCap,

@@ -83,7 +83,7 @@ const GETTING_STARTED: FAQItem[] = [
   {
     question: "Is there a minimum commitment or contract?",
     answer:
-      "No. You can submit a single trip with no ongoing commitment. Volume discounts are available for organizations that want annual agreements, but they're optional.",
+      "No. You can submit a single trip with no ongoing commitment or annual contract required.",
   },
   {
     question: "What if I need to change my trip details after submitting?",
@@ -234,7 +234,7 @@ const BILLING_SUPPORT: FAQItem[] = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept credit cards for individual trips. Organizations with volume agreements can pay by invoice.",
+      "We accept credit cards for individual trips. Organizations can also pay by invoice upon request.",
   },
   {
     question: "What if I need to cancel a trip?",

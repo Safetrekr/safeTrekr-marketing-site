@@ -257,7 +257,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Do you offer pricing for churches that do multiple trips per year?",
     answer:
-      "Yes. Volume pricing is available for churches with regular mission programs. Contact us to discuss arrangements that fit your ministry's travel patterns.",
+      "Yes. Contact us to discuss arrangements that fit your ministry's travel patterns.",
   },
 ];
 

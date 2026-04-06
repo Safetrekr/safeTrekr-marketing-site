@@ -497,7 +497,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       question:
         "Is SafeTrekr appropriate for large organizations with hundreds of trips?",
       answer:
-        "Yes. SafeTrekr scales to any trip volume. Organizations booking 20 or more trips per year qualify for volume pricing and dedicated account management. For large organizations, SafeTrekr functions as the trip-level safety assessment layer beneath the enterprise risk platform -- ensuring every trip gets professional analyst review without requiring the risk management team to conduct individual trip assessments.",
+        "Yes. SafeTrekr scales to any trip volume. For large organizations, SafeTrekr functions as the trip-level safety assessment layer beneath the enterprise risk platform -- ensuring every trip gets professional analyst review without requiring the risk management team to conduct individual trip assessments. Contact us to discuss arrangements for high-volume organizations.",
     },
     {
       question:

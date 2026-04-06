@@ -284,7 +284,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Do you offer season arrangements or annual agreements?",
     answer:
-      "Yes. Organizations with multiple teams or frequent travel can benefit from annual agreements. Contact us to discuss volume pricing for your organization.",
+      "Yes. Organizations with multiple teams or frequent travel can benefit from annual agreements. Contact us to discuss options for your organization.",
   },
   {
     question: "How quickly can we get documentation for an upcoming tournament?",

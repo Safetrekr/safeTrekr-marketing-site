@@ -694,8 +694,8 @@ export default function HigherEducationSolutionsPage() {
                 Professional preparation. Institutional pricing.
               </h2>
               <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
-                Volume pricing available for institutions with high travel
-                frequency. Contact us for institutional agreements.
+                Straightforward pricing for institutions of all sizes. Contact
+                us for institutional agreements.
               </p>
             </div>
           </ScrollReveal>
@@ -798,7 +798,7 @@ export default function HigherEducationSolutionsPage() {
                   Custom
                 </div>
                 <div className="mt-1 text-body-md text-muted-foreground">
-                  volume pricing for 15+ programs per year
+                  institutional agreements available
                 </div>
                 <div className="mt-4 space-y-1">
                   <p className="text-sm text-muted-foreground">
@@ -808,7 +808,7 @@ export default function HigherEducationSolutionsPage() {
                     $18,750/year for complete safety coverage
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Volume discounts available for 15+ programs annually
+                    Contact us to discuss institutional arrangements
                   </p>
                 </div>
                 <div className="mt-6">

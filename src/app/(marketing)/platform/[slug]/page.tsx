@@ -36,7 +36,6 @@ import {
   ArrowRight,
   BarChart3,
   Globe,
-  Lock,
   Download,
   CheckCircle2,
   Zap,

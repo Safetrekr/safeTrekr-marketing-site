@@ -278,7 +278,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "What if we have employees traveling to the same destination frequently?",
     answer:
-      "Repeat destinations benefit from current assessment, since conditions change over time. We offer volume pricing for companies with high travel frequency. Contact us to discuss pricing for your travel patterns.",
+      "Repeat destinations benefit from current assessment, since conditions change over time. Contact us to discuss pricing for your travel patterns.",
   },
   {
     question: "How do employees access safety information while traveling?",
@@ -306,9 +306,9 @@ const FAQ_ITEMS: FAQItem[] = [
       "You can submit your first trip today. There's no implementation project or training required. Delivery in as soon as 3 days from trip submission.",
   },
   {
-    question: "Do you offer annual agreements or volume pricing?",
+    question: "Do you offer annual agreements?",
     answer:
-      "Yes. Companies with regular business travel can benefit from annual agreements that reduce per-trip costs. Contact us to discuss options.",
+      "Yes. Companies with regular business travel can contact us to discuss annual arrangement options.",
   },
 ];
 

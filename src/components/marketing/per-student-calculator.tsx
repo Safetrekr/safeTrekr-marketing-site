@@ -271,7 +271,7 @@ export function PerStudentCalculator({
 
       {/* ── Footer Link ───────────────────────────────────────── */}
       <p className="mt-6 text-center text-sm text-muted-foreground">
-        See full pricing details including volume discounts for large districts.
+        See full pricing details for all trip types.
         <Link
           href="/pricing"
           className="mt-1 inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:text-primary-600"
