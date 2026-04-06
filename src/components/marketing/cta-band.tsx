@@ -139,7 +139,7 @@ function CTABand({
   const bodyClass = {
     default: "text-muted-foreground",
     brand: "text-foreground",
-    dark: "text-muted-foreground",
+    dark: "text-white/80",
   }[resolvedVariant];
 
   const primaryButtonVariant = resolvedVariant === "dark" ? "primaryOnDark" : "primary";

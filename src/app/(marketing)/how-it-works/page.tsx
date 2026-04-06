@@ -32,21 +32,11 @@ import {
   FileText,
   ClipboardCheck,
   Activity,
-  Users,
   Calendar,
-  Truck,
-  Plane,
   Building2,
   MapPin,
   AlertTriangle,
-  UserCheck,
-  Flag,
-  AlarmClock,
-  FolderOpen,
   Lock,
-  CheckSquare,
-  Package,
-  CheckCircle2,
   ArrowRight,
   Download,
   GraduationCap,
@@ -70,12 +60,6 @@ import {
   FeatureShowcase,
 } from "@/components/marketing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerChildren } from "@/components/motion/stagger-children";
@@ -101,7 +85,7 @@ const PROCESS_STEPS = [
     act: "STEP 1: SUBMIT",
     title: "Share Your Trip Details",
     description:
-      "Enter your destination, dates, participants, activities, and logistics through a guided submission form. No specialized training required.",
+      "Enter your destination, dates, participants, activities, and logistics through a guided submission form.",
     details: [
       "Destination and travel dates",
       "Number and composition of travelers",
@@ -117,10 +101,10 @@ const PROCESS_STEPS = [
     act: "STEP 2: REVIEW",
     title: "Analyst Reviews Everything",
     description:
-      "A trained safety analyst conducts a comprehensive 17-section review of your trip. Every venue, every transportation leg, every activity is evaluated.",
+      "Highly trained and experienced safety analyst conducts a comprehensive safety review of your trip. Every venue, transportation leg, and activity is evaluated and planned.",
     details: [
-      "17-section professional safety review",
-      "Current data from 5 government sources",
+      "Full professional safety review",
+      "Multi-private and government sourced intelligence",
       "Every venue, route, and provider evaluated",
       "Professional judgment applied to your trip",
       "Recommendations written for each finding",
@@ -130,181 +114,74 @@ const PROCESS_STEPS = [
   {
     number: 3,
     act: "STEP 3: DELIVER",
-    title: "Receive Your Safety Binder",
+    title: "Digital Safety Binder",
     description:
-      "Every finding, recommendation, and assessment is compiled into your safety binder. Structured for trip leaders, administrators, and stakeholders.",
+      "Full assessment is compiled into your interactive and customized safety binder. Structured for all stakeholders and actively monitored to provide up to date information.",
     details: [
       "Executive summary",
-      "Complete 17-section findings",
-      "Emergency contact directory",
+      "Emergency planning and contacts",
       "Maps and evacuation routes",
-      "Analyst recommendations",
-      "Integrity verification",
+      "Safety and Medical Recommendations",
+      "Full Trip Review before departure",
+      "Active Intelligence Monitoring so you don't have to",
     ],
     badge: "Days 4-5",
   },
 ] as const;
 
-const INTELLIGENCE_SOURCES = [
+const INTELLIGENCE_CATEGORIES = [
   {
-    abbr: "NOAA",
-    name: "National Oceanic and Atmospheric Administration",
+    title: "Weather & Environmental",
     description:
-      "Weather and environmental data for travel dates and destination",
+      "Current and forecasted conditions for your travel dates and destination",
   },
   {
-    abbr: "USGS",
-    name: "United States Geological Survey",
+    title: "Health & Medical",
     description:
-      "Geological considerations for destination region",
+      "Health advisories, medical considerations, and healthcare access",
   },
   {
-    abbr: "CDC",
-    name: "Centers for Disease Control and Prevention",
+    title: "Regional Security",
     description:
-      "Health advisories and information for your destination",
+      "Safety conditions, travel advisories, and situational awareness",
   },
   {
-    abbr: "GDACS",
-    name: "Global Disaster Alerting Coordination System",
+    title: "Natural Hazards",
     description:
-      "Alerts and emergency information for your travel dates",
+      "Geological, seismic, and environmental risk factors",
   },
   {
-    abbr: "ReliefWeb",
-    name: "UN Office for Coordination of Humanitarian Affairs",
+    title: "Local Conditions",
     description:
-      "Regional conditions and situation reports",
+      "On-the-ground intelligence and regional situation reports",
   },
 ] as const;
 
 const REVIEW_CATEGORIES = [
   {
-    category: "Trip Planning",
-    sections: [
-      {
-        num: 1,
-        title: "Overview",
-        icon: <FileText className="size-5 text-primary-600" />,
-        description: "Trip purpose, objectives, organizational context, and overall scope of the travel plan",
-      },
-      {
-        num: 2,
-        title: "Participants",
-        icon: <Users className="size-5 text-primary-600" />,
-        description: "Participant count, demographics, age ranges, special needs, medical considerations, and chaperone-to-participant ratios",
-      },
-      {
-        num: 3,
-        title: "Itinerary",
-        icon: <Calendar className="size-5 text-primary-600" />,
-        description: "Day-by-day schedule, activity timing, transit windows, rest periods, and contingency buffers",
-      },
-      {
-        num: 4,
-        title: "Transportation",
-        icon: <Truck className="size-5 text-primary-600" />,
-        description: "Ground transportation providers, vehicle safety records, driver credentials, and route risk assessment",
-      },
-    ],
+    category: "Trip Planning & Logistics",
+    icon: <Calendar className="size-6 text-primary-600" />,
+    description: "Complete evaluation of your trip structure, participant needs, scheduling, and all transportation arrangements.",
   },
   {
     category: "Destinations & Venues",
-    sections: [
-      {
-        num: 5,
-        title: "Air Travel",
-        icon: <Plane className="size-5 text-primary-600" />,
-        description: "Airlines, airports, layover risks, baggage policies, and flight timing relative to destination conditions",
-      },
-      {
-        num: 6,
-        title: "Lodging",
-        icon: <Building2 className="size-5 text-primary-600" />,
-        description: "Accommodation safety ratings, fire egress, proximity to medical facilities, neighborhood risk profile",
-      },
-      {
-        num: 7,
-        title: "Venues",
-        icon: <MapPin className="size-5 text-primary-600" />,
-        description: "Activity venues, crowd capacity, structural safety, historical incident records, and accessibility",
-      },
-    ],
+    icon: <MapPin className="size-6 text-primary-600" />,
+    description: "Thorough assessment of every location on your itinerary including lodging, activity sites, and transit points.",
   },
   {
     category: "Safety & Intelligence",
-    sections: [
-      {
-        num: 8,
-        title: "Safety",
-        icon: <Shield className="size-5 text-primary-600" />,
-        description: "Destination-level safety assessment: crime rates, political stability, natural hazard exposure, health risks",
-      },
-      {
-        num: 9,
-        title: "Background Checks",
-        icon: <UserCheck className="size-5 text-primary-600" />,
-        description: "Verification requirements for chaperones, volunteers, and third-party providers in contact with participants",
-      },
-      {
-        num: 10,
-        title: "Intel Alerts",
-        icon: <AlertTriangle className="size-5 text-primary-600" />,
-        description: "Active intelligence alerts from government sources: weather, seismic, health, conflict, and humanitarian data",
-      },
-    ],
+    icon: <Shield className="size-6 text-primary-600" />,
+    description: "Multi-source intelligence analysis covering security conditions, health considerations, and environmental factors.",
   },
   {
     category: "Emergency Preparedness",
-    sections: [
-      {
-        num: 11,
-        title: "Emergency Prep",
-        icon: <AlarmClock className="size-5 text-primary-600" />,
-        description: "Emergency action plans, evacuation routes, rally points, communication chains, and nearest medical facilities",
-      },
-      {
-        num: 12,
-        title: "Issues",
-        icon: <Flag className="size-5 text-primary-600" />,
-        description: "Known risks, flagged concerns, unresolved issues, and analyst-recommended mitigations requiring action",
-      },
-    ],
+    icon: <AlertTriangle className="size-6 text-primary-600" />,
+    description: "Comprehensive emergency planning including response protocols, evacuation procedures, and communication plans.",
   },
   {
     category: "Documentation & Compliance",
-    sections: [
-      {
-        num: 13,
-        title: "Documents",
-        icon: <FolderOpen className="size-5 text-primary-600" />,
-        description: "Required forms, waivers, permissions, insurance certificates, and regulatory compliance documentation",
-      },
-      {
-        num: 14,
-        title: "Evidence",
-        icon: <Lock className="size-5 text-primary-600" />,
-        description: "Verified documentation chain, audit trail integrity, and record preservation",
-      },
-      {
-        num: 15,
-        title: "Checklists",
-        icon: <CheckSquare className="size-5 text-primary-600" />,
-        description: "Pre-departure checklists, day-of checklists, post-trip checklists, and completion verification",
-      },
-      {
-        num: 16,
-        title: "Packet Builder",
-        icon: <Package className="size-5 text-primary-600" />,
-        description: "Assembled trip packet: printed materials, digital distribution, chaperone copies, and administrative copies",
-      },
-      {
-        num: 17,
-        title: "Approval",
-        icon: <CheckCircle2 className="size-5 text-primary-600" />,
-        description: "Final review sign-off, organizational approval workflow, stakeholder acknowledgment, and release authorization",
-      },
-    ],
+    icon: <FileText className="size-6 text-primary-600" />,
+    description: "Complete documentation package with verification, audit trails, and organizational approval workflows.",
   },
 ] as const;
 
@@ -362,9 +239,9 @@ export default function HowItWorksPage() {
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-[65ch] text-body-lg text-muted-foreground">
                 Every trip follows the same structured process: you share trip details,
-                a trained safety analyst reviews everything using current information
-                from government sources, and you receive complete documentation.
-                Professional preparation without complexity.
+                a trained safety analyst reviews using all current information from
+                private and government sources, and you receive complete emergency
+                planning documentation. Professional preparation without complexity.
               </p>
             </ScrollReveal>
 
@@ -407,13 +284,13 @@ export default function HowItWorksPage() {
           {/* Desktop Timeline (lg+) */}
           <div className="hidden lg:block" role="list">
             <div className="relative grid grid-cols-3 gap-8">
-              {/* Connecting lines (decorative) */}
+              {/* Connecting lines (decorative) - lines connect between the circles */}
               <svg
-                className="pointer-events-none absolute top-6 left-0 z-0 h-12 w-full"
+                className="pointer-events-none absolute top-0 left-0 z-0 h-12 w-full"
                 aria-hidden="true"
               >
-                <line x1="18.5%" y1="24" x2="48.5%" y2="24" stroke="var(--color-primary-200)" strokeWidth="2" />
-                <line x1="51.5%" y1="24" x2="81.5%" y2="24" stroke="var(--color-primary-200)" strokeWidth="2" />
+                <line x1="4.5%" y1="24" x2="34.3%" y2="24" stroke="var(--color-primary-200)" strokeWidth="2" />
+                <line x1="38.7%" y1="24" x2="68.6%" y2="24" stroke="var(--color-primary-200)" strokeWidth="2" />
               </svg>
 
               {PROCESS_STEPS.map((step) => (
@@ -500,37 +377,36 @@ export default function HowItWorksPage() {
           {/* Section Header */}
           <div className="mb-16 text-center">
             <ScrollReveal>
-              <Eyebrow color="dark" className="mb-4">Government Information Sources</Eyebrow>
+              <Eyebrow color="dark" className="mb-4">Intelligence Network</Eyebrow>
             </ScrollReveal>
             <ScrollReveal>
               <h2
                 id="intelligence-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-white"
               >
-                Current Data from Sources Professionals Use.
+                Comprehensive Multi-Source Intelligence.
               </h2>
             </ScrollReveal>
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-[65ch] text-body-lg text-[#b8c3c7]">
-                SafeTrekr gathers current safety information from 5 government data sources
-                for your specific destination and travel dates.
+                SafeTrekr aggregates current safety information from an extensive network
+                of private and government sources for your specific destination and travel dates.
               </p>
             </ScrollReveal>
           </div>
 
-          {/* Intelligence Source Cards */}
+          {/* Intelligence Category Cards */}
           <StaggerChildren className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-            {INTELLIGENCE_SOURCES.map((source) => (
+            {INTELLIGENCE_CATEGORIES.map((category) => (
               <article
-                key={source.abbr}
+                key={category.title}
                 className="rounded-xl border border-white/10 bg-white/[0.06] p-6 text-center lg:text-left"
               >
                 <div className="mx-auto mb-4 flex size-10 items-center justify-center rounded-lg bg-white/[0.08] lg:mx-0">
                   <Activity className="size-6 text-[#6cbc8b] opacity-80" aria-hidden="true" />
                 </div>
-                <h3 className="text-heading-sm font-semibold text-white">{source.abbr}</h3>
-                <p className="mb-3 text-xs text-[#b8c3c7]">{source.name}</p>
-                <p className="text-body-sm text-[#b8c3c7]">{source.description}</p>
+                <h3 className="text-heading-sm font-semibold text-white">{category.title}</h3>
+                <p className="mt-2 text-body-sm text-[#b8c3c7]">{category.description}</p>
               </article>
             ))}
           </StaggerChildren>
@@ -554,7 +430,7 @@ export default function HowItWorksPage() {
                 </p>
                 <ul className="space-y-3">
                   {[
-                    "Weather, geological, health, and regional data reviewed",
+                    "Extensive private and government sources aggregated",
                     "Current information specific to your travel dates",
                     "Structured assessment methodology",
                   ].map((item) => (
@@ -590,7 +466,7 @@ export default function HowItWorksPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: 17-SECTION REVIEW GRID
+          SECTION 4: COMPREHENSIVE REVIEW
           ================================================================ */}
       <SectionContainer id="review" className="bg-muted" aria-labelledby="review-heading">
         <Container>
@@ -608,63 +484,35 @@ export default function HowItWorksPage() {
                 id="review-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                17 Sections. Nothing Missed.
+                Comprehensive. Structured. Complete.
               </h2>
             </ScrollReveal>
             <ScrollReveal>
               <p className="mx-auto mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
-                Every trip receives the same comprehensive analyst review. Here is
-                every section your safety analyst evaluates.
+                Every trip receives the same thorough analyst review across all critical areas.
               </p>
             </ScrollReveal>
           </div>
 
-          {/* Category Groups with Accordion */}
-          <div className="space-y-12">
+          {/* Review Category Cards */}
+          <StaggerChildren className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {REVIEW_CATEGORIES.map((cat) => (
-              <div key={cat.category}>
-                <ScrollReveal>
-                  <h3 className="mb-6 text-eyebrow uppercase text-muted-foreground">
-                    {cat.category}
-                  </h3>
-                </ScrollReveal>
-
-                <Accordion type="multiple" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {cat.sections.map((section) => (
-                    <AccordionItem
-                      key={section.num}
-                      value={`section-${section.num}`}
-                      className="rounded-xl border border-border bg-card shadow-[var(--shadow-sm)]"
-                    >
-                      <AccordionTrigger className="px-5 py-4 text-left hover:no-underline [&[data-state=open]>div>.section-desc]:hidden">
-                        <div className="w-full">
-                          <div className="mb-3 flex items-center gap-3">
-                            <div className="flex size-7 items-center justify-center rounded-full bg-primary-50 text-xs font-semibold text-primary-700">
-                              {section.num}
-                            </div>
-                            <span className="[&_svg]:size-5" aria-hidden="true">
-                              {section.icon}
-                            </span>
-                          </div>
-                          <h4 className="text-heading-sm font-semibold text-foreground">
-                            {section.title}
-                          </h4>
-                          <p className="section-desc mt-2 line-clamp-2 text-body-sm text-muted-foreground">
-                            {section.description}
-                          </p>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-5 pb-5">
-                        <p className="text-body-sm leading-relaxed text-muted-foreground">
-                          {section.description}
-                        </p>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
+              <article
+                key={cat.category}
+                className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)]"
+              >
+                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary-50">
+                  {cat.icon}
+                </div>
+                <h3 className="mb-2 text-heading-sm font-semibold text-foreground">
+                  {cat.category}
+                </h3>
+                <p className="text-body-sm text-muted-foreground">
+                  {cat.description}
+                </p>
+              </article>
             ))}
-          </div>
+          </StaggerChildren>
         </Container>
       </SectionContainer>
 
@@ -674,31 +522,31 @@ export default function HowItWorksPage() {
       <div id="binder">
         <FeatureShowcase
           eyebrow="The Deliverable"
-          title="What You Receive."
-          description="Your Trip Safety Binder is a complete, audit-ready documentation package. Every finding. Every recommendation. Every emergency contact. Every risk score."
+          title="The SafeTrekr Traveler App."
+          description="Your complete safety package delivered through our powerful Traveler app. Interactive maps, emergency contacts, real-time alerts, and your full safety assessment—all in your pocket. Works offline when you need it most."
           visual={<DocumentPreview variant="full" showHash />}
-          ctaText="Download a Sample Binder"
-          ctaHref="/resources/sample-binders"
+          ctaText="See the App in Action"
+          ctaHref="/demo"
           className="border-y border-border bg-card"
         />
       </div>
 
-      {/* Verified Documentation Strip */}
+      {/* Printable Option Strip */}
       <SectionContainer className="bg-card" as="div">
         <Container>
           <ScrollReveal>
             <div className="flex flex-col items-start gap-6 rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)] lg:flex-row lg:p-8">
               <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary-50">
-                <Lock className="size-5 text-primary-700" aria-hidden="true" />
+                <FileText className="size-5 text-primary-700" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="text-heading-sm font-semibold text-foreground">
-                  Verified Documentation
+                  Printable for Offline Use
                 </h3>
                 <p className="mt-2 max-w-[65ch] text-body-md text-muted-foreground">
-                  Every finding is recorded with integrity verification. Your safety binder
-                  demonstrates that documentation has not been altered after completion.
-                  Professional records you can share with confidence.
+                  Prefer paper? Your complete safety documentation is also available as a
+                  professionally formatted printable package. Perfect for chaperone binders,
+                  administrative records, or anywhere you need reliable offline access.
                 </p>
               </div>
             </div>
@@ -810,81 +658,9 @@ export default function HowItWorksPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 7: AFTER THE TRIP
+          SECTION 7: SEGMENT EXAMPLES
           ================================================================ */}
-      <SectionContainer
-        id="after-trip"
-        variant="card"
-        aria-labelledby="after-trip-heading"
-      >
-        <Container>
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <ScrollReveal>
-              <Eyebrow
-                className="mb-4"
-                icon={<Shield className="size-3.5" aria-hidden="true" />}
-              >
-                After the Trip
-              </Eyebrow>
-            </ScrollReveal>
-            <ScrollReveal>
-              <h2
-                id="after-trip-heading"
-                className="mx-auto max-w-[28ch] text-display-md text-foreground"
-              >
-                Every Decision Documented. Every Precaution Verifiable.
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p className="mx-auto mt-6 max-w-[65ch] text-body-lg text-muted-foreground">
-                Years after the trip, your SafeTrekr documentation remains intact
-                and verifiable. The evidence chain cannot be altered, providing
-                permanent proof of the safety measures your organization took.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          {/* 3-Column Proof Grid */}
-          <StaggerChildren className="grid gap-6 sm:grid-cols-3">
-            {[
-              {
-                icon: <Shield className="size-7 text-primary-700" />,
-                title: "Audit Trail",
-                description:
-                  "Complete record of every decision and action taken throughout the review process.",
-              },
-              {
-                icon: <FileText className="size-7 text-primary-700" />,
-                title: "Compliance Documentation",
-                description:
-                  "FERPA, SOC 2, GDPR-ready documentation for regulatory review.",
-              },
-              {
-                icon: <FileText className="size-7 text-primary-700" />,
-                title: "Insurance Records",
-                description:
-                  "Documented proof of safety measures for liability and claims support.",
-              },
-            ].map((card) => (
-              <article
-                key={card.title}
-                className="rounded-xl border border-border bg-card p-6 text-center shadow-[var(--shadow-sm)]"
-              >
-                <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-xl bg-primary-50">
-                  {card.icon}
-                </div>
-                <h3 className="text-heading-sm font-semibold text-foreground">{card.title}</h3>
-                <p className="mt-2 text-body-sm text-muted-foreground">{card.description}</p>
-              </article>
-            ))}
-          </StaggerChildren>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 8: SEGMENT EXAMPLES
-          ================================================================ */}
-      <SectionContainer id="segments" className="bg-muted" aria-labelledby="segments-heading">
+      <SectionContainer id="segments" className="bg-white" aria-labelledby="segments-heading">
         <Container>
           <div className="mb-16 text-center">
             <ScrollReveal>
@@ -905,14 +681,14 @@ export default function HowItWorksPage() {
               icon={<GraduationCap />}
               title="K-12 Schools & Districts"
               description="Field trips, athletic travel, band competitions"
-              regulatoryHook="FERPA-ready"
+              regulatoryHook="Built for educators"
               href="/solutions/k12"
             />
             <SegmentCard
               icon={<GraduationCap />}
               title="Higher Education"
               description="Study abroad, research travel, athletic programs"
-              regulatoryHook="SOC 2 compliant"
+              regulatoryHook="Global coverage"
               href="/solutions/higher-education"
             />
             <SegmentCard
@@ -926,7 +702,7 @@ export default function HowItWorksPage() {
               icon={<Building2 />}
               title="Corporate & Sports Teams"
               description="Team retreats, conferences, league travel"
-              regulatoryHook="Enterprise-ready"
+              regulatoryHook="Scales with you"
               href="/solutions/corporate"
             />
           </StaggerChildren>
