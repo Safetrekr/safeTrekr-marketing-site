@@ -100,18 +100,18 @@ const EXPECT_ITEMS = [
 const TRUST_POINTS = [
   {
     icon: Shield,
-    stat: "5",
-    label: "Government Data Sources",
+    stat: "Multiple",
+    label: "Trusted Intel Sources",
   },
   {
     icon: ClipboardCheck,
-    stat: "17",
-    label: "Safety Review Sections",
+    stat: "Full",
+    label: "Comprehensive Review",
   },
   {
     icon: Clock,
-    stat: "3-5 Day",
-    label: "Turnaround",
+    stat: "3 Day",
+    label: "Fast Turnaround",
   },
 ] as const;
 

@@ -183,11 +183,11 @@ const BINDER_CHECKLIST = [
 ] as const;
 
 const PRICING_FEATURES_DOMESTIC = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ] as const;
 
 const PRICING_FEATURES_INTERNATIONAL = [
@@ -615,7 +615,7 @@ export default function ChurchSolutionsPage() {
                   Professional preparation for mission trips and youth travel.
                 </h2>
                 <p className="mx-auto mt-4 max-w-[60ch] text-body-lg text-muted-foreground">
-                  From trip planning to complete documentation in 3-5 days.
+                  From trip planning to complete documentation in as soon as 3 days.
                 </p>
               </ScrollReveal>
             </div>
@@ -885,11 +885,11 @@ export default function ChurchSolutionsPage() {
                     5
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
-                    Government Intelligence Sources
+                    Trusted Intelligence Sources
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
-                    NOAA, USGS, CDC, ReliefWeb, GDACS -- the same sources
-                    humanitarian agencies rely on
+                    Multiple government and humanitarian sources -- the same sources
+                    professional agencies rely on
                   </p>
                 </div>
               </ScrollReveal>
@@ -897,13 +897,13 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp" delay={0.2}>
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="3 to 5 days from submission to binder delivery"
+                  aria-label="3 days fast turnaround"
                 >
                   <div className="font-display font-mono text-3xl font-bold text-dark-text-primary lg:text-4xl">
-                    3-5 Days
+                    3 Days
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
-                    Submission to Binder Delivery
+                    Fast Turnaround
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
                     Professional review and documentation delivered before your
@@ -1134,7 +1134,7 @@ export default function ChurchSolutionsPage() {
                   Many church insurance policies ask about safety preparation
                   for off-site activities. SafeTrekr provides the organized
                   documentation that demonstrates your church completed
-                  professional preparation -- a 17-section safety review with
+                  professional preparation -- a comprehensive safety review with
                   clear records your carrier can review.
                 </p>
               </div>

@@ -63,7 +63,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "Pricing",
   description:
-    "SafeTrekr pricing starts at $450 per trip. Professional safety review, government data sources, and complete documentation -- from $15 per participant. No annual contracts required.",
+    "SafeTrekr pricing starts at $450 per trip. Experienced analyst review, active intelligence monitoring, and complete documentation -- from $15 per participant. No annual contracts required.",
   path: "/pricing",
 });
 
@@ -72,20 +72,20 @@ export const metadata = generatePageMetadata({
 // ---------------------------------------------------------------------------
 
 const DAY_TRIP_FEATURES = [
-  "17-section analyst review",
-  "5 government data sources",
-  "Complete safety binder",
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
   "Mobile field support access",
-  "3-5 business day delivery",
+  "Delivery in as soon as 3 days",
   "Verified documentation",
-  "PDF export",
+  "PDF & print export",
   "30-day post-trip access",
 ] as const;
 
 const EXTENDED_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
-  "Extended monitoring period",
+  "Active intelligence monitoring",
   "Sports and athletic travel coverage",
   "Multiple venue assessment",
   "Priority analyst assignment",
@@ -94,11 +94,11 @@ const EXTENDED_TRIP_FEATURES = [
 
 const INTERNATIONAL_FEATURES = [
   "Everything in Extended Trip",
-  "International information coverage",
+  "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
   "Evacuation planning documentation",
-  "Regional briefing",
+  "Pre-departure briefing",
   "Extended monitoring (trip duration + 7 days)",
   "90-day post-trip access",
 ] as const;
@@ -118,52 +118,51 @@ const INCLUDED_FEATURES: Array<{
 }> = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "Professional Analyst Review",
+    title: "Experienced Analyst Review",
     description:
-      "17-section evaluation by a trained safety analyst.",
+      "Comprehensive evaluation by former Secret Service, Special Operations, and trained safety professionals.",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Government Data Sources",
+    title: "Active Intelligence Monitoring",
     description:
-      "Current information from NOAA, USGS, CDC, GDACS, and ReliefWeb.",
+      "Current information from multiple trusted sources including government, humanitarian, and regional data.",
   },
   {
     icon: <Scale className="size-6" />,
-    title: "Structured Assessment",
+    title: "Comprehensive Assessment",
     description:
-      "Probability-based assessment methodology.",
+      "Every aspect of your trip evaluated -- venues, transportation, lodging, activities, and emergency planning.",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Complete Safety Binder",
+    title: "Interactive Digital Safety Binder",
     description:
-      "All findings, recommendations, and contacts documented.",
+      "All findings, recommendations, and contacts in one place. Works on any device.",
   },
   {
     icon: <Shield className="size-6" />,
     title: "Verified Documentation",
     description:
-      "Documentation with integrity verification.",
+      "Professional records you can share with leadership, parents, and stakeholders.",
   },
   {
     icon: <Smartphone className="size-6" />,
     title: "Mobile Field Support",
     description:
-      "Emergency contacts, rally points, and check-in tools in the field.",
+      "Emergency contacts, rally points, and check-in tools accessible in the field.",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "PDF Export",
+    title: "PDF & Print Export",
     description:
-      "Download and share with stakeholders.",
+      "Download, print, and share with anyone who needs it.",
   },
   {
     icon: <Clock className="size-6" />,
-    title: "Post-Trip Access",
+    title: "Delivery in as Soon as 3 Days",
     description:
-      "Continued access to documentation after travel.",
-    featured: true,
+      "Fast turnaround so you can focus on the experience, not the paperwork.",
   },
 ];
 
@@ -268,14 +267,14 @@ export default function PricingPage() {
 
             <ScrollReveal>
               <h1 className="mx-auto max-w-4xl text-display-lg text-foreground">
-                Professional trip assessment.{" "}
+                Professional trip Safety Planning.{" "}
                 <span className="text-primary-700">Straightforward pricing.</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-prose text-body-lg text-muted-foreground">
-                Every trip receives a 17-section analyst review, information from 5 government data sources, and complete documentation. Most organizations find that structured trip planning saves time, reduces coordination burden, and creates valuable records.
+                Every trip receives a full analyst review with access to complete documentation through an interactive digital safety binder. Most organizations find that structured trip planning saves time, reduces coordination burden, and creates valuable records.
               </p>
             </ScrollReveal>
 
@@ -335,8 +334,8 @@ export default function PricingPage() {
             <PricingTierCard
               id="international"
               tierName="International"
-              price="$1,250"
-              perParticipant="~$42/person for a 30-person group"
+              price="$750 / $1,250"
+              perParticipant="$750 for ≤9 travelers • $1,250 for 10+"
               features={[...INTERNATIONAL_FEATURES]}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"

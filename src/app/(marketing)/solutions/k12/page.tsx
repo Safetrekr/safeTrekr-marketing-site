@@ -99,14 +99,14 @@ const K12_FAQS: FAQItem[] = [
       "SafeTrekr is designed with student privacy in mind. We use role-based access controls to limit data visibility, secure handling practices, and data minimization that collects only what's necessary for safety assessment. We do not sell or share student data. Schools can request documentation for district procurement requirements.",
   },
   {
-    question: "What does the 17-section analyst review include?",
+    question: "What does the analyst review include?",
     answer:
-      "Every trip is evaluated across 17 standardized sections: destination overview, venue assessment, lodging evaluation, transportation, emergency medical facilities, evacuation routes, weather and environmental conditions, health advisories, communication infrastructure, local emergency contacts, activity-specific considerations, food safety, accessibility, documentation review, regulatory considerations, historical context, and analyst recommendations. Each section is completed by a trained safety analyst.",
+      "Every trip receives a comprehensive evaluation covering all critical areas: destination overview, venue assessment, lodging evaluation, transportation, emergency medical facilities, evacuation routes, weather and environmental conditions, health advisories, communication infrastructure, local emergency contacts, activity-specific considerations, food safety, accessibility, documentation review, regulatory considerations, historical context, and analyst recommendations. Each review is completed by an experienced safety professional.",
   },
   {
     question: "How long does it take to receive documentation?",
     answer:
-      "Standard delivery is 3-5 business days from trip submission. Priority processing is available for Extended and International trips when faster turnaround is needed.",
+      "Delivery in as soon as 3 days from trip submission. Priority processing is available for Extended and International trips when faster turnaround is needed.",
   },
   {
     question: "Can multiple schools in our district use SafeTrekr?",
@@ -132,16 +132,16 @@ const K12_FAQS: FAQItem[] = [
 const FEATURE_CARDS = [
   {
     icon: <CheckSquare className="size-6" />,
-    title: "17-Section Professional Review",
+    title: "Experienced Analyst Review",
     description:
-      "Every trip is reviewed by a trained analyst across 17 standardized sections. Venues, transportation, lodging, emergency contacts, medical facilities, weather, and more -- all evaluated and documented.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety professionals. Venues, transportation, lodging, emergency contacts, medical facilities, weather, and more -- all evaluated and documented.",
     href: "/platform/analyst-review",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Current Safety Information",
+    title: "Active Intelligence Monitoring",
     description:
-      "Information from NOAA, USGS, CDC, GDACS, and ReliefWeb. Current conditions for your destinations assessed by professionals.",
+      "Information from multiple trusted sources including government, humanitarian, and regional data. Current conditions for your destinations assessed by professionals.",
     href: "/platform/risk-intelligence",
   },
   {
@@ -230,11 +230,11 @@ const COMPLIANCE_BADGES = [
 // ---------------------------------------------------------------------------
 
 const BINDER_CHECKLIST = [
-  "17-section professional safety review",
-  "Current safety information from government sources",
+  "Comprehensive professional safety review",
+  "Active intelligence from multiple trusted sources",
   "Emergency contacts and medical facilities",
   "Organized documentation for stakeholder review",
-  "Complete preparation record",
+  "Delivery in as soon as 3 days",
 ] as const;
 
 // ---------------------------------------------------------------------------
@@ -422,8 +422,8 @@ export default function K12SolutionsPage() {
                     With SafeTrekr
                   </p>
                   <p className="mt-3 text-body-lg italic text-dark-text-secondary">
-                    &ldquo;Here is the 17-section safety review conducted by a
-                    professional analyst, the safety assessment, and
+                    &ldquo;Here is the comprehensive safety review conducted by
+                    experienced professionals, the safety assessment, and
                     the complete documentation binder.&rdquo;
                   </p>
                   <p className="mt-4 text-body-md text-dark-text-secondary">
@@ -512,7 +512,7 @@ export default function K12SolutionsPage() {
                       ),
                     },
                     {
-                      label: "17-Section Review",
+                      label: "Full Review",
                       accent: "bg-primary-200",
                       content: (
                         <div className="flex flex-col gap-1">

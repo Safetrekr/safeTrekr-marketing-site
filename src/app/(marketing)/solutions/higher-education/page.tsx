@@ -97,7 +97,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Analyst Reviews Everything",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Embassy contacts verified. Medical facilities located. Conditions assessed.",
+      "A professional safety analyst completes a comprehensive review using current information from multiple trusted sources. Embassy contacts verified. Medical facilities located. Conditions assessed.",
   },
   {
     number: 3,
@@ -155,7 +155,7 @@ const FEATURE_CARDS = [
     icon: <Shield className="size-6" />,
     title: "Institutional Consistency",
     description:
-      "The same 17-section review for every trip, regardless of sponsoring department. Study abroad, athletics, student organizations, and faculty travel -- all documented to the same standard.",
+      "The same comprehensive review for every trip, regardless of sponsoring department. Study abroad, athletics, student organizations, and faculty travel -- all documented to the same standard.",
     href: "/platform/risk-intelligence",
     linkText: "Learn about our methodology",
   },
@@ -181,20 +181,20 @@ const BINDER_CONTENTS = [
 
 const PROOF_STATS = [
   {
-    value: "17",
-    label: "Analyst Review Sections",
+    value: "Full",
+    label: "Comprehensive Review",
     description:
       "Every program reviewed across host institutions, housing, transportation, emergency contacts, evacuation routes, health advisories, mental health resources, and more",
   },
   {
-    value: "5",
-    label: "Government Data Sources",
+    value: "Multiple",
+    label: "Trusted Intel Sources",
     description:
-      "NOAA, USGS, CDC, ReliefWeb, GDACS -- current information from established government and international agency sources",
+      "Current information from established government and international agency sources -- professionally evaluated by experienced analysts",
   },
   {
-    value: "3-5 Days",
-    label: "Submission to Binder Delivery",
+    value: "3 Days",
+    label: "Fast Turnaround",
     description:
       "Professional review and documentation delivered before your students depart for their program",
   },
@@ -204,7 +204,7 @@ const COMPARISON_ROWS = [
   {
     without:
       "Different departments follow different processes. No standardized methodology across the institution.",
-    with: "Independent analyst completes 17-section review using 5 government data sources. Same methodology for every trip.",
+    with: "Independent analyst completes comprehensive review using multiple trusted sources. Same methodology for every trip.",
   },
   {
     without:
@@ -224,19 +224,19 @@ const COMPARISON_ROWS = [
 ];
 
 const PRICING_FEATURES = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ];
 
 const PRICING_FEATURES_SEMESTER = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
   "Mid-semester condition updates",
 ];
 
@@ -298,7 +298,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How quickly can we get documentation for urgent travel?",
     answer:
-      "Standard delivery is 3-5 business days. Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
+      "Standard delivery is as soon as 3 days. Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
   },
 ];
 
@@ -499,7 +499,7 @@ export default function HigherEducationSolutionsPage() {
                 id="solution-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                From trip registration to complete documentation in 3-5 days.
+                From trip registration to complete documentation in as soon as 3 days.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
                 Professional preparation for every university-sponsored trip.
@@ -964,8 +964,8 @@ export default function HigherEducationSolutionsPage() {
                 Documentation That Supports Accountability
               </h3>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                SafeTrekr produces professional documentation: a 17-section
-                safety review using government data sources, with verified
+                SafeTrekr produces professional documentation: a comprehensive
+                safety review using multiple trusted sources, with verified
                 document integrity. When stakeholders ask for evidence of
                 preparation, you have organized records that demonstrate
                 thoroughness.

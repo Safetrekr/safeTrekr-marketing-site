@@ -174,7 +174,7 @@ const UNIVERSAL_VALUE_CARDS = [
     icon: <Route className="size-6" />,
     title: "Current Safety Information",
     description:
-      "Structured assessment sourced from government databases: NOAA weather data, USGS seismic monitoring, CDC health advisories, GDACS alerts, and ReliefWeb humanitarian reports. Professionally evaluated, not opinion-based.",
+      "Active intelligence monitoring from multiple trusted sources including government, humanitarian, and regional data. Professionally evaluated by experienced analysts, not automation.",
     href: "/platform/risk-intelligence",
     linkText: "See how assessment works",
   },
@@ -304,7 +304,7 @@ export default function SolutionsOverviewPage() {
                 className="text-body-lg mx-auto mt-6 text-muted-foreground"
                 style={{ maxWidth: "55ch" }}
               >
-                SafeTrekr delivers the same 17-section professional review to
+                SafeTrekr delivers comprehensive professional reviews to
                 every organization -- but the context matters. Schools need
                 student privacy considerations. Churches need stewardship
                 framing. Corporations need accountability documentation. Find

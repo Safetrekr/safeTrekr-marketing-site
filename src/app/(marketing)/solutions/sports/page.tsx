@@ -98,7 +98,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Analyst Reviews Everything",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Venues verified. Hotels assessed. Emergency contacts documented.",
+      "A professional safety analyst completes a comprehensive review using current information from multiple trusted sources. Venues verified. Hotels assessed. Emergency contacts documented.",
   },
   {
     number: 3,
@@ -171,19 +171,19 @@ const CHALLENGE_CARDS = [
 ] as const;
 
 const BINDER_CHECKLIST = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ] as const;
 
 const PRICING_FEATURES = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ] as const;
 
 const COST_COMPARISON_ROWS = [
@@ -191,7 +191,7 @@ const COST_COMPARISON_ROWS = [
     without:
       "Volunteer coaches spend hours assembling safety information between practices and games",
     withSafeTrekr:
-      "Professional analyst completes 17-section review in 3-5 days. Coaches focus on the athletes.",
+      "Professional analyst completes comprehensive review in as soon as 3 days. Coaches focus on the athletes.",
   },
   {
     without:
@@ -289,7 +289,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How quickly can we get documentation for an upcoming tournament?",
     answer:
-      "Standard delivery is 3-5 business days. Priority processing is available for Multi-Day and National/International trips. Contact us for expedited options.",
+      "Standard delivery is as soon as 3 days. Priority processing is available for Multi-Day and National/International trips. Contact us for expedited options.",
   },
 ];
 
@@ -493,7 +493,7 @@ export default function SportsPage() {
                 id="sports-how-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                From trip registration to complete documentation in 3-5 days
+                From trip registration to complete documentation in as soon as 3 days
               </h2>
             </div>
           </ScrollReveal>
@@ -574,7 +574,7 @@ export default function SportsPage() {
               <p className="mt-4 text-body-lg text-muted-foreground">
                 A professionally reviewed safety binder that documents venue
                 safety, hotel evaluation, transportation assessment, and
-                emergency contacts. 17 sections. 5 government data sources.
+                emergency contacts. Comprehensive review. Multiple trusted sources.
                 Ready to share with parents and organizational files.
               </p>
               <div className="mt-8">
@@ -614,22 +614,22 @@ export default function SportsPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {[
               {
-                stat: "17",
-                label: "Sections of Safety Review",
+                stat: "Full",
+                label: "Comprehensive Review",
                 description:
-                  "Every tournament trip reviewed across 17 standardized sections -- venue, lodging, transportation, weather, medical access, and more.",
+                  "Every tournament trip reviewed across multiple standardized sections -- venue, lodging, transportation, weather, medical access, and more.",
               },
               {
-                stat: "5",
-                label: "Government Data Sources",
+                stat: "Multiple",
+                label: "Trusted Intel Sources",
                 description:
-                  "Current information from government data sources including weather, emergency management, and regional conditions.",
+                  "Current information from trusted sources including weather, emergency management, and regional conditions -- professionally evaluated.",
               },
               {
-                stat: "3-5",
-                label: "Business Days to Delivery",
+                stat: "3 Days",
+                label: "Fast Turnaround",
                 description:
-                  "Submit your tournament details. Receive your complete safety binder in 3-5 business days.",
+                  "Submit your tournament details. Receive your complete safety binder in as soon as 3 days.",
               },
             ].map((item, index) => (
               <ScrollReveal key={item.label} delay={index * 0.1}>

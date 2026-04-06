@@ -156,29 +156,29 @@ const FEATURE_CARDS = [
 ];
 
 const BINDER_CONTENTS = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ];
 
 const PROOF_STATS = [
   {
-    value: "17",
-    label: "Analyst Review Sections",
+    value: "Full",
+    label: "Comprehensive Review",
     description:
       "Every trip reviewed across venues, lodging, transportation, emergency contacts, evacuation routes, and more",
   },
   {
-    value: "5",
-    label: "Government Data Sources",
+    value: "Multiple",
+    label: "Trusted Intel Sources",
     description:
-      "Current information from established government data sources",
+      "Current information from government and authoritative sources",
   },
   {
-    value: "3-5 Days",
-    label: "Submission to Binder Delivery",
+    value: "3 Days",
+    label: "Fast Turnaround",
     description:
       "Professional review and documentation delivered before departure",
   },
@@ -212,11 +212,11 @@ const COMPARISON_ROWS = [
 ];
 
 const PRICING_FEATURES_DOMESTIC = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ];
 
 const PRICING_FEATURES_INTERNATIONAL = [
@@ -303,7 +303,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How quickly can we get started?",
     answer:
-      "You can submit your first trip today. There's no implementation project or training required. Standard delivery is 3-5 business days from trip submission.",
+      "You can submit your first trip today. There's no implementation project or training required. Delivery in as soon as 3 days from trip submission.",
   },
   {
     question: "Do you offer annual agreements or volume pricing?",
@@ -518,7 +518,7 @@ export default function CorporateSolutionsPage() {
                 Professional travel preparation without dedicated risk staff.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                From travel request to complete documentation in 3-5 days.
+                From travel request to complete documentation in as soon as 3 days.
               </p>
             </div>
           </ScrollReveal>
@@ -642,7 +642,7 @@ export default function CorporateSolutionsPage() {
                 id="proof-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-dark-text-primary"
               >
-                From travel request to complete documentation in 3-5 days.
+                From travel request to complete documentation in as soon as 3 days.
               </h2>
             </div>
           </ScrollReveal>
