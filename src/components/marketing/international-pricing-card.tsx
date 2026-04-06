@@ -78,12 +78,12 @@ function InternationalPricingCard({
 
       {/* Traveler count toggle */}
       <div className="mt-4">
-        <div className="inline-flex rounded-lg bg-muted p-1">
+        <div className="inline-flex rounded-md bg-muted p-0.5">
           <button
             type="button"
             onClick={() => setIsLargeGroup(false)}
             className={cn(
-              "rounded-md px-3 py-1.5 text-body-sm font-medium transition-all",
+              "rounded px-2 py-1 text-xs font-medium transition-all",
               !isLargeGroup
                 ? "bg-white text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground",
@@ -95,7 +95,7 @@ function InternationalPricingCard({
             type="button"
             onClick={() => setIsLargeGroup(true)}
             className={cn(
-              "rounded-md px-3 py-1.5 text-body-sm font-medium transition-all",
+              "rounded px-2 py-1 text-xs font-medium transition-all",
               isLargeGroup
                 ? "bg-white text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground",
