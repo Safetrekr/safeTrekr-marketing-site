@@ -100,7 +100,7 @@ const FEATURES: Record<string, FeaturePageData> = {
     eyebrowIcon: <ClipboardCheck className="size-4" />,
     headline: "Every Trip Reviewed by a Professional Safety Analyst",
     heroDescription:
-      "Your trip leader focuses on the experience. Our analyst focuses on preparation. Every trip goes through a comprehensive review covering venues, lodging, transportation, emergency contacts, evacuation routes, local facilities, and more -- conducted by a trained professional, not an algorithm.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety staff analyzing all aspects of the trip safety and intelligence. Assessments by professionals, not automation.",
     capabilitiesHeadline:
       "Comprehensive review. Professional standards.",
     capabilities: [
@@ -131,25 +131,25 @@ const FEATURES: Record<string, FeaturePageData> = {
     ],
     processHeadline: "How the analyst review works",
     processDescription:
-      "From trip submission to completed review -- professionally prepared.",
+      "From trip details to organized safety plan in as little as 3 days.",
     processSteps: [
       {
         number: 1,
-        title: "Trip Details Submitted",
+        title: "Enter Trip Details",
         description:
-          "Your organization submits trip details through a guided form -- destination, dates, participants, activities, venues, and transportation.",
+          "Enter all of your trip details and activities through a self-guided form. Takes about 15 minutes.",
       },
       {
         number: 2,
-        title: "Analyst Conducts Comprehensive Review",
+        title: "Expert Analyst Review",
         description:
-          "A trained safety analyst reviews every dimension of your trip using current information from government and authoritative sources. Venues verified. Routes assessed. Emergency contacts documented. Recommendations written.",
+          "Our highly trained and dedicated safety analyst reviews your trip using the most current information, providing the highest quality travel safety plan in the industry.",
       },
       {
         number: 3,
-        title: "Findings Delivered via Traveler App",
+        title: "Safety Binder Delivered",
         description:
-          "Every finding, recommendation, and assessment is compiled and delivered through the SafeTrekr Traveler app. Available on any device, with offline access and printable formats for your records.",
+          "Your organization receives a digitized interactive or printed safety binder for organized and easy reference. Share with leadership, parents, or stakeholders.",
       },
     ],
     ctaHeadline: "See what a professional safety review looks like",
