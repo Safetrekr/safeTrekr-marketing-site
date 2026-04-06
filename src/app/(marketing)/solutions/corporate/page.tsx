@@ -95,7 +95,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Analyst Reviews Everything",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Venues verified. Transportation assessed. Emergency contacts documented.",
+      "A professional safety analyst completes a comprehensive review using current information from government data sources. Venues verified. Transportation assessed. Emergency contacts documented.",
   },
   {
     number: 3,
@@ -244,7 +244,7 @@ const COMPLIANCE_BADGES = [
     icon: <Activity className="size-8" />,
     title: "Government Data Sources",
     description:
-      "Current information from 5 established government data sources.",
+      "Current information from multiple established government data sources.",
   },
   {
     icon: <ClipboardCheck className="size-8" />,

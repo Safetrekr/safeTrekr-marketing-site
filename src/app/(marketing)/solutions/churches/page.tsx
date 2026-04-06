@@ -100,7 +100,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Analyst Reviews Everything",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Medical facilities located. Emergency contacts documented. Conditions assessed.",
+      "A professional safety analyst completes a comprehensive review using current information from government data sources. Medical facilities located. Emergency contacts documented. Conditions assessed.",
   },
   {
     number: 3,
@@ -463,7 +463,7 @@ export default function ChurchSolutionsPage() {
                     </div>
                     <div className="mt-2">
                       <Badge variant="brand" className="text-xs">
-                        17 Sections Reviewed
+                        Comprehensive Review
                       </Badge>
                     </div>
                     <div className="mt-3 space-y-2">
@@ -714,7 +714,7 @@ export default function ChurchSolutionsPage() {
                       </div>
                       <div className="mt-3">
                         <Badge variant="brand" className="text-xs">
-                          17 Sections Reviewed
+                          Comprehensive Review
                         </Badge>
                       </div>
                       {/* Map thumbnail */}
@@ -860,13 +860,13 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp">
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="17 analyst review sections per trip"
+                  aria-label="Comprehensive analyst review per trip"
                 >
-                  <div className="font-display font-mono text-4xl font-bold text-dark-text-primary lg:text-5xl">
-                    17
+                  <div className="font-display text-2xl font-bold text-dark-text-primary lg:text-3xl">
+                    Comprehensive
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
-                    Analyst Review Sections
+                    Analyst Review
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
                     Every trip reviewed across venues, lodging, transportation,
@@ -879,16 +879,16 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp" delay={0.1}>
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="5 government intelligence sources"
+                  aria-label="Multiple trusted intelligence sources"
                 >
-                  <div className="font-display font-mono text-4xl font-bold text-dark-text-primary lg:text-5xl">
-                    5
+                  <div className="font-display text-2xl font-bold text-dark-text-primary lg:text-3xl">
+                    Multiple
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
                     Trusted Intelligence Sources
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
-                    Multiple government and humanitarian sources -- the same sources
+                    Government and humanitarian sources -- the same sources
                     professional agencies rely on
                   </p>
                 </div>

@@ -164,9 +164,9 @@ const SEGMENTS: SolutionSegment[] = [
 const UNIVERSAL_VALUE_CARDS = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "17-Section Professional Review",
+    title: "Comprehensive Professional Review",
     description:
-      "A trained safety professional reviews every trip your organization takes -- across 17 dimensions, from venue safety to emergency evacuation planning. No algorithms. No automation. A real professional who flags what needs attention and documents what is ready.",
+      "A trained safety professional reviews every trip your organization takes -- from venue safety to emergency evacuation planning. No algorithms. No automation. A real professional who flags what needs attention and documents what is ready.",
     href: "/platform/analyst-review",
     linkText: "Explore the review process",
   },
