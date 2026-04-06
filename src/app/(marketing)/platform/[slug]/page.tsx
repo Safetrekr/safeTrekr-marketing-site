@@ -165,7 +165,7 @@ const FEATURES: Record<string, FeaturePageData> = {
     eyebrowIcon: <Activity className="size-4" />,
     headline: "Current Information for Every Destination",
     heroDescription:
-      "Before your team departs, SafeTrekr gathers current safety information from government and authoritative sources -- the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
+      "Before your team departs, SafeTrekr gathers current safety information from multiple sources to include NOAA, USGS, CDC, ReliefWeb, and GDACS -- the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
     capabilitiesHeadline:
       "Authoritative sources. Structured assessment.",
     capabilities: [
@@ -202,19 +202,19 @@ const FEATURES: Record<string, FeaturePageData> = {
         number: 1,
         title: "Information Gathering",
         description:
-          "Current data is gathered from government and authoritative sources for your specific destination and travel dates. Weather patterns, geological considerations, health advisories, alerts, and regional conditions.",
+          "Current data is gathered from multiple trusted sources for your specific destination and travel dates. Weather patterns, geological considerations, health advisories, safety alerts, and regional conditions.",
       },
       {
         number: 2,
         title: "Structured Assessment",
         description:
-          "Information is evaluated using structured assessment methodology. Each consideration is assessed in context -- not just flagged as present or absent.",
+          "Information is evaluated using structured assessment methodology. Each consideration is assessed in context, not just flagged as present or absent.",
       },
       {
         number: 3,
         title: "Analyst Interpretation",
         description:
-          "Your safety analyst reviews the gathered information, adds contextual recommendations, and documents actionable findings. Data informs the review. The analyst makes the judgment.",
+          "Your professional safety analyst reviews the gathered information, adds recommendations, and documents actionable findings.",
       },
     ],
     ctaHeadline: "See how safety information supports your planning",
