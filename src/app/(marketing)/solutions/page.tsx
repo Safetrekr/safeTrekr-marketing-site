@@ -9,10 +9,9 @@
  * Section order:
  *   1. Hero            -- "One platform. Every type of trip." + scroll anchor CTA
  *   2. Segment Cards   -- 4 large segment cards (2x2 grid) with regulatory badges
- *   3. Universal Value -- 3 FeatureCards (Analyst Review, Risk Intelligence, Safety Binder)
- *   4. TrustStrip      -- 5 metrics + intel source bar
- *   5. CTABand         -- Dark variant, demo + how-it-works
- *   6. JSON-LD         -- WebPage + ItemList structured data
+ *   3. Universal Value -- 3 FeatureCards (Analyst Review, Safety Info, Clear Documentation)
+ *   4. CTABand         -- Dark variant, demo + how-it-works
+ *   5. JSON-LD         -- WebPage + ItemList structured data
  *
  * @see designs/html/mockup-solutions-overview.html
  */
@@ -38,7 +37,6 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   FeatureCard,
-  TrustStrip,
   CTABand,
 } from "@/components/marketing";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -136,7 +134,7 @@ const SEGMENTS: SolutionSegment[] = [
     title: "Higher Education",
     badges: ["CLERY ACT", "FERPA"],
     description:
-      "Study abroad and faculty travel with institutional-grade documentation. Professional assessment that supports accountability for general counsel and risk management.",
+      "Study abroad and faculty travel with top tier planning and documentation. Professional safety planning that supports the traveler and institution anywhere someone travels.",
     href: "/solutions/higher-education",
   },
   {
@@ -144,7 +142,7 @@ const SEGMENTS: SolutionSegment[] = [
     title: "Churches and Mission Organizations",
     badges: ["DUTY OF CARE"],
     description:
-      "Mission trip preparation that honors your calling. Simple guidance for volunteer leaders with documentation that demonstrates good stewardship.",
+      "Mission trip preparation that honors your calling. Simple safety planning and guidance for volunteer leaders with documentation that demonstrates good stewardship.",
     href: "/solutions/churches",
   },
   {
@@ -152,7 +150,7 @@ const SEGMENTS: SolutionSegment[] = [
     title: "Corporate",
     badges: ["DUTY OF CARE", "OSHA"],
     description:
-      "Business travel planning with clear accountability. Professional preparation for mid-market companies without dedicated risk management staff.",
+      "Business travel security preparation and planning as Fortune 500 C-Suite security programs with dedicated risk management staff.",
     href: "/solutions/corporate",
   },
 ];
@@ -164,9 +162,9 @@ const SEGMENTS: SolutionSegment[] = [
 const UNIVERSAL_VALUE_CARDS = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "Comprehensive Professional Review",
+    title: "Professional Analyst Review",
     description:
-      "A trained safety professional reviews every trip your organization takes -- from venue safety to emergency evacuation planning. No algorithms. No automation. A real professional who flags what needs attention and documents what is ready.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety staff analyzing all aspects of the trip safety and intelligence. Assessments by professionals, not automation.",
     href: "/platform/analyst-review",
     linkText: "Explore the review process",
   },
@@ -174,15 +172,15 @@ const UNIVERSAL_VALUE_CARDS = [
     icon: <Route className="size-6" />,
     title: "Current Safety Information",
     description:
-      "Active intelligence monitoring from multiple trusted sources including government, humanitarian, and regional data. Professionally evaluated by experienced analysts, not automation.",
+      "Active intelligence monitoring from trusted governmental and private sources. Professionally evaluated by experienced analysts to provide current, relevant safety information for your destinations.",
     href: "/platform/risk-intelligence",
     linkText: "See how assessment works",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Trip Safety Binder",
+    title: "Clear Documentation",
     description:
-      "Board-ready documentation with professional standards. Every finding, every recommendation, every emergency contact -- compiled into a comprehensive binder that demonstrates preparation to your board, insurance carrier, and stakeholders.",
+      "All safety and planning is completed and provided in a digitized interactive safety binder. Before you go, professional planning and documentation is readily available to everyone.",
     href: "/platform/safety-binder",
     linkText: "See a sample binder",
   },
@@ -304,11 +302,10 @@ export default function SolutionsOverviewPage() {
                 className="text-body-lg mx-auto mt-6 text-muted-foreground"
                 style={{ maxWidth: "55ch" }}
               >
-                SafeTrekr delivers comprehensive professional reviews to
-                every organization -- but the context matters. Schools need
+                SafeTrekr delivers the same professional safety plan and review
+                to every organization -- but context matters. Schools need
                 student privacy considerations. Churches need stewardship
-                framing. Corporations need accountability documentation. Find
-                your solution below.
+                framing. Corporations need accountability documentation.
               </p>
             </ScrollReveal>
 
@@ -410,14 +407,7 @@ export default function SolutionsOverviewPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: TRUST STRIP
-          ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip />
-      </ScrollReveal>
-
-      {/* ================================================================
-          SECTION 5: CTA BAND (DARK)
+          SECTION 4: CTA BAND (DARK)
           ================================================================ */}
       <CTABand
         variant="dark"
@@ -428,7 +418,7 @@ export default function SolutionsOverviewPage() {
       />
 
       {/* ================================================================
-          SECTION 6: JSON-LD STRUCTURED DATA
+          SECTION 5: JSON-LD STRUCTURED DATA
           ================================================================ */}
       <JsonLd data={generateSolutionsPageSchema()} />
     </>

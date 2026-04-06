@@ -8,8 +8,7 @@ import { Container } from "@/components/layout/container";
    Figma source: designs/html/shared-header-footer.html
 
    4-column link grid on dark (secondary) surface with bottom bar
-   containing brand description, copyright, legal links, and data
-   source attribution.
+   containing brand description, copyright, and legal links.
 
    Responsive: 4-col (lg) -> 2-col (sm) -> 1-col (mobile)
    ================================================================ */
@@ -120,8 +119,6 @@ const LEGAL_LINKS: FooterLink[] = [
   { label: "DPA", href: "/legal/dpa" },
 ];
 
-const DATA_SOURCES = ["NOAA", "USGS", "CDC", "GDACS", "ReliefWeb"];
-
 // ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
@@ -226,10 +223,6 @@ function SiteFooter() {
             ))}
           </div>
 
-          {/* Data source attribution */}
-          <p className="mt-4 text-xs text-[var(--color-dark-text-secondary)]">
-            Data sourced from: {DATA_SOURCES.join(" | ")}
-          </p>
         </div>
       </Container>
     </footer>
