@@ -642,13 +642,9 @@ export default function TermsOfServicePage() {
                 </li>
               </ul>
               <p>
-                For procurement and institutional purchasing questions, please
-                visit our <Link href="/procurement">Procurement page</Link> or
-                contact{" "}
-                <a href="mailto:procurement@safetrekr.com">
-                  procurement@safetrekr.com
-                </a>
-                .
+                For institutional purchasing questions, please contact us
+                through our{" "}
+                <Link href="/contact">contact page</Link>.
               </p>
             </article>
 

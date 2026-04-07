@@ -1,8 +1,8 @@
 /* ================================================================
    Pricing Data -- Single Source of Truth
    Ticket: ST-887
-   Usage: Every page that references pricing, tiers, volume discounts,
-          segment scenarios, or value anchors imports from here.
+   Usage: Every page that references pricing, tiers, segment scenarios,
+          or value anchors imports from here.
    ================================================================ */
 
 // ---------------------------------------------------------------------------
@@ -36,20 +36,6 @@ export interface TripTier {
 }
 
 /**
- * Volume discount bracket for organizations purchasing multiple trips.
- */
-export interface VolumeDiscount {
-  /** Trip count range as a display string (e.g. "5-9", "50+"). */
-  trips: string;
-  /** Human-readable discount label. */
-  discount: string;
-  /** Discount percentage (0 = no discount). */
-  pct: number;
-  /** Optional note for the bracket (e.g. "+ dedicated analyst"). */
-  note?: string;
-}
-
-/**
  * A segment-specific pricing scenario showing annual cost modeling.
  */
 export interface SegmentScenario {
@@ -61,7 +47,7 @@ export interface SegmentScenario {
   groupSize: number;
   /** Modeled annual cost in dollars. */
   annual: number;
-  /** Effective per-participant cost after volume discounts. */
+  /** Effective per-participant cost. */
   perParticipant: string;
   /** Brief description of the scenario and why it fits. */
   description: string;
@@ -97,11 +83,11 @@ export const TRIP_TIERS: readonly TripTier[] = [
     perParticipant: "~$15/student for a 30-person group",
     typicalGroupSize: 30,
     features: [
-      "17-section professional review",
-      "Current safety information",
+      "Experienced analyst review",
+      "Active intelligence monitoring",
       "Complete safety binder",
       "Chaperone mobile app",
-      "3-5 day turnaround",
+      "Delivery in as soon as 3 days",
     ],
     featured: false,
   },
@@ -139,61 +125,47 @@ export const TRIP_TIERS: readonly TripTier[] = [
 ] as const;
 
 /**
- * Volume discount brackets for multi-trip purchases.
- *
- * Applied as a percentage off the per-trip price. The 50+ bracket
- * includes a dedicated analyst as an additional benefit.
- */
-export const VOLUME_DISCOUNTS: readonly VolumeDiscount[] = [
-  { trips: "1-4", discount: "Standard", pct: 0 },
-  { trips: "5-9", discount: "5% off", pct: 5 },
-  { trips: "10-24", discount: "10% off", pct: 10 },
-  { trips: "25-49", discount: "15% off", pct: 15 },
-  { trips: "50+", discount: "20% off", pct: 20, note: "+ dedicated analyst" },
-] as const;
-
-/**
  * Segment-specific pricing scenarios for ROI modeling.
  *
  * Each scenario models a realistic annual usage pattern for the given
- * market segment, including volume discount where applicable.
+ * market segment.
  */
 export const SEGMENT_SCENARIOS: readonly SegmentScenario[] = [
   {
     segment: "K-12 School District",
     trips: 12,
     groupSize: 30,
-    annual: 4860,
-    perParticipant: "~$13.50",
+    annual: 5400,
+    perParticipant: "~$15",
     description:
-      "A mid-size district running monthly field trips. 10% volume discount applied at 12 trips/year. FERPA-ready documentation for every outing.",
+      "A mid-size district running monthly field trips. FERPA-ready documentation for every outing.",
   },
   {
     segment: "Church / Mission Organization",
     trips: 6,
     groupSize: 25,
-    annual: 4275,
-    perParticipant: "~$28.50",
+    annual: 4500,
+    perParticipant: "~$30",
     description:
-      "Mix of domestic youth retreats and international mission trips. 5% volume discount at 6 trips/year. Insurance-ready documentation for volunteer travel.",
+      "Mix of domestic youth retreats and international mission trips. Insurance-ready documentation for volunteer travel.",
   },
   {
     segment: "Higher Education",
     trips: 20,
     groupSize: 35,
-    annual: 13500,
-    perParticipant: "~$19.29",
+    annual: 15000,
+    perParticipant: "~$21.43",
     description:
-      "Study abroad programs, athletic travel, and research expeditions. 10% volume discount at 20 trips/year. Clery Act and institutional risk management compliance.",
+      "Study abroad programs, athletic travel, and research expeditions. Clery Act and institutional risk management compliance.",
   },
   {
     segment: "Corporate / Sports",
     trips: 30,
     groupSize: 20,
-    annual: 11475,
-    perParticipant: "~$19.13",
+    annual: 13500,
+    perParticipant: "~$22.50",
     description:
-      "Business travel, team transportation, and off-site events. 15% volume discount at 30 trips/year. Duty of care documentation for mid-market organizations.",
+      "Business travel, team transportation, and off-site events. Duty of care documentation for mid-market organizations.",
   },
 ] as const;
 

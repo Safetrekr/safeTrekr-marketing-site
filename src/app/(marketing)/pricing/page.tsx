@@ -1,23 +1,22 @@
 /**
- * ST-880: REQ-080 -- Pricing Page (/pricing)
+ * ST-880: REQ-080, Pricing Page (/pricing)
  *
  * Straightforward pricing page for SafeTrekr. Presents three trip tiers
- * (Day Trip, Extended Trip, International), volume discounts, included features,
- * optional add-ons, segment scenarios, procurement resources, and FAQ.
+ * (Day Trip, Extended Trip, International), included features, optional add-ons,
+ * segment scenarios, procurement resources, and FAQ.
  *
  * Server Component at the page level. Client components (Accordion via FAQSection,
  * ScrollReveal, StaggerChildren) are rendered as children within this tree.
  *
  * Section order:
- *   1. Hero              -- "Professional trip assessment. Straightforward pricing."
- *   2. Pricing Tiers     -- 3 PricingTierCards (Day Trip, Extended, International)
- *   3. Volume Discounts  -- 4-tier table with mobile cards
- *   4. What's Included   -- 8 FeatureCards on primary-50 wash
- *   5. Add-ons/Scenarios -- ROI Calculator + 4 pricing scenario cards
- *   5b. Procurement      -- Dark section with checklist + /procurement link
- *   6. FAQ               -- 6 pricing questions with FAQPage JSON-LD
- *   7. CTA Band          -- Conversion band
- *   8. JSON-LD           -- Product + Offer schemas
+ *   1. Hero             , "Professional trip assessment. Straightforward pricing."
+ *   2. Pricing Tiers    , 3 PricingTierCards (Day Trip, Extended, International)
+ *   3. What's Included  , 8 FeatureCards on primary-50 wash
+ *   4. Add-ons/Scenarios, ROI Calculator + 4 pricing scenario cards
+ *   4b. Procurement     , Dark section with checklist + /procurement link
+ *   5. FAQ              , 6 pricing questions with FAQPage JSON-LD
+ *   6. CTA Band         , Conversion band
+ *   7. JSON-LD          , Product + Offer schemas
  *
  * @see designs/html/mockup-pricing.html
  */
@@ -34,7 +33,6 @@ import {
   Scale,
   Calculator,
   ArrowRight,
-  Check,
   GraduationCap,
   Building2,
   School,
@@ -48,6 +46,7 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   PricingTierCard,
+  InternationalPricingCard,
   FAQSection,
   CTABand,
   FeatureCard,
@@ -63,7 +62,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "Pricing",
   description:
-    "SafeTrekr pricing starts at $450 per trip. Professional safety review, government data sources, and complete documentation -- from $15 per participant. No annual contracts required.",
+    "SafeTrekr pricing starts at $450 per trip. Experienced analyst review, active intelligence monitoring, and complete documentation, from $15 per participant. No annual contracts required.",
   path: "/pricing",
 });
 
@@ -72,20 +71,20 @@ export const metadata = generatePageMetadata({
 // ---------------------------------------------------------------------------
 
 const DAY_TRIP_FEATURES = [
-  "17-section analyst review",
-  "5 government data sources",
-  "Complete safety binder",
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
   "Mobile field support access",
-  "3-5 business day delivery",
+  "Delivery in as soon as 3 days",
   "Verified documentation",
-  "PDF export",
+  "PDF & print export",
   "30-day post-trip access",
 ] as const;
 
 const EXTENDED_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
-  "Extended monitoring period",
+  "Active intelligence monitoring",
   "Sports and athletic travel coverage",
   "Multiple venue assessment",
   "Priority analyst assignment",
@@ -94,20 +93,13 @@ const EXTENDED_TRIP_FEATURES = [
 
 const INTERNATIONAL_FEATURES = [
   "Everything in Extended Trip",
-  "International information coverage",
+  "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
   "Evacuation planning documentation",
-  "Regional briefing",
+  "Pre-departure briefing",
   "Extended monitoring (trip duration + 7 days)",
   "90-day post-trip access",
-] as const;
-
-const VOLUME_TIERS = [
-  { trips: "10\u201324 trips", discount: "10% off", example: "$405 / trip", highlighted: false },
-  { trips: "25\u201349 trips", discount: "15% off", example: "$382.50 / trip", highlighted: false },
-  { trips: "50\u201399 trips", discount: "20% off", example: "$360 / trip", highlighted: false },
-  { trips: "100+ trips", discount: "Custom pricing", example: "Contact us", highlighted: true },
 ] as const;
 
 const INCLUDED_FEATURES: Array<{
@@ -118,52 +110,51 @@ const INCLUDED_FEATURES: Array<{
 }> = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "Professional Analyst Review",
+    title: "Experienced Analyst Review",
     description:
-      "17-section evaluation by a trained safety analyst.",
+      "Comprehensive evaluation by former Secret Service, Special Operations, and trained safety professionals.",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Government Data Sources",
+    title: "Active Intelligence Monitoring",
     description:
-      "Current information from NOAA, USGS, CDC, GDACS, and ReliefWeb.",
+      "Current information from multiple trusted sources including government, humanitarian, and regional data.",
   },
   {
     icon: <Scale className="size-6" />,
-    title: "Structured Assessment",
+    title: "Comprehensive Assessment",
     description:
-      "Probability-based assessment methodology.",
+      "Every aspect of your trip evaluated, venues, transportation, lodging, activities, and emergency planning.",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Complete Safety Binder",
+    title: "Interactive Digital Safety Binder",
     description:
-      "All findings, recommendations, and contacts documented.",
+      "All findings, recommendations, and contacts in one place. Works on any device.",
   },
   {
     icon: <Shield className="size-6" />,
     title: "Verified Documentation",
     description:
-      "Documentation with integrity verification.",
+      "Professional records you can share with leadership, parents, and stakeholders.",
   },
   {
     icon: <Smartphone className="size-6" />,
     title: "Mobile Field Support",
     description:
-      "Emergency contacts, rally points, and check-in tools in the field.",
+      "Emergency contacts, rally points, and check-in tools accessible in the field.",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "PDF Export",
+    title: "PDF & Print Export",
     description:
-      "Download and share with stakeholders.",
+      "Download, print, and share with anyone who needs it.",
   },
   {
     icon: <Clock className="size-6" />,
-    title: "Post-Trip Access",
+    title: "Delivery in as Soon as 3 Days",
     description:
-      "Continued access to documentation after travel.",
-    featured: true,
+      "Fast turnaround so you can focus on the experience, not the paperwork.",
   },
 ];
 
@@ -171,7 +162,7 @@ const PRICING_FAQS: FAQItem[] = [
   {
     question: "Is there a minimum commitment or annual contract?",
     answer:
-      "No. You can submit a single trip with no ongoing commitment. Volume discounts are available for organizations that want annual agreements, but they're optional.",
+      "No. You can submit a single trip with no ongoing commitment or annual contract required.",
   },
   {
     question: "How do you calculate per-participant cost?",
@@ -186,7 +177,7 @@ const PRICING_FAQS: FAQItem[] = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept credit cards for individual trips. Organizations with volume agreements can pay by invoice.",
+      "We accept credit cards for individual trips. Organizations can also pay by invoice upon request.",
   },
   {
     question: "Do you offer nonprofit or educational pricing?",
@@ -268,14 +259,14 @@ export default function PricingPage() {
 
             <ScrollReveal>
               <h1 className="mx-auto max-w-4xl text-display-lg text-foreground">
-                Professional trip assessment.{" "}
+                Professional trip Safety Planning.{" "}
                 <span className="text-primary-700">Straightforward pricing.</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-prose text-body-lg text-muted-foreground">
-                Every trip receives a 17-section analyst review, information from 5 government data sources, and complete documentation. Most organizations find that structured trip planning saves time, reduces coordination burden, and creates valuable records.
+                Every trip receives a full analyst review with access to complete documentation through an interactive digital safety binder. Most organizations find that structured trip planning saves time, reduces coordination burden, and creates valuable records.
               </p>
             </ScrollReveal>
 
@@ -332,11 +323,8 @@ export default function PricingPage() {
               badge="Most Popular"
             />
 
-            <PricingTierCard
+            <InternationalPricingCard
               id="international"
-              tierName="International"
-              price="$1,250"
-              perParticipant="~$42/person for a 30-person group"
               features={[...INTERNATIONAL_FEATURES]}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
@@ -346,136 +334,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 3: VOLUME DISCOUNTS
-          ================================================================ */}
-      <SectionContainer aria-label="Volume discounts">
-        <Container size="md">
-          <div className="text-center">
-            <ScrollReveal>
-              <h2 className="text-display-md text-foreground">Volume pricing for frequent travelers.</h2>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p className="mt-4 text-body-lg text-muted-foreground">
-                Organizations with regular travel programs can reduce per-trip costs with volume agreements.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-sm)]">
-              {/* Desktop Table */}
-              <table
-                className="hidden w-full sm:table"
-                aria-label="Volume discount pricing table"
-              >
-                <thead>
-                  <tr className="border-b border-border bg-muted/50">
-                    <th scope="col" className="px-6 py-4 text-left text-eyebrow text-muted-foreground">
-                      Trips Per Year
-                    </th>
-                    <th scope="col" className="px-6 py-4 text-left text-eyebrow text-muted-foreground">
-                      Discount
-                    </th>
-                    <th scope="col" className="px-6 py-4 text-right text-eyebrow text-muted-foreground">
-                      Example (Day Trip)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {VOLUME_TIERS.map((tier) => (
-                    <tr
-                      key={tier.trips}
-                      className={
-                        tier.highlighted
-                          ? "bg-primary-50/50"
-                          : "border-b border-border"
-                      }
-                    >
-                      <td
-                        className={`px-6 py-4 text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.trips}
-                      </td>
-                      <td
-                        className={`px-6 py-4 text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.discount}
-                      </td>
-                      <td
-                        className={`px-6 py-4 text-right text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.example}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              {/* Mobile Cards */}
-              <div className="flex flex-col divide-y divide-border sm:hidden">
-                {VOLUME_TIERS.map((tier) => (
-                  <div
-                    key={tier.trips}
-                    className={`p-4 ${tier.highlighted ? "bg-primary-50/50" : ""}`}
-                  >
-                    <dt
-                      className={`text-heading-sm ${
-                        tier.highlighted ? "text-primary-700" : "text-foreground"
-                      }`}
-                    >
-                      {tier.trips}
-                    </dt>
-                    <dd className="mt-2 flex justify-between">
-                      <span
-                        className={`text-body-sm ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-muted-foreground"
-                        }`}
-                      >
-                        {tier.discount}
-                      </span>
-                      <span
-                        className={`text-body-sm font-medium ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.example}
-                      </span>
-                    </dd>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <div className="mt-8 text-center">
-            <p className="text-body-md text-muted-foreground">
-              Contact us to discuss annual agreements tailored to your organization&apos;s travel patterns.
-            </p>
-            <Button variant="secondary" size="md" className="mt-4" asChild>
-              <Link href="/contact">Discuss Your Needs</Link>
-            </Button>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 4: WHAT'S INCLUDED IN EVERY TRIP
+          SECTION 3: WHAT'S INCLUDED IN EVERY TRIP
           ================================================================ */}
       <SectionContainer variant="brand" aria-labelledby="included-heading">
         <Container>
@@ -506,7 +365,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 5: ADD-ONS (Optional - kept from original)
+          SECTION 4: ADD-ONS (Optional - kept from original)
           ================================================================ */}
       <SectionContainer variant="card" aria-label="ROI calculator">
         <Container size="md">
@@ -543,7 +402,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 5a: SEGMENT-SPECIFIC PRICING SCENARIOS
+          SECTION 4a: SEGMENT-SPECIFIC PRICING SCENARIOS
           ================================================================ */}
       <SectionContainer aria-label="Pricing scenarios">
         <Container>
@@ -673,62 +532,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 5b: PROCUREMENT PATH (Dark Section)
-          ================================================================ */}
-      <SectionContainer variant="dark" aria-label="Procurement resources">
-        <Container>
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-            {/* Left Column: CTA */}
-            <div>
-              <ScrollReveal>
-                <h2 className="text-display-md text-white">Ready to Purchase?</h2>
-              </ScrollReveal>
-              <ScrollReveal>
-                <p className="mt-4 text-body-lg text-muted-foreground">
-                  We have everything your procurement team needs. Skip the sales
-                  cycle with ready-made documentation.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal>
-                <Button variant="primaryOnDark" size="lg" className="mt-8" asChild>
-                  <Link href="/procurement" className="inline-flex items-center gap-2">
-                    For Procurement
-                    <ArrowRight className="size-5" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </ScrollReveal>
-            </div>
-
-            {/* Right Column: Checklist */}
-            <div>
-              <ScrollReveal>
-                <p className="mb-6 text-eyebrow text-primary-400">Procurement documents:</p>
-              </ScrollReveal>
-              <ul className="flex flex-col gap-4">
-                {[
-                  "W-9 form",
-                  "Security questionnaire",
-                  "Contract templates",
-                  "Data Processing Agreement (DPA)",
-                  "Insurance certificate",
-                  "Compliance overview",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <Check
-                      className="size-5 shrink-0 text-[#6cbc8b]"
-                      aria-hidden="true"
-                    />
-                    <span className="text-body-md text-[#b8c3c7]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 6: FAQ
+          SECTION 5: FAQ
           ================================================================ */}
       <SectionContainer aria-label="Frequently asked questions">
         <Container size="md">
@@ -756,7 +560,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 7: CONVERSION CTA BAND
+          SECTION 6: CONVERSION CTA BAND
           ================================================================ */}
       <CTABand
         variant="dark"

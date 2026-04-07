@@ -49,11 +49,12 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
   CTABand,
+  PricingTierCard,
+  InternationalPricingCard,
 } from "@/components/marketing";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -98,7 +99,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Analyst Reviews Everything",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Venues verified. Hotels assessed. Emergency contacts documented.",
+      "A professional safety analyst completes a comprehensive review using current information from multiple trusted sources. Venues verified. Hotels assessed. Emergency contacts documented.",
   },
   {
     number: 3,
@@ -171,27 +172,51 @@ const CHALLENGE_CARDS = [
 ] as const;
 
 const BINDER_CHECKLIST = [
-  "17-section analyst review",
-  "5 government data sources",
+  "Experienced analyst review",
+  "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "3-5 day delivery",
+  "Delivery in as soon as 3 days",
 ] as const;
 
-const PRICING_FEATURES = [
-  "17-section analyst review",
-  "5 government data sources",
-  "Complete safety binder",
-  "Mobile field support",
-  "3-5 day delivery",
-] as const;
+const SPORTS_DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Delivery in as soon as 3 days",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
+];
+
+const SPORTS_EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Multi-venue and hotel assessment",
+  "Tournament travel coverage",
+  "Priority analyst assignment",
+  "60-day post-trip access",
+];
+
+const SPORTS_INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Air travel assessment",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "90-day post-trip access",
+];
 
 const COST_COMPARISON_ROWS = [
   {
     without:
       "Volunteer coaches spend hours assembling safety information between practices and games",
     withSafeTrekr:
-      "Professional analyst completes 17-section review in 3-5 days. Coaches focus on the athletes.",
+      "Professional analyst completes comprehensive review in as soon as 3 days. Coaches focus on the athletes.",
   },
   {
     without:
@@ -284,12 +309,12 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Do you offer season arrangements or annual agreements?",
     answer:
-      "Yes. Organizations with multiple teams or frequent travel can benefit from annual agreements. Contact us to discuss volume pricing for your organization.",
+      "Yes. Organizations with multiple teams or frequent travel can benefit from annual agreements. Contact us to discuss options for your organization.",
   },
   {
     question: "How quickly can we get documentation for an upcoming tournament?",
     answer:
-      "Standard delivery is 3-5 business days. Priority processing is available for Multi-Day and National/International trips. Contact us for expedited options.",
+      "Standard delivery is as soon as 3 days. Priority processing is available for Multi-Day and National/International trips. Contact us for expedited options.",
   },
 ];
 
@@ -424,11 +449,6 @@ export default function SportsPage() {
       </SectionContainer>
 
       {/* ----------------------------------------------------------------
-          Section 2: Trust Strip
-          ---------------------------------------------------------------- */}
-      <TrustStrip />
-
-      {/* ----------------------------------------------------------------
           Section 3: The Challenge
           ---------------------------------------------------------------- */}
       <SectionContainer
@@ -493,7 +513,7 @@ export default function SportsPage() {
                 id="sports-how-heading"
                 className="mt-4 text-heading-lg text-secondary"
               >
-                From trip registration to complete documentation in 3-5 days
+                From trip registration to complete documentation in as soon as 3 days
               </h2>
             </div>
           </ScrollReveal>
@@ -574,7 +594,7 @@ export default function SportsPage() {
               <p className="mt-4 text-body-lg text-muted-foreground">
                 A professionally reviewed safety binder that documents venue
                 safety, hotel evaluation, transportation assessment, and
-                emergency contacts. 17 sections. 5 government data sources.
+                emergency contacts. Comprehensive review. Multiple trusted sources.
                 Ready to share with parents and organizational files.
               </p>
               <div className="mt-8">
@@ -614,22 +634,22 @@ export default function SportsPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {[
               {
-                stat: "17",
-                label: "Sections of Safety Review",
+                stat: "Full",
+                label: "Comprehensive Review",
                 description:
-                  "Every tournament trip reviewed across 17 standardized sections -- venue, lodging, transportation, weather, medical access, and more.",
+                  "Every tournament trip reviewed across multiple standardized sections -- venue, lodging, transportation, weather, medical access, and more.",
               },
               {
-                stat: "5",
-                label: "Government Data Sources",
+                stat: "Multiple",
+                label: "Trusted Intel Sources",
                 description:
-                  "Current information from government data sources including weather, emergency management, and regional conditions.",
+                  "Current information from trusted sources including weather, emergency management, and regional conditions -- professionally evaluated.",
               },
               {
-                stat: "3-5",
-                label: "Business Days to Delivery",
+                stat: "3 Days",
+                label: "Fast Turnaround",
                 description:
-                  "Submit your tournament details. Receive your complete safety binder in 3-5 business days.",
+                  "Submit your tournament details. Receive your complete safety binder in as soon as 3 days.",
               },
             ].map((item, index) => (
               <ScrollReveal key={item.label} delay={index * 0.1}>
@@ -669,78 +689,34 @@ export default function SportsPage() {
             </div>
           </ScrollReveal>
 
-          {/* Scenario cards */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {[
-              {
-                title: "Regional Tournament",
-                price: "$450",
-                subtitle: "~$23/player for a 20-player roster",
-                features: PRICING_FEATURES,
-              },
-              {
-                title: "Multi-Day Tournament",
-                price: "$750",
-                subtitle: "~$38/player for a 20-player roster",
-                features: [
-                  ...PRICING_FEATURES,
-                  "Extended trip support",
-                  "Multi-venue assessment",
-                  "Hotel evaluation",
-                  "Priority analyst assignment",
-                ],
-                featured: true,
-              },
-              {
-                title: "National / International",
-                price: "$1,250",
-                subtitle: "~$63/player for a 20-player roster",
-                features: [
-                  ...PRICING_FEATURES,
-                  "Air travel assessment",
-                  "International information coverage",
-                  "Extended monitoring period",
-                  "Evacuation planning documentation",
-                ],
-              },
-            ].map((scenario, index) => (
-              <ScrollReveal key={scenario.title} delay={index * 0.1}>
-                <div
-                  className={`rounded-xl border p-6 ${
-                    scenario.featured
-                      ? "border-primary-200 bg-primary-50/30 shadow-[var(--shadow-md)]"
-                      : "border-border bg-card shadow-[var(--shadow-sm)]"
-                  }`}
-                >
-                  {scenario.featured && (
-                    <Badge variant="brand" className="mb-4">
-                      Most Popular
-                    </Badge>
-                  )}
-                  <h3 className="text-heading-sm text-foreground">
-                    {scenario.title}
-                  </h3>
-                  <p className="mt-1 text-body-xs text-muted-foreground">
-                    {scenario.subtitle}
-                  </p>
-                  <p className="mt-4 text-display text-primary-700">
-                    {scenario.price}
-                  </p>
-                  <p className="text-body-xs text-muted-foreground">per trip</p>
-                  <ul className="mt-6 space-y-2">
-                    {scenario.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-body-sm text-muted-foreground"
-                      >
-                        <Check className="mt-0.5 size-4 shrink-0 text-primary-600" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ScrollReveal>
-            ))}
+          {/* Pricing tiers */}
+          <div className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
+            <PricingTierCard
+              id="sports-day-trip"
+              tierName="Day Trip"
+              price="$450"
+              perParticipant="~$15/player for a 30-player roster"
+              features={SPORTS_DAY_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
+            <PricingTierCard
+              id="sports-extended-trip"
+              tierName="Extended Trip"
+              price="$750"
+              perParticipant="~$19/player for a 40-player roster"
+              features={SPORTS_EXTENDED_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+              featured
+              badge="Most Popular"
+            />
+            <InternationalPricingCard
+              id="sports-international"
+              features={SPORTS_INTERNATIONAL_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
           </div>
 
           {/* Cost comparison table */}

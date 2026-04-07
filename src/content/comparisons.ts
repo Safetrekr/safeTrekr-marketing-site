@@ -66,7 +66,7 @@ export const COMPARISON_COLUMNS = [
  */
 export const DEFAULT_COMPARISON_ROWS: readonly ComparisonRow[] = [
   {
-    feature: "17-section professional review",
+    feature: "Comprehensive professional review",
     safetrekr: "yes",
     diy: "no",
     travelApps: "no",
