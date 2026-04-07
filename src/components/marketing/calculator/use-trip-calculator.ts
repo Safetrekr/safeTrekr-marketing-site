@@ -8,8 +8,6 @@ import { useCallback, useState } from "react";
    ================================================================ */
 
 export const PRICE_PER_STUDENT = 15;
-export const STAFF_COST_LOW_PER_TRIP = 700;
-export const STAFF_COST_HIGH_PER_TRIP = 1_400;
 
 export interface TripCalculatorDefaults {
   students?: number;
@@ -27,8 +25,6 @@ export interface TripCalculatorState {
   totals: {
     annualCost: number;
     perTripCost: number;
-    staffCostLow: number;
-    staffCostHigh: number;
     annualRevenue: number;
     annualSurplus: number;
   };
@@ -56,8 +52,6 @@ export function useTripCalculator(
 
   const annualCost = students * PRICE_PER_STUDENT * trips;
   const perTripCost = students * PRICE_PER_STUDENT;
-  const staffCostLow = trips * STAFF_COST_LOW_PER_TRIP;
-  const staffCostHigh = trips * STAFF_COST_HIGH_PER_TRIP;
   const annualRevenue = students * pricePerStudent * trips;
   const annualSurplus = annualRevenue - annualCost;
 
@@ -71,8 +65,6 @@ export function useTripCalculator(
     totals: {
       annualCost,
       perTripCost,
-      staffCostLow,
-      staffCostHigh,
       annualRevenue,
       annualSurplus,
     },

@@ -51,6 +51,8 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
+  PricingTierCard,
+  InternationalPricingCard,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
@@ -181,29 +183,37 @@ const BINDER_CHECKLIST = [
   "Complete audit trail for insurance documentation",
 ] as const;
 
-const PRICING_FEATURES_DOMESTIC = [
+const CHURCHES_DAY_TRIP_FEATURES = [
   "Experienced analyst review",
-  "Active intelligence monitoring",
-  "Complete safety binder",
-  "Mobile field support",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
   "Delivery in as soon as 3 days",
-] as const;
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
+];
 
-const PRICING_FEATURES_INTERNATIONAL = [
-  "Everything in Domestic",
-  "Multi-week trip support",
-  "Extended monitoring period",
-  "Ministry partner context",
+const CHURCHES_EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Mission and retreat travel coverage",
+  "Multiple venue assessment",
   "Priority analyst assignment",
-] as const;
+  "60-day post-trip access",
+];
 
-const PRICING_FEATURES_CHALLENGING = [
-  "Everything in International",
-  "Enhanced regional assessment",
+const CHURCHES_INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
   "Embassy and consulate contacts",
+  "Regional condition assessment",
   "Evacuation planning documentation",
-  "Regional condition briefing",
-] as const;
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
+];
 
 
 const TRUST_BADGES = [
@@ -946,117 +956,33 @@ export default function ChurchSolutionsPage() {
             </ScrollReveal>
 
             {/* Pricing Cards */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {/* Domestic Trip */}
-              <ScrollReveal variant="fadeUp">
-                <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                  <div className="font-display text-5xl font-bold text-foreground">
-                    $450
-                  </div>
-                  <div className="mt-1 text-body-md text-muted-foreground">
-                    per domestic trip
-                  </div>
-                  <div className="mt-4 space-y-1">
-                    <p className="text-sm text-muted-foreground">
-                      ~$15/person for a 30-person team
-                    </p>
-                  </div>
-                  <div className="mt-6 border-t border-border pt-6">
-                    <ul className="space-y-3">
-                      {PRICING_FEATURES_DOMESTIC.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2.5"
-                        >
-                          <Check
-                            className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                            strokeWidth={2.5}
-                            aria-hidden="true"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* International Mission */}
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <div className="rounded-2xl border border-primary-400 bg-card p-8 shadow-md">
-                  <Badge variant="brand" className="mb-4 text-xs">
-                    Most Popular
-                  </Badge>
-                  <div className="font-display text-5xl font-bold text-foreground">
-                    $750
-                  </div>
-                  <div className="mt-1 text-body-md text-muted-foreground">
-                    per international mission
-                  </div>
-                  <div className="mt-4 space-y-1">
-                    <p className="text-sm text-muted-foreground">
-                      ~$25/person for a 30-person team
-                    </p>
-                  </div>
-                  <div className="mt-6 border-t border-border pt-6">
-                    <ul className="space-y-3">
-                      {PRICING_FEATURES_INTERNATIONAL.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2.5"
-                        >
-                          <Check
-                            className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                            strokeWidth={2.5}
-                            aria-hidden="true"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* Challenging Region */}
-              <ScrollReveal variant="fadeUp" delay={0.2}>
-                <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                  <div className="font-display text-5xl font-bold text-foreground">
-                    $1,250
-                  </div>
-                  <div className="mt-1 text-body-md text-muted-foreground">
-                    per challenging region trip
-                  </div>
-                  <div className="mt-4 space-y-1">
-                    <p className="text-sm text-muted-foreground">
-                      ~$42/person for a 30-person team
-                    </p>
-                  </div>
-                  <div className="mt-6 border-t border-border pt-6">
-                    <ul className="space-y-3">
-                      {PRICING_FEATURES_CHALLENGING.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2.5"
-                        >
-                          <Check
-                            className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                            strokeWidth={2.5}
-                            aria-hidden="true"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </ScrollReveal>
+            <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
+              <PricingTierCard
+                id="churches-day-trip"
+                tierName="Day Trip"
+                price="$450"
+                perParticipant="~$15/person for a 30-person team"
+                features={CHURCHES_DAY_TRIP_FEATURES}
+                ctaText="Schedule a Walkthrough"
+                ctaHref="/demo"
+              />
+              <PricingTierCard
+                id="churches-extended-trip"
+                tierName="Extended Trip"
+                price="$750"
+                perParticipant="~$19/person for a 40-person team"
+                features={CHURCHES_EXTENDED_TRIP_FEATURES}
+                ctaText="Schedule a Walkthrough"
+                ctaHref="/demo"
+                featured
+                badge="Most Popular"
+              />
+              <InternationalPricingCard
+                id="churches-international"
+                features={CHURCHES_INTERNATIONAL_FEATURES}
+                ctaText="Schedule a Walkthrough"
+                ctaHref="/demo"
+              />
             </div>
 
           </Container>
@@ -1132,22 +1058,6 @@ export default function ChurchSolutionsPage() {
               </div>
             </ScrollReveal>
 
-            {/* Procurement Link */}
-            <ScrollReveal variant="fadeUp">
-              <div className="mt-8 text-center">
-                <p className="text-body-md text-muted-foreground">
-                  Institutional buyer? Download our W-9, security questionnaire
-                  responses, and insurance documentation.
-                </p>
-                <Link
-                  href="/procurement"
-                  className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary-700"
-                >
-                  Visit our procurement page
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </div>
-            </ScrollReveal>
           </Container>
         </SectionContainer>
 

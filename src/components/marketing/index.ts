@@ -44,10 +44,6 @@ export {
 } from "./comparison-table";
 export { HeroHome, type HeroHomeProps } from "./hero/hero-home";
 export {
-  PerStudentCalculator,
-  type PerStudentCalculatorProps,
-} from "./per-student-calculator";
-export {
   BlogPostCard,
   type BlogPostCardProps,
 } from "./blog-post-card";

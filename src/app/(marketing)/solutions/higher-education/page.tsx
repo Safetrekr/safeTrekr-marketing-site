@@ -729,7 +729,7 @@ export default function HigherEducationSolutionsPage() {
 
           {/* Revenue / Surplus Calculator */}
           <ScrollReveal variant="fadeUp">
-            <div className="mx-auto mt-16 max-w-2xl">
+            <div className="mx-auto mt-16 max-w-[672px]">
               <RevenueCalculator />
             </div>
           </ScrollReveal>
@@ -895,22 +895,6 @@ export default function HigherEducationSolutionsPage() {
             </div>
           </ScrollReveal>
 
-          {/* Procurement Link */}
-          <ScrollReveal variant="fadeUp">
-            <div className="mt-8 text-center">
-              <p className="text-body-md text-muted-foreground">
-                Institutional buyer? Download our W-9, security questionnaire
-                responses, and insurance documentation.
-              </p>
-              <Link
-                href="/procurement"
-                className="mt-2 inline-flex items-center gap-1 text-body-md font-medium text-primary-700"
-              >
-                Visit our procurement page
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </ScrollReveal>
         </Container>
       </SectionContainer>
 

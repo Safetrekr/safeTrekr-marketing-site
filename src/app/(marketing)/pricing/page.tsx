@@ -33,7 +33,6 @@ import {
   Scale,
   Calculator,
   ArrowRight,
-  Check,
   GraduationCap,
   Building2,
   School,
@@ -529,61 +528,6 @@ export default function PricingPage() {
               </span>
             </Link>
           </StaggerChildren>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 4b: PROCUREMENT PATH (Dark Section)
-          ================================================================ */}
-      <SectionContainer variant="dark" aria-label="Procurement resources">
-        <Container>
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-            {/* Left Column: CTA */}
-            <div>
-              <ScrollReveal>
-                <h2 className="text-display-md text-white">Ready to Purchase?</h2>
-              </ScrollReveal>
-              <ScrollReveal>
-                <p className="mt-4 text-body-lg text-white/80">
-                  We have everything your procurement team needs. Skip the sales
-                  cycle with ready-made documentation.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal>
-                <Button variant="primaryOnDark" size="lg" className="mt-8" asChild>
-                  <Link href="/procurement" className="inline-flex items-center gap-2">
-                    For Procurement
-                    <ArrowRight className="size-5" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </ScrollReveal>
-            </div>
-
-            {/* Right Column: Checklist */}
-            <div>
-              <ScrollReveal>
-                <p className="mb-6 text-eyebrow text-primary-400">Procurement documents:</p>
-              </ScrollReveal>
-              <ul className="flex flex-col gap-4">
-                {[
-                  "W-9 form",
-                  "Security questionnaire",
-                  "Contract templates",
-                  "Data Processing Agreement (DPA)",
-                  "Insurance certificate",
-                  "Compliance overview",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <Check
-                      className="size-5 shrink-0 text-[#6cbc8b]"
-                      aria-hidden="true"
-                    />
-                    <span className="text-body-md text-[#b8c3c7]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </Container>
       </SectionContainer>
 

@@ -37,7 +37,7 @@ import { Container } from "@/components/layout/container";
 import { Eyebrow, CTABand } from "@/components/marketing";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { ROICalculator } from "@/components/tools/roi-calculator";
+import { RevenueCalculator } from "@/components/marketing/calculator";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -118,14 +118,17 @@ export default function ROICalculatorPage() {
 
             <ScrollReveal>
               <h1 className="mx-auto max-w-4xl text-display-lg text-foreground">
-                Calculate Your{" "}
-                <span className="text-primary-700">Planning Investment</span>
+                Turn Safety Planning Into a{" "}
+                <span className="text-primary-700">Revenue Line</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-prose text-body-lg text-muted-foreground">
-                Professional trip planning is an investment in structure, consistency, and confidence. Use this calculator to understand what SafeTrekr delivers for your organization.
+                Most organizations pass a small travel safety fee through to
+                participants. Drag the sliders to see how that fee covers
+                SafeTrekr and still leaves a surplus your program can put to
+                work.
               </p>
             </ScrollReveal>
           </div>
@@ -137,17 +140,19 @@ export default function ROICalculatorPage() {
           ================================================================ */}
       <SectionContainer variant="card" aria-label="ROI calculator inputs and results">
         <Container>
-          <Suspense
-            fallback={
-              <div className="flex min-h-[400px] items-center justify-center">
-                <p className="text-body-md text-muted-foreground">
-                  Loading calculator...
-                </p>
-              </div>
-            }
-          >
-            <ROICalculator />
-          </Suspense>
+          <div className="mx-auto max-w-[672px]">
+            <Suspense
+              fallback={
+                <div className="flex min-h-[400px] items-center justify-center">
+                  <p className="text-body-md text-muted-foreground">
+                    Loading calculator...
+                  </p>
+                </div>
+              }
+            >
+              <RevenueCalculator />
+            </Suspense>
+          </div>
         </Container>
       </SectionContainer>
 

@@ -61,7 +61,7 @@ import {
   CTABand,
 } from "@/components/marketing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
-import { PerStudentCalculator } from "@/components/marketing/per-student-calculator";
+import { RevenueCalculator } from "@/components/marketing/calculator";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerChildren } from "@/components/motion/stagger-children";
@@ -133,29 +133,43 @@ const FEATURE_CARDS = [
     icon: <CheckSquare className="size-6" />,
     title: "Experienced Analyst Review",
     description:
-      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety professionals. Venues, transportation, lodging, emergency contacts, medical facilities, weather, and more -- all evaluated and documented.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety staff analyzing all aspects of the trip safety and intelligence. Assessments by professionals, not automation.",
     href: "/platform/analyst-review",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Active Intelligence Monitoring",
+    title: "Current Safety Information",
     description:
-      "Information from multiple trusted sources including government, humanitarian, and regional data. Current conditions for your destinations assessed by professionals.",
+      "Active intelligence drawn from trusted governmental and private sources, so your district makes informed decisions before, during, and after every trip.",
     href: "/platform/risk-intelligence",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Board-Ready Documentation",
+    title: "Clear Documentation",
     description:
-      "Every safety binder is structured for stakeholder review. When the board, parents, or administrators ask what the district did to prepare, you have professional documentation to share.",
+      "All safety and planning is completed and provided in a digitized interactive safety binder. Before you go, professional planning and documentation is readily available to everyone.",
     href: "/platform/safety-binder",
+  },
+] as const;
+
+const APP_CARDS = [
+  {
+    icon: <Smartphone className="size-6" />,
+    title: "Chaperone App",
+    description:
+      "Emergency contacts, rally points, headcount tools, and incident reporting in every chaperone&rsquo;s pocket. No training required. Works offline.",
   },
   {
     icon: <Smartphone className="size-6" />,
-    title: "Chaperone Mobile App",
+    title: "Traveler App",
     description:
-      "Emergency contacts, rally points, and check-in tools accessible on every chaperone's phone. No training required. Works offline.",
-    href: "/platform/mobile-app",
+      "Students get the trip plan, schedule, contacts, and safety info on their own device, exactly what they need, nothing they don&rsquo;t.",
+  },
+  {
+    icon: <Smartphone className="size-6" />,
+    title: "Guardian App",
+    description:
+      "Parents stay in the loop with check-ins, location updates, and instant access to the same emergency information chaperones carry.",
   },
 ] as const;
 
@@ -200,9 +214,9 @@ const PAIN_CARDS = [
 const COMPLIANCE_BADGES = [
   {
     icon: <Shield className="size-6" />,
-    title: "Designed for Student Privacy",
+    title: "Built for Student Privacy",
     description:
-      "Designed with student data protection in mind. Role-based access controls, data minimization practices, and secure handling built for K-12 environments.",
+      "Role-based access, data minimization, and secure handling designed for school environments.",
   },
   {
     icon: <Lock className="size-6" />,
@@ -214,13 +228,13 @@ const COMPLIANCE_BADGES = [
     icon: <FileText className="size-6" />,
     title: "Clear Documentation",
     description:
-      "Documentation designed for the questions stakeholders ask. Organized records that demonstrate thorough preparation.",
+      "Organized records that answer the questions stakeholders ask, without the legal jargon.",
   },
   {
     icon: <Link2 className="size-6" />,
     title: "Verified Integrity",
     description:
-      "Every finding and recommendation documented with verified integrity. Professional records you can share with confidence.",
+      "Every finding and recommendation documented and traceable. Professional records you can share with confidence.",
   },
 ] as const;
 
@@ -414,9 +428,9 @@ export default function K12SolutionsPage() {
                     With SafeTrekr
                   </p>
                   <p className="mt-3 text-body-lg italic text-dark-text-secondary">
-                    &ldquo;Here is the comprehensive safety review conducted by
-                    experienced professionals, the safety assessment, and
-                    the complete documentation binder.&rdquo;
+                    &ldquo;Here is a safety assessment and plan conducted by a
+                    professional analyst that all students, faculty and parents
+                    can review before departure.&rdquo;
                   </p>
                   <p className="mt-4 text-body-md text-dark-text-secondary">
                     Answer: A documented, professional record of the preparation
@@ -459,7 +473,7 @@ export default function K12SolutionsPage() {
 
           {/* Feature Cards Grid */}
           <StaggerChildren
-            className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-8"
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
             staggerDelay={0.1}
           >
             {FEATURE_CARDS.map((card) => (
@@ -473,6 +487,58 @@ export default function K12SolutionsPage() {
               </ScrollReveal>
             ))}
           </StaggerChildren>
+        </Container>
+      </SectionContainer>
+
+      {/* ================================================================
+         SECTION 4b: MOBILE APPS (Chaperone, Traveler, Guardian)
+         ================================================================ */}
+      <SectionContainer
+        variant="brand"
+        id="apps"
+        ariaLabelledBy="apps-heading"
+      >
+        <Container>
+          <ScrollReveal variant="fadeUp">
+            <div className="mx-auto max-w-[768px] text-center">
+              <Eyebrow color="primary" className="block">
+                Mobile Apps
+              </Eyebrow>
+              <h2
+                id="apps-heading"
+                className="mt-3 text-display-md text-foreground"
+              >
+                Chaperone, Traveler, and Guardian
+              </h2>
+              <p className="mx-auto mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
+                Three purpose-built apps put the trip plan in everyone&rsquo;s
+                hands, chaperones leading the group, students on the trip,
+                and parents back home.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <StaggerChildren
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+            staggerDelay={0.1}
+          >
+            {APP_CARDS.map((card) => (
+              <ScrollReveal key={card.title} variant="fadeUp">
+                <FeatureCard
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.description}
+                />
+              </ScrollReveal>
+            ))}
+          </StaggerChildren>
+
+          {/* Screenshot placeholder */}
+          <div className="mt-12 rounded-2xl border-2 border-dashed border-border bg-card/50 p-12 text-center">
+            <p className="text-body-md text-muted-foreground">
+              App screenshots coming soon.
+            </p>
+          </div>
         </Container>
       </SectionContainer>
 
@@ -655,7 +721,7 @@ export default function K12SolutionsPage() {
           {/* Calculator */}
           <ScrollReveal variant="fadeUp" delay={0.1}>
             <div className="mx-auto mt-12 max-w-[672px]">
-              <PerStudentCalculator />
+              <RevenueCalculator />
             </div>
           </ScrollReveal>
         </Container>
@@ -680,15 +746,16 @@ export default function K12SolutionsPage() {
                 id="compliance-heading"
                 className="mt-3 text-display-md text-foreground"
               >
-                Designed with FERPA Requirements in Mind
+                Built with Student Privacy in Mind
               </h2>
               <p className="mt-4 text-body-lg text-muted-foreground">
-                Student data is sensitive. We built SafeTrekr knowing that. Our data
-                handling practices follow FERPA guidelines for student education
-                records. Certification is in progress.
+                Student data is sensitive, and we built SafeTrekr knowing
+                that. Information is handled with care, kept secure, and
+                only used to support safer trips.
               </p>
               <p className="mt-4 text-body-lg font-medium text-foreground">
-                We do not overclaim. We do not cut corners. We document everything.
+                We do not overclaim. We do not cut corners. We document
+                everything.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
@@ -697,13 +764,6 @@ export default function K12SolutionsPage() {
                   className="inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:text-primary-600"
                 >
                   View our security practices
-                  <ArrowRight className="size-3.5" aria-hidden="true" />
-                </Link>
-                <Link
-                  href="/procurement"
-                  className="inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:text-primary-600"
-                >
-                  Procurement resources
                   <ArrowRight className="size-3.5" aria-hidden="true" />
                 </Link>
               </div>
@@ -732,11 +792,11 @@ export default function K12SolutionsPage() {
                 ))}
               </StaggerChildren>
 
-              {/* COPPA Note */}
+              {/* Privacy Note */}
               <p className="mt-8 max-w-[65ch] text-body-sm text-muted-foreground">
-                SafeTrekr does not collect data directly from students under 13. All
-                student information is provided by authorized school administrators in
-                accordance with COPPA guidelines.
+                SafeTrekr does not collect information directly from students.
+                All student information is provided by authorized school
+                administrators.
               </p>
             </div>
           </div>

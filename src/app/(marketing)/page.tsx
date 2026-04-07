@@ -29,6 +29,42 @@ import {
   JsonLd,
   generateSoftwareApplicationSchema,
 } from "@/lib/structured-data";
+import {
+  PricingTierCard,
+  InternationalPricingCard,
+} from "@/components/marketing";
+
+const HOME_DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Delivery in as soon as 3 days",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
+];
+
+const HOME_EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Tournament and conference travel",
+  "Multiple venue assessment",
+  "Priority analyst assignment",
+  "60-day post-trip access",
+];
+
+const HOME_INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
+];
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -773,66 +809,33 @@ export default function HomePage() {
           </div>
 
           {/* 3 Pricing Tiers */}
-          <div className="grid md:grid-cols-3 gap-8 mt-12 items-start">
-            {/* Tier 1: Field Trip ($450) */}
-            <div className="rounded-2xl border-2 p-8" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Day Trip</h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$450</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
-              </div>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$15/student for a 30-person group</p>
-              <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Experienced analyst review', 'Active intelligence monitoring', 'Complete safety binder', 'Mobile field support', 'Delivery in as soon as 3 days'].map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
-            </div>
-
-            {/* Tier 2: Extended Trip ($750) - Featured */}
-            <div className="rounded-2xl border-2 p-8 pricing-featured" style={{ background: 'var(--color-card)', borderColor: 'var(--color-primary-500)', boxShadow: 'var(--shadow-xl)' }}>
-              <div className="flex items-center justify-between">
-                <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Extended Trip</h3>
-                <span className="badge badge-brand" style={{ fontSize: 12 }}>Most Popular</span>
-              </div>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$750</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
-              </div>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$19/student for a 40-person group</p>
-              <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Everything in Day Trip', 'Multi-day trip support', 'Extended monitoring period', 'Tournament and conference travel', 'Priority analyst assignment'].map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
-            </div>
-
-            {/* Tier 3: International ($1,250) */}
-            <div className="rounded-2xl border-2 p-8" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>International</h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$1,250</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
-              </div>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$42/participant for a 30-person group</p>
-              <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Everything in Extended Trip', 'International information coverage', 'Embassy and consulate contacts', 'Regional condition assessment', 'Evacuation planning documentation'].map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
-            </div>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-12 items-start">
+            <PricingTierCard
+              id="home-day-trip"
+              tierName="Day Trip"
+              price="$450"
+              perParticipant="~$15/person for a 30-person group"
+              features={HOME_DAY_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
+            <PricingTierCard
+              id="home-extended-trip"
+              tierName="Extended Trip"
+              price="$750"
+              perParticipant="~$19/person for a 40-person group"
+              features={HOME_EXTENDED_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+              featured
+              badge="Most Popular"
+            />
+            <InternationalPricingCard
+              id="home-international"
+              features={HOME_INTERNATIONAL_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
           </div>
 
           <div className="text-center mt-10">
