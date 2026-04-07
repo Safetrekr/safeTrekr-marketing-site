@@ -7,7 +7,7 @@
  *
  * Positioning: "Enterprise safety at per-trip pricing" for mid-market.
  * Pricing anchors: $450 domestic, $1,250 international.
- * Sample binder: Singapore -- Kuala Lumpur -- Bangkok.
+ * Sample binder: Singapore, Kuala Lumpur, Bangkok.
  *
  * 10-section structure matching the segment page template:
  *   1. Hero
@@ -48,16 +48,16 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
   CTABand,
+  PricingTierCard,
+  InternationalPricingCard,
 } from "@/components/marketing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -87,21 +87,21 @@ const BREADCRUMBS = [
 const PROCESS_STEPS = [
   {
     number: 1,
-    title: "Trip Registered",
+    title: "Enter Trip Details",
     description:
-      "An employee or travel coordinator registers the trip through a guided form -- destination, dates, purpose, and logistics. Takes 15 minutes. No training required.",
+      "Enter all of your trip details and activities through a self guided form. Takes about 15 minutes.",
   },
   {
     number: 2,
-    title: "Analyst Reviews Everything",
+    title: "Analyst Review",
     description:
-      "A professional safety analyst completes a comprehensive review using current information from government data sources. Venues verified. Transportation assessed. Emergency contacts documented.",
+      "Our highly trained and dedicated safety analyst reviews your trip using the most current information, providing the highest quality travel safety plan in the industry.",
   },
   {
     number: 3,
-    title: "Documentation Delivered",
+    title: "Receive Your Safety Binder",
     description:
-      "Your company receives a complete safety binder with every finding, recommendation, and contact. Evidence of preparation for HR, leadership, and organizational records.",
+      "Your organization receives a digitized interactive or printed safety binder for organized and easy reference. Share with leadership, parents, or stakeholders.",
   },
 ];
 
@@ -124,32 +124,44 @@ const FEATURE_CARDS = [
   {
     icon: <ClipboardCheck className="size-6" />,
     title: "Duty of Care Documentation",
-    description:
-      "Every business trip receives professional assessment by a trained analyst. When stakeholders ask what preparation was completed, you have documented evidence.",
+    bullets: [
+      "Professional assessment for every business trip",
+      "Documented evidence of preparation",
+      "Confidence when stakeholders ask questions",
+    ],
     href: "/platform/analyst-review",
     linkText: "Learn about analyst review",
   },
   {
     icon: <MapPin className="size-6" />,
     title: "Conference and Event Travel",
-    description:
-      "Safety review for team travel to conferences, trade shows, and industry events. Venue assessment, transportation evaluation, and emergency contacts -- all documented.",
+    bullets: [
+      "Safety review for conferences, trade shows, and industry events",
+      "Venue and transportation evaluation",
+      "Emergency contacts documented",
+    ],
     href: "/platform/risk-intelligence",
     linkText: "Learn about risk intelligence",
   },
   {
     icon: <FileText className="size-6" />,
     title: "International Business Travel",
-    description:
-      "Comprehensive assessment for employees traveling internationally. Embassy contacts, medical facility locations, regional conditions, and emergency planning.",
+    bullets: [
+      "Comprehensive assessment for international destinations",
+      "Regional conditions and local context",
+      "Emergency planning and key contacts",
+    ],
     href: "/platform/safety-binder",
     linkText: "Learn about the safety binder",
   },
   {
     icon: <Activity className="size-6" />,
     title: "Straightforward Process",
-    description:
-      "Professional travel preparation without dedicated risk management staff, complex implementations, or enterprise pricing. Pay per trip, not per seat.",
+    bullets: [
+      "No dedicated risk management staff required",
+      "No complex implementation or enterprise pricing",
+      "Pay per trip, not per seat",
+    ],
     href: "/platform/mobile-app",
     linkText: "Learn about mobile operations",
   },
@@ -165,22 +177,22 @@ const BINDER_CONTENTS = [
 
 const PROOF_STATS = [
   {
-    value: "Full",
-    label: "Comprehensive Review",
+    value: "In Hand",
+    label: "Traveler Mobile App",
     description:
-      "Every trip reviewed across venues, lodging, transportation, emergency contacts, evacuation routes, and more",
+      "Every traveler gets the full safety binder on their phone, itinerary, contacts, and recommendations always within reach.",
   },
   {
-    value: "Multiple",
-    label: "Trusted Intel Sources",
+    value: "One Tap",
+    label: "Emergency Access",
     description:
-      "Current information from government and authoritative sources",
+      "Instant access to emergency contacts, rally points, and local resources the moment something goes sideways.",
   },
   {
-    value: "3 Days",
-    label: "Fast Turnaround",
+    value: "Anywhere",
+    label: "Offline Ready",
     description:
-      "Professional review and documentation delivered before departure",
+      "Works on the road, in the air, or off the grid. Critical trip information available even without a connection.",
   },
 ];
 
@@ -194,8 +206,8 @@ const COMPARISON_ROWS = [
     with: "Analyst review",
   },
   {
-    without: "No government data sources",
-    with: "Government data sources",
+    without: "No active area intelligence",
+    with: "Active area intelligence",
   },
   {
     without: "No documented preparation",
@@ -211,46 +223,50 @@ const COMPARISON_ROWS = [
   },
 ];
 
-const PRICING_FEATURES_DOMESTIC = [
+const DAY_TRIP_FEATURES = [
   "Experienced analyst review",
-  "Active intelligence monitoring",
-  "Complete safety binder",
-  "Mobile field support",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
   "Delivery in as soon as 3 days",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
 ];
 
-const PRICING_FEATURES_INTERNATIONAL = [
-  "Everything in Domestic",
-  "Multi-week trip support",
-  "Extended monitoring period",
-  "Embassy contact verification",
+const EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Sports and athletic travel coverage",
+  "Multiple venue assessment",
   "Priority analyst assignment",
+  "60-day post-trip access",
+];
+
+const INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
 ];
 
 const COMPLIANCE_BADGES = [
   {
-    icon: <Shield className="size-8" />,
-    title: "Professional Assessment",
-    description:
-      "Every trip reviewed by a trained safety analyst using established methodology.",
-  },
-  {
     icon: <FileText className="size-8" />,
     title: "Documented Preparation",
     description:
-      "Complete records of assessment findings, recommendations, and emergency contacts.",
-  },
-  {
-    icon: <Activity className="size-8" />,
-    title: "Government Data Sources",
-    description:
-      "Current information from multiple established government data sources.",
+      "Complete records of assessment findings, recommendations, and emergency planning.",
   },
   {
     icon: <ClipboardCheck className="size-8" />,
     title: "Duty of Care Documentation",
     description:
-      "Every binder is structured to demonstrate responsible preparation.",
+      "Every binder is structured in easy to understand plans for a safe and stress free trip.",
   },
 ];
 
@@ -258,12 +274,12 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "What is \"duty of care\" and why should our company think about it?",
     answer:
-      "Duty of care is the responsibility employers have to take reasonable steps to protect employees during work activities -- including business travel. When employees travel for work, organizations are expected to assess and address foreseeable considerations. SafeTrekr provides the documented assessment that demonstrates your company prepared responsibly.",
+      "Duty of care is the responsibility employers have to take reasonable steps to protect employees during work activities, including business travel. When employees travel for work, organizations are expected to assess and address foreseeable considerations. SafeTrekr provides the documented assessment that demonstrates your company prepared responsibly.",
   },
   {
     question: "We don't have a travel risk management team. Can we still use SafeTrekr?",
     answer:
-      "Yes -- that's exactly who SafeTrekr is built for. Larger corporations have dedicated travel risk teams. SafeTrekr brings professional-grade travel safety assessment to mid-market companies without dedicated risk staff. We handle the assessment and documentation; you submit the trip details.",
+      "Yes, that's exactly who SafeTrekr is built for. Larger corporations have dedicated travel risk teams. SafeTrekr brings professional-grade travel safety assessment to mid-market companies without dedicated risk staff. We handle the assessment and documentation; you submit the trip details.",
   },
   {
     question: "How does SafeTrekr compare to corporate travel platforms?",
@@ -273,7 +289,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Can we use SafeTrekr for just some trips, or do we need to use it for everything?",
     answer:
-      "You can use SafeTrekr for any trip -- there's no minimum commitment. Many companies start with international travel or unfamiliar destinations, then expand coverage as they see value. The choice is yours.",
+      "You can use SafeTrekr for any trip, there's no minimum commitment. Many companies start with international travel or unfamiliar destinations, then expand coverage as they see value. The choice is yours.",
   },
   {
     question: "What if we have employees traveling to the same destination frequently?",
@@ -381,7 +397,7 @@ export default function CorporateSolutionsPage() {
                 Your company sends employees to conferences, client sites, and
                 international destinations. SafeTrekr provides the professional
                 safety assessment and documentation that demonstrates responsible
-                preparation -- without dedicated risk management staff or complex
+                preparation, without dedicated risk management staff or complex
                 implementations.
               </p>
 
@@ -414,13 +430,6 @@ export default function CorporateSolutionsPage() {
           </div>
         </Container>
       </SectionContainer>
-
-      {/* ================================================================
-          SECTION 2: TRUST STRIP
-          ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip showSources />
-      </ScrollReveal>
 
       {/* ================================================================
           SECTION 3: THE CHALLENGE
@@ -518,7 +527,7 @@ export default function CorporateSolutionsPage() {
                 Professional travel preparation without dedicated risk staff.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                From travel request to complete documentation in as soon as 3 days.
+                From trip details to organized safety plan in as little as 3 days.
               </p>
             </div>
           </ScrollReveal>
@@ -539,7 +548,7 @@ export default function CorporateSolutionsPage() {
                 <FeatureCard
                   icon={card.icon}
                   title={card.title}
-                  description={card.description}
+                  bullets={card.bullets}
                   href={card.href}
                   linkText={card.linkText}
                 />
@@ -590,7 +599,7 @@ export default function CorporateSolutionsPage() {
                 <p className="mt-6 max-w-prose text-body-lg text-muted-foreground">
                   Every SafeTrekr review produces a complete safety binder
                   customized to your specific trip. Professional analyst findings,
-                  recommendations, and emergency contacts -- all documented.
+                  recommendations, and emergency contacts, all documented.
                 </p>
 
                 {/* Binder contents list */}
@@ -636,13 +645,13 @@ export default function CorporateSolutionsPage() {
           <ScrollReveal variant="fadeUp">
             <div className="mb-12 text-center">
               <Eyebrow color="dark" className="mb-4">
-                HOW IT WORKS
+                TRAVELER MOBILE APP
               </Eyebrow>
               <h2
                 id="proof-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-dark-text-primary"
               >
-                From travel request to complete documentation in as soon as 3 days.
+                Your safety binder, in every traveler's pocket.
               </h2>
             </div>
           </ScrollReveal>
@@ -676,9 +685,9 @@ export default function CorporateSolutionsPage() {
           {/* Proof Narrative */}
           <ScrollReveal variant="fadeUp">
             <p className="mx-auto mt-12 max-w-prose text-center text-body-lg text-dark-text-secondary">
-              SafeTrekr brings professional travel safety assessment to
-              mid-market companies. One system for all business travel.
-              Documentation that demonstrates responsible preparation.
+              The SafeTrekr traveler app puts every detail of the trip plan
+              directly in your team's hands, so they can focus on the work
+              ahead, not hunting for information when it matters most.
             </p>
           </ScrollReveal>
         </Container>
@@ -709,158 +718,35 @@ export default function CorporateSolutionsPage() {
           </ScrollReveal>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {/* Domestic Business Trip */}
-            <ScrollReveal variant="fadeUp">
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                <div
-                  className="mt-6 font-display text-5xl font-bold text-foreground"
-                  aria-label="$450 per domestic business trip"
-                >
-                  $450
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per domestic trip
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    Conferences, client visits, team events
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    {PRICING_FEATURES_DOMESTIC.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5"
-                      >
-                        <Check
-                          className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                          strokeWidth={2.5}
-                          aria-hidden="true"
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
+            <PricingTierCard
+              id="day-trip"
+              tierName="Day Trip"
+              price="$450"
+              perParticipant="~$15/person for a 30-person group"
+              features={DAY_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
 
-            {/* International Business Trip */}
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div className="rounded-2xl border border-primary-400 bg-card p-8 shadow-md">
-                <Badge variant="brand" className="mb-4 text-xs">
-                  Most Popular
-                </Badge>
-                <div
-                  className="font-display text-5xl font-bold text-foreground"
-                  aria-label="$750 per international trip"
-                >
-                  $750
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per international trip
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    International client work and conferences
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    {PRICING_FEATURES_INTERNATIONAL.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5"
-                      >
-                        <Check
-                          className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                          strokeWidth={2.5}
-                          aria-hidden="true"
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+            <PricingTierCard
+              id="extended-trip"
+              tierName="Extended Trip"
+              price="$750"
+              perParticipant="~$19/person for a 40-person group"
+              features={EXTENDED_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+              featured
+              badge="Most Popular"
+            />
 
-            {/* Challenging Region */}
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                <div className="mt-6 font-display text-5xl font-bold text-foreground">
-                  $1,250
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per challenging region trip
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    Travel to challenging business environments
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2.5">
-                      <Check
-                        className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm text-muted-foreground">
-                        Everything in International
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <Check
-                        className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm text-muted-foreground">
-                        Enhanced regional assessment
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <Check
-                        className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm text-muted-foreground">
-                        Evacuation planning documentation
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <Check
-                        className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm text-muted-foreground">
-                        Medical infrastructure review
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <Check
-                        className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm text-muted-foreground">
-                        Regional condition briefing
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+            <InternationalPricingCard
+              id="international"
+              features={INTERNATIONAL_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
           </div>
 
           {/* Comparison Block */}
@@ -964,7 +850,7 @@ export default function CorporateSolutionsPage() {
           </ScrollReveal>
 
           {/* Trust Badge Grid */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
             {COMPLIANCE_BADGES.map((badge, index) => (
               <ScrollReveal
                 key={badge.title}

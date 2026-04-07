@@ -56,7 +56,6 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   FeatureCard,
   FAQSection,
   CTABand,
@@ -330,13 +329,6 @@ export default function K12SolutionsPage() {
           </div>
         </Container>
       </SectionContainer>
-
-      {/* ================================================================
-         SECTION 2: TRUST STRIP
-         ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip />
-      </ScrollReveal>
 
       {/* ================================================================
          SECTION 3: THE CHALLENGE (DARK)

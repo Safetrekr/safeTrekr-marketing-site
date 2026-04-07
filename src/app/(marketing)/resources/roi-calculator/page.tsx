@@ -1,5 +1,5 @@
 /**
- * ST-873: REQ-xxx -- Value Calculator Page (/resources/roi-calculator)
+ * ST-873: REQ-xxx, Value Calculator Page (/resources/roi-calculator)
  *
  * Interactive value calculator helping organizations understand what structured
  * trip safety planning delivers in terms of time savings, consistency, and
@@ -10,11 +10,11 @@
  * as a client component child (ROICalculator).
  *
  * Section order:
- *   1. Hero          -- "Calculate Your Planning Investment" headline
- *   2. Calculator    -- Interactive inputs + results (client component)
- *   3. Context       -- Value explanation (time, consistency, confidence)
- *   4. CTA Band      -- Conversion band
- *   5. JSON-LD       -- BreadcrumbList + SoftwareApplication schemas
+ *   1. Hero         , "Calculate Your Planning Investment" headline
+ *   2. Calculator   , Interactive inputs + results (client component)
+ *   3. Context      , Value explanation (time, consistency, confidence)
+ *   4. CTA Band     , Conversion band
+ *   5. JSON-LD      , BreadcrumbList + SoftwareApplication schemas
  *
  * @see src/components/tools/roi-calculator.tsx
  * @see src/content/pricing.ts
@@ -202,7 +202,7 @@ export default function ROICalculatorPage() {
                   Consistency Across Trips
                 </h3>
                 <p className="mt-2 text-body-md text-muted-foreground">
-                  When trip planning relies on individual coordinators, quality varies. One coordinator may be thorough; another may miss important considerations. SafeTrekr ensures every trip -- regardless of who coordinates it -- receives the same comprehensive professional review. Consistency builds organizational confidence.
+                  When trip planning relies on individual coordinators, quality varies. One coordinator may be thorough; another may miss important considerations. SafeTrekr ensures every trip, regardless of who coordinates it, receives the same comprehensive professional review. Consistency builds organizational confidence.
                 </p>
               </div>
 
@@ -218,7 +218,7 @@ export default function ROICalculatorPage() {
                   Stakeholder Confidence
                 </h3>
                 <p className="mt-2 text-body-md text-muted-foreground">
-                  When board members, parents, or leadership ask about trip preparation, you can share professional documentation. The safety binder demonstrates that structured planning was completed -- building confidence without requiring lengthy explanations.
+                  When board members, parents, or leadership ask about trip preparation, you can share professional documentation. The safety binder demonstrates that structured planning was completed, building confidence without requiring lengthy explanations.
                 </p>
               </div>
 

@@ -10,11 +10,11 @@
  * Server Component composing pre-built components from the marketing library.
  *
  * Section order:
- *   1. Hero            -- Centered headline with dual CTAs
- *   2. Feature Cards   -- 3 linked cards (Analyst Review, Risk Intelligence, Safety Binder)
- *   3. How It Works    -- 3-step ProcessTimeline
- *   4. CTA Band        -- Dark variant, demo + pricing
- *   5. JSON-LD         -- BreadcrumbList structured data
+ *   1. Hero           , Centered headline with dual CTAs
+ *   2. Feature Cards  , 3 linked cards (Analyst Review, Risk Intelligence, Safety Binder)
+ *   3. How It Works   , 3-step ProcessTimeline
+ *   4. CTA Band       , Dark variant, demo + pricing
+ *   5. JSON-LD        , BreadcrumbList structured data
  */
 
 import Link from "next/link";
@@ -61,7 +61,7 @@ const FEATURE_CARDS = [
     icon: <ClipboardCheck className="size-6" />,
     title: "Professional Analyst Review",
     description:
-      "Every trip is reviewed by a trained safety analyst across 17 standardized sections -- venues, transportation, emergency planning, health considerations, and more. Assessment by professionals, not algorithms.",
+      "Every trip is reviewed by a trained safety analyst across 17 standardized sections, venues, transportation, emergency planning, health considerations, and more. Assessment by professionals, not algorithms.",
     href: "/platform/analyst-review",
     linkText: "Explore the review process",
   },
@@ -77,7 +77,7 @@ const FEATURE_CARDS = [
     icon: <FileText className="size-6" />,
     title: "Complete Safety Binder",
     description:
-      "Comprehensive documentation with verified integrity. Every finding, every recommendation, every emergency contact -- compiled into a complete binder that answers stakeholder questions.",
+      "Comprehensive documentation with verified integrity. Every finding, every recommendation, every emergency contact, compiled into a complete binder that answers stakeholder questions.",
     href: "/platform/safety-binder",
     linkText: "See a sample binder",
   },
@@ -161,7 +161,7 @@ export default function PlatformOverviewPage() {
               >
                 SafeTrekr combines a trained safety analyst, current information
                 from government sources, and structured documentation into a single
-                platform -- so every trip your organization sends is reviewed,
+                platform, so every trip your organization sends is reviewed,
                 assessed, and documented professionally.
               </p>
             </ScrollReveal>
@@ -241,7 +241,7 @@ export default function PlatformOverviewPage() {
                 From trip submission to complete documentation in 3-5 business days.
               </h2>
               <p className="mx-auto mt-4 text-body-lg text-muted-foreground" style={{ maxWidth: "50ch" }}>
-                Every trip follows the same structured process -- regardless of
+                Every trip follows the same structured process, regardless of
                 organization type, destination, or group size.
               </p>
             </div>

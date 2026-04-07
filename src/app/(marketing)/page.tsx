@@ -1,23 +1,23 @@
 /**
- * ST-834: REQ-045 -- Homepage (/)
+ * ST-834: REQ-045, Homepage (/)
  *
  * Primary marketing homepage for SafeTrekr. Renders 10 scroll-ordered sections
  * with HTML structure matching designs/html/mockup-homepage.html exactly.
  *
- * Server Component -- no "use client" needed. All markup is static HTML/JSX
+ * Server Component, no "use client" needed. All markup is static HTML/JSX
  * with inline styles and CSS classes from design-tokens.css and Tailwind.
  *
  * Section order:
- *   1. Hero            -- Product composition with map + overlay cards
- *   2. Trust Strip     -- 5 metrics + intel source bar
- *   3. Problem/Mechanism -- Problem statement + 3 mechanism cards
- *   4. How It Works    -- 3-step timeline + CTA
- *   5. Feature Grid    -- 6 feature cards
- *   6. Binder Showcase -- Dark section with fanned mobile screenshots
- *   7. Segment Routing -- 4 segment cards
- *   8. Pricing Preview -- 3-tier pricing grid
- *   9. Category Contrast -- Comparison table
- *  10. Final CTA       -- Dark CTA band
+ *   1. Hero           , Product composition with map + overlay cards
+ *   2. Trust Strip    , 5 metrics + intel source bar
+ *   3. Problem/Mechanism, Problem statement + 3 mechanism cards
+ *   4. How It Works   , 3-step timeline + CTA
+ *   5. Feature Grid   , 6 feature cards
+ *   6. Binder Showcase, Dark section with fanned mobile screenshots
+ *   7. Segment Routing, 4 segment cards
+ *   8. Pricing Preview, 3-tier pricing grid
+ *   9. Category Contrast, Comparison table
+ *  10. Final CTA      , Dark CTA band
  *
  * @see designs/html/mockup-homepage.html
  */
@@ -113,7 +113,7 @@ export default function HomePage() {
 
               {/* Subtext */}
               <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '50ch' }}>
-                SafeTrekr provides structured safety planning for group travel -- professional review, clear documentation, and the accountability your organization needs. Maintain exceptional experiences while ensuring appropriate preparation is completed professionally.
+                SafeTrekr provides structured safety planning for group travel, professional review, clear documentation, and the accountability your organization needs. Maintain exceptional experiences while ensuring appropriate preparation is completed professionally.
               </p>
 
               {/* CTAs */}
@@ -292,7 +292,7 @@ export default function HomePage() {
               Most organizations want to plan thoroughly. They just need the right tools.
             </h2>
             <p className="text-body-lg mt-4 mx-auto" style={{ color: 'var(--color-muted-foreground)', maxWidth: '65ch' }}>
-              Planning a trip involves dozens of considerations -- venues, transportation, health factors, emergency contacts, weather, and more. Most organizations rely on dedicated staff doing their best with spreadsheets, checklists, and good intentions. SafeTrekr provides the systematic approach that helps your team address each consideration, with documentation that demonstrates your thoroughness.
+              Planning a trip involves dozens of considerations, venues, transportation, health factors, emergency contacts, weather, and more. Most organizations rely on dedicated staff doing their best with spreadsheets, checklists, and good intentions. SafeTrekr provides the systematic approach that helps your team address each consideration, with documentation that demonstrates your thoroughness.
             </p>
           </div>
 
@@ -309,7 +309,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Professional Analyst Review</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Every trip is reviewed by a trained safety analyst across 17 standardized sections -- from venue details to emergency contacts. Assessment by professionals, not automated scoring.
+                Every trip is reviewed by a trained safety analyst across 17 standardized sections, from venue details to emergency contacts. Assessment by professionals, not automated scoring.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn about the review process
@@ -324,7 +324,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Current Safety Information</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Your review includes current information from multiple trusted sources -- weather, health advisories, and regional conditions. Your analyst evaluates it, so you don't have to.
+                Your review includes current information from multiple trusted sources, weather, health advisories, and regional conditions. Your analyst evaluates it, so you don't have to.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 See how information is gathered
@@ -339,7 +339,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Documented Preparation</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Every finding, every recommendation, every emergency contact documented in a complete safety binder. When someone asks what you did to prepare -- you have professional documentation to share.
+                Every finding, every recommendation, every emergency contact documented in a complete safety binder. When someone asks what you did to prepare, you have professional documentation to share.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Explore the safety binder
@@ -544,7 +544,7 @@ export default function HomePage() {
                 See what comprehensive trip planning looks like.
               </h2>
               <p className="text-body-lg mt-6" style={{ color: '#b8c3c7', maxWidth: '65ch', lineHeight: 1.6 }}>
-                Every trip planned through SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every assessment, every emergency contact -- organized and verified. If a board member, parent, or stakeholder asks what you did to prepare, you share the binder.
+                Every trip planned through SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every assessment, every emergency contact, organized and verified. If a board member, parent, or stakeholder asks what you did to prepare, you share the binder.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
                 <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center" style={{ fontFamily: 'var(--font-heading)', background: '#ffffff', color: 'var(--color-secondary)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>

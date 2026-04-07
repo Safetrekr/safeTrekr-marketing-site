@@ -49,7 +49,6 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
@@ -422,11 +421,6 @@ export default function SportsPage() {
           </ScrollReveal>
         </Container>
       </SectionContainer>
-
-      {/* ----------------------------------------------------------------
-          Section 2: Trust Strip
-          ---------------------------------------------------------------- */}
-      <TrustStrip />
 
       {/* ----------------------------------------------------------------
           Section 3: The Challenge

@@ -7,18 +7,18 @@
  * CTA. All pages are statically generated at build time via generateStaticParams.
  *
  * Slugs:
- *   - analyst-review    -- "Professional Analyst Review"
- *   - risk-intelligence -- "Real-Time Risk Intelligence"
- *   - safety-binder     -- "Digital Safety Binder"
+ *   - analyst-review   , "Professional Analyst Review"
+ *   - risk-intelligence, "Real-Time Risk Intelligence"
+ *   - safety-binder    , "Digital Safety Binder"
  *
  * Server Component throughout. No client interactivity at the page level.
  *
  * Section order:
- *   1. Hero              -- Breadcrumb nav, eyebrow, headline, description, dual CTAs
- *   2. Key Capabilities  -- FeatureGrid (3-4 cards per feature)
- *   3. How It Works      -- 3-step ProcessTimeline specific to each feature
- *   4. CTA Band          -- Dark variant conversion band
- *   5. JSON-LD           -- BreadcrumbList structured data
+ *   1. Hero             , Breadcrumb nav, eyebrow, headline, description, dual CTAs
+ *   2. Key Capabilities , FeatureGrid (3-4 cards per feature)
+ *   3. How It Works     , 3-step ProcessTimeline specific to each feature
+ *   4. CTA Band         , Dark variant conversion band
+ *   5. JSON-LD          , BreadcrumbList structured data
  */
 
 import { notFound } from "next/navigation";
@@ -94,7 +94,7 @@ const FEATURES: Record<string, FeaturePageData> = {
   "analyst-review": {
     title: "Professional Analyst Review",
     metaDescription:
-      "Every SafeTrekr trip is reviewed by a trained safety analyst across comprehensive standardized sections. Venues, transportation, emergency planning, health considerations, and more -- professionally evaluated and documented.",
+      "Every SafeTrekr trip is reviewed by a trained safety analyst across comprehensive standardized sections. Venues, transportation, emergency planning, health considerations, and more, professionally evaluated and documented.",
     eyebrow: "ANALYST REVIEW",
     eyebrowIcon: <ClipboardCheck className="size-4" />,
     headline: "Every Trip Reviewed by a Professional Safety Analyst",
@@ -107,7 +107,7 @@ const FEATURES: Record<string, FeaturePageData> = {
         icon: <Eye className="size-6" />,
         title: "Comprehensive Review Framework",
         description:
-          "Every trip is evaluated across standardized sections -- from venue assessment and transportation to emergency medical facilities and communication infrastructure. Nothing is assumed. Everything is documented.",
+          "Every trip is evaluated across standardized sections, from venue assessment and transportation to emergency medical facilities and communication infrastructure. Nothing is assumed. Everything is documented.",
       },
       {
         icon: <Users className="size-6" />,
@@ -125,7 +125,7 @@ const FEATURES: Record<string, FeaturePageData> = {
         icon: <AlertTriangle className="size-6" />,
         title: "Emergency Preparedness Documentation",
         description:
-          "Evacuation routes, emergency medical facilities, communication infrastructure, and contingency considerations -- all documented before your team departs. Preparation, not reaction.",
+          "Evacuation routes, emergency medical facilities, communication infrastructure, and contingency considerations, all documented before your team departs. Preparation, not reaction.",
       },
     ],
     processHeadline: "How the analyst review works",
@@ -164,7 +164,7 @@ const FEATURES: Record<string, FeaturePageData> = {
     eyebrowIcon: <Activity className="size-4" />,
     headline: "Current Information for Every Destination",
     heroDescription:
-      "Before your team departs, SafeTrekr gathers current safety information from multiple sources to include NOAA, USGS, CDC, ReliefWeb, and GDACS -- the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
+      "Before your team departs, SafeTrekr gathers current safety information from multiple sources to include NOAA, USGS, CDC, ReliefWeb, and GDACS, the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
     capabilitiesHeadline:
       "Authoritative sources. Structured assessment.",
     capabilities: [
@@ -178,13 +178,13 @@ const FEATURES: Record<string, FeaturePageData> = {
         icon: <BarChart3 className="size-6" />,
         title: "Structured Assessment",
         description:
-          "Each destination is assessed using structured methodology -- conditions evaluated in context rather than binary pass/fail. You see the full picture, not just flags.",
+          "Each destination is assessed using structured methodology, conditions evaluated in context rather than binary pass/fail. You see the full picture, not just flags.",
       },
       {
         icon: <Globe className="size-6" />,
         title: "Destination-Specific Analysis",
         description:
-          "Assessment profiles are generated for your exact destination and travel dates. Weather patterns, geological considerations, health advisories, and regional conditions -- all specific to where and when your team will be.",
+          "Assessment profiles are generated for your exact destination and travel dates. Weather patterns, geological considerations, health advisories, and regional conditions, all specific to where and when your team will be.",
       },
       {
         icon: <Zap className="size-6" />,
@@ -229,7 +229,7 @@ const FEATURES: Record<string, FeaturePageData> = {
     eyebrowIcon: <FileText className="size-4" />,
     headline: "Everything Your Travelers Need, On Any Device",
     heroDescription:
-      "Every finding, every contact, every recommendation -- delivered through the SafeTrekr Traveler app. Works on phones, tablets, and laptops. Available offline when connectivity is limited. Printable when your team prefers paper. Your preparation, always accessible.",
+      "Every finding, every contact, every recommendation, delivered through the SafeTrekr Traveler app. Works on phones, tablets, and laptops. Available offline when connectivity is limited. Printable when your team prefers paper. Your preparation, always accessible.",
     capabilitiesHeadline:
       "Complete preparation. Always accessible.",
     capabilities: [
@@ -237,13 +237,13 @@ const FEATURES: Record<string, FeaturePageData> = {
         icon: <Globe className="size-6" />,
         title: "Works On Any Device",
         description:
-          "Access your trip information from any smartphone, tablet, or laptop. No app store downloads required -- works directly in the browser with full functionality across all platforms.",
+          "Access your trip information from any smartphone, tablet, or laptop. No app store downloads required, works directly in the browser with full functionality across all platforms.",
       },
       {
         icon: <Download className="size-6" />,
         title: "Offline Access",
         description:
-          "Download your trip information for offline access. When connectivity is limited or unavailable, your team still has everything they need -- emergency contacts, maps, recommendations, and more.",
+          "Download your trip information for offline access. When connectivity is limited or unavailable, your team still has everything they need, emergency contacts, maps, recommendations, and more.",
       },
       {
         icon: <FileText className="size-6" />,
@@ -272,7 +272,7 @@ const FEATURES: Record<string, FeaturePageData> = {
         number: 2,
         title: "App Access Configured",
         description:
-          "Your organization configures who receives access -- trip leaders, chaperones, participants, or administrators. Each person gets secure access to the information they need.",
+          "Your organization configures who receives access, trip leaders, chaperones, participants, or administrators. Each person gets secure access to the information they need.",
       },
       {
         number: 3,

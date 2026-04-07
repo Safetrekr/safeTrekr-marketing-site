@@ -1,5 +1,5 @@
 /**
- * ST-880: REQ-080 -- Pricing Page (/pricing)
+ * ST-880: REQ-080, Pricing Page (/pricing)
  *
  * Straightforward pricing page for SafeTrekr. Presents three trip tiers
  * (Day Trip, Extended Trip, International), included features, optional add-ons,
@@ -9,14 +9,14 @@
  * ScrollReveal, StaggerChildren) are rendered as children within this tree.
  *
  * Section order:
- *   1. Hero              -- "Professional trip assessment. Straightforward pricing."
- *   2. Pricing Tiers     -- 3 PricingTierCards (Day Trip, Extended, International)
- *   3. What's Included   -- 8 FeatureCards on primary-50 wash
- *   4. Add-ons/Scenarios -- ROI Calculator + 4 pricing scenario cards
- *   4b. Procurement      -- Dark section with checklist + /procurement link
- *   5. FAQ               -- 6 pricing questions with FAQPage JSON-LD
- *   6. CTA Band          -- Conversion band
- *   7. JSON-LD           -- Product + Offer schemas
+ *   1. Hero             , "Professional trip assessment. Straightforward pricing."
+ *   2. Pricing Tiers    , 3 PricingTierCards (Day Trip, Extended, International)
+ *   3. What's Included  , 8 FeatureCards on primary-50 wash
+ *   4. Add-ons/Scenarios, ROI Calculator + 4 pricing scenario cards
+ *   4b. Procurement     , Dark section with checklist + /procurement link
+ *   5. FAQ              , 6 pricing questions with FAQPage JSON-LD
+ *   6. CTA Band         , Conversion band
+ *   7. JSON-LD          , Product + Offer schemas
  *
  * @see designs/html/mockup-pricing.html
  */
@@ -63,7 +63,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "Pricing",
   description:
-    "SafeTrekr pricing starts at $450 per trip. Experienced analyst review, active intelligence monitoring, and complete documentation -- from $15 per participant. No annual contracts required.",
+    "SafeTrekr pricing starts at $450 per trip. Experienced analyst review, active intelligence monitoring, and complete documentation, from $15 per participant. No annual contracts required.",
   path: "/pricing",
 });
 
@@ -125,7 +125,7 @@ const INCLUDED_FEATURES: Array<{
     icon: <Scale className="size-6" />,
     title: "Comprehensive Assessment",
     description:
-      "Every aspect of your trip evaluated -- venues, transportation, lodging, activities, and emergency planning.",
+      "Every aspect of your trip evaluated, venues, transportation, lodging, activities, and emergency planning.",
   },
   {
     icon: <FileText className="size-6" />,

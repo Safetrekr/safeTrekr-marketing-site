@@ -7,11 +7,11 @@
  * the same professional safety review standard.
  *
  * Section order:
- *   1. Hero            -- "One platform. Every type of trip." + scroll anchor CTA
- *   2. Segment Cards   -- 4 large segment cards (2x2 grid) with regulatory badges
- *   3. Universal Value -- 3 FeatureCards (Analyst Review, Safety Info, Clear Documentation)
- *   4. CTABand         -- Dark variant, demo + how-it-works
- *   5. JSON-LD         -- WebPage + ItemList structured data
+ *   1. Hero           , "One platform. Every type of trip." + scroll anchor CTA
+ *   2. Segment Cards  , 4 large segment cards (2x2 grid) with regulatory badges
+ *   3. Universal Value, 3 FeatureCards (Analyst Review, Safety Info, Clear Documentation)
+ *   4. CTABand        , Dark variant, demo + how-it-works
+ *   5. JSON-LD        , WebPage + ItemList structured data
  *
  * @see designs/html/mockup-solutions-overview.html
  */
@@ -303,7 +303,7 @@ export default function SolutionsOverviewPage() {
                 style={{ maxWidth: "55ch" }}
               >
                 SafeTrekr delivers the same professional safety plan and review
-                to every organization -- but context matters. Schools need
+                to every organization, but context matters. Schools need
                 student privacy considerations. Churches need stewardship
                 framing. Corporations need accountability documentation.
               </p>

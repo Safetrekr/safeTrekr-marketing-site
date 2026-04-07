@@ -1,5 +1,5 @@
 /**
- * ST-870: REQ-063 -- Church/Missions Solutions Page (/solutions/churches)
+ * ST-870: REQ-063, Church/Missions Solutions Page (/solutions/churches)
  *
  * Beachhead segment page for churches and mission organizations. This is the
  * deepest, most conversion-optimized segment page in the SafeTrekr marketing
@@ -9,16 +9,16 @@
  * Server Component composing pre-built components from Waves 0-3.
  *
  * Section order:
- *   1. Hero             -- Breadcrumb, headline, dual CTAs, hero visual
- *   2. TrustStrip       -- 5 trust metrics + intel source bar
- *   3. The Challenge    -- "Good Intentions Are Not a Safety Plan" + 4 cards
- *   4. How It Works     -- 3-act ProcessTimeline + 4 FeatureCards
- *   5. Sample Binder    -- Fanned binder visual + checklist + gated CTA
- *   6. Proof Points     -- DARK section with stat cards + proof narrative
- *   7. Pricing Context  -- 3 scenario cards + cost comparison table
- *   8. Compliance       -- 4 trust badges + insurance narrative
- *   9. FAQ              -- 12 church-specific questions with JSON-LD
- *  10. CTA Band         -- DARK "Protect Your Next Mission Trip"
+ *   1. Hero            , Breadcrumb, headline, dual CTAs, hero visual
+ *   2. TrustStrip      , 5 trust metrics + intel source bar
+ *   3. The Challenge   , "Good Intentions Are Not a Safety Plan" + 4 cards
+ *   4. How It Works    , 3-act ProcessTimeline + 4 FeatureCards
+ *   5. Sample Binder   , Fanned binder visual + checklist + gated CTA
+ *   6. Proof Points    , DARK section with stat cards + proof narrative
+ *   7. Pricing Context , 3 scenario cards + cost comparison table
+ *   8. Compliance      , 4 trust badges + insurance narrative
+ *   9. FAQ             , 12 church-specific questions with JSON-LD
+ *  10. CTA Band        , DARK "Protect Your Next Mission Trip"
  *
  * Church vocabulary: duty of care, volunteer screening, mission field safety,
  * stewardship, youth protection.
@@ -51,7 +51,6 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
@@ -115,7 +114,7 @@ const FEATURE_CARDS = [
     icon: <ClipboardCheck className="size-6" />,
     title: "Mission Trip Assessment",
     description:
-      "Comprehensive safety review for international missions. Embassy contacts, medical facility locations, regional conditions, and emergency planning -- all evaluated by a trained analyst before your team departs.",
+      "Comprehensive safety review for international missions. Embassy contacts, medical facility locations, regional conditions, and emergency planning, all evaluated by a trained analyst before your team departs.",
     href: "/platform/analyst-review",
     linkText: "Learn about analyst review",
   },
@@ -156,7 +155,7 @@ const CHALLENGE_CARDS = [
     icon: <Shield className="size-6" />,
     title: "Insurance Questionnaires Answered with Guesswork",
     description:
-      'When carriers ask "Have you conducted a formal risk assessment?" -- the honest answer is usually no. Checking "yes" without documentation creates liability, not coverage.',
+      'When carriers ask "Have you conducted a formal risk assessment?", the honest answer is usually no. Checking "yes" without documentation creates liability, not coverage.',
   },
   {
     icon: <Users className="size-6" />,
@@ -232,27 +231,27 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Does SafeTrekr work with church insurance requirements?",
     answer:
-      "Yes. Many church insurance carriers appreciate documented safety planning for sponsored travel -- especially international missions and youth trips. SafeTrekr safety binders provide the organized documentation that carriers want to see. The structured format demonstrates that preparation was completed before travel, not created afterward.",
+      "Yes. Many church insurance carriers appreciate documented safety planning for sponsored travel, especially international missions and youth trips. SafeTrekr safety binders provide the organized documentation that carriers want to see. The structured format demonstrates that preparation was completed before travel, not created afterward.",
   },
   {
     question: "How do you handle mission trips to challenging regions?",
     answer:
-      "Our International and Challenging Region tiers include enhanced regional assessment, evacuation planning documentation, and embassy contact verification. For regions with travel advisories, we provide context and documented considerations. We help you make informed decisions about ministry travel -- we do not make those decisions for you.",
+      "Our International and Challenging Region tiers include enhanced regional assessment, evacuation planning documentation, and embassy contact verification. For regions with travel advisories, we provide context and documented considerations. We help you make informed decisions about ministry travel, we do not make those decisions for you.",
   },
   {
     question: "Can we share the safety binder with parents?",
     answer:
-      "Absolutely. Safety binders are designed to be shared with parents, elders, denominational leadership, and insurance carriers. When parents ask \"How did you prepare for this trip?\" you can share professional documentation -- not just \"We've done this before.\"",
+      "Absolutely. Safety binders are designed to be shared with parents, elders, denominational leadership, and insurance carriers. When parents ask \"How did you prepare for this trip?\" you can share professional documentation, not just \"We've done this before.\"",
   },
   {
     question: "Our volunteer leaders are not technical. Is SafeTrekr complicated to use?",
     answer:
-      "SafeTrekr was designed for volunteer leaders with day jobs and families. Submitting a trip takes about 15 minutes through a guided form -- just enter your destination, dates, team size, and planned activities. No training required. Your volunteers receive a completed safety binder with clear checklists and guidance.",
+      "SafeTrekr was designed for volunteer leaders with day jobs and families. Submitting a trip takes about 15 minutes through a guided form, just enter your destination, dates, team size, and planned activities. No training required. Your volunteers receive a completed safety binder with clear checklists and guidance.",
   },
   {
     question: "What if our ministry partner changes or our itinerary shifts?",
     answer:
-      "If your destination or primary ministry partner changes significantly, we recommend submitting updated trip details for review. Minor itinerary adjustments to the same destination can be accommodated -- contact your analyst for guidance.",
+      "If your destination or primary ministry partner changes significantly, we recommend submitting updated trip details for review. Minor itinerary adjustments to the same destination can be accommodated, contact your analyst for guidance.",
   },
   {
     question: "Do you offer pricing for churches that do multiple trips per year?",
@@ -338,7 +337,7 @@ export default function ChurchSolutionsPage() {
                     When parents entrust their children to your ministry, they
                     are trusting you with precious lives. SafeTrekr provides
                     professional safety review for mission trips and youth
-                    retreats -- demonstrating the stewardship families expect.
+                    retreats, demonstrating the stewardship families expect.
                     Simple for volunteers. Shareable with parents. Ready for
                     your insurance carrier.
                   </p>
@@ -472,14 +471,14 @@ export default function ChurchSolutionsPage() {
                           className="size-3.5 text-primary-500"
                           strokeWidth={2}
                         />
-                        Venue Safety Assessment -- Completed
+                        Venue Safety Assessment, Completed
                       </div>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Check
                           className="size-3.5 text-primary-500"
                           strokeWidth={2}
                         />
-                        Emergency Evacuation Routes -- Verified
+                        Emergency Evacuation Routes, Verified
                       </div>
                     </div>
                   </div>
@@ -503,13 +502,6 @@ export default function ChurchSolutionsPage() {
         </section>
 
         {/* ================================================================
-            SECTION 2: TRUST STRIP
-            ================================================================ */}
-        <ScrollReveal variant="fadeUp">
-          <TrustStrip showSources={false} />
-        </ScrollReveal>
-
-        {/* ================================================================
             SECTION 3: THE CHALLENGE
             ================================================================ */}
         <SectionContainer id="challenge" ariaLabelledBy="challenge-heading">
@@ -531,7 +523,7 @@ export default function ChurchSolutionsPage() {
                     id="challenge-heading"
                     className="mt-5 max-w-[28ch] text-display-md text-foreground"
                   >
-                    Mission trip preparation can be more structured -- without being more complicated.
+                    Mission trip preparation can be more structured, without being more complicated.
                   </h2>
                 </ScrollReveal>
 
@@ -540,7 +532,7 @@ export default function ChurchSolutionsPage() {
                     Church mission trips and youth travel are acts of service
                     and faith. The leaders who plan them are volunteers giving
                     their time, energy, and hearts to ministry. They are not
-                    professional risk managers -- they are accountants, teachers,
+                    professional risk managers, they are accountants, teachers,
                     nurses, and retirees who love their church and want to serve.
                   </p>
                   <p className="mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
@@ -707,7 +699,7 @@ export default function ChurchSolutionsPage() {
                         Safety Binder
                       </div>
                       <div className="mt-1 text-sm text-muted-foreground">
-                        Guatemala City -- Antigua -- Lake Atitlan
+                        Guatemala City, Antigua, Lake Atitlan
                       </div>
                       <div className="mt-1 text-xs text-muted-foreground">
                         June 15-22, 2026
@@ -823,7 +815,7 @@ export default function ChurchSolutionsPage() {
                       </Link>
                     </Button>
                     <p className="mt-2 text-sm text-muted-foreground">
-                      See a real safety binder output. Gated with email -- we
+                      See a real safety binder output. Gated with email, we
                       will not spam you.
                     </p>
                   </div>
@@ -888,7 +880,7 @@ export default function ChurchSolutionsPage() {
                     Trusted Intelligence Sources
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
-                    Government and humanitarian sources -- the same sources
+                    Government and humanitarian sources, the same sources
                     professional agencies rely on
                   </p>
                 </div>
@@ -1134,7 +1126,7 @@ export default function ChurchSolutionsPage() {
                   Many church insurance policies ask about safety preparation
                   for off-site activities. SafeTrekr provides the organized
                   documentation that demonstrates your church completed
-                  professional preparation -- a comprehensive safety review with
+                  professional preparation, a comprehensive safety review with
                   clear records your carrier can review.
                 </p>
               </div>
