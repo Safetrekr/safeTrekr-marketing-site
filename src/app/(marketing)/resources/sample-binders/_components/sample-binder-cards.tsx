@@ -48,7 +48,7 @@ const SEGMENTS: readonly SegmentData[] = [
     description:
       "See exactly what a professional field trip safety binder looks like -- destination risk scoring, venue safety verification, emergency protocols, and the audit-ready documentation your administration and parents expect.",
     highlights: [
-      "17-section analyst review template",
+      "Comprehensive analyst review template",
       "Government intelligence risk scoring",
       "Parent-ready safety documentation",
       "FERPA-compliant data handling",

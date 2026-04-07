@@ -21,7 +21,9 @@ export interface FeatureCardProps
   /** Feature title displayed as a heading. */
   title: string;
   /** Short description of the feature or benefit. */
-  description: string;
+  description?: string;
+  /** Optional bullet points rendered below (or instead of) the description. */
+  bullets?: string[];
   /**
    * When provided, the entire card becomes a clickable link navigating
    * to this URL. Renders a Next.js `Link` with an arrow indicator.
@@ -83,6 +85,7 @@ function FeatureCard({
   icon,
   title,
   description,
+  bullets,
   href,
   linkText = "Learn more",
   className,
@@ -102,7 +105,21 @@ function FeatureCard({
       <h3 className="text-heading-sm text-card-foreground">{title}</h3>
 
       {/* Description */}
-      <p className="mt-2 text-body-sm text-muted-foreground">{description}</p>
+      {description && (
+        <p className="mt-2 text-body-sm text-muted-foreground">{description}</p>
+      )}
+
+      {/* Bullet points */}
+      {bullets && bullets.length > 0 && (
+        <ul className="mt-2 space-y-1.5 text-body-sm text-muted-foreground">
+          {bullets.map((item, i) => (
+            <li key={i} className="flex gap-2">
+              <span aria-hidden="true" className="mt-0.5 text-primary-700">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* Link indicator (only when href is provided) */}
       {href && (

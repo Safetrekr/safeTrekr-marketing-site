@@ -6,16 +6,16 @@
  * verifiable numbers, real credentials, and a clear founding narrative.
  *
  * Section order:
- *   1. Hero             -- Editorial text-only hero
- *   2. Our Story        -- Founding narrative explaining why SafeTrekr exists
- *   3. Route Divider    -- Decorative SVG divider
- *   4. What We Believe  -- 4 principle cards (Assessment, Documentation, Accessibility, Clarity)
- *   5. Leadership       -- Founder card + analyst team card
- *   6. By the Numbers   -- Dark section with 5 stat cards + 2 secondary metrics
- *   7. Our Mission      -- Mission + vision statements
- *   8. Trusted By       -- 4 org type cards
- *   9. CTABand          -- Dark variant
- *  10. JSON-LD          -- Organization structured data
+ *   1. Hero            , Editorial text-only hero
+ *   2. Our Story       , Founding narrative explaining why SafeTrekr exists
+ *   3. Route Divider   , Decorative SVG divider
+ *   4. What We Believe , 4 principle cards (Assessment, Documentation, Accessibility, Clarity)
+ *   5. Leadership      , Founder card + analyst team card
+ *   6. By the Numbers  , Dark section with 5 stat cards + 2 secondary metrics
+ *   7. Our Mission     , Mission + vision statements
+ *   8. Trusted By      , 4 org type cards
+ *   9. CTABand         , Dark variant
+ *  10. JSON-LD         , Organization structured data
  *
  * @see designs/html/mockup-about.html
  */
@@ -83,7 +83,7 @@ const BELIEF_PRINCIPLES = [
     icon: <BookOpen className="size-6" />,
     title: "Clarity Over Complexity",
     description:
-      "Safety documentation should be understood by everyone who needs it -- trip leaders, administrators, parents, board members, and stakeholders. We write for clarity, not to impress.",
+      "Safety documentation should be understood by everyone who needs it, trip leaders, administrators, parents, board members, and stakeholders. We write for clarity, not to impress.",
   },
 ] as const;
 
@@ -448,7 +448,7 @@ export default function AboutPage() {
                 <Link
                   href="/about/analysts"
                   className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700"
-                  aria-label="Meet our safety analysts -- view full team profiles"
+                  aria-label="Meet our safety analysts, view full team profiles"
                 >
                   Meet Our Analysts
                   <ArrowRight

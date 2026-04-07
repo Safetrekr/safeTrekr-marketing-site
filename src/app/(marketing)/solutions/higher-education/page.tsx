@@ -30,7 +30,6 @@ import {
   AlertTriangle,
   Shield,
   ClipboardCheck,
-  MapPin,
   FileText,
   Activity,
   Users,
@@ -50,16 +49,17 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
   CTABand,
+  PricingTierCard,
+  InternationalPricingCard,
 } from "@/components/marketing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
+import { RevenueCalculator } from "@/components/marketing/calculator";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -89,21 +89,21 @@ const BREADCRUMBS = [
 const PROCESS_STEPS = [
   {
     number: 1,
-    title: "Trip Registered in System",
+    title: "Enter Trip Details",
     description:
-      "The trip sponsor registers the trip through a guided form -- destination, dates, participants, activities, and logistics. Takes 15 minutes. Works alongside existing registration workflows.",
+      "Enter all of your trip details and activities through a self guided form. Takes about 15 minutes.",
   },
   {
     number: 2,
-    title: "Analyst Reviews Everything",
+    title: "Analyst Review",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Embassy contacts verified. Medical facilities located. Conditions assessed.",
+      "Our highly trained and dedicated safety analyst reviews your trip using the most current information, providing the highest quality travel safety plan in the industry.",
   },
   {
     number: 3,
-    title: "Documentation Delivered",
+    title: "Receive Your Safety Binder",
     description:
-      "The institution receives a complete safety binder with every finding, recommendation, and contact. Accessible to risk management and stakeholders.",
+      "Your organization receives a digitized interactive or printed safety binder for organized and easy reference. Share with leadership, parents, or stakeholders.",
   },
 ];
 
@@ -139,7 +139,7 @@ const FEATURE_CARDS = [
     icon: <ClipboardCheck className="size-6" />,
     title: "Study Abroad Assessment",
     description:
-      "Comprehensive safety review for international study programs. Embassy contacts, medical facility locations, regional conditions, and emergency planning -- all evaluated by a trained analyst.",
+      "Comprehensive safety planning and assessment for international study programs to include emergency contact information, active regional conditions and 360 degree emergency planning in an easy to understand format. All evaluated and developed by a highly trained analyst.",
     href: "/platform/analyst-review",
     linkText: "Learn about analyst review",
   },
@@ -147,7 +147,7 @@ const FEATURE_CARDS = [
     icon: <FileText className="size-6" />,
     title: "Institutional Documentation",
     description:
-      "Safety binders structured for institutional accountability. When questions arise about preparation, documentation demonstrates that professional assessment was completed.",
+      "Documentation and digital safety binders provided in an interactive stand alone iPhone/Android phone application.",
     href: "/platform/safety-binder",
     linkText: "Learn about the safety binder",
   },
@@ -155,46 +155,35 @@ const FEATURE_CARDS = [
     icon: <Shield className="size-6" />,
     title: "Institutional Consistency",
     description:
-      "The same 17-section review for every trip, regardless of sponsoring department. Study abroad, athletics, student organizations, and faculty travel -- all documented to the same standard.",
+      "All trips and stakeholders receive the same level of expert emergency planning, keeping everyone to the same documented standard.",
     href: "/platform/risk-intelligence",
     linkText: "Learn about our methodology",
-  },
-  {
-    icon: <MapPin className="size-6" />,
-    title: "General Counsel Ready",
-    description:
-      "Documentation with verified integrity. When stakeholders ask for evidence of preparation, you have organized records that demonstrate thoroughness.",
-    href: "/platform/mobile-app",
-    linkText: "Learn about documentation",
   },
 ];
 
 const BINDER_CONTENTS = [
-  "Destination assessment with government data sources",
-  "Host institution and housing safety verification",
-  "Emergency medical facility locations including mental health resources",
-  "Evacuation routes and contingency plans per program location",
-  "In-country transportation safety evaluation",
-  "Communication infrastructure and emergency contact protocols",
+  "Destination assessment from government and private data sources",
+  "Full itinerary and travel emergency assessment and planning resource",
+  "Local information and intelligence summaries for the most up to date information",
   "Complete audit trail with verified integrity",
 ];
 
 const PROOF_STATS = [
   {
-    value: "17",
-    label: "Analyst Review Sections",
+    value: "Full",
+    label: "Comprehensive Review",
     description:
       "Every program reviewed across host institutions, housing, transportation, emergency contacts, evacuation routes, health advisories, mental health resources, and more",
   },
   {
-    value: "5",
-    label: "Government Data Sources",
+    value: "Multiple",
+    label: "Trusted Intel Sources",
     description:
-      "NOAA, USGS, CDC, ReliefWeb, GDACS -- current information from established government and international agency sources",
+      "Current information from established government and international agency sources -- professionally evaluated by experienced analysts",
   },
   {
-    value: "3-5 Days",
-    label: "Submission to Binder Delivery",
+    value: "3 Days",
+    label: "Fast Turnaround",
     description:
       "Professional review and documentation delivered before your students depart for their program",
   },
@@ -204,7 +193,7 @@ const COMPARISON_ROWS = [
   {
     without:
       "Different departments follow different processes. No standardized methodology across the institution.",
-    with: "Independent analyst completes 17-section review using 5 government data sources. Same methodology for every trip.",
+    with: "Independent analyst completes comprehensive review using multiple trusted sources. Same methodology for every trip.",
   },
   {
     without:
@@ -223,21 +212,36 @@ const COMPARISON_ROWS = [
   },
 ];
 
-const PRICING_FEATURES = [
-  "17-section analyst review",
-  "5 government data sources",
-  "Complete safety binder",
-  "Mobile field support",
-  "3-5 day delivery",
+const DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Delivery in as soon as 3 days",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
 ];
 
-const PRICING_FEATURES_SEMESTER = [
-  "17-section analyst review",
-  "5 government data sources",
-  "Complete safety binder",
-  "Mobile field support",
-  "3-5 day delivery",
-  "Mid-semester condition updates",
+const EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Faculty and athletic travel coverage",
+  "Multiple venue assessment",
+  "Priority analyst assignment",
+  "60-day post-trip access",
+];
+
+const INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
 ];
 
 const COMPLIANCE_BADGES = [
@@ -258,12 +262,6 @@ const COMPLIANCE_BADGES = [
     title: "Security Controls",
     description:
       "Enterprise security controls designed to meet institutional requirements for student data protection.",
-  },
-  {
-    icon: <ClipboardCheck className="size-8" />,
-    title: "Institutional Documentation",
-    description:
-      "Every binder is structured to provide the safety documentation your institution needs for accountability and stakeholder requirements.",
   },
 ];
 
@@ -298,7 +296,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How quickly can we get documentation for urgent travel?",
     answer:
-      "Standard delivery is 3-5 business days. Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
+      "Standard delivery is as soon as 3 days. Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
   },
 ];
 
@@ -369,10 +367,10 @@ export default function HigherEducationSolutionsPage() {
 
               <p className="mt-6 max-w-[50ch] text-body-lg text-muted-foreground">
                 A trained safety analyst reviews every trip your institution
-                sponsors -- study abroad programs, faculty travel, athletic
-                events, and student organization trips. Professional assessment
-                and documentation designed for general counsel, risk management,
-                and institutional accountability.
+                sponsors, study abroad programs, faculty travel, athletic
+                events, and student organization trips. Professional safety
+                assessments and documentation designed for every stakeholder
+                to have a plan for emergencies before departure.
               </p>
 
               <div className="mt-8 flex flex-col flex-wrap gap-4 sm:flex-row">
@@ -401,13 +399,6 @@ export default function HigherEducationSolutionsPage() {
           </div>
         </Container>
       </SectionContainer>
-
-      {/* ================================================================
-          SECTION 2: TRUST STRIP
-          ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip showSources />
-      </ScrollReveal>
 
       {/* ================================================================
           SECTION 3: THE CHALLENGE
@@ -441,10 +432,10 @@ export default function HigherEducationSolutionsPage() {
                 </p>
 
                 <p className="mt-4 max-w-prose text-body-lg font-medium text-foreground">
-                  SafeTrekr creates institutional consistency. Every trip --
-                  regardless of sponsoring department -- receives the same
-                  professional review. Same methodology. Same documentation.
-                  Same standard.
+                  SafeTrekr creates institutional consistency. Every trip,
+                  regardless of sponsoring department, receives the same
+                  professional safety plan and review. Same methodology.
+                  Same documentation. Same standard.
                 </p>
               </ScrollReveal>
             </div>
@@ -499,7 +490,7 @@ export default function HigherEducationSolutionsPage() {
                 id="solution-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                From trip registration to complete documentation in 3-5 days.
+                From trip details to organized safety plan in as little as 3 days.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
                 Professional preparation for every university-sponsored trip.
@@ -512,8 +503,8 @@ export default function HigherEducationSolutionsPage() {
             <ProcessTimeline steps={PROCESS_STEPS} />
           </ScrollReveal>
 
-          {/* Feature Cards (2x2) */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Feature Cards (3-col) */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURE_CARDS.map((card, index) => (
               <ScrollReveal
                 key={card.title}
@@ -568,17 +559,18 @@ export default function HigherEducationSolutionsPage() {
                   id="binder-preview-heading"
                   className="max-w-[28ch] text-display-md text-foreground"
                 >
-                  See Exactly What Your Provost and Risk Management Office Will
-                  Receive
+                  Your Risk Management Team Will Receive
                 </h2>
 
                 <p className="mt-6 max-w-prose text-body-lg text-muted-foreground">
-                  Every SafeTrekr review produces a comprehensive safety binder
-                  customized to your study abroad program. This is not a generic
-                  country profile or a program provider&apos;s marketing summary.
-                  It is the documented output of an independent analyst reviewing
-                  your specific program -- your destinations, your dates, your
-                  housing, your host institutions.
+                  Every SafeTrekr review produces a comprehensive and safety
+                  planning binder customized to your study abroad program. This
+                  is not a generic country profile or a program provider&apos;s
+                  marketing summary. It is the documented output of an
+                  independent analyst reviewing your specific program, your
+                  destinations, your dates, your housing, your host
+                  institutions. It also provides active area information so
+                  you can make safer and informed decisions.
                 </p>
 
                 {/* Binder contents list */}
@@ -694,136 +686,53 @@ export default function HigherEducationSolutionsPage() {
                 Professional preparation. Institutional pricing.
               </h2>
               <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
-                Volume pricing available for institutions with high travel
-                frequency. Contact us for institutional agreements.
+                Straightforward per-trip pricing for institutions of all sizes.
+                Most institutions fold the cost into program fees, an
+                additional travel safety fee of roughly $15 to $50 per
+                participant covers professional safety planning for the
+                entire program. Contact us for institutional agreements.
               </p>
             </div>
           </ScrollReveal>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {/* International Program */}
-            <ScrollReveal variant="fadeUp">
-              <div className="rounded-2xl border border-primary-400 bg-card p-8 shadow-md">
-                <Badge variant="brand" className="mb-4 text-xs">
-                  Most Common
-                </Badge>
-                <div
-                  className="font-display text-5xl font-bold text-foreground"
-                  aria-label="$1,250 per international study abroad program"
-                >
-                  $1,250
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per international program
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    $50 per student for a group of 25
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Less than 1% of a $12,000 program fee
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    {PRICING_FEATURES.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5"
-                      >
-                        <Check
-                          className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                          strokeWidth={2.5}
-                          aria-hidden="true"
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
+            <PricingTierCard
+              id="day-trip"
+              tierName="Day Trip"
+              price="$450"
+              perParticipant="~$15/person for a 30-person group"
+              features={DAY_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
 
-            {/* Semester Program */}
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                <div className="mt-6 font-display text-5xl font-bold text-foreground"
-                  aria-label="$1,250 per semester study abroad program"
-                >
-                  $1,250
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per semester program
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    $42 per student for a group of 30
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Less than 0.3% of a $15,000 semester program fee
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Includes mid-semester condition updates
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    {PRICING_FEATURES_SEMESTER.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5"
-                      >
-                        <Check
-                          className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                          strokeWidth={2.5}
-                          aria-hidden="true"
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+            <PricingTierCard
+              id="extended-trip"
+              tierName="Extended Trip"
+              price="$750"
+              perParticipant="~$19/person for a 40-person group"
+              features={EXTENDED_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+              featured
+              badge="Most Popular"
+            />
 
-            {/* Multi-Program Institution */}
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                <div className="mt-6 font-display text-5xl font-bold text-foreground">
-                  Custom
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  volume pricing for 15+ programs per year
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    A university sending 15 international programs per year:
-                  </p>
-                  <p className="text-sm font-medium text-foreground">
-                    $18,750/year for complete safety coverage
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Volume discounts available for 15+ programs annually
-                  </p>
-                </div>
-                <div className="mt-6">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="w-full"
-                    asChild
-                  >
-                    <Link href="/demo">Schedule a Walkthrough</Link>
-                  </Button>
-                </div>
-              </div>
-            </ScrollReveal>
+            <InternationalPricingCard
+              id="international"
+              features={INTERNATIONAL_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
           </div>
+
+          {/* Revenue / Surplus Calculator */}
+          <ScrollReveal variant="fadeUp">
+            <div className="mx-auto mt-16 max-w-[672px]">
+              <RevenueCalculator />
+            </div>
+          </ScrollReveal>
 
           {/* Cost-of-Inaction Comparison Block */}
           <ScrollReveal variant="fadeUp">
@@ -926,13 +835,13 @@ export default function HigherEducationSolutionsPage() {
                 id="compliance-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                Built to Satisfy Your Risk Management Office and General Counsel
+                Built to Satisfy Your School&rsquo;s Risk Management Standards
               </h2>
             </div>
           </ScrollReveal>
 
           {/* Trust Badge Grid */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {COMPLIANCE_BADGES.map((badge, index) => (
               <ScrollReveal
                 key={badge.title}
@@ -964,8 +873,8 @@ export default function HigherEducationSolutionsPage() {
                 Documentation That Supports Accountability
               </h3>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                SafeTrekr produces professional documentation: a 17-section
-                safety review using government data sources, with verified
+                SafeTrekr produces professional documentation: a comprehensive
+                safety review using multiple trusted sources, with verified
                 document integrity. When stakeholders ask for evidence of
                 preparation, you have organized records that demonstrate
                 thoroughness.
@@ -986,22 +895,6 @@ export default function HigherEducationSolutionsPage() {
             </div>
           </ScrollReveal>
 
-          {/* Procurement Link */}
-          <ScrollReveal variant="fadeUp">
-            <div className="mt-8 text-center">
-              <p className="text-body-md text-muted-foreground">
-                Institutional buyer? Download our W-9, security questionnaire
-                responses, and insurance documentation.
-              </p>
-              <Link
-                href="/procurement"
-                className="mt-2 inline-flex items-center gap-1 text-body-md font-medium text-primary-700"
-              >
-                Visit our procurement page
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </ScrollReveal>
         </Container>
       </SectionContainer>
 

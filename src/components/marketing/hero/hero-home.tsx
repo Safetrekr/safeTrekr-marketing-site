@@ -503,8 +503,8 @@ export function HeroHome({ className }: HeroHomeProps) {
               initial="hidden"
               animate={animateTarget}
             >
-              SafeTrekr combines information from government data sources,
-              17-section professional review, and board-ready documentation to
+              SafeTrekr combines current information from trusted sources,
+              comprehensive professional review, and board-ready documentation to
               support your travelers and your organization.
             </motion.p>
 

@@ -58,7 +58,6 @@ const SEGMENT_LABELS: Record<string, string> = {
   about: "About",
   contact: "Contact",
   demo: "Request a Demo",
-  procurement: "Procurement Hub",
   legal: "Legal",
   privacy: "Privacy Policy",
   terms: "Terms of Service",

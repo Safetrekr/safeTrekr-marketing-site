@@ -1,5 +1,5 @@
 /**
- * ST-870: REQ-063 -- Church/Missions Solutions Page (/solutions/churches)
+ * ST-870: REQ-063, Church/Missions Solutions Page (/solutions/churches)
  *
  * Beachhead segment page for churches and mission organizations. This is the
  * deepest, most conversion-optimized segment page in the SafeTrekr marketing
@@ -9,16 +9,16 @@
  * Server Component composing pre-built components from Waves 0-3.
  *
  * Section order:
- *   1. Hero             -- Breadcrumb, headline, dual CTAs, hero visual
- *   2. TrustStrip       -- 5 trust metrics + intel source bar
- *   3. The Challenge    -- "Good Intentions Are Not a Safety Plan" + 4 cards
- *   4. How It Works     -- 3-act ProcessTimeline + 4 FeatureCards
- *   5. Sample Binder    -- Fanned binder visual + checklist + gated CTA
- *   6. Proof Points     -- DARK section with stat cards + proof narrative
- *   7. Pricing Context  -- 3 scenario cards + cost comparison table
- *   8. Compliance       -- 4 trust badges + insurance narrative
- *   9. FAQ              -- 12 church-specific questions with JSON-LD
- *  10. CTA Band         -- DARK "Protect Your Next Mission Trip"
+ *   1. Hero            , Breadcrumb, headline, dual CTAs, hero visual
+ *   2. TrustStrip      , 5 trust metrics + intel source bar
+ *   3. The Challenge   , "Good Intentions Are Not a Safety Plan" + 4 cards
+ *   4. How It Works    , 3-act ProcessTimeline + 4 FeatureCards
+ *   5. Sample Binder   , Fanned binder visual + checklist + gated CTA
+ *   6. Proof Points    , DARK section with stat cards + proof narrative
+ *   7. Pricing Context , 3 scenario cards + cost comparison table
+ *   8. Compliance      , 4 trust badges + insurance narrative
+ *   9. FAQ             , 12 church-specific questions with JSON-LD
+ *  10. CTA Band        , DARK "Protect Your Next Mission Trip"
  *
  * Church vocabulary: duty of care, volunteer screening, mission field safety,
  * stewardship, youth protection.
@@ -51,7 +51,8 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
+  PricingTierCard,
+  InternationalPricingCard,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
@@ -100,7 +101,7 @@ const PROCESS_STEPS = [
     number: 2,
     title: "Analyst Reviews Everything",
     description:
-      "A professional safety analyst evaluates 17 standardized sections using current information from government data sources. Medical facilities located. Emergency contacts documented. Conditions assessed.",
+      "A professional safety analyst completes a comprehensive review using current information from government data sources. Medical facilities located. Emergency contacts documented. Conditions assessed.",
   },
   {
     number: 3,
@@ -115,7 +116,7 @@ const FEATURE_CARDS = [
     icon: <ClipboardCheck className="size-6" />,
     title: "Mission Trip Assessment",
     description:
-      "Comprehensive safety review for international missions. Embassy contacts, medical facility locations, regional conditions, and emergency planning -- all evaluated by a trained analyst before your team departs.",
+      "Comprehensive safety review for international missions. Embassy contacts, medical facility locations, regional conditions, and emergency planning, all evaluated by a trained analyst before your team departs.",
     href: "/platform/analyst-review",
     linkText: "Learn about analyst review",
   },
@@ -156,7 +157,7 @@ const CHALLENGE_CARDS = [
     icon: <Shield className="size-6" />,
     title: "Insurance Questionnaires Answered with Guesswork",
     description:
-      'When carriers ask "Have you conducted a formal risk assessment?" -- the honest answer is usually no. Checking "yes" without documentation creates liability, not coverage.',
+      'When carriers ask "Have you conducted a formal risk assessment?", the honest answer is usually no. Checking "yes" without documentation creates liability, not coverage.',
   },
   {
     icon: <Users className="size-6" />,
@@ -182,29 +183,37 @@ const BINDER_CHECKLIST = [
   "Complete audit trail for insurance documentation",
 ] as const;
 
-const PRICING_FEATURES_DOMESTIC = [
-  "17-section analyst review",
-  "5 government data sources",
-  "Complete safety binder",
-  "Mobile field support",
-  "3-5 day delivery",
-] as const;
+const CHURCHES_DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Delivery in as soon as 3 days",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
+];
 
-const PRICING_FEATURES_INTERNATIONAL = [
-  "Everything in Domestic",
-  "Multi-week trip support",
-  "Extended monitoring period",
-  "Ministry partner context",
+const CHURCHES_EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Mission and retreat travel coverage",
+  "Multiple venue assessment",
   "Priority analyst assignment",
-] as const;
+  "60-day post-trip access",
+];
 
-const PRICING_FEATURES_CHALLENGING = [
-  "Everything in International",
-  "Enhanced regional assessment",
+const CHURCHES_INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
   "Embassy and consulate contacts",
+  "Regional condition assessment",
   "Evacuation planning documentation",
-  "Regional condition briefing",
-] as const;
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
+];
 
 
 const TRUST_BADGES = [
@@ -232,32 +241,32 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Does SafeTrekr work with church insurance requirements?",
     answer:
-      "Yes. Many church insurance carriers appreciate documented safety planning for sponsored travel -- especially international missions and youth trips. SafeTrekr safety binders provide the organized documentation that carriers want to see. The structured format demonstrates that preparation was completed before travel, not created afterward.",
+      "Yes. Many church insurance carriers appreciate documented safety planning for sponsored travel, especially international missions and youth trips. SafeTrekr safety binders provide the organized documentation that carriers want to see. The structured format demonstrates that preparation was completed before travel, not created afterward.",
   },
   {
     question: "How do you handle mission trips to challenging regions?",
     answer:
-      "Our International and Challenging Region tiers include enhanced regional assessment, evacuation planning documentation, and embassy contact verification. For regions with travel advisories, we provide context and documented considerations. We help you make informed decisions about ministry travel -- we do not make those decisions for you.",
+      "Our International and Challenging Region tiers include enhanced regional assessment, evacuation planning documentation, and embassy contact verification. For regions with travel advisories, we provide context and documented considerations. We help you make informed decisions about ministry travel, we do not make those decisions for you.",
   },
   {
     question: "Can we share the safety binder with parents?",
     answer:
-      "Absolutely. Safety binders are designed to be shared with parents, elders, denominational leadership, and insurance carriers. When parents ask \"How did you prepare for this trip?\" you can share professional documentation -- not just \"We've done this before.\"",
+      "Absolutely. Safety binders are designed to be shared with parents, elders, denominational leadership, and insurance carriers. When parents ask \"How did you prepare for this trip?\" you can share professional documentation, not just \"We've done this before.\"",
   },
   {
     question: "Our volunteer leaders are not technical. Is SafeTrekr complicated to use?",
     answer:
-      "SafeTrekr was designed for volunteer leaders with day jobs and families. Submitting a trip takes about 15 minutes through a guided form -- just enter your destination, dates, team size, and planned activities. No training required. Your volunteers receive a completed safety binder with clear checklists and guidance.",
+      "SafeTrekr was designed for volunteer leaders with day jobs and families. Submitting a trip takes about 15 minutes through a guided form, just enter your destination, dates, team size, and planned activities. No training required. Your volunteers receive a completed safety binder with clear checklists and guidance.",
   },
   {
     question: "What if our ministry partner changes or our itinerary shifts?",
     answer:
-      "If your destination or primary ministry partner changes significantly, we recommend submitting updated trip details for review. Minor itinerary adjustments to the same destination can be accommodated -- contact your analyst for guidance.",
+      "If your destination or primary ministry partner changes significantly, we recommend submitting updated trip details for review. Minor itinerary adjustments to the same destination can be accommodated, contact your analyst for guidance.",
   },
   {
     question: "Do you offer pricing for churches that do multiple trips per year?",
     answer:
-      "Yes. Volume pricing is available for churches with regular mission programs. Contact us to discuss arrangements that fit your ministry's travel patterns.",
+      "Yes. Contact us to discuss arrangements that fit your ministry's travel patterns.",
   },
 ];
 
@@ -338,7 +347,7 @@ export default function ChurchSolutionsPage() {
                     When parents entrust their children to your ministry, they
                     are trusting you with precious lives. SafeTrekr provides
                     professional safety review for mission trips and youth
-                    retreats -- demonstrating the stewardship families expect.
+                    retreats, demonstrating the stewardship families expect.
                     Simple for volunteers. Shareable with parents. Ready for
                     your insurance carrier.
                   </p>
@@ -463,7 +472,7 @@ export default function ChurchSolutionsPage() {
                     </div>
                     <div className="mt-2">
                       <Badge variant="brand" className="text-xs">
-                        17 Sections Reviewed
+                        Comprehensive Review
                       </Badge>
                     </div>
                     <div className="mt-3 space-y-2">
@@ -472,14 +481,14 @@ export default function ChurchSolutionsPage() {
                           className="size-3.5 text-primary-500"
                           strokeWidth={2}
                         />
-                        Venue Safety Assessment -- Completed
+                        Venue Safety Assessment, Completed
                       </div>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Check
                           className="size-3.5 text-primary-500"
                           strokeWidth={2}
                         />
-                        Emergency Evacuation Routes -- Verified
+                        Emergency Evacuation Routes, Verified
                       </div>
                     </div>
                   </div>
@@ -503,13 +512,6 @@ export default function ChurchSolutionsPage() {
         </section>
 
         {/* ================================================================
-            SECTION 2: TRUST STRIP
-            ================================================================ */}
-        <ScrollReveal variant="fadeUp">
-          <TrustStrip showSources={false} />
-        </ScrollReveal>
-
-        {/* ================================================================
             SECTION 3: THE CHALLENGE
             ================================================================ */}
         <SectionContainer id="challenge" ariaLabelledBy="challenge-heading">
@@ -531,7 +533,7 @@ export default function ChurchSolutionsPage() {
                     id="challenge-heading"
                     className="mt-5 max-w-[28ch] text-display-md text-foreground"
                   >
-                    Mission trip preparation can be more structured -- without being more complicated.
+                    Mission trip preparation can be more structured, without being more complicated.
                   </h2>
                 </ScrollReveal>
 
@@ -540,7 +542,7 @@ export default function ChurchSolutionsPage() {
                     Church mission trips and youth travel are acts of service
                     and faith. The leaders who plan them are volunteers giving
                     their time, energy, and hearts to ministry. They are not
-                    professional risk managers -- they are accountants, teachers,
+                    professional risk managers, they are accountants, teachers,
                     nurses, and retirees who love their church and want to serve.
                   </p>
                   <p className="mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
@@ -615,7 +617,7 @@ export default function ChurchSolutionsPage() {
                   Professional preparation for mission trips and youth travel.
                 </h2>
                 <p className="mx-auto mt-4 max-w-[60ch] text-body-lg text-muted-foreground">
-                  From trip planning to complete documentation in 3-5 days.
+                  From trip planning to complete documentation in as soon as 3 days.
                 </p>
               </ScrollReveal>
             </div>
@@ -707,14 +709,14 @@ export default function ChurchSolutionsPage() {
                         Safety Binder
                       </div>
                       <div className="mt-1 text-sm text-muted-foreground">
-                        Guatemala City -- Antigua -- Lake Atitlan
+                        Guatemala City, Antigua, Lake Atitlan
                       </div>
                       <div className="mt-1 text-xs text-muted-foreground">
                         June 15-22, 2026
                       </div>
                       <div className="mt-3">
                         <Badge variant="brand" className="text-xs">
-                          17 Sections Reviewed
+                          Comprehensive Review
                         </Badge>
                       </div>
                       {/* Map thumbnail */}
@@ -823,7 +825,7 @@ export default function ChurchSolutionsPage() {
                       </Link>
                     </Button>
                     <p className="mt-2 text-sm text-muted-foreground">
-                      See a real safety binder output. Gated with email -- we
+                      See a real safety binder output. Gated with email, we
                       will not spam you.
                     </p>
                   </div>
@@ -860,13 +862,13 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp">
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="17 analyst review sections per trip"
+                  aria-label="Comprehensive analyst review per trip"
                 >
-                  <div className="font-display font-mono text-4xl font-bold text-dark-text-primary lg:text-5xl">
-                    17
+                  <div className="font-display text-2xl font-bold text-dark-text-primary lg:text-3xl">
+                    Comprehensive
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
-                    Analyst Review Sections
+                    Analyst Review
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
                     Every trip reviewed across venues, lodging, transportation,
@@ -879,17 +881,17 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp" delay={0.1}>
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="5 government intelligence sources"
+                  aria-label="Multiple trusted intelligence sources"
                 >
-                  <div className="font-display font-mono text-4xl font-bold text-dark-text-primary lg:text-5xl">
-                    5
+                  <div className="font-display text-2xl font-bold text-dark-text-primary lg:text-3xl">
+                    Multiple
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
-                    Government Intelligence Sources
+                    Trusted Intelligence Sources
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
-                    NOAA, USGS, CDC, ReliefWeb, GDACS -- the same sources
-                    humanitarian agencies rely on
+                    Government and humanitarian sources, the same sources
+                    professional agencies rely on
                   </p>
                 </div>
               </ScrollReveal>
@@ -897,13 +899,13 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp" delay={0.2}>
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="3 to 5 days from submission to binder delivery"
+                  aria-label="3 days fast turnaround"
                 >
                   <div className="font-display font-mono text-3xl font-bold text-dark-text-primary lg:text-4xl">
-                    3-5 Days
+                    3 Days
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
-                    Submission to Binder Delivery
+                    Fast Turnaround
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-dark-text-secondary">
                     Professional review and documentation delivered before your
@@ -954,117 +956,33 @@ export default function ChurchSolutionsPage() {
             </ScrollReveal>
 
             {/* Pricing Cards */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {/* Domestic Trip */}
-              <ScrollReveal variant="fadeUp">
-                <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                  <div className="font-display text-5xl font-bold text-foreground">
-                    $450
-                  </div>
-                  <div className="mt-1 text-body-md text-muted-foreground">
-                    per domestic trip
-                  </div>
-                  <div className="mt-4 space-y-1">
-                    <p className="text-sm text-muted-foreground">
-                      ~$15/person for a 30-person team
-                    </p>
-                  </div>
-                  <div className="mt-6 border-t border-border pt-6">
-                    <ul className="space-y-3">
-                      {PRICING_FEATURES_DOMESTIC.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2.5"
-                        >
-                          <Check
-                            className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                            strokeWidth={2.5}
-                            aria-hidden="true"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* International Mission */}
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <div className="rounded-2xl border border-primary-400 bg-card p-8 shadow-md">
-                  <Badge variant="brand" className="mb-4 text-xs">
-                    Most Popular
-                  </Badge>
-                  <div className="font-display text-5xl font-bold text-foreground">
-                    $750
-                  </div>
-                  <div className="mt-1 text-body-md text-muted-foreground">
-                    per international mission
-                  </div>
-                  <div className="mt-4 space-y-1">
-                    <p className="text-sm text-muted-foreground">
-                      ~$25/person for a 30-person team
-                    </p>
-                  </div>
-                  <div className="mt-6 border-t border-border pt-6">
-                    <ul className="space-y-3">
-                      {PRICING_FEATURES_INTERNATIONAL.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2.5"
-                        >
-                          <Check
-                            className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                            strokeWidth={2.5}
-                            aria-hidden="true"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* Challenging Region */}
-              <ScrollReveal variant="fadeUp" delay={0.2}>
-                <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                  <div className="font-display text-5xl font-bold text-foreground">
-                    $1,250
-                  </div>
-                  <div className="mt-1 text-body-md text-muted-foreground">
-                    per challenging region trip
-                  </div>
-                  <div className="mt-4 space-y-1">
-                    <p className="text-sm text-muted-foreground">
-                      ~$42/person for a 30-person team
-                    </p>
-                  </div>
-                  <div className="mt-6 border-t border-border pt-6">
-                    <ul className="space-y-3">
-                      {PRICING_FEATURES_CHALLENGING.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2.5"
-                        >
-                          <Check
-                            className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                            strokeWidth={2.5}
-                            aria-hidden="true"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </ScrollReveal>
+            <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
+              <PricingTierCard
+                id="churches-day-trip"
+                tierName="Day Trip"
+                price="$450"
+                perParticipant="~$15/person for a 30-person team"
+                features={CHURCHES_DAY_TRIP_FEATURES}
+                ctaText="Schedule a Walkthrough"
+                ctaHref="/demo"
+              />
+              <PricingTierCard
+                id="churches-extended-trip"
+                tierName="Extended Trip"
+                price="$750"
+                perParticipant="~$19/person for a 40-person team"
+                features={CHURCHES_EXTENDED_TRIP_FEATURES}
+                ctaText="Schedule a Walkthrough"
+                ctaHref="/demo"
+                featured
+                badge="Most Popular"
+              />
+              <InternationalPricingCard
+                id="churches-international"
+                features={CHURCHES_INTERNATIONAL_FEATURES}
+                ctaText="Schedule a Walkthrough"
+                ctaHref="/demo"
+              />
             </div>
 
           </Container>
@@ -1134,28 +1052,12 @@ export default function ChurchSolutionsPage() {
                   Many church insurance policies ask about safety preparation
                   for off-site activities. SafeTrekr provides the organized
                   documentation that demonstrates your church completed
-                  professional preparation -- a 17-section safety review with
+                  professional preparation, a comprehensive safety review with
                   clear records your carrier can review.
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Procurement Link */}
-            <ScrollReveal variant="fadeUp">
-              <div className="mt-8 text-center">
-                <p className="text-body-md text-muted-foreground">
-                  Institutional buyer? Download our W-9, security questionnaire
-                  responses, and insurance documentation.
-                </p>
-                <Link
-                  href="/procurement"
-                  className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary-700"
-                >
-                  Visit our procurement page
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </div>
-            </ScrollReveal>
           </Container>
         </SectionContainer>
 

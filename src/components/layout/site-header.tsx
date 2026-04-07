@@ -43,7 +43,7 @@ const NAV_ITEMS: NavItem[] = [
     href: "/platform",
     dropdown: [
       { label: "Platform Overview", href: "/platform", description: "See all capabilities" },
-      { label: "Analyst Review", href: "/platform/analyst-review", description: "17-section professional review" },
+      { label: "Analyst Review", href: "/platform/analyst-review", description: "Comprehensive professional review" },
       { label: "Risk Intelligence", href: "/platform/risk-intelligence", description: "Government data scoring" },
       { label: "Safety Binder", href: "/platform/safety-binder", description: "Audit-ready documentation" },
     ],

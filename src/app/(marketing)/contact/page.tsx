@@ -10,8 +10,7 @@
  * @see src/components/forms/contact-form.tsx
  */
 
-import Link from "next/link";
-import { Mail, Clock, ArrowRight, Building2 } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld";
@@ -138,47 +137,7 @@ export default function ContactPage() {
                         </p>
                       </div>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span
-                        className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--color-primary-500)]"
-                        aria-hidden="true"
-                      />
-                      <div>
-                        <p className="text-body-sm font-medium text-[var(--color-foreground)]">
-                          Procurement Questions
-                        </p>
-                        <p className="text-body-xs text-[var(--color-muted-foreground)]">
-                          Within 4 hours during business hours
-                        </p>
-                      </div>
-                    </li>
                   </ul>
-                </div>
-
-                {/* Procurement Link */}
-                <div className="rounded-xl border border-[var(--color-primary-100)] bg-[var(--color-primary-50)] p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white">
-                      <Building2
-                        className="h-5 w-5 text-[var(--color-primary-700)]"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <p className="text-body-sm font-semibold text-[var(--color-foreground)]">
-                      Institutional Buyer?
-                    </p>
-                  </div>
-                  <p className="text-body-sm text-[var(--color-muted-foreground)] mb-4">
-                    Looking for pricing documentation, W-9 forms, or sole-source
-                    letters? Visit our procurement page.
-                  </p>
-                  <Link
-                    href="/procurement"
-                    className="inline-flex items-center gap-1.5 text-body-sm font-medium text-[var(--color-primary-700)] transition-colors hover:text-[var(--color-primary-800)]"
-                  >
-                    Visit Procurement
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
                 </div>
               </aside>
             </div>

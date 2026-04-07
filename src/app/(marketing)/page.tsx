@@ -1,23 +1,23 @@
 /**
- * ST-834: REQ-045 -- Homepage (/)
+ * ST-834: REQ-045, Homepage (/)
  *
  * Primary marketing homepage for SafeTrekr. Renders 10 scroll-ordered sections
  * with HTML structure matching designs/html/mockup-homepage.html exactly.
  *
- * Server Component -- no "use client" needed. All markup is static HTML/JSX
+ * Server Component, no "use client" needed. All markup is static HTML/JSX
  * with inline styles and CSS classes from design-tokens.css and Tailwind.
  *
  * Section order:
- *   1. Hero            -- Product composition with map + overlay cards
- *   2. Trust Strip     -- 5 metrics + intel source bar
- *   3. Problem/Mechanism -- Problem statement + 3 mechanism cards
- *   4. How It Works    -- 3-step timeline + CTA
- *   5. Feature Grid    -- 6 feature cards
- *   6. Binder Showcase -- Dark section with fanned mobile screenshots
- *   7. Segment Routing -- 4 segment cards
- *   8. Pricing Preview -- 3-tier pricing grid
- *   9. Category Contrast -- Comparison table
- *  10. Final CTA       -- Dark CTA band
+ *   1. Hero           , Product composition with map + overlay cards
+ *   2. Trust Strip    , 5 metrics + intel source bar
+ *   3. Problem/Mechanism, Problem statement + 3 mechanism cards
+ *   4. How It Works   , 3-step timeline + CTA
+ *   5. Feature Grid   , 6 feature cards
+ *   6. Binder Showcase, Dark section with fanned mobile screenshots
+ *   7. Segment Routing, 4 segment cards
+ *   8. Pricing Preview, 3-tier pricing grid
+ *   9. Category Contrast, Comparison table
+ *  10. Final CTA      , Dark CTA band
  *
  * @see designs/html/mockup-homepage.html
  */
@@ -29,6 +29,42 @@ import {
   JsonLd,
   generateSoftwareApplicationSchema,
 } from "@/lib/structured-data";
+import {
+  PricingTierCard,
+  InternationalPricingCard,
+} from "@/components/marketing";
+
+const HOME_DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Delivery in as soon as 3 days",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
+];
+
+const HOME_EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Tournament and conference travel",
+  "Multiple venue assessment",
+  "Priority analyst assignment",
+  "60-day post-trip access",
+];
+
+const HOME_INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
+];
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -113,7 +149,7 @@ export default function HomePage() {
 
               {/* Subtext */}
               <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '50ch' }}>
-                SafeTrekr provides structured safety planning for group travel -- professional review, clear documentation, and the accountability your organization needs. Maintain exceptional experiences while ensuring appropriate preparation is completed professionally.
+                SafeTrekr provides structured safety planning for group travel, professional review, clear documentation, and the accountability your organization needs. Maintain exceptional experiences while ensuring appropriate preparation is completed professionally.
               </p>
 
               {/* CTAs */}
@@ -252,31 +288,31 @@ export default function HomePage() {
       <section aria-label="Platform credentials" className="border-y" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', padding: '48px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-3 gap-6 lg:gap-8">
-            <div className="text-center" aria-label="5 government data sources">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>5</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Government Data Sources</div>
+            <div className="text-center" aria-label="Multiple trusted intel sources">
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>Multiple</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Trusted Intel Sources</div>
             </div>
-            <div className="text-center" aria-label="17-section professional review">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>17</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Section Professional Review</div>
+            <div className="text-center" aria-label="Full comprehensive review">
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>Full</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Comprehensive Review</div>
             </div>
-            <div className="text-center" aria-label="3 to 5 day delivery">
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>3-5</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Day Delivery</div>
+            <div className="text-center" aria-label="3 day fast turnaround">
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>3 Day</div>
+              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Fast Turnaround</div>
             </div>
                       </div>
 
-          {/* Government source row */}
+          {/* Intel source bar */}
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mt-8 pt-6" style={{ borderTop: '1px solid var(--color-border)' }}>
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>NOAA</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Government</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>USGS</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Humanitarian</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>CDC</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Regional</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>GDACS</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Emergency</span>
             <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />
-            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>ReliefWeb</span>
+            <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Health</span>
           </div>
         </div>
       </section>
@@ -292,7 +328,7 @@ export default function HomePage() {
               Most organizations want to plan thoroughly. They just need the right tools.
             </h2>
             <p className="text-body-lg mt-4 mx-auto" style={{ color: 'var(--color-muted-foreground)', maxWidth: '65ch' }}>
-              Planning a trip involves dozens of considerations -- venues, transportation, health factors, emergency contacts, weather, and more. Most organizations rely on dedicated staff doing their best with spreadsheets, checklists, and good intentions. SafeTrekr provides the systematic approach that helps your team address each consideration, with documentation that demonstrates your thoroughness.
+              Planning a trip involves dozens of considerations, venues, transportation, health factors, emergency contacts, weather, and more. Most organizations rely on dedicated staff doing their best with spreadsheets, checklists, and good intentions. SafeTrekr provides the systematic approach that helps your team address each consideration, with documentation that demonstrates your thoroughness.
             </p>
           </div>
 
@@ -309,7 +345,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Professional Analyst Review</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Every trip is reviewed by a trained safety analyst across 17 standardized sections -- from venue details to emergency contacts. Assessment by professionals, not automated scoring.
+                Every trip is reviewed by a trained safety analyst across 17 standardized sections, from venue details to emergency contacts. Assessment by professionals, not automated scoring.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn about the review process
@@ -324,7 +360,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Current Safety Information</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Your review includes information from NOAA, USGS, CDC, and international humanitarian sources -- weather, health advisories, and regional conditions. Your analyst reviews it, so you don't have to.
+                Your review includes current information from multiple trusted sources, weather, health advisories, and regional conditions. Your analyst evaluates it, so you don't have to.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 See how information is gathered
@@ -339,7 +375,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Documented Preparation</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Every finding, every recommendation, every emergency contact documented in a complete safety binder. When someone asks what you did to prepare -- you have professional documentation to share.
+                Every finding, every recommendation, every emergency contact documented in a complete safety binder. When someone asks what you did to prepare, you have professional documentation to share.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Explore the safety binder
@@ -363,7 +399,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>HOW IT WORKS</span>
             <h2 id="how-it-works-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              From your trip details to complete documentation in 3-5 days.
+              From your trip details to complete documentation in as soon as 3 days.
             </h2>
           </div>
 
@@ -440,7 +476,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Analyst Safety Review</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                17-section professional review of every trip by a trained safety analyst. Venues, transport, health, and emergency preparedness -- all evaluated and documented.
+                Comprehensive professional review of every trip by experienced analysts including former Secret Service, Special Operations, and trained safety professionals.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -455,7 +491,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Safety Information Engine</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Information from NOAA, USGS, CDC, GDACS, and ReliefWeb. Current conditions for your destination assessed with structured methodology.
+                Current information from multiple trusted sources. Conditions for your destination professionally assessed and evaluated.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -470,7 +506,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Trip Safety Binder</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
-                Complete documentation delivered in 3-5 days. Every finding, recommendation, and contact preserved with verified integrity.
+                Complete documentation delivered in as soon as 3 days. Every finding, recommendation, and contact preserved with verified integrity.
               </p>
               <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
                 Learn more
@@ -544,7 +580,7 @@ export default function HomePage() {
                 See what comprehensive trip planning looks like.
               </h2>
               <p className="text-body-lg mt-6" style={{ color: '#b8c3c7', maxWidth: '65ch', lineHeight: 1.6 }}>
-                Every trip planned through SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every assessment, every emergency contact -- organized and verified. If a board member, parent, or stakeholder asks what you did to prepare, you share the binder.
+                Every trip planned through SafeTrekr produces a complete safety binder. The binder documents every analyst finding, every assessment, every emergency contact, organized and verified. If a board member, parent, or stakeholder asks what you did to prepare, you share the binder.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
                 <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150 text-center" style={{ fontFamily: 'var(--font-heading)', background: '#ffffff', color: 'var(--color-secondary)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
@@ -773,71 +809,38 @@ export default function HomePage() {
           </div>
 
           {/* 3 Pricing Tiers */}
-          <div className="grid md:grid-cols-3 gap-8 mt-12 items-start">
-            {/* Tier 1: Field Trip ($450) */}
-            <div className="rounded-2xl border-2 p-8" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Day Trip</h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$450</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
-              </div>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$15/student for a 30-person group</p>
-              <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['17-section analyst review', '5 government data sources', 'Complete safety binder', 'Mobile field support', '3-5 day delivery'].map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
-            </div>
-
-            {/* Tier 2: Extended Trip ($750) - Featured */}
-            <div className="rounded-2xl border-2 p-8 pricing-featured" style={{ background: 'var(--color-card)', borderColor: 'var(--color-primary-500)', boxShadow: 'var(--shadow-xl)' }}>
-              <div className="flex items-center justify-between">
-                <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Extended Trip</h3>
-                <span className="badge badge-brand" style={{ fontSize: 12 }}>Most Popular</span>
-              </div>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$750</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
-              </div>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$19/student for a 40-person group</p>
-              <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Everything in Day Trip', 'Multi-day trip support', 'Extended monitoring period', 'Tournament and conference travel', 'Priority analyst assignment'].map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
-            </div>
-
-            {/* Tier 3: International ($1,250) */}
-            <div className="rounded-2xl border-2 p-8" style={{ background: 'var(--color-card)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
-              <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>International</h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-display-md" style={{ color: 'var(--color-foreground)' }}>$1,250</span>
-                <span className="text-body-sm" style={{ color: 'var(--color-muted-foreground)' }}>per trip</span>
-              </div>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>~$42/participant for a 30-person group</p>
-              <ul className="space-y-3 mt-6" style={{ listStyle: 'none' }}>
-                {['Everything in Extended Trip', 'International information coverage', 'Embassy and consulate contacts', 'Regional condition assessment', 'Evacuation planning documentation'].map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckIcon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-primary-500)' }} />
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/demo" className="flex items-center justify-center w-full mt-8 font-semibold rounded-md transition-all duration-150 text-white" style={{ fontFamily: 'var(--font-heading)', background: 'var(--color-primary-600)', padding: '14px 24px', fontSize: 16, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>Schedule a Walkthrough</Link>
-            </div>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-12 items-start">
+            <PricingTierCard
+              id="home-day-trip"
+              tierName="Day Trip"
+              price="$450"
+              perParticipant="~$15/person for a 30-person group"
+              features={HOME_DAY_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
+            <PricingTierCard
+              id="home-extended-trip"
+              tierName="Extended Trip"
+              price="$750"
+              perParticipant="~$19/person for a 40-person group"
+              features={HOME_EXTENDED_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+              featured
+              badge="Most Popular"
+            />
+            <InternationalPricingCard
+              id="home-international"
+              features={HOME_INTERNATIONAL_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
           </div>
 
           <div className="text-center mt-10">
             <Link href="/pricing" className="inline-flex items-center gap-1.5 text-body-md font-medium" style={{ color: 'var(--color-primary-700)', textDecoration: 'none' }}>
-              View full pricing and volume discounts
+              View full pricing details
               <SmallArrowIcon />
             </Link>
           </div>
