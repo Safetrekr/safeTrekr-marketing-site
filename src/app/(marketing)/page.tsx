@@ -106,9 +106,9 @@ function CheckIcon({ className = "w-5 h-5", strokeWidth = 2, style }: { classNam
 const assetPrefix = process.env.STATIC_EXPORT === "true" ? "/safeTrekr-marketing-site" : "";
 
 /** Phone frame with a real screenshot image -- parallax on scroll via CSS */
-function PhoneWithImage({ src, alt, className = "", width = 260 }: { src: string; alt: string; className?: string; width?: number }) {
+function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt: string; className?: string; width?: number }) {
   return (
-    <div className={`relative phone-parallax sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={{ width }}>
+    <div className={`relative phone-parallax sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={width ? { width } : undefined}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${assetPrefix}${src}`}
@@ -131,14 +131,14 @@ export default function PreviewHomePage() {
       {/* ================================================================
           SECTION 1: HERO
           ================================================================ */}
-      <section aria-labelledby="hero-heading" className="relative" style={{ background: 'var(--color-background)', paddingTop: 56, paddingBottom: 72 }}>
+      <section aria-labelledby="hero-heading" className="relative overflow-x-hidden" style={{ background: 'var(--color-background)', paddingTop: 56, paddingBottom: 72 }}>
         <div className="hero-dot-grid" />
         <div className="hero-radial-glow" />
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-center">
             {/* Text Column */}
-            <div className="lg:col-span-7 flex flex-col">
+            <div className="md:col-span-7 flex flex-col">
               <span className="text-eyebrow flex items-center gap-2" style={{ color: 'var(--color-primary-700)' }}>
                 <Shield className="w-4 h-4" />
                 TRIP SAFETY PLANNING PLATFORM
@@ -166,21 +166,21 @@ export default function PreviewHomePage() {
             </div>
 
             {/* Visual Column: iPhone Mockups with real screenshots */}
-            <div className="lg:col-span-5 relative hidden md:flex items-start justify-center" style={{ minHeight: 560, paddingTop: 60 }}>
+            <div className="md:col-span-5 relative hidden md:flex items-start justify-center" style={{ minHeight: 380, paddingTop: 20 }}>
               {/* Primary phone: Chaperone Today view */}
               <div className="relative z-10">
                 <PhoneWithImage
                   src="/images/for-index-2/01-today-2.png"
                   alt="SafeTrekr chaperone app showing today view with rally point alerts, weather advisory, upcoming musters, and live participant locations"
-                  width={280}
+                  className="w-[180px] md:w-[180px] lg:w-[280px]"
                 />
               </div>
               {/* Secondary phone: Safety & Emergency Map */}
-              <div className="absolute -right-2 top-28 z-0" style={{ transform: 'rotate(6deg)' }}>
+              <div className="absolute right-0 md:right-0 lg:-right-2 top-16 md:top-12 lg:top-28 z-0" style={{ transform: 'rotate(6deg)' }}>
                 <PhoneWithImage
                   src="/images/for-index-2/03-safety-2.png"
                   alt="SafeTrekr safety map showing rally points, emergency resources, hospitals, and group communication on a live map of Paris"
-                  width={250}
+                  className="w-[160px] md:w-[160px] lg:w-[250px]"
                 />
               </div>
             </div>
