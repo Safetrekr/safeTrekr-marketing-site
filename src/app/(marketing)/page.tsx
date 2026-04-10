@@ -346,7 +346,7 @@ export default function PreviewHomePage() {
               </div>
               <div className="relative z-[2]">
                 <PhoneWithImage
-                  src="/images/for-index-2/10-direct-group.png"
+                  src="/images/for-index-2/12-direct-group.png"
                   alt="SafeTrekr Direct Group screen showing safety map with rally points, safe houses, hospitals, and nearby points of interest across Florida"
                   width={250}
                 />
@@ -368,7 +368,7 @@ export default function PreviewHomePage() {
                 width={220}
               />
               <PhoneWithImage
-                src="/images/for-index-2/10-direct-group.png"
+                src="/images/for-index-2/12-direct-group.png"
                 alt="SafeTrekr Direct Group safety map"
                 width={220}
               />
