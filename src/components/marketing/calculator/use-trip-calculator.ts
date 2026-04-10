@@ -4,69 +4,92 @@ import { useCallback, useState } from "react";
 
 /* ================================================================
    useTripCalculator -- Shared state + math for trip calculators
-   Powers both CostCalculator (K-12) and RevenueCalculator (Higher Ed).
+
+   Pricing model:
+     - Day Trip:      $450 per trip
+     - Extended Trip: $750 per trip
+     - International: $1,250 per trip
+
+   The calculator lets organizations see their total SafeTrekr cost,
+   then model a per-traveler fee to offset or create surplus.
    ================================================================ */
 
-export const PRICE_PER_STUDENT = 15;
+export type TripTier = "day" | "extended" | "international";
+
+export const TIER_PRICES: Record<TripTier, number> = {
+  day: 450,
+  extended: 750,
+  international: 1250,
+};
+
+export const TIER_LABELS: Record<TripTier, string> = {
+  day: "Day Trip",
+  extended: "Extended Trip",
+  international: "International",
+};
 
 export interface TripCalculatorDefaults {
-  students?: number;
-  trips?: number;
-  pricePerStudent?: number;
+  tier?: TripTier;
+  tripsPerYear?: number;
+  travelersPerTrip?: number;
+  feePerTraveler?: number;
 }
 
 export interface TripCalculatorState {
-  students: number;
-  trips: number;
-  pricePerStudent: number;
-  setStudents: (value: number) => void;
-  setTrips: (value: number) => void;
-  setPricePerStudent: (value: number) => void;
+  tier: TripTier;
+  tripsPerYear: number;
+  travelersPerTrip: number;
+  feePerTraveler: number;
+  setTier: (value: TripTier) => void;
+  setTripsPerYear: (value: number) => void;
+  setTravelersPerTrip: (value: number) => void;
+  setFeePerTraveler: (value: number) => void;
   totals: {
+    tierPrice: number;
     annualCost: number;
-    perTripCost: number;
+    totalTravelers: number;
     annualRevenue: number;
     annualSurplus: number;
+    costPerTraveler: number;
   };
 }
 
-/**
- * Internal hook holding slider state and derived totals for the trip
- * calculator family. Marketing-page only, no context, no store.
- */
 export function useTripCalculator(
   defaults: TripCalculatorDefaults = {},
 ): TripCalculatorState {
-  const [students, setStudentsState] = useState(defaults.students ?? 30);
-  const [trips, setTripsState] = useState(defaults.trips ?? 20);
-  const [pricePerStudent, setPricePerStudentState] = useState(
-    defaults.pricePerStudent ?? 50,
-  );
+  const [tier, setTierState] = useState<TripTier>(defaults.tier ?? "day");
+  const [tripsPerYear, setTripsPerYearState] = useState(defaults.tripsPerYear ?? 10);
+  const [travelersPerTrip, setTravelersPerTripState] = useState(defaults.travelersPerTrip ?? 30);
+  const [feePerTraveler, setFeePerTravelerState] = useState(defaults.feePerTraveler ?? 25);
 
-  const setStudents = useCallback((v: number) => setStudentsState(v), []);
-  const setTrips = useCallback((v: number) => setTripsState(v), []);
-  const setPricePerStudent = useCallback(
-    (v: number) => setPricePerStudentState(v),
-    [],
-  );
+  const setTier = useCallback((v: TripTier) => setTierState(v), []);
+  const setTripsPerYear = useCallback((v: number) => setTripsPerYearState(v), []);
+  const setTravelersPerTrip = useCallback((v: number) => setTravelersPerTripState(v), []);
+  const setFeePerTraveler = useCallback((v: number) => setFeePerTravelerState(v), []);
 
-  const annualCost = students * PRICE_PER_STUDENT * trips;
-  const perTripCost = students * PRICE_PER_STUDENT;
-  const annualRevenue = students * pricePerStudent * trips;
+  const tierPrice = TIER_PRICES[tier];
+  const annualCost = tierPrice * tripsPerYear;
+  const totalTravelers = travelersPerTrip * tripsPerYear;
+  const annualRevenue = totalTravelers * feePerTraveler;
   const annualSurplus = annualRevenue - annualCost;
+  const costPerTraveler = totalTravelers > 0 ? annualCost / totalTravelers : 0;
 
   return {
-    students,
-    trips,
-    pricePerStudent,
-    setStudents,
-    setTrips,
-    setPricePerStudent,
+    tier,
+    tripsPerYear,
+    travelersPerTrip,
+    feePerTraveler,
+    setTier,
+    setTripsPerYear,
+    setTravelersPerTrip,
+    setFeePerTraveler,
     totals: {
+      tierPrice,
       annualCost,
-      perTripCost,
+      totalTravelers,
       annualRevenue,
       annualSurplus,
+      costPerTraveler,
     },
   };
 }
