@@ -152,6 +152,20 @@ export default function PrivacyPolicyPage() {
               Effective:{" "}
               <time dateTime="2026-03-15">March 15, 2026</time>
             </span>
+            <span
+              className="hidden text-[var(--color-border)] sm:inline"
+              aria-hidden="true"
+            >
+              &middot;
+            </span>
+            <a
+              href="/documents/pdf/SafeTrekr-Privacy-Policy-v2.1.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-[var(--color-primary-700)] transition-colors hover:text-[var(--color-primary-800)]"
+            >
+              Download PDF
+            </a>
           </div>
         </Container>
       </SectionContainer>

@@ -110,6 +110,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
 const LEGAL_LINKS: FooterLink[] = [
   { label: "Terms of Service", href: "/legal/terms" },
   { label: "Privacy Policy", href: "/legal/privacy" },
+  { label: "End User License Agreement", href: "/legal/eula" },
 ];
 
 // ---------------------------------------------------------------------------

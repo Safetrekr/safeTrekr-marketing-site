@@ -63,4 +63,5 @@
   <!-- Legal (lower priority) -->
   <url><loc>https://safetrekr.com/legal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://safetrekr.com/legal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://safetrekr.com/legal/eula</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

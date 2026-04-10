@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+
+# Source legal docs (Word files with metadata - not for public hosting)
+/docs-source
 /.pnp
 .pnp.*
 .yarn/*
