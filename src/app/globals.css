@@ -481,8 +481,24 @@ html {
 /* ──────────────────────────────────────
    Legal Page Prose Typography
    Ticket: ST-863
-   Used by /legal/privacy and /legal/terms
+   Used by /legal/privacy, /legal/terms, and /legal/eula
    ────────────────────────────────────── */
+
+/* Copy protection for legal pages */
+.legal-protected {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.legal-protected ::selection {
+  background: transparent;
+}
+.legal-protected ::-moz-selection {
+  background: transparent;
+}
+
 .legal-prose h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.625rem, 1.25rem + 1.25vw, 2.25rem);

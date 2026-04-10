@@ -156,19 +156,6 @@ export default function EulaPage() {
               Effective:{" "}
               <time dateTime="2026-03-07">March 7, 2026</time>
             </span>
-            <span
-              className="hidden text-[var(--color-border)] sm:inline"
-              aria-hidden="true"
-            >
-              &middot;
-            </span>
-            <a
-              href="/documents/pdf/SafeTrekr-EULA-v2.1.pdf"
-              className="text-sm font-medium text-[var(--color-primary-700)] underline underline-offset-2 transition-colors duration-150 hover:text-[var(--color-primary-800)]"
-              download
-            >
-              Download PDF
-            </a>
           </div>
         </Container>
       </SectionContainer>
