@@ -11,13 +11,13 @@
  *
  * Section order:
  *   1. Hero / AI Summary  -- Breadcrumb, headline, AI-optimized summary
- *   2. Getting Started     -- 5 questions
+ *   2. Getting Started     -- 6 questions
  *   3. Safety Binder       -- 5 questions
- *   4. Safety Information  -- 4 questions
+ *   4. Safety Information  -- 5 questions
  *   5. For Schools (K-12)  -- 4 questions
  *   6. For Churches        -- 3 questions
- *   7. For Corporate       -- 3 questions
- *   8. Security & Privacy  -- 4 questions
+ *   7. For Corporate       -- 4 questions
+ *   8. Security & Privacy  -- 5 questions
  *   9. Billing & Support   -- 4 questions
  *  10. CTA Band            -- Conversion band
  *
@@ -61,7 +61,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 export const metadata = generatePageMetadata({
   title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about SafeTrekr. Learn about our review process, pricing, security practices, and how we serve different organization types.",
+    "SafeTrekr FAQ: how trip safety binders work, pricing from $450, analyst review process, school and church trip planning, data security, and cancellation policy.",
   path: "/resources/faq",
 });
 
@@ -71,12 +71,17 @@ export const metadata = generatePageMetadata({
 
 const GETTING_STARTED: FAQItem[] = [
   {
-    question: "How do I submit my first trip?",
+    question: "What is SafeTrekr?",
     answer:
-      "After creating your account, you'll access a guided submission form that collects destination, dates, participants, activities, and logistics. The form takes approximately 15 minutes to complete. No training or special knowledge required -- just the details of your planned trip.",
+      "SafeTrekr is a professional travel preparation platform that assigns a trained safety analyst to review every trip your organization sends. Analysts evaluate destinations using government and international data covering weather, seismic activity, health advisories, real-time disaster alerts, and regional humanitarian conditions, then deliver an audit-ready safety binder with documented findings, assessments, and emergency plans. SafeTrekr serves K-12 schools, churches and mission organizations, higher education institutions, and corporate travel programs. Pricing starts at $450 per domestic day trip.",
   },
   {
-    question: "How long does it take to receive documentation?",
+    question: "How do I get started with SafeTrekr?",
+    answer:
+      "After creating your account, you'll access a guided submission form that collects destination, dates, participants, activities, and logistics. The form takes approximately 15 minutes to complete. No training or special knowledge required, just the details of your planned trip.",
+  },
+  {
+    question: "How long does it take to receive a safety binder?",
     answer:
       "Standard delivery is 3-5 business days from trip submission. Extended Trip and International tiers receive priority analyst assignment. Expedited 48-hour delivery is available as an add-on.",
   },
@@ -88,7 +93,7 @@ const GETTING_STARTED: FAQItem[] = [
   {
     question: "What if I need to change my trip details after submitting?",
     answer:
-      "Minor changes to dates or logistics can be accommodated -- contact your analyst. Significant changes (new destination, different venues) may require a new submission.",
+      "Minor changes to dates or logistics can be accommodated. Just contact your analyst. Significant changes like a new destination or different venues may require a new submission.",
   },
   {
     question: "Can I see a sample safety binder before purchasing?",
@@ -116,7 +121,7 @@ const SAFETY_BINDER: FAQItem[] = [
   {
     question: "Can I use the safety binder for insurance purposes?",
     answer:
-      "Yes. The safety binder documents that professional assessment was conducted -- exactly what insurance carriers appreciate seeing. Many organizations share binders with their insurance carrier as evidence of preparation.",
+      "Yes. The safety binder documents that professional assessment was conducted, which is exactly what insurance carriers appreciate seeing. Many organizations share binders with their insurance carrier as evidence of preparation.",
   },
   {
     question: "How long do I have access to my safety binder?",
@@ -127,17 +132,17 @@ const SAFETY_BINDER: FAQItem[] = [
 
 const SAFETY_INFORMATION: FAQItem[] = [
   {
-    question: "What government data sources do you use?",
+    question: "What data sources does SafeTrekr use for trip safety?",
     answer:
-      "We gather information from five government sources: NOAA (weather and environmental), USGS (geological), CDC (health), GDACS (alerts), and ReliefWeb (regional conditions). These are the same sources used by professionals who assess conditions.",
+      "We gather information from five government and international sources covering weather and environmental conditions, seismic and geological monitoring, health advisories and disease outbreaks, real-time disaster alerts, and regional humanitarian conditions. These are the same types of sources used by international aid organizations and professional security teams to make field decisions.",
   },
   {
-    question: "How is the information assessed?",
+    question: "How does SafeTrekr assess trip safety risks?",
     answer:
-      "We use structured assessment methodology that evaluates conditions in context rather than providing simple pass/fail flags. You see the full picture, not just binary indicators.",
+      "Your analyst reviews each destination across 17 categories including weather, seismic activity, health advisories, regional stability, medical facility proximity, and more. Rather than a pass/fail score, you receive contextualized findings: what the data says, what it means for your specific trip, and what actions to consider.",
   },
   {
-    question: "How current is the information?",
+    question: "How current is the safety information?",
     answer:
       "Information is gathered at the time of analyst review and reflects current conditions. For active trips with monitoring, briefings are provided as conditions evolve.",
   },
@@ -146,13 +151,18 @@ const SAFETY_INFORMATION: FAQItem[] = [
     answer:
       "The safety binder is designed for planned trips with specific dates and logistics. For pre-planning destination research, contact us to discuss options.",
   },
+  {
+    question: "What happens if an emergency occurs during my trip?",
+    answer:
+      "For Extended Trip and International tiers with active monitoring, your analyst provides updated briefings as conditions change. Every safety binder includes emergency contact directories, medical facility locations, and evacuation routes. The SafeTrekr mobile app gives chaperones and trip leaders offline access to this critical information in the field.",
+  },
 ];
 
 const FOR_SCHOOLS: FAQItem[] = [
   {
-    question: "Is SafeTrekr designed for student privacy?",
+    question: "Does SafeTrekr protect student data and support FERPA compliance?",
     answer:
-      "Yes. SafeTrekr is built with student data protection in mind. We use role-based access controls, encryption, data minimization practices, and do not sell or share student data. Schools can request documentation for district procurement.",
+      "Yes. SafeTrekr is built with student data protection in mind and supports FERPA compliance requirements. We use role-based access controls, AES-256 encryption at rest, TLS encryption in transit, data minimization practices, and do not sell or share student data. Schools can request a security overview document for district procurement.",
   },
   {
     question: "Can multiple schools in our district use SafeTrekr?",
@@ -175,7 +185,7 @@ const FOR_CHURCHES: FAQItem[] = [
   {
     question: "How does SafeTrekr help with mission trip preparation?",
     answer:
-      "SafeTrekr provides professional assessment for international missions, including embassy contacts, medical facility locations, regional conditions, and emergency planning. Safety binders document that professional preparation was completed -- valuable for insurance carriers and denominational requirements.",
+      "SafeTrekr provides professional assessment for international missions, including embassy contacts, medical facility locations, regional conditions, and emergency planning. Safety binders document that professional preparation was completed, which is valuable for insurance carriers and denominational requirements.",
   },
   {
     question: "Do you work with mission organizations and partners abroad?",
@@ -185,7 +195,7 @@ const FOR_CHURCHES: FAQItem[] = [
   {
     question: "Is SafeTrekr affordable for small churches?",
     answer:
-      "Yes. At $450 for a domestic trip and $750 for international, SafeTrekr is accessible for churches of any size. For a 30-person mission team, that's $15-25 per person.",
+      "Yes. At $450 for a day trip, $750 for an extended domestic trip, and $1,250 for international missions, SafeTrekr is accessible for churches of any size. For a 30-person mission team, that works out to roughly $15-42 per person.",
   },
 ];
 
@@ -193,17 +203,22 @@ const FOR_CORPORATE: FAQItem[] = [
   {
     question: "What is 'duty of care' for employee travel?",
     answer:
-      "Duty of care is the responsibility employers have to take reasonable steps to prepare for employee safety during work activities, including business travel. SafeTrekr provides documented evidence that your company conducted professional assessment -- demonstrating responsible preparation.",
+      "Duty of care is the responsibility employers have to take reasonable steps to prepare for employee safety during work activities, including business travel. SafeTrekr provides documented evidence that your company conducted professional assessment, demonstrating responsible preparation.",
   },
   {
     question: "We're a mid-market company without a travel risk team. Is SafeTrekr right for us?",
     answer:
-      "Yes -- that's exactly who SafeTrekr is built for. Larger corporations have dedicated travel risk teams. SafeTrekr brings the same professional approach to mid-market companies without dedicated risk staff.",
+      "Absolutely, that's exactly who SafeTrekr is built for. Larger corporations have dedicated travel risk teams. SafeTrekr brings the same professional approach to mid-market companies without dedicated risk staff.",
   },
   {
     question: "Can SafeTrekr work with our travel booking system?",
     answer:
-      "SafeTrekr can complement existing travel workflows. Contact us for information about integration options.",
+      "SafeTrekr operates alongside your existing travel workflow. Trip details can be submitted manually or via CSV upload. We are building direct integrations with major travel management companies. Contact us to discuss your specific tools.",
+  },
+  {
+    question: "Do you offer volume or annual pricing for organizations?",
+    answer:
+      "Yes. Organizations that submit multiple trips per year can discuss volume arrangements. Contact sales@safetrekr.com to learn about options for your travel program.",
   },
 ];
 
@@ -219,9 +234,14 @@ const SECURITY_PRIVACY: FAQItem[] = [
       "No. We do not sell, share, or use your data for advertising. Data is used only for providing trip planning services.",
   },
   {
-    question: "What security practices do you follow?",
+    question: "What security practices does SafeTrekr follow?",
     answer:
-      "SafeTrekr is built with thoughtful security practices. Security information is available for organizations during procurement discussions.",
+      "SafeTrekr uses AES-256 encryption at rest, TLS 1.2+ in transit, role-based access controls, and maintains audit logs for all data access. We can provide a security overview document during procurement conversations.",
+  },
+  {
+    question: "Who are the SafeTrekr safety analysts and what are their qualifications?",
+    answer:
+      "Every safety binder is reviewed by a credentialed analyst with expertise in travel risk assessment, regulatory compliance, and emergency planning. Our leadership team includes multiple former senior U.S. Secret Service agents who spent years planning and executing protective operations. The analyst team has reviewed trips across 47 countries for 12 organization types.",
   },
   {
     question: "How long do you retain my data?",
@@ -432,18 +452,21 @@ export default function FAQHubPage() {
                 </p>
                 <p className="mt-3 leading-relaxed text-muted-foreground">
                   SafeTrekr is a professional travel preparation platform
-                  that assigns a trained safety analyst to review every trip
-                  your organization sends. Using government information from
-                  NOAA, USGS, CDC, ReliefWeb, and GDACS, the analyst evaluates
-                  destinations and delivers an audit-ready safety binder with
-                  documented findings, assessments, and emergency plans.
-                  SafeTrekr serves K-12 schools, churches and mission
-                  organizations, higher education institutions, and corporate
-                  travel programs. Pricing starts at $450 per domestic day
-                  trip, $750 for domestic overnight, and $1,250 for
-                  international trips -- approximately $15 per participant.
-                  The platform is built with student data protection in mind
-                  and uses encryption and role-based access controls.
+                  founded by former senior U.S. Secret Service agents. A
+                  trained safety analyst reviews every trip your organization
+                  sends using government and international data covering
+                  weather, seismic activity, health advisories, real-time
+                  disaster alerts, and regional humanitarian conditions. The
+                  analyst evaluates destinations across 17 categories and
+                  delivers an audit-ready safety binder with documented
+                  findings, assessments, and emergency plans. SafeTrekr
+                  serves K-12 schools, churches and mission organizations,
+                  higher education institutions, and corporate travel
+                  programs. Pricing starts at $450 per domestic day trip,
+                  $750 for extended domestic trips, and $1,250 for
+                  international trips. The platform supports FERPA compliance
+                  requirements and uses AES-256 encryption and role-based
+                  access controls.
                 </p>
               </div>
             </ScrollReveal>

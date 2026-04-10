@@ -51,9 +51,8 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "About SafeTrekr",
   description:
-    "SafeTrekr was founded to bring professional trip planning to every organization that sends people into the world. Learn our story and meet the team.",
+    "SafeTrekr is a trip safety platform founded by former senior U.S. Secret Service agents. Trained analysts review every trip using government and international data sources and deliver audit-ready safety binders. Serving 104 organizations across K-12, higher ed, churches, and corporate travel.",
   path: "/about",
-  ogImage: "/images/og-about.png",
 });
 
 // ---------------------------------------------------------------------------
@@ -105,8 +104,8 @@ const PRIMARY_STATS: StatCard[] = [
   },
   {
     value: "5",
-    label: "Government Intel Sources",
-    ariaLabel: "5 government intelligence sources",
+    label: "Government & Intl Data Sources",
+    ariaLabel: "5 government and international data sources",
   },
   {
     value: "17",
@@ -114,9 +113,9 @@ const PRIMARY_STATS: StatCard[] = [
     ariaLabel: "17 review sections per trip",
   },
   {
-    value: "250+",
-    label: "API Endpoints Monitored",
-    ariaLabel: "More than 250 API endpoints monitored",
+    value: "47",
+    label: "Countries Covered",
+    ariaLabel: "47 countries covered",
   },
   {
     value: "3-5",
@@ -126,8 +125,8 @@ const PRIMARY_STATS: StatCard[] = [
 ];
 
 const SECONDARY_METRICS = [
-  { value: "Pro", label: "Review Standard" },
-  { value: "Board", label: "Ready Documentation" },
+  { value: "100%", label: "Human-Reviewed" },
+  { value: "12", label: "Organization Types Served" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -239,19 +238,21 @@ export default function AboutPage() {
           <div className="mt-8 space-y-6 lg:mt-10">
             <ScrollReveal variant="fadeUp" delay={0.16} as="p">
               <span className="text-body-lg max-w-prose text-muted-foreground">
-                The founder of SafeTrekr spent years working with organizations
-                that send people on trips. Schools planning field trips. Churches
-                organizing mission trips. Companies coordinating business travel.
+                Our founding team includes multiple former senior United States
+                Secret Service agents who spent years planning protective
+                operations for some of the highest-stakes travel in the world.
+                When they began working with schools, churches, and businesses,
+                they saw a gap: these organizations cared deeply about safety
+                but lacked the structured tools that professional security
+                teams rely on.
               </span>
             </ScrollReveal>
 
             <ScrollReveal variant="fadeUp" delay={0.24} as="p">
               <span className="text-body-lg max-w-prose text-muted-foreground">
-                What he noticed was a gap: these organizations cared deeply about
-                preparation, but they lacked tools designed for trip safety
-                planning. Teachers doing their best with spreadsheets. Volunteer
-                coordinators researching destinations between other
-                responsibilities. HR managers approving travel without a
+                Teachers were doing their best with spreadsheets. Volunteer
+                coordinators were researching destinations between other
+                responsibilities. HR managers were approving travel without a
                 structured assessment process.
               </span>
             </ScrollReveal>
@@ -388,34 +389,32 @@ export default function AboutPage() {
 
           {/* Team Cards Grid */}
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-            {/* Founder Card */}
+            {/* Founding Team Card */}
             <ScrollReveal variant="fadeUp" delay={0.16}>
               <div className="rounded-xl border border-border bg-white p-8 shadow-[var(--shadow-sm)]">
-                {/* Avatar Placeholder */}
+                {/* Shield Icon */}
                 <div
                   className="mb-6 flex size-20 items-center justify-center rounded-full bg-primary-50"
                   aria-hidden="true"
                 >
-                  <span className="text-heading-md font-bold text-primary-700">
-                    MD
-                  </span>
+                  <Shield className="size-10 text-primary-700" />
                 </div>
                 <h3 className="text-heading-sm text-foreground">
-                  Mike Dawson
+                  Founded by Former Secret Service
                 </h3>
                 <p className="text-body-sm mb-4 text-muted-foreground">
-                  Founder &amp; CEO
+                  Leadership Team
                 </p>
                 <p
                   className="text-body-md text-muted-foreground"
                   style={{ maxWidth: "45ch" }}
                 >
-                  Mike Dawson founded SafeTrekr after a career in the United
-                  States Secret Service, where he spent years planning and
-                  executing protective operations for some of the most
-                  high-stakes travel in the world. He built SafeTrekr to bring
-                  that same level of professional safety analysis to every
-                  organization that takes people off-site.
+                  SafeTrekr was founded by multiple former senior United States
+                  Secret Service agents who spent years planning and executing
+                  protective operations for some of the most high-stakes travel
+                  in the world. They built SafeTrekr to bring that same level
+                  of professional safety analysis to every organization that
+                  takes people off-site.
                 </p>
               </div>
             </ScrollReveal>
@@ -439,18 +438,20 @@ export default function AboutPage() {
                 >
                   Every trip binder is reviewed by a credentialed safety analyst
                   with expertise in travel risk assessment, regulatory
-                  compliance, and emergency planning.
+                  compliance, and emergency planning. Our analysts hold
+                  backgrounds in protective operations, emergency management,
+                  and organizational safety.
                 </p>
                 <p className="text-body-md mb-6 font-medium italic text-foreground">
                   &ldquo;Our analysts have reviewed trips across 47 countries for
                   12 organization types.&rdquo;
                 </p>
                 <Link
-                  href="/about/analysts"
+                  href="/resources/faq#security"
                   className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700"
-                  aria-label="Meet our safety analysts, view full team profiles"
+                  aria-label="Learn more about our safety practices and analyst qualifications"
                 >
-                  Meet Our Analysts
+                  Learn About Our Process
                   <ArrowRight
                     className="size-4 transition-transform group-hover:translate-x-1"
                     aria-hidden="true"
@@ -560,7 +561,7 @@ export default function AboutPage() {
               style={{ maxWidth: "28ch" }}
             >
               Protect every traveler through professional safety analysis,
-              government intelligence, and documented evidence.
+              verified data sources, and documented evidence.
             </h2>
           </ScrollReveal>
 
