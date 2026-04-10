@@ -70,7 +70,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "How SafeTrekr Works",
   description:
-    "From trip submission to complete documentation in 3-5 days. Learn how SafeTrekr's professional process combines current information, analyst evaluation, and complete documentation.",
+    "From trip submission to complete documentation, quickly. Learn how SafeTrekr's professional process combines current information, analyst evaluation, and complete documentation.",
   path: "/how-it-works",
 });
 
@@ -85,15 +85,8 @@ const PROCESS_STEPS = [
     title: "Share Your Trip Details",
     description:
       "Enter your destination, dates, participants, activities, and logistics through a guided submission form.",
-    details: [
-      "Destination and travel dates",
-      "Number and composition of travelers",
-      "Planned activities and venues",
-      "Transportation arrangements",
-      "Lodging details",
-      "Any known concerns or special requirements",
-    ],
-    badge: "Day 1 (15 minutes)",
+    details: [],
+    badge: "Step 1",
   },
   {
     number: 2,
@@ -101,14 +94,8 @@ const PROCESS_STEPS = [
     title: "Analyst Reviews Everything",
     description:
       "Highly trained and experienced safety analyst conducts a comprehensive safety review of your trip. Every venue, transportation leg, and activity is evaluated and planned.",
-    details: [
-      "Full professional safety review",
-      "Multi-private and government sourced intelligence",
-      "Every venue, route, and provider evaluated",
-      "Professional judgment applied to your trip",
-      "Recommendations written for each finding",
-    ],
-    badge: "Days 2-4",
+    details: [],
+    badge: "Step 2",
   },
   {
     number: 3,
@@ -116,15 +103,8 @@ const PROCESS_STEPS = [
     title: "Digital Safety Binder",
     description:
       "Full assessment is compiled into your interactive and customized safety binder. Structured for all stakeholders and actively monitored to provide up to date information.",
-    details: [
-      "Executive summary",
-      "Emergency planning and contacts",
-      "Maps and evacuation routes",
-      "Safety and Medical Recommendations",
-      "Full Trip Review before departure",
-      "Active Intelligence Monitoring so you don't have to",
-    ],
-    badge: "Days 4-5",
+    details: [],
+    badge: "Step 3",
   },
 ] as const;
 
@@ -187,7 +167,7 @@ const REVIEW_CATEGORIES = [
 const HOWTO_STEPS: HowToStep[] = [
   {
     name: "Share Your Trip Details",
-    text: "Enter your destination, dates, participants, activities, and logistics through a guided submission form. Takes approximately 15 minutes.",
+    text: "Enter your destination, dates, participants, activities, and logistics through a guided submission form.",
   },
   {
     name: "Analyst Reviews Everything",
@@ -195,7 +175,7 @@ const HOWTO_STEPS: HowToStep[] = [
   },
   {
     name: "Receive Your Safety Binder",
-    text: "Receive your complete safety binder with verified documentation in as soon as 3 days.",
+    text: "Receive your complete safety binder with verified documentation.",
   },
 ];
 
@@ -700,7 +680,7 @@ export default function HowItWorksPage() {
             <SegmentCard
               icon={<Building2 />}
               title="Corporate & Sports Teams"
-              description="Team retreats, conferences, league travel"
+              description="Business travel, team retreats, conferences, league travel"
               regulatoryHook="Scales with you"
               href="/solutions/corporate"
             />

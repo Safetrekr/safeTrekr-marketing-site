@@ -177,7 +177,7 @@ export default function AboutPage() {
           ================================================================ */}
       <SectionContainer
         ariaLabelledBy="about-hero-heading"
-        className="pt-24 pb-20 lg:pt-32 lg:pb-28 xl:pt-36 xl:pb-32"
+        className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
       >
         <Container>
           {/* Eyebrow */}

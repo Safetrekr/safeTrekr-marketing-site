@@ -87,7 +87,7 @@ export const TRIP_TIERS: readonly TripTier[] = [
       "Active intelligence monitoring",
       "Complete safety binder",
       "Chaperone mobile app",
-      "Delivery in as soon as 3 days",
+      "Fast delivery turnaround",
     ],
     featured: false,
   },
@@ -186,7 +186,7 @@ export const VALUE_ANCHORS: readonly ValueAnchor[] = [
     label: "SafeTrekr cost",
     value: "From $15/participant",
     description:
-      "Professional review, current safety information, and board-ready documentation -- delivered in 3-5 business days with minimal staff time.",
+      "Professional review, current safety information, and board-ready documentation -- delivered quickly with minimal staff time.",
   },
 ] as const;
 

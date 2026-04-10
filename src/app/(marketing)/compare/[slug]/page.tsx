@@ -202,7 +202,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
       question:
         "How much time does SafeTrekr save compared to manual research?",
       answer:
-        "Trip leaders typically spend 40 to 60 hours assembling safety information for an international trip using manual methods. With SafeTrekr, you submit your trip details through a guided form in 15 to 20 minutes, and a professional analyst delivers a complete safety binder in as soon as 3 days. Your trip leader's time shifts from amateur research to ministry and program preparation.",
+        "Trip leaders typically spend 40 to 60 hours assembling safety information for an international trip using manual methods. With SafeTrekr, you submit your trip details through a guided form, and a professional analyst delivers a complete safety binder quickly. Your trip leader's time shifts from amateur research to ministry and program preparation.",
     },
     {
       question:

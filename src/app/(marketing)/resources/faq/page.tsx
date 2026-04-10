@@ -78,12 +78,12 @@ const GETTING_STARTED: FAQItem[] = [
   {
     question: "How do I get started with SafeTrekr?",
     answer:
-      "After creating your account, you'll access a guided submission form that collects destination, dates, participants, activities, and logistics. The form takes approximately 15 minutes to complete. No training or special knowledge required, just the details of your planned trip.",
+      "After creating your account, you'll access a guided submission form that collects destination, dates, participants, activities, and logistics. No training or special knowledge required, just the details of your planned trip.",
   },
   {
     question: "How long does it take to receive a safety binder?",
     answer:
-      "Standard delivery is 3-5 business days from trip submission. Extended Trip and International tiers receive priority analyst assignment. Expedited 48-hour delivery is available as an add-on.",
+      "Extended Trip and International tiers receive priority analyst assignment. Expedited 48-hour delivery is available as an add-on.",
   },
   {
     question: "Is there a minimum commitment or contract?",

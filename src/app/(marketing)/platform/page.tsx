@@ -88,13 +88,13 @@ const PROCESS_STEPS = [
     number: 1,
     title: "Share Your Trip Details",
     description:
-      "Enter destination, dates, participants, activities, and logistics through a guided form. Takes approximately 15 minutes.",
+      "Enter destination, dates, participants, activities, and logistics through a guided form.",
   },
   {
     number: 2,
     title: "Professional Assessment",
     description:
-      "A trained safety analyst conducts a comprehensive review using current information from multiple trusted sources. Delivered in as soon as 3 days.",
+      "A trained safety analyst conducts a comprehensive review using current information from multiple trusted sources.",
   },
   {
     number: 3,
@@ -238,7 +238,7 @@ export default function PlatformOverviewPage() {
                 className="mx-auto mt-4 text-display-md text-foreground"
                 style={{ maxWidth: "28ch" }}
               >
-                From trip submission to complete documentation in 3-5 business days.
+                From trip submission to complete documentation, quickly.
               </h2>
               <p className="mx-auto mt-4 text-body-lg text-muted-foreground" style={{ maxWidth: "50ch" }}>
                 Every trip follows the same structured process, regardless of

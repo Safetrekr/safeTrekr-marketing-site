@@ -191,7 +191,7 @@ export default function ROICalculatorPage() {
                   Time Savings
                 </h3>
                 <p className="mt-2 text-body-md text-muted-foreground">
-                  Organizations report that coordinating trip safety information takes 3-8 hours per trip when done manually. Staff research destinations, compile emergency contacts, create checklists, and assemble documentation from scratch each time. SafeTrekr delivers a complete, professionally reviewed safety binder in 3-5 days, freeing your staff to focus on the educational or organizational aspects of the trip.
+                  Organizations report that coordinating trip safety information takes 3-8 hours per trip when done manually. Staff research destinations, compile emergency contacts, create checklists, and assemble documentation from scratch each time. SafeTrekr delivers a complete, professionally reviewed safety binder quickly, freeing your staff to focus on the educational or organizational aspects of the trip.
                 </p>
               </div>
 

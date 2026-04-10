@@ -89,7 +89,7 @@ const PROCESS_STEPS = [
     number: 1,
     title: "Enter Trip Details",
     description:
-      "Enter all of your trip details and activities through a self guided form. Takes about 15 minutes.",
+      "Enter all of your trip details and activities through a guided form.",
   },
   {
     number: 2,
@@ -172,7 +172,7 @@ const BINDER_CONTENTS = [
   "Active intelligence monitoring",
   "Complete safety binder",
   "Mobile field support",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
 ];
 
 const PROOF_STATS = [
@@ -228,7 +228,7 @@ const DAY_TRIP_FEATURES = [
   "Comprehensive safety assessment",
   "Interactive digital safety binder",
   "Mobile field support access",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
   "Verified documentation",
   "PDF & print export",
   "30-day post-trip access",
@@ -319,7 +319,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How quickly can we get started?",
     answer:
-      "You can submit your first trip today. There's no implementation project or training required. Delivery in as soon as 3 days from trip submission.",
+      "You can submit your first trip today. There's no implementation project or training required.",
   },
   {
     question: "Do you offer annual agreements?",
@@ -344,7 +344,7 @@ export default function CorporateSolutionsPage() {
       <SectionContainer
         id="hero"
         aria-label="Hero"
-        className="pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28 xl:pt-28 xl:pb-36"
+        className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
       >
         <Container>
           {/* Breadcrumb */}
@@ -456,20 +456,15 @@ export default function CorporateSolutionsPage() {
                 </h2>
 
                 <p className="mt-6 max-w-prose text-body-lg text-muted-foreground">
-                  Most mid-market companies send employees to conferences, client
-                  sites, and international destinations every month. Travel gets
-                  approved based on budget and business purpose. Safety assessment?
-                  That's often assumed to be covered by travel insurance.
+                  Most corporations send employees and representatives to client sites, conferences, and international destinations every month. Companies that truly value their people, and recognize them as their most important resource, tend to experience greater success. Protecting employees is essential to the corporate mission.
                 </p>
 
                 <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
-                  Here's the gap: travel insurance covers incidents after they
-                  happen. Duty of care is about preparation before the trip.
-                  They're complementary, not the same thing.
+                  Has a safety assessment been performed? Many organizations assume travel insurance covers that.
                 </p>
 
                 <p className="mt-4 max-w-prose text-body-lg font-medium text-foreground">
-                  Active visibility, not passive hope.
+                  Here&apos;s the gap: travel insurance responds after an incident occurs. Duty of care focuses on preparation before the trip. They&apos;re complementary, but they are not the same.
                 </p>
               </ScrollReveal>
             </div>
@@ -527,7 +522,7 @@ export default function CorporateSolutionsPage() {
                 Professional travel preparation without dedicated risk staff.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                From trip details to organized safety plan in as little as 3 days.
+                From trip details to organized safety plan, quickly.
               </p>
             </div>
           </ScrollReveal>

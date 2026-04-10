@@ -42,7 +42,7 @@ const DAY_TRIP_FEATURES = [
   "Comprehensive safety assessment",
   "Interactive digital safety binder",
   "Mobile field support access",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
   "Verified documentation",
   "PDF & print export",
   "30-day post-trip access",
@@ -137,15 +137,15 @@ export default function PreviewHomePage() {
             <div className="lg:col-span-5 flex flex-col">
               <span className="text-eyebrow flex items-center gap-2" style={{ color: 'var(--color-primary-700)' }}>
                 <Shield className="w-4 h-4" />
-                BUILT BY FORMER SECRET SERVICE ADVANCE AGENTS
+                TRIP SAFETY PLANNING PLATFORM
               </span>
 
               <h1 id="hero-heading" className="text-display-xl mt-4" style={{ color: 'var(--color-foreground)', maxWidth: '18ch' }}>
-                You are now going with a plan.
+                Every trip requires a plan.
               </h1>
 
               <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '52ch' }}>
-                Track every participant&apos;s location, coordinate headcounts at rally points, and get instant alerts for weather, medical, or security incidents. Professional review, clear documentation, and the accountability your organization needs.
+                SafeTrekr provides structured safety planning for group travel, professional review, clear documentation, and the accountability your organization needs. Maintain exceptional experiences while ensuring appropriate preparation is completed professionally.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
@@ -230,7 +230,78 @@ export default function PreviewHomePage() {
       </section>
 
       {/* ================================================================
-          SECTION 3: CHAPERONE EXPERIENCE (Dark, visual-heavy)
+          SECTION 3: THE CHALLENGE + MECHANISM CARDS
+          ================================================================ */}
+      <section aria-labelledby="problem-mechanism-heading" style={{ background: 'var(--color-background)', padding: '96px 0' }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>THE CHALLENGE</span>
+            <h2 id="problem-mechanism-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
+              Most organizations want to plan thoroughly. They just need the right tools.
+            </h2>
+            <p className="text-body-lg mt-4 mx-auto" style={{ color: 'var(--color-muted-foreground)', maxWidth: '65ch' }}>
+              Planning a trip involves dozens of considerations, venues, transportation, health factors, emergency contacts, weather, and more. Most organizations rely on dedicated staff doing their best with spreadsheets, checklists, and good intentions. SafeTrekr provides the systematic approach that helps your team address each consideration, with documentation that demonstrates your thoroughness.
+            </p>
+          </div>
+
+          <p className="text-heading-lg text-center font-semibold mt-12" style={{ color: 'var(--color-foreground)' }}>
+            SafeTrekr adds structure to trip planning.
+          </p>
+
+          {/* 3 Mechanism Cards */}
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <Link href="/platform/analyst-review" className="card card-interactive group block" style={{ padding: 32, textDecoration: 'none' }}>
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
+                <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+              </div>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Professional Analyst Review</h3>
+              <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
+                Every trip is reviewed by a trained safety analyst, from venue details to emergency contacts. Assessment by professionals, not automated scoring.
+              </p>
+              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
+                Learn about the review process
+                <SmallArrowIcon className="w-4 h-4 card-link-arrow" />
+              </span>
+            </Link>
+
+            <Link href="/platform/risk-intelligence" className="card card-interactive group block" style={{ padding: 32, textDecoration: 'none' }}>
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
+                <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+              </div>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Current Safety Information</h3>
+              <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
+                Your review includes current information from multiple trusted sources, weather, health advisories, and regional conditions. Your analyst evaluates it, so you don&apos;t have to.
+              </p>
+              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
+                See how information is gathered
+                <SmallArrowIcon className="w-4 h-4 card-link-arrow" />
+              </span>
+            </Link>
+
+            <Link href="/platform/safety-binder" className="card card-interactive group block" style={{ padding: 32, textDecoration: 'none' }}>
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-50)' }}>
+                <svg className="w-6 h-6" style={{ color: 'var(--color-primary-700)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              </div>
+              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Documented Preparation</h3>
+              <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)', maxWidth: '45ch' }}>
+                Every finding, every recommendation, every emergency contact documented in a complete safety binder. When someone asks what you did to prepare, you have professional documentation to share.
+              </p>
+              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>
+                Explore the safety binder
+                <SmallArrowIcon className="w-4 h-4 card-link-arrow" />
+              </span>
+            </Link>
+          </div>
+        </div>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (max-width: 767px) {
+            section[aria-labelledby="problem-mechanism-heading"] { padding: 48px 0 !important; }
+          }
+        ` }} />
+      </section>
+
+      {/* ================================================================
+          SECTION 4: CHAPERONE EXPERIENCE (Dark, visual-heavy)
           ================================================================ */}
       <section id="chaperone-experience" aria-labelledby="chaperone-heading" data-theme="dark" style={{ background: 'var(--color-secondary)', padding: '96px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
@@ -302,101 +373,6 @@ export default function PreviewHomePage() {
                 width={220}
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================
-          SECTION 3b: TRUST METRICS + PRODUCT UI SHOWCASE
-          ================================================================ */}
-      <section aria-label="Platform credentials and product preview" style={{ background: 'var(--color-background)', padding: '80px 0' }}>
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Product UI Cards Row */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Trip Review Progress Panel */}
-            <div className="rounded-xl bg-white shadow-lg border p-5" style={{ borderColor: 'var(--color-border)' }}>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-heading-sm" style={{ color: 'var(--color-foreground)', fontSize: 18 }}>Trip Safety Review</span>
-                <span className="badge badge-brand" style={{ fontSize: 11 }}>Reviewed</span>
-              </div>
-              <div className="flex flex-col gap-3 mb-4">
-                {(['Venue Safety', 'Transportation', 'Emergency Plan', 'Health Advisory'] as const).map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#4ca46e" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                    <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="w-full h-2 rounded-full" style={{ background: 'var(--color-primary-100)' }}>
-                <div className="h-full rounded-full" style={{ background: 'var(--color-primary-500)', width: '85%' }} />
-              </div>
-              <div className="flex items-center justify-between mt-3">
-                <span className="text-body-sm font-semibold" style={{ color: 'var(--color-foreground)' }}>85% complete</span>
-                <span className="badge badge-brand" style={{ fontSize: 10, padding: '1px 8px' }}>Trip Ready</span>
-              </div>
-            </div>
-
-            {/* Evidence Binder Preview */}
-            <div className="rounded-xl bg-white shadow-lg border p-5" style={{ borderColor: 'var(--color-border)' }}>
-              <span className="text-eyebrow block" style={{ color: 'var(--color-muted-foreground)', fontSize: 10 }}>EVIDENCE BINDER</span>
-              <div className="flex items-center gap-1.5 mt-1.5">
-                <span className="badge badge-brand" style={{ fontSize: 10, padding: '1px 6px' }}>Verified</span>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--color-safety-green)' }} />
-              </div>
-              <div className="mt-4 space-y-3">
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: 'var(--color-primary-500)' }} />
-                  <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>Risk assessment completed</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: 'var(--color-primary-500)' }} />
-                  <span className="text-body-sm" style={{ color: 'var(--color-foreground)' }}>Documentation finalized</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-3" style={{ borderTop: '1px solid var(--color-border)' }}>
-                <code style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-muted-foreground)', letterSpacing: '0.03em' }}>a3f2...c891</code>
-              </div>
-            </div>
-
-            {/* Readiness Gauge */}
-            <div className="rounded-xl bg-white shadow-lg border p-5 flex flex-col items-center justify-center" style={{ borderColor: 'var(--color-border)' }}>
-              <svg viewBox="0 0 72 72" width={72} height={72} aria-hidden="true">
-                <circle cx={36} cy={36} r={32} fill="none" stroke="#e0f1e6" strokeWidth={4} transform="rotate(-90 36 36)" />
-                <circle cx={36} cy={36} r={32} fill="none" stroke="#4ca46e" strokeWidth={4} strokeLinecap="round" transform="rotate(-90 36 36)" className="gauge-arc" />
-                <text x={36} y={34} textAnchor="middle" fontFamily="Plus Jakarta Sans, sans-serif" fontWeight={600} fontSize={16} fill="#061a23">85%</text>
-                <text x={36} y={48} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize={8} fill="#4d5153">Trip Ready</text>
-              </svg>
-              <div className="flex items-center justify-center gap-1 mt-2">
-                <span className="w-2 h-2 rounded-full status-pulse" style={{ background: 'var(--color-safety-green)' }} aria-hidden="true" />
-                <span style={{ fontSize: 11, color: 'var(--color-muted-foreground)' }}>Active</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Trust Metrics */}
-          <div className="grid grid-cols-3 gap-6 lg:gap-8 mt-12 pt-10" style={{ borderTop: '1px solid var(--color-border)' }}>
-            <div className="text-center">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>Multiple</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Trusted Intel Sources</div>
-            </div>
-            <div className="text-center">
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>Full</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Comprehensive Review</div>
-            </div>
-            <div className="text-center">
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 1.04rem + 1.98vw, 2.75rem)', fontWeight: 700, color: 'var(--color-foreground)', lineHeight: 1 }}>3 Day</div>
-              <div className="text-eyebrow mt-2" style={{ color: 'var(--color-muted-foreground)', fontSize: 12 }}>Fast Turnaround</div>
-            </div>
-          </div>
-
-          {/* Intel Source Bar */}
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mt-8 pt-6" style={{ borderTop: '1px solid var(--color-border)' }}>
-            {['Government', 'Humanitarian', 'Regional', 'Emergency', 'Health'].map((source, i) => (
-              <span key={source} className="flex items-center gap-8">
-                <span style={{ fontSize: 12, color: 'var(--color-muted-foreground)', letterSpacing: '0.05em', textTransform: 'uppercase' as const, fontWeight: 500 }}>{source}</span>
-                {i < 4 && <span style={{ height: 12, width: 1, background: 'var(--color-border)' }} aria-hidden="true" />}
-              </span>
-            ))}
           </div>
         </div>
       </section>
@@ -519,7 +495,7 @@ export default function PreviewHomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>HOW IT WORKS</span>
             <h2 id="how-it-works-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              From trip details to field-ready safety plan in 3 days.
+              From trip details to field-ready safety plan, fast.
             </h2>
           </div>
 
@@ -531,7 +507,7 @@ export default function PreviewHomePage() {
               </div>
               <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Share Your Trip Details</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Enter your destination, dates, participants, and planned activities through a guided form. Takes about 15 minutes.
+                Enter your destination, dates, participants, and planned activities through a guided form.
               </p>
             </div>
 

@@ -72,7 +72,7 @@ export default function PrivacyNoticePage() {
       {/* ── Page Header ── */}
       <SectionContainer
         as="section"
-        className="pb-6 pt-8 sm:pb-8 sm:pt-12 lg:pb-10 lg:pt-16"
+        className="pb-2 pt-8 sm:pb-3 sm:pt-12 lg:pb-4 lg:pt-16"
         ariaLabelledBy="legal-page-heading"
       >
         <Container>

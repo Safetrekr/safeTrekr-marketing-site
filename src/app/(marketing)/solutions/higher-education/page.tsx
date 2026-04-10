@@ -91,7 +91,7 @@ const PROCESS_STEPS = [
     number: 1,
     title: "Enter Trip Details",
     description:
-      "Enter all of your trip details and activities through a self guided form. Takes about 15 minutes.",
+      "Enter all of your trip details and activities through a guided form.",
   },
   {
     number: 2,
@@ -182,8 +182,8 @@ const PROOF_STATS = [
       "Current information from established government and international agency sources -- professionally evaluated by experienced analysts",
   },
   {
-    value: "3 Days",
-    label: "Fast Turnaround",
+    value: "Fast",
+    label: "Turnaround",
     description:
       "Professional review and documentation delivered before your students depart for their program",
   },
@@ -217,7 +217,7 @@ const DAY_TRIP_FEATURES = [
   "Comprehensive safety assessment",
   "Interactive digital safety binder",
   "Mobile field support access",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
   "Verified documentation",
   "PDF & print export",
   "30-day post-trip access",
@@ -296,7 +296,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "How quickly can we get documentation for urgent travel?",
     answer:
-      "Standard delivery is as soon as 3 days. Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
+      "Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
   },
 ];
 
@@ -316,7 +316,7 @@ export default function HigherEducationSolutionsPage() {
       <SectionContainer
         id="hero"
         aria-label="Hero"
-        className="pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28 xl:pt-28 xl:pb-36"
+        className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
       >
         <Container>
           {/* Breadcrumb */}
@@ -490,7 +490,7 @@ export default function HigherEducationSolutionsPage() {
                 id="solution-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                From trip details to organized safety plan in as little as 3 days.
+                From trip details to organized safety plan, quickly.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
                 Professional preparation for every university-sponsored trip.

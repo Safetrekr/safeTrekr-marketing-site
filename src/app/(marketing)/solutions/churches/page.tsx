@@ -95,7 +95,7 @@ const PROCESS_STEPS = [
     number: 1,
     title: "Trip Leader Submits Details",
     description:
-      "The trip leader enters destination, dates, team size, activities, and ministry partners through a guided form. Takes 15 minutes. No training required.",
+      "The trip leader enters destination, dates, team size, activities, and ministry partners through a guided form. No training required.",
   },
   {
     number: 2,
@@ -140,7 +140,7 @@ const FEATURE_CARDS = [
     icon: <Activity className="size-6" />,
     title: "Volunteer-Friendly Process",
     description:
-      "Simple 15-minute trip submission designed for volunteer leaders with day jobs and families. No training required. No complicated setup. Clear guidance delivered back.",
+      "Simple trip submission designed for volunteer leaders with day jobs and families. No training required. No complicated setup. Clear guidance delivered back.",
     href: "/platform/mobile-app",
     linkText: "Learn about mobile operations",
   },
@@ -188,7 +188,7 @@ const CHURCHES_DAY_TRIP_FEATURES = [
   "Comprehensive safety assessment",
   "Interactive digital safety binder",
   "Mobile field support access",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
   "Verified documentation",
   "PDF & print export",
   "30-day post-trip access",
@@ -256,7 +256,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Our volunteer leaders are not technical. Is SafeTrekr complicated to use?",
     answer:
-      "SafeTrekr was designed for volunteer leaders with day jobs and families. Submitting a trip takes about 15 minutes through a guided form, just enter your destination, dates, team size, and planned activities. No training required. Your volunteers receive a completed safety binder with clear checklists and guidance.",
+      "SafeTrekr was designed for volunteer leaders with day jobs and families. Submitting a trip is done through a guided form, just enter your destination, dates, team size, and planned activities. No training required. Your volunteers receive a completed safety binder with clear checklists and guidance.",
   },
   {
     question: "What if our ministry partner changes or our itinerary shifts?",
@@ -287,7 +287,7 @@ export default function ChurchSolutionsPage() {
         <section
           id="hero"
           aria-label="Hero"
-          className="bg-background pb-12 pt-8 sm:pb-16 sm:pt-12 md:pb-20 md:pt-16 lg:pb-28 lg:pt-20 xl:pb-36 xl:pt-28"
+          className="bg-background pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
         >
           <Container>
             {/* Breadcrumb */}
@@ -617,7 +617,7 @@ export default function ChurchSolutionsPage() {
                   Professional preparation for mission trips and youth travel.
                 </h2>
                 <p className="mx-auto mt-4 max-w-[60ch] text-body-lg text-muted-foreground">
-                  From trip planning to complete documentation in as soon as 3 days.
+                  From trip planning to complete documentation, quickly.
                 </p>
               </ScrollReveal>
             </div>
@@ -899,10 +899,10 @@ export default function ChurchSolutionsPage() {
               <ScrollReveal variant="fadeUp" delay={0.2}>
                 <div
                   className="rounded-xl border border-dark-border bg-dark-surface p-8 text-center"
-                  aria-label="3 days fast turnaround"
+                  aria-label="Fast turnaround"
                 >
                   <div className="font-display font-mono text-3xl font-bold text-dark-text-primary lg:text-4xl">
-                    3 Days
+                    Fast
                   </div>
                   <div className="mt-3 text-eyebrow text-dark-text-secondary">
                     Fast Turnaround

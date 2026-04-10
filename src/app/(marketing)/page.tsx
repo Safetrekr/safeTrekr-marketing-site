@@ -46,7 +46,7 @@ const DAY_TRIP_FEATURES = [
   "Comprehensive safety assessment",
   "Interactive digital safety binder",
   "Mobile field support access",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
   "Verified documentation",
   "PDF & print export",
   "30-day post-trip access",
@@ -131,21 +131,22 @@ export default function PreviewHomePage() {
       {/* ================================================================
           SECTION 1: HERO
           ================================================================ */}
-      <section aria-labelledby="hero-heading" className="relative" style={{ background: 'var(--color-background)', paddingTop: 120, paddingBottom: 96 }}>
+      <section aria-labelledby="hero-heading" className="relative" style={{ background: 'var(--color-background)', paddingTop: 56, paddingBottom: 72 }}>
         <div className="hero-dot-grid" />
         <div className="hero-radial-glow" />
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Text Column */}
-            <div className="lg:col-span-5 flex flex-col">
+            <div className="lg:col-span-7 flex flex-col">
               <span className="text-eyebrow flex items-center gap-2" style={{ color: 'var(--color-primary-700)' }}>
                 <Shield className="w-4 h-4" />
                 TRIP SAFETY PLANNING PLATFORM
               </span>
 
-              <h1 id="hero-heading" className="text-display-xl mt-4" style={{ color: 'var(--color-foreground)', maxWidth: '18ch' }}>
-                Every trip requires a plan.
+              <h1 id="hero-heading" className="text-display-xl mt-4" style={{ color: 'var(--color-foreground)' }}>
+                Every trip requires<br />
+                <span className="text-primary-700">a plan.</span>
               </h1>
 
               <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '52ch' }}>
@@ -165,7 +166,7 @@ export default function PreviewHomePage() {
             </div>
 
             {/* Visual Column: iPhone Mockups with real screenshots */}
-            <div className="lg:col-span-7 relative hidden md:flex items-center justify-center" style={{ minHeight: 560 }}>
+            <div className="lg:col-span-5 relative hidden md:flex items-start justify-center" style={{ minHeight: 560, paddingTop: 60 }}>
               {/* Primary phone: Chaperone Today view */}
               <div className="relative z-10">
                 <PhoneWithImage
@@ -175,7 +176,7 @@ export default function PreviewHomePage() {
                 />
               </div>
               {/* Secondary phone: Safety & Emergency Map */}
-              <div className="absolute -right-2 top-12 z-0" style={{ transform: 'rotate(6deg)' }}>
+              <div className="absolute -right-2 top-28 z-0" style={{ transform: 'rotate(6deg)' }}>
                 <PhoneWithImage
                   src="/images/for-index-2/03-safety-2.png"
                   alt="SafeTrekr safety map showing rally points, emergency resources, hospitals, and group communication on a live map of Paris"
@@ -499,7 +500,7 @@ export default function PreviewHomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>HOW IT WORKS</span>
             <h2 id="how-it-works-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              From trip details to field-ready safety plan in 3 days.
+              From trip details to field-ready safety plan, fast.
             </h2>
           </div>
 
@@ -511,7 +512,7 @@ export default function PreviewHomePage() {
               </div>
               <h3 className="text-heading-md" style={{ color: 'var(--color-foreground)' }}>Share Your Trip Details</h3>
               <p className="text-body-md mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Enter your destination, dates, participants, and planned activities through a guided form. Takes about 15 minutes.
+                Enter your destination, dates, participants, and planned activities through a guided form.
               </p>
             </div>
 

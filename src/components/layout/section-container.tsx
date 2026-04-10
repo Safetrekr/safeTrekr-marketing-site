@@ -18,13 +18,13 @@ import { cn } from "@/lib/utils";
  * - `accent`   -- slightly stronger primary tint (primary-100)
  *
  * Vertical padding is responsive:
- *   mobile  py-12  (48px)
- *   tablet  py-16  (64px)
- *   desktop py-24  (96px)
+ *   mobile  py-10  (40px)
+ *   tablet  py-12  (48px)
+ *   desktop py-16  (64px)
  */
 const sectionContainerVariants = cva(
   // Base: responsive vertical padding applied to every variant
-  "py-12 md:py-16 lg:py-24",
+  "py-10 md:py-12 lg:py-16",
   {
     variants: {
       variant: {

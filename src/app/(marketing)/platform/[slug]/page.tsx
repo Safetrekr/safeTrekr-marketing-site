@@ -130,13 +130,13 @@ const FEATURES: Record<string, FeaturePageData> = {
     ],
     processHeadline: "How the analyst review works",
     processDescription:
-      "From trip details to organized safety plan in as little as 3 days.",
+      "From trip details to organized safety plan, quickly.",
     processSteps: [
       {
         number: 1,
         title: "Enter Trip Details",
         description:
-          "Enter all of your trip details and activities through a self-guided form. Takes about 15 minutes.",
+          "Enter all of your trip details and activities through a self-guided form.",
       },
       {
         number: 2,
@@ -341,7 +341,7 @@ export default async function PlatformFeaturePage({ params }: PageProps) {
       <section
         id="hero"
         aria-label="Hero"
-        className="bg-background pb-12 pt-8 sm:pb-16 sm:pt-12 md:pb-20 md:pt-16 lg:pb-28 lg:pt-20 xl:pb-36 xl:pt-28"
+        className="bg-background pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
       >
         <Container>
           {/* Breadcrumb Navigation */}

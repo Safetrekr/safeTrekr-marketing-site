@@ -75,7 +75,7 @@ const DAY_TRIP_FEATURES = [
   "Comprehensive safety assessment",
   "Interactive digital safety binder",
   "Mobile field support access",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
   "Verified documentation",
   "PDF & print export",
   "30-day post-trip access",
@@ -152,7 +152,7 @@ const INCLUDED_FEATURES: Array<{
   },
   {
     icon: <Clock className="size-6" />,
-    title: "Delivery in as Soon as 3 Days",
+    title: "Fast Delivery Turnaround",
     description:
       "Fast turnaround so you can focus on the experience, not the paperwork.",
   },

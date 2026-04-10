@@ -7,7 +7,7 @@
  * communication, duty of care, liability.
  *
  * 9 scroll-ordered sections:
- *   1. Hero              -- "$15 Per Student" badge, DocumentPreview, dual CTAs
+ *   1. Hero              -- DocumentPreview, dual CTAs
  *   2. TrustStrip        -- 5 metrics + intel source bar
  *   3. The Challenge     -- DARK: 3 pain cards + Board Liability Comparison
  *   4. How SafeTrekr     -- 4 FeatureCards with K-12 vocabulary
@@ -105,7 +105,7 @@ const K12_FAQS: FAQItem[] = [
   {
     question: "How long does it take to receive documentation?",
     answer:
-      "Delivery in as soon as 3 days from trip submission. Priority processing is available for Extended and International trips when faster turnaround is needed.",
+      "Priority processing is available for Extended and International trips when faster turnaround is needed.",
   },
   {
     question: "Can multiple schools in our district use SafeTrekr?",
@@ -247,7 +247,7 @@ const BINDER_CHECKLIST = [
   "Active intelligence from multiple trusted sources",
   "Emergency contacts and medical facilities",
   "Organized documentation for stakeholder review",
-  "Delivery in as soon as 3 days",
+  "Fast delivery turnaround",
 ] as const;
 
 // ---------------------------------------------------------------------------
@@ -305,14 +305,6 @@ export default function K12SolutionsPage() {
 
             {/* Text Column */}
             <ScrollReveal variant="fadeUp" className="lg:order-1">
-              {/* Pricing Badge */}
-              <span
-                className="mb-4 inline-flex items-center rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700"
-                aria-label="Per-student pricing: $15 per student"
-              >
-                $15 Per Student
-              </span>
-
               {/* Eyebrow */}
               <Eyebrow color="primary" className="mb-3 block">
                 K-12 Trip Safety
