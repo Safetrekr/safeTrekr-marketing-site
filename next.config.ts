@@ -1,6 +1,4 @@
 import type { NextConfig } from "next";
-import { resolve } from "path";
-import { fileURLToPath } from "url";
 
 /**
  * Next.js Configuration for SafeTrekr Marketing Site
@@ -11,7 +9,6 @@ import { fileURLToPath } from "url";
  */
 
 const isStaticExport = process.env.STATIC_EXPORT === "true";
-const projectRoot = resolve(fileURLToPath(import.meta.url), "..");
 
 const nextConfig: NextConfig = {
   ...(isStaticExport && { output: "export" }),
@@ -26,10 +23,6 @@ const nextConfig: NextConfig = {
   images: {
     // Image optimization requires a server; disable for static export
     unoptimized: isStaticExport,
-  },
-
-  turbopack: {
-    root: projectRoot,
   },
 
   experimental: {

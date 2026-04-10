@@ -781,6 +781,67 @@ input[type="range"]:focus-visible::-moz-range-thumb {
 }
 
 /* ──────────────────────────────────────
+   Phone Carousel (mobile horizontal scroll)
+   ────────────────────────────────────── */
+
+.phone-carousel {
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 0 20px;
+  scrollbar-width: none;
+}
+.phone-carousel::-webkit-scrollbar {
+  display: none;
+}
+.phone-carousel > * {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+/* On mobile, override the inline width and disable parallax shift */
+.phone-carousel > .phone-parallax {
+  width: 72vw !important;
+  max-width: 300px;
+}
+.phone-carousel > .phone-parallax {
+  animation-name: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* ──────────────────────────────────────
+   Phone Parallax on Scroll
+   Uses scroll-driven animations (Chrome 115+)
+   with a graceful fallback for other browsers.
+   ────────────────────────────────────── */
+
+@keyframes phoneFloat {
+  from { transform: translateY(30px); opacity: 0.85; }
+  to   { transform: translateY(-30px); opacity: 1; }
+}
+
+.phone-parallax {
+  /* Fallback: subtle entrance */
+  animation: phoneFloat 1s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0.85;
+  transform: translateY(30px);
+  will-change: transform;
+}
+
+/* Scroll-driven parallax for supporting browsers */
+@supports (animation-timeline: view()) {
+  .phone-parallax {
+    animation: phoneFloat linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ──────────────────────────────────────
    Topographic Contour Hero Animations
    Ambient map background for homepage hero
    ────────────────────────────────────── */

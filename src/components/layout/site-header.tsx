@@ -3,19 +3,12 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
 /* ================================================================
    ST-817: REQ-034 -- SiteHeader / Navigation with Dropdown Menus
@@ -57,7 +50,6 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Higher Education", href: "/solutions/higher-education", description: "Study abroad & Clery Act" },
       { label: "Churches & Missions", href: "/solutions/churches", description: "Mission trip safety" },
       { label: "Corporate & Sports", href: "/solutions/corporate", description: "Duty of care compliance" },
-      { label: "Youth Sports", href: "/solutions/sports", description: "Tournament travel safety" },
     ],
   },
   { label: "How It Works", href: "/how-it-works" },
@@ -189,53 +181,206 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
 }
 
 // ---------------------------------------------------------------------------
-// Mobile Nav Section
+// Mobile Nav: Full-screen overlay (Apple-style)
 // ---------------------------------------------------------------------------
 
-function MobileNavSection({ item, isActive }: { item: NavItem; isActive: boolean }) {
+const overlayVariants: Variants = {
+  closed: { opacity: 0, scale: 0.98 },
+  open: { opacity: 1, scale: 1, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1], staggerChildren: 0.04, delayChildren: 0.08 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+};
+
+const itemVariants: Variants = {
+  closed: { opacity: 0, y: 12 },
+  open: { opacity: 1, y: 0, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } },
+  exit: { opacity: 0, transition: { duration: 0.1 } },
+};
+
+function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: boolean; onClose: () => void }) {
+  const [expanded, setExpanded] = React.useState(false);
+
   if (!item.dropdown) {
     return (
-      <SheetClose asChild>
+      <motion.li variants={itemVariants}>
         <Link
           href={item.href}
+          onClick={onClose}
           aria-current={isActive ? "page" : undefined}
-          className={cn(
-            "block rounded-md px-4 py-3 font-body text-base font-medium transition-colors",
-            isActive ? "bg-primary-50 text-foreground" : "text-foreground hover:bg-primary-50",
-          )}
+          className="flex items-center px-6 font-display text-xl font-semibold transition-colors"
+          style={{ height: 56, color: isActive ? "#6cbc8b" : "#f7f8f8" }}
         >
           {item.label}
         </Link>
-      </SheetClose>
+      </motion.li>
     );
   }
 
   return (
-    <div>
-      <SheetClose asChild>
-        <Link
-          href={item.href}
-          className={cn(
-            "block rounded-md px-4 py-3 font-body text-base font-semibold transition-colors",
-            isActive ? "bg-primary-50 text-foreground" : "text-foreground hover:bg-primary-50",
-          )}
+    <motion.li variants={itemVariants}>
+      <button
+        type="button"
+        onClick={() => setExpanded((prev) => !prev)}
+        aria-expanded={expanded}
+        className="flex w-full items-center justify-between px-6 font-display text-xl font-semibold transition-colors"
+        style={{ height: 56, color: isActive ? "#6cbc8b" : "#f7f8f8" }}
+      >
+        {item.label}
+        <ChevronDown
+          className={cn("h-5 w-5 transition-transform duration-200", expanded && "rotate-180")}
+          style={{ opacity: 0.5 }}
+          aria-hidden="true"
+        />
+      </button>
+      <AnimatePresence>
+        {expanded && (
+          <motion.ul
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="overflow-hidden flex flex-col px-6 pb-3"
+          >
+            {item.dropdown.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={onClose}
+                  className="block py-2 font-display text-[17px] font-normal transition-colors"
+                  style={{ color: "rgba(247, 248, 248, 0.6)" }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.li>
+  );
+}
+
+function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const pathname = usePathname();
+
+  function isActive(href: string): boolean {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }
+
+  // Lock body scroll when open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  // Close on escape
+  React.useEffect(() => {
+    if (!isOpen) return;
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isOpen, onClose]);
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          variants={overlayVariants}
+          initial="closed"
+          animate="open"
+          exit="exit"
+          className="fixed inset-0 z-40 flex flex-col lg:hidden"
+          style={{ background: "rgba(18, 54, 70, 0.98)" }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
         >
-          {item.label}
-        </Link>
-      </SheetClose>
-      <div className="ml-4 flex flex-col gap-0.5">
-        {item.dropdown.map((link) => (
-          <SheetClose asChild key={link.href}>
-            <Link
-              href={link.href}
-              className="block rounded-md px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-primary-50 hover:text-foreground"
-            >
-              {link.label}
+          {/* Header bar */}
+          <div className="flex items-center justify-between px-6 sm:px-8" style={{ height: 64 }}>
+            <Link href="/" onClick={onClose} aria-label="SafeTrekr home">
+              <Logo variant="light" height={28} />
             </Link>
-          </SheetClose>
-        ))}
-      </div>
-    </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-2 text-white"
+              aria-label="Close navigation menu"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="mx-6" style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
+
+          {/* Nav items */}
+          <motion.ul className="flex-1 overflow-y-auto py-4" variants={overlayVariants}>
+            {NAV_ITEMS.map((item) => (
+              <MobileNavItem
+                key={item.href + item.label}
+                item={item}
+                isActive={isActive(item.href)}
+                onClose={onClose}
+              />
+            ))}
+          </motion.ul>
+
+          {/* Bottom CTA area */}
+          <div className="px-6 pb-8 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+            <a
+              href={SIGN_IN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center font-display text-[15px] font-medium mb-4"
+              style={{ color: "rgba(247, 248, 248, 0.7)" }}
+            >
+              Sign In
+            </a>
+            <Link
+              href={DEMO_HREF}
+              onClick={onClose}
+              className="flex items-center justify-center rounded-lg font-display text-base font-bold text-white transition-colors"
+              style={{ background: "#33704b", height: 52 }}
+            >
+              Schedule a Walkthrough
+            </Link>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Mobile Menu Button (manages overlay state)
+// ---------------------------------------------------------------------------
+
+function MobileMenuButton() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const close = React.useCallback(() => setIsOpen(false), []);
+
+  return (
+    <>
+      <button
+        type="button"
+        className="p-2 text-foreground lg:hidden"
+        aria-label="Open navigation menu"
+        onClick={() => setIsOpen(true)}
+      >
+        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <MobileNavOverlay isOpen={isOpen} onClose={close} />
+    </>
   );
 }
 
@@ -290,34 +435,8 @@ export function SiteHeader() {
           </Button>
         </div>
 
-        {/* ── Mobile Menu ── */}
-        <Sheet>
-          <SheetTrigger asChild>
-            <button type="button" className="p-2 text-foreground lg:hidden" aria-label="Open navigation menu">
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </SheetTrigger>
-
-          <SheetContent side="right" className="w-[320px] max-w-[85vw] overflow-y-auto bg-card p-6" aria-label="Main navigation">
-            <SheetHeader className="mb-8 flex-row items-center justify-between space-y-0">
-              <SheetTitle className="font-display text-lg font-bold text-foreground">Menu</SheetTitle>
-            </SheetHeader>
-
-            <nav className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
-                <MobileNavSection key={item.href + item.label} item={item} isActive={isActive(item.href)} />
-              ))}
-
-              <div className="mt-4 border-t border-border pt-4">
-                <SheetClose asChild>
-                  <Button variant="primary" size="md" className="w-full" asChild>
-                    <Link href={DEMO_HREF}>Schedule a Walkthrough</Link>
-                  </Button>
-                </SheetClose>
-              </div>
-            </nav>
-          </SheetContent>
-        </Sheet>
+        {/* ── Mobile Menu Trigger ── */}
+        <MobileMenuButton />
       </div>
     </header>
   );

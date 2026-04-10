@@ -167,7 +167,7 @@ export const GLOSSARY_TERMS: readonly GlossaryTerm[] = [
     definition:
       "SafeSport refers to both the U.S. Center for SafeSport -- an independent organization created by Congress in 2017 -- and the broader framework of policies, training, and reporting requirements designed to prevent emotional, physical, and sexual abuse in amateur athletics.\n\nThe Center administers mandatory training for coaches, staff, and volunteers who interact with athletes, maintains a centralized reporting mechanism for abuse allegations, investigates complaints independent of the National Governing Bodies (NGBs), and maintains a publicly searchable database of individuals who have been sanctioned.\n\nTravel creates particular considerations because athletes are removed from their home environments and normal oversight structures. SafeSport policies address specific travel protocols including lodging arrangements, transportation guidelines, and accountability measures.",
     relatedLinks: [
-      { label: "Sports Organization Solutions", href: "/solutions/sports" },
+      { label: "Corporate & Sports Solutions", href: "/solutions/corporate" },
       { label: "Chaperone Ratio", href: "/resources/glossary/chaperone-ratio" },
       { label: "Duty of Care", href: "/resources/glossary/duty-of-care" },
     ],
