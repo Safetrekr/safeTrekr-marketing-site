@@ -167,28 +167,54 @@ export default function HomePage() {
 
             {/* Visual Column: Product Composition */}
             <div className="lg:col-span-7 relative hidden md:block" style={{ minHeight: 440 }}>
-              {/* Layer 1: Map Base */}
-              <div className="relative rounded-xl overflow-hidden border" style={{ width: '100%', maxWidth: 560, aspectRatio: '14/10', boxShadow: 'var(--shadow-lg)', borderColor: 'var(--color-border)', background: '#dce3e6' }}>
-                {/* Desaturated map placeholder */}
-                <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, #d4dce0 0%, #c8d2d6 25%, #d0d9dd 50%, #c5cfd4 75%, #d3dbdf 100%)', position: 'relative', filter: 'saturate(0.15) contrast(0.85)' }}>
-                  <div style={{ position: 'absolute', top: '15%', left: '10%', width: '35%', height: '25%', background: 'linear-gradient(180deg, rgba(160,175,165,0.4), transparent)', borderRadius: '60% 40% 50% 50%' }} />
-                  <div style={{ position: 'absolute', top: '35%', left: '50%', width: '25%', height: '20%', background: 'linear-gradient(180deg, rgba(170,185,175,0.3), transparent)', borderRadius: '50%' }} />
-                  <div style={{ position: 'absolute', bottom: '10%', right: '10%', width: '30%', height: '30%', background: 'rgba(155,175,195,0.25)', borderRadius: '40% 60% 50% 40%' }} />
-                </div>
-                {/* Route SVG overlay */}
+              {/* Layer 1: Animated Topographic Map */}
+              <div className="relative rounded-xl overflow-hidden border" style={{ width: '100%', maxWidth: 560, aspectRatio: '14/10', boxShadow: 'var(--shadow-lg)', borderColor: 'var(--color-border)', background: 'linear-gradient(145deg, #e8edef 0%, #dfe5e8 30%, #e2e8eb 60%, #dce3e6 100%)' }}>
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 560 400" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <path d="M 100 320 C 150 280, 200 200, 280 180 S 400 160, 460 100" stroke="#4ca46e" strokeWidth={3} strokeLinecap="round" fill="none" strokeDasharray="8 4" opacity={0.8} />
-                  <circle cx={100} cy={320} r={16} fill="#e0f1e6" opacity={0.5} />
-                  <circle cx={280} cy={180} r={16} fill="#e0f1e6" opacity={0.5} />
-                  <circle cx={460} cy={100} r={16} fill="#e0f1e6" opacity={0.5} />
-                  <circle cx={100} cy={320} r={6} fill="#3f885b" />
-                  <circle cx={280} cy={180} r={6} fill="#3f885b" />
-                  <circle cx={460} cy={100} r={6} fill="#3f885b" />
-                  <polygon points="190,228 198,224 194,234" fill="#4ca46e" opacity={0.7} />
-                  <polygon points="370,148 378,144 374,154" fill="#4ca46e" opacity={0.7} />
+                  {/* Fine grid lines for cartographic feel */}
+                  <g opacity={0.04} stroke="#8a9ea8" strokeWidth={0.5}>
+                    {[0, 40, 80, 120, 160, 200, 240, 280, 320, 360, 400].map(y => (
+                      <line key={`h${y}`} x1={0} y1={y} x2={560} y2={y} />
+                    ))}
+                    {[0, 40, 80, 120, 160, 200, 240, 280, 320, 360, 400, 440, 480, 520, 560].map(x => (
+                      <line key={`v${x}`} x1={x} y1={0} x2={x} y2={400} />
+                    ))}
+                  </g>
+
+                  {/* Contour Cluster A: center-left elevation (cx~200, cy~240) */}
+                  <path className="contour contour-a1" d="M40 300 C60 240 100 170 160 140 C220 110 290 120 330 170 C370 220 355 290 310 330 C265 370 160 380 100 345 C60 320 30 310 40 300Z" />
+                  <path className="contour contour-a2" d="M80 285 C95 240 130 185 180 160 C230 135 290 145 315 185 C340 225 325 280 290 310 C255 340 165 345 120 320 C90 300 75 292 80 285Z" />
+                  <path className="contour contour-a3" d="M120 268 C130 238 158 200 195 182 C232 164 278 172 298 200 C318 228 305 268 278 290 C250 312 165 315 138 295 C122 280 116 272 120 268Z" />
+                  <path className="contour contour-a4" d="M158 252 C165 232 185 210 210 200 C235 190 262 198 275 220 C288 242 278 268 258 282 C238 296 180 294 165 275 C155 264 154 256 158 252Z" />
+
+                  {/* Contour Cluster B: upper-right elevation (cx~430, cy~130) */}
+                  <path className="contour contour-b1" d="M345 180 C358 135 395 82 438 70 C480 58 525 88 535 135 C545 182 518 225 478 238 C438 250 375 232 358 205 C348 192 342 186 345 180Z" />
+                  <path className="contour contour-b2" d="M378 168 C386 138 412 102 440 92 C468 82 500 100 508 135 C516 170 498 200 472 210 C446 220 395 208 384 185 C377 175 375 172 378 168Z" />
+                  <path className="contour contour-b3" d="M408 152 C412 138 428 118 445 112 C462 106 482 118 488 140 C494 162 480 180 462 186 C444 192 420 180 414 165 C409 158 406 155 408 152Z" />
+
+                  {/* Subtle elevation fills for inner contours */}
+                  <path d="M158 252 C165 232 185 210 210 200 C235 190 262 198 275 220 C288 242 278 268 258 282 C238 296 180 294 165 275 C155 264 154 256 158 252Z" fill="var(--color-primary-100)" opacity={0.08} />
+                  <path d="M408 152 C412 138 428 118 445 112 C462 106 482 118 488 140 C494 162 480 180 462 186 C444 192 420 180 414 165 C409 158 406 155 408 152Z" fill="var(--color-primary-100)" opacity={0.06} />
+
+                  {/* Scan line */}
+                  <rect className="topo-scan" x={0} y={0} width={560} height={1.5} fill="var(--color-primary-300)" opacity={0} />
+
+                  {/* Route line with flowing dashes */}
+                  <path className="route-flow" d="M 100 320 C 150 280, 200 200, 280 180 S 400 160, 460 100" stroke="#4ca46e" strokeWidth={2.5} strokeLinecap="round" fill="none" opacity={0.7} />
+
+                  {/* Waypoint halos (pulsing) */}
+                  <circle className="wp-halo wp-halo-1" cx={100} cy={320} r={14} fill="#e0f1e6" />
+                  <circle className="wp-halo wp-halo-2" cx={280} cy={180} r={14} fill="#e0f1e6" />
+                  <circle className="wp-halo wp-halo-3" cx={460} cy={100} r={14} fill="#e0f1e6" />
+
+                  {/* Waypoint dots (static) */}
+                  <circle cx={100} cy={320} r={5} fill="#3f885b" />
+                  <circle cx={280} cy={180} r={5} fill="#3f885b" />
+                  <circle cx={460} cy={100} r={5} fill="#3f885b" />
+
+                  {/* Direction arrows on route */}
+                  <polygon points="190,228 198,224 194,234" fill="#4ca46e" opacity={0.6} />
+                  <polygon points="370,148 378,144 374,154" fill="#4ca46e" opacity={0.6} />
                 </svg>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Map showing a trip route with safety waypoints" className="absolute inset-0 w-full h-full" style={{ opacity: 0 }} />
               </div>
 
               {/* Layer 2: Trip Review Progress Panel */}
@@ -259,13 +285,23 @@ export default function HomePage() {
             </div>
 
             {/* Mobile simplified composition */}
-            <div className="md:hidden relative rounded-xl overflow-hidden border" style={{ aspectRatio: '16/10', background: 'linear-gradient(135deg, #d4dce0 0%, #c8d2d6 25%, #d0d9dd 50%, #c5cfd4 75%, #d3dbdf 100%)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
+            <div className="md:hidden relative rounded-xl overflow-hidden border" style={{ aspectRatio: '16/10', background: 'linear-gradient(145deg, #e8edef 0%, #dfe5e8 30%, #e2e8eb 60%, #dce3e6 100%)', borderColor: 'var(--color-border)', boxShadow: 'var(--shadow-lg)' }}>
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 560 350" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <path d="M 80 280 C 150 220, 250 180, 350 150 S 450 120, 500 80" stroke="#4ca46e" strokeWidth={3} strokeLinecap="round" fill="none" strokeDasharray="8 4" opacity={0.8} />
-                <circle cx={80} cy={280} r={14} fill="#e0f1e6" opacity={0.5} />
-                <circle cx={350} cy={150} r={14} fill="#e0f1e6" opacity={0.5} />
-                <circle cx={80} cy={280} r={6} fill="#3f885b" />
-                <circle cx={350} cy={150} r={6} fill="#3f885b" />
+                {/* Contour lines (fewer for mobile) */}
+                <path className="contour contour-a2" d="M80 285 C95 240 130 185 180 160 C230 135 290 145 315 185 C340 225 325 280 290 310 C255 340 165 345 120 320 C90 300 75 292 80 285Z" />
+                <path className="contour contour-a3" d="M120 268 C130 238 158 200 195 182 C232 164 278 172 298 200 C318 228 305 268 278 290 C250 312 165 315 138 295 C122 280 116 272 120 268Z" />
+                <path className="contour contour-a4" d="M158 252 C165 232 185 210 210 200 C235 190 262 198 275 220 C288 242 278 268 258 282 C238 296 180 294 165 275 C155 264 154 256 158 252Z" />
+                <path className="contour contour-b2" d="M378 148 C386 118 412 82 440 72 C468 62 500 80 508 115 C516 150 498 180 472 190 C446 200 395 188 384 165 C377 155 375 152 378 148Z" />
+                <path className="contour contour-b3" d="M408 132 C412 118 428 98 445 92 C462 86 482 98 488 120 C494 142 480 160 462 166 C444 172 420 160 414 145 C409 138 406 135 408 132Z" />
+                {/* Inner fill */}
+                <path d="M158 252 C165 232 185 210 210 200 C235 190 262 198 275 220 C288 242 278 268 258 282 C238 296 180 294 165 275 C155 264 154 256 158 252Z" fill="var(--color-primary-100)" opacity={0.08} />
+                {/* Route */}
+                <path className="route-flow" d="M 80 280 C 150 220, 250 180, 350 150 S 450 120, 500 80" stroke="#4ca46e" strokeWidth={2.5} strokeLinecap="round" fill="none" opacity={0.7} />
+                {/* Waypoints */}
+                <circle className="wp-halo wp-halo-1" cx={80} cy={280} r={12} fill="#e0f1e6" />
+                <circle className="wp-halo wp-halo-2" cx={350} cy={150} r={12} fill="#e0f1e6" />
+                <circle cx={80} cy={280} r={5} fill="#3f885b" />
+                <circle cx={350} cy={150} r={5} fill="#3f885b" />
               </svg>
             </div>
           </div>
