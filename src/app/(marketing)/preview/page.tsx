@@ -98,13 +98,16 @@ function CheckIcon({ className = "w-5 h-5", strokeWidth = 2, style }: { classNam
 }
 
 
+/** Base path prefix for static assets (needed for GitHub Pages subdirectory deployment) */
+const assetPrefix = process.env.STATIC_EXPORT === "true" ? "/safeTrekr-marketing-site" : "";
+
 /** Phone frame with a real screenshot image -- parallax on scroll via CSS */
 function PhoneWithImage({ src, alt, className = "", width = 260 }: { src: string; alt: string; className?: string; width?: number }) {
   return (
     <div className={`relative phone-parallax sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={{ width }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={src}
+        src={`${assetPrefix}${src}`}
         alt={alt}
         className="w-full h-auto block"
         loading="eager"
