@@ -5,6 +5,9 @@
 
 # Source legal docs (Word files with metadata - not for public hosting)
 /docs-source
+
+# Archived page versions
+/archive
 /.pnp
 .pnp.*
 .yarn/*
