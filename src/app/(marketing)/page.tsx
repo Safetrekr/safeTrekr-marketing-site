@@ -71,7 +71,7 @@ const HOME_INTERNATIONAL_FEATURES = [
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Go With a Plan | SafeTrekr",
+  title: "Go With a Plan",
   description:
     "SafeTrekr provides structured trip safety planning for schools, churches, and organizations. Professional review, clear documentation, and the accountability your organization needs.",
   path: "/",

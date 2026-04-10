@@ -49,7 +49,7 @@ describe("generateOrganizationSchema()", () => {
 
   it("includes a logo URL", () => {
     const result = generateOrganizationSchema();
-    expect(result.logo).toBe("https://safetrekr.com/images/safetrekr-logo.png");
+    expect(result.logo).toBe("https://safetrekr.com/images/safetrekr-logo.svg");
   });
 
   it("includes a description", () => {
@@ -441,6 +441,6 @@ describe("generateVideoObjectSchema()", () => {
     const publisher = result.publisher as Record<string, unknown>;
     const logo = publisher.logo as Record<string, unknown>;
     expect(logo["@type"]).toBe("ImageObject");
-    expect(logo.url).toBe("https://safetrekr.com/images/safetrekr-logo.png");
+    expect(logo.url).toBe("https://safetrekr.com/images/safetrekr-logo.svg");
   });
 });

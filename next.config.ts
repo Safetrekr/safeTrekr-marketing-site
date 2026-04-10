@@ -1,32 +1,40 @@
 import type { NextConfig } from "next";
+import { resolve } from "path";
+import { fileURLToPath } from "url";
 
 /**
  * Next.js Configuration for SafeTrekr Marketing Site
  *
- * Currently configured for static export (GitHub Pages preview).
- * For production deployment with full features (API routes, middleware,
- * redirects), change output to "standalone".
+ * Static export (GitHub Pages preview) is enabled when STATIC_EXPORT=true.
+ * Local dev and production run without it, so middleware, API routes,
+ * and redirects all work normally.
  */
 
+const isStaticExport = process.env.STATIC_EXPORT === "true";
+const projectRoot = resolve(fileURLToPath(import.meta.url), "..");
+
 const nextConfig: NextConfig = {
-  output: "export",
+  ...(isStaticExport && { output: "export" }),
   reactStrictMode: true,
 
-  // GitHub Pages subdirectory path
-  basePath: "/safeTrekr-marketing-site",
-  assetPrefix: "/safeTrekr-marketing-site/",
+  // GitHub Pages subdirectory path (only needed for static export)
+  ...(isStaticExport && {
+    basePath: "/safeTrekr-marketing-site",
+    assetPrefix: "/safeTrekr-marketing-site/",
+  }),
 
-  // Required for static export - disables image optimization
   images: {
-    unoptimized: true,
+    // Image optimization requires a server; disable for static export
+    unoptimized: isStaticExport,
+  },
+
+  turbopack: {
+    root: projectRoot,
   },
 
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
-
-  // Note: headers() and redirects() are not supported with static export.
-  // For production deployment, switch back to output: "standalone".
 };
 
 export default nextConfig;

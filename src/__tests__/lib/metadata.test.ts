@@ -109,7 +109,7 @@ describe("generatePageMetadata()", () => {
       expect(images).toBeDefined();
       expect(Array.isArray(images)).toBe(true);
       const imageArray = images as Array<{ url: string }>;
-      expect(imageArray[0]?.url).toBe("/images/og-default.png");
+      expect(imageArray[0]?.url).toBe("/images/og-default.svg");
     });
 
     it("uses custom OG image when provided", () => {

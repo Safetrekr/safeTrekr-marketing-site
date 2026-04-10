@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <url><loc>https://safetrekr.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://safetrekr.com/pricing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://safetrekr.com/how-it-works</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://safetrekr.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://safetrekr.com/demo</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://safetrekr.com/security</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Platform -->
+  <url><loc>https://safetrekr.com/platform</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/platform/analyst-review</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/platform/risk-intelligence</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/platform/safety-binder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Solutions -->
+  <url><loc>https://safetrekr.com/solutions</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/solutions/k12</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/solutions/higher-education</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/solutions/churches</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/solutions/corporate</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://safetrekr.com/solutions/sports</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Resources -->
+  <url><loc>https://safetrekr.com/resources</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://safetrekr.com/resources/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://safetrekr.com/resources/sample-binders</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://safetrekr.com/resources/roi-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Glossary terms -->
+  <url><loc>https://safetrekr.com/resources/glossary/chaperone-ratio</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/clery-act</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/duty-of-care</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/emergency-action-plan</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/ferpa</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/field-trip-compliance</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/group-travel-insurance</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/in-loco-parentis</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/medical-authorization</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/safesport</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/safety-audit</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/safety-binder</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/travel-risk-assessment</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/travel-safety-information</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://safetrekr.com/resources/glossary/trip-manifest</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://safetrekr.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://safetrekr.com/blog/school-field-trip-liability-waivers</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Compliance guides -->
+  <url><loc>https://safetrekr.com/compliance/ferpa</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://safetrekr.com/compliance/clery-act</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://safetrekr.com/compliance/duty-of-care</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Comparison pages -->
+  <url><loc>https://safetrekr.com/compare/spreadsheet-checklists</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://safetrekr.com/compare/logistics-apps</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://safetrekr.com/compare/enterprise-risk-platforms</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Legal (lower priority) -->
+  <url><loc>https://safetrekr.com/legal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://safetrekr.com/legal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

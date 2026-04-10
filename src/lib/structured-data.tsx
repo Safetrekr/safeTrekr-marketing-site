@@ -71,7 +71,7 @@ export function generateOrganizationSchema(): JsonLdData {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/safetrekr-logo.png`,
+    logo: `${SITE_URL}/images/safetrekr-logo.svg`,
     description:
       "Professional travel safety planning platform delivering trip safety documentation for organizations that take duty of care seriously.",
     contactPoint: {
@@ -251,7 +251,7 @@ export function generateArticleSchema(input: ArticleSchemaInput): JsonLdData {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/safetrekr-logo.png`,
+        url: `${SITE_URL}/images/safetrekr-logo.svg`,
       },
     },
     mainEntityOfPage: {
@@ -361,7 +361,7 @@ export function generateVideoObjectSchema(
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/safetrekr-logo.png`,
+        url: `${SITE_URL}/images/safetrekr-logo.svg`,
       },
     },
   };

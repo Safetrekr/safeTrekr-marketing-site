@@ -42,7 +42,7 @@ const SITE_URL = "https://safetrekr.com" as const;
 const SITE_NAME = "SafeTrekr" as const;
 
 /** Fallback Open Graph image when a page does not supply its own. */
-const DEFAULT_OG_IMAGE = "/images/og-default.png" as const;
+const DEFAULT_OG_IMAGE = "/images/og-default.svg" as const;
 
 /** Twitter handle for the site-wide `twitter:site` tag. */
 const TWITTER_HANDLE = "@safetrekr" as const;
@@ -76,7 +76,7 @@ export interface PageMetadataOptions {
    * Custom Open Graph image path or absolute URL.
    * Falls back to {@link DEFAULT_OG_IMAGE} when omitted.
    *
-   * @default "/images/og-default.png"
+   * @default "/images/og-default.svg"
    */
   ogImage?: string;
 
