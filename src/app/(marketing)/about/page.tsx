@@ -10,17 +10,15 @@
  *   2. Our Story       , Founding narrative explaining why SafeTrekr exists
  *   3. Route Divider   , Decorative SVG divider
  *   4. What We Believe , 4 principle cards (Assessment, Documentation, Accessibility, Clarity)
- *   5. Leadership      , Founder card + analyst team card
- *   6. By the Numbers  , Dark section with 5 stat cards + 2 secondary metrics
- *   7. Our Mission     , Mission + vision statements
- *   8. Trusted By      , 4 org type cards
- *   9. CTABand         , Dark variant
- *  10. JSON-LD         , Organization structured data
+ *   5. Built by Pros   , Team credentials on dark bg
+ *   6. Our Mission     , Mission + vision statements
+ *   7. Trusted By      , 4 org type cards
+ *   8. CTABand         , Dark variant
+ *   9. JSON-LD         , Organization structured data
  *
  * @see designs/html/mockup-about.html
  */
 
-import Link from "next/link";
 import {
   BookOpen,
   ClipboardCheck,
@@ -29,7 +27,6 @@ import {
   GraduationCap,
   Heart,
   Building2,
-  ArrowRight,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
@@ -87,47 +84,19 @@ const BELIEF_PRINCIPLES = [
 ] as const;
 
 // ---------------------------------------------------------------------------
-// Data: Stats
+// Data: Team Credentials
 // ---------------------------------------------------------------------------
 
-interface StatCard {
-  value: string;
-  label: string;
-  ariaLabel: string;
-}
-
-const PRIMARY_STATS: StatCard[] = [
-  {
-    value: "104",
-    label: "Organizations Served",
-    ariaLabel: "104 organizations served",
-  },
-  {
-    value: "5",
-    label: "Government & Intl Data Sources",
-    ariaLabel: "5 government and international data sources",
-  },
-  {
-    value: "17",
-    label: "Review Sections Per Trip",
-    ariaLabel: "17 review sections per trip",
-  },
-  {
-    value: "47",
-    label: "Countries Covered",
-    ariaLabel: "47 countries covered",
-  },
-  {
-    value: "3-5",
-    label: "Day Turnaround",
-    ariaLabel: "3 to 5 day turnaround",
-  },
-];
-
-const SECONDARY_METRICS = [
-  { value: "100%", label: "Human-Reviewed" },
-  { value: "12", label: "Organization Types Served" },
-];
+const TEAM_CREDENTIALS = [
+  "Former U.S. Secret Service agents from the Presidential Protection Division",
+  "USSS Counter Assault Team professionals responsible for immediate threat response",
+  "Protective intelligence experts focused on risk identification and prevention",
+  "Nationally recognized school security director with decades of student travel and safety experience",
+  "Advance team lead agents experienced in complex travel planning and logistics",
+  "Homeland Security agents with cross-border intelligence experience",
+  "Specialists in anti-human trafficking and international risk environments",
+  "Cybersecurity and digital threat experts focused on protecting travelers",
+] as const;
 
 // ---------------------------------------------------------------------------
 // Data: Trusted By
@@ -364,184 +333,111 @@ export default function AboutPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: LEADERSHIP
-          ================================================================ */}
-      <SectionContainer
-        variant="card"
-        ariaLabelledBy="team-heading"
-        className="py-16 sm:py-20 md:py-24 lg:py-32"
-      >
-        <Container>
-          {/* Section Header */}
-          <div className="mb-10 lg:mb-12">
-            <ScrollReveal variant="fadeUp">
-              <Eyebrow color="primary">LEADERSHIP</Eyebrow>
-            </ScrollReveal>
-            <ScrollReveal variant="fadeUp" delay={0.08}>
-              <h2
-                id="team-heading"
-                className="text-heading-lg mt-4 text-foreground"
-              >
-                The team building SafeTrekr.
-              </h2>
-            </ScrollReveal>
-          </div>
-
-          {/* Team Cards Grid */}
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-            {/* Founding Team Card */}
-            <ScrollReveal variant="fadeUp" delay={0.16}>
-              <div className="rounded-xl border border-border bg-white p-8 shadow-[var(--shadow-sm)]">
-                {/* Shield Icon */}
-                <div
-                  className="mb-6 flex size-20 items-center justify-center rounded-full bg-primary-50"
-                  aria-hidden="true"
-                >
-                  <Shield className="size-10 text-primary-700" />
-                </div>
-                <h3 className="text-heading-sm text-foreground">
-                  Founded by Former Secret Service
-                </h3>
-                <p className="text-body-sm mb-4 text-muted-foreground">
-                  Leadership Team
-                </p>
-                <p
-                  className="text-body-md text-muted-foreground"
-                  style={{ maxWidth: "45ch" }}
-                >
-                  SafeTrekr was founded by multiple former senior United States
-                  Secret Service agents who spent years planning and executing
-                  protective operations for some of the most high-stakes travel
-                  in the world. They built SafeTrekr to bring that same level
-                  of professional safety analysis to every organization that
-                  takes people off-site.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Analyst Team Card */}
-            <ScrollReveal variant="fadeUp" delay={0.24}>
-              <div className="rounded-xl border border-border bg-white p-8 shadow-[var(--shadow-sm)]">
-                {/* Shield Icon Composition */}
-                <div
-                  className="mb-6 flex size-16 items-center justify-center rounded-xl bg-primary-50"
-                  aria-hidden="true"
-                >
-                  <Shield className="size-8 text-primary-700" />
-                </div>
-                <h3 className="text-heading-sm mb-3 text-foreground">
-                  Our Safety Analysts
-                </h3>
-                <p
-                  className="text-body-md mb-4 text-muted-foreground"
-                  style={{ maxWidth: "45ch" }}
-                >
-                  Every trip binder is reviewed by a credentialed safety analyst
-                  with expertise in travel risk assessment, regulatory
-                  compliance, and emergency planning. Our analysts hold
-                  backgrounds in protective operations, emergency management,
-                  and organizational safety.
-                </p>
-                <p className="text-body-md mb-6 font-medium italic text-foreground">
-                  &ldquo;Our analysts have reviewed trips across 47 countries for
-                  12 organization types.&rdquo;
-                </p>
-                <Link
-                  href="/resources/faq#security"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700"
-                  aria-label="Learn more about our safety practices and analyst qualifications"
-                >
-                  Learn About Our Process
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 5: BY THE NUMBERS (DARK)
+          SECTION 4: BUILT BY PROFESSIONALS
           ================================================================ */}
       <SectionContainer
         variant="dark"
-        ariaLabelledBy="metrics-heading"
+        ariaLabelledBy="team-heading"
         className="py-20 sm:py-24 lg:py-32"
       >
         <Container>
-          {/* Section Header */}
-          <ScrollReveal variant="fadeUp">
-            <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
-              <Eyebrow color="dark">BY THE NUMBERS</Eyebrow>
-              <h2
-                id="metrics-heading"
-                className="text-display-md mx-auto mt-4 text-white"
-                style={{ maxWidth: "28ch" }}
-              >
-                Verifiable. Not Vanity.
-              </h2>
-              <p className="text-body-lg mx-auto mt-4 max-w-prose text-[var(--color-secondary-muted)]">
-                Every number on this page comes from our production database. We
-                don&rsquo;t do inflated marketing metrics.
-              </p>
-            </div>
-          </ScrollReveal>
+          <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+            {/* Left Column: Narrative */}
+            <div className="lg:col-span-2">
+              <ScrollReveal variant="fadeUp">
+                <Eyebrow color="dark">OUR TEAM</Eyebrow>
+              </ScrollReveal>
 
-          {/* Primary Stat Cards Grid (5 columns) */}
-          <StaggerChildren className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
-            {PRIMARY_STATS.map((stat, index) => (
-              <ScrollReveal
-                key={stat.label}
-                variant="fadeUp"
-                delay={index * 0.08}
-              >
+              <ScrollReveal variant="fadeUp" delay={0.08}>
+                <h2
+                  id="team-heading"
+                  className="text-display-md mt-4 text-white"
+                >
+                  Built by Professionals Responsible for Safety
+                </h2>
+              </ScrollReveal>
+
+              <ScrollReveal variant="fadeUp" delay={0.16}>
+                <p className="text-body-lg mt-6 text-[var(--color-secondary-muted)] lg:mt-8">
+                  Safetrekr is developed and guided by a team of professionals
+                  who spent their careers responsible for planning, protecting,
+                  and managing complex travel environments. Their experience
+                  shapes every feature and workflow within the platform.
+                </p>
+              </ScrollReveal>
+
+              {/* Shield emblem — visible on lg+ only */}
+              <ScrollReveal variant="fadeUp" delay={0.24}>
                 <div
-                  className="rounded-xl p-6 text-center"
+                  className="mt-10 hidden lg:flex size-20 items-center justify-center rounded-full"
                   style={{
                     background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.12)",
                   }}
+                  aria-hidden="true"
                 >
-                  <span
-                    className="text-display-md block font-mono text-white tabular-nums"
-                    aria-label={stat.ariaLabel}
-                  >
-                    {stat.value}
-                  </span>
-                  <span className="text-eyebrow mt-2 block text-[var(--color-secondary-muted)]">
-                    {stat.label}
-                  </span>
+                  <Shield className="size-10 text-primary-400" />
                 </div>
               </ScrollReveal>
-            ))}
-          </StaggerChildren>
-
-          {/* Secondary Metrics Row */}
-          <ScrollReveal variant="fadeUp" delay={0.4}>
-            <div className="mt-8 flex flex-wrap justify-center gap-8 lg:mt-10 lg:gap-12">
-              {SECONDARY_METRICS.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="flex items-baseline gap-2"
-                >
-                  <span className="text-heading-md font-mono text-primary-400">
-                    {metric.value}
-                  </span>
-                  <span className="text-body-sm text-[var(--color-secondary-muted)]">
-                    {metric.label}
-                  </span>
-                </div>
-              ))}
             </div>
-          </ScrollReveal>
+
+            {/* Right Column: Credential List */}
+            <div className="lg:col-span-3">
+              <ScrollReveal variant="fadeUp" delay={0.2}>
+                <h3 className="text-heading-sm mb-8 text-white">
+                  Our Team Includes:
+                </h3>
+              </ScrollReveal>
+
+              <ul className="space-y-0" role="list">
+                {TEAM_CREDENTIALS.map((credential, index) => (
+                  <ScrollReveal
+                    key={index}
+                    variant="fadeUp"
+                    delay={0.24 + index * 0.06}
+                    as="li"
+                  >
+                    <div
+                      className="flex items-start gap-5 py-5"
+                      style={{
+                        borderBottom: "1px solid rgba(255,255,255,0.08)",
+                      }}
+                    >
+                      <span
+                        className="shrink-0 pt-0.5 font-mono text-sm tabular-nums text-primary-400"
+                        aria-hidden="true"
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-body-md text-[var(--color-dark-text-secondary)]">
+                        {credential}
+                      </span>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </ul>
+
+              {/* Closing statement */}
+              <ScrollReveal variant="fadeUp" delay={0.76}>
+                <p
+                  className="mt-10 text-body-lg font-medium text-white"
+                  style={{
+                    borderTop: "1px solid rgba(255,255,255,0.12)",
+                    paddingTop: "1.5rem",
+                  }}
+                >
+                  Together, this team built Safetrekr to bring structured
+                  planning, real-world experience, and practical safety guidance
+                  to every organization that travels.
+                </p>
+              </ScrollReveal>
+            </div>
+          </div>
         </Container>
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 6: OUR MISSION
+          SECTION 5: OUR MISSION
           ================================================================ */}
       <SectionContainer
         ariaLabelledBy="mission-heading"
