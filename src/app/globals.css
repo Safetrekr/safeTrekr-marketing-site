@@ -815,46 +815,16 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   scroll-snap-align: center;
   flex-shrink: 0;
 }
-/* On mobile, override the inline width and disable parallax shift */
+/* On mobile, override the inline width for carousel phones */
 .phone-carousel > .phone-parallax {
   width: 72vw !important;
   max-width: 300px;
 }
-.phone-carousel > .phone-parallax {
-  animation-name: none !important;
-  transform: none !important;
-  opacity: 1 !important;
-}
 
-/* ──────────────────────────────────────
-   Phone Parallax on Scroll
-   Uses scroll-driven animations (Chrome 115+)
-   with a graceful fallback for other browsers.
-   ────────────────────────────────────── */
-
-@keyframes phoneFloat {
-  from { transform: translateY(30px); opacity: 0.85; }
-  to   { transform: translateY(-30px); opacity: 1; }
-}
-
+/* Phone images — static, no parallax */
 .phone-parallax {
-  /* Fallback: subtle entrance */
-  animation: phoneFloat 1s ease-out forwards;
-  animation-delay: 0.2s;
-  opacity: 0.85;
-  transform: translateY(30px);
-  will-change: transform;
-}
-
-/* Scroll-driven parallax for supporting browsers */
-@supports (animation-timeline: view()) {
-  .phone-parallax {
-    animation: phoneFloat linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 1;
+  transform: none;
 }
 
 /* ──────────────────────────────────────
