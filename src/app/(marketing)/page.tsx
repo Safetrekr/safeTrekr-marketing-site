@@ -132,18 +132,30 @@ export default function PreviewHomePage() {
           SECTION 1: HERO
           ================================================================ */}
       <section aria-labelledby="hero-heading" className="relative overflow-x-hidden" style={{ background: 'var(--color-background)', paddingTop: 56, paddingBottom: 72 }}>
-        {/* Full-bleed hero background image */}
-        <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        {/* Hero bg — desktop/tablet: full-bleed */}
+        <div className="absolute inset-0 z-0 overflow-hidden hidden md:block" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${assetPrefix}/images/index2/hero.png`}
+            src={`${assetPrefix}/images/index2/hero2.png`}
             alt=""
             className="w-full h-full object-cover"
             style={{ transform: 'scaleX(-1)' }}
             loading="eager"
           />
-          {/* Legibility overlay: strong gray on left fading to partial reveal on right */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, var(--color-background) 0%, var(--color-background) 35%, rgba(231,236,238,0.85) 55%, rgba(231,236,238,0.55) 80%, rgba(231,236,238,0.35) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, var(--color-background) 0%, var(--color-background) 12%, rgba(231,236,238,0.7) 32%, rgba(231,236,238,0.4) 60%, rgba(231,236,238,0.2) 100%)' }} />
+        </div>
+
+        {/* Hero bg — mobile: only behind the text block, fades to solid bg before phone carousel */}
+        <div className="absolute left-0 right-0 top-0 z-0 overflow-hidden md:hidden" style={{ height: 500 }} aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${assetPrefix}/images/index2/hero-mobile.png`}
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ transform: 'scaleX(-1)' }}
+            loading="eager"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(231,236,238,0.25) 0%, rgba(231,236,238,0.55) 55%, rgba(231,236,238,0.92) 88%, var(--color-background) 100%)' }} />
         </div>
         <div className="hero-dot-grid" />
         <div className="hero-radial-glow" />
@@ -431,13 +443,17 @@ export default function PreviewHomePage() {
               />
             </div>
 
-            {/* Mobile: scrollable carousel of both phones */}
+            {/* Mobile: scrollable carousel with environmental photo + alert phone */}
             <div className="flex sm:hidden lg:col-span-7 phone-carousel px-2">
-              <PhoneWithImage
-                src="/images/for-index-2/08-help-2.png"
-                alt="SafeTrekr Help and Support screen"
-                width={220}
-              />
+              <div className="relative overflow-hidden rounded-2xl flex-shrink-0" style={{ width: 220, aspectRatio: '3/4', border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${assetPrefix}/images/index2/planning.png`}
+                  alt="Trip planning, coordinator reviewing documents"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
               <PhoneWithImage
                 src="/images/for-index-2/06-alerts-2.png"
                 alt="SafeTrekr alerts screen"
@@ -632,7 +648,7 @@ export default function PreviewHomePage() {
             <Link href="/solutions/higher-education" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${assetPrefix}/images/index2/College.png`} alt="University campus scene" className="w-full h-full object-cover" loading="lazy" />
+                <img src={`${assetPrefix}/images/index2/University-travel.png`} alt="Higher education travel, students abroad" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div style={{ padding: 24 }}>
                 <BookOpen className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
@@ -662,7 +678,7 @@ export default function PreviewHomePage() {
             <Link href="/solutions/corporate" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${assetPrefix}/images/index2/Business.png`} alt="Airplane framed in terminal window, corporate travel" className="w-full h-full object-cover" loading="lazy" />
+                <img src={`${assetPrefix}/images/index2/business-travelers2.png`} alt="Corporate travelers, documentary scene" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div style={{ padding: 24 }}>
                 <Building2 className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
