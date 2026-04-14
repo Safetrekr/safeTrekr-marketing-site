@@ -108,12 +108,12 @@ const assetPrefix = process.env.STATIC_EXPORT === "true" ? "/safeTrekr-marketing
 /** Phone frame with a real screenshot image -- parallax on scroll via CSS */
 function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt: string; className?: string; width?: number }) {
   return (
-    <div className={`relative phone-parallax sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={width ? { width } : undefined}>
+    <div className={`relative phone-parallax rounded-[24px] sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={width ? { width } : undefined}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${assetPrefix}${src}`}
         alt={alt}
-        className="w-full h-auto block"
+        className="w-full h-auto block rounded-[24px]"
         loading="eager"
       />
     </div>
@@ -427,7 +427,7 @@ export default function PreviewHomePage() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Visual: environmental photo + alert phone (desktop) */}
             <div className="lg:col-span-7 hidden sm:flex items-center justify-center gap-6 lg:gap-8 relative" style={{ minHeight: 540 }}>
-              <div className="relative overflow-hidden rounded-2xl" style={{ width: 360, aspectRatio: '3/4', border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
+              <div className="relative overflow-hidden rounded-2xl self-center" style={{ width: 360, height: 540, border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${assetPrefix}/images/index2/planning.png`}
@@ -436,11 +436,13 @@ export default function PreviewHomePage() {
                   loading="lazy"
                 />
               </div>
-              <PhoneWithImage
-                src="/images/for-index-2/06-alerts-2.png"
-                alt="SafeTrekr alerts screen showing rally point activation, weather advisory with acknowledge buttons, schedule changes, and curfew reminders"
-                width={250}
-              />
+              <div className="self-center">
+                <PhoneWithImage
+                  src="/images/for-index-2/06-alerts-2.png"
+                  alt="SafeTrekr alerts screen showing rally point activation, weather advisory with acknowledge buttons, schedule changes, and curfew reminders"
+                  width={250}
+                />
+              </div>
             </div>
 
             {/* Mobile: scrollable carousel with environmental photo + alert phone */}
