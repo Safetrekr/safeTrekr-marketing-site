@@ -129,9 +129,13 @@ oversight
 coordination
 documented accountability
 
-Imagery style
+Imagery style — UPDATED 2026-04 (Calm Dossier)
 
-Use imagery sparingly and strategically.
+The audience at the top of the funnel has shifted. The first viewer is now a K-12 principal, a teacher planning a field trip, or a youth pastor planning a mission trip — warmer, more relational, less procurement-savvy than the original CSO/CTO reader. Overall positioning (calm authority, documented accountability) does not change. What changes: the site now needs human presence to earn trust at this register. Photography is no longer optional support — it is load-bearing on the hero, segment pages, and About.
+
+Treatment name: "Calm Dossier." Warm enough to trust, composed enough to defend. Every photo should feel like a page from a serious briefing document.
+
+Creative platform: "The quiet work of keeping people safe." Photograph the adults who carry the responsibility — NOT the children who take the trip. Children appear peripherally, never as the emotional hook, never face-forward.
 
 Best imagery types:
 	•	cropped product UI in beautiful composition
@@ -139,16 +143,65 @@ Best imagery types:
 	•	trip packet or document preview
 	•	layered cards with route / status / event information
 	•	composed screenshots in bright, premium framing
-	•	selective real-world travel imagery only as support
+	•	documentary portraiture of the planner at work — principal at desk, teacher with permission slips, pastor briefing chaperones, coordinator on call
+	•	documentary group-in-transit — backs/sides, subjects small in frame, architectural stillness
+	•	architectural environment of vetted places — empty school hallway, museum atrium, cobblestone street, jet bridge at dawn
+	•	analyst at workstation — hands on keyboard, two monitors, face optional
+	•	documentation still life — binder, printed report, clipboard on desk, shot overhead like Monocle
+	•	leadership portrait for About — 4:5 vertical, window light, shoulders-up, composed but never smiling-for-camera
+
+Technical treatment (Calm Dossier recipe):
+	•	grade: shadows lift toward navy #123646, midtones slightly warm toward tan #c4b595, highlights paper-white (never 255), matte black point
+	•	contrast: low to medium; document-like, not cinematic
+	•	white balance: neutral-warm (~5400K); never golden-hour orange, never tungsten, never cool-blue tech
+	•	lens: 35mm environmental is the house lens; 50mm for two-person; 85mm for leadership portraits only; no wider than 28mm; no telephoto compression
+	•	composition: subject off-center at 30–45% of frame; negative space dominant; verticals stay vertical; no Dutch tilts, no drone swoops
+	•	grain: 1–2% subtle luminance noise; matte archival feel
+	•	aspect ratios (system — three only): 4:5 for segment/persona cards and portraits; 3:2 for hero and environmental; 1:1 for testimonials
+
+Signature integration moves:
+	•	photo-in-card: 16px rounded corners, 1px hairline stroke in #123646 at 8% opacity; no drop shadow, no glassmorphism
+	•	navy duotone: environmental photos converted to duotone (shadows #123646, highlights #e7ecee) behind pull-quote blocks and section dividers; green is never the duotone
+	•	tan wash composite: product UI floating above a photo with 20–30% #c4b595 wash for warmer sections
+
+Sourcing:
+	•	preferred: Stocksy, Gallery Stock, Offset (documentary realism with less stock energy)
+	•	acceptable with heavy filter: Unsplash+ and Adobe Stock for environmental and transit categories only
+	•	avoid: Getty corporate library, iStock, Shutterstock business, free Pexels (travel/edtech fingerprints too strong)
+	•	commission strongly preferred for: Planner portraits, Analyst at work, documentation still-life of the actual binder, Leadership portraits for About
+
+Commission spec (for original shoots):
+	•	half-day documentary photographer
+	•	35mm + 50mm primes; available light only
+	•	matte retouch; shot list built from categories 01 / 04 / 05 / 06
+	•	no hair/makeup beyond powder; no art-directed posing — give the subject a task, photograph the task
+	•	budget reference: $3.5–6k/day plus usage
 
 Avoid:
 	•	smiling stock-travel teams everywhere
 	•	airplane wing clichés
 	•	scary disaster imagery
 	•	red emergency warnings
-	•	militarized surveillance aesthetics
+	•	militarized surveillance aesthetics / earpieces / tactical gear
 	•	too many tiny screenshots
 	•	abstract AI blobs
+	•	children as the focal subject (they are context, never content)
+	•	edtech-stock smiling teacher at whiteboard
+	•	diverse-hands-on-a-table cliché
+	•	drone shots of winding roads or coastlines
+	•	golden-hour sentimentality
+	•	Secret Service earpiece or literal references to the founder backstory
+
+Per-page call (add photography vs. keep UI-only):
+	•	home: HYBRID — warm hero + segment chooser with photos; UI leads feature proof below
+	•	how-it-works: UI only
+	•	solutions overview: HYBRID — persona chooser gets photos
+	•	K-12 / Higher-Ed / Churches: add photos; Churches needs warmth most
+	•	Corporate: UI only (one optional environmental)
+	•	platform features: UI only
+	•	pricing: UI only
+	•	about: photography-led — founders, team credibility transfer
+	•	procurement / security: UI only (text-forward = trust signal for these readers)
 
 ⸻
 

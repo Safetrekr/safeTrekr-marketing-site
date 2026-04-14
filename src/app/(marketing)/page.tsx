@@ -132,6 +132,19 @@ export default function PreviewHomePage() {
           SECTION 1: HERO
           ================================================================ */}
       <section aria-labelledby="hero-heading" className="relative overflow-x-hidden" style={{ background: 'var(--color-background)', paddingTop: 56, paddingBottom: 72 }}>
+        {/* Full-bleed hero background image */}
+        <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${assetPrefix}/images/index2/hero.png`}
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ transform: 'scaleX(-1)' }}
+            loading="eager"
+          />
+          {/* Legibility overlay: strong gray on left fading to partial reveal on right */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, var(--color-background) 0%, var(--color-background) 35%, rgba(231,236,238,0.85) 55%, rgba(231,236,238,0.55) 80%, rgba(231,236,238,0.35) 100%)' }} />
+        </div>
         <div className="hero-dot-grid" />
         <div className="hero-radial-glow" />
 
@@ -165,7 +178,7 @@ export default function PreviewHomePage() {
               </div>
             </div>
 
-            {/* Visual Column: iPhone Mockups with real screenshots */}
+            {/* Visual Column: iPhone Mockups with real screenshots — Planner photo behind */}
             <div className="md:col-span-5 relative hidden md:flex items-start justify-center" style={{ minHeight: 380, paddingTop: 20 }}>
               {/* Primary phone: Chaperone Today view */}
               <div className="relative z-10">
@@ -335,8 +348,20 @@ export default function PreviewHomePage() {
               </ul>
             </div>
 
-            {/* Visual: 3 fanned phones (desktop) */}
+            {/* Visual: 3 fanned phones (desktop) — navy duotone transit photo behind */}
             <div className="lg:col-span-7 relative hidden sm:flex items-center justify-center" style={{ minHeight: 540 }}>
+              <div className="absolute inset-0 rounded-2xl overflow-hidden" style={{ zIndex: 0, opacity: 0.22 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${assetPrefix}/images/images-for-site/photo-1762801157510-56e2bcd798e4.jpeg`}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-full h-full object-cover"
+                  style={{ filter: 'grayscale(1) contrast(0.85) brightness(0.6)' }}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(18,54,70,0.85) 0%, rgba(18,54,70,0.55) 50%, rgba(18,54,70,0.85) 100%)' }} />
+              </div>
               <div className="absolute z-[1]" style={{ transform: 'rotate(-10deg) translateX(-160px)' }}>
                 <PhoneWithImage
                   src="/images/for-index-2/07-checkins-2.png"
@@ -388,13 +413,17 @@ export default function PreviewHomePage() {
       <section aria-labelledby="traveler-heading" style={{ background: 'var(--color-background)', padding: '96px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Visual: 2 phones side by side (desktop) */}
-            <div className="lg:col-span-7 hidden sm:flex items-center justify-center gap-6 lg:gap-10" style={{ minHeight: 540 }}>
-              <PhoneWithImage
-                src="/images/for-index-2/08-help-2.png"
-                alt="SafeTrekr Help and Support screen with emergency Call 911 button, emergency contacts for trip leaders and embassy, safety information, and trip packet access"
-                width={250}
-              />
+            {/* Visual: environmental photo + alert phone (desktop) */}
+            <div className="lg:col-span-7 hidden sm:flex items-center justify-center gap-6 lg:gap-8 relative" style={{ minHeight: 540 }}>
+              <div className="relative overflow-hidden rounded-2xl" style={{ width: 360, aspectRatio: '3/4', border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${assetPrefix}/images/index2/planning.png`}
+                  alt="Trip planning, coordinator reviewing documents"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
               <PhoneWithImage
                 src="/images/for-index-2/06-alerts-2.png"
                 alt="SafeTrekr alerts screen showing rally point activation, weather advisory with acknowledge buttons, schedule changes, and curfew reminders"
@@ -448,14 +477,30 @@ export default function PreviewHomePage() {
           ================================================================ */}
       <section aria-labelledby="expert-heading" style={{ background: 'var(--color-primary-50)', padding: '96px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>EXPERT SAFETY PLANNING</span>
-            <h2 id="expert-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Professional preparation by people who&apos;ve done it at the highest level.
-            </h2>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>EXPERT SAFETY PLANNING</span>
+              <h2 id="expert-heading" className="text-display-md mt-4" style={{ color: 'var(--color-foreground)', maxWidth: '20ch' }}>
+                Professional preparation by people who&apos;ve done it at the highest level.
+              </h2>
+              <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '50ch', lineHeight: 1.7 }}>
+                Every trip reviewed by a trained safety analyst. Current intelligence, professional assessment, documented preparation — the quiet work done before your group steps out the door.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '3/2', border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${assetPrefix}/images/index2/america.png`}
+                  alt="Professional safety preparation"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
+          <div className="grid md:grid-cols-3 gap-8 mt-16">
             {/* Card 1 */}
             <div className="rounded-xl border border-border bg-white p-8 shadow-sm">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: 'var(--color-primary-100)' }}>
@@ -569,40 +614,64 @@ export default function PreviewHomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <Link href="/solutions/k12" className="card card-interactive group block" style={{ padding: 24, textDecoration: 'none' }}>
-              <GraduationCap className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} />
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>K-12 Schools and Districts</h3>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Real-time student location for every chaperone. Rally point headcounts. Share trip status with parents. Documentation that demonstrates due diligence.
-              </p>
-              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+            <Link href="/solutions/k12" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${assetPrefix}/images/index2/kids.png`} alt="K-12 elementary students, school scene" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div style={{ padding: 24 }}>
+                <GraduationCap className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
+                <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>K-12 Schools and Districts</h3>
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
+                  Real-time student location for every chaperone. Rally point headcounts. Share trip status with parents. Documentation that demonstrates due diligence.
+                </p>
+                <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+              </div>
             </Link>
 
-            <Link href="/solutions/higher-education" className="card card-interactive group block" style={{ padding: 24, textDecoration: 'none' }}>
-              <BookOpen className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} />
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Higher Education</h3>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Study abroad and faculty travel with active intelligence monitoring. Professional preparation for your global educational mission.
-              </p>
-              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+            <Link href="/solutions/higher-education" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${assetPrefix}/images/index2/College.png`} alt="University campus scene" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div style={{ padding: 24 }}>
+                <BookOpen className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
+                <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Higher Education</h3>
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
+                  Study abroad and faculty travel with active intelligence monitoring. Professional preparation for your global educational mission.
+                </p>
+                <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+              </div>
             </Link>
 
-            <Link href="/solutions/churches" className="card card-interactive group block" style={{ padding: 24, textDecoration: 'none' }}>
-              <Heart className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} />
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Churches and Mission Organizations</h3>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Rally point coordination for mission teams. Emergency planning that honors your calling. Simple tools for volunteer leaders.
-              </p>
-              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+            <Link href="/solutions/churches" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${assetPrefix}/images/index2/mission-trip.png`} alt="Mission trip scene" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div style={{ padding: 24 }}>
+                <Heart className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
+                <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Churches and Mission Organizations</h3>
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
+                  Rally point coordination for mission teams. Emergency planning that honors your calling. Simple tools for volunteer leaders.
+                </p>
+                <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+              </div>
             </Link>
 
-            <Link href="/solutions/corporate" className="card card-interactive group block" style={{ padding: 24, textDecoration: 'none' }}>
-              <Building2 className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary-700)' }} />
-              <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Corporate and Professional Travel</h3>
-              <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
-                Active intelligence for business travel. Duty of care documentation. Incident alerts that reach the right people instantly.
-              </p>
-              <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+            <Link href="/solutions/corporate" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${assetPrefix}/images/index2/Business.png`} alt="Airplane framed in terminal window, corporate travel" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div style={{ padding: 24 }}>
+                <Building2 className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
+                <h3 className="text-heading-sm" style={{ color: 'var(--color-foreground)' }}>Corporate and Professional Travel</h3>
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-muted-foreground)' }}>
+                  Active intelligence for business travel. Duty of care documentation. Incident alerts that reach the right people instantly.
+                </p>
+                <span className="inline-flex items-center gap-1 mt-4 text-body-sm font-medium" style={{ color: 'var(--color-primary-700)' }}>Learn more <SmallArrowIcon className="w-4 h-4 card-link-arrow" /></span>
+              </div>
             </Link>
           </div>
         </div>

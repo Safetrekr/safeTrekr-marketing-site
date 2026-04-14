@@ -59,3 +59,9 @@ next-env.d.ts
 .mcp.json
 
 .temp
+
+# Claude Code session data
+.claude/
+
+# Staging dump — uncommitted until triaged
+/public/images/Images for site/
