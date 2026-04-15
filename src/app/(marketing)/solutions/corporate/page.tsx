@@ -344,7 +344,7 @@ export default function CorporateSolutionsPage() {
       <SectionContainer
         id="hero"
         aria-label="Hero"
-        className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
+        className="pt-12 pb-10 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16"
       >
         <Container>
           {/* Breadcrumb */}

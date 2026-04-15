@@ -125,11 +125,6 @@ function PricingTierCard({
         <span className="text-body-sm text-muted-foreground"> / trip</span>
       </div>
 
-      {/* Per-participant breakdown */}
-      <p className="mt-1 text-body-md font-semibold text-primary-700">
-        {perParticipant}
-      </p>
-
       {/* Divider */}
       <hr className="my-6 border-border" />
 

@@ -47,9 +47,6 @@ function InternationalPricingCard({
   const [isLargeGroup, setIsLargeGroup] = React.useState(false);
 
   const price = isLargeGroup ? "$1,250" : "$750";
-  const perParticipant = isLargeGroup
-    ? "~$42/person for a 30-person group"
-    : "For groups of 9 or fewer travelers";
 
   return (
     <div
@@ -70,11 +67,6 @@ function InternationalPricingCard({
         <span className="text-display-md text-foreground">{price}</span>
         <span className="text-body-sm text-muted-foreground"> / trip</span>
       </div>
-
-      {/* Per-participant breakdown */}
-      <p className="mt-1 text-body-md font-semibold text-primary-700">
-        {perParticipant}
-      </p>
 
       {/* Traveler count toggle */}
       <div className="mt-4">

@@ -287,7 +287,7 @@ export default function ChurchSolutionsPage() {
         <section
           id="hero"
           aria-label="Hero"
-          className="bg-background pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
+          className="bg-background pt-12 pb-10 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16"
         >
           <Container>
             {/* Breadcrumb */}

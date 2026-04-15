@@ -26,7 +26,6 @@ import {
   Shield,
   FileText,
   Lock,
-  CheckCircle2,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
@@ -244,23 +243,6 @@ export default function SampleBindersPage() {
               ))}
             </div>
 
-            {/* Social proof callout */}
-            <ScrollReveal variant="fadeUp" delay={0.3}>
-              <div className="mx-auto mt-16 flex max-w-xl flex-col items-center gap-3 rounded-xl border border-border bg-primary-50/50 p-6 text-center sm:p-8">
-                <CheckCircle2
-                  className="size-8 text-primary-600"
-                  aria-hidden="true"
-                />
-                <p className="text-body-lg font-medium text-foreground">
-                  Over 500 organizations have downloaded our sample binders to
-                  evaluate SafeTrekr before their first engagement.
-                </p>
-                <p className="text-body-sm text-muted-foreground">
-                  Join schools, churches, and enterprises that made an informed
-                  decision about their safety documentation.
-                </p>
-              </div>
-            </ScrollReveal>
           </Container>
         </SectionContainer>
 
