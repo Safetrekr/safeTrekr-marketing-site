@@ -136,7 +136,7 @@ export default function PreviewHomePage() {
         <div className="absolute inset-0 z-0 overflow-hidden hidden md:block" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${assetPrefix}/images/index2/hero2.png`}
+            src={`${assetPrefix}/images/index2/hero2.jpg`}
             alt=""
             className="w-full h-full object-cover"
             style={{ transform: 'scaleX(-1)' }}
@@ -149,7 +149,7 @@ export default function PreviewHomePage() {
         <div className="absolute left-0 right-0 top-0 z-0 overflow-hidden md:hidden" style={{ height: 500 }} aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${assetPrefix}/images/index2/hero-mobile.png`}
+            src={`${assetPrefix}/images/index2/hero-mobile.jpg`}
             alt=""
             className="w-full h-full object-cover"
             style={{ transform: 'scaleX(-1)' }}
@@ -430,7 +430,7 @@ export default function PreviewHomePage() {
               <div className="relative overflow-hidden rounded-2xl self-center" style={{ width: 360, height: 540, border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`${assetPrefix}/images/index2/planning.png`}
+                  src={`${assetPrefix}/images/index2/planning.jpg`}
                   alt="Trip planning, coordinator reviewing documents"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -450,7 +450,7 @@ export default function PreviewHomePage() {
               <div className="relative overflow-hidden rounded-2xl flex-shrink-0" style={{ width: 220, aspectRatio: '3/4', border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`${assetPrefix}/images/index2/planning.png`}
+                  src={`${assetPrefix}/images/index2/planning.jpg`}
                   alt="Trip planning, coordinator reviewing documents"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -509,7 +509,7 @@ export default function PreviewHomePage() {
               <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '3/2', border: '1px solid rgba(18,54,70,0.08)', boxShadow: '0 1px 3px rgba(6,26,35,0.04), 0 8px 24px rgba(6,26,35,0.08)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`${assetPrefix}/images/index2/america.png`}
+                  src={`${assetPrefix}/images/index2/america.jpg`}
                   alt="Professional safety preparation"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -635,7 +635,7 @@ export default function PreviewHomePage() {
             <Link href="/solutions/k12" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${assetPrefix}/images/index2/kids.png`} alt="K-12 elementary students, school scene" className="w-full h-full object-cover" loading="lazy" />
+                <img src={`${assetPrefix}/images/index2/kids.jpg`} alt="K-12 elementary students, school scene" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div style={{ padding: 24 }}>
                 <GraduationCap className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
@@ -650,7 +650,7 @@ export default function PreviewHomePage() {
             <Link href="/solutions/higher-education" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${assetPrefix}/images/index2/University-travel.png`} alt="Higher education travel, students abroad" className="w-full h-full object-cover" loading="lazy" />
+                <img src={`${assetPrefix}/images/index2/University-travel.jpg`} alt="Higher education travel, students abroad" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div style={{ padding: 24 }}>
                 <BookOpen className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
@@ -665,7 +665,7 @@ export default function PreviewHomePage() {
             <Link href="/solutions/churches" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${assetPrefix}/images/index2/mission-trip.png`} alt="Mission trip scene" className="w-full h-full object-cover" loading="lazy" />
+                <img src={`${assetPrefix}/images/index2/mission-trip.jpg`} alt="Mission trip scene" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div style={{ padding: 24 }}>
                 <Heart className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
@@ -680,7 +680,7 @@ export default function PreviewHomePage() {
             <Link href="/solutions/corporate" className="card card-interactive group block overflow-hidden" style={{ padding: 0, textDecoration: 'none' }}>
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', background: 'var(--color-muted)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${assetPrefix}/images/index2/business-travelers2.png`} alt="Corporate travelers, documentary scene" className="w-full h-full object-cover" loading="lazy" />
+                <img src={`${assetPrefix}/images/index2/business-travelers2.jpg`} alt="Corporate travelers, documentary scene" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div style={{ padding: 24 }}>
                 <Building2 className="w-7 h-7 mb-3" style={{ color: 'var(--color-primary-700)' }} />
