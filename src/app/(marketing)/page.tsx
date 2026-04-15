@@ -383,7 +383,7 @@ export default function PreviewHomePage() {
               </div>
               <div className="relative z-[2]">
                 <PhoneWithImage
-                  src="/images/for-index-2/12-direct-group.png"
+                  src="/images/for-index-2/12-direct-group.jpg"
                   alt="SafeTrekr Direct Group screen showing safety map with rally points, safe houses, hospitals, and nearby points of interest across Florida"
                   width={250}
                 />
@@ -405,7 +405,7 @@ export default function PreviewHomePage() {
                 width={220}
               />
               <PhoneWithImage
-                src="/images/for-index-2/12-direct-group.png"
+                src="/images/for-index-2/12-direct-group.jpg"
                 alt="SafeTrekr Direct Group safety map"
                 width={220}
               />
@@ -603,7 +603,7 @@ export default function PreviewHomePage() {
 
             <div className="hidden lg:flex items-center justify-center">
               <PhoneWithImage
-                src="/images/for-index-2/11-checklist.png"
+                src="/images/for-index-2/11-checklist.jpg"
                 alt="SafeTrekr safety checklists screen showing password security checklist with 4 of 12 items completed, including two-factor auth and strong passwords"
                 width={220}
               />
