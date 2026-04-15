@@ -165,7 +165,7 @@ export default function PreviewHomePage() {
               {/* Primary phone: Chaperone Today view */}
               <div className="relative z-10">
                 <PhoneWithImage
-                  src="/images/for-index-2/01-today-2.png"
+                  src="/images/for-index-2/01-today-2.jpg"
                   alt="SafeTrekr chaperone app showing today view with rally point alerts, weather advisory, upcoming musters, and live participant locations"
                   width={280}
                 />
@@ -173,7 +173,7 @@ export default function PreviewHomePage() {
               {/* Secondary phone: Safety & Emergency Map */}
               <div className="absolute -right-2 top-12 z-0" style={{ transform: 'rotate(6deg)' }}>
                 <PhoneWithImage
-                  src="/images/for-index-2/03-safety-2.png"
+                  src="/images/for-index-2/03-safety-2.jpg"
                   alt="SafeTrekr safety map showing rally points, emergency resources, hospitals, and group communication on a live map of Paris"
                   width={250}
                 />
@@ -183,12 +183,12 @@ export default function PreviewHomePage() {
             {/* Mobile hero: scrollable carousel of both phones */}
             <div className="flex md:hidden phone-carousel px-2">
               <PhoneWithImage
-                src="/images/for-index-2/01-today-2.png"
+                src="/images/for-index-2/01-today-2.jpg"
                 alt="SafeTrekr chaperone app showing today view with alerts and live participant locations"
                 width={240}
               />
               <PhoneWithImage
-                src="/images/for-index-2/03-safety-2.png"
+                src="/images/for-index-2/03-safety-2.jpg"
                 alt="SafeTrekr safety map showing rally points, emergency resources, hospitals, and group communication"
                 width={240}
               />
@@ -334,21 +334,21 @@ export default function PreviewHomePage() {
             <div className="lg:col-span-7 relative hidden sm:flex items-center justify-center" style={{ minHeight: 540 }}>
               <div className="absolute z-[1]" style={{ transform: 'rotate(-10deg) translateX(-160px)' }}>
                 <PhoneWithImage
-                  src="/images/for-index-2/07-checkins-2.png"
+                  src="/images/for-index-2/07-checkins-2.jpg"
                   alt="SafeTrekr check-ins screen showing morning roll call in progress, 5 of 8 checked in, with pre-departure, lunch, and curfew checks scheduled"
                   width={230}
                 />
               </div>
               <div className="relative z-[2]">
                 <PhoneWithImage
-                  src="/images/for-index-2/10-direct-group.png"
+                  src="/images/for-index-2/10-direct-group.jpg"
                   alt="SafeTrekr Direct Group screen showing safety map with rally points, safe houses, hospitals, and nearby points of interest across Florida"
                   width={250}
                 />
               </div>
               <div className="absolute z-[1]" style={{ transform: 'rotate(10deg) translateX(160px)' }}>
                 <PhoneWithImage
-                  src="/images/for-index-2/02-schedule-2.png"
+                  src="/images/for-index-2/02-schedule-2.jpg"
                   alt="SafeTrekr trip schedule showing Paris Exploration day with Breakfast, Eiffel Tower Visit, Seine River Cruise, and Free Evening"
                   width={230}
                 />
@@ -358,17 +358,17 @@ export default function PreviewHomePage() {
             {/* Mobile: scrollable carousel of all 3 phones */}
             <div className="flex sm:hidden lg:col-span-7 phone-carousel px-2 mt-8">
               <PhoneWithImage
-                src="/images/for-index-2/07-checkins-2.png"
+                src="/images/for-index-2/07-checkins-2.jpg"
                 alt="SafeTrekr check-ins screen"
                 width={220}
               />
               <PhoneWithImage
-                src="/images/for-index-2/10-direct-group.png"
+                src="/images/for-index-2/10-direct-group.jpg"
                 alt="SafeTrekr Direct Group safety map"
                 width={220}
               />
               <PhoneWithImage
-                src="/images/for-index-2/02-schedule-2.png"
+                src="/images/for-index-2/02-schedule-2.jpg"
                 alt="SafeTrekr trip schedule"
                 width={220}
               />
@@ -386,12 +386,12 @@ export default function PreviewHomePage() {
             {/* Visual: 2 phones side by side (desktop) */}
             <div className="lg:col-span-7 hidden sm:flex items-center justify-center gap-6 lg:gap-10" style={{ minHeight: 540 }}>
               <PhoneWithImage
-                src="/images/for-index-2/08-help-2.png"
+                src="/images/for-index-2/08-help-2.jpg"
                 alt="SafeTrekr Help and Support screen with emergency Call 911 button, emergency contacts for trip leaders and embassy, safety information, and trip packet access"
                 width={250}
               />
               <PhoneWithImage
-                src="/images/for-index-2/06-alerts-2.png"
+                src="/images/for-index-2/06-alerts-2.jpg"
                 alt="SafeTrekr alerts screen showing rally point activation, weather advisory with acknowledge buttons, schedule changes, and curfew reminders"
                 width={250}
               />
@@ -400,12 +400,12 @@ export default function PreviewHomePage() {
             {/* Mobile: scrollable carousel of both phones */}
             <div className="flex sm:hidden lg:col-span-7 phone-carousel px-2">
               <PhoneWithImage
-                src="/images/for-index-2/08-help-2.png"
+                src="/images/for-index-2/08-help-2.jpg"
                 alt="SafeTrekr Help and Support screen"
                 width={220}
               />
               <PhoneWithImage
-                src="/images/for-index-2/06-alerts-2.png"
+                src="/images/for-index-2/06-alerts-2.jpg"
                 alt="SafeTrekr alerts screen"
                 width={220}
               />
@@ -535,7 +535,7 @@ export default function PreviewHomePage() {
 
             <div className="hidden lg:flex items-center justify-center">
               <PhoneWithImage
-                src="/images/for-index-2/11-checklist.png"
+                src="/images/for-index-2/11-checklist.jpg"
                 alt="SafeTrekr safety checklists screen showing password security checklist with 4 of 12 items completed, including two-factor auth and strong passwords"
                 width={220}
               />
