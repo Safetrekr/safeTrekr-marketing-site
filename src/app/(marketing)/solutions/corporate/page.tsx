@@ -68,7 +68,6 @@ export const metadata = generatePageMetadata({
   description:
     "Business travel planning with clear accountability. SafeTrekr provides professional safety review and duty of care documentation for mid-market companies without dedicated risk management staff.",
   path: "/solutions/corporate",
-  ogImage: "/og/solutions-corporate.png",
 });
 
 // ---------------------------------------------------------------------------

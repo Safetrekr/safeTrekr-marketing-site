@@ -51,7 +51,6 @@ export const metadata = generatePageMetadata({
   description:
     "SafeTrekr serves K-12 schools, higher education, churches, corporations, and sports organizations. Find professional trip planning for your organization's needs.",
   path: "/solutions",
-  ogImage: "/images/og-solutions.png",
 });
 
 // ---------------------------------------------------------------------------

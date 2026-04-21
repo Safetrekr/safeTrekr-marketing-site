@@ -70,7 +70,6 @@ export const metadata = generatePageMetadata({
   description:
     "Study abroad programs built on solid preparation. SafeTrekr provides professional safety review for universities with institutional-grade documentation for general counsel and risk management.",
   path: "/solutions/higher-education",
-  ogImage: "/og/solutions-higher-education.png",
 });
 
 // ---------------------------------------------------------------------------

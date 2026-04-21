@@ -41,8 +41,13 @@ const SITE_URL = "https://safetrekr.com" as const;
 /** Brand name appended to every page title via the template. */
 const SITE_NAME = "SafeTrekr" as const;
 
-/** Fallback Open Graph image when a page does not supply its own. */
-const DEFAULT_OG_IMAGE = "/images/og-default.svg" as const;
+/** Default Open Graph image for every page. Absolute URL required so social
+ *  scrapers (iMessage, Slack, WhatsApp, LinkedIn, X, Facebook) can fetch it. */
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png` as const;
+const DEFAULT_OG_IMAGE_WIDTH = 1200 as const;
+const DEFAULT_OG_IMAGE_HEIGHT = 630 as const;
+const DEFAULT_OG_IMAGE_ALT =
+  "SafeTrekr — Every trip requires a plan. Trip Safety Planning Platform." as const;
 
 /** Twitter handle for the site-wide `twitter:site` tag. */
 const TWITTER_HANDLE = "@safetrekr" as const;
@@ -111,9 +116,29 @@ export function generatePageMetadata(options: PageMetadataOptions): Metadata {
   const { title, description, path, ogImage, noIndex = false } = options;
 
   const canonicalUrl = `${SITE_URL}${path}`;
-  const resolvedOgImage = ogImage ?? DEFAULT_OG_IMAGE;
+
+  // Resolve the OG image. A per-page override is allowed (e.g. the dynamic
+  // blog OG route), but it must be absolute — social scrapers do not follow
+  // relative URLs. Otherwise default to the single branded image.
+  const resolvedOgImage = ogImage
+    ? ogImage.startsWith("http")
+      ? ogImage
+      : `${SITE_URL}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`
+    : DEFAULT_OG_IMAGE;
+  const isDefaultOg = resolvedOgImage === DEFAULT_OG_IMAGE;
+
+  const ogImageEntry = isDefaultOg
+    ? {
+        url: resolvedOgImage,
+        width: DEFAULT_OG_IMAGE_WIDTH,
+        height: DEFAULT_OG_IMAGE_HEIGHT,
+        alt: DEFAULT_OG_IMAGE_ALT,
+        type: "image/png",
+      }
+    : { url: resolvedOgImage };
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: `${title} | ${SITE_NAME}`,
     description,
 
@@ -127,16 +152,15 @@ export function generatePageMetadata(options: PageMetadataOptions): Metadata {
       url: canonicalUrl,
       siteName: SITE_NAME,
       type: "website",
-      images: [
-        {
-          url: resolvedOgImage,
-        },
-      ],
+      images: [ogImageEntry],
     },
 
     twitter: {
       card: "summary_large_image",
       site: TWITTER_HANDLE,
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      images: [resolvedOgImage],
     },
 
     ...(noIndex
