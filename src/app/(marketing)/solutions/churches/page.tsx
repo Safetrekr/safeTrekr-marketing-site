@@ -31,14 +31,13 @@ import {
   Shield,
   AlertTriangle,
   FileText,
-  Users,
-  AlertCircle,
   ClipboardCheck,
-  MapPin,
   Activity,
   Check,
   ArrowRight,
   Download,
+  Lock,
+  Link2,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
@@ -107,7 +106,7 @@ const PROCESS_STEPS = [
     number: 3,
     title: "Documentation Delivered",
     description:
-      "Your church receives a complete safety binder with every finding, recommendation, and contact. Share with elders, families, and insurance carriers.",
+      "Your church receives a complete safety binder with every finding, recommendation, and contact. Share with elders and families.",
   },
 ] as const;
 
@@ -121,55 +120,12 @@ const FEATURE_CARDS = [
     linkText: "Learn about analyst review",
   },
   {
-    icon: <MapPin className="size-6" />,
-    title: "Youth Care Documentation",
-    description:
-      "Safety binders structured to demonstrate responsibility for minors. When parents entrust their children to your ministry, documentation shows you took their safety seriously.",
-    href: "/platform/risk-intelligence",
-    linkText: "Learn about risk intelligence",
-  },
-  {
-    icon: <FileText className="size-6" />,
-    title: "Insurance-Ready Documentation",
-    description:
-      "Organized records that demonstrate professional preparation was completed. The documentation your church insurance carrier wants to see.",
-    href: "/platform/safety-binder",
-    linkText: "Learn about the safety binder",
-  },
-  {
     icon: <Activity className="size-6" />,
     title: "Volunteer-Friendly Process",
     description:
       "Simple trip submission designed for volunteer leaders with day jobs and families. No training required. No complicated setup. Clear guidance delivered back.",
     href: "/platform/mobile-app",
     linkText: "Learn about mobile operations",
-  },
-] as const;
-
-const CHALLENGE_CARDS = [
-  {
-    icon: <FileText className="size-6" />,
-    title: "Volunteer-Assembled Trip Binders",
-    description:
-      "Trip leaders compile safety information from Google searches, past experience, and other churches' templates. No standardized review process. No professional verification.",
-  },
-  {
-    icon: <Shield className="size-6" />,
-    title: "Insurance Questionnaires Answered with Guesswork",
-    description:
-      'When carriers ask "Have you conducted a formal risk assessment?", the honest answer is usually no. Checking "yes" without documentation creates liability, not coverage.',
-  },
-  {
-    icon: <Users className="size-6" />,
-    title: "Volunteer Screening Without Verification",
-    description:
-      "Background check policies vary by denomination. Even churches with screening protocols rarely extend them to mission trip contexts or verify them across state lines.",
-  },
-  {
-    icon: <AlertCircle className="size-6" />,
-    title: "No Audit Trail When It Matters",
-    description:
-      "If a team member is injured in Honduras, what documentation proves your church took reasonable precautions? A prayer list and a group text thread are not evidence of due diligence.",
   },
 ] as const;
 
@@ -180,7 +136,6 @@ const BINDER_CHECKLIST = [
   "Evacuation routes and contingency plans",
   "Transportation safety evaluation",
   "Communication infrastructure assessment",
-  "Complete audit trail for insurance documentation",
 ] as const;
 
 const CHURCHES_DAY_TRIP_FEATURES = [
@@ -216,24 +171,30 @@ const CHURCHES_INTERNATIONAL_FEATURES = [
 ];
 
 
-const TRUST_BADGES = [
+const DATA_PROTECTION_BADGES = [
   {
-    icon: <Shield className="size-8" />,
-    title: "Data Protection",
+    icon: <Shield className="size-6" />,
+    title: "Built for Ministry Privacy",
     description:
-      "All data encrypted at rest and in transit. Your team's information is protected with industry-standard security practices.",
+      "Role-based access, data minimization, and secure handling designed for churches and mission teams.",
   },
   {
-    icon: <FileText className="size-8" />,
-    title: "Complete Documentation",
+    icon: <Lock className="size-6" />,
+    title: "Secure Data Handling",
     description:
-      "Every review finding, every analyst decision, every data source documented. Clear records that demonstrate professional preparation.",
+      "All data encrypted at rest and in transit. We follow industry best practices for data security.",
   },
   {
-    icon: <ClipboardCheck className="size-8" />,
-    title: "Insurance-Ready Documentation",
+    icon: <FileText className="size-6" />,
+    title: "Clear Documentation",
     description:
-      "Every binder is structured to satisfy the safety documentation requirements your insurance carrier needs to process claims and assess coverage.",
+      "Organized records that answer the questions stakeholders ask, without the legal jargon.",
+  },
+  {
+    icon: <Link2 className="size-6" />,
+    title: "Verified Integrity",
+    description:
+      "Every finding and recommendation documented and traceable. Professional records you can share with confidence.",
   },
 ] as const;
 
@@ -344,12 +305,12 @@ export default function ChurchSolutionsPage() {
 
                 <ScrollReveal variant="fadeUp" delay={0.2}>
                   <p className="mt-6 max-w-[50ch] text-body-lg text-muted-foreground">
-                    When parents entrust their children to your ministry, they
-                    are trusting you with precious lives. SafeTrekr provides
-                    professional safety review for mission trips and youth
-                    retreats, demonstrating the stewardship families expect.
-                    Simple for volunteers. Shareable with parents. Ready for
-                    your insurance carrier.
+                    When parents entrust themselves or loved ones to your
+                    ministry, they are trusting you with precious lives.
+                    SafeTrekr provides professional safety review for mission
+                    trips and youth retreats, demonstrating the stewardship
+                    families expect. Simple for volunteers. Shareable with
+                    parents.
                   </p>
                 </ScrollReveal>
 
@@ -359,12 +320,6 @@ export default function ChurchSolutionsPage() {
                       <Link href="/demo">
                         Schedule a Walkthrough
                         <ArrowRight className="size-[18px]" />
-                      </Link>
-                    </Button>
-                    <Button variant="secondary" size="lg" asChild>
-                      <Link href="/resources/sample-binders/mission-trip">
-                        <Download className="size-[18px]" />
-                        View Sample Binder
                       </Link>
                     </Button>
                   </div>
@@ -516,75 +471,43 @@ export default function ChurchSolutionsPage() {
             ================================================================ */}
         <SectionContainer id="challenge" ariaLabelledBy="challenge-heading">
           <Container>
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Text Column */}
-              <div className="lg:col-span-5">
-                <ScrollReveal variant="fadeUp">
-                  <Eyebrow
-                    color="primary"
-                    icon={<AlertTriangle className="size-4" />}
-                  >
-                    The Challenge
-                  </Eyebrow>
-                </ScrollReveal>
+            <div className="mx-auto max-w-3xl">
+              <ScrollReveal variant="fadeUp">
+                <Eyebrow
+                  color="primary"
+                  icon={<AlertTriangle className="size-4" />}
+                >
+                  The Challenge
+                </Eyebrow>
+              </ScrollReveal>
 
-                <ScrollReveal variant="fadeUp" delay={0.1}>
-                  <h2
-                    id="challenge-heading"
-                    className="mt-5 max-w-[28ch] text-display-md text-foreground"
-                  >
-                    Mission trip preparation can be more structured, without being more complicated.
-                  </h2>
-                </ScrollReveal>
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <h2
+                  id="challenge-heading"
+                  className="mt-5 max-w-[28ch] text-display-md text-foreground"
+                >
+                  Mission trip preparation can be more structured, without being more complicated.
+                </h2>
+              </ScrollReveal>
 
-                <ScrollReveal variant="fadeUp" delay={0.2}>
-                  <p className="mt-6 max-w-[65ch] text-body-lg text-muted-foreground">
-                    Church mission trips and youth travel are acts of service
-                    and faith. The leaders who plan them are volunteers giving
-                    their time, energy, and hearts to ministry. They are not
-                    professional risk managers, they are accountants, teachers,
-                    nurses, and retirees who love their church and want to serve.
-                  </p>
-                  <p className="mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
-                    Your team is focused on ministry, as they should be.
-                    SafeTrekr adds professional safety planning to what you are
-                    already doing: consistent review, clear documentation, and
-                    the structure that demonstrates good stewardship to families
-                    and insurance carriers.
-                  </p>
-                  <p className="mt-4 max-w-[65ch] text-body-lg font-medium text-foreground">
-                    Prayer and preparation. Together.
-                  </p>
-                </ScrollReveal>
-              </div>
-
-              {/* Status Quo Cards */}
-              <div className="lg:col-span-7">
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  {CHALLENGE_CARDS.map((card, index) => (
-                    <ScrollReveal
-                      key={card.title}
-                      variant="fadeUp"
-                      delay={0.1 * index}
-                    >
-                      <div className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)]">
-                        <div
-                          className="mb-3 text-muted-foreground [&_svg]:size-6"
-                          aria-hidden="true"
-                        >
-                          {card.icon}
-                        </div>
-                        <h3 className="mb-2 font-display text-base font-semibold text-foreground">
-                          {card.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-muted-foreground">
-                          {card.description}
-                        </p>
-                      </div>
-                    </ScrollReveal>
-                  ))}
-                </div>
-              </div>
+              <ScrollReveal variant="fadeUp" delay={0.2}>
+                <p className="mt-6 max-w-[65ch] text-body-lg text-muted-foreground">
+                  Church mission trips and youth travel are acts of service
+                  and faith. The leaders who plan them are volunteers giving
+                  their time, energy, and hearts to ministry. They are not
+                  professional risk managers, they are accountants, teachers,
+                  nurses, and retirees who love their church and want to serve.
+                </p>
+                <p className="mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
+                  Your team is focused on ministry, as they should be.
+                  SafeTrekr adds professional safety planning to what you are
+                  already doing: consistent review, clear documentation, and
+                  the structure that demonstrates good stewardship to families.
+                </p>
+                <p className="mt-4 max-w-[65ch] text-body-lg font-medium text-foreground">
+                  Prayer and preparation. Together.
+                </p>
+              </ScrollReveal>
             </div>
           </Container>
         </SectionContainer>
@@ -782,8 +705,7 @@ export default function ChurchSolutionsPage() {
                     id="binder-preview-heading"
                     className="mt-5 max-w-[28ch] text-display-md text-foreground"
                   >
-                    See Exactly What Your Insurance Carrier and Church Board
-                    Will Receive
+                    See Exactly What the Mission Team Will Receive
                   </h2>
                 </ScrollReveal>
 
@@ -915,18 +837,6 @@ export default function ChurchSolutionsPage() {
               </ScrollReveal>
             </div>
 
-            {/* Proof Narrative */}
-            <ScrollReveal variant="fadeUp">
-              <div className="mx-auto max-w-[65ch] text-center">
-                <p className="text-body-lg leading-relaxed text-dark-text-secondary">
-                  The difference between a prepared church and a lucky church is
-                  not what happens on the trip. It is what exists in the filing
-                  cabinet before the trip begins. SafeTrekr produces the
-                  documentation that turns your church&apos;s commitment to
-                  safety from a verbal assurance into defensible evidence.
-                </p>
-              </div>
-            </ScrollReveal>
           </Container>
         </SectionContainer>
 
@@ -989,7 +899,7 @@ export default function ChurchSolutionsPage() {
         </SectionContainer>
 
         {/* ================================================================
-            SECTION 8: COMPLIANCE & TRUST
+            SECTION 8: DATA PROTECTION
             ================================================================ */}
         <SectionContainer
           id="compliance"
@@ -997,67 +907,62 @@ export default function ChurchSolutionsPage() {
           ariaLabelledBy="compliance-heading"
         >
           <Container>
-            {/* Header */}
-            <ScrollReveal variant="fadeUp">
-              <div className="mb-12 text-center">
-                <Eyebrow
-                  color="primary"
-                  icon={<Shield className="size-4" />}
-                  className="justify-center"
-                >
-                  Security &amp; Compliance
+            <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
+              {/* Text Column */}
+              <ScrollReveal variant="fadeUp">
+                <Eyebrow color="primary" className="block">
+                  Data Protection
                 </Eyebrow>
                 <h2
                   id="compliance-heading"
-                  className="mx-auto mt-5 max-w-[28ch] text-display-md text-foreground"
+                  className="mt-3 text-display-md text-foreground"
                 >
-                  Built to Satisfy Your Insurance Carrier and Denomination
+                  Your Data, Handled with Care
                 </h2>
-              </div>
-            </ScrollReveal>
-
-            {/* Trust Badge Grid */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {TRUST_BADGES.map((badge, index) => (
-                <ScrollReveal
-                  key={badge.title}
-                  variant="fadeUp"
-                  delay={0.1 * index}
-                >
-                  <div className="rounded-xl border border-border bg-background p-6 text-center">
-                    <div
-                      className="mx-auto mb-3 text-primary-700 [&_svg]:size-8"
-                      aria-hidden="true"
-                    >
-                      {badge.icon}
-                    </div>
-                    <h3 className="mb-2 font-display text-base font-semibold text-foreground">
-                      {badge.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {badge.description}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            {/* Insurance Narrative */}
-            <ScrollReveal variant="fadeUp">
-              <div className="mx-auto mt-12 max-w-[65ch] text-center lg:mt-16">
-                <h3 className="text-heading-md text-foreground">
-                  Documentation Your Carrier Appreciates
-                </h3>
-                <p className="mt-4 text-body-lg leading-relaxed text-muted-foreground">
-                  Many church insurance policies ask about safety preparation
-                  for off-site activities. SafeTrekr provides the organized
-                  documentation that demonstrates your church completed
-                  professional preparation, a comprehensive safety review with
-                  clear records your carrier can review.
+                <p className="mt-4 text-body-lg text-muted-foreground">
+                  Ministry information is sensitive, and we built SafeTrekr
+                  knowing that. Team details and trip information are handled
+                  with care, kept secure, and only used to support safer trips.
                 </p>
-              </div>
-            </ScrollReveal>
+                <p className="mt-4 text-body-lg font-medium text-foreground">
+                  We do not overclaim. We do not cut corners. We document
+                  everything.
+                </p>
 
+                <div className="mt-6 flex flex-col gap-3">
+                  <Link
+                    href="/security"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:text-primary-600"
+                  >
+                    View our security practices
+                    <ArrowRight className="size-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </ScrollReveal>
+
+              {/* Badge Cards */}
+              <div className="grid gap-6 sm:grid-cols-2">
+                {DATA_PROTECTION_BADGES.map((badge, index) => (
+                  <ScrollReveal
+                    key={badge.title}
+                    variant="fadeUp"
+                    delay={0.08 * index}
+                  >
+                    <div className="rounded-xl border border-border bg-background p-6 shadow-[var(--shadow-sm)]">
+                      <span className="text-primary-700" aria-hidden="true">
+                        {badge.icon}
+                      </span>
+                      <h3 className="mt-3 text-heading-sm text-card-foreground">
+                        {badge.title}
+                      </h3>
+                      <p className="mt-2 text-body-sm text-muted-foreground">
+                        {badge.description}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
           </Container>
         </SectionContainer>
 

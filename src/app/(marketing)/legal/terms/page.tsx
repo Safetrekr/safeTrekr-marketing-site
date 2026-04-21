@@ -176,12 +176,12 @@ export default function TermsOfServicePage() {
               {/* Preamble */}
               <p>
                 Welcome to the Terms of Service (these &ldquo;Terms&rdquo;) for
-                the website Safetrekr.com, including any functionality, products,
+                the website SafeTrekr.com, including any functionality, products,
                 services, software as a service platform, hardware, and mobile
                 application(s) offered on or through the website (collectively,
                 the &ldquo;Services&rdquo;) operated by Overwatch Consulting LLC
-                DBA Safetrekr, a Texas corporation, with its principal place of
-                business in Tyler, Texas (&ldquo;Safetrekr,&rdquo;
+                DBA SafeTrekr, a Texas corporation, with its principal place of
+                business in Tyler, Texas (&ldquo;SafeTrekr,&rdquo;
                 &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;).
                 These Terms govern your access to and use of the Services.
               </p>
@@ -337,7 +337,7 @@ export default function TermsOfServicePage() {
                 access and use of the Services may be interrupted from time to
                 time for any of several reasons, including, without limitation,
                 the malfunction of equipment, periodic updating, maintenance or
-                repair of the Services or other actions that Safetrekr, in its
+                repair of the Services or other actions that SafeTrekr, in its
                 sole discretion, may elect to take.
               </p>
 
@@ -419,7 +419,7 @@ export default function TermsOfServicePage() {
                   privacy laws;
                 </li>
                 <li>
-                  Share, upload, transfer, or otherwise disclose to Safetrekr any
+                  Share, upload, transfer, or otherwise disclose to SafeTrekr any
                   sensitive information, including driver&apos;s license
                   information;
                 </li>
@@ -447,19 +447,19 @@ export default function TermsOfServicePage() {
                 regularly. If you provide to us or choose to make any User
                 Content publicly available on the Services, if and where
                 available, you do so at your own risk. You agree and acknowledge
-                that Safetrekr may disclose User Content if Safetrekr determines
+                that SafeTrekr may disclose User Content if SafeTrekr determines
                 that: (i) disclosure is necessary to enforce these Terms, respond
                 to claims that any User Content violates the rights of third
                 parties, or protect the rights, property, or personal safety of
-                Safetrekr, its users, and the public; or (ii) appropriate legal
+                SafeTrekr, its users, and the public; or (ii) appropriate legal
                 process requires disclosure. Without limiting the generality of
-                the foregoing, you authorize Safetrekr to include User Content in
+                the foregoing, you authorize SafeTrekr to include User Content in
                 a searchable format that may be accessed by users of the Services
                 and Third-Party Websites (as defined in Section 3), provided,
-                however, that Safetrekr shall have no liability for User Content
+                however, that SafeTrekr shall have no liability for User Content
                 that can be public and visible on the Services, Third-Party
                 Websites, or search engines, including after deletion of such
-                User Content by you or Safetrekr. YOU UNDERSTAND AND AGREE THAT
+                User Content by you or SafeTrekr. YOU UNDERSTAND AND AGREE THAT
                 SAFETREKR WILL HAVE NO LIABILITY OR RESPONSIBILITY TO YOU OR ANY
                 THIRD PARTY IN CONNECTION WITH ANY USER CONTENT.
               </p>
@@ -496,14 +496,14 @@ export default function TermsOfServicePage() {
                 <li>
                   To the extent that you are accessing the App through an Apple
                   mobile device, you acknowledge that these Terms are entered
-                  into between you and Safetrekr, and that Apple, Inc.
+                  into between you and SafeTrekr, and that Apple, Inc.
                   (&ldquo;Apple&rdquo;) is not a party to these Terms other than
                   as a third-party beneficiary as contemplated below.
                 </li>
                 <li>
-                  Safetrekr in its sole discretion will determine when the App
+                  SafeTrekr in its sole discretion will determine when the App
                   will be available on any Apple mobile device, and reference to
-                  any device in these Terms shall not guarantee that Safetrekr
+                  any device in these Terms shall not guarantee that SafeTrekr
                   will launch the App on any or all of the Apple mobile devices.
                 </li>
                 <li>
@@ -524,19 +524,19 @@ export default function TermsOfServicePage() {
                   review.
                 </li>
                 <li>
-                  You acknowledge that Safetrekr, and not Apple, is responsible
+                  You acknowledge that SafeTrekr, and not Apple, is responsible
                   for providing the App and content thereof.
                 </li>
                 <li>
-                  As between Safetrekr and Apple, Safetrekr is solely responsible
+                  As between SafeTrekr and Apple, SafeTrekr is solely responsible
                   for providing any maintenance and support services with respect
-                  to the App that Safetrekr may offer (which, if provided, is
-                  provided at Safetrekr&apos;s sole discretion). You acknowledge
+                  to the App that SafeTrekr may offer (which, if provided, is
+                  provided at SafeTrekr&apos;s sole discretion). You acknowledge
                   that Apple has no obligation whatsoever to furnish maintenance
                   or support services with respect to the App.
                 </li>
                 <li>
-                  You and Safetrekr acknowledge that Safetrekr, not Apple, is
+                  You and SafeTrekr acknowledge that SafeTrekr, not Apple, is
                   responsible for addressing any of your claims or any
                   third-party claims relating to the App or your possession
                   and/or use of the App, including, but not limited to, (i)
@@ -548,7 +548,7 @@ export default function TermsOfServicePage() {
                 <li>
                   Further, you agree that if the App or your possession and use
                   of the App infringes a third party&apos;s intellectual property
-                  rights, Safetrekr, not Apple, will be solely responsible for
+                  rights, SafeTrekr, not Apple, will be solely responsible for
                   the investigation, defense, settlement, and discharge of any
                   such intellectual property infringement claim, but only to the
                   extent it relates to your use of the App.
@@ -623,20 +623,20 @@ export default function TermsOfServicePage() {
                 8. Ownership of Trademarks and Services
               </h2>
               <p>
-                The Safetrekr name, trademarks and logo and all related names,
+                The SafeTrekr name, trademarks and logo and all related names,
                 logos, product and service names, designs, and slogans are
-                trademarks of Safetrekr or its affiliates or licensors. The
+                trademarks of SafeTrekr or its affiliates or licensors. The
                 Services, including their &ldquo;look and feel&rdquo; (e.g.,
                 text, graphics, images, logos), proprietary content, information,
                 and other materials, are protected under copyright, trademark and
-                other intellectual property laws. You agree that Safetrekr and/or
+                other intellectual property laws. You agree that SafeTrekr and/or
                 its licensors own all right, title and interest in and to the
                 Services (including all intellectual property rights therein) and
                 you agree not to take any action(s) inconsistent with such
                 ownership interests. We and our licensors reserve all rights in
                 connection with the Services and their content, including,
                 without limitation, the exclusive right to create derivative
-                works. Safetrekr reserves the right to make such modifications to
+                works. SafeTrekr reserves the right to make such modifications to
                 the Services from time to time as it deems advisable in order to
                 enhance the functionalities or appearance of the Services or for
                 any other reason. Nothing contained in the Services should be
@@ -663,11 +663,11 @@ export default function TermsOfServicePage() {
                 You acknowledge and expressly agree that any feedback, comments
                 and suggestions for improvements to the Services you provide to
                 us (&ldquo;Feedback&rdquo;) becomes the sole and exclusive
-                property of Safetrekr, and Safetrekr may use and disclose
+                property of SafeTrekr, and SafeTrekr may use and disclose
                 Feedback in any manner and for any purpose whatsoever without
                 further notice or compensation to you and without retention by
                 you of any proprietary or other right or claim. You hereby assign
-                to Safetrekr any and all right, title and interest (including,
+                to SafeTrekr any and all right, title and interest (including,
                 but not limited to, any patent, copyright, trade secret,
                 trademark, show-how, know-how, moral rights and any and all other
                 intellectual property right) that you may have in and to any and
@@ -681,25 +681,25 @@ export default function TermsOfServicePage() {
                 10. Responsibility for Use
               </h2>
               <p>
-                Safetrekr does not provide security services, emergency services,
+                SafeTrekr does not provide security services, emergency services,
                 medical services, law enforcement services, monitoring services,
                 dispatch services, or real-time response services. The Services
-                provided by Safetrekr are for general planning, informational,
+                provided by SafeTrekr are for general planning, informational,
                 and decision-support purposes only.
               </p>
               <p>You acknowledge and agree that:</p>
               <ul>
                 <li>
-                  Safetrekr does not assume and expressly disclaims any duty of
+                  SafeTrekr does not assume and expressly disclaims any duty of
                   care, special relationship, fiduciary duty, or professional
                   obligation to you or any third party.
                 </li>
                 <li>
-                  Safetrekr does not control, supervise, manage, or direct your
+                  SafeTrekr does not control, supervise, manage, or direct your
                   personnel, students, travelers, contractors, or third parties.
                 </li>
                 <li>
-                  Safetrekr does not guarantee safety, security, prevention of
+                  SafeTrekr does not guarantee safety, security, prevention of
                   harm, compliance with law, or successful outcomes.
                 </li>
                 <li>
@@ -726,7 +726,7 @@ export default function TermsOfServicePage() {
                 an &ldquo;AS IS,&rdquo; &ldquo;WITH ALL FAULTS,&rdquo; AND
                 &ldquo;AS AVAILABLE&rdquo; basis. Without limiting the
                 foregoing, to the maximum extent permitted under applicable law,
-                Safetrekr, its parents, affiliates, related companies, officers,
+                SafeTrekr, its parents, affiliates, related companies, officers,
                 directors, employees, contractors, officers, agents,
                 representatives, partners and licensors (collectively, the
                 &ldquo;THE SAFETREKR ENTITIES&rdquo;) DISCLAIM ALL STATUTORY OR
@@ -801,22 +801,22 @@ export default function TermsOfServicePage() {
                 13. Indemnification
               </h2>
               <p>
-                You agree to defend, indemnify, and hold harmless the Safetrekr
+                You agree to defend, indemnify, and hold harmless the SafeTrekr
                 Entities from all claims, costs, damages, losses, liabilities,
                 and expenses (including attorneys&apos; fees and costs) incurred
-                by the Safetrekr Entities arising out of or in connection with:
+                by the SafeTrekr Entities arising out of or in connection with:
                 (i) your access of or use of the Services; (ii) the acts or
                 omissions of any individual; (iii) your violation or breach of
                 any provision of these Terms, any applicable law or regulation,
                 or the rights of any third party; and/or (iv) your negligence or
-                willful misconduct. Safetrekr reserves the right, at its own
+                willful misconduct. SafeTrekr reserves the right, at its own
                 expense, to assume the exclusive defense and control of any
-                matter for which you are obligated to indemnify Safetrekr. If
-                Safetrekr chooses to assume the defense of any matter that is
+                matter for which you are obligated to indemnify SafeTrekr. If
+                SafeTrekr chooses to assume the defense of any matter that is
                 subject to indemnification by you, you will cooperate with
-                Safetrekr, at its expense, in any respect reasonably requested by
-                Safetrekr. You also acknowledge and agree not to settle any
-                matter without the prior express written consent of Safetrekr.
+                SafeTrekr, at its expense, in any respect reasonably requested by
+                SafeTrekr. You also acknowledge and agree not to settle any
+                matter without the prior express written consent of SafeTrekr.
               </p>
 
               <hr />
@@ -829,7 +829,7 @@ export default function TermsOfServicePage() {
                 You may terminate these Terms by closing your Account and
                 stopping all access to or use of the Services. If you breach any
                 of the provisions of these Terms, all licenses granted to you by
-                Safetrekr will terminate automatically. We may take steps that we
+                SafeTrekr will terminate automatically. We may take steps that we
                 believe are appropriate to enforce or verify compliance with any
                 part of these Terms (including our right to cooperate with any
                 legal process relating to your access or use of the Services or
@@ -843,11 +843,11 @@ export default function TermsOfServicePage() {
                 sections which by their nature should survive the termination of
                 these Terms shall continue in full force and effect, subsequent
                 to and notwithstanding any termination of the license or your
-                Account by Safetrekr or you. Termination will not limit any of
+                Account by SafeTrekr or you. Termination will not limit any of
                 our other rights or remedies at law or in equity.
               </p>
               <p>
-                You acknowledge and agree that Safetrekr will not be liable to
+                You acknowledge and agree that SafeTrekr will not be liable to
                 you or any third party for any termination of your access or use
                 of the Services or your Account. If we terminate your access or
                 use of the Services, you will not have the right to bring claims
@@ -867,8 +867,8 @@ export default function TermsOfServicePage() {
               </h2>
               <p>
                 You agree that a breach of these Terms may cause irreparable
-                injury to Safetrekr for which monetary damages would not be an
-                adequate remedy and Safetrekr shall be entitled to equitable
+                injury to SafeTrekr for which monetary damages would not be an
+                adequate remedy and SafeTrekr shall be entitled to equitable
                 relief in addition to any remedies it may have hereunder or at
                 law without a bond, other security or proof of damages.
               </p>
@@ -925,21 +925,21 @@ export default function TermsOfServicePage() {
 
               <h3>Dispute Notice and Informal Dispute Resolution</h3>
               <p>
-                If a dispute should arise between you and Safetrekr, we want to
+                If a dispute should arise between you and SafeTrekr, we want to
                 provide you with a resolution that is efficient and cost
-                effective. Before initiating an action, you and Safetrekr each
+                effective. Before initiating an action, you and SafeTrekr each
                 agree to first provide the other a written notice (&ldquo;Notice
                 of Dispute&rdquo;), which shall contain: (a) a written
                 description of the problem and relevant documents and supporting
                 information; and (b) a statement of the specific relief sought. A
                 Notice of Dispute can be (1) mailed to Overwatch Consulting LLC
-                DBA Safetrekr, Attention: Legal, or (2) emailed to{" "}
+                DBA SafeTrekr, Attention: Legal, or (2) emailed to{" "}
                 <a href="mailto:admin@safetrekr.com">admin@safetrekr.com</a>.
-                You and Safetrekr agree to make attempts to resolve the dispute
+                You and SafeTrekr agree to make attempts to resolve the dispute
                 prior to commencing any legal action, including the filing of a
                 lawsuit, until a 45-day post-notice resolution period expires. If
                 an agreement cannot be reached within forty-five (45) days of
-                receipt of the Notice of Dispute, you or Safetrekr may commence a
+                receipt of the Notice of Dispute, you or SafeTrekr may commence a
                 lawsuit.
               </p>
 
@@ -978,11 +978,11 @@ export default function TermsOfServicePage() {
                 19. Updates to These Terms
               </h2>
               <p>
-                Safetrekr may from time to time in the future change or modify
+                SafeTrekr may from time to time in the future change or modify
                 these Terms, in which case we will update the &ldquo;Effective
                 Date&rdquo; at the top of these Terms, provided that these
                 changes will be prospective only and not retroactive. If
-                Safetrekr makes material changes, we will use reasonable efforts
+                SafeTrekr makes material changes, we will use reasonable efforts
                 to attempt to notify you, such as by e-mail to the e-mail
                 address in your Account and/or by placing a prominent notice on
                 the first page of these Terms. The updated Terms will be
@@ -1021,10 +1021,10 @@ export default function TermsOfServicePage() {
                 important service announcements and administrative messages).
                 Please check with your wireless service provider to determine
                 what fees apply to your access to and use of the Services,
-                including your receipt of Push Messages from Safetrekr. You are
+                including your receipt of Push Messages from SafeTrekr. You are
                 solely responsible for any fee, cost or expense that you incur to
                 download, install and/or use the Services on your mobile device,
-                including for your receipt of push messages from Safetrekr. You
+                including for your receipt of push messages from SafeTrekr. You
                 acknowledge that you are responsible for all fees charged for
                 your use of the above in connection with your use of the
                 Services.
@@ -1051,8 +1051,8 @@ export default function TermsOfServicePage() {
                 nearly as possible, the original intentions of the parties, and
                 the remaining provisions of these Terms will not be affected
                 thereby. These Terms and the licenses granted hereunder may be
-                freely assigned by Safetrekr but may not be assigned by you
-                without the prior express written consent of Safetrekr. No waiver
+                freely assigned by SafeTrekr but may not be assigned by you
+                without the prior express written consent of SafeTrekr. No waiver
                 by either party of any breach or default hereunder shall be
                 deemed to be a waiver of any preceding or subsequent breach or
                 default. The section headings used herein are for reference only
@@ -1069,7 +1069,7 @@ export default function TermsOfServicePage() {
                 You may contact us regarding the Services or these Terms by email
                 at{" "}
                 <a href="mailto:admin@safetrekr.com">admin@safetrekr.com</a>, or
-                via mail at Safetrekr, 5380 Old Bullard Rd., Ste. 600-247,
+                via mail at SafeTrekr, 5380 Old Bullard Rd., Ste. 600-247,
                 Tyler, TX 75703. Since email communications cannot always be
                 secure, do not include sensitive information in any such email.
               </p>
@@ -1103,7 +1103,7 @@ export default function TermsOfServicePage() {
             >
               admin@safetrekr.com
             </a>{" "}
-            or write to us at Overwatch Consulting LLC DBA Safetrekr, 5380 Old
+            or write to us at Overwatch Consulting LLC DBA SafeTrekr, 5380 Old
             Bullard Rd., Ste. 600-247, Tyler, TX 75703.
           </p>
         </div>

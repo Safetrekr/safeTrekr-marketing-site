@@ -107,12 +107,6 @@ const PROCESS_STEPS = [
 
 const CHALLENGE_CARDS = [
   {
-    icon: <FileText className="size-6" />,
-    title: "Travel Insurance Covers Incidents, Not Preparation",
-    description:
-      "Most mid-market companies send employees to conferences, client sites, and international destinations every month. Travel gets approved based on budget and business purpose. Safety assessment? That's often assumed to be covered by travel insurance. But travel insurance covers incidents after they happen. Duty of care is about preparation before the trip.",
-  },
-  {
     icon: <Shield className="size-6" />,
     title: "Duty of Care Requires Documented Assessment",
     description:
@@ -390,7 +384,7 @@ export default function CorporateSolutionsPage() {
               </Eyebrow>
 
               <h1 className="text-display-xl max-w-[20ch] text-foreground">
-                Business travel planning with clear accountability.
+                Travel Safety works better with a plan.
               </h1>
 
               <p className="mt-6 max-w-[50ch] text-body-lg text-muted-foreground">
@@ -459,10 +453,6 @@ export default function CorporateSolutionsPage() {
                   Most corporations send employees and representatives to client sites, conferences, and international destinations every month. Companies that truly value their people, and recognize them as their most important resource, tend to experience greater success. Protecting employees is essential to the corporate mission.
                 </p>
 
-                <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
-                  Has a safety assessment been performed? Many organizations assume travel insurance covers that.
-                </p>
-
                 <p className="mt-4 max-w-prose text-body-lg font-medium text-foreground">
                   Here&apos;s the gap: travel insurance responds after an incident occurs. Duty of care focuses on preparation before the trip. They&apos;re complementary, but they are not the same.
                 </p>
@@ -471,7 +461,7 @@ export default function CorporateSolutionsPage() {
 
             {/* Right Column: Status Quo Cards */}
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6">
                 {CHALLENGE_CARDS.map((card, index) => (
                   <ScrollReveal
                     key={card.title}

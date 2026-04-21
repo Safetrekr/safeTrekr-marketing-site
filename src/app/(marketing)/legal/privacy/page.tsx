@@ -3,7 +3,7 @@
  *
  * Full legal privacy notice with 14 sections of real content, sticky TOC
  * sidebar on desktop, and collapsible TOC on mobile. Content mirrors the
- * official Safetrekr Privacy Notice v2.1 (Effective March 7, 2026).
+ * official SafeTrekr Privacy Notice v2.1 (Effective March 7, 2026).
  *
  * Layout: 720px article + 260px sticky sidebar on a 1280px container.
  *
@@ -30,7 +30,7 @@ import {
 export const metadata = generatePageMetadata({
   title: "Privacy Notice",
   description:
-    "Read Safetrekr's Privacy Notice. Learn how we collect, use, and protect your personal information. Effective March 7, 2026, Version 2.1.",
+    "Read SafeTrekr's Privacy Notice. Learn how we collect, use, and protect your personal information. Effective March 7, 2026, Version 2.1.",
   path: "/legal/privacy",
 });
 
@@ -168,8 +168,8 @@ export default function PrivacyNoticePage() {
             <article className="legal-prose max-w-[720px]">
               {/* Preamble */}
               <p>
-                Overwatch Consulting LLC DBA Safetrekr
-                (&ldquo;Safetrekr,&rdquo; &ldquo;we,&rdquo;
+                Overwatch Consulting LLC DBA SafeTrekr
+                (&ldquo;SafeTrekr,&rdquo; &ldquo;we,&rdquo;
                 &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to
                 protecting your personal information. This Privacy Notice
                 describes the personal information that we collect about you,
@@ -850,7 +850,7 @@ export default function PrivacyNoticePage() {
                 or by mail at:
               </p>
               <p>
-                Attn: Privacy Safetrekr
+                Attn: Privacy SafeTrekr
                 <br />
                 5380 Old Bullard Rd., Ste. 600-247
                 <br />
@@ -886,7 +886,7 @@ export default function PrivacyNoticePage() {
             >
               admin@safetrekr.com
             </a>{" "}
-            or write to us at Attn: Privacy Safetrekr, 5380 Old Bullard Rd.,
+            or write to us at Attn: Privacy SafeTrekr, 5380 Old Bullard Rd.,
             Ste. 600-247, Tyler, TX 75703.
           </p>
         </div>

@@ -40,7 +40,6 @@ import {
   Lock,
   Link2,
   ChevronRight,
-  Download,
   Check,
   ArrowRight,
   MapPin,
@@ -644,7 +643,7 @@ export default function K12SolutionsPage() {
                 id="binder-preview-heading"
                 className="mt-3 text-display-md text-foreground"
               >
-                See What Your Superintendent Will Review
+                See What Everyone Can Review
               </h2>
               <p className="mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
                 Every field trip produces a comprehensive safety binder. This is what
@@ -666,18 +665,6 @@ export default function K12SolutionsPage() {
                 ))}
               </ul>
 
-              {/* CTA */}
-              <div className="mt-8">
-                <Button variant="primary" size="lg" asChild>
-                  <Link href="/resources/sample-binders/k12-field-trip">
-                    <Download className="size-4" aria-hidden="true" />
-                    Download K-12 Sample Binder
-                  </Link>
-                </Button>
-                <p className="mt-3 text-body-sm text-muted-foreground">
-                  Free. No credit card. Email required.
-                </p>
-              </div>
             </ScrollReveal>
           </div>
         </Container>

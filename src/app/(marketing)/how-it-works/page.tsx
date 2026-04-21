@@ -555,14 +555,15 @@ export default function HowItWorksPage() {
                   id="during-trip-heading"
                   className="mb-6 text-display-md text-foreground"
                 >
-                  Everything Your Chaperones Need in Their Pocket.
+                  Everything Your Chaperones and Travelers Need in Their Pocket.
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal>
                 <p className="mb-8 max-w-[65ch] text-body-lg text-muted-foreground">
                   During the trip, SafeTrekr&apos;s mobile app gives chaperones
-                  current tools for participant safety and communication.
+                  and travelers current tools for participant safety and
+                  communication.
                 </p>
               </ScrollReveal>
 

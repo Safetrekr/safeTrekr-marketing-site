@@ -100,10 +100,10 @@ export default function ContactPage() {
                         Email Us
                       </p>
                       <a
-                        href="mailto:hello@safetrekr.com"
+                        href="mailto:info@safetrekr.com"
                         className="text-body-sm text-[var(--color-primary-700)] underline underline-offset-2 hover:text-[var(--color-primary-800)]"
                       >
-                        hello@safetrekr.com
+                        info@safetrekr.com
                       </a>
                     </div>
                   </div>

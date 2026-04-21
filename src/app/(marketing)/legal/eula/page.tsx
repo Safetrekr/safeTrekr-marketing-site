@@ -178,11 +178,11 @@ export default function EulaPage() {
                 This End User License Agreement (the &ldquo;Agreement&rdquo;) is
                 a binding agreement between you (&ldquo;End User,&rdquo;
                 &ldquo;Licensee,&rdquo; &ldquo;you,&rdquo; or
-                &ldquo;your&rdquo;) and Overwatch Consulting LLC DBA Safetrekr
-                (&ldquo;Safetrekr,&rdquo; &ldquo;Licensor,&rdquo;
+                &ldquo;your&rdquo;) and Overwatch Consulting LLC DBA SafeTrekr
+                (&ldquo;SafeTrekr,&rdquo; &ldquo;Licensor,&rdquo;
                 &ldquo;we,&rdquo; &ldquo;us,&rdquo; and &ldquo;our&rdquo;).
-                This Agreement governs your use of the Safetrekr Portal through
-                the Safetrekr.com website and the Safetrekr software (the
+                This Agreement governs your use of the SafeTrekr Portal through
+                the SafeTrekr.com website and the SafeTrekr software (the
                 &ldquo;Software&rdquo;). The Software is licensed, not sold, to
                 you.
               </p>
@@ -219,7 +219,7 @@ export default function EulaPage() {
               </h2>
               <p>
                 Subject to your strict compliance with all terms and conditions
-                set forth in this Agreement, Safetrekr grants you a limited,
+                set forth in this Agreement, SafeTrekr grants you a limited,
                 non-exclusive, non-sublicensable, and non-transferable license
                 during the term of this Agreement to:
               </p>
@@ -247,7 +247,7 @@ export default function EulaPage() {
                 <li>
                   Download, copy, or re-transmit any or all of the Software or
                   the User Content without, or in violation of, a written license
-                  or agreement with Safetrekr
+                  or agreement with SafeTrekr
                 </li>
                 <li>
                   Modify, translate, adapt, or otherwise create derivative works
@@ -269,12 +269,12 @@ export default function EulaPage() {
                 </li>
                 <li>
                   Register, subscribe, unsubscribe, or attempt to register,
-                  subscribe, or unsubscribe any party for any Safetrekr service
+                  subscribe, or unsubscribe any party for any SafeTrekr service
                   if you are not expressly authorized by such party to do so
                 </li>
                 <li>
                   Use the Software or the User Content other than for its
-                  intended purpose, as determined solely in Safetrekr&apos;s
+                  intended purpose, as determined solely in SafeTrekr&apos;s
                   discretion, including but not limited to, to defame, abuse,
                   harass, stalk, threaten or otherwise violate the legal rights
                   (such as rights of privacy) of others, and/or to publish,
@@ -323,7 +323,7 @@ export default function EulaPage() {
                 rights thereto other than to use the Software in accordance with
                 the license granted, and subject to all terms, conditions, and
                 restrictions, under this Agreement and the Terms of Service.
-                Safetrekr reserves and shall retain its entire right, title, and
+                SafeTrekr reserves and shall retain its entire right, title, and
                 interest in and to the Software, including all copyrights,
                 trademarks, and other intellectual property rights therein or
                 relating thereto, except as expressly granted to you in this
@@ -338,7 +338,7 @@ export default function EulaPage() {
               </h2>
               <p>
                 You acknowledge that when you download, install, or use the
-                Software, Safetrekr may use automatic means (including, for
+                Software, SafeTrekr may use automatic means (including, for
                 example, cookies and web beacons) to collect information about
                 your device accessing the Software and about your use of the
                 Software. You also may be required to provide certain information
@@ -364,7 +364,7 @@ export default function EulaPage() {
               <p>
                 The Software may include software, content, data, or other
                 materials, including related documentation, that are owned by
-                parties other than Safetrekr and that are provided to you on
+                parties other than SafeTrekr and that are provided to you on
                 licensee terms that are in addition to and/or different from
                 those contained in this Agreement (&ldquo;Third-Party
                 Licenses&rdquo;). A list of all materials, if any, included in
@@ -376,10 +376,10 @@ export default function EulaPage() {
               </p>
               <p>
                 The Software may provide, or third parties may provide, links to
-                other sites and resources on the Internet. Safetrekr has no
-                control over such sites and resources, and Safetrekr is not
+                other sites and resources on the Internet. SafeTrekr has no
+                control over such sites and resources, and SafeTrekr is not
                 responsible for and does not endorse such sites and resources.
-                You further acknowledge and agree that Safetrekr shall not be
+                You further acknowledge and agree that SafeTrekr shall not be
                 responsible or liable, directly or indirectly, for any damage or
                 loss caused or alleged to be caused by or in connection with use
                 of or reliance on any content, events, goods or services
@@ -431,7 +431,7 @@ export default function EulaPage() {
                   deemed personal information, personal data, or private
                   information of any third party under or subject to any
                   applicable data protection law or regulation without the prior
-                  express written consent of Safetrekr
+                  express written consent of SafeTrekr
                 </li>
                 <li>
                   User Content that impersonates any person or entity or
@@ -448,33 +448,33 @@ export default function EulaPage() {
                   destructive files
                 </li>
                 <li>
-                  User Content that, in the sole judgment of Safetrekr, is
+                  User Content that, in the sole judgment of SafeTrekr, is
                   objectionable or which restricts or inhibits any other person
                   from using or enjoying the Software, or which adversely affects
                   the availability of its resources to other users, or which may
-                  expose Safetrekr or its users to any harm or liability of any
+                  expose SafeTrekr or its users to any harm or liability of any
                   type
                 </li>
               </ul>
               <p>
                 Further, you agree not to delete or revise any User Content
-                posted by any other user. Safetrekr takes no responsibility and
+                posted by any other user. SafeTrekr takes no responsibility and
                 assumes no liability for any User Content posted, stored or
                 uploaded by you or any other user, or for any loss or damage
-                thereto, nor is Safetrekr liable for any mistakes, defamation,
+                thereto, nor is SafeTrekr liable for any mistakes, defamation,
                 slander, libel, omissions, falsehoods, obscenity, pornography or
                 profanity you may encounter. Your use of User Content posted by
                 another user is at your own risk.
               </p>
               <p>
-                You acknowledge and agree that Safetrekr is not responsible for
+                You acknowledge and agree that SafeTrekr is not responsible for
                 any User Content, licensed by you or otherwise, including its
                 accuracy, completeness, timeliness, validity, copyright
                 compliance, legality, decency, quality, or any other aspect
-                thereof. Safetrekr does not assume and will not have any
+                thereof. SafeTrekr does not assume and will not have any
                 liability or responsibility to you or any other person or entity
-                for any User Content. Although Safetrekr has no obligation to
-                screen, edit or monitor any of the User Content posted, Safetrekr
+                for any User Content. Although SafeTrekr has no obligation to
+                screen, edit or monitor any of the User Content posted, SafeTrekr
                 reserves the right, and has absolute discretion, to remove,
                 screen or edit any User Content posted or stored on the Software
                 at any time and for any reason without notice. You are solely
@@ -485,21 +485,21 @@ export default function EulaPage() {
                 termination or suspension of your rights to use the Software.
               </p>
               <p>
-                You acknowledge and agree that Safetrekr may access, use,
+                You acknowledge and agree that SafeTrekr may access, use,
                 disclose, or delete any information about you or your use of this
                 Software, including without limitation any User Content to comply
                 with the law or any legal process; protect and defend the rights
-                or property of Safetrekr; or to protect the safety of our
+                or property of SafeTrekr; or to protect the safety of our
                 company, employees, customers or the public.
               </p>
               <p>
                 If you post User Content to the Software, unless we indicate
-                otherwise, you grant Safetrekr and its affiliates a
+                otherwise, you grant SafeTrekr and its affiliates a
                 nonexclusive, royalty-free, perpetual, irrevocable and fully
                 sublicensable right to use, reproduce, modify, adapt, publish,
                 translate, create derivative works from, distribute, perform and
                 display such User Content throughout the world in any media. You
-                grant Safetrekr and its affiliates and sublicensees the right to
+                grant SafeTrekr and its affiliates and sublicensees the right to
                 use the name that you submit in connection with such content, if
                 they choose. You represent and warrant that (i) you own and
                 control all of the rights to the User Content that you post or
@@ -519,14 +519,14 @@ export default function EulaPage() {
                 7. Intellectual Property
               </h2>
               <p>
-                The Software is owned by Safetrekr. Unless otherwise indicated,
+                The Software is owned by SafeTrekr. Unless otherwise indicated,
                 all of the content featured or displayed on the Software,
                 including, but not limited to, photographic images,
                 illustrations, graphics, data, text, moving images, sound,
                 software, and the selection and arrangement thereof
-                (&ldquo;Safetrekr Content&rdquo;), is owned by Safetrekr, its
+                (&ldquo;SafeTrekr Content&rdquo;), is owned by SafeTrekr, its
                 licensors, or its users. All elements of the Software, including
-                the Safetrekr Content, are protected by copyright, trade dress,
+                the SafeTrekr Content, are protected by copyright, trade dress,
                 moral rights, trademark and other laws relating to the protection
                 of intellectual property.
               </p>
@@ -537,11 +537,11 @@ export default function EulaPage() {
                 compensate you for them.
               </p>
               <p>
-                You may not use a Safetrekr logo or other proprietary graphic of
-                Safetrekr to link to the Software without the express written
-                permission of Safetrekr. Further, you may not frame any Safetrekr
+                You may not use a SafeTrekr logo or other proprietary graphic of
+                SafeTrekr to link to the Software without the express written
+                permission of SafeTrekr. Further, you may not frame any SafeTrekr
                 trademark, logo or other proprietary information, including the
-                Safetrekr Content, without Safetrekr&apos;s express written
+                SafeTrekr Content, without SafeTrekr&apos;s express written
                 consent.
               </p>
 
@@ -556,10 +556,10 @@ export default function EulaPage() {
                 subscriptions. Payment processing services provided in the
                 Software may be provided by a Third-Party payment processor and
                 are subject to the applicable subscription agreement. As a
-                condition of Safetrekr enabling payment processing services
-                through the Software, you agree to provide Safetrekr accurate and
+                condition of SafeTrekr enabling payment processing services
+                through the Software, you agree to provide SafeTrekr accurate and
                 complete information about you and your business, and you
-                authorize Safetrekr to share it and transaction information
+                authorize SafeTrekr to share it and transaction information
                 related to your use of any Third-Party payment processing
                 services. If you believe that any payment transaction initiated
                 by us is erroneous, or if you need more information about any
@@ -583,14 +583,14 @@ export default function EulaPage() {
                 </li>
                 <li>
                   Maintain and promptly update the Registration Data, and any
-                  other information you provide to Safetrekr, to keep it
+                  other information you provide to SafeTrekr, to keep it
                   accurate, current and complete
                 </li>
                 <li>
                   Maintain the security of your password and identification
                 </li>
                 <li>
-                  Notify Safetrekr immediately of any unauthorized use of your
+                  Notify SafeTrekr immediately of any unauthorized use of your
                   account or other breach of security
                 </li>
                 <li>
@@ -599,7 +599,7 @@ export default function EulaPage() {
                 </li>
                 <li>
                   Accept all risks of unauthorized access to the Registration
-                  Data and any other information you provide to Safetrekr
+                  Data and any other information you provide to SafeTrekr
                 </li>
               </ul>
 
@@ -622,7 +622,7 @@ export default function EulaPage() {
                 electronic means to your mobile device and that certain
                 information about your usage of the Software may be communicated
                 to us. In the event you change or deactivate your mobile
-                telephone number, you agree to promptly update your Safetrekr
+                telephone number, you agree to promptly update your SafeTrekr
                 account information to ensure that your messages are not sent to
                 the person that acquires your old number.
               </p>
@@ -634,13 +634,13 @@ export default function EulaPage() {
                 11. Updates
               </h2>
               <p>
-                Safetrekr may from time to time in its sole discretion develop
+                SafeTrekr may from time to time in its sole discretion develop
                 and provide Software updates, which may include upgrades, bug
                 fixes, patches, other error corrections, and/or new features
                 (collectively, including related documentation,
                 &ldquo;Updates&rdquo;). Updates may also modify or delete in
                 their entirety certain features and functionality. You agree that
-                Safetrekr has no obligation to provide any Updates or to continue
+                SafeTrekr has no obligation to provide any Updates or to continue
                 to provide or enable any particular features or functionality.
                 Based on your mobile device settings, when your mobile device is
                 connected to the internet either:
@@ -672,7 +672,7 @@ export default function EulaPage() {
               <p>
                 The term of this Agreement commences when you download or
                 otherwise access the Software and will continue in effect until
-                terminated by you or Safetrekr as set forth in this section.
+                terminated by you or SafeTrekr as set forth in this section.
               </p>
               <ul>
                 <li>
@@ -681,8 +681,8 @@ export default function EulaPage() {
                   and refraining from further use of the Software.
                 </li>
                 <li>
-                  Safetrekr may terminate this Agreement at any time without
-                  notice if it ceases to support the Software, which Safetrekr
+                  SafeTrekr may terminate this Agreement at any time without
+                  notice if it ceases to support the Software, which SafeTrekr
                   may do in its sole discretion. In addition, this Agreement will
                   terminate immediately and automatically without any notice if
                   you violate any of the terms and conditions of this Agreement.
@@ -694,7 +694,7 @@ export default function EulaPage() {
                   device and deactivate your account.
                 </li>
                 <li>
-                  Termination will not limit any of Safetrekr&apos;s rights or
+                  Termination will not limit any of SafeTrekr&apos;s rights or
                   remedies at law or in equity.
                 </li>
               </ul>
@@ -775,7 +775,7 @@ export default function EulaPage() {
                 15. Indemnification
               </h2>
               <p>
-                You agree to indemnify, defend, and hold harmless Safetrekr and
+                You agree to indemnify, defend, and hold harmless SafeTrekr and
                 its officers, directors, employees, agents, affiliates,
                 successors, and assigns from and against any and all losses,
                 damages, liabilities, deficiencies, claims, actions, judgments,
@@ -797,7 +797,7 @@ export default function EulaPage() {
                 16. Notice and Procedure for Making Claims of Infringement
               </h2>
               <p>
-                Safetrekr respects the copyright of others, and we ask our users
+                SafeTrekr respects the copyright of others, and we ask our users
                 to do the same. If you believe that your work has been copied in
                 a way that constitutes copyright infringement, or your
                 intellectual property rights have been otherwise violated, please
@@ -874,21 +874,21 @@ export default function EulaPage() {
                 </li>
               </ul>
               <p>
-                If a counter-notice is received by the Copyright Agent, Safetrekr
+                If a counter-notice is received by the Copyright Agent, SafeTrekr
                 will send a copy of the counter-notice to the original
                 complaining party informing that person that it may replace the
                 removed content or cease disabling it in 10 business days. Unless
                 the copyright owner files an action seeking a court order against
                 the content provider, member or user, the removed content may be
                 replaced, or access to it restored, in 10 to 14 business days or
-                more after receipt of the counter-notice, at Safetrekr&apos;s
+                more after receipt of the counter-notice, at SafeTrekr&apos;s
                 sole discretion.
               </p>
               <p>
-                In accordance with the DMCA and other applicable law, Safetrekr
+                In accordance with the DMCA and other applicable law, SafeTrekr
                 has adopted a policy of terminating, in appropriate circumstances
-                and at Safetrekr&apos;s sole discretion, members who are deemed
-                to be repeat infringers. Safetrekr may also at its sole
+                and at SafeTrekr&apos;s sole discretion, members who are deemed
+                to be repeat infringers. SafeTrekr may also at its sole
                 discretion limit access to the Software and/or terminate the
                 accounts of any users who infringe any intellectual property
                 rights of others, whether or not there is any repeat
@@ -949,7 +949,7 @@ export default function EulaPage() {
               <p>
                 This Agreement and our{" "}
                 <Link href="/legal/privacy">Privacy Policy</Link> constitute the
-                entire agreement between you and Safetrekr with respect to the
+                entire agreement between you and SafeTrekr with respect to the
                 Software and supersede all prior or contemporaneous
                 understandings and agreements, whether written or oral, with
                 respect to the Software.
@@ -978,7 +978,7 @@ export default function EulaPage() {
                 22. Changes to Agreement
               </h2>
               <p>
-                Safetrekr reserves the right to change any of the terms and
+                SafeTrekr reserves the right to change any of the terms and
                 conditions contained in this Agreement or any policy or guideline
                 of the Software, at any time and in its sole discretion. When we
                 make changes, we will revise the &ldquo;last updated&rdquo; date
@@ -1018,7 +1018,7 @@ export default function EulaPage() {
             >
               legal@safetrekr.com
             </a>{" "}
-            or write to us at Overwatch Consulting LLC DBA Safetrekr.
+            or write to us at Overwatch Consulting LLC DBA SafeTrekr.
           </p>
         </div>
       </SectionContainer>

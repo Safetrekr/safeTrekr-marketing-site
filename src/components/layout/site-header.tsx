@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -49,7 +50,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: "K-12 Schools", href: "/solutions/k12", description: "Field trip safety" },
       { label: "Higher Education", href: "/solutions/higher-education", description: "Study abroad & Clery Act" },
       { label: "Churches & Missions", href: "/solutions/churches", description: "Mission trip safety" },
-      { label: "Corporate & Sports", href: "/solutions/corporate", description: "Duty of care compliance" },
+      { label: "Corporate", href: "/solutions/corporate", description: "Duty of care compliance" },
     ],
   },
   { label: "How It Works", href: "/how-it-works" },
@@ -59,7 +60,6 @@ const NAV_ITEMS: NavItem[] = [
     href: "/resources/faq",
     dropdown: [
       { label: "FAQ", href: "/resources/faq", description: "Common questions" },
-      { label: "Sample Binders", href: "/resources/sample-binders", description: "Download examples" },
       { label: "ROI Calculator", href: "/resources/roi-calculator", description: "Calculate your savings" },
       { label: "Glossary", href: "/resources/glossary", description: "Industry terms" },
       { label: "Compliance Guides", href: "/compliance/ferpa", description: "FERPA, Clery Act & more" },
@@ -261,20 +261,47 @@ function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: b
 
 function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const pathname = usePathname();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   function isActive(href: string): boolean {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   }
 
-  // Lock body scroll when open
+  // Lock body scroll when open. On iOS Safari, `overflow: hidden` alone does
+  // not prevent touch scrolling — we also need to position the body and
+  // restore the scroll position on close.
   React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
+    if (!isOpen) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    return () => {
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.left = prev.left;
+      body.style.right = prev.right;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
+    };
   }, [isOpen]);
 
   // Close on escape
@@ -287,7 +314,14 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
 
-  return (
+  // Portal the overlay to document.body so it escapes the header's
+  // containing block. The header applies `backdrop-filter` when scrolled,
+  // which per spec establishes a new containing block for position: fixed
+  // descendants — without the portal, the overlay gets clamped to the
+  // header's height instead of filling the viewport.
+  if (!mounted) return null;
+
+  const overlay = (
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -295,14 +329,17 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           initial="closed"
           animate="open"
           exit="exit"
-          className="fixed inset-0 z-40 flex flex-col lg:hidden"
-          style={{ background: "var(--color-secondary)" }}
+          className="fixed inset-x-0 top-0 z-50 flex flex-col overflow-hidden lg:hidden"
+          style={{
+            background: "var(--color-secondary)",
+            height: "100dvh",
+          }}
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
         >
-          {/* Header bar */}
-          <div className="flex items-center justify-between px-6 sm:px-8" style={{ height: 64 }}>
+          {/* Header bar (pinned) */}
+          <div className="flex shrink-0 items-center justify-between px-6 sm:px-8" style={{ height: 64 }}>
             <Link href="/" onClick={onClose} aria-label="SafeTrekr home">
               <Logo variant="light" height={28} />
             </Link>
@@ -319,10 +356,13 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           </div>
 
           {/* Divider */}
-          <div className="mx-6" style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
+          <div className="mx-6 shrink-0" style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
 
-          {/* Nav items */}
-          <motion.ul className="flex-1 overflow-y-auto py-4" variants={overlayVariants}>
+          {/* Nav items (scrollable middle) */}
+          <motion.ul
+            className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-4"
+            variants={overlayVariants}
+          >
             {NAV_ITEMS.map((item) => (
               <MobileNavItem
                 key={item.href + item.label}
@@ -333,8 +373,11 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             ))}
           </motion.ul>
 
-          {/* Bottom CTA area */}
-          <div className="px-6 pb-8 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          {/* Bottom CTA area (pinned) */}
+          <div
+            className="shrink-0 px-6 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-4"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+          >
             <a
               href={SIGN_IN_URL}
               target="_blank"
@@ -357,6 +400,8 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       )}
     </AnimatePresence>
   );
+
+  return createPortal(overlay, document.body);
 }
 
 // ---------------------------------------------------------------------------

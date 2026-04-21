@@ -124,15 +124,15 @@ const SEGMENTS: SolutionSegment[] = [
   {
     icon: <GraduationCap className="size-7" />,
     title: "K-12 Schools and Districts",
-    badges: ["FERPA", "COPPA"],
+    badges: ["DUTY OF CARE"],
     description:
-      "Field trip planning that supports educational excellence. Professional analyst evaluation of every destination with documentation that demonstrates thorough preparation. From $15 per student.",
+      "Field trip planning that supports educational excellence. Professional analyst evaluation of every destination with documentation that demonstrates thorough preparation.",
     href: "/solutions/k12",
   },
   {
     icon: <Building2 className="size-7" />,
     title: "Higher Education",
-    badges: ["CLERY ACT", "FERPA"],
+    badges: ["DUTY OF CARE"],
     description:
       "Study abroad and faculty travel with top tier planning and documentation. Professional safety planning that supports the traveler and institution anywhere someone travels.",
     href: "/solutions/higher-education",
@@ -148,7 +148,7 @@ const SEGMENTS: SolutionSegment[] = [
   {
     icon: <Building className="size-7" />,
     title: "Corporate",
-    badges: ["DUTY OF CARE", "OSHA"],
+    badges: ["DUTY OF CARE"],
     description:
       "Business travel security preparation and planning as Fortune 500 C-Suite security programs with dedicated risk management staff.",
     href: "/solutions/corporate",

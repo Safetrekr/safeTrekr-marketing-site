@@ -48,7 +48,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "About SafeTrekr",
   description:
-    "SafeTrekr is a trip safety platform founded by former senior U.S. Secret Service agents. Trained analysts review every trip using government and international data sources and deliver audit-ready safety binders. Serving 104 organizations across K-12, higher ed, churches, and corporate travel.",
+    "SafeTrekr is a trip safety platform founded by former senior U.S. Secret Service agents. Trained analysts review every trip using government and international data sources and deliver audit-ready safety binders. Serving organizations across K-12, higher ed, churches, and corporate travel.",
   path: "/about",
 });
 
@@ -126,8 +126,8 @@ const ORG_TYPES: OrgType[] = [
   },
   {
     icon: <Building2 className="size-6" />,
-    name: "Corporate & Sports",
-    subtitle: "Businesses, leagues, & sports teams",
+    name: "Corporate",
+    subtitle: "Businesses & organizations",
   },
 ];
 
@@ -219,17 +219,17 @@ export default function AboutPage() {
 
             <ScrollReveal variant="fadeUp" delay={0.24} as="p">
               <span className="text-body-lg max-w-prose text-muted-foreground">
-                Teachers were doing their best with spreadsheets. Volunteer
-                coordinators were researching destinations between other
-                responsibilities. HR managers were approving travel without a
-                structured assessment process.
+                Teachers managed complex trips with spreadsheets. Volunteer
+                coordinators squeezed destination research into already packed
+                schedules. HR teams approved travel without a consistent way to
+                evaluate risk.
               </span>
             </ScrollReveal>
 
             <ScrollReveal variant="fadeUp" delay={0.32} as="p">
               <span className="text-body-lg max-w-prose text-muted-foreground">
-                They weren&rsquo;t failing. They were doing their best with tools
-                that weren&rsquo;t built for this purpose.
+                They weren&rsquo;t falling short, they were making it work with
+                resources that were available.
               </span>
             </ScrollReveal>
 
@@ -359,7 +359,7 @@ export default function AboutPage() {
 
               <ScrollReveal variant="fadeUp" delay={0.16}>
                 <p className="text-body-lg mt-6 text-[var(--color-secondary-muted)] lg:mt-8">
-                  Safetrekr is developed and guided by a team of professionals
+                  SafeTrekr is developed and guided by a team of professionals
                   who spent their careers responsible for planning, protecting,
                   and managing complex travel environments. Their experience
                   shapes every feature and workflow within the platform.
@@ -426,7 +426,7 @@ export default function AboutPage() {
                     paddingTop: "1.5rem",
                   }}
                 >
-                  Together, this team built Safetrekr to bring structured
+                  Together, this team built SafeTrekr to bring structured
                   planning, real-world experience, and practical safety guidance
                   to every organization that travels.
                 </p>
@@ -457,7 +457,7 @@ export default function AboutPage() {
               style={{ maxWidth: "28ch" }}
             >
               Protect every traveler through professional safety analysis,
-              verified data sources, and documented evidence.
+              verified data sources, and documented analysis.
             </h2>
           </ScrollReveal>
 
@@ -506,8 +506,8 @@ export default function AboutPage() {
                 Trusted by Schools, Universities, Churches, and Businesses
               </h2>
               <p className="text-body-lg mx-auto mt-4 max-w-prose text-muted-foreground">
-                SafeTrekr serves 104 organizations across education,
-                faith-based, and corporate sectors.
+                SafeTrekr serves organizations across education, faith-based,
+                and corporate sectors.
               </p>
             </div>
           </ScrollReveal>
@@ -543,7 +543,7 @@ export default function AboutPage() {
           {/* Disclaimer */}
           <ScrollReveal variant="fadeUp" delay={0.3}>
             <p className="text-body-sm mt-8 text-center text-muted-foreground">
-              Specific client logos and organization names available upon
+              Custom client logos and organization names available upon
               request.
             </p>
           </ScrollReveal>
