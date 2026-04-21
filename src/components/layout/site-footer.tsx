@@ -65,7 +65,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
             label: "Churches and Mission Orgs",
             href: "/solutions/churches",
           },
-          { label: "Corporate and Sports", href: "/solutions/corporate" },
+          { label: "Corporate", href: "/solutions/corporate" },
         ],
       },
       {
