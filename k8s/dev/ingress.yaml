@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: dev-safetrekr-www.tarva.network
+    - host: dev.safetrekr.com
       http:
         paths:
           - path: /
@@ -23,5 +23,5 @@ spec:
                   number: 3000
   tls:
     - hosts:
-        - dev-safetrekr-www.tarva.network
-      secretName: cloudflare-origin-tls-tarva
+        - dev.safetrekr.com
+      secretName: cloudflare-origin-tls
