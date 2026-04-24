@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 import { fontVariableClasses } from "@/lib/fonts";
 import { generatePageMetadata } from "@/lib/metadata";
 import {
@@ -39,7 +41,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   if (!isStaticExport) {
-    const { headers } = await import("next/headers");
     await headers();
   }
 
