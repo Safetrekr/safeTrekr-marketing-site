@@ -326,9 +326,6 @@ export default function K12SolutionsPage() {
                     Schedule a Walkthrough
                   </Link>
                 </Button>
-                <Button variant="secondary" size="lg" asChild>
-                  <Link href="/resources/sample-binders/k12-field-trip">View Sample Binder</Link>
-                </Button>
               </div>
             </ScrollReveal>
           </div>

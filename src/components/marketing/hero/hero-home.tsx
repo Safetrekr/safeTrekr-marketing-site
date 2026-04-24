@@ -516,12 +516,6 @@ export function HeroHome({ className }: HeroHomeProps) {
               animate={animateTarget}
             >
               <Button variant="primary" size="lg" asChild>
-                <a href="/resources/sample-binders">
-                  See Sample Binder
-                  <ArrowRight className="size-5" aria-hidden="true" />
-                </a>
-              </Button>
-              <Button variant="secondary" size="lg" asChild>
                 <a href="/demo">
                   Schedule a Demo
                   <ArrowRight className="size-5" aria-hidden="true" />

@@ -37,7 +37,6 @@ import {
   MapPin,
   AlertTriangle,
   ArrowRight,
-  Download,
   GraduationCap,
   Heart,
   BarChart3,
@@ -228,12 +227,6 @@ export default function HowItWorksPage() {
               <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
                 <Button variant="primary" size="lg" asChild>
                   <Link href="/demo">Schedule a Walkthrough</Link>
-                </Button>
-                <Button variant="secondary" size="lg" asChild>
-                  <Link href="/resources/sample-binders" className="inline-flex items-center gap-2">
-                    <Download className="size-4" aria-hidden="true" />
-                    View Sample Binder
-                  </Link>
                 </Button>
               </div>
             </ScrollReveal>

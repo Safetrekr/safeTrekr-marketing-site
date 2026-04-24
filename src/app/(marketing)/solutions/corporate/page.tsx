@@ -35,7 +35,6 @@ import {
   Activity,
   Check,
   ArrowRight,
-  Download,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
@@ -401,15 +400,6 @@ export default function CorporateSolutionsPage() {
                     <ArrowRight className="size-[18px]" aria-hidden="true" />
                   </Link>
                 </Button>
-                <Button variant="secondary" size="lg" asChild>
-                  <Link
-                    href="/resources/sample-binders/corporate-travel"
-                    aria-label="View Sample Binder, opens email-gated form"
-                  >
-                    <Download className="size-[18px]" aria-hidden="true" />
-                    View Sample Binder
-                  </Link>
-                </Button>
               </div>
             </div>
 
@@ -601,15 +591,6 @@ export default function CorporateSolutionsPage() {
                   ))}
                 </ul>
 
-                <Button variant="primary" size="lg" className="mt-8" asChild>
-                  <Link
-                    href="/resources/sample-binders/corporate-travel"
-                    aria-label="View Sample Binder, opens email-gated form"
-                  >
-                    <Download className="size-[18px]" aria-hidden="true" />
-                    View Sample Binder
-                  </Link>
-                </Button>
               </ScrollReveal>
             </div>
           </div>

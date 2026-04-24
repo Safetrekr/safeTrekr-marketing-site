@@ -102,10 +102,10 @@ StvTvGEhT0HfhS^P5UQP
 
 **File**: `/Users/justintabb/projects/safetrekr/safetrekr-core/.env`
 **Evidence**:
-- Line 12: Real Supabase service role key (bypasses ALL RLS): `eyJhbGciOiJIUzI1NiIs...`
-- Line 13: Real Supabase JWT secret (can forge ANY JWT): `Y4UbtnT3Rzw4GccDGGHqlWbWBqos8Ul+...`
-- Line 16: Application SECRET_KEY is a hardcoded test value: `test-secret-key-replace-with-real-value-openssl-rand-hex-32`
-- Line 41: Real SendGrid API key: `SG.Upe_MdbpR6q1Oq_8MoUopA...`
+- Line 12: Real Supabase service role key (bypasses ALL RLS) — **[REDACTED]**
+- Line 13: Real Supabase JWT secret (can forge ANY JWT) — **[REDACTED]**
+- Line 16: Application SECRET_KEY is a hardcoded test value — **[REDACTED]**
+- Line 41: Real SendGrid API key — **[REDACTED]**
 - Line 46: `SENDGRID_WEBHOOK_SECRET` is commented out, disabling webhook signature verification
 
 **Mitigating Factor**: The `safetrekr-core/.gitignore` does include `.env`, so this file should not be committed. However, the submodule's `.git` is separate from the monorepo root, so the protection depends on both gitignore files being correct.

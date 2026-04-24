@@ -5,7 +5,6 @@
  * for the small uppercase label component.
  */
 
-import React from "react";
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Eyebrow } from "@/components/marketing/eyebrow";

@@ -5,26 +5,51 @@
  * Each form type has a dedicated email template that includes the
  * submitted data in a structured, readable format.
  *
- * Emails are sent to `team@safetrekr.com` from `noreply@safetrekr.com`.
- * The "from" address must be verified in the SendGrid dashboard.
+ * Recipient routing:
+ *   Sales-driven forms (demo, contact, quote, sample binder) -> SALES_EMAIL
+ *   Newsletter signups                                       -> TEAM_NOTIFICATION_EMAIL
  *
  * This module is called non-blocking (fire-and-forget with `.catch()`)
  * from the Server Action -- email delivery failures do NOT block the
  * user-facing success response. Failures are logged for monitoring.
  *
  * Environment variables:
- * - `SENDGRID_API_KEY` -- SendGrid API key (K8s Secret).
+ *   SENDGRID_API_KEY           - SendGrid API key (Doppler secret).
+ *   SENDGRID_FROM_EMAIL        - Verified sender address. Default: noreply@safetrekr.com.
+ *   SENDGRID_FROM_NAME         - Sender display name. Default: "SafeTrekr Website".
+ *   SALES_EMAIL                - Sales inbox. Default: sales@safetrekr.com.
+ *   TEAM_NOTIFICATION_EMAIL    - Internal notifications inbox. Default: team@safetrekr.com.
  */
 
 import sgMail from "@sendgrid/mail";
 
 // ---------------------------------------------------------------------------
-// Constants
+// Env-driven configuration (with safe defaults)
 // ---------------------------------------------------------------------------
 
-const TEAM_EMAIL = "team@safetrekr.com";
-const FROM_EMAIL = "noreply@safetrekr.com";
-const FROM_NAME = "SafeTrekr Website";
+const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL ?? "noreply@safetrekr.com";
+const FROM_NAME = process.env.SENDGRID_FROM_NAME ?? "SafeTrekr Website";
+const SALES_EMAIL = process.env.SALES_EMAIL ?? "sales@safetrekr.com";
+const TEAM_NOTIFICATION_EMAIL =
+  process.env.TEAM_NOTIFICATION_EMAIL ?? "team@safetrekr.com";
+
+/**
+ * Maps form type to the inbox that should receive the notification.
+ * Sales-driven forms go to sales; ops/awareness forms go to the team inbox.
+ */
+function recipientFor(formType: string): string {
+  switch (formType) {
+    case "demo_request":
+    case "contact":
+    case "quote_request":
+    case "sample_binder_download":
+      return SALES_EMAIL;
+    case "newsletter_signup":
+      return TEAM_NOTIFICATION_EMAIL;
+    default:
+      return TEAM_NOTIFICATION_EMAIL;
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Types
@@ -35,7 +60,8 @@ type NotificationFormType =
   | "demo_request"
   | "contact"
   | "quote_request"
-  | "sample_binder_download";
+  | "sample_binder_download"
+  | "newsletter_signup";
 
 // ---------------------------------------------------------------------------
 // Template builders
@@ -48,7 +74,8 @@ const FORM_TYPE_LABELS: Record<NotificationFormType, string> = {
   demo_request: "Demo Request",
   contact: "Contact Form",
   quote_request: "Quote Request",
-  sample_binder_download: "Sample Binder Download",
+  sample_binder_download: "Sample Binder Request",
+  newsletter_signup: "Newsletter Signup",
 };
 
 /**
@@ -191,7 +218,7 @@ export async function sendFormNotification(
 
   try {
     await sgMail.send({
-      to: TEAM_EMAIL,
+      to: recipientFor(formType),
       from: { email: FROM_EMAIL, name: FROM_NAME },
       replyTo: contactEmail
         ? { email: contactEmail, name: contactName || undefined }

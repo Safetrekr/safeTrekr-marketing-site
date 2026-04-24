@@ -259,6 +259,27 @@ export const sampleBinderSchema = z.object({
 
 export type SampleBinderFormData = z.infer<typeof sampleBinderSchema>;
 
+/**
+ * Newsletter Signup schema.
+ *
+ * Required: email, turnstileToken
+ * Optional: firstName (for personalization)
+ *
+ * Stored in `newsletter_subscribers`, not `form_submissions`.
+ */
+export const newsletterSchema = z.object({
+  email: commonFields.email,
+  firstName: z
+    .string()
+    .trim()
+    .max(100, "First name must be 100 characters or fewer.")
+    .optional(),
+  company_website: commonFields.company_website,
+  turnstileToken: commonFields.turnstileToken,
+});
+
+export type NewsletterFormData = z.infer<typeof newsletterSchema>;
+
 // ---------------------------------------------------------------------------
 // Schema registry -- maps form_type DB enum to its Zod schema
 // ---------------------------------------------------------------------------

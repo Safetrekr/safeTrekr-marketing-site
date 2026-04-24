@@ -20,7 +20,6 @@ import {
   ClipboardCheck,
   Clock,
   Lock,
-  FileText,
   DollarSign,
   MessageSquare,
 } from "lucide-react";
@@ -117,12 +116,6 @@ const TRUST_POINTS = [
 
 /** Alternative path cards for users not ready for a demo. */
 const ALT_PATHS = [
-  {
-    href: "/resources/sample-binders",
-    icon: FileText,
-    title: "Download a Sample Binder",
-    description: "See what a real safety binder looks like for your trip type.",
-  },
   {
     href: "/pricing",
     icon: DollarSign,
