@@ -19,8 +19,8 @@
  *   origin (not `*`) to allow credentials if needed in the future.
  * - Allowed methods are restricted to the HTTP verbs actually used by
  *   SafeTrekr API routes.
- * - Allowed headers include Content-Type and the x-nonce header used by
- *   the CSP middleware.
+ * - Allowed headers are restricted to those browsers actually send from
+ *   the SafeTrekr marketing site forms.
  *
  * @see src/middleware.ts -- applies CORS headers to API routes
  */
@@ -88,7 +88,7 @@ export function getCorsHeaders(origin: string): Record<string, string> {
   return {
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, x-nonce",
+    "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Credentials": "true",
   };
 }
