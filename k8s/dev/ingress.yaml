@@ -21,7 +21,7 @@ spec:
                 name: <SERVICE_NAME>
                 port:
                   number: 3000
-  # tls:
-  #   - hosts:
-  #       - dev-safetrekr-www.tarva.network
-  #     secretName: cloudflare-origin-tls-tarva
+  tls:
+    - hosts:
+        - dev.safetrekr.com
+      secretName: cloudflare-origin-tls

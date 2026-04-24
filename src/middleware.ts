@@ -41,7 +41,7 @@ function buildCSP(nonce: string): string {
   const isDev = process.env.NODE_ENV === "development";
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}'${isDev ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com https://plausible.io`,
+    `script-src 'self' 'nonce-${nonce}'${isDev ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com`,
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https://api.maptiler.com https://*.tile.openstreetmap.org",
     "font-src 'self'",
