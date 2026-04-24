@@ -1,0 +1,61 @@
+name: Deploy Marketing to Dev
+
+on:
+  workflow_call:
+    inputs:
+      env_var:
+        required: true
+        type: string
+      tag_var:
+        required: true
+        type: string
+
+env:
+  IMAGE_NAME: safetrekr/safetrekr-marketing-site
+  SERVICE_NAME: safetrekr-web
+
+jobs:
+  deploy-to-k8s:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3.4.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.ORG_GITHUB_TOKEN }}
+
+      - name: Update deployment file
+        run: |
+          sed -i "s|<IMAGE>|ghcr.io/${{ env.IMAGE_NAME }}:${{ inputs.tag_var }}|" k8s/dev/deployment.yaml
+          sed -i "s|<SERVICE_NAME>|${{ env.SERVICE_NAME }}|g" k8s/dev/deployment.yaml
+          sed -i "s|<SERVICE_NAME>|${{ env.SERVICE_NAME }}|g" k8s/dev/service.yaml
+          sed -i "s|<SERVICE_NAME>|${{ env.SERVICE_NAME }}|g" k8s/dev/ingress.yaml
+          sed -i "s|<DOPPLER_TOKEN>|${{ secrets.SAFETREKR_MARKETING_DEV_TOKEN }}|" k8s/dev/deployment.yaml
+
+      - name: Install kubectl
+        run: |
+          VERSION=$(curl --silent https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+          curl https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kubectl \
+            --progress-bar \
+            --location \
+            --remote-name
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
+      - name: Configure KubeConfig
+        run: |
+          export KUBECONFIG=kubeconfig.yaml
+          echo ${{ secrets.KUBE_CONFIG_DEV }} | base64 --decode > kubeconfig.yaml
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl --kubeconfig=kubeconfig.yaml apply -f $GITHUB_WORKSPACE/k8s/dev/ -n dev
+
+      - name: Verify deployment
+        run: |
+          kubectl --kubeconfig=kubeconfig.yaml rollout status deployment/${{ env.SERVICE_NAME }} -n dev --timeout=300s

@@ -697,9 +697,6 @@ export default function PreviewHomePage() {
             <Link href="/demo" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150" style={{ fontFamily: 'var(--font-heading)', background: '#ffffff', color: 'var(--color-secondary)', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
               Schedule a Walkthrough
             </Link>
-            <Link href="/resources/sample-binders" className="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-150" style={{ fontFamily: 'var(--font-heading)', background: 'transparent', border: '1.5px solid rgba(255,255,255,0.2)', color: '#f7f8f8', padding: '16px 32px', fontSize: 18, borderRadius: 'var(--radius-md)', textDecoration: 'none' }}>
-              View Sample Binder
-            </Link>
           </div>
         </div>
       </section>

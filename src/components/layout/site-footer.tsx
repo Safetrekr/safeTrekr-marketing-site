@@ -85,7 +85,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
         heading: "Resources",
         ariaLabel: "Resources links",
         links: [
-          { label: "Sample Binders", href: "/resources/sample-binders" },
           { label: "FAQ", href: "/resources/faq" },
         ],
       },

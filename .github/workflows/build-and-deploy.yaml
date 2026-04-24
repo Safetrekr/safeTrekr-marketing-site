@@ -1,0 +1,96 @@
+name: Build and Deploy SafeTrekr Marketing Site
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [develop, master]
+
+env:
+  IMAGE_NAME: safetrekr/safetrekr-marketing-site
+  DOCKER_BUILDKIT: 1
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-push-image:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      tag: ${{ steps.set_tag.outputs.tag }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3.4.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.ORG_GITHUB_TOKEN }}
+
+      - name: Set Environment Configuration
+        id: set_env
+        run: |
+          case "${{ github.ref_name }}" in
+            develop) echo "ENV=dev" >> $GITHUB_ENV ;;
+            master) echo "ENV=prod" >> $GITHUB_ENV ;;
+            *) echo "ENV=dev" >> $GITHUB_ENV ;;
+          esac
+
+      - name: Set the image tag
+        id: set_tag
+        run: |
+          echo "tag=${{ env.ENV }}-${GITHUB_SHA::8}" >> $GITHUB_ENV
+          echo "tag=${{ env.ENV }}-${GITHUB_SHA::8}" >> $GITHUB_OUTPUT
+
+      - name: Debug information
+        run: |
+          echo "ENV: ${{ env.ENV }}"
+          echo "tag: ${{ env.tag }}"
+          echo "IMAGE_NAME: ${{ env.IMAGE_NAME }}"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push container image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          # pull: true always fetches the latest base image digest so CVE
+          # patches in node:22-alpine (e.g. musl) invalidate our apk-upgrade
+          # layer and get picked up. Without this, GHA layer cache can hold
+          # a stale base for weeks.
+          pull: true
+          tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ env.tag }}
+          build-args: |
+            NEXT_PUBLIC_SUPABASE_URL=${{ env.ENV == 'prod' && secrets.SUPABASE_URL_PROD || secrets.SUPABASE_URL_DEV }}
+            NEXT_PUBLIC_TURNSTILE_SITE_KEY=${{ env.ENV == 'prod' && secrets.TURNSTILE_SITE_KEY_PROD || secrets.TURNSTILE_SITE_KEY_DEV }}
+            NEXT_PUBLIC_MAPTILER_KEY=${{ env.ENV == 'prod' && secrets.MAPTILER_KEY_PROD || secrets.MAPTILER_KEY_DEV }}
+            NEXT_PUBLIC_GA4_ID=${{ env.ENV == 'prod' && secrets.GA4_ID_PROD || secrets.GA4_ID_DEV }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy-image-dev:
+    needs: build-and-push-image
+    if: github.ref_name == 'develop'
+    uses: ./.github/workflows/deploy-dev.yaml
+    with:
+      env_var: 'dev'
+      tag_var: ${{ needs.build-and-push-image.outputs.tag }}
+    secrets: inherit
+
+  deploy-image-prod:
+    needs: build-and-push-image
+    if: github.ref_name == 'master'
+    uses: ./.github/workflows/deploy-prod.yaml
+    with:
+      env_var: 'prod'
+      tag_var: ${{ needs.build-and-push-image.outputs.tag }}
+    secrets: inherit

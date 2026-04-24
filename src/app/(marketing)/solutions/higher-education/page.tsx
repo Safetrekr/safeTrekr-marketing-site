@@ -36,7 +36,6 @@ import {
   AlertCircle,
   Check,
   ArrowRight,
-  Download,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
@@ -379,12 +378,6 @@ export default function HigherEducationSolutionsPage() {
                     <ArrowRight className="size-[18px]" aria-hidden="true" />
                   </Link>
                 </Button>
-                <Button variant="secondary" size="lg" asChild>
-                  <Link href="/resources/sample-binders/study-abroad">
-                    <Download className="size-[18px]" aria-hidden="true" />
-                    View Sample Binder
-                  </Link>
-                </Button>
               </div>
             </div>
 
@@ -587,19 +580,6 @@ export default function HigherEducationSolutionsPage() {
                   ))}
                 </ul>
 
-                <Button variant="primary" size="lg" className="mt-8" asChild>
-                  <Link
-                    href="/resources/sample-binders/study-abroad"
-                    aria-label="Download the Study Abroad Sample Binder, opens email-gated form"
-                  >
-                    <Download className="size-[18px]" aria-hidden="true" />
-                    Download the Study Abroad Sample Binder
-                  </Link>
-                </Button>
-                <p className="mt-2 text-body-sm text-muted-foreground">
-                  See a real safety binder output. Gated with email -- we will
-                  not spam you.
-                </p>
               </ScrollReveal>
             </div>
           </div>

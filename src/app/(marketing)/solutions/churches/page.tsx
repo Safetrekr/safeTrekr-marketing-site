@@ -35,7 +35,6 @@ import {
   Activity,
   Check,
   ArrowRight,
-  Download,
   Lock,
   Link2,
 } from "lucide-react";
@@ -737,21 +736,6 @@ export default function ChurchSolutionsPage() {
                   </ul>
                 </ScrollReveal>
 
-                {/* CTA */}
-                <ScrollReveal variant="fadeUp" delay={0.4}>
-                  <div className="mt-8">
-                    <Button variant="primary" size="lg" asChild>
-                      <Link href="/resources/sample-binders/mission-trip">
-                        <Download className="size-[18px]" />
-                        Download the Mission Trip Sample Binder
-                      </Link>
-                    </Button>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      See a real safety binder output. Gated with email, we
-                      will not spam you.
-                    </p>
-                  </div>
-                </ScrollReveal>
               </div>
             </div>
           </Container>

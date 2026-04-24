@@ -1,32 +1,19 @@
 /**
- * ST-892: Sample Binder Download Pages (/resources/sample-binders)
+ * Sample Safety Binders page (/resources/sample-binders).
  *
- * Segment-specific sample binder download page -- the #1 lead magnet for
- * the SafeTrekr marketing site. Visitors select a segment (K-12, Churches,
- * Corporate), enter their email via the LeadCaptureModal, and receive a
- * download link to a sample safety binder.
+ * The downloadable sample-binder flow is currently inactive — the page is
+ * retained for bookmarks, search results, and direct URL hits, but the
+ * interactive Download CTAs have been removed. See
+ * src/components/forms/lead-capture-modal.tsx for re-activation notes.
  *
- * Three segments at launch:
- *   1. K-12 Schools
- *   2. Churches & Mission Organizations
- *   3. Corporate Travel
- *
- * Server Component composing layout primitives and the client-side
- * SampleBinderCards component for modal interaction.
- *
- * Section order:
+ * Current sections:
  *   1. Hero       -- Breadcrumb, eyebrow, headline, body copy
- *   2. Cards      -- 3 segment cards with gated download
- *   3. Trust      -- Social proof / trust signals
- *   4. CTA Band   -- Bottom conversion band
+ *   2. Trust      -- What a SafeTrekr safety binder includes
+ *   3. CTA Band   -- Bottom conversion band (Demo + Pricing)
  */
 
 import Link from "next/link";
-import {
-  Shield,
-  FileText,
-  Lock,
-} from "lucide-react";
+import { Shield, FileText, Lock } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, generateBreadcrumbSchema } from "@/lib/structured-data";
@@ -34,8 +21,6 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import { Eyebrow, CTABand } from "@/components/marketing";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-
-import { SampleBinderCards } from "./_components/sample-binder-cards";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -169,38 +154,7 @@ export default function SampleBindersPage() {
         </SectionContainer>
 
         {/* ================================================================
-            SECTION 2: SEGMENT CARDS
-            ================================================================ */}
-        <SectionContainer
-          id="segments"
-          variant="card"
-          ariaLabelledBy="segments-heading"
-        >
-          <Container>
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <ScrollReveal variant="fadeUp">
-                <h2
-                  id="segments-heading"
-                  className="text-display-sm text-foreground"
-                >
-                  Choose Your Segment
-                </h2>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <p className="mt-4 text-body-lg text-muted-foreground">
-                  Each sample binder is tailored to the specific safety concerns,
-                  compliance requirements, and risk factors relevant to your
-                  organization type.
-                </p>
-              </ScrollReveal>
-            </div>
-
-            <SampleBinderCards />
-          </Container>
-        </SectionContainer>
-
-        {/* ================================================================
-            SECTION 3: TRUST SIGNALS
+            SECTION 2: TRUST SIGNALS
             ================================================================ */}
         <SectionContainer
           id="trust"
@@ -247,7 +201,7 @@ export default function SampleBindersPage() {
         </SectionContainer>
 
         {/* ================================================================
-            SECTION 4: CTA BAND
+            SECTION 3: CTA BAND
             ================================================================ */}
         <CTABand
           variant="dark"

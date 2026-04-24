@@ -31,7 +31,13 @@ client-deliverables
 
 # Editor / OS artifacts
 .DS_Store
+Thumbs.db
 *.pem
+*.bak
+*.tmp
+*.swp
+*.swo
+*.log
 .vscode
 .idea
 
