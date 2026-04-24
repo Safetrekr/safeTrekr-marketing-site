@@ -8,6 +8,7 @@
  * Allowlisted origins:
  * - https://safetrekr.com          (production)
  * - https://www.safetrekr.com      (production with www)
+ * - https://dev.safetrekr.com      (dev environment)
  * - https://staging.safetrekr.com  (staging environment)
  * - http://localhost:3000           (local development)
  *
@@ -37,6 +38,7 @@
 const ALLOWED_ORIGINS: ReadonlySet<string> = new Set([
   "https://safetrekr.com",
   "https://www.safetrekr.com",
+  "https://dev.safetrekr.com",
   "https://staging.safetrekr.com",
   "http://localhost:3000",
 ]);
