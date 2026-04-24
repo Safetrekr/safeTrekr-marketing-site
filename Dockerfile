@@ -34,7 +34,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # BuildKit secret mount keeps the Doppler token out of image layers. CI passes
 # it via `secrets: doppler_token=...` on docker/build-push-action; locally you
 # can build with `DOCKER_BUILDKIT=1 docker build --secret id=doppler_token,env=DOPPLER_TOKEN .`
-RUN --mount=type=secret,id=doppler_token \
+RUN --mount=type=secret,id=doppler_token,required=true \
     DOPPLER_TOKEN=$(cat /run/secrets/doppler_token) \
     doppler run -- npm run build
 

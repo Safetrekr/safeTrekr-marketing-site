@@ -35,6 +35,17 @@ import {
 } from "@/content/glossary";
 
 // ---------------------------------------------------------------------------
+// Rendering mode
+// ---------------------------------------------------------------------------
+
+// Root layout reads `x-nonce` from next/headers to thread the CSP nonce onto
+// framework <script> tags, which opts the whole app into dynamic rendering.
+// Pages with `generateStaticParams` collide with that in Next.js 16 Turbopack
+// (prerender worker crashes with a TypeError). Forcing dynamic render here
+// keeps the strict CSP and costs only per-request SSR on this content route.
+export const dynamic = "force-dynamic";
+
+// ---------------------------------------------------------------------------
 // Static Params
 // ---------------------------------------------------------------------------
 
