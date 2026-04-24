@@ -13,9 +13,18 @@ import "./globals.css";
    future app routes). Marketing-specific chrome (header, footer)
    lives in the (marketing) route-group layout.
 
-   Note: CSP nonce handling removed for static export compatibility.
-   For production with full security headers, use output: "standalone".
+   CSP nonce: src/middleware.ts generates a per-request nonce and
+   forwards it via the `x-nonce` request header. Reading that header
+   below opts the layout into dynamic rendering, which is what lets
+   Next.js apply the nonce to the framework <script> tags it emits.
+   Without this, strict CSP blocks hydration on the standalone build
+   and client interactivity dies.
+
+   Skipped when STATIC_EXPORT=true because next/headers is not
+   available in the "export" output mode.
    ================================================================ */
+
+const isStaticExport = process.env.STATIC_EXPORT === "true";
 
 export const metadata = generatePageMetadata({
   title: "Professional Trip Safety Planning",
@@ -24,11 +33,16 @@ export const metadata = generatePageMetadata({
   path: "/",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  if (!isStaticExport) {
+    const { headers } = await import("next/headers");
+    await headers();
+  }
+
   return (
     <html
       lang="en"
