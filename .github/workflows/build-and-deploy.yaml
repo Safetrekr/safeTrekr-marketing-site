@@ -69,11 +69,8 @@ jobs:
           # a stale base for weeks.
           pull: true
           tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ env.tag }}
-          build-args: |
-            NEXT_PUBLIC_SUPABASE_URL=${{ env.ENV == 'prod' && secrets.SUPABASE_URL_PROD || secrets.SUPABASE_URL_DEV }}
-            NEXT_PUBLIC_TURNSTILE_SITE_KEY=${{ env.ENV == 'prod' && secrets.TURNSTILE_SITE_KEY_PROD || secrets.TURNSTILE_SITE_KEY_DEV }}
-            NEXT_PUBLIC_MAPTILER_KEY=${{ env.ENV == 'prod' && secrets.MAPTILER_KEY_PROD || secrets.MAPTILER_KEY_DEV }}
-            NEXT_PUBLIC_GA4_ID=${{ env.ENV == 'prod' && secrets.GA4_ID_PROD || secrets.GA4_ID_DEV }}
+          secrets: |
+            doppler_token=${{ env.ENV == 'prod' && secrets.SAFETREKR_MARKETING_PROD_TOKEN || secrets.SAFETREKR_MARKETING_DEV_TOKEN }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 

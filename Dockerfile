@@ -14,6 +14,12 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
+# Doppler binary for the build stage -- NEXT_PUBLIC_* vars are baked into the
+# client bundle at build time, so `doppler run -- next build` is how we inject
+# them from the Doppler config (single source of truth, no duplicated public
+# config in GH Actions secrets).
+COPY --from=doppler-install /usr/bin/doppler /usr/local/bin/doppler
+
 # copy pkg files - caching
 COPY package.json package-lock.json ./
 
@@ -23,17 +29,14 @@ RUN npm ci
 # copy src
 COPY . .
 
-# build
-ARG NEXT_PUBLIC_SUPABASE_URL
-ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY
-ARG NEXT_PUBLIC_MAPTILER_KEY
-ARG NEXT_PUBLIC_GA4_ID
-ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
-ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=$NEXT_PUBLIC_TURNSTILE_SITE_KEY
-ENV NEXT_PUBLIC_MAPTILER_KEY=$NEXT_PUBLIC_MAPTILER_KEY
-ENV NEXT_PUBLIC_GA4_ID=$NEXT_PUBLIC_GA4_ID
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+
+# BuildKit secret mount keeps the Doppler token out of image layers. CI passes
+# it via `secrets: doppler_token=...` on docker/build-push-action; locally you
+# can build with `DOCKER_BUILDKIT=1 docker build --secret id=doppler_token,env=DOPPLER_TOKEN .`
+RUN --mount=type=secret,id=doppler_token \
+    DOPPLER_TOKEN=$(cat /run/secrets/doppler_token) \
+    doppler run -- npm run build
 
 # stage 3 - prod runner
 FROM node:22-alpine AS runner
