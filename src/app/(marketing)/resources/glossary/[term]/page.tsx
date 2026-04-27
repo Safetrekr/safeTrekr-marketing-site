@@ -35,6 +35,17 @@ import {
 } from "@/content/glossary";
 
 // ---------------------------------------------------------------------------
+// Rendering mode
+// ---------------------------------------------------------------------------
+
+// Inherits <SiteHeader> from the marketing layout, which is a client component
+// importing framer-motion. framer-motion v12 + React 19 + Next.js 16 Turbopack's
+// SSG prerender worker resolves framer-motion's module-scoped context to null,
+// producing a TypeError during build-time prerender. Runtime SSR on the live
+// Node server has the context initialized. Force-dynamic skips prerender.
+export const dynamic = "force-dynamic";
+
+// ---------------------------------------------------------------------------
 // Static Params
 // ---------------------------------------------------------------------------
 

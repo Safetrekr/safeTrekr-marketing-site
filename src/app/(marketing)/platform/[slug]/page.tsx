@@ -288,6 +288,19 @@ const FEATURES: Record<string, FeaturePageData> = {
 };
 
 // ---------------------------------------------------------------------------
+// Rendering mode
+// ---------------------------------------------------------------------------
+
+// ScrollReveal (client component using framer-motion's useReducedMotion) is
+// rendered ~20x in this template. framer-motion v12 + React 19 + Next.js 16
+// Turbopack's SSG prerender worker resolves framer-motion's module-scoped
+// MotionConfig context to null, producing a TypeError during build-time
+// prerender. Runtime SSR on the live Node server has the context properly
+// initialized. Force-dynamic skips prerender and defers rendering to request
+// time where the bug doesn't manifest.
+export const dynamic = "force-dynamic";
+
+// ---------------------------------------------------------------------------
 // Static Params
 // ---------------------------------------------------------------------------
 
