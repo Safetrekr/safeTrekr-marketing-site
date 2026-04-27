@@ -42,9 +42,16 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # BuildKit secret mount keeps the Doppler token out of image layers. CI passes
 # it via `secrets: doppler_token=...` on docker/build-push-action; locally you
 # can build with `DOCKER_BUILDKIT=1 docker build --secret id=doppler_token,env=DOPPLER_TOKEN .`
+#
+# `sh -c 'NODE_ENV=production npm run build'` explicitly overrides whatever
+# NODE_ENV Doppler injects from the config (typically "dev" for the dev
+# config). Webpack/React condition resolution depends on NODE_ENV being
+# exactly "production" or "development" -- a non-standard value causes the
+# bundle to load a React surface missing hooks like useContext, surfacing
+# as a useContext-null TypeError during the SSG prerender of /_global-error.
 RUN --mount=type=secret,id=doppler_token,required=true \
     DOPPLER_TOKEN=$(cat /run/secrets/doppler_token) \
-    doppler run -- npm run build
+    doppler run -- sh -c 'NODE_ENV=production npm run build'
 
 # stage 3 - prod runner
 FROM node:20-alpine AS runner
