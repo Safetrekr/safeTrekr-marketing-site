@@ -48,6 +48,16 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
+
+    // Force serial SSG. With multiple workers, Next.js 16's webpack
+    // build hits a race where the React module namespace is null in
+    // one worker's bundled OuterLayoutRouter chunk during prerender
+    // of /_global-error -- TypeError: Cannot read properties of null
+    // (reading 'useContext'). Builds with a single worker are
+    // deterministic and don't trigger the race. Trade-off: SSG is
+    // serial instead of parallel; for a 29-route marketing site this
+    // adds maybe 5-10s to the build. Acceptable.
+    cpus: 1,
   },
 
   // headers() is ignored by Next.js when output: "export", so gate it
