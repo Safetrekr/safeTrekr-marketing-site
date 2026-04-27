@@ -17,6 +17,9 @@
  *   not land in inline scripts.
  * - style-src allows 'unsafe-inline' because Tailwind injects runtime styles
  * - Cloudflare Turnstile is explicitly allowlisted for script-src/frame-src
+ * - Cloudflare Web Analytics beacon (static.cloudflareinsights.com) is
+ *   auto-injected at the edge by Cloudflare proxy when Web Analytics is
+ *   enabled for the zone, so it's allowlisted for script-src + connect-src
  * - connect-src includes Supabase, Cloudflare, and OSM tile servers
  *
  * @see src/lib/security/cors.ts -- CORS origin validation logic
@@ -34,11 +37,11 @@ function buildCSP(): string {
   const isDev = process.env.NODE_ENV === "development";
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com`,
+    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com https://static.cloudflareinsights.com`,
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https://api.maptiler.com https://*.tile.openstreetmap.org",
     "font-src 'self'",
-    "connect-src 'self' https://*.supabase.co https://challenges.cloudflare.com https://*.tile.openstreetmap.org",
+    "connect-src 'self' https://*.supabase.co https://challenges.cloudflare.com https://static.cloudflareinsights.com https://*.tile.openstreetmap.org",
     "frame-src https://challenges.cloudflare.com",
   ];
 
