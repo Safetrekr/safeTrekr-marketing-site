@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --webpack",
+    "build": "next build --webpack --experimental-build-mode compile",
     "start": "next start",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
