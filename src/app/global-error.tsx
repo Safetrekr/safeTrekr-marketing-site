@@ -1,31 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
-
-// Override Next.js's default global-error page so we can opt it out of
-// build-time SSG. The default is auto-generated and trips Next.js 16
-// Turbopack's prerender worker with a useContext null error (same bug
-// class as the marketing routes; see src/app/(marketing)/layout.tsx).
-export const dynamic = "force-dynamic";
+// Minimal global-error: no React hooks, no Context consumers. Next.js 16 +
+// React 19's prerender for /_global-error wraps the page in framework
+// internals that hit a `useContext` null error during build (same class of
+// SSG bug that affected marketing routes; see (marketing)/layout.tsx).
+// Keeping this surface as small as possible reduces the chance of triggering
+// any context lookup in the prerender pass.
 
 interface GlobalErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
 }
 
-export default function GlobalError({ error, reset }: GlobalErrorProps) {
-  useEffect(() => {
-    if (process.env.NODE_ENV !== "production") {
-      console.error(error);
-    }
-  }, [error]);
-
+export default function GlobalError({ reset }: GlobalErrorProps) {
   return (
     <html lang="en">
       <body
         style={{
           fontFamily:
-            "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif",
+            "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           margin: 0,
           minHeight: "100vh",
           display: "flex",
