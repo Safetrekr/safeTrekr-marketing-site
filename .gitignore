@@ -2,6 +2,12 @@
 
 # dependencies
 /node_modules
+
+# Source legal docs (Word files with metadata - not for public hosting)
+/docs-source
+
+# Archived page versions
+/archive
 /.pnp
 .pnp.*
 .yarn/*
@@ -26,13 +32,19 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
+*.bak
+*.tmp
+*.swp
+*.swo
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -47,3 +59,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Local MCP server config (contains secrets, never commit)
+.mcp.json
+
+.temp
+
+# Claude Code session data
+.claude/
+
+# Staging dump — uncommitted until triaged
+/public/images/Images for site/

@@ -8,6 +8,7 @@
  * Allowlisted origins:
  * - https://safetrekr.com          (production)
  * - https://www.safetrekr.com      (production with www)
+ * - https://dev.safetrekr.com      (dev environment)
  * - https://staging.safetrekr.com  (staging environment)
  * - http://localhost:3000           (local development)
  *
@@ -18,8 +19,8 @@
  *   origin (not `*`) to allow credentials if needed in the future.
  * - Allowed methods are restricted to the HTTP verbs actually used by
  *   SafeTrekr API routes.
- * - Allowed headers include Content-Type and the x-nonce header used by
- *   the CSP middleware.
+ * - Allowed headers are restricted to those browsers actually send from
+ *   the SafeTrekr marketing site forms.
  *
  * @see src/middleware.ts -- applies CORS headers to API routes
  */
@@ -37,6 +38,7 @@
 const ALLOWED_ORIGINS: ReadonlySet<string> = new Set([
   "https://safetrekr.com",
   "https://www.safetrekr.com",
+  "https://dev.safetrekr.com",
   "https://staging.safetrekr.com",
   "http://localhost:3000",
 ]);
@@ -86,7 +88,7 @@ export function getCorsHeaders(origin: string): Record<string, string> {
   return {
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, x-nonce",
+    "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Credentials": "true",
   };
 }

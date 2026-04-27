@@ -1,26 +1,22 @@
 /**
- * ST-880: REQ-080 -- Pricing Page (/pricing)
+ * ST-880: REQ-080, Pricing Page (/pricing)
  *
- * Transparent pricing page for SafeTrekr. Establishes the "$15 per participant"
- * anchor, compares against liability and staff costs, then walks through three
- * trip tiers, volume discounts, included features, segment scenarios, procurement
- * resources, and a 10-question FAQ.
+ * Straightforward pricing page for SafeTrekr. Presents three trip tiers
+ * (Day Trip, Extended Trip, International), included features, optional add-ons,
+ * segment scenarios, procurement resources, and FAQ.
  *
  * Server Component at the page level. Client components (Accordion via FAQSection,
  * ScrollReveal, StaggerChildren) are rendered as children within this tree.
  *
  * Section order:
- *   1. Hero              -- "$15 Per Participant" framing
- *   2. Value Anchor      -- 3 comparison cards (liability, staff, SafeTrekr)
- *   3. Pricing Tiers     -- 3 PricingTierCards (Field, Extended, International)
- *   4. Volume Discounts  -- 5-tier table with mobile cards
- *   5. What's Included   -- 7 FeatureCards on primary-50 wash
- *   6. ROI Calculator    -- Link to /resources/roi-calculator
- *   7. Segment Scenarios -- 4 pricing scenario cards
- *   8. Procurement       -- Dark section with checklist + /procurement link
- *   9. FAQ               -- 10 pricing questions with FAQPage JSON-LD
- *  10. CTA Band          -- Conversion band
- *  11. JSON-LD           -- Product + Offer schemas
+ *   1. Hero             , "Professional trip assessment. Straightforward pricing."
+ *   2. Pricing Tiers    , 3 PricingTierCards (Day Trip, Extended, International)
+ *   3. What's Included  , 8 FeatureCards on primary-50 wash
+ *   4. Add-ons/Scenarios, ROI Calculator + 4 pricing scenario cards
+ *   4b. Procurement     , Dark section with checklist + /procurement link
+ *   5. FAQ              , 6 pricing questions with FAQPage JSON-LD
+ *   6. CTA Band         , Conversion band
+ *   7. JSON-LD          , Product + Offer schemas
  *
  * @see designs/html/mockup-pricing.html
  */
@@ -28,19 +24,15 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import {
-  AlertTriangle,
   Clock,
   Shield,
   ClipboardCheck,
   Activity,
   FileText,
   Smartphone,
-  Radio,
   Scale,
-  User,
   Calculator,
   ArrowRight,
-  Check,
   GraduationCap,
   Building2,
   School,
@@ -54,6 +46,7 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   PricingTierCard,
+  InternationalPricingCard,
   FAQSection,
   CTABand,
   FeatureCard,
@@ -69,7 +62,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "Pricing",
   description:
-    "Professional trip safety starting at $15 per participant. Every trip reviewed by a safety analyst. Field trips, mission trips, study abroad, and corporate travel.",
+    "SafeTrekr pricing starts at $450 per trip. Experienced analyst review, active intelligence monitoring, and complete documentation, from $15 per participant. No annual contracts required.",
   path: "/pricing",
 });
 
@@ -77,22 +70,36 @@ export const metadata = generatePageMetadata({
 // Data constants
 // ---------------------------------------------------------------------------
 
-const PRICING_FEATURES = [
-  "17-section analyst safety review",
-  "Risk intelligence from 5 government sources",
-  "Complete trip safety binder",
-  "Mobile field operations access",
-  "Real-time monitoring and geofencing",
-  "Compliance documentation",
-  "Dedicated analyst assignment",
+const DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Fast delivery turnaround",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
 ] as const;
 
-const VOLUME_TIERS = [
-  { trips: "1\u20134 trips", discount: "Standard rate", example: "$450 / trip", highlighted: false },
-  { trips: "5\u20139 trips", discount: "5% off", example: "$427.50 / trip", highlighted: false },
-  { trips: "10\u201324 trips", discount: "10% off", example: "$405 / trip", highlighted: false },
-  { trips: "25\u201349 trips", discount: "15% off", example: "$382.50 / trip", highlighted: false },
-  { trips: "50+ trips", discount: "20% off", example: "$360 / trip", highlighted: true },
+const EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Sports and athletic travel coverage",
+  "Multiple venue assessment",
+  "Priority analyst assignment",
+  "60-day post-trip access",
+] as const;
+
+const INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
 ] as const;
 
 const INCLUDED_FEATURES: Array<{
@@ -103,99 +110,84 @@ const INCLUDED_FEATURES: Array<{
 }> = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "17-Section Analyst Safety Review",
+    title: "Experienced Analyst Review",
     description:
-      "A trained safety analyst reviews every trip across 17 safety dimensions. No automated scoring alone -- human expertise on every review.",
+      "Comprehensive evaluation by former Secret Service, Special Operations, and trained safety professionals.",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Risk Intelligence Engine",
+    title: "Active Intelligence Monitoring",
     description:
-      "Monte Carlo probability scoring from five government data sources: NOAA, USGS, CDC, GDACS, and ReliefWeb.",
-  },
-  {
-    icon: <FileText className="size-6" />,
-    title: "Complete Trip Safety Binder",
-    description:
-      "Audit-ready documentation delivered in 3-5 days. SHA-256 hash-chain ensures tamper-evident integrity on every page.",
-  },
-  {
-    icon: <Smartphone className="size-6" />,
-    title: "Mobile Field Operations",
-    description:
-      "Live trip map, geofencing, rally points, muster check-ins, and SMS broadcast in every chaperone's pocket.",
-  },
-  {
-    icon: <Radio className="size-6" />,
-    title: "Real-Time Monitoring",
-    description:
-      "Geofence alerts, participant location visibility, and emergency coordination tools available throughout the trip.",
+      "Current information from multiple trusted sources including government, humanitarian, and regional data.",
   },
   {
     icon: <Scale className="size-6" />,
-    title: "Compliance Documentation",
+    title: "Comprehensive Assessment",
     description:
-      "FERPA, SOC 2, and GDPR-ready documentation. Complete tamper-evident audit trail with purge proof capabilities.",
+      "Every aspect of your trip evaluated, venues, transportation, lodging, activities, and emergency planning.",
   },
   {
-    icon: <User className="size-6" />,
-    title: "Dedicated Analyst Assignment",
+    icon: <FileText className="size-6" />,
+    title: "Interactive Digital Safety Binder",
     description:
-      "Every trip is assigned to a named safety analyst who serves as your point of contact throughout the review process.",
-    featured: true,
+      "All findings, recommendations, and contacts in one place. Works on any device.",
+  },
+  {
+    icon: <Shield className="size-6" />,
+    title: "Verified Documentation",
+    description:
+      "Professional records you can share with leadership, parents, and stakeholders.",
+  },
+  {
+    icon: <Smartphone className="size-6" />,
+    title: "Mobile Field Support",
+    description:
+      "Emergency contacts, rally points, and check-in tools accessible in the field.",
+  },
+  {
+    icon: <FileText className="size-6" />,
+    title: "PDF & Print Export",
+    description:
+      "Download, print, and share with anyone who needs it.",
+  },
+  {
+    icon: <Clock className="size-6" />,
+    title: "Fast Delivery Turnaround",
+    description:
+      "Fast turnaround so you can focus on the experience, not the paperwork.",
   },
 ];
 
 const PRICING_FAQS: FAQItem[] = [
   {
-    question: 'What counts as a "trip"?',
+    question: "Is there a minimum commitment or annual contract?",
     answer:
-      "A trip is any organized travel event with a defined destination, dates, and participant group. A one-day field trip to a local museum counts as one trip. A week-long mission trip to Guatemala counts as one trip. Multi-stop itineraries within the same travel event are one trip. Each trip receives its own analyst review and safety binder.",
+      "No. You can submit a single trip with no ongoing commitment or annual contract required.",
   },
   {
-    question: "Can we start with just one trip?",
+    question: "How do you calculate per-participant cost?",
     answer:
-      "Yes. There is no minimum commitment. Many organizations start with a single trip to experience the full SafeTrekr process -- analyst review, risk intelligence scoring, and safety binder delivery -- before committing to additional trips. Volume discounts apply automatically as you add more trips within a 12-month period.",
+      "Per-participant cost depends on group size. A $450 Day Trip for 30 participants is $15/person. The same trip for 15 participants is $30/person. Pricing is per trip, not per participant.",
   },
   {
-    question: "How does volume pricing work?",
+    question: "Can we see SafeTrekr before submitting a trip?",
     answer:
-      "Volume discounts are calculated based on the total number of trips your organization submits within a rolling 12-month window. Discounts range from 5% (5-9 trips) to 20% (50+ trips) and are applied automatically. If you cross into a new tier mid-year, the new discount rate applies to all subsequent trips.",
-  },
-  {
-    question: "Is there an annual plan?",
-    answer:
-      "We offer annual agreements for organizations with predictable trip volumes. Annual plans lock in volume discount rates and include priority analyst assignment. Contact our sales team to discuss annual plan options tailored to your organization's schedule.",
+      "Yes. Schedule a walkthrough to see a complete safety binder for your organization type. We'll show you exactly what you receive before you submit your first trip.",
   },
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept credit cards (Visa, Mastercard, American Express), ACH bank transfers, and purchase orders for organizations with established procurement processes. School districts and government entities can use standard PO workflows. Invoicing is available for annual plans.",
+      "We accept credit cards for individual trips. Organizations can also pay by invoice upon request.",
   },
   {
-    question: "What happens after we purchase?",
+    question: "Do you offer nonprofit or educational pricing?",
     answer:
-      "After purchase, you submit your trip details through the SafeTrekr platform -- destination, dates, participants, activities, and logistics. Submission takes approximately 15 minutes. Your trip is assigned to a dedicated safety analyst who conducts the 17-section review. You receive your complete safety binder within 3-5 business days.",
+      "Contact us to discuss pricing for nonprofit organizations and educational institutions. We work with organizations of all sizes to find arrangements that work.",
   },
   {
-    question: "Can we upgrade trip type after submission?",
+    question: "What happens if we need to cancel a trip after submitting?",
     answer:
-      "If your trip scope changes -- for example, a domestic trip adds an international leg -- contact your assigned analyst. We will adjust the review scope and billing accordingly. Upgrades are pro-rated based on the difference between trip types.",
-  },
-  {
-    question: "Do you offer nonprofit or church discounts?",
-    answer:
-      "Our volume pricing structure is designed to accommodate organizations of all sizes. Churches and nonprofits with multiple annual trips typically qualify for volume discounts of 10-20%. Contact our sales team to discuss pricing for your specific situation. We also offer annual plans that can further reduce per-trip costs.",
-  },
-  {
-    question: "How does per-student pricing work for large groups?",
-    answer:
-      "Per-student cost decreases as group size increases because SafeTrekr pricing is per-trip, not per-participant. A field trip with 30 students costs $450 ($15/student). The same $450 field trip with 60 students drops to $7.50/student. The analyst review covers the entire trip regardless of group size.",
-  },
-  {
-    question: "What if we need to cancel a trip review?",
-    answer:
-      "If you cancel before the analyst review begins, you receive a full refund. If the review is already in progress, we will complete the review and deliver the safety binder -- the work has value even if the trip is postponed. Completed reviews can be applied to rescheduled trips to the same destination within 90 days.",
+      "If you cancel before the analyst review begins, you receive a full refund. If the review has started, we'll provide a credit for a future trip.",
   },
 ];
 
@@ -209,17 +201,17 @@ function PricingJsonLd() {
     "@type": "Product",
     name: "SafeTrekr Professional Trip Safety",
     description:
-      "Professional safety analyst review, risk intelligence scoring, and audit-ready documentation for every trip.",
+      "Professional safety analyst review, government data sources, and complete documentation for every trip.",
     brand: { "@type": "Brand", name: "SafeTrekr" },
     offers: [
       {
         "@type": "Offer",
-        name: "Field Trip",
+        name: "Day Trip",
         price: "450",
         priceCurrency: "USD",
         description:
-          "Domestic day and overnight field trips. ~$15 per student for a 30-person group.",
-        url: "https://www.safetrekr.com/pricing#field-trip",
+          "Day trips, local field trips, single-venue events. ~$15 per person for a 30-person group.",
+        url: "https://www.safetrekr.com/pricing#day-trip",
       },
       {
         "@type": "Offer",
@@ -227,7 +219,7 @@ function PricingJsonLd() {
         price: "750",
         priceCurrency: "USD",
         description:
-          "Multi-day domestic trips, sports travel, retreats. ~$30 per participant for a 25-person group.",
+          "Multi-day trips, overnight travel, tournaments. ~$19 per participant for a 40-person group.",
         url: "https://www.safetrekr.com/pricing#extended-trip",
       },
       {
@@ -236,7 +228,7 @@ function PricingJsonLd() {
         price: "1250",
         priceCurrency: "USD",
         description:
-          "International travel, study abroad, mission trips. ~$62.50 per participant for a 20-person group.",
+          "International travel, study abroad, mission trips. ~$42 per participant for a 30-person group.",
         url: "https://www.safetrekr.com/pricing#international",
       },
     ],
@@ -262,29 +254,29 @@ export default function PricingPage() {
         <Container>
           <div className="pt-4 pb-4 text-center sm:pt-8 sm:pb-8 lg:pt-12 lg:pb-12">
             <ScrollReveal>
-              <Eyebrow className="mb-4">Transparent Pricing</Eyebrow>
+              <Eyebrow className="mb-4">PRICING</Eyebrow>
             </ScrollReveal>
 
             <ScrollReveal>
               <h1 className="mx-auto max-w-4xl text-display-lg text-foreground">
-                Professional Trip Safety Starting at{" "}
-                <span className="text-primary-700">$15 Per Participant</span>
+                Professional trip Safety Planning.{" "}
+                <span className="text-primary-700">Straightforward pricing.</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal>
               <p className="mx-auto mt-6 max-w-prose text-body-lg text-muted-foreground">
-                Every trip reviewed by a safety analyst. Every document audit-ready.
+                Every trip receives a full analyst review with access to complete documentation through an interactive digital safety binder. Most organizations find that structured trip planning saves time, reduces coordination burden, and creates valuable records.
               </p>
             </ScrollReveal>
 
             <ScrollReveal>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button variant="primary" size="lg" asChild>
-                  <Link href="/demo">Get a Demo</Link>
+                  <Link href="/demo">Schedule a Walkthrough</Link>
                 </Button>
                 <Button variant="secondary" size="lg" asChild>
-                  <Link href="/contact">Contact Sales</Link>
+                  <Link href="/resources/sample-binder">View Sample Binder</Link>
                 </Button>
               </div>
             </ScrollReveal>
@@ -293,70 +285,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 2: VALUE ANCHOR
-          ================================================================ */}
-      <SectionContainer variant="card" aria-label="Value comparison">
-        <Container>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-            {/* Liability Card */}
-            <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 md:flex-col md:items-start md:gap-0">
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-[#fef3c7]">
-                <AlertTriangle className="size-6 text-[#b45309]" aria-hidden="true" />
-              </div>
-              <div className="md:mt-4">
-                <p
-                  className="text-display-md text-foreground"
-                  aria-label="Average trip-related injury settlement: $500,000 to $2 million"
-                >
-                  $500K &ndash; $2M
-                </p>
-                <p className="mt-2 text-body-md text-muted-foreground">
-                  Average trip-related injury settlement
-                </p>
-              </div>
-            </div>
-
-            {/* Staff Time Card */}
-            <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 md:flex-col md:items-start md:gap-0">
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-muted">
-                <Clock className="size-6 text-muted-foreground" aria-hidden="true" />
-              </div>
-              <div className="md:mt-4">
-                <p
-                  className="text-display-md text-foreground"
-                  aria-label="Staff time for manual safety planning per trip: $700 to $1,400"
-                >
-                  $700 &ndash; $1,400
-                </p>
-                <p className="mt-2 text-body-md text-muted-foreground">
-                  Staff time for manual safety planning per trip
-                </p>
-              </div>
-            </div>
-
-            {/* SafeTrekr Card (emphasized) */}
-            <div className="flex items-start gap-4 rounded-xl border-2 border-primary-200 bg-white p-6 md:flex-col md:items-start md:gap-0">
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-50">
-                <Shield className="size-6 text-primary-700" aria-hidden="true" />
-              </div>
-              <div className="md:mt-4">
-                <p
-                  className="text-display-md text-primary-700"
-                  aria-label="Per student with SafeTrekr analyst review: $15"
-                >
-                  $15
-                </p>
-                <p className="mt-2 text-body-md text-muted-foreground">
-                  Per student with SafeTrekr analyst review
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 3: PRICING TIER CARDS
+          SECTION 2: PRICING TIER CARDS
           ================================================================ */}
       <SectionContainer aria-label="Pricing tiers">
         <Container>
@@ -373,12 +302,12 @@ export default function PricingPage() {
 
           <StaggerChildren className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:mt-16 lg:gap-8">
             <PricingTierCard
-              id="field-trip"
-              tierName="Field Trip"
+              id="day-trip"
+              tierName="Day Trip"
               price="$450"
-              perParticipant="~$15 / student (based on 30 participants)"
-              features={[...PRICING_FEATURES]}
-              ctaText="Get a Demo"
+              perParticipant="~$15/person for a 30-person group"
+              features={[...DAY_TRIP_FEATURES]}
+              ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
             />
 
@@ -386,21 +315,18 @@ export default function PricingPage() {
               id="extended-trip"
               tierName="Extended Trip"
               price="$750"
-              perParticipant="~$30 / participant (based on 25 participants)"
-              features={[...PRICING_FEATURES]}
-              ctaText="Get a Demo"
+              perParticipant="~$19/person for a 40-person group"
+              features={[...EXTENDED_TRIP_FEATURES]}
+              ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
               featured
-              badge="Most Common"
+              badge="Most Popular"
             />
 
-            <PricingTierCard
+            <InternationalPricingCard
               id="international"
-              tierName="International"
-              price="$1,250"
-              perParticipant="~$62.50 / participant (based on 20 participants)"
-              features={[...PRICING_FEATURES]}
-              ctaText="Get a Demo"
+              features={[...INTERNATIONAL_FEATURES]}
+              ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
             />
           </StaggerChildren>
@@ -408,153 +334,15 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: VOLUME DISCOUNTS
-          ================================================================ */}
-      <SectionContainer aria-label="Volume discounts">
-        <Container size="md">
-          <div className="text-center">
-            <ScrollReveal>
-              <Eyebrow className="mb-4">Volume Pricing</Eyebrow>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p className="text-body-lg text-muted-foreground">
-                More trips. Better rates.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-sm)]">
-              {/* Desktop Table */}
-              <table
-                className="hidden w-full sm:table"
-                aria-label="Volume discount pricing table"
-              >
-                <thead>
-                  <tr className="border-b border-border bg-muted/50">
-                    <th scope="col" className="px-6 py-4 text-left text-eyebrow text-muted-foreground">
-                      Trips Per Year
-                    </th>
-                    <th scope="col" className="px-6 py-4 text-left text-eyebrow text-muted-foreground">
-                      Discount
-                    </th>
-                    <th scope="col" className="px-6 py-4 text-right text-eyebrow text-muted-foreground">
-                      Example (Field Trip)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {VOLUME_TIERS.map((tier) => (
-                    <tr
-                      key={tier.trips}
-                      className={
-                        tier.highlighted
-                          ? "bg-primary-50/50"
-                          : "border-b border-border"
-                      }
-                    >
-                      <td
-                        className={`px-6 py-4 text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.trips}
-                      </td>
-                      <td
-                        className={`px-6 py-4 text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.discount}
-                      </td>
-                      <td
-                        className={`px-6 py-4 text-right text-body-md ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.example}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              {/* Mobile Cards */}
-              <div className="flex flex-col divide-y divide-border sm:hidden">
-                {VOLUME_TIERS.map((tier) => (
-                  <div
-                    key={tier.trips}
-                    className={`p-4 ${tier.highlighted ? "bg-primary-50/50" : ""}`}
-                  >
-                    <dt
-                      className={`text-heading-sm ${
-                        tier.highlighted ? "text-primary-700" : "text-foreground"
-                      }`}
-                    >
-                      {tier.trips}
-                    </dt>
-                    <dd className="mt-2 flex justify-between">
-                      <span
-                        className={`text-body-sm ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-muted-foreground"
-                        }`}
-                      >
-                        {tier.discount}
-                      </span>
-                      <span
-                        className={`text-body-sm font-medium ${
-                          tier.highlighted
-                            ? "font-semibold text-primary-700"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {tier.example}
-                      </span>
-                    </dd>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <div className="mt-8 text-center">
-            <p className="text-body-md text-muted-foreground">
-              Need an annual plan or custom volume pricing?
-            </p>
-            <Button variant="secondary" size="md" className="mt-4" asChild>
-              <Link href="/contact">Contact Sales</Link>
-            </Button>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 5: WHAT'S INCLUDED IN EVERY TRIP
+          SECTION 3: WHAT'S INCLUDED IN EVERY TRIP
           ================================================================ */}
       <SectionContainer variant="brand" aria-labelledby="included-heading">
         <Container>
           <div className="text-center">
             <ScrollReveal>
-              <Eyebrow className="mb-4">Included in Every Trip</Eyebrow>
-            </ScrollReveal>
-            <ScrollReveal>
               <h2 id="included-heading" className="text-display-md text-foreground">
-                No Tiers. No Feature Gates. No Surprises.
+                Every trip includes:
               </h2>
-            </ScrollReveal>
-            <ScrollReveal>
-              <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                Every trip type includes the full SafeTrekr platform. The only
-                difference is destination complexity.
-              </p>
             </ScrollReveal>
           </div>
 
@@ -577,7 +365,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 6: ROI CALCULATOR LINK
+          SECTION 4: ADD-ONS (Optional - kept from original)
           ================================================================ */}
       <SectionContainer variant="card" aria-label="ROI calculator">
         <Container size="md">
@@ -614,7 +402,7 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 7: SEGMENT-SPECIFIC PRICING SCENARIOS
+          SECTION 4a: SEGMENT-SPECIFIC PRICING SCENARIOS
           ================================================================ */}
       <SectionContainer aria-label="Pricing scenarios">
         <Container>
@@ -744,72 +532,14 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 8: PROCUREMENT PATH (Dark Section)
-          ================================================================ */}
-      <SectionContainer variant="dark" aria-label="Procurement resources">
-        <Container>
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-            {/* Left Column: CTA */}
-            <div>
-              <ScrollReveal>
-                <h2 className="text-display-md text-white">Ready to Purchase?</h2>
-              </ScrollReveal>
-              <ScrollReveal>
-                <p className="mt-4 text-body-lg text-muted-foreground">
-                  We have everything your procurement team needs. Skip the sales
-                  cycle with ready-made documentation.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal>
-                <Button variant="primaryOnDark" size="lg" className="mt-8" asChild>
-                  <Link href="/procurement" className="inline-flex items-center gap-2">
-                    For Procurement
-                    <ArrowRight className="size-5" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </ScrollReveal>
-            </div>
-
-            {/* Right Column: Checklist */}
-            <div>
-              <ScrollReveal>
-                <p className="mb-6 text-eyebrow text-primary-400">Procurement documents:</p>
-              </ScrollReveal>
-              <ul className="flex flex-col gap-4">
-                {[
-                  "W-9 form",
-                  "Security questionnaire",
-                  "Contract templates",
-                  "Data Processing Agreement (DPA)",
-                  "Insurance certificate",
-                  "Compliance overview",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <Check
-                      className="size-5 shrink-0 text-[#6cbc8b]"
-                      aria-hidden="true"
-                    />
-                    <span className="text-body-md text-[#b8c3c7]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 9: COMMON QUESTIONS (FAQ)
+          SECTION 5: FAQ
           ================================================================ */}
       <SectionContainer aria-label="Frequently asked questions">
         <Container size="md">
           <div className="text-center">
             <ScrollReveal>
-              <Eyebrow className="mb-4">Common Questions</Eyebrow>
-            </ScrollReveal>
-            <ScrollReveal>
               <h2 className="text-display-md text-foreground">
-                Everything you need to know about pricing.
+                Frequently Asked Questions
               </h2>
             </ScrollReveal>
           </div>
@@ -830,14 +560,14 @@ export default function PricingPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 10: CONVERSION CTA BAND
+          SECTION 6: CONVERSION CTA BAND
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Protect Your Next Trip"
-        body="Every trip deserves a safety analyst. Start with a personalized demo."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
-        secondaryCta={{ text: "Contact Sales", href: "/contact" }}
+        headline="Ready to go with a plan?"
+        body="Schedule a walkthrough to see how SafeTrekr works for your organization type."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
+        secondaryCta={{ text: "Discuss Your Needs", href: "/contact" }}
       />
 
       {/* ================================================================

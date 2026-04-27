@@ -503,9 +503,9 @@ export function HeroHome({ className }: HeroHomeProps) {
               initial="hidden"
               animate={animateTarget}
             >
-              SafeTrekr combines intelligence from 5 government data sources,
-              17-section analyst review, and SHA-256 evidence documentation to
-              protect your travelers and your organization.
+              SafeTrekr combines current information from trusted sources,
+              comprehensive professional review, and board-ready documentation to
+              support your travelers and your organization.
             </motion.p>
 
             {/* CTAs -- Stage 3: 300ms */}
@@ -516,12 +516,6 @@ export function HeroHome({ className }: HeroHomeProps) {
               animate={animateTarget}
             >
               <Button variant="primary" size="lg" asChild>
-                <a href="/resources/sample-binders">
-                  See Sample Binder
-                  <ArrowRight className="size-5" aria-hidden="true" />
-                </a>
-              </Button>
-              <Button variant="secondary" size="lg" asChild>
                 <a href="/demo">
                   Schedule a Demo
                   <ArrowRight className="size-5" aria-hidden="true" />

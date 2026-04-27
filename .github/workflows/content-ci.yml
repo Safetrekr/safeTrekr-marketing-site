@@ -14,7 +14,7 @@ name: Content CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [develop, master]
     paths:
       - "src/content/**"
       - "src/app/**/blog/**"

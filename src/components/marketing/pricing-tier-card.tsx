@@ -109,10 +109,10 @@ function PricingTierCard({
       )}
       {...props}
     >
-      {/* Optional badge positioned above the card header */}
+      {/* Optional badge positioned at top center, overlapping the border */}
       {badge && (
-        <div className="mb-4">
-          <Badge variant="brand">{badge}</Badge>
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <Badge variant="default">{badge}</Badge>
         </div>
       )}
 
@@ -124,11 +124,6 @@ function PricingTierCard({
         <span className="text-display-md text-foreground">{price}</span>
         <span className="text-body-sm text-muted-foreground"> / trip</span>
       </div>
-
-      {/* Per-participant breakdown */}
-      <p className="mt-1 text-body-md font-semibold text-primary-700">
-        {perParticipant}
-      </p>
 
       {/* Divider */}
       <hr className="my-6 border-border" />

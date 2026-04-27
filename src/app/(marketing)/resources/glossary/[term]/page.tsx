@@ -393,9 +393,9 @@ export default async function GlossaryTermPage({
       {/* ---------------------------------------------------------------- */}
       <CTABand
         variant="dark"
-        headline="Ready to protect every trip?"
-        body="See how SafeTrekr delivers analyst-reviewed safety binders for your organization."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional safety binders for your organization."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
     </>

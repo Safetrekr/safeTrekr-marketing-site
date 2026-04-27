@@ -2,7 +2,6 @@
 
 /**
  * ST-911: GA4 Consent-Gated Loading
- * ST-824: CSP nonce support
  *
  * Loads the Google Analytics 4 measurement script ONLY after explicit
  * user consent. This is critical for K-12 organizations where student
@@ -17,18 +16,9 @@
  * The GA4 Measurement ID is read from the `NEXT_PUBLIC_GA4_ID` env var.
  * If the env var is not set, the component renders nothing.
  *
- * ST-824: The `nonce` prop is passed from the marketing layout (Server
- * Component) which reads it from the middleware-injected `x-nonce` header.
- * Both the external gtag.js script and the inline init script receive
- * the nonce so they are permitted by the nonce-based CSP.
- *
- * @example
- * ```tsx
- * // In a layout or page:
- * import { GA4Script } from "@/components/analytics/ga4-script";
- *
- * <GA4Script nonce={nonce} />
- * ```
+ * The optional `nonce` prop is retained for forward compatibility if a
+ * nonce-based CSP is reintroduced later; today's CSP allows 'unsafe-inline'
+ * on script-src, so the prop is typically unused.
  */
 
 import { useEffect, useState } from "react";

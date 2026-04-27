@@ -100,7 +100,10 @@ describe("generatePageMetadata()", () => {
 
     it("sets OG type to 'website'", () => {
       const result = generatePageMetadata(baseOptions);
-      expect(result.openGraph?.type).toBe("website");
+      // Next's Metadata.openGraph is a discriminated union; narrow to the
+      // `website` shape we actually produce in src/lib/metadata.ts.
+      const og = result.openGraph as { type?: string } | undefined;
+      expect(og?.type).toBe("website");
     });
 
     it("uses default OG image when none provided", () => {
@@ -109,7 +112,11 @@ describe("generatePageMetadata()", () => {
       expect(images).toBeDefined();
       expect(Array.isArray(images)).toBe(true);
       const imageArray = images as Array<{ url: string }>;
-      expect(imageArray[0]?.url).toBe("/images/og-default.png");
+      // Social scrapers require absolute URLs — see DEFAULT_OG_IMAGE in
+      // src/lib/metadata.ts.
+      expect(imageArray[0]?.url).toBe(
+        "https://safetrekr.com/images/og-default.png",
+      );
     });
 
     it("uses custom OG image when provided", () => {
@@ -118,7 +125,10 @@ describe("generatePageMetadata()", () => {
         ogImage: "/images/pricing-og.png",
       });
       const images = result.openGraph?.images as Array<{ url: string }>;
-      expect(images[0]?.url).toBe("/images/pricing-og.png");
+      // Relative paths are absolutized to the SITE_URL origin.
+      expect(images[0]?.url).toBe(
+        "https://safetrekr.com/images/pricing-og.png",
+      );
     });
   });
 
@@ -127,7 +137,10 @@ describe("generatePageMetadata()", () => {
   describe("Twitter card", () => {
     it("sets card type to 'summary_large_image'", () => {
       const result = generatePageMetadata(baseOptions);
-      expect(result.twitter?.card).toBe("summary_large_image");
+      // Metadata.twitter is also a discriminated union; narrow to the
+      // `summary_large_image` shape produced by our generator.
+      const tw = result.twitter as { card?: string } | undefined;
+      expect(tw?.card).toBe("summary_large_image");
     });
 
     it("sets twitter:site to '@safetrekr'", () => {

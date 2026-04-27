@@ -683,8 +683,7 @@ describe("quoteSchema", () => {
 
     it("accepts email at exactly 254 chars", () => {
       // Build valid email at 254 chars: local@domain
-      const local = str(241); // 241 + "@example.com" (12) = 253... let's be precise
-      const email254 = `${str(241)}@example.com`;
+      const email254 = `${str(241)}@example.com`; // 241 + "@example.com" (12) = 253
       // This may or may not be exactly 254, but let's test the boundary concept
       if (email254.length <= 254) {
         const result = quoteSchema.safeParse({ ...validData, email: email254 });
@@ -784,9 +783,9 @@ describe("sampleBinderSchema", () => {
     });
 
     it("accepts omitted organization (optional)", () => {
-      const { organization: _, ...noOrg } = validData;
-      void _;
-      expect(sampleBinderSchema.safeParse(noOrg).success).toBe(true);
+      // validData is defined without the organization key, so it already
+      // represents the "omitted organization" case — no destructure needed.
+      expect(sampleBinderSchema.safeParse(validData).success).toBe(true);
     });
 
     it("accepts empty string organization", () => {

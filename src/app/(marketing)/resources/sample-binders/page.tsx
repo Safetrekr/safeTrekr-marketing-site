@@ -1,33 +1,19 @@
 /**
- * ST-892: Sample Binder Download Pages (/resources/sample-binders)
+ * Sample Safety Binders page (/resources/sample-binders).
  *
- * Segment-specific sample binder download page -- the #1 lead magnet for
- * the SafeTrekr marketing site. Visitors select a segment (K-12, Churches,
- * Corporate), enter their email via the LeadCaptureModal, and receive a
- * download link to a sample safety binder.
+ * The downloadable sample-binder flow is currently inactive — the page is
+ * retained for bookmarks, search results, and direct URL hits, but the
+ * interactive Download CTAs have been removed. See
+ * src/components/forms/lead-capture-modal.tsx for re-activation notes.
  *
- * Three segments at launch:
- *   1. K-12 Schools
- *   2. Churches & Mission Organizations
- *   3. Corporate Travel
- *
- * Server Component composing layout primitives and the client-side
- * SampleBinderCards component for modal interaction.
- *
- * Section order:
+ * Current sections:
  *   1. Hero       -- Breadcrumb, eyebrow, headline, body copy
- *   2. Cards      -- 3 segment cards with gated download
- *   3. Trust      -- Social proof / trust signals
- *   4. CTA Band   -- Bottom conversion band
+ *   2. Trust      -- What a SafeTrekr safety binder includes
+ *   3. CTA Band   -- Bottom conversion band (Demo + Pricing)
  */
 
 import Link from "next/link";
-import {
-  Shield,
-  FileText,
-  Lock,
-  CheckCircle2,
-} from "lucide-react";
+import { Shield, FileText, Lock } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, generateBreadcrumbSchema } from "@/lib/structured-data";
@@ -36,16 +22,14 @@ import { Container } from "@/components/layout/container";
 import { Eyebrow, CTABand } from "@/components/marketing";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 
-import { SampleBinderCards } from "./_components/sample-binder-cards";
-
 // ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Download Sample Safety Binders",
+  title: "Sample Safety Binders",
   description:
-    "See what a professional safety binder looks like before you commit. Download segment-specific sample binders for K-12 schools, churches, and corporate travel -- free, no obligation.",
+    "View sample SafeTrekr safety binders for schools, churches, corporate travel, and sports organizations. See exactly what professional trip planning documentation looks like.",
   path: "/resources/sample-binders",
 });
 
@@ -69,21 +53,21 @@ const BREADCRUMB_ITEMS = [
 const TRUST_SIGNALS = [
   {
     icon: <FileText className="size-6" />,
-    title: "Real Binder Format",
+    title: "Executive Summary",
     description:
-      "Every sample binder follows the exact 17-section format our analysts use for production safety reviews.",
+      "One-page overview of key findings, assessments, and recommendations for quick stakeholder review.",
   },
   {
     icon: <Shield className="size-6" />,
-    title: "Government Intelligence Data",
+    title: "17-Section Analyst Findings",
     description:
-      "Sample risk scores come from the same NOAA, USGS, CDC, ReliefWeb, and GDACS sources we use for live assessments.",
+      "Complete documentation of every review section: destination overview, venue assessment, lodging, transportation, emergency medical facilities, evacuation routes, and more.",
   },
   {
     icon: <Lock className="size-6" />,
-    title: "No Obligation",
+    title: "Integrity Verification",
     description:
-      "Download the sample, review it with your team, and decide if SafeTrekr is right for your organization. No sales call required.",
+      "Verification demonstrating the binder was not altered after completion. Professional documentation you can share with confidence.",
   },
 ] as const;
 
@@ -144,7 +128,7 @@ export default function SampleBindersPage() {
                   color="primary"
                   icon={<FileText className="size-4" />}
                 >
-                  Free Download
+                  RESOURCES
                 </Eyebrow>
               </ScrollReveal>
 
@@ -153,16 +137,16 @@ export default function SampleBindersPage() {
                   className="mt-5 text-display-lg text-foreground"
                   id="sample-binders-heading"
                 >
-                  See What a Professional Safety Binder Looks Like
+                  See What a Safety Binder Looks Like
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal variant="fadeUp" delay={0.2}>
                 <p className="mt-6 text-body-lg text-muted-foreground">
-                  Before you commit to anything, download a sample safety binder
-                  for your segment. Review the 17-section analyst format, the
-                  government intelligence data, and the audit-ready documentation
-                  your organization needs. Free, no obligation, no sales call.
+                  View sample safety binders to understand exactly what your
+                  organization receives. Each binder demonstrates our comprehensive
+                  analyst review, current information integration, and verified
+                  documentation.
                 </p>
               </ScrollReveal>
             </div>
@@ -170,38 +154,7 @@ export default function SampleBindersPage() {
         </SectionContainer>
 
         {/* ================================================================
-            SECTION 2: SEGMENT CARDS
-            ================================================================ */}
-        <SectionContainer
-          id="segments"
-          variant="card"
-          ariaLabelledBy="segments-heading"
-        >
-          <Container>
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <ScrollReveal variant="fadeUp">
-                <h2
-                  id="segments-heading"
-                  className="text-display-sm text-foreground"
-                >
-                  Choose Your Segment
-                </h2>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <p className="mt-4 text-body-lg text-muted-foreground">
-                  Each sample binder is tailored to the specific safety concerns,
-                  compliance requirements, and risk factors relevant to your
-                  organization type.
-                </p>
-              </ScrollReveal>
-            </div>
-
-            <SampleBinderCards />
-          </Container>
-        </SectionContainer>
-
-        {/* ================================================================
-            SECTION 3: TRUST SIGNALS
+            SECTION 2: TRUST SIGNALS
             ================================================================ */}
         <SectionContainer
           id="trust"
@@ -214,15 +167,8 @@ export default function SampleBindersPage() {
                   id="trust-heading"
                   className="text-display-sm text-foreground"
                 >
-                  What You Will Find Inside
+                  Every Safety Binder Includes
                 </h2>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <p className="mt-4 text-body-lg text-muted-foreground">
-                  These are not marketing brochures. Every sample binder is built
-                  from the same template our safety analysts use for real client
-                  engagements.
-                </p>
               </ScrollReveal>
             </div>
 
@@ -251,35 +197,18 @@ export default function SampleBindersPage() {
               ))}
             </div>
 
-            {/* Social proof callout */}
-            <ScrollReveal variant="fadeUp" delay={0.3}>
-              <div className="mx-auto mt-16 flex max-w-xl flex-col items-center gap-3 rounded-xl border border-border bg-primary-50/50 p-6 text-center sm:p-8">
-                <CheckCircle2
-                  className="size-8 text-primary-600"
-                  aria-hidden="true"
-                />
-                <p className="text-body-lg font-medium text-foreground">
-                  Over 500 organizations have downloaded our sample binders to
-                  evaluate SafeTrekr before their first engagement.
-                </p>
-                <p className="text-body-sm text-muted-foreground">
-                  Join schools, churches, and enterprises that made an informed
-                  decision about their safety documentation.
-                </p>
-              </div>
-            </ScrollReveal>
           </Container>
         </SectionContainer>
 
         {/* ================================================================
-            SECTION 4: CTA BAND
+            SECTION 3: CTA BAND
             ================================================================ */}
         <CTABand
           variant="dark"
-          headline="Ready for a Safety Binder Built for Your Next Trip?"
-          body="Download the sample to see the format. When you are ready, our analysts will build a custom binder for your specific destinations, team, and timeline."
+          headline="Ready to go with a plan?"
+          body="Schedule a walkthrough to see a safety binder specific to your organization type and discuss your upcoming travel."
           primaryCta={{
-            text: "Get a Demo",
+            text: "Schedule a Walkthrough",
             href: "/demo",
           }}
           secondaryCta={{

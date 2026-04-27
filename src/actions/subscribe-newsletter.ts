@@ -1,132 +1,121 @@
-/**
- * ST-901: Newsletter Subscription Server Action
- *
- * Handles newsletter signup with double opt-in. Inserts a new row into
- * the `newsletter_subscribers` table with a unique `confirmation_token`.
- * The subscriber must click a confirmation link (handled by the
- * `confirmNewsletter` action) before they are considered opted in.
- *
- * Security layers:
- *   1. Server-side Zod validation (email format + length)
- *   2. Duplicate check (prevents re-insertion if already subscribed)
- *   3. Confirmation token generation (crypto.randomUUID)
- *   4. Supabase persistence
- *
- * This action intentionally does NOT use Turnstile or the full 8-layer
- * pipeline from `submitForm`. The newsletter form is a single-field
- * compact form typically embedded in the footer or blog sidebar. Rate
- * limiting can be added later if abuse is observed.
- *
- * @see src/actions/confirm-newsletter.ts -- Handles token confirmation
- */
-
 "use server";
 
-import { z } from "zod";
+/**
+ * subscribeNewsletter — Server Action for the newsletter signup form.
+ *
+ * Inserts the email into `newsletter_subscribers` with status
+ * `pending_confirmation` (double opt-in is handled by a future worker).
+ * Same security layering as submitForm: honeypot, Turnstile, Zod,
+ * sanitize, rate limit, IP hash.
+ *
+ * Also fires a fire-and-forget notification to TEAM_NOTIFICATION_EMAIL
+ * so the team sees new signups in real time before the CRM sync runs.
+ */
+
+import { headers } from "next/headers";
 
 import { createServerSupabaseClient } from "@/lib/supabase/server";
+import { verifyTurnstile } from "@/lib/security/turnstile";
+import { checkRateLimit } from "@/lib/security/rate-limit";
+import { getClientIP, hashIP } from "@/lib/security/ip-hash";
+import { sanitizeFormData } from "@/lib/security/sanitize";
+import { sendFormNotification } from "@/lib/email/sendgrid";
+import { newsletterSchema } from "@/lib/validation/schemas";
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
-
-export interface SubscribeResult {
-  /** Whether the subscription was processed successfully. */
+export interface SubscribeNewsletterResult {
   success: boolean;
-  /** User-facing error message when `success` is false. */
-  error?: string;
-  /** User-facing success message when `success` is true. */
   message?: string;
+  error?: string;
 }
 
-// ---------------------------------------------------------------------------
-// Validation
-// ---------------------------------------------------------------------------
+const NEWSLETTER_SUCCESS_MESSAGE =
+  "Thanks — you're on the list. Watch your inbox for the next SafeTrekr update.";
 
-const emailSchema = z
-  .string()
-  .trim()
-  .min(1, "Email is required.")
-  .max(254, "Email must be 254 characters or fewer.")
-  .email("Please enter a valid email address.");
+const RATE_LIMIT = { max: 3, windowMinutes: 60 };
 
-// ---------------------------------------------------------------------------
-// Public Server Action
-// ---------------------------------------------------------------------------
-
-/**
- * Subscribes an email address to the SafeTrekr newsletter.
- *
- * Creates a new row in `newsletter_subscribers` with a unique
- * `confirmation_token`. The `confirmed_at` column remains `NULL` until
- * the subscriber confirms via the token link.
- *
- * If the email is already subscribed (confirmed or not), returns a
- * success-like message to avoid leaking subscription status.
- *
- * @param formData - FormData containing an `email` field.
- * @returns A structured result for client consumption.
- */
 export async function subscribeNewsletter(
   formData: FormData,
-): Promise<SubscribeResult> {
+): Promise<SubscribeNewsletterResult> {
   try {
-    // -----------------------------------------------------------------
-    // 1. Extract and validate email
-    // -----------------------------------------------------------------
-
-    const rawEmail = formData.get("email") as string | null;
-    const parseResult = emailSchema.safeParse(rawEmail);
-
-    if (!parseResult.success) {
-      const firstError =
-        parseResult.error.issues[0]?.message ?? "Invalid email address.";
-      return { success: false, error: firstError };
+    // Honeypot — silent fake success.
+    const honeypot = formData.get("company_website");
+    if (typeof honeypot === "string" && honeypot.length > 0) {
+      return { success: true, message: NEWSLETTER_SUCCESS_MESSAGE };
     }
 
-    const email = parseResult.data.toLowerCase();
-
-    // -----------------------------------------------------------------
-    // 2. Check for existing subscriber
-    // -----------------------------------------------------------------
-
-    const supabase = createServerSupabaseClient();
-
-    const { data: existing } = await supabase
-      .from("newsletter_subscribers")
-      .select("id, confirmed_at")
-      .eq("email", email)
-      .maybeSingle();
-
-    if (existing) {
-      // Return the same success message regardless of confirmation status
-      // to avoid leaking whether an email is already subscribed.
+    // Turnstile.
+    const turnstileToken = formData.get("turnstileToken");
+    if (typeof turnstileToken !== "string" || turnstileToken.length === 0) {
       return {
-        success: true,
-        message: "Check your email to confirm your subscription.",
+        success: false,
+        error: "Verification is required. Please retry.",
+      };
+    }
+    const tsResult = await verifyTurnstile(turnstileToken);
+    if (!tsResult.success) {
+      return {
+        success: false,
+        error: "Verification failed. Please try again.",
       };
     }
 
-    // -----------------------------------------------------------------
-    // 3. Generate confirmation token
-    // -----------------------------------------------------------------
+    // Zod.
+    const raw = Object.fromEntries(formData.entries());
+    const parsed = newsletterSchema.safeParse(raw);
+    if (!parsed.success) {
+      const firstIssue = parsed.error.issues[0];
+      return {
+        success: false,
+        error:
+          firstIssue?.message ?? "Please enter a valid email address.",
+      };
+    }
 
-    const confirmationToken = crypto.randomUUID();
+    const sanitized = sanitizeFormData(
+      parsed.data as Record<string, unknown>,
+    );
 
-    // -----------------------------------------------------------------
-    // 4. Insert into newsletter_subscribers
-    // -----------------------------------------------------------------
+    // IP hash + rate limit.
+    const headersList = await headers();
+    const ipHash = await hashIP(getClientIP(headersList));
+
+    const rl = await checkRateLimit(
+      ipHash,
+      "newsletter_signup",
+      RATE_LIMIT.max,
+      RATE_LIMIT.windowMinutes,
+    );
+    if (!rl.allowed) {
+      return {
+        success: false,
+        error: "Too many requests. Please try again later.",
+      };
+    }
+
+    // Insert. `onConflict: email` avoids duplicate-subscriber errors
+    // when someone resubscribes.
+    const supabase = createServerSupabaseClient();
+    const { email, firstName } = sanitized as {
+      email: string;
+      firstName?: string;
+    };
 
     const { error: insertError } = await supabase
       .from("newsletter_subscribers")
-      .insert({
-        email,
-        confirmation_token: confirmationToken,
-      });
+      .upsert(
+        {
+          email,
+          first_name: firstName ?? null,
+          status: "pending_confirmation",
+          ip_hash: ipHash,
+          source: "marketing_site",
+        },
+        { onConflict: "email", ignoreDuplicates: false },
+      );
 
     if (insertError) {
       console.error(
-        "[subscribe-newsletter] Supabase insert failed:",
+        "[subscribe-newsletter] Supabase upsert failed:",
         insertError,
       );
       return {
@@ -135,16 +124,17 @@ export async function subscribeNewsletter(
       };
     }
 
-    // TODO: Send confirmation email with link containing confirmationToken.
-    // For now, the token is stored in the DB and the confirmation action
-    // (confirm-newsletter.ts) handles the verification step.
+    // Fire-and-forget notification so the team sees the signup.
+    void sendFormNotification("newsletter_signup", sanitized).catch((err) => {
+      console.error(
+        "[subscribe-newsletter] SendGrid notification failed:",
+        err,
+      );
+    });
 
-    return {
-      success: true,
-      message: "Check your email to confirm your subscription.",
-    };
-  } catch (error) {
-    console.error("[subscribe-newsletter] Unexpected error:", error);
+    return { success: true, message: NEWSLETTER_SUCCESS_MESSAGE };
+  } catch (err) {
+    console.error("[subscribe-newsletter] Unexpected error:", err);
     return {
       success: false,
       error: "An unexpected error occurred. Please try again later.",

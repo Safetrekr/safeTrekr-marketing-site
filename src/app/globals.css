@@ -481,8 +481,24 @@ html {
 /* ──────────────────────────────────────
    Legal Page Prose Typography
    Ticket: ST-863
-   Used by /legal/privacy and /legal/terms
+   Used by /legal/privacy, /legal/terms, and /legal/eula
    ────────────────────────────────────── */
+
+/* Copy protection for legal pages */
+.legal-protected {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.legal-protected ::selection {
+  background: transparent;
+}
+.legal-protected ::-moz-selection {
+  background: transparent;
+}
+
 .legal-prose h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.625rem, 1.25rem + 1.25vw, 2.25rem);
@@ -778,6 +794,156 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   animation: progressFill 1s ease-out forwards;
   animation-delay: 1s;
   width: 0;
+}
+
+/* ──────────────────────────────────────
+   Phone Carousel (mobile horizontal scroll)
+   ────────────────────────────────────── */
+
+.phone-carousel {
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 0 20px;
+  scrollbar-width: none;
+}
+.phone-carousel::-webkit-scrollbar {
+  display: none;
+}
+.phone-carousel > * {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+/* On mobile, override the inline width for carousel phones */
+.phone-carousel > .phone-parallax {
+  width: 72vw !important;
+  max-width: 300px;
+}
+
+/* Phone images — static, no parallax */
+.phone-parallax {
+  opacity: 1;
+  transform: none;
+}
+
+/* ──────────────────────────────────────
+   Topographic Contour Hero Animations
+   Ambient map background for homepage hero
+   ────────────────────────────────────── */
+
+/* Contour line dash flow (clockwise) */
+@keyframes contourFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -200; }
+}
+
+/* Contour line dash flow (counter-clockwise) */
+@keyframes contourFlowReverse {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 200; }
+}
+
+/* Route dash flow along path */
+@keyframes routeDashFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -24; }
+}
+
+/* Waypoint halo breathing pulse */
+@keyframes waypointPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.25); }
+}
+
+/* Subtle scan line sweep */
+@keyframes scanSweep {
+  0% { transform: translateY(-10px); opacity: 0; }
+  5% { opacity: 0.05; }
+  95% { opacity: 0.05; }
+  100% { transform: translateY(400px); opacity: 0; }
+}
+
+/* Contour shared base */
+.contour {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Cluster A: center-left contours */
+.contour-a1 {
+  stroke: var(--color-primary-400);
+  stroke-width: 0.75;
+  opacity: 0.06;
+  stroke-dasharray: 16 12;
+  animation: contourFlow 60s linear infinite;
+}
+.contour-a2 {
+  stroke: var(--color-primary-400);
+  stroke-width: 0.8;
+  opacity: 0.08;
+  stroke-dasharray: 14 10;
+  animation: contourFlowReverse 50s linear infinite;
+}
+.contour-a3 {
+  stroke: var(--color-primary-400);
+  stroke-width: 0.85;
+  opacity: 0.09;
+  stroke-dasharray: 12 8;
+  animation: contourFlow 45s linear infinite;
+}
+.contour-a4 {
+  stroke: var(--color-primary-500);
+  stroke-width: 0.9;
+  opacity: 0.11;
+  stroke-dasharray: 10 6;
+  animation: contourFlowReverse 40s linear infinite;
+}
+
+/* Cluster B: upper-right contours */
+.contour-b1 {
+  stroke: var(--color-primary-400);
+  stroke-width: 0.75;
+  opacity: 0.06;
+  stroke-dasharray: 14 12;
+  animation: contourFlowReverse 55s linear infinite;
+}
+.contour-b2 {
+  stroke: var(--color-primary-400);
+  stroke-width: 0.8;
+  opacity: 0.08;
+  stroke-dasharray: 12 8;
+  animation: contourFlow 48s linear infinite;
+}
+.contour-b3 {
+  stroke: var(--color-primary-500);
+  stroke-width: 0.9;
+  opacity: 0.10;
+  stroke-dasharray: 10 6;
+  animation: contourFlowReverse 42s linear infinite;
+}
+
+/* Animated route dashes */
+.route-flow {
+  stroke-dasharray: 12 8;
+  animation: routeDashFlow 2.5s linear infinite;
+}
+
+/* Waypoint halo pulse with stagger */
+.wp-halo {
+  transform-origin: center;
+  animation: waypointPulse 4s ease-in-out infinite;
+}
+.wp-halo-1 { animation-delay: 0s; }
+.wp-halo-2 { animation-delay: 1.3s; }
+.wp-halo-3 { animation-delay: 2.6s; }
+
+/* Scan line */
+.topo-scan {
+  animation: scanSweep 14s ease-in-out infinite;
+  animation-delay: 2s;
+  will-change: transform;
 }
 
 /* Card interactive hover */

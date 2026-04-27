@@ -53,8 +53,6 @@ test.describe("XSS Protection", () => {
         expect(alertTriggered).toBe(false);
 
         // Verify the payload is not rendered as HTML in the page
-        const scriptTags = await page.locator("script:not([type])").count();
-        // We expect 0 injected script tags (existing ones have type attributes)
         const pageContent = await page.content();
         expect(pageContent).not.toContain('onerror=alert');
         expect(pageContent).not.toContain("javascript:alert");

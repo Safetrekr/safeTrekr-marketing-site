@@ -21,6 +21,10 @@ export {
   type TrustStripProps,
 } from "./trust-strip";
 export { PricingTierCard, type PricingTierCardProps } from "./pricing-tier-card";
+export {
+  InternationalPricingCard,
+  type InternationalPricingCardProps,
+} from "./international-pricing-card";
 export { PricingGrid, type PricingGridProps } from "./pricing-grid";
 export {
   CTABand,
@@ -39,10 +43,6 @@ export {
   type ComparisonTableProps,
 } from "./comparison-table";
 export { HeroHome, type HeroHomeProps } from "./hero/hero-home";
-export {
-  PerStudentCalculator,
-  type PerStudentCalculatorProps,
-} from "./per-student-calculator";
 export {
   BlogPostCard,
   type BlogPostCardProps,

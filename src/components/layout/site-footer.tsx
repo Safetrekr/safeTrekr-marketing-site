@@ -8,8 +8,7 @@ import { Container } from "@/components/layout/container";
    Figma source: designs/html/shared-header-footer.html
 
    4-column link grid on dark (secondary) surface with bottom bar
-   containing brand description, copyright, legal links, and data
-   source attribution.
+   containing brand description, copyright, and legal links.
 
    Responsive: 4-col (lg) -> 2-col (sm) -> 1-col (mobile)
    ================================================================ */
@@ -49,9 +48,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
           { label: "Analyst Review", href: "/platform/analyst-review" },
           { label: "Risk Intelligence", href: "/platform/risk-intelligence" },
           { label: "Safety Binder", href: "/platform/safety-binder" },
-          { label: "Mobile App", href: "/platform/mobile-app" },
-          { label: "Monitoring", href: "/platform/monitoring" },
-          { label: "Compliance", href: "/platform/compliance" },
         ],
       },
     ],
@@ -69,7 +65,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
             label: "Churches and Mission Orgs",
             href: "/solutions/churches",
           },
-          { label: "Corporate and Sports", href: "/solutions/corporate" },
+          { label: "Corporate", href: "/solutions/corporate" },
         ],
       },
       {
@@ -89,9 +85,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
         heading: "Resources",
         ariaLabel: "Resources links",
         links: [
-          { label: "Case Studies", href: "/resources/case-studies" },
-          { label: "Guides", href: "/resources/guides" },
-          { label: "Sample Binders", href: "/resources/sample-binders" },
           { label: "FAQ", href: "/resources/faq" },
         ],
       },
@@ -105,7 +98,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
         ariaLabel: "Company links",
         links: [
           { label: "About SafeTrekr", href: "/about" },
-          { label: "Our Analysts", href: "/about/analysts" },
           { label: "Security and Trust", href: "/security" },
           { label: "Contact", href: "/contact" },
         ],
@@ -117,10 +109,8 @@ const FOOTER_COLUMNS: FooterColumn[] = [
 const LEGAL_LINKS: FooterLink[] = [
   { label: "Terms of Service", href: "/legal/terms" },
   { label: "Privacy Policy", href: "/legal/privacy" },
-  { label: "DPA", href: "/legal/dpa" },
+  { label: "End User License Agreement", href: "/legal/eula" },
 ];
-
-const DATA_SOURCES = ["NOAA", "USGS", "CDC", "GDACS", "ReliefWeb"];
 
 // ---------------------------------------------------------------------------
 // Sub-components
@@ -226,10 +216,6 @@ function SiteFooter() {
             ))}
           </div>
 
-          {/* Data source attribution */}
-          <p className="mt-4 text-xs text-[var(--color-dark-text-secondary)]">
-            Data sourced from: {DATA_SOURCES.join(" | ")}
-          </p>
         </div>
       </Container>
     </footer>

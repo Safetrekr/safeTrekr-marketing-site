@@ -7,12 +7,11 @@
  * the same professional safety review standard.
  *
  * Section order:
- *   1. Hero            -- "One platform. Every type of trip." + scroll anchor CTA
- *   2. Segment Cards   -- 4 large segment cards (2x2 grid) with regulatory badges
- *   3. Universal Value -- 3 FeatureCards (Analyst Review, Risk Intelligence, Safety Binder)
- *   4. TrustStrip      -- 5 metrics + intel source bar
- *   5. CTABand         -- Dark variant, demo + how-it-works
- *   6. JSON-LD         -- WebPage + ItemList structured data
+ *   1. Hero           , "One platform. Every type of trip." + scroll anchor CTA
+ *   2. Segment Cards  , 4 large segment cards (2x2 grid) with regulatory badges
+ *   3. Universal Value, 3 FeatureCards (Analyst Review, Safety Info, Clear Documentation)
+ *   4. CTABand        , Dark variant, demo + how-it-works
+ *   5. JSON-LD        , WebPage + ItemList structured data
  *
  * @see designs/html/mockup-solutions-overview.html
  */
@@ -38,7 +37,6 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   FeatureCard,
-  TrustStrip,
   CTABand,
 } from "@/components/marketing";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -51,9 +49,8 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "Solutions by Organization Type",
   description:
-    "SafeTrekr provides professional trip safety review and evidence documentation for K-12 schools, higher education, churches, and corporate organizations. Find the right solution for your organization.",
+    "SafeTrekr serves K-12 schools, higher education, churches, corporations, and sports organizations. Find professional trip planning for your organization's needs.",
   path: "/solutions",
-  ogImage: "/images/og-solutions.png",
 });
 
 // ---------------------------------------------------------------------------
@@ -126,17 +123,17 @@ const SEGMENTS: SolutionSegment[] = [
   {
     icon: <GraduationCap className="size-7" />,
     title: "K-12 Schools and Districts",
-    badges: ["FERPA", "COPPA"],
+    badges: ["DUTY OF CARE"],
     description:
-      "Every field trip deserves the same safety rigor as a commercial flight. SafeTrekr gives your district a professional analyst review of every destination, government-sourced risk intelligence, and board-ready documentation that proves due diligence -- starting at $15 per student.",
+      "Field trip planning that supports educational excellence. Professional analyst evaluation of every destination with documentation that demonstrates thorough preparation.",
     href: "/solutions/k12",
   },
   {
     icon: <Building2 className="size-7" />,
     title: "Higher Education",
-    badges: ["CLERY ACT", "FERPA"],
+    badges: ["DUTY OF CARE"],
     description:
-      "Study abroad and international program safety backed by institutional-grade risk assessment. SafeTrekr provides your risk management office and general counsel with professionally reviewed, tamper-evident documentation for every program trip -- from spring break service trips to semester-long study abroad.",
+      "Study abroad and faculty travel with top tier planning and documentation. Professional safety planning that supports the traveler and institution anywhere someone travels.",
     href: "/solutions/higher-education",
   },
   {
@@ -144,15 +141,15 @@ const SEGMENTS: SolutionSegment[] = [
     title: "Churches and Mission Organizations",
     badges: ["DUTY OF CARE"],
     description:
-      "Mission trip safety that goes beyond good intentions. SafeTrekr gives your church professional safety analysis for every mission field, government risk intelligence for every destination, and insurance-ready documentation that satisfies your carrier and your board -- because stewardship includes preparation.",
+      "Mission trip preparation that honors your calling. Simple safety planning and guidance for volunteer leaders with documentation that demonstrates good stewardship.",
     href: "/solutions/churches",
   },
   {
     icon: <Building className="size-7" />,
-    title: "Corporate and Sports Teams",
-    badges: ["DUTY OF CARE", "OSHA"],
+    title: "Corporate",
+    badges: ["DUTY OF CARE"],
     description:
-      "Professional duty of care documentation for business travel and team transportation. SafeTrekr delivers the same analyst-reviewed, evidence-documented trip safety that enterprise organizations expect -- built for mid-market companies and athletic programs without enterprise budgets.",
+      "Business travel security preparation and planning as Fortune 500 C-Suite security programs with dedicated risk management staff.",
     href: "/solutions/corporate",
   },
 ];
@@ -166,23 +163,23 @@ const UNIVERSAL_VALUE_CARDS = [
     icon: <ClipboardCheck className="size-6" />,
     title: "Professional Analyst Review",
     description:
-      "A trained safety analyst reviews every trip your organization takes -- across 17 dimensions, from venue safety to emergency evacuation planning. No algorithms. No automation. A real analyst who flags what needs attention and documents what is ready.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety staff analyzing all aspects of the trip safety and intelligence. Assessments by professionals, not automation.",
     href: "/platform/analyst-review",
     linkText: "Explore the review process",
   },
   {
     icon: <Route className="size-6" />,
-    title: "Government Risk Intelligence",
+    title: "Current Safety Information",
     description:
-      "Monte Carlo risk scoring sourced from 5 government databases: NOAA weather data, USGS seismic monitoring, CDC health advisories, GDACS disaster alerts, and ReliefWeb humanitarian reports. Probability-weighted, not opinion-based.",
+      "Active intelligence monitoring from trusted governmental and private sources. Professionally evaluated by experienced analysts to provide current, relevant safety information for your destinations.",
     href: "/platform/risk-intelligence",
-    linkText: "See how scoring works",
+    linkText: "See how assessment works",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Trip Safety Binder",
+    title: "Clear Documentation",
     description:
-      "Audit-ready documentation with SHA-256 hash-chain integrity. Every finding, every recommendation, every emergency contact, every risk score -- compiled into a tamper-evident binder that satisfies your board, your insurance carrier, and your legal team.",
+      "All safety and planning is completed and provided in a digitized interactive safety binder. Before you go, professional planning and documentation is readily available to everyone.",
     href: "/platform/safety-binder",
     linkText: "See a sample binder",
   },
@@ -294,7 +291,7 @@ export default function SolutionsOverviewPage() {
                 className="text-display-lg mx-auto mt-4 text-foreground"
                 style={{ maxWidth: "28ch" }}
               >
-                One platform. Every type of trip. Every organization protected.
+                Professional trip planning for every organization.
               </h1>
             </ScrollReveal>
 
@@ -304,9 +301,10 @@ export default function SolutionsOverviewPage() {
                 className="text-body-lg mx-auto mt-6 text-muted-foreground"
                 style={{ maxWidth: "55ch" }}
               >
-                Schools, universities, churches, and businesses trust SafeTrekr
-                to professionally review every trip, score every risk, and
-                document every safety decision.
+                SafeTrekr delivers the same professional safety plan and review
+                to every organization, but context matters. Schools need
+                student privacy considerations. Churches need stewardship
+                framing. Corporations need accountability documentation.
               </p>
             </ScrollReveal>
 
@@ -408,25 +406,18 @@ export default function SolutionsOverviewPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 4: TRUST STRIP
-          ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip />
-      </ScrollReveal>
-
-      {/* ================================================================
-          SECTION 5: CTA BAND (DARK)
+          SECTION 4: CTA BAND (DARK)
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Ready to protect your next trip?"
-        body="See how SafeTrekr delivers professional safety review, government intelligence, and audit-ready documentation for your organization."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
-        secondaryCta={{ text: "See How It Works", href: "/how-it-works" }}
+        headline="Not sure which solution is right for you?"
+        body="Schedule a walkthrough and we'll show you SafeTrekr tailored to your organization type."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
+        secondaryCta={{ text: "Contact Us", href: "/contact" }}
       />
 
       {/* ================================================================
-          SECTION 6: JSON-LD STRUCTURED DATA
+          SECTION 5: JSON-LD STRUCTURED DATA
           ================================================================ */}
       <JsonLd data={generateSolutionsPageSchema()} />
     </>

@@ -7,7 +7,7 @@
  * communication, duty of care, liability.
  *
  * 9 scroll-ordered sections:
- *   1. Hero              -- "$15 Per Student" badge, DocumentPreview, dual CTAs
+ *   1. Hero              -- DocumentPreview, dual CTAs
  *   2. TrustStrip        -- 5 metrics + intel source bar
  *   3. The Challenge     -- DARK: 3 pain cards + Board Liability Comparison
  *   4. How SafeTrekr     -- 4 FeatureCards with K-12 vocabulary
@@ -40,7 +40,6 @@ import {
   Lock,
   Link2,
   ChevronRight,
-  Download,
   Check,
   ArrowRight,
   MapPin,
@@ -56,13 +55,12 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   FeatureCard,
   FAQSection,
   CTABand,
 } from "@/components/marketing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
-import { PerStudentCalculator } from "@/components/marketing/per-student-calculator";
+import { RevenueCalculator } from "@/components/marketing/calculator";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerChildren } from "@/components/motion/stagger-children";
@@ -72,9 +70,9 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Trip Safety for K-12 Schools & Districts",
+  title: "K-12 Field Trip Planning",
   description:
-    "Every field trip reviewed by a safety analyst. Per-student pricing starting at $15. Board-ready documentation that proves your district took every reasonable precaution.",
+    "Field trip planning that supports educational excellence. SafeTrekr provides professional safety review, consistent processes across your district, and documentation that demonstrates thorough preparation.",
   path: "/solutions/k12",
 });
 
@@ -94,54 +92,34 @@ const BREADCRUMBS = [
 
 const K12_FAQS: FAQItem[] = [
   {
-    question: "Is SafeTrekr FERPA compliant?",
+    question: "How does SafeTrekr handle student data?",
     answer:
-      "SafeTrekr is designed with FERPA requirements in mind. Our data handling practices follow FERPA guidelines for student education records, including access controls, data minimization, and secure storage. We are currently pursuing formal FERPA certification. We believe in transparency -- we will never claim a certification we have not earned.",
+      "SafeTrekr is designed with student privacy in mind. We use role-based access controls to limit data visibility, secure handling practices, and data minimization that collects only what's necessary for safety assessment. We do not sell or share student data. Schools can request documentation for district procurement requirements.",
   },
   {
-    question: "What happens to student data after the trip?",
+    question: "What does the analyst review include?",
     answer:
-      "Student data is retained only for the documentation period required by your district's records retention policy. After that period, data is purged with a verifiable deletion record. You control the retention timeline. We provide cryptographic proof of deletion upon request.",
+      "Every trip receives a comprehensive evaluation covering all critical areas: destination overview, venue assessment, lodging evaluation, transportation, emergency medical facilities, evacuation routes, weather and environmental conditions, health advisories, communication infrastructure, local emergency contacts, activity-specific considerations, food safety, accessibility, documentation review, regulatory considerations, historical context, and analyst recommendations. Each review is completed by an experienced safety professional.",
   },
   {
-    question: "Can our school district use SafeTrekr for all field trips?",
+    question: "How long does it take to receive documentation?",
     answer:
-      "Yes. SafeTrekr handles field trips of every type -- from a single-day museum visit to a multi-day out-of-state educational trip. Every trip gets the same 17-section professional safety review, regardless of distance or duration. Volume pricing is available for districts with 25 or more trips per year.",
+      "Priority processing is available for Extended and International trips when faster turnaround is needed.",
   },
   {
-    question: "How does SafeTrekr handle parent consent?",
+    question: "Can multiple schools in our district use SafeTrekr?",
     answer:
-      "SafeTrekr includes a Parent/Guardian Portal where parents can view trip safety details you choose to share. This is separate from your district's existing permission slip process. SafeTrekr provides the professional safety documentation; your district maintains its consent workflow. Parents see safety information -- not raw risk data.",
+      "Yes. SafeTrekr supports district-wide use with centralized administration. District administrators can view all trips across schools, establish consistent processes, and access documentation. Contact us for district pricing.",
   },
   {
-    question: "What if a field trip destination changes at the last minute?",
+    question: "What if our trip destination changes after we receive documentation?",
     answer:
-      "Submit the new destination and our team will expedite a review. For minor changes (same city, different venue), we can often turn around an updated review within 24-48 hours. The original binder is versioned, not replaced -- you maintain a complete audit trail of all destination changes.",
+      "If your destination changes significantly (new city, different venues), we recommend submitting updated trip details for review. Minor changes to the same destination can be accommodated -- contact your analyst for guidance.",
   },
   {
-    question: "How does per-student pricing work for large groups?",
+    question: "How do chaperones access trip information in the field?",
     answer:
-      "Pricing is $15 per student per trip. A field trip with 30 students costs $450. A field trip with 100 students costs $1,500. Volume discounts apply for districts committing to 25 or more trips per year. Contact us for district-wide pricing that covers all schools in your system.",
-  },
-  {
-    question: "Can board members access the safety binder directly?",
-    answer:
-      "Yes. You can generate a read-only link for board members to review any safety binder. The binder includes the full 17-section review, risk intelligence summary, emergency response plan, and SHA-256 evidence chain verification. Board members see exactly what you see.",
-  },
-  {
-    question: "Does SafeTrekr replace our existing field trip approval process?",
-    answer:
-      "No. SafeTrekr supplements your existing process with professional safety analysis and documentation. Your district keeps its approval workflow, permission slip procedures, and chain of command. SafeTrekr adds the evidence layer that proves your district took every reasonable precaution.",
-  },
-  {
-    question: "How quickly do we receive the safety binder?",
-    answer:
-      "Standard turnaround is 3-5 business days from trip submission. For field trips within the continental United States to well-documented destinations, turnaround is often faster. Rush processing is available for time-sensitive trips.",
-  },
-  {
-    question: "What government data sources does SafeTrekr use?",
-    answer:
-      "Our Risk Intelligence Engine aggregates data from 5 government sources: NOAA (weather and natural hazards), USGS (seismic and geological data), CDC (health advisories and disease surveillance), GDACS (global disaster alerts), and ReliefWeb (humanitarian situation reports). This data is scored using Monte Carlo simulation to produce a quantified risk profile for every destination.",
+      "Chaperones download the SafeTrekr mobile app and receive a trip code. The app provides offline access to emergency contacts, rally points, medical facility locations, and check-in tools. No training required.",
   },
 ];
 
@@ -152,31 +130,45 @@ const K12_FAQS: FAQItem[] = [
 const FEATURE_CARDS = [
   {
     icon: <CheckSquare className="size-6" />,
-    title: "Analyst Safety Review",
+    title: "Experienced Analyst Review",
     description:
-      "Every field trip destination reviewed across 17 safety dimensions by a professional analyst. Not a checklist. Not software. A human review.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety staff analyzing all aspects of the trip safety and intelligence. Assessments by professionals, not automation.",
     href: "/platform/analyst-review",
   },
   {
     icon: <Activity className="size-6" />,
-    title: "Risk Intelligence Engine",
+    title: "Current Safety Information",
     description:
-      "Weather, health, crime, and natural hazard data from 5 government sources scored for every destination your students visit. Monte Carlo simulation, not guesswork.",
+      "Active intelligence drawn from trusted governmental and private sources, so your district makes informed decisions before, during, and after every trip.",
     href: "/platform/risk-intelligence",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "Trip Safety Binder",
+    title: "Clear Documentation",
     description:
-      "Board-ready documentation that proves your district took every reasonable precaution. Tamper-evident with SHA-256 hash chain. Audit-ready on day one.",
+      "All safety and planning is completed and provided in a digitized interactive safety binder. Before you go, professional planning and documentation is readily available to everyone.",
     href: "/platform/safety-binder",
+  },
+] as const;
+
+const APP_CARDS = [
+  {
+    icon: <Smartphone className="size-6" />,
+    title: "Chaperone App",
+    description:
+      "Emergency contacts, rally points, headcount tools, and incident reporting in every chaperone&rsquo;s pocket. No training required. Works offline.",
   },
   {
     icon: <Smartphone className="size-6" />,
-    title: "Parent/Guardian Portal",
+    title: "Traveler App",
     description:
-      "Parents see trip safety details on their phone. Rally points, emergency contacts, and real-time check-in status. You control exactly what they see.",
-    href: "/platform/mobile-app",
+      "Students get the trip plan, schedule, contacts, and safety info on their own device, exactly what they need, nothing they don&rsquo;t.",
+  },
+  {
+    icon: <Smartphone className="size-6" />,
+    title: "Guardian App",
+    description:
+      "Parents stay in the loop with check-ins, location updates, and instant access to the same emergency information chaperones carry.",
   },
 ] as const;
 
@@ -188,29 +180,29 @@ const PAIN_CARDS = [
   {
     icon: <Clock className="size-6" />,
     iconColor: "text-primary-400",
-    value: "$700 - $1,400",
-    valueLabel: "$700 to $1,400 in staff hours per field trip",
-    subtitle: "in staff hours per trip",
+    value: "Hours",
+    valueLabel: "Hours of staff time per field trip",
+    subtitle: "of staff time per trip",
     description:
-      "Every field trip requires 15-30 hours of manual safety planning by teachers who are not risk professionals.",
+      "Every field trip requires hours of manual planning by teachers who have many other responsibilities.",
   },
   {
     icon: <AlertTriangle className="size-6" />,
-    iconColor: "text-red-500",
-    value: "$500K - $2M",
-    valueLabel: "$500,000 to $2 million average settlement for trip-related incidents",
-    subtitle: "average settlement for trip-related incidents",
+    iconColor: "text-primary-400",
+    value: "Variable",
+    valueLabel: "Variable process quality",
+    subtitle: "process quality across trips",
     description:
-      'When a student is injured on a trip, "What precautions did the district take?" is the first question asked.',
+      "When different coordinators use different approaches, preparation quality varies from trip to trip.",
   },
   {
     icon: <FileX className="size-6" />,
     iconColor: "text-primary-400",
-    value: "Zero",
-    valueLabel: "Zero formal risk documentation",
-    subtitle: "formal risk documentation",
+    value: "Scattered",
+    valueLabel: "Scattered documentation",
+    subtitle: "documentation practices",
     description:
-      "Permission slips are not safety plans. A signed waiver is not evidence of due diligence.",
+      "Permission slips, checklists, and notes exist -- but they're scattered and inconsistent.",
   },
 ] as const;
 
@@ -221,27 +213,27 @@ const PAIN_CARDS = [
 const COMPLIANCE_BADGES = [
   {
     icon: <Shield className="size-6" />,
-    title: "FERPA",
+    title: "Built for Student Privacy",
     description:
-      "Designed with FERPA requirements in mind. Student data handling follows FERPA guidelines. Certification in progress.",
+      "Role-based access, data minimization, and secure handling designed for school environments.",
   },
   {
     icon: <Lock className="size-6" />,
-    title: "AES-256 Encryption",
+    title: "Secure Data Handling",
     description:
-      "All student data encrypted at rest and in transit using AES-256 standard.",
+      "All data encrypted at rest and in transit. We follow industry best practices for data security.",
   },
   {
     icon: <FileText className="size-6" />,
-    title: "SOC 2 Type II",
+    title: "Clear Documentation",
     description:
-      "Type II audit in progress. Security controls documented and verified by independent auditors.",
+      "Organized records that answer the questions stakeholders ask, without the legal jargon.",
   },
   {
     icon: <Link2 className="size-6" />,
-    title: "SHA-256 Evidence Chain",
+    title: "Verified Integrity",
     description:
-      "Tamper-evident evidence chain. Every document in every safety binder is hash-verified and immutable.",
+      "Every finding and recommendation documented and traceable. Professional records you can share with confidence.",
   },
 ] as const;
 
@@ -250,11 +242,11 @@ const COMPLIANCE_BADGES = [
 // ---------------------------------------------------------------------------
 
 const BINDER_CHECKLIST = [
-  "Risk score summary for every destination",
-  "17-section professional safety review",
-  "Emergency response protocols and contacts",
-  "SHA-256 tamper-evident verification",
-  "Government intelligence data cited",
+  "Comprehensive professional safety review",
+  "Active intelligence from multiple trusted sources",
+  "Emergency contacts and medical facilities",
+  "Organized documentation for stakeholder review",
+  "Fast delivery turnaround",
 ] as const;
 
 // ---------------------------------------------------------------------------
@@ -312,14 +304,6 @@ export default function K12SolutionsPage() {
 
             {/* Text Column */}
             <ScrollReveal variant="fadeUp" className="lg:order-1">
-              {/* Pricing Badge */}
-              <span
-                className="mb-4 inline-flex items-center rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700"
-                aria-label="Per-student pricing: $15 per student"
-              >
-                $15 Per Student
-              </span>
-
               {/* Eyebrow */}
               <Eyebrow color="primary" className="mb-3 block">
                 K-12 Trip Safety
@@ -327,39 +311,26 @@ export default function K12SolutionsPage() {
 
               {/* Headline */}
               <h1 className="text-display-lg max-w-[20ch] text-foreground">
-                Every Field Trip Deserves a Safety Analyst.
+                Field trip planning that supports educational excellence.
               </h1>
 
               {/* Sub-headline */}
               <p className="mt-6 max-w-[65ch] text-body-lg text-muted-foreground">
-                Professional safety analysis for every field trip your district runs.
-                Board-ready documentation. Designed with FERPA requirements in mind.
-                Starting at $15 per student.
+                Your teachers already care about student safety. SafeTrekr gives them a professional framework that turns good intentions into documented preparation -- without adding hours to their planning process. Every trip professionally reviewed. Every destination assessed. Every finding documented.
               </p>
 
               {/* CTAs */}
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Button variant="primary" size="lg" asChild>
-                  <Link href="/resources/sample-binders/k12-field-trip">
-                    <Download className="size-4" aria-hidden="true" />
-                    Download K-12 Sample Binder
+                  <Link href="/demo">
+                    Schedule a Walkthrough
                   </Link>
-                </Button>
-                <Button variant="secondary" size="lg" asChild>
-                  <Link href="/demo">Get a Demo</Link>
                 </Button>
               </div>
             </ScrollReveal>
           </div>
         </Container>
       </SectionContainer>
-
-      {/* ================================================================
-         SECTION 2: TRUST STRIP
-         ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip />
-      </ScrollReveal>
 
       {/* ================================================================
          SECTION 3: THE CHALLENGE (DARK)
@@ -373,18 +344,16 @@ export default function K12SolutionsPage() {
           {/* Header */}
           <ScrollReveal variant="fadeUp">
             <Eyebrow color="dark" className="block">
-              The Status Quo
+              The Challenge
             </Eyebrow>
             <h2
               id="challenge-heading"
               className="mt-3 text-display-md text-dark-text-primary"
             >
-              What Schools Currently Rely On
+              Trip planning works better with structure.
             </h2>
             <p className="mt-4 max-w-[65ch] text-body-lg text-dark-text-secondary">
-              Teachers assemble spreadsheets. Permission slips serve as the only
-              documentation. Risk assessment means checking the weather forecast
-              the morning of departure.
+              Field trip planning in most districts relies on individual teachers doing their best with whatever tools are available. The process varies from trip to trip, school to school. The challenge isn't effort or caring -- teachers care deeply. The challenge is that districts ask educators to perform safety planning functions without safety planning tools or training.
             </p>
           </ScrollReveal>
 
@@ -447,13 +416,13 @@ export default function K12SolutionsPage() {
                     With SafeTrekr
                   </p>
                   <p className="mt-3 text-body-lg italic text-dark-text-secondary">
-                    &ldquo;Here is the 17-section safety review conducted by a
-                    professional analyst, the government intelligence risk score, and
-                    the complete evidence binder with SHA-256 verification.&rdquo;
+                    &ldquo;Here is a safety assessment and plan conducted by a
+                    professional analyst that all students, faculty and parents
+                    can review before departure.&rdquo;
                   </p>
                   <p className="mt-4 text-body-md text-dark-text-secondary">
-                    Answer: A documented, tamper-evident record of every precaution
-                    the district took.
+                    Answer: A documented, professional record of the preparation
+                    the district completed.
                   </p>
                 </div>
               </div>
@@ -492,7 +461,7 @@ export default function K12SolutionsPage() {
 
           {/* Feature Cards Grid */}
           <StaggerChildren
-            className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-8"
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
             staggerDelay={0.1}
           >
             {FEATURE_CARDS.map((card) => (
@@ -506,6 +475,58 @@ export default function K12SolutionsPage() {
               </ScrollReveal>
             ))}
           </StaggerChildren>
+        </Container>
+      </SectionContainer>
+
+      {/* ================================================================
+         SECTION 4b: MOBILE APPS (Chaperone, Traveler, Guardian)
+         ================================================================ */}
+      <SectionContainer
+        variant="brand"
+        id="apps"
+        ariaLabelledBy="apps-heading"
+      >
+        <Container>
+          <ScrollReveal variant="fadeUp">
+            <div className="mx-auto max-w-[768px] text-center">
+              <Eyebrow color="primary" className="block">
+                Mobile Apps
+              </Eyebrow>
+              <h2
+                id="apps-heading"
+                className="mt-3 text-display-md text-foreground"
+              >
+                Chaperone, Traveler, and Guardian
+              </h2>
+              <p className="mx-auto mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
+                Three purpose-built apps put the trip plan in everyone&rsquo;s
+                hands, chaperones leading the group, students on the trip,
+                and parents back home.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <StaggerChildren
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+            staggerDelay={0.1}
+          >
+            {APP_CARDS.map((card) => (
+              <ScrollReveal key={card.title} variant="fadeUp">
+                <FeatureCard
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.description}
+                />
+              </ScrollReveal>
+            ))}
+          </StaggerChildren>
+
+          {/* Screenshot placeholder */}
+          <div className="mt-12 rounded-2xl border-2 border-dashed border-border bg-card/50 p-12 text-center">
+            <p className="text-body-md text-muted-foreground">
+              App screenshots coming soon.
+            </p>
+          </div>
         </Container>
       </SectionContainer>
 
@@ -537,7 +558,7 @@ export default function K12SolutionsPage() {
                       ),
                     },
                     {
-                      label: "17-Section Review",
+                      label: "Full Review",
                       accent: "bg-primary-200",
                       content: (
                         <div className="flex flex-col gap-1">
@@ -619,7 +640,7 @@ export default function K12SolutionsPage() {
                 id="binder-preview-heading"
                 className="mt-3 text-display-md text-foreground"
               >
-                See What Your Superintendent Will Review
+                See What Everyone Can Review
               </h2>
               <p className="mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
                 Every field trip produces a comprehensive safety binder. This is what
@@ -641,18 +662,6 @@ export default function K12SolutionsPage() {
                 ))}
               </ul>
 
-              {/* CTA */}
-              <div className="mt-8">
-                <Button variant="primary" size="lg" asChild>
-                  <Link href="/resources/sample-binders/k12-field-trip">
-                    <Download className="size-4" aria-hidden="true" />
-                    Download K-12 Sample Binder
-                  </Link>
-                </Button>
-                <p className="mt-3 text-body-sm text-muted-foreground">
-                  Free. No credit card. Email required.
-                </p>
-              </div>
             </ScrollReveal>
           </div>
         </Container>
@@ -677,11 +686,10 @@ export default function K12SolutionsPage() {
                 id="pricing-heading"
                 className="mt-3 text-display-md text-foreground"
               >
-                $15 Per Student. Do the Math.
+                Professional trip assessment. Straightforward pricing.
               </h2>
               <p className="mx-auto mt-4 max-w-[65ch] text-body-lg text-muted-foreground">
-                Professional safety analysis costs less than a permission slip printing
-                budget. Compare to what your district risks without it.
+                Most districts find that structured trip planning saves administrator time, reduces coordination burden, and creates valuable documentation for future reference.
               </p>
             </div>
           </ScrollReveal>
@@ -689,7 +697,7 @@ export default function K12SolutionsPage() {
           {/* Calculator */}
           <ScrollReveal variant="fadeUp" delay={0.1}>
             <div className="mx-auto mt-12 max-w-[672px]">
-              <PerStudentCalculator />
+              <RevenueCalculator />
             </div>
           </ScrollReveal>
         </Container>
@@ -714,15 +722,16 @@ export default function K12SolutionsPage() {
                 id="compliance-heading"
                 className="mt-3 text-display-md text-foreground"
               >
-                Designed with FERPA Requirements in Mind
+                Built with Student Privacy in Mind
               </h2>
               <p className="mt-4 text-body-lg text-muted-foreground">
-                Student data is sensitive. We built SafeTrekr knowing that. Our data
-                handling practices follow FERPA guidelines for student education
-                records. Certification is in progress.
+                Student data is sensitive, and we built SafeTrekr knowing
+                that. Information is handled with care, kept secure, and
+                only used to support safer trips.
               </p>
               <p className="mt-4 text-body-lg font-medium text-foreground">
-                We do not overclaim. We do not cut corners. We document everything.
+                We do not overclaim. We do not cut corners. We document
+                everything.
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
@@ -731,13 +740,6 @@ export default function K12SolutionsPage() {
                   className="inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:text-primary-600"
                 >
                   View our security practices
-                  <ArrowRight className="size-3.5" aria-hidden="true" />
-                </Link>
-                <Link
-                  href="/procurement"
-                  className="inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:text-primary-600"
-                >
-                  Procurement resources
                   <ArrowRight className="size-3.5" aria-hidden="true" />
                 </Link>
               </div>
@@ -766,11 +768,11 @@ export default function K12SolutionsPage() {
                 ))}
               </StaggerChildren>
 
-              {/* COPPA Note */}
+              {/* Privacy Note */}
               <p className="mt-8 max-w-[65ch] text-body-sm text-muted-foreground">
-                SafeTrekr does not collect data directly from students under 13. All
-                student information is provided by authorized school administrators in
-                accordance with COPPA guidelines.
+                SafeTrekr does not collect information directly from students.
+                All student information is provided by authorized school
+                administrators.
               </p>
             </div>
           </div>
@@ -813,12 +815,12 @@ export default function K12SolutionsPage() {
          ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Ready to Protect Your Next Field Trip?"
-        body="Join districts that document every precaution. Download a sample binder to see the deliverable, or schedule a demo to discuss your district's needs."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional trip planning for K-12 schools with documentation that demonstrates thorough preparation."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{
-          text: "Download Sample Binder",
-          href: "/resources/sample-binders/k12-field-trip",
+          text: "View Pricing",
+          href: "/pricing",
         }}
       />
     </>

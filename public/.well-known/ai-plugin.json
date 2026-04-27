@@ -11,7 +11,7 @@
     "type": "openapi",
     "url": "https://safetrekr.com/openapi.yaml"
   },
-  "logo_url": "https://safetrekr.com/images/safetrekr-logo.png",
+  "logo_url": "https://safetrekr.com/images/safetrekr-logo.svg",
   "contact_email": "hello@safetrekr.com",
   "legal_info_url": "https://safetrekr.com/legal/terms"
 }

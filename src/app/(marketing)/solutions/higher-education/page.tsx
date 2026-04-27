@@ -30,14 +30,12 @@ import {
   AlertTriangle,
   Shield,
   ClipboardCheck,
-  MapPin,
   FileText,
   Activity,
   Users,
   AlertCircle,
   Check,
   ArrowRight,
-  Download,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
@@ -50,27 +48,27 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
-  TrustStrip,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
   CTABand,
+  PricingTierCard,
+  InternationalPricingCard,
 } from "@/components/marketing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
+import { RevenueCalculator } from "@/components/marketing/calculator";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 // ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
 
 export const metadata = generatePageMetadata({
-  title: "Study Abroad Safety for Higher Education",
+  title: "Higher Education Travel Planning",
   description:
-    "SafeTrekr assigns a professional safety analyst to review every study abroad program your institution sends -- across 17 dimensions of risk. Government intelligence. Clery Act documentation. Starting at $1,250 per international program.",
+    "Study abroad programs built on solid preparation. SafeTrekr provides professional safety review for universities with institutional-grade documentation for general counsel and risk management.",
   path: "/solutions/higher-education",
-  ogImage: "/og/solutions-higher-education.png",
 });
 
 // ---------------------------------------------------------------------------
@@ -89,113 +87,101 @@ const BREADCRUMBS = [
 const PROCESS_STEPS = [
   {
     number: 1,
-    title: "Intelligence Gathering",
+    title: "Enter Trip Details",
     description:
-      "Before your students arrive in-country, we pull real-time safety data from NOAA, USGS, CDC, ReliefWeb, and GDACS -- the same sources humanitarian agencies use to assess field conditions. Weather patterns at every program location. Seismic risk. Disease advisories. Political stability indicators. Every data point scored, not just collected.",
+      "Enter all of your trip details and activities through a guided form.",
   },
   {
     number: 2,
-    title: "Analyst Safety Review",
+    title: "Analyst Review",
     description:
-      "A trained safety analyst reviews every detail of your study abroad program across 17 sections -- host institution vetting, housing safety, in-country transportation, emergency medical facilities, evacuation routes, communication infrastructure, mental health resources, and more. Independent of the program provider. Independent of marketing materials.",
+      "Our highly trained and dedicated safety analyst reviews your trip using the most current information, providing the highest quality travel safety plan in the industry.",
   },
   {
     number: 3,
-    title: "Documented Evidence Binder",
+    title: "Receive Your Safety Binder",
     description:
-      "Your institution receives a complete safety binder -- every review finding, every government data source, every decision documented with tamper-evident audit trails. When a parent asks what safety review was conducted, when the provost needs documentation for a Clery Act filing, when risk management requires evidence of due diligence for an insurance claim -- you hand them the binder.",
+      "Your organization receives a digitized interactive or printed safety binder for organized and easy reference. Share with leadership, parents, or stakeholders.",
   },
 ];
 
 const CHALLENGE_CARDS = [
   {
     icon: <FileText className="size-6" />,
-    title: "Third-Party Provider Safety Assessments You Cannot Verify",
+    title: "Inconsistent Processes Across Departments",
     description:
-      "Program providers conduct their own safety reviews of their own programs. Your international education office receives summaries, not source data. When a parent asks what independent verification your institution performed, the honest answer is usually: we relied on the provider's word.",
+      "One department uses a formal assessment process. Another relies on faculty judgment. A third has no standard process at all. When questions arise, the answer is often: 'It depends on who organized the trip.'",
   },
   {
     icon: <Shield className="size-6" />,
-    title: "Risk Matrices Built from Travel Advisories and Google Searches",
+    title: "Documentation Gaps",
     description:
-      "Study abroad offices compile safety information from State Department advisories, news articles, and colleague networks. No standardized methodology. No government intelligence beyond what is publicly searchable. No audit trail documenting the assessment process.",
+      "Without standardized methodology, institutions lack the documentation infrastructure to demonstrate that professional assessment was completed before travel occurred.",
   },
   {
     icon: <Users className="size-6" />,
-    title: "Clery Act Reporting Gaps for Off-Campus International Programs",
+    title: "Varying Standards by Trip Type",
     description:
-      "The Clery Act requires timely reporting of crimes and safety incidents at institution-controlled locations -- including study abroad sites. Many institutions lack the documentation infrastructure to demonstrate they monitored conditions at international program locations before incidents occurred.",
+      "Study abroad, athletics, student organizations, and faculty travel often follow different processes. Stakeholders expect the same level of preparation regardless of sponsoring department.",
   },
   {
     icon: <AlertCircle className="size-6" />,
-    title: "Title IX Obligations That Do Not Stop at the Border",
+    title: "Accountability Requirements",
     description:
-      "Title IX protections follow students abroad. If an incident occurs during a faculty-led program in Florence, your institution's response is evaluated by the same standards as an on-campus incident. Without documented safety planning and emergency protocols, the institutional exposure is significant.",
+      "When stakeholders ask about preparation, institutions need organized records that demonstrate thoroughness. Professional documentation supports accountability requirements.",
   },
 ];
 
 const FEATURE_CARDS = [
   {
     icon: <ClipboardCheck className="size-6" />,
-    title: "Every Program Location Reviewed by an Independent Analyst",
+    title: "Study Abroad Assessment",
     description:
-      "Your study abroad office focuses on student success. Our analyst focuses on safety. 17 sections covering host institutions, housing, transportation, emergency contacts, evacuation routes, local hospitals, mental health resources, and more -- independent of what the program provider tells you.",
+      "Comprehensive safety planning and assessment for international study programs to include emergency contact information, active regional conditions and 360 degree emergency planning in an easy to understand format. All evaluated and developed by a highly trained analyst.",
     href: "/platform/analyst-review",
     linkText: "Learn about analyst review",
   },
   {
-    icon: <MapPin className="size-6" />,
-    title: "Government Data on Every Destination Your Students Visit",
-    description:
-      "Real-time intelligence from 5 government sources -- not a travel advisory summary. NOAA weather data, CDC health advisories, USGS seismic activity, and two international humanitarian agencies. Risk scored with Monte Carlo simulation so you understand probability, not just State Department color codes.",
-    href: "/platform/risk-intelligence",
-    linkText: "Learn about risk intelligence",
-  },
-  {
     icon: <FileText className="size-6" />,
-    title: "Clery Act-Ready Documentation for Your Institution",
+    title: "Institutional Documentation",
     description:
-      "Every finding documented. Every data source cited. Every decision recorded with SHA-256 tamper-evident audit trails. The documentation your risk management office needs for Clery Act compliance, the evidence your general counsel needs for liability defense, and the proof parents need to trust your institution with their student.",
+      "Documentation and digital safety binders provided in an interactive stand alone iPhone/Android phone application.",
     href: "/platform/safety-binder",
     linkText: "Learn about the safety binder",
   },
   {
-    icon: <Activity className="size-6" />,
-    title:
-      "Emergency Protocols and Check-Ins for Every Faculty Leader and Resident Director",
+    icon: <Shield className="size-6" />,
+    title: "Institutional Consistency",
     description:
-      "During your program, every faculty leader and resident director gets the SafeTrekr mobile app -- live geofencing, muster check-ins, rally point navigation, SMS broadcast, and morning/evening safety briefings. When a student does not check in, your international education office knows immediately -- not 12 hours later.",
-    href: "/platform/mobile-app",
-    linkText: "Learn about mobile operations",
+      "All trips and stakeholders receive the same level of expert emergency planning, keeping everyone to the same documented standard.",
+    href: "/platform/risk-intelligence",
+    linkText: "Learn about our methodology",
   },
 ];
 
 const BINDER_CONTENTS = [
-  "Destination risk assessment with government intelligence data",
-  "Host institution and housing safety verification",
-  "Emergency medical facility locations including mental health resources",
-  "Evacuation routes and contingency plans per program location",
-  "In-country transportation safety evaluation",
-  "Communication infrastructure and emergency contact protocols",
-  "Tamper-evident audit trail with SHA-256 hash chain",
+  "Destination assessment from government and private data sources",
+  "Full itinerary and travel emergency assessment and planning resource",
+  "Local information and intelligence summaries for the most up to date information",
+  "Complete audit trail with verified integrity",
 ];
 
 const PROOF_STATS = [
   {
-    value: "17",
-    label: "Analyst Review Sections",
+    value: "Full",
+    label: "Comprehensive Review",
     description:
       "Every program reviewed across host institutions, housing, transportation, emergency contacts, evacuation routes, health advisories, mental health resources, and more",
   },
   {
-    value: "5",
-    label: "Government Intelligence Sources",
+    value: "Multiple",
+    label: "Trusted Intel Sources",
     description:
-      "NOAA, USGS, CDC, ReliefWeb, GDACS -- the same sources humanitarian agencies rely on to assess field conditions",
+      "Current information from established government and international agency sources -- professionally evaluated by experienced analysts",
   },
   {
-    value: "3-5 Days",
-    label: "Submission to Binder Delivery",
+    value: "Fast",
+    label: "Turnaround",
     description:
       "Professional review and documentation delivered before your students depart for their program",
   },
@@ -204,132 +190,111 @@ const PROOF_STATS = [
 const COMPARISON_ROWS = [
   {
     without:
-      "Study abroad office compiles risk assessments from provider marketing materials and State Department advisories. No independent verification. No standardized methodology.",
-    with: "Independent analyst completes 17-section review using 5 government intelligence sources. Methodology documented and auditable.",
+      "Different departments follow different processes. No standardized methodology across the institution.",
+    with: "Independent analyst completes comprehensive review using multiple trusted sources. Same methodology for every trip.",
   },
   {
     without:
-      "Clery Act documentation assembled retroactively after an incident. No pre-departure evidence of safety monitoring at program sites.",
-    with: "Clery Act-ready documentation delivered before students depart. Every program site independently assessed and documented.",
+      "Documentation assembled inconsistently. No standard evidence of safety assessment before departure.",
+    with: "Documentation delivered before students depart. Every program site professionally assessed and documented.",
   },
   {
     without:
-      'If something goes wrong: "We relied on the program provider\'s assessment" is your institutional defense.',
-    with: "If something goes wrong: a complete evidence binder with every decision documented, every data source cited, and tamper-proof integrity.",
+      "When questions arise: 'It depends on who organized the trip' is your institutional answer.",
+    with: "When questions arise: a complete safety binder with every finding documented and every data source cited.",
   },
   {
     without:
-      "Average cost of a single student medical evacuation from Europe: $50,000-$100,000. Average litigation settlement for study abroad incidents: $500K-$2M.",
-    with: "$1,250 per program for documented proof your institution conducted independent, professional safety verification.",
+      "Inconsistent preparation across study abroad, athletics, student organizations, and faculty travel.",
+    with: "Professional preparation at institutional pricing. Same standard regardless of sponsoring department.",
   },
 ];
 
-const PRICING_FEATURES = [
-  "17-section independent analyst review",
-  "Government intelligence risk scoring",
-  "Complete safety binder with audit trail",
-  "Mobile app access for faculty leaders",
-  "AM/PM safety briefings during program",
+const DAY_TRIP_FEATURES = [
+  "Experienced analyst review",
+  "Comprehensive safety assessment",
+  "Interactive digital safety binder",
+  "Mobile field support access",
+  "Fast delivery turnaround",
+  "Verified documentation",
+  "PDF & print export",
+  "30-day post-trip access",
 ];
 
-const PRICING_FEATURES_SEMESTER = [
-  "17-section independent analyst review",
-  "Government intelligence risk scoring",
-  "Complete safety binder with audit trail",
-  "Mobile app access for faculty leaders",
-  "AM/PM safety briefings during program",
-  "Mid-semester intelligence refresh",
+const EXTENDED_TRIP_FEATURES = [
+  "Everything in Day Trip",
+  "Multi-day trip support (up to 7 days)",
+  "Active intelligence monitoring",
+  "Faculty and athletic travel coverage",
+  "Multiple venue assessment",
+  "Priority analyst assignment",
+  "60-day post-trip access",
+];
+
+const INTERNATIONAL_FEATURES = [
+  "Everything in Extended Trip",
+  "International intelligence coverage",
+  "Embassy and consulate contacts",
+  "Regional condition assessment",
+  "Evacuation planning documentation",
+  "Pre-departure briefing",
+  "Extended monitoring (trip duration + 7 days)",
+  "90-day post-trip access",
 ];
 
 const COMPLIANCE_BADGES = [
   {
     icon: <Shield className="size-8" />,
-    title: "AES-256 Encryption",
+    title: "Data Security",
     description:
-      "All data encrypted at rest and in transit. Student information is protected with the same standard used by financial institutions. FERPA-aligned data handling.",
+      "All data encrypted at rest and in transit. Student information handled with institutional-grade security standards.",
   },
   {
     icon: <FileText className="size-8" />,
-    title: "SHA-256 Evidence Chain",
+    title: "Document Integrity",
     description:
-      "Every review finding, every analyst decision, every data source documented with cryptographic integrity. Tamper-evident by design. Audit-ready by default.",
+      "Every review finding, every analyst decision, every data source documented with verified integrity. Audit-ready by default.",
   },
   {
     icon: <Activity className="size-8" />,
-    title: "SOC 2 Type II",
+    title: "Security Controls",
     description:
-      "Audit in progress. We are pursuing SOC 2 Type II certification to validate our security controls. (Status: In Progress)",
-  },
-  {
-    icon: <ClipboardCheck className="size-8" />,
-    title: "Clery Act Documentation Support",
-    description:
-      "Every binder is structured to provide the safety documentation your institution needs for Clery Act reporting and Title IX compliance when incidents occur at international program locations.",
+      "Enterprise security controls designed to meet institutional requirements for student data protection.",
   },
 ];
 
 const FAQ_ITEMS: FAQItem[] = [
   {
-    question:
-      "Does SafeTrekr replace our existing study abroad management system?",
+    question: "How does SafeTrekr support institutional accountability?",
     answer:
-      "No. SafeTrekr is designed to complement systems like Terra Dotta, Via TRM, StudioAbroad, and custom institutional platforms. Your existing system manages program logistics -- applications, enrollment, housing assignments, academic credit. SafeTrekr adds the independent safety verification layer: professional analyst review, government intelligence scoring, and tamper-evident documentation. The safety binder integrates into your existing workflow as an additional document attached to each program's file.",
+      "SafeTrekr safety binders document that professional assessment was conducted for institution-sponsored travel. When questions arise about preparation, the binder provides organized evidence of thoroughness. We don't replace institutional processes, but we create documentation that supports accountability requirements.",
   },
   {
     question:
-      "How does SafeTrekr handle semester-long programs where conditions may change?",
+      "Can SafeTrekr work with our existing travel registration system?",
     answer:
-      "Our analyst reviews specifically account for program duration. For semester-long programs, the initial safety binder covers pre-departure conditions. During the program, your faculty leaders and resident directors receive morning and evening safety briefings covering weather changes, political developments, health advisories, and local events. If conditions change significantly -- a political crisis, natural disaster, or public health emergency -- we issue an updated intelligence brief with current data and revised risk scoring.",
+      "Yes. SafeTrekr can complement existing travel registration workflows. Contact us for information about integration options.",
   },
   {
-    question: "Can we use SafeTrekr for faculty-led short-term programs?",
+    question: "How do you handle trips with multiple destinations?",
     answer:
-      "Yes. Faculty-led programs of any duration benefit from independent safety review. A two-week faculty-led program in Peru carries the same institutional liability as a semester program in London. Our review covers every program location -- primary sites, field trip destinations, and excursion stops. Many institutions start with SafeTrekr for faculty-led programs because faculty members rarely have formal risk assessment training.",
+      "Multi-destination trips are assessed comprehensively. Each destination receives evaluation, and the safety binder documents the full itinerary with location-specific findings and recommendations.",
   },
   {
-    question: "How does this help with Clery Act compliance?",
+    question:
+      "What if we have faculty traveling to challenging regions for research?",
     answer:
-      "The Clery Act requires institutions to report crimes and safety incidents at locations controlled by the institution -- including study abroad program sites. SafeTrekr's safety binder documents that your institution conducted a formal safety assessment of program locations before students arrived. If an incident occurs, the binder provides evidence that your institution proactively monitored conditions and identified risks. This is the documentation most institutions are missing from their Clery Act compliance infrastructure for international programs.",
+      "Our Study Abroad and Challenging Region tiers include enhanced assessment, evacuation planning documentation, and medical infrastructure review. For regions with elevated advisories, we provide additional context for institutional consideration.",
   },
   {
-    question: "What about Title IX obligations for programs abroad?",
+    question: "Can different departments access only their own trips?",
     answer:
-      "Title IX protections follow students to study abroad program locations. If an incident occurs during a program in Florence or Buenos Aires, your institution's response obligations are the same as for an on-campus incident. SafeTrekr's safety binder includes emergency protocol documentation, local law enforcement contacts, medical facility locations, and communication infrastructure assessment -- all the information your Title IX coordinator needs to mount an effective response from thousands of miles away.",
+      "Yes. SafeTrekr supports role-based access with department-level visibility. Department administrators see their own trips; central administration can view institution-wide data. Access controls match your organizational structure.",
   },
   {
-    question: "How quickly do we get the safety binder back?",
+    question: "How quickly can we get documentation for urgent travel?",
     answer:
-      "3-5 business days from program submission to binder delivery. For programs planned months in advance, this timeline integrates naturally into your pre-departure preparation. For faculty-led programs with shorter planning windows, we prioritize submissions to meet departure schedules. If program conditions change after the initial review, our analyst can update the binder with current intelligence data.",
-  },
-  {
-    question: "Can multiple offices access the safety binder?",
-    answer:
-      "Yes. You control access to each program's safety binder. It can be shared with your international education office, risk management, general counsel, the provost's office, program faculty, and any other stakeholder who needs to review safety preparation. The binder includes a verification hash that confirms the document has not been altered since the analyst completed the review -- providing every stakeholder with confidence in the document's integrity.",
-  },
-  {
-    question: "How does pricing work for institutions with many programs?",
-    answer:
-      "Each program is priced at $1,250 for international programs. Institutions running 15 or more international programs per year qualify for volume pricing. A university sending 15 study abroad programs annually would pay approximately $18,750 before any volume discount -- less than the cost of a single student medical evacuation. Contact us for a custom quote that reflects your annual program calendar.",
-  },
-  {
-    question: "Does SafeTrekr cover domestic programs and field trips?",
-    answer:
-      "Yes. While most higher education institutions start with international programs, SafeTrekr reviews domestic programs at $450 per program (day trips) and $750 per program (overnight/multi-day). Geology field courses in remote areas, marine biology programs at coastal stations, and education practicums in urban settings all benefit from professional safety review. The same 17-section analysis applies regardless of destination.",
-  },
-  {
-    question: "What government data sources does SafeTrekr use?",
-    answer:
-      "Our Risk Intelligence Engine pulls data from five government and international agency sources: NOAA (weather and climate patterns), USGS (seismic and geological hazards), CDC (health advisories and disease outbreaks), GDACS (Global Disaster Alert and Coordination System), and ReliefWeb (UN humanitarian situation reports). Each data source is scored using Monte Carlo simulation to produce probability-weighted risk assessments -- not just binary safe/unsafe classifications.",
-  },
-  {
-    question: "How does SafeTrekr handle programs with multiple sites?",
-    answer:
-      "Many study abroad programs involve multiple cities, field trip locations, and excursion destinations. Our analyst reviews each site independently -- the safety conditions in Barcelona's city center are different from those at a rural archaeological dig. Each location gets its own risk intelligence assessment. The final binder consolidates all sites into a single, comprehensive document with per-location findings and a unified emergency response plan.",
-  },
-  {
-    question: "Can SafeTrekr handle programs in high-risk regions?",
-    answer:
-      "Yes. Some of the most academically valuable study abroad destinations are in regions with elevated risk profiles -- Sub-Saharan Africa, Southeast Asia, Central America, the Middle East. Our analyst reviews specifically account for infrastructure gaps, political instability, health system limitations, and communication challenges. The intelligence data from ReliefWeb and GDACS is designed for exactly these regions. The safety binder does not tell you whether to send students -- it documents the risks, mitigations, and emergency protocols so your institution can make an informed decision with defensible documentation.",
+      "Priority processing is available for Study Abroad and Challenging Region trips. Contact us for expedited options.",
   },
 ];
 
@@ -349,7 +314,7 @@ export default function HigherEducationSolutionsPage() {
       <SectionContainer
         id="hero"
         aria-label="Hero"
-        className="pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28 xl:pt-28 xl:pb-36"
+        className="pt-12 pb-10 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16"
       >
         <Container>
           {/* Breadcrumb */}
@@ -391,31 +356,25 @@ export default function HigherEducationSolutionsPage() {
                 icon={<GraduationCap className="size-4" />}
                 className="mb-5"
               >
-                STUDY ABROAD SAFETY
+                HIGHER EDUCATION PLANNING
               </Eyebrow>
 
               <h1 className="text-display-xl max-w-[20ch] text-foreground">
-                Your Study Abroad Programs Deserve a Safety Analyst
+                Study abroad programs built on solid preparation.
               </h1>
 
               <p className="mt-6 max-w-[50ch] text-body-lg text-muted-foreground">
-                SafeTrekr brings professional safety review to every study abroad
-                program, faculty-led trip, and international research expedition
-                your institution sends. Government intelligence. 17-section
-                analyst review. Clery Act-ready documentation that complements
-                your existing study abroad systems -- not replaces them.
+                A trained safety analyst reviews every trip your institution
+                sponsors, study abroad programs, faculty travel, athletic
+                events, and student organization trips. Professional safety
+                assessments and documentation designed for every stakeholder
+                to have a plan for emergencies before departure.
               </p>
 
               <div className="mt-8 flex flex-col flex-wrap gap-4 sm:flex-row">
                 <Button variant="primary" size="lg" asChild>
-                  <Link href="/resources/sample-binders/study-abroad">
-                    <Download className="size-[18px]" aria-hidden="true" />
-                    Download Study Abroad Sample Binder
-                  </Link>
-                </Button>
-                <Button variant="secondary" size="lg" asChild>
                   <Link href="/demo">
-                    Get a Demo
+                    Schedule a Walkthrough
                     <ArrowRight className="size-[18px]" aria-hidden="true" />
                   </Link>
                 </Button>
@@ -434,13 +393,6 @@ export default function HigherEducationSolutionsPage() {
       </SectionContainer>
 
       {/* ================================================================
-          SECTION 2: TRUST STRIP
-          ================================================================ */}
-      <ScrollReveal variant="fadeUp">
-        <TrustStrip showSources />
-      </ScrollReveal>
-
-      {/* ================================================================
           SECTION 3: THE CHALLENGE
           ================================================================ */}
       <SectionContainer id="challenge" ariaLabelledBy="challenge-heading">
@@ -454,30 +406,28 @@ export default function HigherEducationSolutionsPage() {
                   icon={<AlertTriangle className="size-4" />}
                   className="mb-5"
                 >
-                  THE REALITY TODAY
+                  THE CHALLENGE
                 </Eyebrow>
 
                 <h2
                   id="challenge-heading"
                   className="text-display-md max-w-[28ch] text-foreground"
                 >
-                  Study Abroad Safety Cannot Live in a Spreadsheet
+                  University travel preparation works better with consistency.
                 </h2>
 
                 <p className="mt-6 max-w-prose text-body-lg text-muted-foreground">
-                  Every year, universities send thousands of students to
-                  unfamiliar countries through study abroad programs, faculty-led
-                  trips, and international research placements. Most institutions
-                  rely on third-party program providers to handle safety -- but
-                  when the State Department issues a travel advisory, when a
-                  natural disaster strikes, when a student is hospitalized
-                  overseas, the institution&apos;s name is on the Clery Act
-                  report. Not the provider&apos;s.
+                  One department uses a formal assessment process. Another relies
+                  on faculty judgment. A third has no standard process at all.
+                  When questions arise, the answer is often: &quot;It depends on
+                  who organized the trip.&quot;
                 </p>
 
                 <p className="mt-4 max-w-prose text-body-lg font-medium text-foreground">
-                  Your institution&apos;s reputation is not something a
-                  third-party provider can protect for you.
+                  SafeTrekr creates institutional consistency. Every trip,
+                  regardless of sponsoring department, receives the same
+                  professional safety plan and review. Same methodology.
+                  Same documentation. Same standard.
                 </p>
               </ScrollReveal>
             </div>
@@ -526,18 +476,16 @@ export default function HigherEducationSolutionsPage() {
                 icon={<Shield className="size-4" />}
                 className="mb-5"
               >
-                HOW SAFETREKR WORKS
+                HOW IT WORKS
               </Eyebrow>
               <h2
                 id="solution-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                Professional Safety Review for Every International Program
+                From trip details to organized safety plan, quickly.
               </h2>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                SafeTrekr complements your existing study abroad management
-                systems. We handle the independent safety verification your
-                institution cannot get from a program provider.
+                Professional preparation for every university-sponsored trip.
               </p>
             </div>
           </ScrollReveal>
@@ -547,8 +495,8 @@ export default function HigherEducationSolutionsPage() {
             <ProcessTimeline steps={PROCESS_STEPS} />
           </ScrollReveal>
 
-          {/* Feature Cards (2x2) */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Feature Cards (3-col) */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURE_CARDS.map((card, index) => (
               <ScrollReveal
                 key={card.title}
@@ -603,17 +551,18 @@ export default function HigherEducationSolutionsPage() {
                   id="binder-preview-heading"
                   className="max-w-[28ch] text-display-md text-foreground"
                 >
-                  See Exactly What Your Provost and Risk Management Office Will
-                  Receive
+                  Your Risk Management Team Will Receive
                 </h2>
 
                 <p className="mt-6 max-w-prose text-body-lg text-muted-foreground">
-                  Every SafeTrekr review produces a comprehensive safety binder
-                  customized to your study abroad program. This is not a generic
-                  country profile or a program provider&apos;s marketing summary.
-                  It is the documented output of an independent analyst reviewing
-                  your specific program -- your destinations, your dates, your
-                  housing, your host institutions.
+                  Every SafeTrekr review produces a comprehensive and safety
+                  planning binder customized to your study abroad program. This
+                  is not a generic country profile or a program provider&apos;s
+                  marketing summary. It is the documented output of an
+                  independent analyst reviewing your specific program, your
+                  destinations, your dates, your housing, your host
+                  institutions. It also provides active area information so
+                  you can make safer and informed decisions.
                 </p>
 
                 {/* Binder contents list */}
@@ -631,19 +580,6 @@ export default function HigherEducationSolutionsPage() {
                   ))}
                 </ul>
 
-                <Button variant="primary" size="lg" className="mt-8" asChild>
-                  <Link
-                    href="/resources/sample-binders/study-abroad"
-                    aria-label="Download the Study Abroad Sample Binder, opens email-gated form"
-                  >
-                    <Download className="size-[18px]" aria-hidden="true" />
-                    Download the Study Abroad Sample Binder
-                  </Link>
-                </Button>
-                <p className="mt-2 text-body-sm text-muted-foreground">
-                  See a real safety binder output. Gated with email -- we will
-                  not spam you.
-                </p>
               </ScrollReveal>
             </div>
           </div>
@@ -703,12 +639,9 @@ export default function HigherEducationSolutionsPage() {
           {/* Proof Narrative */}
           <ScrollReveal variant="fadeUp">
             <p className="mx-auto mt-12 max-w-prose text-center text-body-lg text-dark-text-secondary">
-              The difference between an institution that documented its safety
-              diligence and one that assumed a program provider handled it is not
-              measured in intention. It is measured in the filing cabinet.
-              SafeTrekr produces the independent, third-party documentation that
-              transforms your institution&apos;s commitment to student safety
-              from an unverifiable assertion into defensible evidence.
+              Consistency across departments. Clarity for stakeholders.
+              SafeTrekr produces professional documentation that demonstrates
+              thorough preparation for every university-sponsored trip.
             </p>
           </ScrollReveal>
         </Container>
@@ -729,148 +662,62 @@ export default function HigherEducationSolutionsPage() {
                 id="pricing-heading"
                 className="max-w-[28ch] text-display-md text-foreground"
               >
-                Professional Safety Review at a Fraction of Your Program Cost
+                Professional preparation. Institutional pricing.
               </h2>
               <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
-                A professional safety review for a semester-long study abroad
-                program costs less than one percent of a typical
-                participant&apos;s program fee. That is the cost of independent,
-                documented safety verification for every student your institution
-                sends abroad.
+                Straightforward per-trip pricing for institutions of all sizes.
+                Most institutions fold the cost into program fees, an
+                additional travel safety fee of roughly $15 to $50 per
+                participant covers professional safety planning for the
+                entire program. Contact us for institutional agreements.
               </p>
             </div>
           </ScrollReveal>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {/* International Program */}
-            <ScrollReveal variant="fadeUp">
-              <div className="rounded-2xl border border-primary-400 bg-card p-8 shadow-md">
-                <Badge variant="brand" className="mb-4 text-xs">
-                  Most Common
-                </Badge>
-                <div
-                  className="font-display text-5xl font-bold text-foreground"
-                  aria-label="$1,250 per international study abroad program"
-                >
-                  $1,250
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per international program
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    $50 per student for a group of 25
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Less than 1% of a $12,000 program fee
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    {PRICING_FEATURES.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5"
-                      >
-                        <Check
-                          className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                          strokeWidth={2.5}
-                          aria-hidden="true"
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
+            <PricingTierCard
+              id="day-trip"
+              tierName="Day Trip"
+              price="$450"
+              perParticipant="~$15/person for a 30-person group"
+              features={DAY_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
 
-            {/* Semester Program */}
-            <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                <div className="mt-6 font-display text-5xl font-bold text-foreground"
-                  aria-label="$1,250 per semester study abroad program"
-                >
-                  $1,250
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  per semester program
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    $42 per student for a group of 30
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Less than 0.3% of a $15,000 semester program fee
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Includes mid-semester condition updates
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
-                  <ul className="space-y-3">
-                    {PRICING_FEATURES_SEMESTER.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5"
-                      >
-                        <Check
-                          className="mt-0.5 size-[18px] shrink-0 text-primary-500"
-                          strokeWidth={2.5}
-                          aria-hidden="true"
-                        />
-                        <span className="text-sm text-muted-foreground">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+            <PricingTierCard
+              id="extended-trip"
+              tierName="Extended Trip"
+              price="$750"
+              perParticipant="~$19/person for a 40-person group"
+              features={EXTENDED_TRIP_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+              featured
+              badge="Most Popular"
+            />
 
-            {/* Multi-Program Institution */}
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-                <div className="mt-6 font-display text-5xl font-bold text-foreground">
-                  Custom
-                </div>
-                <div className="mt-1 text-body-md text-muted-foreground">
-                  volume pricing for 15+ programs per year
-                </div>
-                <div className="mt-4 space-y-1">
-                  <p className="text-sm text-muted-foreground">
-                    A university sending 15 international programs per year:
-                  </p>
-                  <p className="text-sm font-medium text-foreground">
-                    $18,750/year for complete safety coverage
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Volume discounts available for 15+ programs annually
-                  </p>
-                </div>
-                <div className="mt-6">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="w-full"
-                    asChild
-                  >
-                    <Link href="/demo">Get a Custom Quote</Link>
-                  </Button>
-                </div>
-              </div>
-            </ScrollReveal>
+            <InternationalPricingCard
+              id="international"
+              features={INTERNATIONAL_FEATURES}
+              ctaText="Schedule a Walkthrough"
+              ctaHref="/demo"
+            />
           </div>
+
+          {/* Revenue / Surplus Calculator */}
+          <ScrollReveal variant="fadeUp">
+            <div className="mx-auto mt-16 max-w-[672px]">
+              <RevenueCalculator />
+            </div>
+          </ScrollReveal>
 
           {/* Cost-of-Inaction Comparison Block */}
           <ScrollReveal variant="fadeUp">
             <div className="mt-12 rounded-xl border border-border bg-card p-8">
               <h3 className="mb-6 text-heading-md text-foreground">
-                The Cost of Not Having an Independent Safety Review
+                The Value of Institutional Consistency
               </h3>
 
               <table className="w-full" role="table">
@@ -967,13 +814,13 @@ export default function HigherEducationSolutionsPage() {
                 id="compliance-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                Built to Satisfy Your Risk Management Office and General Counsel
+                Built to Satisfy Your School&rsquo;s Risk Management Standards
               </h2>
             </div>
           </ScrollReveal>
 
           {/* Trust Badge Grid */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {COMPLIANCE_BADGES.map((badge, index) => (
               <ScrollReveal
                 key={badge.title}
@@ -1002,20 +849,14 @@ export default function HigherEducationSolutionsPage() {
           <ScrollReveal variant="fadeUp">
             <div className="mt-12 text-center">
               <h3 className="text-heading-md text-foreground">
-                Your Risk Management Office Will Thank You
+                Documentation That Supports Accountability
               </h3>
               <p className="mx-auto mt-4 max-w-prose text-body-lg text-muted-foreground">
-                Most universities accept program provider assurances as their
-                primary safety verification for international programs. The
-                problem is that a provider&apos;s self-assessment is not
-                independent evidence. When a parent&apos;s attorney asks what
-                independent safety review your institution conducted before
-                sending their student abroad, a provider&apos;s marketing
-                materials are not a defensible answer. SafeTrekr produces the
-                independent documentation: a professional 17-section safety
-                review backed by government intelligence data, documented with
-                tamper-evident audit trails. That is the evidence your general
-                counsel and risk management office need.
+                SafeTrekr produces professional documentation: a comprehensive
+                safety review using multiple trusted sources, with verified
+                document integrity. When stakeholders ask for evidence of
+                preparation, you have organized records that demonstrate
+                thoroughness.
               </p>
             </div>
           </ScrollReveal>
@@ -1033,22 +874,6 @@ export default function HigherEducationSolutionsPage() {
             </div>
           </ScrollReveal>
 
-          {/* Procurement Link */}
-          <ScrollReveal variant="fadeUp">
-            <div className="mt-8 text-center">
-              <p className="text-body-md text-muted-foreground">
-                Institutional buyer? Download our W-9, security questionnaire
-                responses, and insurance documentation.
-              </p>
-              <Link
-                href="/procurement"
-                className="mt-2 inline-flex items-center gap-1 text-body-md font-medium text-primary-700"
-              >
-                Visit our procurement page
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </ScrollReveal>
         </Container>
       </SectionContainer>
 
@@ -1066,7 +891,7 @@ export default function HigherEducationSolutionsPage() {
                 id="faq-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-foreground"
               >
-                Everything Your International Education Office Will Ask
+                Frequently Asked Questions
               </h2>
             </div>
           </ScrollReveal>
@@ -1082,12 +907,12 @@ export default function HigherEducationSolutionsPage() {
           ================================================================ */}
       <CTABand
         variant="dark"
-        headline="Protect Your Next Study Abroad Program"
-        body="See exactly what an independently reviewed study abroad program looks like. Download a sample binder or schedule a 30-minute demo with our team."
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        headline="Ready to go with a plan?"
+        body="See how SafeTrekr delivers professional trip planning for higher education with institutional-grade documentation."
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{
-          text: "Download Sample Binder",
-          href: "/resources/sample-binders/study-abroad",
+          text: "View Pricing",
+          href: "/pricing",
         }}
       />
     </main>

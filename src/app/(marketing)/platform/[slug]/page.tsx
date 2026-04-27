@@ -7,18 +7,18 @@
  * CTA. All pages are statically generated at build time via generateStaticParams.
  *
  * Slugs:
- *   - analyst-review    -- "Professional Analyst Review"
- *   - risk-intelligence -- "Real-Time Risk Intelligence"
- *   - safety-binder     -- "Digital Safety Binder"
+ *   - analyst-review   , "Professional Analyst Review"
+ *   - risk-intelligence, "Real-Time Risk Intelligence"
+ *   - safety-binder    , "Digital Safety Binder"
  *
  * Server Component throughout. No client interactivity at the page level.
  *
  * Section order:
- *   1. Hero              -- Breadcrumb nav, eyebrow, headline, description, dual CTAs
- *   2. Key Capabilities  -- FeatureGrid (3-4 cards per feature)
- *   3. How It Works      -- 3-step ProcessTimeline specific to each feature
- *   4. CTA Band          -- Dark variant conversion band
- *   5. JSON-LD           -- BreadcrumbList structured data
+ *   1. Hero             , Breadcrumb nav, eyebrow, headline, description, dual CTAs
+ *   2. Key Capabilities , FeatureGrid (3-4 cards per feature)
+ *   3. How It Works     , 3-step ProcessTimeline specific to each feature
+ *   4. CTA Band         , Dark variant conversion band
+ *   5. JSON-LD          , BreadcrumbList structured data
  */
 
 import { notFound } from "next/navigation";
@@ -36,7 +36,6 @@ import {
   ArrowRight,
   BarChart3,
   Globe,
-  Lock,
   Download,
   CheckCircle2,
   Zap,
@@ -95,196 +94,196 @@ const FEATURES: Record<string, FeaturePageData> = {
   "analyst-review": {
     title: "Professional Analyst Review",
     metaDescription:
-      "Every SafeTrekr trip is reviewed by a trained safety analyst across 17 dimensions. Venues, transportation, emergency planning, health advisories, and more -- professionally evaluated and documented.",
+      "Every SafeTrekr trip is reviewed by a trained safety analyst across comprehensive standardized sections. Venues, transportation, emergency planning, health considerations, and more, professionally evaluated and documented.",
     eyebrow: "ANALYST REVIEW",
     eyebrowIcon: <ClipboardCheck className="size-4" />,
     headline: "Every Trip Reviewed by a Professional Safety Analyst",
     heroDescription:
-      "Your trip leader focuses on the mission. Our analyst focuses on safety. Every trip goes through a rigorous 17-section review covering venues, lodging, transportation, emergency contacts, evacuation routes, local hospitals, weather windows, and more -- conducted by a trained professional, not an algorithm.",
+      "Every trip is reviewed by former Secret Service, Special Operations, and trained safety staff analyzing all aspects of the trip safety and intelligence. Assessments by professionals, not automation.",
     capabilitiesHeadline:
-      "17 dimensions of safety. One professional review.",
+      "Comprehensive review. Professional standards.",
     capabilities: [
       {
         icon: <Eye className="size-6" />,
-        title: "17-Section Review Framework",
+        title: "Comprehensive Review Framework",
         description:
-          "Every trip is evaluated across 17 standardized sections -- from venue safety and transportation to emergency medical facilities and communication infrastructure. Nothing is assumed. Everything is documented.",
+          "Every trip is evaluated across standardized sections, from venue assessment and transportation to emergency medical facilities and communication infrastructure. Nothing is assumed. Everything is documented.",
       },
       {
         icon: <Users className="size-6" />,
         title: "Dedicated Analyst Assignment",
         description:
-          "Each trip is assigned to a trained safety analyst who reviews every detail. Your analyst flags what needs attention, documents what is ready, and writes recommendations for every finding.",
+          "Each trip is assigned to a trained safety analyst who reviews every detail. Your analyst identifies what needs attention, documents what is ready, and writes recommendations for every finding.",
       },
       {
         icon: <Building2 className="size-6" />,
         title: "Venue and Lodging Verification",
         description:
-          "Every venue, lodging facility, and activity location is evaluated for structural safety, emergency egress, proximity to medical facilities, and historical incident records.",
+          "Every venue, lodging facility, and activity location is evaluated for safety considerations, emergency egress, proximity to medical facilities, and relevant history.",
       },
       {
         icon: <AlertTriangle className="size-6" />,
-        title: "Emergency Preparedness Planning",
+        title: "Emergency Preparedness Documentation",
         description:
-          "Evacuation routes, emergency medical facilities, communication infrastructure, and contingency plans -- all documented before your team departs. Preparation, not reaction.",
+          "Evacuation routes, emergency medical facilities, communication infrastructure, and contingency considerations, all documented before your team departs. Preparation, not reaction.",
       },
     ],
     processHeadline: "How the analyst review works",
     processDescription:
-      "From trip submission to completed review in 3-5 business days.",
+      "From trip details to organized safety plan, quickly.",
     processSteps: [
       {
         number: 1,
-        title: "Trip Details Submitted",
+        title: "Enter Trip Details",
         description:
-          "Your organization submits trip details through a guided form -- destination, dates, participants, activities, venues, and transportation. Takes approximately 15 minutes.",
+          "Enter all of your trip details and activities through a self-guided form.",
       },
       {
         number: 2,
-        title: "Analyst Conducts 17-Section Review",
+        title: "Expert Analyst Review",
         description:
-          "A trained safety analyst reviews every dimension of your trip using government intelligence data. Venues verified. Routes assessed. Emergency plans documented. Recommendations written.",
+          "Our highly trained and dedicated safety analyst reviews your trip using the most current information, providing the highest quality travel safety plan in the industry.",
       },
       {
         number: 3,
-        title: "Findings Delivered in Safety Binder",
+        title: "Safety Binder Delivered",
         description:
-          "Every finding, recommendation, and risk score is compiled into your safety binder with tamper-evident audit trails. Board-ready. Insurance-ready. Evidence-grade.",
+          "Your organization receives a digitized interactive or printed safety binder for organized and easy reference. Share with leadership, parents, or stakeholders.",
       },
     ],
     ctaHeadline: "See what a professional safety review looks like",
     ctaBody:
-      "Request a demo to walk through a sample analyst review and safety binder for your organization type.",
+      "Schedule a walkthrough to see a sample analyst review for your organization type.",
   },
 
   "risk-intelligence": {
-    title: "Real-Time Risk Intelligence",
+    title: "Current Safety Information",
     metaDescription:
-      "SafeTrekr scores every destination using Monte Carlo simulation and 5 government intelligence sources: NOAA, USGS, CDC, GDACS, and ReliefWeb. Probability-weighted risk bands, not binary pass/fail.",
-    eyebrow: "RISK INTELLIGENCE",
+      "SafeTrekr assesses every destination using structured methodology and authoritative government data sources. Probability-based assessment, not binary pass/fail.",
+    eyebrow: "SAFETY INFORMATION",
     eyebrowIcon: <Activity className="size-4" />,
-    headline: "Government-Sourced Intelligence for Every Destination",
+    headline: "Current Information for Every Destination",
     heroDescription:
-      "Before your team boards a plane, SafeTrekr pulls real-time safety data from NOAA, USGS, CDC, ReliefWeb, and GDACS -- the same sources humanitarian agencies use to assess field conditions. Every data point scored with Monte Carlo simulation so you understand probability, not just possibility.",
+      "Before your team departs, SafeTrekr gathers current safety information from multiple sources to include NOAA, USGS, CDC, ReliefWeb, and GDACS, the same sources professionals use to assess conditions. Structured assessment methodology so you understand context, not just yes/no flags.",
     capabilitiesHeadline:
-      "Five government sources. One probability-weighted score.",
+      "Authoritative sources. Structured assessment.",
     capabilities: [
       {
         icon: <Database className="size-6" />,
-        title: "5 Government Data Sources",
+        title: "Government & Authoritative Sources",
         description:
-          "NOAA weather forecasts, USGS seismic monitoring, CDC health advisories, GDACS disaster alerts, and ReliefWeb humanitarian reports. Real intelligence, not a Google search.",
+          "Weather forecasts, geological monitoring, health advisories, humanitarian alerts, and regional reports from official government and international sources. Professional information, not web searches.",
       },
       {
         icon: <BarChart3 className="size-6" />,
-        title: "Monte Carlo Risk Scoring",
+        title: "Structured Assessment",
         description:
-          "Each destination is scored using Monte Carlo simulation -- thousands of scenarios run to calculate probability-weighted risk bands. You see likelihood, not just possibility.",
+          "Each destination is assessed using structured methodology, conditions evaluated in context rather than binary pass/fail. You see the full picture, not just flags.",
       },
       {
         icon: <Globe className="size-6" />,
         title: "Destination-Specific Analysis",
         description:
-          "Risk profiles are generated for your exact destination and travel dates. Weather patterns, seismic activity, disease advisories, and security conditions -- all specific to where and when your team will be.",
+          "Assessment profiles are generated for your exact destination and travel dates. Weather patterns, geological considerations, health advisories, and regional conditions, all specific to where and when your team will be.",
       },
       {
         icon: <Zap className="size-6" />,
-        title: "Real-Time Data Refresh",
+        title: "Current Data Gathering",
         description:
-          "Intelligence data is pulled at the time of review and refreshed for active trips. Conditions change -- your risk intelligence keeps pace with morning and evening safety briefings during travel.",
+          "Information is gathered at the time of review and reflects current conditions. For active trips with monitoring, briefings keep your team informed as conditions evolve.",
       },
     ],
-    processHeadline: "How risk intelligence is generated",
+    processHeadline: "How safety information is gathered",
     processDescription:
-      "From destination submission to scored risk profile in your safety binder.",
+      "From destination submission to assessed profile delivered to your team.",
     processSteps: [
       {
         number: 1,
-        title: "Intelligence Gathering",
+        title: "Information Gathering",
         description:
-          "Real-time data is pulled from 5 government sources for your specific destination and travel dates. Weather patterns, seismic risk, disease advisories, disaster alerts, and humanitarian conditions.",
+          "Current data is gathered from multiple trusted sources for your specific destination and travel dates. Weather patterns, geological considerations, health advisories, safety alerts, and regional conditions.",
       },
       {
         number: 2,
-        title: "Monte Carlo Scoring",
+        title: "Structured Assessment",
         description:
-          "Thousands of simulation scenarios calculate probability-weighted risk bands for each hazard category. Every risk is scored on likelihood and severity -- not just flagged as present or absent.",
+          "Information is evaluated using structured assessment methodology. Each consideration is assessed in context, not just flagged as present or absent.",
       },
       {
         number: 3,
         title: "Analyst Interpretation",
         description:
-          "Your safety analyst reviews the scored intelligence, adds contextual recommendations, and documents actionable findings. Data informs the review. The analyst makes the judgment.",
+          "Your professional safety analyst reviews the gathered information, adds recommendations, and documents actionable findings.",
       },
     ],
-    ctaHeadline: "See how risk intelligence protects your travelers",
+    ctaHeadline: "See how safety information supports your planning",
     ctaBody:
-      "Request a demo to see a live risk intelligence report for any destination your organization is considering.",
+      "Schedule a walkthrough to see an information report for any destination your organization is considering.",
   },
 
   "safety-binder": {
-    title: "Digital Safety Binder",
+    title: "SafeTrekr Traveler App",
     metaDescription:
-      "SafeTrekr delivers audit-ready safety documentation with SHA-256 hash-chain integrity. Every finding, recommendation, and risk score compiled into a tamper-evident binder for your board, insurance carrier, and legal team.",
-    eyebrow: "SAFETY BINDER",
+      "SafeTrekr delivers complete safety documentation through the Traveler app. Every finding, recommendation, and contact available on any device with offline access.",
+    eyebrow: "TRAVELER APP",
     eyebrowIcon: <FileText className="size-4" />,
-    headline: "Audit-Ready Documentation for Every Trip",
+    headline: "Everything Your Travelers Need, On Any Device",
     heroDescription:
-      "When your board asks what you did to prepare, when your insurance carrier asks for a formal risk assessment, when a concerned parent asks how you evaluated the destination -- you hand them the binder. Every finding documented. Every data source cited. Every decision recorded with tamper-evident audit trails.",
+      "Every finding, every contact, every recommendation, delivered through the SafeTrekr Traveler app. Works on phones, tablets, and laptops. Available offline when connectivity is limited. Printable when your team prefers paper. Your preparation, always accessible.",
     capabilitiesHeadline:
-      "Every finding documented. Every decision recorded.",
+      "Complete preparation. Always accessible.",
     capabilities: [
       {
-        icon: <Lock className="size-6" />,
-        title: "SHA-256 Tamper-Evident Integrity",
+        icon: <Globe className="size-6" />,
+        title: "Works On Any Device",
         description:
-          "Every review finding and analyst decision is recorded with cryptographic hash-chain integrity. The binder cannot be altered after completion without detection -- your documentation is evidence-grade.",
-      },
-      {
-        icon: <FileText className="size-6" />,
-        title: "Complete 17-Section Documentation",
-        description:
-          "All 17 review sections are compiled into a single, structured document. Findings, recommendations, risk scores, emergency contacts, maps, and evacuation routes -- everything in one place.",
+          "Access your trip information from any smartphone, tablet, or laptop. No app store downloads required, works directly in the browser with full functionality across all platforms.",
       },
       {
         icon: <Download className="size-6" />,
-        title: "Digital Delivery and PDF Export",
+        title: "Offline Access",
         description:
-          "Your safety binder is delivered digitally through the SafeTrekr platform and can be exported as a PDF for your board, insurance carrier, legal team, or denominational leadership.",
+          "Download your trip information for offline access. When connectivity is limited or unavailable, your team still has everything they need, emergency contacts, maps, recommendations, and more.",
+      },
+      {
+        icon: <FileText className="size-6" />,
+        title: "Printable Documentation",
+        description:
+          "Prefer paper? Export and print your complete trip documentation. Perfect for chaperones, trip binders, and organizations that want physical backup copies.",
       },
       {
         icon: <CheckCircle2 className="size-6" />,
-        title: "Insurance and Compliance Ready",
+        title: "Stakeholder-Ready Reports",
         description:
-          "Structured to satisfy the safety documentation requirements your insurance carrier needs. When carriers ask whether a formal risk assessment was conducted, the binder is your documented answer.",
+          "Generate formatted reports for your board, insurance carrier, leadership, or stakeholders. When they ask what preparation was completed, you have organized documentation ready to share.",
       },
     ],
-    processHeadline: "How your safety binder is built",
+    processHeadline: "How your team accesses trip information",
     processDescription:
-      "From analyst review to documented, tamper-evident delivery.",
+      "From analyst review to instant access for every traveler.",
     processSteps: [
       {
         number: 1,
-        title: "Findings Compiled",
+        title: "Review Completed",
         description:
-          "As the analyst completes each of the 17 review sections, findings, recommendations, and risk scores are compiled into the binder structure. Every data source is cited.",
+          "As the analyst completes each review section, findings, recommendations, and assessments are compiled and organized. Every data source is cited.",
       },
       {
         number: 2,
-        title: "Evidence Chain Sealed",
+        title: "App Access Configured",
         description:
-          "Every finding is recorded with a SHA-256 hash-chain audit trail. The completed binder is cryptographically sealed -- tamper-evident by design, not by policy.",
+          "Your organization configures who receives access, trip leaders, chaperones, participants, or administrators. Each person gets secure access to the information they need.",
       },
       {
         number: 3,
-        title: "Binder Delivered",
+        title: "Information Delivered",
         description:
-          "Your organization receives the complete safety binder digitally. Share it with your board, insurance carrier, legal team, or anyone who needs to review your safety preparation.",
+          "Travelers receive a link to access their trip information. Works immediately on any device. Download for offline use or print for physical copies.",
       },
     ],
-    ctaHeadline: "See what a safety binder looks like",
+    ctaHeadline: "See the Traveler app in action",
     ctaBody:
-      "Request a demo to walk through a complete safety binder and understand what your organization receives for every trip.",
+      "Schedule a walkthrough to experience the Traveler app and see what your team receives for every trip.",
   },
 };
 
@@ -342,7 +341,7 @@ export default async function PlatformFeaturePage({ params }: PageProps) {
       <section
         id="hero"
         aria-label="Hero"
-        className="bg-background pb-12 pt-8 sm:pb-16 sm:pt-12 md:pb-20 md:pt-16 lg:pb-28 lg:pt-20 xl:pb-36 xl:pt-28"
+        className="bg-background pt-12 pb-10 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16"
       >
         <Container>
           {/* Breadcrumb Navigation */}
@@ -406,7 +405,7 @@ export default async function PlatformFeaturePage({ params }: PageProps) {
               <div className="mt-8 flex flex-col flex-wrap gap-4 sm:flex-row">
                 <Button variant="primary" size="lg" asChild>
                   <Link href="/demo">
-                    Get a Demo
+                    Schedule a Walkthrough
                     <ArrowRight className="size-[18px]" />
                   </Link>
                 </Button>
@@ -500,7 +499,7 @@ export default async function PlatformFeaturePage({ params }: PageProps) {
         variant="dark"
         headline={feature.ctaHeadline}
         body={feature.ctaBody}
-        primaryCta={{ text: "Get a Demo", href: "/demo" }}
+        primaryCta={{ text: "Schedule a Walkthrough", href: "/demo" }}
         secondaryCta={{ text: "View Pricing", href: "/pricing" }}
       />
 

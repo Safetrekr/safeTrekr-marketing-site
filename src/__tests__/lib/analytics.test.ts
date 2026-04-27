@@ -24,7 +24,7 @@ describe("trackEvent()", () => {
 
   afterEach(() => {
     // Clean up the global
-    delete (window as Record<string, unknown>).plausible;
+    delete (window as unknown as Record<string, unknown>).plausible;
     vi.restoreAllMocks();
   });
 
@@ -47,7 +47,7 @@ describe("trackEvent()", () => {
   });
 
   it("is a no-op when window.plausible is undefined", () => {
-    delete (window as Record<string, unknown>).plausible;
+    delete (window as unknown as Record<string, unknown>).plausible;
     // Should not throw
     expect(() => trackEvent("cta_click")).not.toThrow();
   });
