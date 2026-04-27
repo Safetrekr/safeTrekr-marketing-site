@@ -9,7 +9,15 @@ RUN apt-get update && \
     apt-get install -y doppler
 
 # stage 2 - build next.js app
-FROM node:22-alpine AS builder
+#
+# Pinned to node:20-alpine because Next.js 16.2.3 + React 19.0.0's webpack
+# build prerender of /_global-error fails on node 22 with
+# "Cannot read properties of null (reading 'useContext')" inside the bundled
+# OuterLayoutRouter chunk (function C in chunks/<n>.js -- the React module
+# namespace `i` is null at SSG time). Same bundle output runs fine on
+# node 20. Likely a node 22 module-resolution interaction with Next.js's
+# react-server condition. Revisit when Next.js / React patch this.
+FROM node:20-alpine AS builder
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
@@ -39,7 +47,7 @@ RUN --mount=type=secret,id=doppler_token,required=true \
     doppler run -- npm run build
 
 # stage 3 - prod runner
-FROM node:22-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Bust this ARG (via --build-arg SECURITY_REFRESH=<date>) or build with --pull
