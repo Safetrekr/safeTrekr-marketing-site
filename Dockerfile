@@ -39,6 +39,17 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Cache-buster: BuildKit's cache key for `RUN --mount=type=secret` does NOT
+# include the secret value (intentional, prevents secret leakage via cache
+# identity). That means if Doppler values change but no source files change,
+# GHA's `cache-from: type=gha` will reuse the previously-built layer with the
+# OLD baked-in NEXT_PUBLIC_* values. Passing GIT_SHA as a build arg makes the
+# layer's cache key change per commit, forcing a fresh build whenever any
+# code changes -- which is the only point at which we'd want fresh secrets
+# baked in anyway. Local builds without --build-arg GIT_SHA fall back to
+# "dev" and behave normally.
+ARG GIT_SHA=dev
+
 # BuildKit secret mount keeps the Doppler token out of image layers. CI passes
 # it via `secrets: doppler_token=...` on docker/build-push-action; locally you
 # can build with `DOCKER_BUILDKIT=1 docker build --secret id=doppler_token,env=DOPPLER_TOKEN .`
@@ -51,7 +62,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # as a useContext-null TypeError during the SSG prerender of /_global-error.
 RUN --mount=type=secret,id=doppler_token,required=true \
     DOPPLER_TOKEN=$(cat /run/secrets/doppler_token) \
-    doppler run -- sh -c 'NODE_ENV=production npm run build'
+    SHA="$GIT_SHA" doppler run -- sh -c 'NODE_ENV=production npm run build'
 
 # stage 3 - prod runner
 FROM node:20-alpine AS runner

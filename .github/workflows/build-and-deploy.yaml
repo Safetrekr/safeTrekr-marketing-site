@@ -69,6 +69,12 @@ jobs:
           # a stale base for weeks.
           pull: true
           tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ env.tag }}
+          # GIT_SHA is referenced inside the doppler-wrapped build RUN line so
+          # its cache key changes every commit. Without this, GHA reuses the
+          # cached build layer (BuildKit excludes secret values from cache
+          # keys, so changing Doppler alone won't invalidate). See Dockerfile.
+          build-args: |
+            GIT_SHA=${{ github.sha }}
           secrets: |
             doppler_token=${{ env.ENV == 'prod' && secrets.SAFETREKR_MARKETING_PROD_TOKEN || secrets.SAFETREKR_MARKETING_DEV_TOKEN }}
           cache-from: type=gha
