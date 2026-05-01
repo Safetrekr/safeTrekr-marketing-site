@@ -47,7 +47,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png` as const;
 const DEFAULT_OG_IMAGE_WIDTH = 1200 as const;
 const DEFAULT_OG_IMAGE_HEIGHT = 630 as const;
 const DEFAULT_OG_IMAGE_ALT =
-  "SafeTrekr — Every trip requires a plan. Trip Safety Planning Platform." as const;
+  "SafeTrekr | Every trip requires a plan. Trip Safety Planning Platform." as const;
 
 /** Twitter handle for the site-wide `twitter:site` tag. */
 const TWITTER_HANDLE = "@safetrekr" as const;

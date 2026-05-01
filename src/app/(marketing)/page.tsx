@@ -502,7 +502,7 @@ export default function PreviewHomePage() {
                 Professional preparation by people who&apos;ve done it at the highest level.
               </h2>
               <p className="text-body-lg mt-6" style={{ color: 'var(--color-muted-foreground)', maxWidth: '50ch', lineHeight: 1.7 }}>
-                Every trip reviewed by a trained safety analyst. Current intelligence, professional assessment, documented preparation — the quiet work done before your group steps out the door.
+                Every trip reviewed by a trained safety analyst. Current intelligence, professional assessment, documented preparation. The quiet work done before your group steps out the door.
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -703,7 +703,9 @@ export default function PreviewHomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>PRICING</span>
             <h2 id="pricing-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Professional trip assessment. Starting at $15 per participant.
+              Professional trip assessment.{' '}
+              <br />
+              Group Prices Below:
             </h2>
           </div>
 
