@@ -90,7 +90,7 @@ export function LeadCaptureModal({
           kind: "success",
           message:
             result.message ??
-            "Thanks — we'll email you a sample binder shortly.",
+            "Thanks! We'll email you a sample binder shortly.",
         });
         form.reset();
       } else {

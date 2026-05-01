@@ -60,7 +60,7 @@ const SUCCESS_MESSAGES: Record<FormType, string> = {
   quote_request:
     "Quote request received. Our team will follow up with a tailored proposal.",
   sample_binder_download:
-    "Thanks — we'll email you a sample binder shortly.",
+    "Thanks! We'll email you a sample binder shortly.",
 };
 
 // ---------------------------------------------------------------------------

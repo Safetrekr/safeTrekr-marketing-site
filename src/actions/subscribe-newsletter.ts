@@ -29,7 +29,7 @@ export interface SubscribeNewsletterResult {
 }
 
 const NEWSLETTER_SUCCESS_MESSAGE =
-  "Thanks — you're on the list. Watch your inbox for the next SafeTrekr update.";
+  "Thanks! You're on the list. Watch your inbox for the next SafeTrekr update.";
 
 const RATE_LIMIT = { max: 3, windowMinutes: 60 };
 

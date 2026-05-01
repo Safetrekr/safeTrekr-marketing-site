@@ -495,7 +495,7 @@ export default function HowItWorksPage() {
         <FeatureShowcase
           eyebrow="The Deliverable"
           title="The SafeTrekr Traveler App."
-          description="Your complete safety package delivered through our powerful Traveler app. Interactive maps, emergency contacts, real-time alerts, and your full safety assessment—all in your pocket. Works offline when you need it most."
+          description="Your complete safety package delivered through our powerful Traveler app. Interactive maps, emergency contacts, real-time alerts, and your full safety assessment, all in your pocket. Works offline when you need it most."
           visual={<DocumentPreview variant="full" showHash />}
           ctaText="See the App in Action"
           ctaHref="/demo"

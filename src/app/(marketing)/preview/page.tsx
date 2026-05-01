@@ -611,7 +611,7 @@ export default function PreviewHomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-eyebrow" style={{ color: 'var(--color-primary-700)' }}>PRICING</span>
             <h2 id="pricing-heading" className="text-display-md mt-4 mx-auto" style={{ color: 'var(--color-foreground)', maxWidth: '28ch' }}>
-              Professional trip assessment. Starting at $15 per participant.
+              Professional trip assessment. Group Prices Below:
             </h2>
           </div>
 
