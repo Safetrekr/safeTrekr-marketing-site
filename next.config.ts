@@ -66,6 +66,16 @@ const nextConfig: NextConfig = {
   ...(!isStaticExport && {
     async headers() {
       return [
+        // Force browsers to download PDFs (e.g. legal documents) rather than
+        // render them inline. Paired with the global nosniff + X-Frame-Options
+        // DENY headers, this neutralises the inline-render attack surface for a
+        // static PDF. The files are fixed-name assets under public/downloads —
+        // there is no server-side filename parameter, so path traversal is not
+        // possible.
+        {
+          source: "/downloads/:file*.pdf",
+          headers: [{ key: "Content-Disposition", value: "attachment" }],
+        },
         {
           source: "/:path*",
           headers: SECURITY_HEADERS,
