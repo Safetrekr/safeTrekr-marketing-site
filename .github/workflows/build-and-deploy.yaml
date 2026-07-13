@@ -78,7 +78,10 @@ jobs:
           secrets: |
             doppler_token=${{ env.ENV == 'prod' && secrets.SAFETREKR_MARKETING_PROD_TOKEN || secrets.SAFETREKR_MARKETING_DEV_TOKEN }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # ignore-error=true: the image is already built and pushed by the
+          # time the cache export runs, so a flaky/full GHA cache backend
+          # ("failed to reserve cache") must not fail an otherwise-green build.
+          cache-to: type=gha,mode=max,ignore-error=true
 
   deploy-image-dev:
     needs: build-and-push-image

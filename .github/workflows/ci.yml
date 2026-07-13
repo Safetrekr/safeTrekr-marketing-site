@@ -144,4 +144,6 @@ jobs:
           pull: true
           tags: safetrekr-web:ci-${{ github.sha }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # ignore-error=true: a flaky/full GHA cache backend ("failed to
+          # reserve cache") must not fail an otherwise-successful build.
+          cache-to: type=gha,mode=max,ignore-error=true
