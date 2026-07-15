@@ -44,6 +44,7 @@ const PAGE_DATES: Record<string, string> = {
   "/legal/privacy": "2026-03-15",
   "/legal/terms": "2026-03-15",
   "/legal/dpa": "2026-03-15",
+  "/legal/purchase-terms": "2026-03-07",
   "/about": "2026-03-24",
   "/how-it-works": "2026-03-20",
   "/pricing": "2026-03-18",
