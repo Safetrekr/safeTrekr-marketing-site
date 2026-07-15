@@ -2,8 +2,7 @@
  * Purchase Terms Page (/legal/purchase-terms)
  *
  * Full Purchase Terms with two sections of real content, sticky TOC
- * sidebar on desktop, and collapsible TOC on mobile. Also offers a
- * securely served (static, force-download) PDF of the document.
+ * sidebar on desktop, and collapsible TOC on mobile.
  *
  * Layout: 720px article + 260px sticky sidebar on a 1280px container.
  *
@@ -15,7 +14,7 @@
  * @see src/components/marketing/legal-toc-sidebar.tsx
  */
 
-import { ChevronRight, Download } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld";
@@ -38,12 +37,6 @@ export const metadata = generatePageMetadata({
     "SafeTrekr's Purchase Terms. Effective March 7, 2026. Read the purchase terms you agree to when submitting payment for the SafeTrekr platform and services.",
   path: "/legal/purchase-terms",
 });
-
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
-const PDF_HREF = "/downloads/safetrekr-purchase-terms-v2.4.pdf";
 
 // ---------------------------------------------------------------------------
 // TOC Data
@@ -149,17 +142,6 @@ export default function PurchaseTermsPage() {
             </span>
           </div>
 
-          {/* Download PDF */}
-          <div className="mt-4">
-            <a
-              href={PDF_HREF}
-              download
-              className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-2 text-sm font-medium text-[var(--color-foreground)] transition-colors duration-150 hover:bg-[var(--color-muted)]"
-            >
-              <Download className="h-4 w-4" aria-hidden="true" />
-              Download PDF
-            </a>
-          </div>
         </Container>
       </SectionContainer>
 
