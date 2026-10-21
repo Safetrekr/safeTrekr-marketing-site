@@ -34,6 +34,8 @@
 
 import type { ReactElement } from "react";
 
+import { TRIP_TIERS } from "@/content/pricing";
+
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
@@ -270,8 +272,8 @@ export function generateArticleSchema(input: ArticleSchemaInput): JsonLdData {
 /**
  * Generates a schema.org `SoftwareApplication` object for SafeTrekr.
  *
- * Includes an `AggregateOffer` with the current pricing range
- * ($450 -- $1,250). Update the price values here when pricing changes.
+ * Includes an `AggregateOffer` with the current base-price range, derived
+ * from `TRIP_TIERS` in `@/content/pricing`.
  *
  * @see https://schema.org/SoftwareApplication
  * @see https://schema.org/AggregateOffer
@@ -288,9 +290,9 @@ export function generateSoftwareApplicationSchema(): JsonLdData {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
-      lowPrice: "450",
-      highPrice: "1250",
-      offerCount: "3",
+      lowPrice: String(Math.min(...TRIP_TIERS.map((t) => t.price))),
+      highPrice: String(Math.max(...TRIP_TIERS.map((t) => t.price))),
+      offerCount: String(TRIP_TIERS.length),
     },
   };
 }

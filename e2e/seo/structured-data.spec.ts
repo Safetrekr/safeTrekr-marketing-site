@@ -56,8 +56,8 @@ test.describe("Structured Data (JSON-LD) Validation", () => {
       const offers = appSchema!["offers"] as Record<string, unknown>;
       expect(offers["@type"]).toBe("AggregateOffer");
       expect(offers["priceCurrency"]).toBe("USD");
-      expect(offers["lowPrice"]).toBe("450");
-      expect(offers["highPrice"]).toBe("1250");
+      expect(offers["lowPrice"]).toBe("400");
+      expect(offers["highPrice"]).toBe("1200");
     });
   });
 
@@ -80,17 +80,17 @@ test.describe("Structured Data (JSON-LD) Validation", () => {
       const offers = productSchema!["offers"] as Array<Record<string, unknown>>;
       expect(offers).toHaveLength(3);
 
-      // Field Trip
-      expect(offers[0]!["name"]).toBe("Field Trip");
-      expect(offers[0]!["price"]).toBe("450");
+      // Day Trip
+      expect(offers[0]!["name"]).toBe("Day Trip");
+      expect(offers[0]!["price"]).toBe("400");
 
-      // Extended Trip
-      expect(offers[1]!["name"]).toBe("Extended Trip");
-      expect(offers[1]!["price"]).toBe("750");
+      // Multi-Day Trip
+      expect(offers[1]!["name"]).toBe("Multi-Day Trip");
+      expect(offers[1]!["price"]).toBe("800");
 
       // International
       expect(offers[2]!["name"]).toBe("International");
-      expect(offers[2]!["price"]).toBe("1250");
+      expect(offers[2]!["price"]).toBe("1200");
     });
 
     test("contains FAQPage schema", async ({ page }) => {
