@@ -2,30 +2,32 @@
 
 import { useCallback, useState } from "react";
 
+import {
+  DAY_TRIP,
+  INTERNATIONAL_TRIP,
+  MULTI_DAY_TRIP,
+  calculateTripPrice,
+  type TripTier as PricingTier,
+} from "@/content/pricing";
+
 /* ================================================================
    useTripCalculator -- Shared state + math for trip calculators
 
-   Pricing model:
-     - Day Trip:      $450 per trip
-     - Extended Trip: $750 per trip
-     - International: $1,250 per trip
+   Pricing model (see @/content/pricing):
+     - Each tier has a base price covering a set number of travelers,
+       plus a flat fee per additional traveler.
+     - Parents/guardians (1 per traveler) are free and not counted.
 
    The calculator lets organizations see their total SafeTrekr cost,
    then model a per-traveler fee to offset or create surplus.
    ================================================================ */
 
-export type TripTier = "day" | "extended" | "international";
+export type TripTier = "day" | "multiDay" | "international";
 
-export const TIER_PRICES: Record<TripTier, number> = {
-  day: 450,
-  extended: 750,
-  international: 1250,
-};
-
-export const TIER_LABELS: Record<TripTier, string> = {
-  day: "Day Trip",
-  extended: "Extended Trip",
-  international: "International",
+export const TIER_DATA: Record<TripTier, PricingTier> = {
+  day: DAY_TRIP,
+  multiDay: MULTI_DAY_TRIP,
+  international: INTERNATIONAL_TRIP,
 };
 
 export interface TripCalculatorDefaults {
@@ -45,7 +47,8 @@ export interface TripCalculatorState {
   setTravelersPerTrip: (value: number) => void;
   setFeePerTraveler: (value: number) => void;
   totals: {
-    tierPrice: number;
+    /** Price of one trip at the selected traveler count. */
+    tripPrice: number;
     annualCost: number;
     totalTravelers: number;
     annualRevenue: number;
@@ -60,15 +63,15 @@ export function useTripCalculator(
   const [tier, setTierState] = useState<TripTier>(defaults.tier ?? "day");
   const [tripsPerYear, setTripsPerYearState] = useState(defaults.tripsPerYear ?? 10);
   const [travelersPerTrip, setTravelersPerTripState] = useState(defaults.travelersPerTrip ?? 30);
-  const [feePerTraveler, setFeePerTravelerState] = useState(defaults.feePerTraveler ?? 25);
+  const [feePerTraveler, setFeePerTravelerState] = useState(defaults.feePerTraveler ?? 50);
 
   const setTier = useCallback((v: TripTier) => setTierState(v), []);
   const setTripsPerYear = useCallback((v: number) => setTripsPerYearState(v), []);
   const setTravelersPerTrip = useCallback((v: number) => setTravelersPerTripState(v), []);
   const setFeePerTraveler = useCallback((v: number) => setFeePerTravelerState(v), []);
 
-  const tierPrice = TIER_PRICES[tier];
-  const annualCost = tierPrice * tripsPerYear;
+  const tripPrice = calculateTripPrice(TIER_DATA[tier], travelersPerTrip);
+  const annualCost = tripPrice * tripsPerYear;
   const totalTravelers = travelersPerTrip * tripsPerYear;
   const annualRevenue = totalTravelers * feePerTraveler;
   const annualSurplus = annualRevenue - annualCost;
@@ -84,7 +87,7 @@ export function useTripCalculator(
     setTravelersPerTrip,
     setFeePerTraveler,
     totals: {
-      tierPrice,
+      tripPrice,
       annualCost,
       totalTravelers,
       annualRevenue,

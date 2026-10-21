@@ -6,7 +6,7 @@
  * compliance, tournament travel, and business travel.
  *
  * Positioning: "Enterprise safety at per-trip pricing" for mid-market.
- * Pricing anchors: $450 domestic, $1,250 international.
+ * Pricing anchors: $400 domestic, $1,200 international (see @/content/pricing).
  * Sample binder: Singapore, Kuala Lumpur, Bangkok.
  *
  * 10-section structure matching the segment page template:
@@ -52,8 +52,8 @@ import {
   FAQSection,
   CTABand,
   PricingTierCard,
-  InternationalPricingCard,
 } from "@/components/marketing";
+import { DAY_TRIP, INTERNATIONAL_TRIP, MULTI_DAY_TRIP } from "@/content/pricing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Button } from "@/components/ui/button";
@@ -226,7 +226,7 @@ const DAY_TRIP_FEATURES = [
   "30-day post-trip access",
 ];
 
-const EXTENDED_TRIP_FEATURES = [
+const MULTI_DAY_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
   "Active intelligence monitoring",
@@ -237,7 +237,7 @@ const EXTENDED_TRIP_FEATURES = [
 ];
 
 const INTERNATIONAL_FEATURES = [
-  "Everything in Extended Trip",
+  "Everything in Multi-Day Trip",
   "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
@@ -676,8 +676,8 @@ export default function CorporateSolutionsPage() {
                 Professional preparation. Straightforward pricing.
               </h2>
               <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
-                Professional travel safety assessment starting at $450 per trip.
-                No annual contracts required.
+                Professional travel safety assessment starting at $400 per trip
+                for up to 10 travelers. No annual contracts required.
               </p>
             </div>
           </ScrollReveal>
@@ -686,28 +686,23 @@ export default function CorporateSolutionsPage() {
           <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
             <PricingTierCard
               id="day-trip"
-              tierName="Day Trip"
-              price="$450"
-              perParticipant="~$15/person for a 30-person group"
+              tier={DAY_TRIP}
               features={DAY_TRIP_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
             />
 
             <PricingTierCard
-              id="extended-trip"
-              tierName="Extended Trip"
-              price="$750"
-              perParticipant="~$19/person for a 40-person group"
-              features={EXTENDED_TRIP_FEATURES}
+              id="multi-day-trip"
+              tier={MULTI_DAY_TRIP}
+              features={MULTI_DAY_TRIP_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
-              featured
-              badge="Most Popular"
             />
 
-            <InternationalPricingCard
+            <PricingTierCard
               id="international"
+              tier={INTERNATIONAL_TRIP}
               features={INTERNATIONAL_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"

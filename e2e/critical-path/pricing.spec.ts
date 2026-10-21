@@ -1,7 +1,7 @@
 /**
  * ST-854: REQ-108 -- Pricing Page Critical Path E2E Tests
  *
- * Verifies pricing tiers render correctly with accurate per-student values,
+ * Verifies pricing tiers render correctly with accurate traveler terms,
  * volume discount table, and all pricing-related sections.
  */
 
@@ -16,11 +16,12 @@ test.describe("Pricing Page Critical Path", () => {
     await expect(page).toHaveTitle(/Pricing.*SafeTrekr/);
   });
 
-  test("hero section displays $15 per participant anchor", async ({
+  test("tier intro displays the per-additional-traveler rate", async ({
     page,
   }) => {
-    const hero = page.getByText(/\$15 Per Participant/i);
-    await expect(hero).toBeVisible();
+    await expect(
+      page.getByText(/\$40 per\s+additional traveler/i).first(),
+    ).toBeVisible();
   });
 
   // -----------------------------------------------------------------------
@@ -28,9 +29,9 @@ test.describe("Pricing Page Critical Path", () => {
   // -----------------------------------------------------------------------
   test("renders all 3 pricing tier cards", async ({ page }) => {
     const tiers = [
-      { name: "Field Trip", price: "$450" },
-      { name: "Extended Trip", price: "$750" },
-      { name: "International", price: "$1,250" },
+      { name: "Day Trip", price: "$400" },
+      { name: "Multi-Day Trip", price: "$800" },
+      { name: "International", price: "$1,200" },
     ];
 
     for (const tier of tiers) {
@@ -44,20 +45,19 @@ test.describe("Pricing Page Critical Path", () => {
     }
   });
 
-  test("per-student values are correct for each tier", async ({ page }) => {
-    // Field Trip: ~$15/student
-    await expect(page.getByText(/~\$15.*student/i).first()).toBeVisible();
-
-    // Extended Trip: ~$30/participant
-    await expect(page.getByText(/~\$30.*participant/i).first()).toBeVisible();
-
-    // International: ~$62.50/participant
-    await expect(page.getByText(/~\$62\.50.*participant/i).first()).toBeVisible();
+  test("included traveler counts are correct for each tier", async ({ page }) => {
+    for (const count of [10, 20, 30]) {
+      await expect(
+        page.getByText(`First ${String(count)} travelers included`).first(),
+      ).toBeVisible();
+    }
+    await expect(
+      page.getByText(/1 parent\/guardian per traveler free/i).first(),
+    ).toBeVisible();
   });
 
-  test("Extended Trip tier is featured with badge", async ({ page }) => {
-    // The Extended Trip tier should have a "Most Common" badge
-    await expect(page.getByText(/Most Common/i)).toBeVisible();
+  test("Multi-Day Trip tier is featured with badge", async ({ page }) => {
+    await expect(page.getByText(/Most Popular/i).first()).toBeVisible();
   });
 
   // -----------------------------------------------------------------------

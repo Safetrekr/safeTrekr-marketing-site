@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import {
+  ADDITIONAL_TRAVELER_PRICE,
+  GUARDIAN_POLICY,
+  formatPrice,
+  type TripTier,
+} from "@/content/pricing";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -18,14 +24,13 @@ import { Button } from "@/components/ui/button";
 
 export interface PricingTierCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  /** Plan tier name displayed as the card heading (e.g. "Starter", "Pro"). */
-  tierName: string;
-  /** Formatted price string displayed prominently (e.g. "$450"). */
-  price: string;
-  /** Per-participant price breakdown (e.g. "~$15/student"). */
-  perParticipant: string;
-  /** Ordered list of feature descriptions included in this tier. */
-  features: string[];
+  /** Pricing tier from `@/content/pricing` (name, price, included travelers). */
+  tier: TripTier;
+  /**
+   * Ordered list of feature descriptions included in this tier.
+   * Defaults to `tier.features`; pages may pass segment-specific copy.
+   */
+  features?: readonly string[];
   /** Call-to-action button label text. */
   ctaText: string;
   /** Call-to-action destination URL. */
@@ -33,12 +38,12 @@ export interface PricingTierCardProps
   /**
    * Whether this is the visually emphasized "recommended" tier.
    * Applies border accent, elevated shadow, and slight scale on desktop.
-   * @default false
+   * @default tier.featured
    */
   featured?: boolean;
   /**
    * Optional badge text displayed above the card header (e.g. "Most Popular").
-   * Only rendered when provided.
+   * Defaults to `tier.badge`. Only rendered when present.
    */
   badge?: string;
 }
@@ -50,8 +55,9 @@ export interface PricingTierCardProps
 /**
  * Self-contained pricing tier card for plan comparison grids.
  *
- * Renders a plan name, price, per-participant breakdown, feature checklist,
- * and a CTA button. The `featured` prop elevates the card visually with a
+ * Renders a plan name, base price, traveler terms (included travelers,
+ * additional-traveler fee, guardian policy), feature checklist, and a CTA
+ * button. The `featured` prop elevates the card visually with a
  * primary border accent, deeper shadow, and a subtle 3% scale-up on desktop
  * viewports to draw attention to the recommended plan.
  *
@@ -64,35 +70,26 @@ export interface PricingTierCardProps
  * @example
  * ```tsx
  * <PricingTierCard
- *   tierName="Starter"
- *   price="$450"
- *   perParticipant="~$15/student"
- *   features={["Up to 30 participants", "Basic route planning", "Email support"]}
- *   ctaText="Get Started"
+ *   tier={DAY_TRIP}
+ *   ctaText="Schedule a Walkthrough"
  *   ctaHref="/demo"
  * />
  *
  * <PricingTierCard
- *   tierName="Professional"
- *   price="$850"
- *   perParticipant="~$12/student"
- *   features={["Unlimited participants", "Advanced risk assessment", "Priority support"]}
- *   ctaText="Start Free Trial"
+ *   tier={MULTI_DAY_TRIP}
+ *   features={["Everything in Day Trip", "Overnight travel support"]}
+ *   ctaText="Schedule a Walkthrough"
  *   ctaHref="/demo"
- *   featured
- *   badge="Most Popular"
  * />
  * ```
  */
 function PricingTierCard({
-  tierName,
-  price,
-  perParticipant,
-  features,
+  tier,
+  features = tier.features,
   ctaText,
   ctaHref,
-  featured = false,
-  badge,
+  featured = tier.featured,
+  badge = tier.badge,
   className,
   ...props
 }: PricingTierCardProps) {
@@ -117,13 +114,26 @@ function PricingTierCard({
       )}
 
       {/* Tier name */}
-      <h3 className="text-heading-sm text-foreground">{tierName}</h3>
+      <h3 className="text-heading-sm text-foreground">{tier.name}</h3>
 
       {/* Price block */}
       <div className="mt-4">
-        <span className="text-display-md text-foreground">{price}</span>
+        <span className="text-display-md text-foreground">
+          {formatPrice(tier.price)}
+        </span>
         <span className="text-body-sm text-muted-foreground"> / trip</span>
       </div>
+
+      {/* Traveler terms */}
+      <ul className="mt-3 space-y-1 text-body-sm text-muted-foreground">
+        <li>
+          <span className="font-medium text-foreground">
+            First {tier.includedTravelers} travelers included
+          </span>
+        </li>
+        <li>+{formatPrice(ADDITIONAL_TRAVELER_PRICE)} per additional traveler</li>
+        <li>{GUARDIAN_POLICY}</li>
+      </ul>
 
       {/* Divider */}
       <hr className="my-6 border-border" />
