@@ -155,7 +155,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
     {
       feature: "Low upfront cost",
       category: "yes",
-      safetrekr: "Starting at $450",
+      safetrekr: "Starting at $400",
     },
     {
       feature: "No specialized training to create",
@@ -219,7 +219,7 @@ const SPREADSHEET_CHECKLISTS: ComparisonPageData = {
     {
       question: "What if we only do domestic trips?",
       answer:
-        "Domestic trips still carry meaningful risk, weather events, venue safety, transportation incidents, medical emergencies in remote areas, and duty of care obligations for minors. A domestic mission trip or school field trip to rural Appalachia or a Gulf Coast service project involves real hazards that deserve professional review. SafeTrekr's domestic trip assessment starts at $450 and covers the same comprehensive safety dimensions as international reviews.",
+        "Domestic trips still carry meaningful risk, weather events, venue safety, transportation incidents, medical emergencies in remote areas, and duty of care obligations for minors. A domestic mission trip or school field trip to rural Appalachia or a Gulf Coast service project involves real hazards that deserve professional review. SafeTrekr's domestic trip assessment starts at $400 and covers the same comprehensive safety dimensions as international reviews.",
     },
   ],
   articleHeadline:
@@ -448,7 +448,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
     {
       feature: "Per-trip cost",
       category: "$5,000+",
-      safetrekr: "Starting at $450",
+      safetrekr: "Starting at $400",
     },
   ],
   analysisSections: [
@@ -491,7 +491,7 @@ const ENTERPRISE_RISK_PLATFORMS: ComparisonPageData = {
       question:
         "How does SafeTrekr's pricing compare to enterprise risk platforms?",
       answer:
-        "Enterprise risk platforms typically involve annual licenses ranging from $25,000 to $250,000 or more, plus implementation costs, training, and ongoing administration. SafeTrekr operates on a per-trip model: $450 for domestic trips, $750 for domestic overnight, and $1,250 for international trips. Organizations that send 10 international trips per year would pay approximately $12,500, a fraction of an enterprise platform license, with no implementation timeline or dedicated staff requirement.",
+        "Enterprise risk platforms typically involve annual licenses ranging from $25,000 to $250,000 or more, plus implementation costs, training, and ongoing administration. SafeTrekr operates on a per-trip model: $400 for day trips (up to 10 travelers), $800 for multi-day trips (up to 20), and $1,200 for international trips (up to 30), plus $40 per additional traveler. Organizations that send 10 international trips of up to 30 travelers per year would pay approximately $12,000, a fraction of an enterprise platform license, with no implementation timeline or dedicated staff requirement.",
     },
     {
       question:
@@ -586,7 +586,7 @@ function CellValue({ value }: { value: string }) {
     );
   }
 
-  // Custom text (e.g., "Starting at $450", "$5,000+", "Weeks to months")
+  // Custom text (e.g., "Starting at $400", "$5,000+", "Weeks to months")
   return (
     <span className="text-body-xs font-medium text-muted-foreground">
       {value}

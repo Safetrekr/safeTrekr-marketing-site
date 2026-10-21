@@ -6,7 +6,7 @@
  * and semester-long study abroad.
  *
  * Positioning: "Complement not replacement" vs Terra Dotta, Via TRM, etc.
- * Pricing anchor: $1,250 per international program.
+ * Pricing anchor: $1,200 per international program (see @/content/pricing).
  * Sample binder: Barcelona -- Madrid -- Seville.
  *
  * 10-section structure matching the segment page template:
@@ -53,8 +53,8 @@ import {
   FAQSection,
   CTABand,
   PricingTierCard,
-  InternationalPricingCard,
 } from "@/components/marketing";
+import { DAY_TRIP, INTERNATIONAL_TRIP, MULTI_DAY_TRIP } from "@/content/pricing";
 import { DocumentPreview } from "@/components/marketing/document-preview";
 import { RevenueCalculator } from "@/components/marketing/calculator";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -221,7 +221,7 @@ const DAY_TRIP_FEATURES = [
   "30-day post-trip access",
 ];
 
-const EXTENDED_TRIP_FEATURES = [
+const MULTI_DAY_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
   "Active intelligence monitoring",
@@ -232,7 +232,7 @@ const EXTENDED_TRIP_FEATURES = [
 ];
 
 const INTERNATIONAL_FEATURES = [
-  "Everything in Extended Trip",
+  "Everything in Multi-Day Trip",
   "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
@@ -667,7 +667,7 @@ export default function HigherEducationSolutionsPage() {
               <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">
                 Straightforward per-trip pricing for institutions of all sizes.
                 Most institutions fold the cost into program fees, an
-                additional travel safety fee of roughly $15 to $50 per
+                additional travel safety fee of roughly $40 per
                 participant covers professional safety planning for the
                 entire program. Contact us for institutional agreements.
               </p>
@@ -678,28 +678,23 @@ export default function HigherEducationSolutionsPage() {
           <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
             <PricingTierCard
               id="day-trip"
-              tierName="Day Trip"
-              price="$450"
-              perParticipant="~$15/person for a 30-person group"
+              tier={DAY_TRIP}
               features={DAY_TRIP_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
             />
 
             <PricingTierCard
-              id="extended-trip"
-              tierName="Extended Trip"
-              price="$750"
-              perParticipant="~$19/person for a 40-person group"
-              features={EXTENDED_TRIP_FEATURES}
+              id="multi-day-trip"
+              tier={MULTI_DAY_TRIP}
+              features={MULTI_DAY_TRIP_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
-              featured
-              badge="Most Popular"
             />
 
-            <InternationalPricingCard
+            <PricingTierCard
               id="international"
+              tier={INTERNATIONAL_TRIP}
               features={INTERNATIONAL_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"

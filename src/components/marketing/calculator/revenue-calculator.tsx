@@ -8,7 +8,7 @@
    itself (and generates surplus).
 
    Flow:
-     1. Select trip tier ($450 / $750 / $1,250)
+     1. Select trip tier (base prices from @/content/pricing)
      2. Set trips per year
      3. Set travelers per trip (shows total travelers)
      4. Set per-traveler safety fee (the markup)
@@ -21,8 +21,7 @@ import { cn } from "@/lib/utils";
 import {
   useTripCalculator,
   formatUSD,
-  TIER_PRICES,
-  TIER_LABELS,
+  TIER_DATA,
   type TripTier,
 } from "./use-trip-calculator";
 
@@ -30,7 +29,7 @@ export interface RevenueCalculatorProps {
   className?: string;
 }
 
-const TIERS: TripTier[] = ["day", "extended", "international"];
+const TIERS: TripTier[] = ["day", "multiDay", "international"];
 
 export function RevenueCalculator({ className }: RevenueCalculatorProps) {
   const {
@@ -43,7 +42,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
     setTravelersPerTrip,
     setFeePerTraveler,
     totals: {
-      tierPrice,
+      tripPrice,
       annualCost,
       totalTravelers,
       annualRevenue,
@@ -93,7 +92,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
               aria-pressed={tier === t}
             >
               <span className="block text-body-sm font-semibold text-card-foreground">
-                {TIER_LABELS[t]}
+                {TIER_DATA[t].name}
               </span>
               <span
                 className={cn(
@@ -101,7 +100,10 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
                   tier === t ? "text-primary-700" : "text-muted-foreground",
                 )}
               >
-                {formatUSD(TIER_PRICES[t])}
+                {formatUSD(TIER_DATA[t].price)}
+              </span>
+              <span className="mt-0.5 block text-xs text-muted-foreground">
+                First {TIER_DATA[t].includedTravelers} included
               </span>
             </button>
           ))}
@@ -178,6 +180,9 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
           <span className="text-xs text-muted-foreground">5</span>
           <span className="text-xs text-muted-foreground">200</span>
         </div>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Don&apos;t count parents/guardians. One per traveler is free.
+        </p>
       </div>
 
       {/* Summary: total travelers + annual cost */}
@@ -198,7 +203,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
             {formatUSD(annualCost)}
           </output>
           <span className="mt-0.5 block text-xs text-muted-foreground">
-            {formatUSD(tierPrice)} x {tripsPerYear} trips
+            {formatUSD(tripPrice)} x {tripsPerYear} trips
           </span>
         </div>
       </div>

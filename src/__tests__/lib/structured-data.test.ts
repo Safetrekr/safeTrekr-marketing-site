@@ -351,8 +351,8 @@ describe("generateSoftwareApplicationSchema()", () => {
     const offers = result.offers as Record<string, unknown>;
     expect(offers["@type"]).toBe("AggregateOffer");
     expect(offers.priceCurrency).toBe("USD");
-    expect(offers.lowPrice).toBe("450");
-    expect(offers.highPrice).toBe("1250");
+    expect(offers.lowPrice).toBe("400");
+    expect(offers.highPrice).toBe("1200");
     expect(offers.offerCount).toBe("3");
   });
 });

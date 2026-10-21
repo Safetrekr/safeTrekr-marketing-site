@@ -12,45 +12,29 @@
 /**
  * A single pricing tier representing a trip assessment level.
  *
- * Used by PricingTierCard, PricingGrid, and any page that renders
- * plan comparisons. The `id` field is a stable machine-readable key
- * for analytics events and URL anchors.
+ * Each tier is a base price that covers a set number of travelers, plus a
+ * flat fee for every traveler beyond that. A "traveler" is anyone going on
+ * the trip (students, staff, chaperones), except free parents/guardians.
+ *
+ * Used by PricingTierCard and any page that renders plan comparisons. The
+ * `id` field is a stable machine-readable key for analytics events and URL
+ * anchors.
  */
 export interface TripTier {
-  /** Stable machine-readable identifier (e.g. "field-trip"). */
+  /** Stable machine-readable identifier (e.g. "day-trip"). */
   id: string;
   /** Display name shown as the card heading. */
   name: string;
-  /** Flat per-trip price in dollars. */
+  /** Base per-trip price in dollars, covering `includedTravelers`. */
   price: number;
-  /** Human-readable per-participant breakdown string. */
-  perParticipant: string;
-  /** Typical group size used for the per-participant calculation. */
-  typicalGroupSize: number;
+  /** Number of travelers covered by the base price. */
+  includedTravelers: number;
   /** Ordered list of features included in this tier. */
   features: string[];
   /** Whether this tier should be visually featured / recommended. */
   featured: boolean;
   /** Optional badge text (e.g. "Most Popular"). */
   badge?: string;
-}
-
-/**
- * A segment-specific pricing scenario showing annual cost modeling.
- */
-export interface SegmentScenario {
-  /** Market segment name (e.g. "K-12 School District"). */
-  segment: string;
-  /** Typical number of trips per year for this segment. */
-  trips: number;
-  /** Typical group size per trip. */
-  groupSize: number;
-  /** Modeled annual cost in dollars. */
-  annual: number;
-  /** Effective per-participant cost. */
-  perParticipant: string;
-  /** Brief description of the scenario and why it fits. */
-  description: string;
 }
 
 /**
@@ -69,104 +53,69 @@ export interface ValueAnchor {
 // Data
 // ---------------------------------------------------------------------------
 
+/** Price in dollars for each traveler beyond a tier's included travelers. */
+export const ADDITIONAL_TRAVELER_PRICE = 40;
+
+/** Guardian policy shown alongside every tier. */
+export const GUARDIAN_POLICY =
+  "1 parent/guardian per traveler free (not counted as a traveler)";
+
+export const DAY_TRIP: TripTier = {
+  id: "day-trip",
+  name: "Day Trip",
+  price: 400,
+  includedTravelers: 10,
+  features: [
+    "Experienced analyst review",
+    "Active intelligence monitoring",
+    "Complete safety binder",
+    "Chaperone mobile app",
+    "Fast delivery turnaround",
+  ],
+  featured: false,
+};
+
+export const MULTI_DAY_TRIP: TripTier = {
+  id: "multi-day-trip",
+  name: "Multi-Day Trip",
+  price: 800,
+  includedTravelers: 20,
+  features: [
+    "Everything in Day Trip",
+    "Multi-day trip support",
+    "Extended trip coverage",
+    "Sports travel coverage",
+    "Priority review assignment",
+  ],
+  featured: true,
+  badge: "Most Popular",
+};
+
+export const INTERNATIONAL_TRIP: TripTier = {
+  id: "international",
+  name: "International",
+  price: 1200,
+  includedTravelers: 30,
+  features: [
+    "Everything in Multi-Day Trip",
+    "International intelligence coverage",
+    "Embassy and consulate contacts",
+    "Cross-border risk assessment",
+    "Evacuation planning documentation",
+  ],
+  featured: false,
+};
+
 /**
  * Trip assessment tiers -- the core pricing offering.
  *
- * Order: ascending by price. The middle tier (Extended Trip) is the
+ * Order: ascending by price. The middle tier (Multi-Day Trip) is the
  * featured / recommended plan by default.
  */
 export const TRIP_TIERS: readonly TripTier[] = [
-  {
-    id: "day-trip",
-    name: "Day Trip",
-    price: 450,
-    perParticipant: "~$15/student for a 30-person group",
-    typicalGroupSize: 30,
-    features: [
-      "Experienced analyst review",
-      "Active intelligence monitoring",
-      "Complete safety binder",
-      "Chaperone mobile app",
-      "Fast delivery turnaround",
-    ],
-    featured: false,
-  },
-  {
-    id: "extended-trip",
-    name: "Extended Trip",
-    price: 750,
-    perParticipant: "~$19/student for a 40-person group",
-    typicalGroupSize: 40,
-    features: [
-      "Everything in Day Trip",
-      "Multi-day trip support",
-      "Extended trip coverage",
-      "Sports travel coverage",
-      "Priority review assignment",
-    ],
-    featured: true,
-    badge: "Most Popular",
-  },
-  {
-    id: "international",
-    name: "International",
-    price: 1250,
-    perParticipant: "~$42/participant for a 30-person group",
-    typicalGroupSize: 30,
-    features: [
-      "Everything in Extended Trip",
-      "International intelligence coverage",
-      "Embassy and consulate contacts",
-      "Cross-border risk assessment",
-      "Evacuation planning documentation",
-    ],
-    featured: false,
-  },
-] as const;
-
-/**
- * Segment-specific pricing scenarios for ROI modeling.
- *
- * Each scenario models a realistic annual usage pattern for the given
- * market segment.
- */
-export const SEGMENT_SCENARIOS: readonly SegmentScenario[] = [
-  {
-    segment: "K-12 School District",
-    trips: 12,
-    groupSize: 30,
-    annual: 5400,
-    perParticipant: "~$15",
-    description:
-      "A mid-size district running monthly field trips. FERPA-ready documentation for every outing.",
-  },
-  {
-    segment: "Church / Mission Organization",
-    trips: 6,
-    groupSize: 25,
-    annual: 4500,
-    perParticipant: "~$30",
-    description:
-      "Mix of domestic youth retreats and international mission trips. Insurance-ready documentation for volunteer travel.",
-  },
-  {
-    segment: "Higher Education",
-    trips: 20,
-    groupSize: 35,
-    annual: 15000,
-    perParticipant: "~$21.43",
-    description:
-      "Study abroad programs, athletic travel, and research expeditions. Clery Act and institutional risk management compliance.",
-  },
-  {
-    segment: "Corporate / Sports",
-    trips: 30,
-    groupSize: 20,
-    annual: 13500,
-    perParticipant: "~$22.50",
-    description:
-      "Business travel, team transportation, and off-site events. Duty of care documentation for mid-market organizations.",
-  },
+  DAY_TRIP,
+  MULTI_DAY_TRIP,
+  INTERNATIONAL_TRIP,
 ] as const;
 
 /**
@@ -184,7 +133,7 @@ export const VALUE_ANCHORS: readonly ValueAnchor[] = [
   },
   {
     label: "SafeTrekr cost",
-    value: "From $15/participant",
+    value: "From $400/trip",
     description:
       "Professional review, current safety information, and board-ready documentation -- delivered quickly with minimal staff time.",
   },
@@ -195,11 +144,11 @@ export const VALUE_ANCHORS: readonly ValueAnchor[] = [
 // ---------------------------------------------------------------------------
 
 /**
- * Formats a TripTier price as a display string (e.g. "$450").
+ * Formats a TripTier price as a display string (e.g. "$400").
  * Centralizes formatting so every page renders prices identically.
  */
 export function formatTierPrice(tier: TripTier): string {
-  return `$${tier.price.toLocaleString("en-US")}`;
+  return formatPrice(tier.price);
 }
 
 /**
@@ -211,4 +160,20 @@ export function getFeaturedTier(): TripTier {
   // Non-null assertion is safe: TRIP_TIERS is a non-empty readonly array
   // defined above, and fallbackIndex is always a valid index.
   return featured ?? TRIP_TIERS[fallbackIndex]!;
+}
+
+/**
+ * Formats a dollar amount for display (e.g. 1200 -> "$1,200").
+ */
+export function formatPrice(value: number): string {
+  return `$${value.toLocaleString("en-US")}`;
+}
+
+/**
+ * Total price for one trip with the given number of travelers.
+ * Free parents/guardians should not be included in `travelers`.
+ */
+export function calculateTripPrice(tier: TripTier, travelers: number): number {
+  const additional = Math.max(0, travelers - tier.includedTravelers);
+  return tier.price + additional * ADDITIONAL_TRAVELER_PRICE;
 }

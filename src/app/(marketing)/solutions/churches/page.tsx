@@ -50,12 +50,12 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   PricingTierCard,
-  InternationalPricingCard,
   ProcessTimeline,
   FeatureCard,
   FAQSection,
   CTABand,
 } from "@/components/marketing";
+import { DAY_TRIP, INTERNATIONAL_TRIP, MULTI_DAY_TRIP } from "@/content/pricing";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -148,7 +148,7 @@ const CHURCHES_DAY_TRIP_FEATURES = [
   "30-day post-trip access",
 ];
 
-const CHURCHES_EXTENDED_TRIP_FEATURES = [
+const CHURCHES_MULTI_DAY_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
   "Active intelligence monitoring",
@@ -159,7 +159,7 @@ const CHURCHES_EXTENDED_TRIP_FEATURES = [
 ];
 
 const CHURCHES_INTERNATIONAL_FEATURES = [
-  "Everything in Extended Trip",
+  "Everything in Multi-Day Trip",
   "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
@@ -853,26 +853,21 @@ export default function ChurchSolutionsPage() {
             <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:gap-8">
               <PricingTierCard
                 id="churches-day-trip"
-                tierName="Day Trip"
-                price="$450"
-                perParticipant="~$15/person for a 30-person team"
+                tier={DAY_TRIP}
                 features={CHURCHES_DAY_TRIP_FEATURES}
                 ctaText="Schedule a Walkthrough"
                 ctaHref="/demo"
               />
               <PricingTierCard
-                id="churches-extended-trip"
-                tierName="Extended Trip"
-                price="$750"
-                perParticipant="~$19/person for a 40-person team"
-                features={CHURCHES_EXTENDED_TRIP_FEATURES}
+                id="churches-multi-day-trip"
+                tier={MULTI_DAY_TRIP}
+                features={CHURCHES_MULTI_DAY_TRIP_FEATURES}
                 ctaText="Schedule a Walkthrough"
                 ctaHref="/demo"
-                featured
-                badge="Most Popular"
               />
-              <InternationalPricingCard
+              <PricingTierCard
                 id="churches-international"
+                tier={INTERNATIONAL_TRIP}
                 features={CHURCHES_INTERNATIONAL_FEATURES}
                 ctaText="Schedule a Walkthrough"
                 ctaHref="/demo"
