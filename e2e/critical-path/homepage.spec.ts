@@ -163,7 +163,7 @@ test.describe("Homepage Critical Path", () => {
   // Section 8: Pricing Preview
   // -----------------------------------------------------------------------
   test("Section 8: Pricing Preview renders 3 tiers", async ({ page }) => {
-    const tiers = ["Field Trip", "Extended Trip", "International"];
+    const tiers = ["Day Trip", "Multi-Day Trip", "International"];
 
     for (const tier of tiers) {
       const el = page.getByRole("heading", { name: tier }).first();
@@ -171,8 +171,8 @@ test.describe("Homepage Critical Path", () => {
       await expect(el).toBeVisible({ timeout: 10000 });
     }
 
-    // Verify "$15 per student" anchor text
-    const priceText = page.getByText(/\$15 per student/i).first();
+    // Verify the additional-traveler rate is shown on the cards
+    const priceText = page.getByText(/\$40 per additional traveler/i).first();
     await priceText.scrollIntoViewIfNeeded();
     await expect(priceText).toBeVisible({ timeout: 10000 });
   });

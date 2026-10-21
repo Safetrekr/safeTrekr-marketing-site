@@ -44,33 +44,11 @@ export interface PricingGridProps extends React.HTMLAttributes<HTMLDivElement> {
  * @example
  * ```tsx
  * <PricingGrid
- *   tiers={[
- *     {
- *       tierName: "Starter",
- *       price: "$450",
- *       perParticipant: "~$15/student",
- *       features: ["Up to 30 participants", "Basic route planning"],
- *       ctaText: "Get Started",
- *       ctaHref: "/demo",
- *     },
- *     {
- *       tierName: "Professional",
- *       price: "$850",
- *       perParticipant: "~$12/student",
- *       features: ["Unlimited participants", "Advanced risk assessment"],
- *       ctaText: "Start Free Trial",
- *       ctaHref: "/demo",
- *       badge: "Most Popular",
- *     },
- *     {
- *       tierName: "Enterprise",
- *       price: "$1,250",
- *       perParticipant: "~$8/student",
- *       features: ["Custom integrations", "Dedicated support"],
- *       ctaText: "Contact Sales",
- *       ctaHref: "/contact",
- *     },
- *   ]}
+ *   tiers={TRIP_TIERS.map((tier) => ({
+ *     tier,
+ *     ctaText: "Schedule a Walkthrough",
+ *     ctaHref: "/demo",
+ *   }))}
  * />
  * ```
  */
@@ -90,7 +68,7 @@ function PricingGrid({ tiers, className, ...props }: PricingGridProps) {
 
         return (
           <PricingTierCard
-            key={tier.tierName}
+            key={tier.tier.id}
             {...tier}
             featured={isFeatured}
           />

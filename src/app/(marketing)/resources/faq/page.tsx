@@ -61,7 +61,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 export const metadata = generatePageMetadata({
   title: "Frequently Asked Questions",
   description:
-    "SafeTrekr FAQ: how trip safety binders work, pricing from $450, analyst review process, school and church trip planning, data security, and cancellation policy.",
+    "SafeTrekr FAQ: how trip safety binders work, pricing from $400 per trip, analyst review process, school and church trip planning, data security, and cancellation policy.",
   path: "/resources/faq",
 });
 
@@ -73,7 +73,7 @@ const GETTING_STARTED: FAQItem[] = [
   {
     question: "What is SafeTrekr?",
     answer:
-      "SafeTrekr is a professional travel preparation platform that assigns a trained safety analyst to review every trip your organization sends. Analysts evaluate destinations using government and international data covering weather, seismic activity, health advisories, real-time disaster alerts, and regional humanitarian conditions, then deliver an audit-ready safety binder with documented findings, assessments, and emergency plans. SafeTrekr serves K-12 schools, churches and mission organizations, higher education institutions, and corporate travel programs. Pricing starts at $450 per domestic day trip.",
+      "SafeTrekr is a professional travel preparation platform that assigns a trained safety analyst to review every trip your organization sends. Analysts evaluate destinations using government and international data covering weather, seismic activity, health advisories, real-time disaster alerts, and regional humanitarian conditions, then deliver an audit-ready safety binder with documented findings, assessments, and emergency plans. SafeTrekr serves K-12 schools, churches and mission organizations, higher education institutions, and corporate travel programs. Pricing starts at $400 per day trip for up to 10 travelers.",
   },
   {
     question: "How do I get started with SafeTrekr?",
@@ -83,7 +83,7 @@ const GETTING_STARTED: FAQItem[] = [
   {
     question: "How long does it take to receive a safety binder?",
     answer:
-      "Extended Trip and International tiers receive priority analyst assignment. Expedited 48-hour delivery is available as an add-on.",
+      "Multi-Day Trip and International tiers receive priority analyst assignment. Expedited 48-hour delivery is available as an add-on.",
   },
   {
     question: "Is there a minimum commitment or contract?",
@@ -126,7 +126,7 @@ const SAFETY_BINDER: FAQItem[] = [
   {
     question: "How long do I have access to my safety binder?",
     answer:
-      "Access duration depends on your tier: Day Trip (30 days post-trip), Extended Trip (60 days), International (90 days). Binders can be downloaded as PDF for permanent records.",
+      "Access duration depends on your tier: Day Trip (30 days post-trip), Multi-Day Trip (60 days), International (90 days). Binders can be downloaded as PDF for permanent records.",
   },
 ];
 
@@ -154,7 +154,7 @@ const SAFETY_INFORMATION: FAQItem[] = [
   {
     question: "What happens if an emergency occurs during my trip?",
     answer:
-      "For Extended Trip and International tiers with active monitoring, your analyst provides updated briefings as conditions change. Every safety binder includes emergency contact directories, medical facility locations, and evacuation routes. The SafeTrekr mobile app gives chaperones and trip leaders offline access to this critical information in the field.",
+      "For Multi-Day Trip and International tiers with active monitoring, your analyst provides updated briefings as conditions change. Every safety binder includes emergency contact directories, medical facility locations, and evacuation routes. The SafeTrekr mobile app gives chaperones and trip leaders offline access to this critical information in the field.",
   },
 ];
 
@@ -195,7 +195,7 @@ const FOR_CHURCHES: FAQItem[] = [
   {
     question: "Is SafeTrekr affordable for small churches?",
     answer:
-      "Yes. At $450 for a day trip, $750 for an extended domestic trip, and $1,250 for international missions, SafeTrekr is accessible for churches of any size. For a 30-person mission team, that works out to roughly $15-42 per person.",
+      "Yes. Day Trips start at $400 for up to 10 travelers, Multi-Day Trips at $800 for up to 20, and International trips at $1,200 for up to 30, with $40 per additional traveler. One parent or guardian per traveler goes free. A 30-person international mission team is $1,200 total, about $40 per person.",
   },
 ];
 
@@ -462,9 +462,10 @@ export default function FAQHubPage() {
                   findings, assessments, and emergency plans. SafeTrekr
                   serves K-12 schools, churches and mission organizations,
                   higher education institutions, and corporate travel
-                  programs. Pricing starts at $450 per domestic day trip,
-                  $750 for extended domestic trips, and $1,250 for
-                  international trips. The platform supports FERPA compliance
+                  programs. Pricing starts at $400 for a day trip (up to 10
+                  travelers), $800 for a multi-day trip (up to 20), and $1,200
+                  for an international trip (up to 30), plus $40 per
+                  additional traveler. The platform supports FERPA compliance
                   requirements and uses AES-256 encryption and role-based
                   access controls.
                 </p>

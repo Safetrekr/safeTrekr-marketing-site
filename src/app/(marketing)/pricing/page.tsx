@@ -2,19 +2,19 @@
  * ST-880: REQ-080, Pricing Page (/pricing)
  *
  * Straightforward pricing page for SafeTrekr. Presents three trip tiers
- * (Day Trip, Extended Trip, International), included features, optional add-ons,
- * segment scenarios, procurement resources, and FAQ.
+ * (Day Trip, Multi-Day Trip, International), included features, optional add-ons,
+ * procurement resources, and FAQ.
  *
  * Server Component at the page level. Client components (Accordion via FAQSection,
  * ScrollReveal, StaggerChildren) are rendered as children within this tree.
  *
  * Section order:
  *   1. Hero             , "Professional trip assessment. Straightforward pricing."
- *   2. Pricing Tiers    , 3 PricingTierCards (Day Trip, Extended, International)
+ *   2. Pricing Tiers    , 3 PricingTierCards (Day Trip, Multi-Day, International)
  *   3. What's Included  , 8 FeatureCards on primary-50 wash
- *   4. Add-ons/Scenarios, ROI Calculator + 4 pricing scenario cards
+ *   4. Add-ons          , ROI Calculator link
  *   4b. Procurement     , Dark section with checklist + /procurement link
- *   5. FAQ              , 6 pricing questions with FAQPage JSON-LD
+ *   5. FAQ              , 7 pricing questions with FAQPage JSON-LD
  *   6. CTA Band         , Conversion band
  *   7. JSON-LD          , Product + Offer schemas
  *
@@ -33,12 +33,18 @@ import {
   Scale,
   Calculator,
   ArrowRight,
-  GraduationCap,
-  Building2,
-  School,
 } from "lucide-react";
 
 import { generatePageMetadata } from "@/lib/metadata";
+import {
+  ADDITIONAL_TRAVELER_PRICE,
+  DAY_TRIP,
+  INTERNATIONAL_TRIP,
+  MULTI_DAY_TRIP,
+  TRIP_TIERS,
+  calculateTripPrice,
+  formatPrice,
+} from "@/content/pricing";
 import { JsonLd, type FAQItem } from "@/lib/structured-data";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld";
 import { SectionContainer } from "@/components/layout/section-container";
@@ -46,7 +52,6 @@ import { Container } from "@/components/layout/container";
 import {
   Eyebrow,
   PricingTierCard,
-  InternationalPricingCard,
   FAQSection,
   CTABand,
   FeatureCard,
@@ -62,7 +67,7 @@ import { StaggerChildren } from "@/components/motion/stagger-children";
 export const metadata = generatePageMetadata({
   title: "Pricing",
   description:
-    "SafeTrekr pricing starts at $450 per trip. Experienced analyst review, active intelligence monitoring, and complete documentation, from $15 per participant. No annual contracts required.",
+    "SafeTrekr pricing starts at $400 per trip for up to 10 travelers, plus $40 per additional traveler. Experienced analyst review, active intelligence monitoring, and complete documentation. No annual contracts required.",
   path: "/pricing",
 });
 
@@ -81,7 +86,7 @@ const DAY_TRIP_FEATURES = [
   "30-day post-trip access",
 ] as const;
 
-const EXTENDED_TRIP_FEATURES = [
+const MULTI_DAY_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
   "Active intelligence monitoring",
@@ -92,7 +97,7 @@ const EXTENDED_TRIP_FEATURES = [
 ] as const;
 
 const INTERNATIONAL_FEATURES = [
-  "Everything in Extended Trip",
+  "Everything in Multi-Day Trip",
   "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
@@ -165,9 +170,13 @@ const PRICING_FAQS: FAQItem[] = [
       "No. You can submit a single trip with no ongoing commitment or annual contract required.",
   },
   {
-    question: "How do you calculate per-participant cost?",
+    question: "How is the price of a trip calculated?",
+    answer: `Each trip type has a base price that covers a set number of travelers: Day Trip is ${formatPrice(DAY_TRIP.price)} for the first ${String(DAY_TRIP.includedTravelers)}, Multi-Day Trip is ${formatPrice(MULTI_DAY_TRIP.price)} for the first ${String(MULTI_DAY_TRIP.includedTravelers)}, and International is ${formatPrice(INTERNATIONAL_TRIP.price)} for the first ${String(INTERNATIONAL_TRIP.includedTravelers)}. Each additional traveler is ${formatPrice(ADDITIONAL_TRAVELER_PRICE)}. For example, a Day Trip with 30 travelers is ${formatPrice(calculateTripPrice(DAY_TRIP, 30))}.`,
+  },
+  {
+    question: "Who counts as a traveler? Are parents and guardians free?",
     answer:
-      "Per-participant cost depends on group size. A $450 Day Trip for 30 participants is $15/person. The same trip for 15 participants is $30/person. Pricing is per trip, not per participant.",
+      "A traveler is anyone going on the trip, including students, teachers, chaperones, and staff. On every trip, one parent or guardian per traveler comes along free and does not count toward your traveler total.",
   },
   {
     question: "Can we see SafeTrekr before submitting a trip?",
@@ -203,35 +212,14 @@ function PricingJsonLd() {
     description:
       "Professional safety analyst review, government data sources, and complete documentation for every trip.",
     brand: { "@type": "Brand", name: "SafeTrekr" },
-    offers: [
-      {
-        "@type": "Offer",
-        name: "Day Trip",
-        price: "450",
-        priceCurrency: "USD",
-        description:
-          "Day trips, local field trips, single-venue events. ~$15 per person for a 30-person group.",
-        url: "https://www.safetrekr.com/pricing#day-trip",
-      },
-      {
-        "@type": "Offer",
-        name: "Extended Trip",
-        price: "750",
-        priceCurrency: "USD",
-        description:
-          "Multi-day trips, overnight travel, tournaments. ~$19 per participant for a 40-person group.",
-        url: "https://www.safetrekr.com/pricing#extended-trip",
-      },
-      {
-        "@type": "Offer",
-        name: "International",
-        price: "1250",
-        priceCurrency: "USD",
-        description:
-          "International travel, study abroad, mission trips. ~$42 per participant for a 30-person group.",
-        url: "https://www.safetrekr.com/pricing#international",
-      },
-    ],
+    offers: TRIP_TIERS.map((tier) => ({
+      "@type": "Offer",
+      name: tier.name,
+      price: String(tier.price),
+      priceCurrency: "USD",
+      description: `Includes the first ${String(tier.includedTravelers)} travelers, plus ${formatPrice(ADDITIONAL_TRAVELER_PRICE)} per additional traveler. One parent/guardian per traveler free.`,
+      url: `https://www.safetrekr.com/pricing#${tier.id}`,
+    })),
   };
 
   return <JsonLd data={productSchema} />;
@@ -295,37 +283,33 @@ export default function PricingPage() {
             </ScrollReveal>
             <ScrollReveal>
               <p className="mx-auto max-w-prose text-body-lg text-muted-foreground">
-                One price per trip. Every feature included.
+                One base price per trip, {formatPrice(ADDITIONAL_TRAVELER_PRICE)} per
+                additional traveler. Every feature included.
               </p>
             </ScrollReveal>
           </div>
 
           <StaggerChildren className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-3 lg:mt-16 lg:gap-8">
             <PricingTierCard
-              id="day-trip"
-              tierName="Day Trip"
-              price="$450"
-              perParticipant="~$15/person for a 30-person group"
-              features={[...DAY_TRIP_FEATURES]}
+              id={DAY_TRIP.id}
+              tier={DAY_TRIP}
+              features={DAY_TRIP_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
             />
 
             <PricingTierCard
-              id="extended-trip"
-              tierName="Extended Trip"
-              price="$750"
-              perParticipant="~$19/person for a 40-person group"
-              features={[...EXTENDED_TRIP_FEATURES]}
+              id={MULTI_DAY_TRIP.id}
+              tier={MULTI_DAY_TRIP}
+              features={MULTI_DAY_TRIP_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
-              featured
-              badge="Most Popular"
             />
 
-            <InternationalPricingCard
-              id="international"
-              features={[...INTERNATIONAL_FEATURES]}
+            <PricingTierCard
+              id={INTERNATIONAL_TRIP.id}
+              tier={INTERNATIONAL_TRIP}
+              features={INTERNATIONAL_FEATURES}
               ctaText="Schedule a Walkthrough"
               ctaHref="/demo"
             />
@@ -398,136 +382,6 @@ export default function PricingPage() {
               </Button>
             </ScrollReveal>
           </div>
-        </Container>
-      </SectionContainer>
-
-      {/* ================================================================
-          SECTION 4a: SEGMENT-SPECIFIC PRICING SCENARIOS
-          ================================================================ */}
-      <SectionContainer aria-label="Pricing scenarios">
-        <Container>
-          <div className="text-center">
-            <ScrollReveal>
-              <Eyebrow className="mb-4">What It Costs in Practice</Eyebrow>
-            </ScrollReveal>
-            <ScrollReveal>
-              <h2 className="text-display-md text-foreground">
-                Real Scenarios for Real Organizations
-              </h2>
-            </ScrollReveal>
-          </div>
-
-          <StaggerChildren className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-8">
-            {/* K-12 School District */}
-            <Link
-              href="/solutions/k12"
-              className="group block rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] sm:p-8"
-              aria-label="Annual cost for a K-12 school district with 20 field trips per year: $9,000"
-            >
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary-50">
-                <School className="size-6 text-primary-700" aria-hidden="true" />
-              </div>
-              <h3 className="mt-4 text-heading-sm text-foreground">K-12 School District</h3>
-              <p className="mt-2 text-body-sm text-muted-foreground">
-                20 field trips / year<br />
-                30 students per trip
-              </p>
-              <p className="mt-4 text-heading-md text-foreground">$9,000 / year</p>
-              <p className="mt-1 text-body-sm font-medium text-primary-700">$15 per student</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-body-sm font-medium text-primary-700">
-                Learn more
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </Link>
-
-            {/* Church or Mission Org */}
-            <Link
-              href="/solutions/churches"
-              className="group block rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] sm:p-8"
-              aria-label="Annual cost for a church or mission organization with 3 mission trips per year: $2,700"
-            >
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary-50">
-                {/* Church icon (inline SVG since lucide doesn't have Church) */}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="size-6 text-primary-700"
-                  aria-hidden="true"
-                >
-                  <path d="M18 22H6" />
-                  <path d="M6 22V10l6-6 6 6v12" />
-                  <path d="M12 4V2" />
-                  <path d="M9 4h6" />
-                  <path d="M10 22v-4h4v4" />
-                </svg>
-              </div>
-              <h3 className="mt-4 text-heading-sm text-foreground">Church or Mission Org</h3>
-              <p className="mt-2 text-body-sm text-muted-foreground">
-                3 mission trips / year<br />
-                Mixed domestic and international
-              </p>
-              <p className="mt-4 text-heading-md text-foreground">$2,700 / year</p>
-              <p className="mt-1 text-body-sm font-medium text-primary-700">
-                Less than 1% of annual missions budget
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-body-sm font-medium text-primary-700">
-                Learn more
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </Link>
-
-            {/* Higher Education */}
-            <Link
-              href="/solutions/higher-education"
-              className="group block rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] sm:p-8"
-              aria-label="Annual cost for higher education with 8 study abroad programs per year: $10,000"
-            >
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary-50">
-                <GraduationCap className="size-6 text-primary-700" aria-hidden="true" />
-              </div>
-              <h3 className="mt-4 text-heading-sm text-foreground">Higher Education</h3>
-              <p className="mt-2 text-body-sm text-muted-foreground">
-                8 study abroad programs / year<br />
-                20-25 participants each
-              </p>
-              <p className="mt-4 text-heading-md text-foreground">$10,000 / year</p>
-              <p className="mt-1 text-body-sm font-medium text-primary-700">
-                Less than $50 per student for global safety coverage
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-body-sm font-medium text-primary-700">
-                Learn more
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </Link>
-
-            {/* Corporate / Sports */}
-            <Link
-              href="/solutions/corporate"
-              className="group block rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] sm:p-8"
-              aria-label="Annual cost for corporate or sports organizations with 15 team trips per year: $11,250"
-            >
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary-50">
-                <Building2 className="size-6 text-primary-700" aria-hidden="true" />
-              </div>
-              <h3 className="mt-4 text-heading-sm text-foreground">Corporate / Sports</h3>
-              <p className="mt-2 text-body-sm text-muted-foreground">
-                15 team trips / year<br />
-                25 participants each
-              </p>
-              <p className="mt-4 text-heading-md text-foreground">$11,250 / year</p>
-              <p className="mt-1 text-body-sm font-medium text-primary-700">$30 per participant</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-body-sm font-medium text-primary-700">
-                Learn more
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </Link>
-          </StaggerChildren>
         </Container>
       </SectionContainer>
 

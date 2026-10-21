@@ -27,8 +27,8 @@ import {
 } from "@/lib/structured-data";
 import {
   PricingTierCard,
-  InternationalPricingCard,
 } from "@/components/marketing";
+import { DAY_TRIP, INTERNATIONAL_TRIP, MULTI_DAY_TRIP } from "@/content/pricing";
 
 export const metadata = generatePageMetadata({
   title: "Go With a Plan",
@@ -52,7 +52,7 @@ const DAY_TRIP_FEATURES = [
   "30-day post-trip access",
 ];
 
-const EXTENDED_TRIP_FEATURES = [
+const MULTI_DAY_TRIP_FEATURES = [
   "Everything in Day Trip",
   "Multi-day trip support (up to 7 days)",
   "Active intelligence monitoring",
@@ -63,7 +63,7 @@ const EXTENDED_TRIP_FEATURES = [
 ];
 
 const INTERNATIONAL_FEATURES = [
-  "Everything in Extended Trip",
+  "Everything in Multi-Day Trip",
   "International intelligence coverage",
   "Embassy and consulate contacts",
   "Regional condition assessment",
@@ -710,9 +710,9 @@ export default function PreviewHomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-12 items-start">
-            <PricingTierCard id="prev-day" tierName="Day Trip" price="$450" perParticipant="~$15/person for a 30-person group" features={DAY_TRIP_FEATURES} ctaText="Schedule a Walkthrough" ctaHref="/demo" />
-            <PricingTierCard id="prev-ext" tierName="Extended Trip" price="$750" perParticipant="~$19/person for a 40-person group" features={EXTENDED_TRIP_FEATURES} ctaText="Schedule a Walkthrough" ctaHref="/demo" featured badge="Most Popular" />
-            <InternationalPricingCard id="prev-intl" features={INTERNATIONAL_FEATURES} ctaText="Schedule a Walkthrough" ctaHref="/demo" />
+            <PricingTierCard id="prev-day" tier={DAY_TRIP} features={DAY_TRIP_FEATURES} ctaText="Schedule a Walkthrough" ctaHref="/demo" />
+            <PricingTierCard id="prev-ext" tier={MULTI_DAY_TRIP} features={MULTI_DAY_TRIP_FEATURES} ctaText="Schedule a Walkthrough" ctaHref="/demo" />
+            <PricingTierCard id="prev-intl" tier={INTERNATIONAL_TRIP} features={INTERNATIONAL_FEATURES} ctaText="Schedule a Walkthrough" ctaHref="/demo" />
           </div>
 
           <div className="text-center mt-10">
