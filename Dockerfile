@@ -1,5 +1,5 @@
 # stage 1 - install doppler cli
-FROM debian:bullseye-slim AS doppler-install
+FROM debian:bookworm-slim AS doppler-install
 RUN apt-get update && \
     apt-get install -y --no-install-recommends wget ca-certificates curl gnupg && \
     install -m 0755 -d /etc/apt/keyrings && \
