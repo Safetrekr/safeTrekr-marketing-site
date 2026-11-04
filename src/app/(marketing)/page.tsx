@@ -7,6 +7,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Shield,
   MapPin,
@@ -113,8 +114,15 @@ function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt:
       <img
         src={`${assetPrefix}${src}`}
         alt={alt}
+        // Intrinsic phone-screenshot ratio (900x1957). `w-full h-auto` still
+        // controls the rendered size; the attributes only give the browser the
+        // aspect ratio up front so the layout box is reserved before the image
+        // loads -- preventing cumulative layout shift.
+        width={900}
+        height={1957}
         className="w-full h-auto block rounded-[24px]"
         loading="eager"
+        decoding="async"
       />
     </div>
   );
@@ -132,28 +140,36 @@ export default function PreviewHomePage() {
           SECTION 1: HERO
           ================================================================ */}
       <section aria-labelledby="hero-heading" className="relative overflow-x-hidden" style={{ background: 'var(--color-background)', paddingTop: 56, paddingBottom: 72 }}>
-        {/* Hero bg — desktop/tablet: full-bleed */}
+        {/* Hero bg — desktop/tablet: full-bleed.
+            next/image (fill) serves AVIF/WebP + responsive srcset. Eager (above
+            the fold) but NOT `priority` -- the mobile hero below owns the LCP
+            preload, and a second priority preload would compete on mobile. */}
         <div className="absolute inset-0 z-0 overflow-hidden hidden md:block" aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${assetPrefix}/images/index2/hero2.jpg`}
+          <Image
+            src="/images/index2/hero2.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
             style={{ transform: 'scaleX(-1)' }}
-            loading="eager"
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, var(--color-background) 0%, var(--color-background) 12%, rgba(231,236,238,0.7) 32%, rgba(231,236,238,0.4) 60%, rgba(231,236,238,0.2) 100%)' }} />
         </div>
 
-        {/* Hero bg — mobile: only behind the text block, fades to solid bg before phone carousel */}
+        {/* Hero bg — mobile: only behind the text block, fades to solid bg before phone carousel.
+            This is the mobile LCP element. `priority` emits a high-priority
+            preload (kills the ~3.3s load delay) and next/image serves AVIF/WebP
+            (cuts the ~1.25s load time). Fixed-height container = no layout shift. */}
         <div className="absolute left-0 right-0 top-0 z-0 overflow-hidden md:hidden" style={{ height: 500 }} aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${assetPrefix}/images/index2/hero-mobile.jpg`}
+          <Image
+            src="/images/index2/hero-mobile.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            priority
+            fetchPriority="high"
+            className="object-cover"
             style={{ transform: 'scaleX(-1)' }}
-            loading="eager"
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(231,236,238,0.25) 0%, rgba(231,236,238,0.55) 55%, rgba(231,236,238,0.92) 88%, var(--color-background) 100%)' }} />
         </div>

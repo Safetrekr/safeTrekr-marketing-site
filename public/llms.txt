@@ -1,64 +1,41 @@
-# SafeTrekr -- llms.txt
-# https://safetrekr.com/.well-known/llms.txt
-# Last updated: 2026-03-24
+# SafeTrekr
 
-> SafeTrekr is a travel risk management platform that provides real-time
-> intelligence, professional trip reviews, and duty-of-care compliance for
-> organizations of every size.
+> SafeTrekr delivers professional trip safety planning and travel risk management for K-12 schools, universities, churches, and corporate organizations. Every trip is professionally reviewed against real-time threat intelligence so coordinators, risk managers, and administrators can fulfill their duty of care with confidence.
 
-## Name
+SafeTrekr combines automated risk scoring, live threat feeds, interactive risk maps, and expert analyst review into a single workflow that replaces spreadsheets, email chains, and guesswork. The platform also provides GPS participant tracking, rally-point headcounts, emergency alerts with location, and pre-trip safety checklists.
 
-SafeTrekr
+## Core pages
 
-## URL
+- [Home](https://safetrekr.com/): Group travel safety planning overview.
+- [Platform](https://safetrekr.com/platform): All platform capabilities.
+- [How It Works](https://safetrekr.com/how-it-works): From trip details to a field-ready safety plan.
+- [Pricing](https://safetrekr.com/pricing): Plans and per-trip pricing details.
+- [Request a demo](https://safetrekr.com/demo): Schedule a walkthrough.
+- [Contact](https://safetrekr.com/contact): Get in touch with the team.
 
-https://safetrekr.com
+## Platform capabilities
 
-## Description
+- [Analyst Review](https://safetrekr.com/platform/analyst-review): Comprehensive professional review of every trip.
+- [Risk Intelligence](https://safetrekr.com/platform/risk-intelligence): Government-data risk scoring and live threat monitoring.
+- [Safety Binder](https://safetrekr.com/platform/safety-binder): Audit-ready duty-of-care documentation.
 
-SafeTrekr delivers professional travel risk management for K-12 schools,
-universities, churches, and corporate organizations. Every trip is
-professionally reviewed against real-time threat intelligence so that travel
-coordinators, risk managers, and administrators can fulfill their duty of care
-with confidence.
+## Solutions by organization
 
-The platform combines automated risk scoring, live threat feeds, interactive
-risk maps, and expert analyst review into a single workflow that replaces
-spreadsheets, email chains, and guesswork.
+- [K-12 Schools](https://safetrekr.com/solutions/k12): Field trip and student travel safety.
+- [Higher Education](https://safetrekr.com/solutions/higher-education): Study-abroad and faculty travel oversight, Clery Act support.
+- [Churches & Missions](https://safetrekr.com/solutions/churches): Mission trip and congregational travel safety.
+- [Corporate](https://safetrekr.com/solutions/corporate): Business travel risk and employee duty of care.
 
-## Key Features
+## Resources
 
-- Real-time travel risk intelligence with automated threat monitoring
-- Professional trip review by certified risk analysts
-- Interactive risk maps powered by live geopolitical and safety data
-- Duty-of-care compliance documentation and audit trails
-- Traveler tracking and emergency communication tools
-- Customizable risk policies per organization type
-- Incident response planning and crisis management support
-- Integration with travel booking systems and itinerary data
+- [FAQ](https://safetrekr.com/resources/faq): Common questions about SafeTrekr.
+- [ROI Calculator](https://safetrekr.com/resources/roi-calculator): Estimate the value of professional trip review.
+- [Glossary](https://safetrekr.com/resources/glossary): Travel risk and safety terminology.
+- [About SafeTrekr](https://safetrekr.com/about): Our team and mission.
+- [Security & Trust](https://safetrekr.com/security): Security posture and data practices.
 
-## Solutions
+## Optional
 
-- K-12 Schools: Field trip and student travel risk management
-- Higher Education: Study-abroad and faculty travel oversight
-- Churches: Mission trip and congregational travel safety
-- Corporate: Business travel risk and employee duty of care
-
-## Pricing
-
-Visit https://safetrekr.com/pricing for current plan details.
-Plans are available for small teams through enterprise organizations.
-
-## Contact
-
-- Website: https://safetrekr.com
-- Demo request: https://safetrekr.com/demo
-- Contact form: https://safetrekr.com/contact
-- Email: hello@safetrekr.com
-
-## Technical Details
-
-- Platform type: SaaS (Software as a Service)
-- Deployment: Cloud-hosted, accessible via web browser
-- Data security: SOC 2 Type II compliant infrastructure
-- API: RESTful API available for enterprise integrations
+- [Terms of Service](https://safetrekr.com/legal/terms): Legal terms of use.
+- [Privacy Policy](https://safetrekr.com/legal/privacy): How traveler and account data is handled.
+- Contact email: hello@safetrekr.com
