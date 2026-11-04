@@ -44,6 +44,9 @@ const nextConfig: NextConfig = {
   images: {
     // Image optimization requires a server; disable for static export
     unoptimized: isStaticExport,
+    // Prefer AVIF (≈20% smaller than WebP) with a WebP fallback. The optimizer
+    // picks the best format the requesting browser accepts.
+    formats: ["image/avif", "image/webp"],
   },
 
   experimental: {
