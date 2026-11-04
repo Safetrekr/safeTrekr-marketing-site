@@ -110,19 +110,22 @@ const assetPrefix = process.env.STATIC_EXPORT === "true" ? "/safeTrekr-marketing
 function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt: string; className?: string; width?: number }) {
   return (
     <div className={`relative phone-parallax rounded-[24px] sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={width ? { width } : undefined}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${assetPrefix}${src}`}
+      <Image
+        src={src}
         alt={alt}
-        // Intrinsic phone-screenshot ratio (900x1957). `w-full h-auto` still
-        // controls the rendered size; the attributes only give the browser the
-        // aspect ratio up front so the layout box is reserved before the image
-        // loads -- preventing cumulative layout shift.
+        // Intrinsic phone-screenshot ratio (900x1957). `w-full h-auto` controls
+        // the rendered size; width/height give the aspect ratio up front so the
+        // layout box is reserved (no CLS). next/image serves AVIF/WebP sized to
+        // the ~240-280px render width -- cutting each mockup from ~95-228 KB of
+        // raw JPG to ~15-30 KB.
         width={900}
         height={1957}
+        sizes="(min-width: 1024px) 280px, 240px"
+        // Lazy by default: each breakpoint's IntersectionObserver loads only the
+        // phones actually visible at that width (the desktop column and the
+        // mobile carousel are mutually `display:none`), and above-the-fold ones
+        // load immediately -- so nothing competes with the hero LCP image.
         className="w-full h-auto block rounded-[24px]"
-        loading="eager"
-        decoding="async"
       />
     </div>
   );
