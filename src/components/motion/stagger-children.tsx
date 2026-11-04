@@ -6,7 +6,7 @@
  * A viewport-aware motion container that orchestrates staggered entry
  * animations for its children. This component is the CONTAINER only --
  * children must provide their own animation variants (e.g., wrapped in
- * `ScrollReveal` or using `motion.div` with `cardReveal` / `fadeUp`).
+ * `ScrollReveal` or using `m.div` with `cardReveal` / `fadeUp`).
  *
  * When `prefers-reduced-motion` is active, the container renders as a
  * plain HTML element so children appear instantly without orchestration.
@@ -15,14 +15,14 @@
  * ```tsx
  * <StaggerChildren as="ul" staggerDelay={0.1} className="grid gap-4">
  *   {items.map((item) => (
- *     <motion.li key={item.id} variants={variants.cardReveal}>
+ *     <m.li key={item.id} variants={variants.cardReveal}>
  *       <Card>{item.name}</Card>
- *     </motion.li>
+ *     </m.li>
  *   ))}
  * </StaggerChildren>
  * ```
  *
- * @see src/lib/motion.ts for variant presets (cardReveal, fadeUp, etc.)
+ * @see src/lib/m.ts for variant presets (cardReveal, fadeUp, etc.)
  */
 
 import {
@@ -31,7 +31,7 @@ import {
   useMemo,
   createElement,
 } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { useReducedMotion } from '@/lib/motion';
 import { cn } from '@/lib/utils';
@@ -150,9 +150,9 @@ export function StaggerChildren({
   // Animated path -- motion element with stagger orchestration
   // -----------------------------------------------------------------------
 
-  // Framer Motion's `motion` proxy supports dynamic element access:
-  // motion['div'], motion['section'], motion['ul'], etc.
-  const MotionComponent = motion[as] as typeof motion.div;
+  // Framer Motion's `m` proxy supports dynamic element access:
+  // m['div'], m['section'], m['ul'], etc.
+  const MotionComponent = m[as] as typeof m.div;
 
   return (
     <MotionComponent

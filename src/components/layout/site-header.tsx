@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { m, AnimatePresence, type Variants } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
@@ -201,7 +201,7 @@ function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: b
 
   if (!item.dropdown) {
     return (
-      <motion.li variants={itemVariants}>
+      <m.li variants={itemVariants}>
         <Link
           href={item.href}
           onClick={onClose}
@@ -211,12 +211,12 @@ function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: b
         >
           {item.label}
         </Link>
-      </motion.li>
+      </m.li>
     );
   }
 
   return (
-    <motion.li variants={itemVariants}>
+    <m.li variants={itemVariants}>
       <button
         type="button"
         onClick={() => setExpanded((prev) => !prev)}
@@ -233,7 +233,7 @@ function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: b
       </button>
       <AnimatePresence>
         {expanded && (
-          <motion.ul
+          <m.ul
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -252,10 +252,10 @@ function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: b
                 </Link>
               </li>
             ))}
-          </motion.ul>
+          </m.ul>
         )}
       </AnimatePresence>
-    </motion.li>
+    </m.li>
   );
 }
 
@@ -324,7 +324,7 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   const overlay = (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <m.div
           variants={overlayVariants}
           initial="closed"
           animate="open"
@@ -359,7 +359,7 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           <div className="mx-6 shrink-0" style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
 
           {/* Nav items (scrollable middle) */}
-          <motion.ul
+          <m.ul
             className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-4"
             variants={overlayVariants}
           >
@@ -371,7 +371,7 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 onClose={onClose}
               />
             ))}
-          </motion.ul>
+          </m.ul>
 
           {/* Bottom CTA area (pinned) */}
           <div
@@ -396,7 +396,7 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
               Schedule a Walkthrough
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

@@ -4,6 +4,7 @@ import {
   JsonLd,
   generateOrganizationSchema,
 } from "@/lib/structured-data";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import "./globals.css";
 
 /* ================================================================
@@ -33,7 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <JsonLd data={generateOrganizationSchema()} />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

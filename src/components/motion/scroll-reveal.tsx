@@ -18,11 +18,11 @@
  * </ScrollReveal>
  * ```
  *
- * @see src/lib/motion.ts for available variant presets
+ * @see src/lib/m.ts for available variant presets
  */
 
 import { useRef, useMemo, type ReactNode, type ElementType } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
 import { variants, type VariantName } from "@/lib/motion";
@@ -140,7 +140,7 @@ function withDelay(baseVariant: Variants, delay: number): Variants {
 /**
  * Scroll-triggered reveal animation wrapper.
  *
- * Renders a `motion[as]` element that transitions from `hidden` to `visible`
+ * Renders a `m[as]` element that transitions from `hidden` to `visible`
  * when the element scrolls into the viewport. Automatically disables all
  * animation when the user has `prefers-reduced-motion` enabled.
  */
@@ -167,7 +167,7 @@ export function ScrollReveal({
   // -----------------------------------------------------------------------
   // Reduced motion: render a static wrapper with no animation.
   // Using a plain HTML element avoids loading framer-motion's animation
-  // runtime for users who have opted out of motion.
+  // runtime for users who have opted out of m.
   // -----------------------------------------------------------------------
   if (shouldReduceMotion) {
     const StaticTag = as as ElementType;
@@ -179,10 +179,10 @@ export function ScrollReveal({
   }
 
   // -----------------------------------------------------------------------
-  // Animated path: motion[as] renders the chosen HTML element with
+  // Animated path: m[as] renders the chosen HTML element with
   // Framer Motion capabilities.
   // -----------------------------------------------------------------------
-  const MotionComponent = motion[as] as typeof motion.div;
+  const MotionComponent = m[as] as typeof m.div;
 
   return (
     <MotionComponent
