@@ -27,7 +27,7 @@
  */
 
 import { useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -116,7 +116,7 @@ function TripReviewCard({
   const progressTransition = createHeroProgressBarTransition(prefersReducedMotion);
 
   return (
-    <motion.div
+    <m.div
       className="absolute hidden lg:block rounded-xl bg-card border border-border p-5"
       style={{
         width: 260,
@@ -155,7 +155,7 @@ function TripReviewCard({
 
       {/* Progress bar -- Stage 9: 1000ms */}
       <div className="w-full h-2 rounded-full bg-primary-100">
-        <motion.div
+        <m.div
           className="h-full rounded-full bg-primary-500"
           initial={{ width: 0 }}
           animate={{ width: "85%" }}
@@ -169,7 +169,7 @@ function TripReviewCard({
           85% complete
         </span>
         {/* "Trip Ready" badge -- Stage 12: 1400ms */}
-        <motion.div
+        <m.div
           variants={variants.tripReadyBadge}
           initial="hidden"
           animate={animate}
@@ -180,9 +180,9 @@ function TripReviewCard({
           >
             Trip Ready
           </Badge>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -199,7 +199,7 @@ function EvidenceBinderCard({
   variants,
 }: AnimatedOverlayProps) {
   return (
-    <motion.div
+    <m.div
       className="absolute hidden lg:block"
       style={{ right: -10, top: 290, zIndex: 20 }}
       variants={variants.documentPreview}
@@ -277,7 +277,7 @@ function EvidenceBinderCard({
           </code>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -329,7 +329,7 @@ function ReadinessGauge({
           transform="rotate(-90 36 36)"
         />
         {/* Animated fill arc -- Stage 10: 1100ms */}
-        <motion.circle
+        <m.circle
           cx={36}
           cy={36}
           r={32}
@@ -366,7 +366,7 @@ function ReadinessGauge({
 
       {/* Active status indicator -- Stage 11: 1200ms */}
       <div className="flex items-center justify-center gap-1 mt-1">
-        <motion.span
+        <m.span
           className="size-2 rounded-full bg-safety-green"
           aria-hidden="true"
           variants={variants.statusDot}
@@ -470,7 +470,7 @@ export function HeroHome({ className }: HeroHomeProps) {
               ──────────────────────────────────── */}
           <div className="lg:col-span-5 flex flex-col">
             {/* Eyebrow -- Stage 1: 0ms */}
-            <motion.div
+            <m.div
               variants={variants.headline}
               initial="hidden"
               animate={animateTarget}
@@ -481,10 +481,10 @@ export function HeroHome({ className }: HeroHomeProps) {
               >
                 TRIP SAFETY MANAGEMENT PLATFORM
               </Eyebrow>
-            </motion.div>
+            </m.div>
 
             {/* Headline -- Stage 1: 0ms */}
-            <motion.h1
+            <m.h1
               id="hero-heading"
               className="text-display-xl mt-4 text-foreground"
               style={{ maxWidth: "20ch" }}
@@ -493,10 +493,10 @@ export function HeroHome({ className }: HeroHomeProps) {
               animate={animateTarget}
             >
               Every trip professionally reviewed.
-            </motion.h1>
+            </m.h1>
 
             {/* Subheadline -- Stage 2: 150ms */}
-            <motion.p
+            <m.p
               className="text-body-lg mt-6 text-muted-foreground"
               style={{ maxWidth: "50ch" }}
               variants={variants.subtext}
@@ -506,10 +506,10 @@ export function HeroHome({ className }: HeroHomeProps) {
               SafeTrekr combines current information from trusted sources,
               comprehensive professional review, and board-ready documentation to
               support your travelers and your organization.
-            </motion.p>
+            </m.p>
 
             {/* CTAs -- Stage 3: 300ms */}
-            <motion.div
+            <m.div
               className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8"
               variants={variants.ctas}
               initial="hidden"
@@ -521,7 +521,7 @@ export function HeroHome({ className }: HeroHomeProps) {
                   <ArrowRight className="size-5" aria-hidden="true" />
                 </a>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* ────────────────────────────────────
@@ -529,7 +529,7 @@ export function HeroHome({ className }: HeroHomeProps) {
               ──────────────────────────────────── */}
 
           {/* Desktop: full 4-layer product composition */}
-          <motion.div
+          <m.div
             className="lg:col-span-7 relative hidden md:block"
             style={{ minHeight: 440 }}
             variants={variants.mapPanel}
@@ -563,17 +563,17 @@ export function HeroHome({ className }: HeroHomeProps) {
               prefersReducedMotion={prefersReducedMotion}
               variants={variants}
             />
-          </motion.div>
+          </m.div>
 
           {/* Mobile: simplified map fragment (no overlay cards) */}
-          <motion.div
+          <m.div
             className="md:hidden"
             variants={variants.mapPanel}
             initial="hidden"
             animate={animateTarget}
           >
             <MobileMapFragment />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>
