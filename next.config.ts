@@ -44,9 +44,17 @@ const nextConfig: NextConfig = {
   images: {
     // Image optimization requires a server; disable for static export
     unoptimized: isStaticExport,
-    // Prefer AVIF (≈20% smaller than WebP) with a WebP fallback. The optimizer
-    // picks the best format the requesting browser accepts.
-    formats: ["image/avif", "image/webp"],
+    // WebP only. AVIF is ~20% smaller but encodes several times slower
+    // on-demand -- on the self-hosted standalone optimizer that first-request
+    // encode cost was making hero/phone images "very slow to load." The source
+    // JPGs are already small, so WebP's size is fine and it encodes fast.
+    formats: ["image/webp"],
+    // Optimize each variant ONCE, then cache it for a year. The default TTL is
+    // short, so optimized images kept expiring and getting re-encoded on every
+    // request. A long TTL also lets the browser and the Cloudflare edge cache
+    // them. These are static marketing assets -- when one changes, its filename
+    // (and therefore the optimizer URL) changes, so stale caching isn't a risk.
+    minimumCacheTTL: 31536000,
   },
 
   experimental: {
