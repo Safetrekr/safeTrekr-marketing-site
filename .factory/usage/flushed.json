@@ -1,7 +1,12 @@
 {
   "58da82a9-341d-4193-ad7b-547d4ae80193": {
-    "total_tokens": 49621095,
-    "estimated_cost_usd": 31.598253,
-    "flushed_at": "2026-11-04T22:32:57.309914+00:00"
+    "total_tokens": 50656830,
+    "estimated_cost_usd": 32.234609,
+    "flushed_at": "2026-11-10T20:54:39.126196+00:00"
+  },
+  "6c71d33e-43c9-4087-a67c-fd5eae296bf7": {
+    "total_tokens": 20664977,
+    "estimated_cost_usd": 14.674884,
+    "flushed_at": "2026-11-10T21:28:02.031300+00:00"
   }
 }
