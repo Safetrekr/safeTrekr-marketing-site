@@ -130,7 +130,7 @@ export async function submitForm(
     // 5. Sanitization
     // ------------------------------------------------------------------
     const sanitized = sanitizeFormData(
-      parsed.data as Record<string, unknown>,
+      parsed.data,
     );
 
     // ------------------------------------------------------------------
@@ -160,7 +160,7 @@ export async function submitForm(
     const supabase = createServerSupabaseClient();
 
     const { email, firstName, lastName, organization, ...rest } =
-      sanitized as Record<string, unknown>;
+      sanitized;
 
     // Strip meta fields from the details blob.
     delete (rest as Record<string, unknown>).turnstileToken;
@@ -192,7 +192,7 @@ export async function submitForm(
     }
 
     // Fire-and-forget: email failure must not block the user's success.
-    void sendFormNotification(type, sanitized).catch((err) => {
+    void sendFormNotification(type, sanitized).catch((err: unknown) => {
       console.error("[submit-form] SendGrid notification failed:", err);
     });
 

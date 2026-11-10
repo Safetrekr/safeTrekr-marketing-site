@@ -76,7 +76,7 @@ export function LeadCaptureModal({
   const [turnstileToken, setTurnstileToken] = useState("");
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
@@ -214,7 +214,7 @@ export function LeadCaptureModal({
               ref={turnstileRef}
               siteKey={TURNSTILE_SITE_KEY}
               onVerify={setTurnstileToken}
-              onExpire={() => setTurnstileToken("")}
+              onExpire={() => { setTurnstileToken(""); }}
             />
 
             {status.kind === "error" && (

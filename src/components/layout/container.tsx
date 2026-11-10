@@ -87,7 +87,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   ({ className, size, as: Tag = "div", ...props }, ref) => {
     return (
       <Tag
-        ref={ref as React.Ref<HTMLDivElement>}
+        ref={ref}
         className={cn(containerVariants({ size, className }))}
         {...props}
       />

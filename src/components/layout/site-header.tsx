@@ -86,7 +86,7 @@ function useScrolled(threshold = 100): boolean {
     }
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => { window.removeEventListener("scroll", handleScroll); };
   }, [threshold]);
 
   return scrolled;
@@ -106,7 +106,7 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
   }
 
   function handleLeave() {
-    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+    timeoutRef.current = setTimeout(() => { setOpen(false); }, 150);
   }
 
   if (!item.dropdown) {
@@ -125,6 +125,10 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
   }
 
   return (
+    // Hover affordance only: the interactive control is the child <Link>
+    // (keyboard-focusable, with aria-expanded/aria-haspopup). The wrapper adds
+    // mouse hover-to-open convenience, so it needs no role of its own.
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       <Link
         href={item.href}
@@ -161,7 +165,7 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
                 role="menuitem"
                 className="block rounded-md px-3 py-2.5 transition-colors hover:bg-[var(--color-primary-50)]"
                 style={{ textDecoration: "none" }}
-                onClick={() => setOpen(false)}
+                onClick={() => { setOpen(false); }}
               >
                 <span className="block text-sm font-medium" style={{ color: "var(--color-foreground)" }}>
                   {link.label}
@@ -219,7 +223,7 @@ function MobileNavItem({ item, isActive, onClose }: { item: NavItem; isActive: b
     <m.li variants={itemVariants}>
       <button
         type="button"
-        onClick={() => setExpanded((prev) => !prev)}
+        onClick={() => { setExpanded((prev) => !prev); }}
         aria-expanded={expanded}
         className="flex w-full items-center justify-between px-6 font-display text-xl font-semibold transition-colors"
         style={{ height: 56, color: isActive ? "#6cbc8b" : "#f7f8f8" }}
@@ -311,7 +315,7 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       if (e.key === "Escape") onClose();
     }
     document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    return () => { document.removeEventListener("keydown", handleEscape); };
   }, [isOpen, onClose]);
 
   // Portal the overlay to document.body so it escapes the header's
@@ -410,7 +414,7 @@ function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
 
 function MobileMenuButton() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const close = React.useCallback(() => setIsOpen(false), []);
+  const close = React.useCallback(() => { setIsOpen(false); }, []);
 
   return (
     <>
@@ -418,7 +422,7 @@ function MobileMenuButton() {
         type="button"
         className="p-2 text-foreground lg:hidden"
         aria-label="Open navigation menu"
-        onClick={() => setIsOpen(true)}
+        onClick={() => { setIsOpen(true); }}
       >
         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />

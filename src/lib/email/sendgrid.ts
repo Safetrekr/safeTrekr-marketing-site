@@ -79,6 +79,16 @@ const FORM_TYPE_LABELS: Record<NotificationFormType, string> = {
 };
 
 /**
+ * Resolve a human label for a form type, falling back to the raw value. Indexes
+ * via a `Record<string, string>` view so an unrecognized `formType` is correctly
+ * typed as possibly-undefined (the caller passes an untrusted string).
+ */
+function formTypeLabel(formType: string): string {
+  const labels: Record<string, string> = FORM_TYPE_LABELS;
+  return labels[formType] ?? formType;
+}
+
+/**
  * Builds a plain-text summary of form data for the email body.
  * Each field is rendered as "Label: value" on its own line.
  *
@@ -88,8 +98,7 @@ function buildPlainTextBody(
   formType: string,
   data: Record<string, unknown>,
 ): string {
-  const label =
-    FORM_TYPE_LABELS[formType as NotificationFormType] ?? formType;
+  const label = formTypeLabel(formType);
   const lines = [`New ${label} Submission`, "=".repeat(40), ""];
 
   for (const [key, value] of Object.entries(data)) {
@@ -107,7 +116,9 @@ function buildPlainTextBody(
     const displayKey = formatFieldName(key);
     const displayValue = Array.isArray(value)
       ? value.join(", ")
-      : String(value);
+      : typeof value === "string"
+        ? value
+        : JSON.stringify(value);
 
     lines.push(`${displayKey}: ${displayValue}`);
   }
@@ -123,8 +134,7 @@ function buildHtmlBody(
   formType: string,
   data: Record<string, unknown>,
 ): string {
-  const label =
-    FORM_TYPE_LABELS[formType as NotificationFormType] ?? formType;
+  const label = formTypeLabel(formType);
 
   const rows: string[] = [];
   for (const [key, value] of Object.entries(data)) {
@@ -141,7 +151,7 @@ function buildHtmlBody(
     const displayKey = escapeHtml(formatFieldName(key));
     const displayValue = Array.isArray(value)
       ? escapeHtml(value.join(", "))
-      : escapeHtml(String(value));
+      : escapeHtml(typeof value === "string" ? value : JSON.stringify(value));
 
     rows.push(`
       <tr>
@@ -205,8 +215,7 @@ export async function sendFormNotification(
 
   sgMail.setApiKey(apiKey);
 
-  const label =
-    FORM_TYPE_LABELS[formType as NotificationFormType] ?? formType;
+  const label = formTypeLabel(formType);
   const contactName = [data["firstName"], data["lastName"]]
     .filter(Boolean)
     .join(" ");

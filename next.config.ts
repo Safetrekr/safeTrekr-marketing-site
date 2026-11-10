@@ -67,6 +67,9 @@ const nextConfig: NextConfig = {
   // explicitly for clarity. Production (standalone) server applies these
   // to every route.
   ...(!isStaticExport && {
+    // Next's headers() config type requires an async (Promise-returning)
+    // signature even though this implementation has nothing to await.
+    // eslint-disable-next-line @typescript-eslint/require-await
     async headers() {
       return [
         // Force browsers to download PDFs (e.g. legal documents) rather than

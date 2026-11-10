@@ -13,7 +13,7 @@
  * - SUPABASE_SERVICE_ROLE_KEY -- Service role key (never expose to the client)
  */
 
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 /**
  * Creates a new Supabase client for server-side operations.
@@ -32,7 +32,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
  * const { data, error } = await supabase.from("contacts").select("*");
  * ```
  */
-export function createServerSupabaseClient(): SupabaseClient {
+export function createServerSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 

@@ -72,7 +72,7 @@ export async function subscribeNewsletter(
     }
 
     const sanitized = sanitizeFormData(
-      parsed.data as Record<string, unknown>,
+      parsed.data,
     );
 
     // IP hash + rate limit.
@@ -125,7 +125,7 @@ export async function subscribeNewsletter(
     }
 
     // Fire-and-forget notification so the team sees the signup.
-    void sendFormNotification("newsletter_signup", sanitized).catch((err) => {
+    void sendFormNotification("newsletter_signup", sanitized).catch((err: unknown) => {
       console.error(
         "[subscribe-newsletter] SendGrid notification failed:",
         err,
