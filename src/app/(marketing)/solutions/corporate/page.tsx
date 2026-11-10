@@ -616,7 +616,7 @@ export default function CorporateSolutionsPage() {
                 id="proof-heading"
                 className="mx-auto max-w-[28ch] text-display-md text-dark-text-primary"
               >
-                Your safety binder, in every traveler's pocket.
+                Your safety binder, in every traveler&apos;s pocket.
               </h2>
             </div>
           </ScrollReveal>
@@ -651,7 +651,7 @@ export default function CorporateSolutionsPage() {
           <ScrollReveal variant="fadeUp">
             <p className="mx-auto mt-12 max-w-prose text-center text-body-lg text-dark-text-secondary">
               The SafeTrekr traveler app puts every detail of the trip plan
-              directly in your team's hands, so they can focus on the work
+              directly in your team&apos;s hands, so they can focus on the work
               ahead, not hunting for information when it matters most.
             </p>
           </ScrollReveal>

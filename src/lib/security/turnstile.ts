@@ -190,7 +190,7 @@ export async function verifyTurnstile(
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), VERIFY_TIMEOUT_MS);
+    const timeoutId = setTimeout(() => { controller.abort(); }, VERIFY_TIMEOUT_MS);
 
     const response = await fetch(TURNSTILE_VERIFY_URL, {
       method: "POST",
@@ -213,7 +213,7 @@ export async function verifyTurnstile(
       };
     }
 
-    const data: TurnstileSiteverifyResponse = await response.json();
+    const data = (await response.json()) as TurnstileSiteverifyResponse;
 
     if (data.success) {
       return { success: true };

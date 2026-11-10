@@ -65,10 +65,10 @@ export function useTripCalculator(
   const [travelersPerTrip, setTravelersPerTripState] = useState(defaults.travelersPerTrip ?? 30);
   const [feePerTraveler, setFeePerTravelerState] = useState(defaults.feePerTraveler ?? 50);
 
-  const setTier = useCallback((v: TripTier) => setTierState(v), []);
-  const setTripsPerYear = useCallback((v: number) => setTripsPerYearState(v), []);
-  const setTravelersPerTrip = useCallback((v: number) => setTravelersPerTripState(v), []);
-  const setFeePerTraveler = useCallback((v: number) => setFeePerTravelerState(v), []);
+  const setTier = useCallback((v: TripTier) => { setTierState(v); }, []);
+  const setTripsPerYear = useCallback((v: number) => { setTripsPerYearState(v); }, []);
+  const setTravelersPerTrip = useCallback((v: number) => { setTravelersPerTripState(v); }, []);
+  const setFeePerTraveler = useCallback((v: number) => { setFeePerTravelerState(v); }, []);
 
   const tripPrice = calculateTripPrice(TIER_DATA[tier], travelersPerTrip);
   const annualCost = tripPrice * tripsPerYear;

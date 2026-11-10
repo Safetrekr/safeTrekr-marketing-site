@@ -94,7 +94,7 @@ function estimateWordCount(content: string): number {
   const text = content
     .replace(/```[\s\S]*?```/g, "") // code blocks
     .replace(/`[^`]*`/g, "") // inline code
-    .replace(/[#*_~\[\]()>|-]/g, "") // markdown chars
+    .replace(/[#*_~[\]()>|-]/g, "") // markdown chars
     .replace(/\n+/g, " ")
     .trim();
   return text.split(/\s+/).filter(Boolean).length;
@@ -109,17 +109,21 @@ function estimateWordCount(content: string): number {
  * (similar to legal-prose but with blog-specific enhancements).
  */
 const mdxComponents = {
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       {...props}
       className="scroll-mt-24 text-heading-lg mb-4 mt-12 text-[var(--color-foreground)] first:mt-0"
-    />
+    >
+      {children}
+    </h2>
   ),
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+  h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       {...props}
       className="scroll-mt-24 text-heading-md mb-3 mt-8 text-[var(--color-foreground)]"
-    />
+    >
+      {children}
+    </h3>
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
@@ -128,11 +132,13 @@ const mdxComponents = {
       style={{ maxWidth: "65ch" }}
     />
   ),
-  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  a: ({ children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
       {...props}
       className="text-[var(--color-primary-700)] underline underline-offset-2 transition-colors duration-150 hover:text-[var(--color-primary-800)]"
-    />
+    >
+      {children}
+    </a>
   ),
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
     <strong {...props} className="font-semibold text-[var(--color-foreground)]" />

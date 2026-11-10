@@ -82,7 +82,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
             <button
               key={t}
               type="button"
-              onClick={() => setTier(t)}
+              onClick={() => { setTier(t); }}
               className={cn(
                 "rounded-lg border-2 px-3 py-3 text-center transition-all duration-150",
                 tier === t
@@ -133,7 +133,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
           max={100}
           step={1}
           value={tripsPerYear}
-          onChange={(e) => setTripsPerYear(Number(e.target.value))}
+          onChange={(e) => { setTripsPerYear(Number(e.target.value)); }}
           aria-valuemin={1}
           aria-valuemax={100}
           aria-valuenow={tripsPerYear}
@@ -169,7 +169,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
           max={200}
           step={5}
           value={travelersPerTrip}
-          onChange={(e) => setTravelersPerTrip(Number(e.target.value))}
+          onChange={(e) => { setTravelersPerTrip(Number(e.target.value)); }}
           aria-valuemin={5}
           aria-valuemax={200}
           aria-valuenow={travelersPerTrip}
@@ -233,7 +233,7 @@ export function RevenueCalculator({ className }: RevenueCalculatorProps) {
           max={100}
           step={5}
           value={feePerTraveler}
-          onChange={(e) => setFeePerTraveler(Number(e.target.value))}
+          onChange={(e) => { setFeePerTraveler(Number(e.target.value)); }}
           aria-valuemin={5}
           aria-valuemax={100}
           aria-valuenow={feePerTraveler}

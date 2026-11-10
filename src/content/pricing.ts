@@ -157,9 +157,13 @@ export function formatTierPrice(tier: TripTier): string {
 export function getFeaturedTier(): TripTier {
   const featured = TRIP_TIERS.find((t) => t.featured);
   const fallbackIndex = Math.floor(TRIP_TIERS.length / 2);
-  // Non-null assertion is safe: TRIP_TIERS is a non-empty readonly array
-  // defined above, and fallbackIndex is always a valid index.
-  return featured ?? TRIP_TIERS[fallbackIndex]!;
+  // TRIP_TIERS is a non-empty readonly array defined above, so the fallback is
+  // always present; the guard narrows the type without a non-null assertion.
+  const tier = featured ?? TRIP_TIERS[fallbackIndex];
+  if (!tier) {
+    throw new Error("TRIP_TIERS must contain at least one tier.");
+  }
+  return tier;
 }
 
 /**

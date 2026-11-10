@@ -127,7 +127,7 @@ function withDelay(baseVariant: Variants, delay: number): Variants {
       ...visibleState,
       transition: {
         ...existingTransition,
-        delay: ((existingTransition.delay as number) ?? 0) + delay,
+        delay: ((existingTransition.delay as number | undefined) ?? 0) + delay,
       },
     },
   };

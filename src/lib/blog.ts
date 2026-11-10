@@ -83,7 +83,19 @@ function parsePostFile(filename: string): BlogPost | null {
     const raw = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(raw);
 
-    const frontmatter = data as BlogPostFrontmatter;
+    // gray-matter returns untyped `data`. title/date/category are required and
+    // validated below; description/author/readingTime/tags may be absent on
+    // disk and are defaulted here, so model them as optional on the raw cast.
+    const frontmatter = data as Omit<
+      BlogPostFrontmatter,
+      "description" | "author" | "readingTime" | "tags"
+    > &
+      Partial<
+        Pick<
+          BlogPostFrontmatter,
+          "description" | "author" | "readingTime" | "tags"
+        >
+      >;
 
     // Validate required fields
     if (!frontmatter.title || !frontmatter.date || !frontmatter.category) {

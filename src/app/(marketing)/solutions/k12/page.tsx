@@ -353,7 +353,7 @@ export default function K12SolutionsPage() {
               Trip planning works better with structure.
             </h2>
             <p className="mt-4 max-w-[65ch] text-body-lg text-dark-text-secondary">
-              Field trip planning in most districts relies on individual teachers doing their best with whatever tools are available. The process varies from trip to trip, school to school. The challenge isn't effort or caring -- teachers care deeply. The challenge is that districts ask educators to perform safety planning functions without safety planning tools or training.
+              Field trip planning in most districts relies on individual teachers doing their best with whatever tools are available. The process varies from trip to trip, school to school. The challenge isn&apos;t effort or caring -- teachers care deeply. The challenge is that districts ask educators to perform safety planning functions without safety planning tools or training.
             </p>
           </ScrollReveal>
 
@@ -609,7 +609,7 @@ export default function K12SolutionsPage() {
                     return (
                     <div
                       key={thumb.label}
-                      className={`flex w-full flex-col rounded-md border border-border bg-white p-3 shadow-[var(--shadow-md)] transition-transform sm:w-[140px] sm:shrink-0 ${fanTransforms[i]}`}
+                      className={`flex w-full flex-col rounded-md border border-border bg-white p-3 shadow-[var(--shadow-md)] transition-transform sm:w-[140px] sm:shrink-0 ${fanTransforms[i] ?? ""}`}
                       style={{ zIndex: fanZ[i] }}
                       aria-hidden="true"
                     >
