@@ -18,7 +18,10 @@
  */
 
 import { useRef, useEffect, useCallback } from "react";
-import maplibregl from "maplibre-gl";
+// maplibre-gl v6 dropped the default export in favour of named exports;
+// a namespace import keeps both the classes (Map, Marker) and the types
+// (StyleSpecification) available under the `maplibregl` qualifier.
+import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { cn } from "@/lib/utils";
 
@@ -321,14 +324,14 @@ export default function MapLibreInstance({
         // Desaturate the base layers to match the muted hero palette.
         // MapTiler dataviz-light is already fairly muted, but we push
         // it further to ensure the route line stands out clearly.
+        // maplibre-gl v6 types a loaded style's `layers` as a non-optional
+        // array, so no null guard is needed here.
         const layers = map.getStyle().layers;
-        if (layers) {
-          for (const layer of layers) {
-            if (layer.type === "raster") {
-              map.setPaintProperty(layer.id, "raster-saturation", -0.7);
-              map.setPaintProperty(layer.id, "raster-brightness-min", 0.15);
-              map.setPaintProperty(layer.id, "raster-brightness-max", 0.92);
-            }
+        for (const layer of layers) {
+          if (layer.type === "raster") {
+            map.setPaintProperty(layer.id, "raster-saturation", -0.7);
+            map.setPaintProperty(layer.id, "raster-brightness-min", 0.15);
+            map.setPaintProperty(layer.id, "raster-brightness-max", 0.92);
           }
         }
       }
