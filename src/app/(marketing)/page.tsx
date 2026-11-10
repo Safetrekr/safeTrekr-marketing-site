@@ -35,6 +35,10 @@ import { HOMEPAGE_FAQ } from "@/content/homepage-faq";
 
 export const metadata = generatePageMetadata({
   title: "Go With a Plan",
+  // Brand-first homepage title that keeps the "Go With a Plan" tagline but adds
+  // a descriptive keyword (~42 chars). The old "Go With a Plan | SafeTrekr" was
+  // only 26 chars and keyword-light, which SEO tools flag as under-optimized.
+  titleAbsolute: "SafeTrekr — Go With a Plan | Travel Safety",
   description:
     "Group travel safety for schools, teams & churches: GPS tracking, rally-point headcounts, emergency alerts, live threat intelligence, and pre-trip checklists.",
   path: "/",
