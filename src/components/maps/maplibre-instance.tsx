@@ -170,12 +170,14 @@ function getMapStyle(): maplibregl.StyleSpecification | string {
  */
 function createWaypointElement(isEndpoint: boolean): HTMLElement {
   const el = document.createElement("div");
-  const size = isEndpoint ? 24 : 20;
-  const innerSize = isEndpoint ? 14 : 12;
-  const dotSize = isEndpoint ? 6 : 5;
+  // Sizes as CSS length strings so they drop straight into style properties
+  // (avoids number-in-template-literal lint and an implicit number->string cast).
+  const size = isEndpoint ? "24px" : "20px";
+  const innerSize = isEndpoint ? "14px" : "12px";
+  const dotSize = isEndpoint ? "6px" : "5px";
 
-  el.style.width = `${size}px`;
-  el.style.height = `${size}px`;
+  el.style.width = size;
+  el.style.height = size;
   el.style.borderRadius = "50%";
   el.style.backgroundColor = "#e0f1e6"; // primary-100
   el.style.display = "flex";
@@ -184,8 +186,8 @@ function createWaypointElement(isEndpoint: boolean): HTMLElement {
   el.style.cursor = "default";
 
   const inner = document.createElement("div");
-  inner.style.width = `${innerSize}px`;
-  inner.style.height = `${innerSize}px`;
+  inner.style.width = innerSize;
+  inner.style.height = innerSize;
   inner.style.borderRadius = "50%";
   inner.style.backgroundColor = "#3f885b"; // primary-600
   inner.style.display = "flex";
@@ -193,8 +195,8 @@ function createWaypointElement(isEndpoint: boolean): HTMLElement {
   inner.style.justifyContent = "center";
 
   const dot = document.createElement("div");
-  dot.style.width = `${dotSize}px`;
-  dot.style.height = `${dotSize}px`;
+  dot.style.width = dotSize;
+  dot.style.height = dotSize;
   dot.style.borderRadius = "50%";
   dot.style.backgroundColor = "#ffffff";
 
@@ -218,8 +220,12 @@ export default function MapLibreInstance({
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
 
+  // Keep the latest onReady callback in a ref without re-running map setup.
+  // Assigning in an effect (not during render) satisfies the react refs rule.
   const onReadyRef = useRef(onReady);
-  onReadyRef.current = onReady;
+  useEffect(() => {
+    onReadyRef.current = onReady;
+  }, [onReady]);
 
   const addRouteAndMarkers = useCallback(
     (map: maplibregl.Map) => {
