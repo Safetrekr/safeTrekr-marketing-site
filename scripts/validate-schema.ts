@@ -130,7 +130,7 @@ function validateSchemaObject(
         const item = graphItems[i];
         if (item && typeof item === "object") {
           validateSchemaObject(
-            item as Record<string, unknown>,
+            item,
             `${parentPath}.@graph[${i}]`,
             errors,
             warnings

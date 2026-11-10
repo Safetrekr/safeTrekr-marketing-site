@@ -92,7 +92,7 @@ const SectionContainer = React.forwardRef<HTMLDivElement, SectionContainerProps>
   ) => {
     return (
       <Tag
-        ref={ref as React.Ref<HTMLDivElement>}
+        ref={ref}
         className={cn(sectionContainerVariants({ variant, className }))}
         aria-labelledby={ariaLabelledBy}
         {...(variant === "dark" ? { "data-theme": "dark" } : {})}

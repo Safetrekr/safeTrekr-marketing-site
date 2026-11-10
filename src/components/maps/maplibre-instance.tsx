@@ -18,7 +18,10 @@
  */
 
 import { useRef, useEffect, useCallback } from "react";
-import maplibregl from "maplibre-gl";
+// maplibre-gl v6 dropped the default export in favour of named exports;
+// a namespace import keeps both the classes (Map, Marker) and the types
+// (StyleSpecification) available under the `maplibregl` qualifier.
+import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { cn } from "@/lib/utils";
 
@@ -167,12 +170,14 @@ function getMapStyle(): maplibregl.StyleSpecification | string {
  */
 function createWaypointElement(isEndpoint: boolean): HTMLElement {
   const el = document.createElement("div");
-  const size = isEndpoint ? 24 : 20;
-  const innerSize = isEndpoint ? 14 : 12;
-  const dotSize = isEndpoint ? 6 : 5;
+  // Sizes as CSS length strings so they drop straight into style properties
+  // (avoids number-in-template-literal lint and an implicit number->string cast).
+  const size = isEndpoint ? "24px" : "20px";
+  const innerSize = isEndpoint ? "14px" : "12px";
+  const dotSize = isEndpoint ? "6px" : "5px";
 
-  el.style.width = `${size}px`;
-  el.style.height = `${size}px`;
+  el.style.width = size;
+  el.style.height = size;
   el.style.borderRadius = "50%";
   el.style.backgroundColor = "#e0f1e6"; // primary-100
   el.style.display = "flex";
@@ -181,8 +186,8 @@ function createWaypointElement(isEndpoint: boolean): HTMLElement {
   el.style.cursor = "default";
 
   const inner = document.createElement("div");
-  inner.style.width = `${innerSize}px`;
-  inner.style.height = `${innerSize}px`;
+  inner.style.width = innerSize;
+  inner.style.height = innerSize;
   inner.style.borderRadius = "50%";
   inner.style.backgroundColor = "#3f885b"; // primary-600
   inner.style.display = "flex";
@@ -190,8 +195,8 @@ function createWaypointElement(isEndpoint: boolean): HTMLElement {
   inner.style.justifyContent = "center";
 
   const dot = document.createElement("div");
-  dot.style.width = `${dotSize}px`;
-  dot.style.height = `${dotSize}px`;
+  dot.style.width = dotSize;
+  dot.style.height = dotSize;
   dot.style.borderRadius = "50%";
   dot.style.backgroundColor = "#ffffff";
 
@@ -215,8 +220,12 @@ export default function MapLibreInstance({
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
 
+  // Keep the latest onReady callback in a ref without re-running map setup.
+  // Assigning in an effect (not during render) satisfies the react refs rule.
   const onReadyRef = useRef(onReady);
-  onReadyRef.current = onReady;
+  useEffect(() => {
+    onReadyRef.current = onReady;
+  }, [onReady]);
 
   const addRouteAndMarkers = useCallback(
     (map: maplibregl.Map) => {
@@ -321,14 +330,14 @@ export default function MapLibreInstance({
         // Desaturate the base layers to match the muted hero palette.
         // MapTiler dataviz-light is already fairly muted, but we push
         // it further to ensure the route line stands out clearly.
+        // maplibre-gl v6 types a loaded style's `layers` as a non-optional
+        // array, so no null guard is needed here.
         const layers = map.getStyle().layers;
-        if (layers) {
-          for (const layer of layers) {
-            if (layer.type === "raster") {
-              map.setPaintProperty(layer.id, "raster-saturation", -0.7);
-              map.setPaintProperty(layer.id, "raster-brightness-min", 0.15);
-              map.setPaintProperty(layer.id, "raster-brightness-max", 0.92);
-            }
+        for (const layer of layers) {
+          if (layer.type === "raster") {
+            map.setPaintProperty(layer.id, "raster-saturation", -0.7);
+            map.setPaintProperty(layer.id, "raster-brightness-min", 0.15);
+            map.setPaintProperty(layer.id, "raster-brightness-max", 0.92);
           }
         }
       }

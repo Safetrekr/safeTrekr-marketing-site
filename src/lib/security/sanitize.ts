@@ -35,6 +35,9 @@ const DANGEROUS_CHAR_PATTERN = /[<>'"]/g;
  * line feed (\x0A), and carriage return (\x0D) which are legitimate
  * in multi-line text fields (e.g., message, special requirements).
  */
+// Intentionally matches ASCII control characters in order to strip them from
+// untrusted input (see the allow-listed exceptions documented above).
+// eslint-disable-next-line no-control-regex
 const CONTROL_CHAR_PATTERN = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g;
 
 // ---------------------------------------------------------------------------

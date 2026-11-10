@@ -110,7 +110,7 @@ export function LegalTocMobile({ items }: LegalTocMobileProps) {
     <div className="mb-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4 lg:hidden">
       <button
         className="flex w-full items-center justify-between text-left"
-        onClick={() => setOpen(!open)}
+        onClick={() => { setOpen(!open); }}
         aria-expanded={open}
         aria-controls="mobile-toc-list"
       >
@@ -149,7 +149,7 @@ export function LegalTocMobile({ items }: LegalTocMobileProps) {
                 <a
                   href={`#${item.id}`}
                   onClick={(e) =>
-                    handleTocClick(e, item.id, () => setOpen(false))
+                    { handleTocClick(e, item.id, () => { setOpen(false); }); }
                   }
                   className={cn(
                     "block py-1.5 text-sm transition-colors duration-150 hover:text-[var(--color-foreground)]",
@@ -205,7 +205,7 @@ export function LegalTocDesktop({
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    onClick={(e) => handleTocClick(e, item.id)}
+                    onClick={(e) => { handleTocClick(e, item.id); }}
                     className={cn(
                       "block border-l-2 py-1.5 text-sm transition-colors duration-150 hover:text-[var(--color-foreground)]",
                       item.isChild ? "pl-7 text-[13px]" : "pl-3",

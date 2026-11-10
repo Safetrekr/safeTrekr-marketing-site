@@ -133,8 +133,6 @@ function FeatureShowcase({
   // Strips non-alphanumeric chars and lowercases for a valid HTML id.
   const headingId = `showcase-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
 
-  const hasCta = Boolean(ctaText && ctaHref);
-
   return (
     <SectionContainer className={className} ariaLabelledBy={headingId}>
       <Container>
@@ -156,10 +154,10 @@ function FeatureShowcase({
               {description}
             </p>
 
-            {hasCta && (
+            {ctaText && ctaHref && (
               <div>
                 <Button variant="primary" size="md" asChild>
-                  <Link href={ctaHref!}>{ctaText}</Link>
+                  <Link href={ctaHref}>{ctaText}</Link>
                 </Button>
               </div>
             )}

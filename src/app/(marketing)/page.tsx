@@ -28,13 +28,15 @@ import {
 } from "@/lib/structured-data";
 import {
   PricingTierCard,
+  FAQSection,
 } from "@/components/marketing";
 import { DAY_TRIP, INTERNATIONAL_TRIP, MULTI_DAY_TRIP } from "@/content/pricing";
+import { HOMEPAGE_FAQ } from "@/content/homepage-faq";
 
 export const metadata = generatePageMetadata({
   title: "Go With a Plan",
   description:
-    "SafeTrekr: group travel safety with GPS participant tracking, rally point headcounts, emergency alerts with location, active weather and threat intelligence, and pre-trip safety checklists.",
+    "Group travel safety for schools, teams & churches: GPS tracking, rally-point headcounts, emergency alerts, live threat intelligence, and pre-trip checklists.",
   path: "/",
 });
 
@@ -382,14 +384,18 @@ export default function PreviewHomePage() {
             {/* Visual: 3 fanned phones (desktop) — navy duotone transit photo behind */}
             <div className="lg:col-span-7 relative hidden sm:flex items-center justify-center" style={{ minHeight: 540 }}>
               <div className="absolute inset-0 rounded-2xl overflow-hidden" style={{ zIndex: 0, opacity: 0.22 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`${assetPrefix}/images/images-for-site/photo-1762801157510-56e2bcd798e4.jpg`}
+                {/* Decorative background (behind phones). next/image serves a
+                    sized AVIF/WebP instead of the full 1600x2401 JPG. aria-hidden
+                    + empty alt: purely decorative, not announced to screen
+                    readers. Below the fold -> lazy by default (no `priority`). */}
+                <Image
+                  src="/images/images-for-site/photo-1762801157510-56e2bcd798e4.jpg"
                   alt=""
                   aria-hidden="true"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover"
                   style={{ filter: 'grayscale(1) contrast(0.85) brightness(0.6)' }}
-                  loading="lazy"
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(18,54,70,0.85) 0%, rgba(18,54,70,0.55) 50%, rgba(18,54,70,0.85) 100%)' }} />
               </div>
@@ -792,6 +798,33 @@ export default function PreviewHomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          SECTION 9b: FAQ (AEO)
+          ================================================================
+          Visible Q&A accordion that doubles as schema.org FAQPage JSON-LD
+          (emitted by <FAQSection>). Direct, self-contained answers give AI
+          answer engines extractable content to cite. */}
+      <section
+        aria-labelledby="faq-heading"
+        style={{ background: 'var(--color-background)', padding: '96px 0' }}
+      >
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center max-w-[65ch] mx-auto mb-12">
+            <h2 id="faq-heading" className="text-display-md" style={{ color: 'var(--color-foreground)' }}>
+              Frequently asked questions
+            </h2>
+            <p className="text-body-lg mt-4" style={{ color: 'var(--color-muted-foreground)' }}>
+              The essentials on how SafeTrekr reviews your trips. See the{' '}
+              <Link href="/resources/faq" className="underline" style={{ color: 'var(--color-primary-700)' }}>
+                full FAQ
+              </Link>{' '}
+              for more.
+            </p>
+          </div>
+          <FAQSection items={HOMEPAGE_FAQ} />
         </div>
       </section>
 

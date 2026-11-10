@@ -49,9 +49,9 @@ interface ComparisonMatrixRow {
   /** Capability or feature being compared. */
   feature: string;
   /** How the category approach handles this capability. */
-  category: "yes" | "no" | "partial" | string;
+  category: "yes" | "no" | "partial" | (string & {});
   /** How SafeTrekr handles this capability. */
-  safetrekr: "yes" | "no" | "partial" | string;
+  safetrekr: "yes" | "no" | "partial" | (string & {});
 }
 
 /** A prose analysis section with heading and body paragraphs. */

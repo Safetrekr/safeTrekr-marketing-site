@@ -12,7 +12,7 @@ export function LegalCopyGuard() {
     const el = document.querySelector(".legal-protected");
     if (!el) return;
 
-    const prevent = (e: Event) => e.preventDefault();
+    const prevent = (e: Event) => { e.preventDefault(); };
 
     el.addEventListener("contextmenu", prevent);
     el.addEventListener("copy", prevent);
