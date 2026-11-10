@@ -66,6 +66,16 @@ export interface PageMetadataOptions {
   /** Page-specific title. Rendered as "{title} | SafeTrekr". */
   title: string;
 
+  /**
+   * Overrides the "{title} | SafeTrekr" template with a verbatim title string
+   * for `<title>`, `og:title`, and `twitter:title`. Use for the homepage or any
+   * page that needs brand-first or otherwise custom title ordering. `title` is
+   * still required (semantic page name); this only controls the rendered title.
+   *
+   * @example "SafeTrekr: Group Travel Safety Planning"
+   */
+  titleAbsolute?: string;
+
   /** Meta description for search engine result pages (SERPs). */
   description: string;
 
@@ -113,9 +123,14 @@ export interface PageMetadataOptions {
  * @returns A Next.js `Metadata` object ready for export from a page or layout.
  */
 export function generatePageMetadata(options: PageMetadataOptions): Metadata {
-  const { title, description, path, ogImage, noIndex = false } = options;
+  const { title, titleAbsolute, description, path, ogImage, noIndex = false } =
+    options;
 
   const canonicalUrl = `${SITE_URL}${path}`;
+
+  // Rendered <title> / og:title / twitter:title. Defaults to the branded
+  // "{title} | SafeTrekr" template unless a page supplies an absolute override.
+  const fullTitle = titleAbsolute ?? `${title} | ${SITE_NAME}`;
 
   // Resolve the OG image. A per-page override is allowed (e.g. the dynamic
   // blog OG route), but it must be absolute — social scrapers do not follow
@@ -139,7 +154,7 @@ export function generatePageMetadata(options: PageMetadataOptions): Metadata {
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: `${title} | ${SITE_NAME}`,
+    title: fullTitle,
     description,
 
     alternates: {
@@ -147,7 +162,7 @@ export function generatePageMetadata(options: PageMetadataOptions): Metadata {
     },
 
     openGraph: {
-      title: `${title} | ${SITE_NAME}`,
+      title: fullTitle,
       description,
       url: canonicalUrl,
       siteName: SITE_NAME,
@@ -158,7 +173,7 @@ export function generatePageMetadata(options: PageMetadataOptions): Metadata {
     twitter: {
       card: "summary_large_image",
       site: TWITTER_HANDLE,
-      title: `${title} | ${SITE_NAME}`,
+      title: fullTitle,
       description,
       images: [resolvedOgImage],
     },
