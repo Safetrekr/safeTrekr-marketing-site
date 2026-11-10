@@ -8,16 +8,20 @@ import { SiteFooter } from "@/components/layout/site-footer";
    with the shared SiteHeader and SiteFooter chrome.
    ================================================================ */
 
-// framer-motion v12 + React 19 + Next.js 16 Turbopack's SSG prerender worker
-// resolves framer-motion's module-scoped context to null at build time,
-// crashing any marketing page that renders motion components (most inherit
-// <SiteHeader> which uses framer-motion; many also use <ScrollReveal>).
-// Runtime SSR has the context properly initialized -- force-dynamic across
-// the route group skips build-time prerender and defers to request-time
-// rendering where the bug doesn't manifest. Must be a static string literal
-// (Next.js route-segment config can't statically analyze expressions); a
-// hypothetical future STATIC_EXPORT=true build would need this overridden.
-export const dynamic = "force-dynamic";
+// NOTE (perf): This route group is intentionally STATIC. An earlier
+// `export const dynamic = "force-dynamic"` was added to work around a
+// framer-motion v12 + React 19 + Next.js 16 SSG prerender crash (module-scoped
+// motion context resolving to null at build time). That workaround forced a
+// full server render on EVERY request, which was the primary cause of the
+// ~3.4s TTFB / LCP regression seen on PageSpeed.
+//
+// The crash no longer reproduces on the current toolchain (`next build
+// --webpack` with experimental.cpus:1). A clean build now prerenders every
+// marketing route as static HTML (verified: `/` builds as `○ Static`).
+// Keeping these pages static lets the standalone server (and the Cloudflare
+// edge in front of it) serve cached HTML instead of re-rendering per request,
+// which is what fixes the TTFB. Do NOT reintroduce force-dynamic without a
+// performance plan.
 
 export default function MarketingLayout({
   children,
