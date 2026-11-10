@@ -113,7 +113,7 @@ function CheckIcon({ className = "w-5 h-5", strokeWidth = 2, style }: { classNam
 const assetPrefix = process.env.STATIC_EXPORT === "true" ? "/safeTrekr-marketing-site" : "";
 
 /** Phone frame with a real screenshot image -- parallax on scroll via CSS */
-function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt: string; className?: string; width?: number }) {
+function PhoneWithImage({ src, alt, className = "", width, priority = false }: { src: string; alt: string; className?: string; width?: number; priority?: boolean }) {
   return (
     <div className={`relative phone-parallax rounded-[24px] sm:shadow-[0_25px_50px_rgba(0,0,0,0.2)] ${className}`} style={width ? { width } : undefined}>
       <Image
@@ -121,7 +121,7 @@ function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt:
         alt={alt}
         // Intrinsic phone-screenshot ratio (900x1957). `w-full h-auto` controls
         // the rendered size; width/height give the aspect ratio up front so the
-        // layout box is reserved (no CLS). next/image serves AVIF/WebP sized to
+        // layout box is reserved (no CLS). next/image serves a WebP sized to
         // the ~240-280px render width -- cutting each mockup from ~95-228 KB of
         // raw JPG to ~15-30 KB.
         width={900}
@@ -129,8 +129,10 @@ function PhoneWithImage({ src, alt, className = "", width }: { src: string; alt:
         sizes="(min-width: 1024px) 280px, 240px"
         // Lazy by default: each breakpoint's IntersectionObserver loads only the
         // phones actually visible at that width (the desktop column and the
-        // mobile carousel are mutually `display:none`), and above-the-fold ones
-        // load immediately -- so nothing competes with the hero LCP image.
+        // mobile carousel are mutually `display:none`). The above-the-fold hero
+        // phones pass `priority` so they fetch immediately instead of waiting on
+        // the IntersectionObserver.
+        priority={priority}
         className="w-full h-auto block rounded-[24px]"
       />
     </div>
@@ -223,6 +225,7 @@ export default function PreviewHomePage() {
                   src="/images/for-index-2/01-today-2.jpg"
                   alt="SafeTrekr chaperone app showing today view with rally point alerts, weather advisory, upcoming musters, and live participant locations"
                   className="w-[180px] md:w-[180px] lg:w-[280px]"
+                  priority
                 />
               </div>
               {/* Secondary phone: Safety & Emergency Map */}
@@ -231,6 +234,7 @@ export default function PreviewHomePage() {
                   src="/images/for-index-2/03-safety-2.jpg"
                   alt="SafeTrekr safety map showing rally points, emergency resources, hospitals, and group communication on a live map of Paris"
                   className="w-[160px] md:w-[160px] lg:w-[250px]"
+                  priority
                 />
               </div>
             </div>
